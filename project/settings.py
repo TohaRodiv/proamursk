@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'applications.accounts',
     'applications.mediafiles',
     'core',
+    'applications.root'
 
 ]
 
