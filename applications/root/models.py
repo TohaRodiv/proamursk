@@ -174,7 +174,9 @@ class Film(BaseModel, IsActiveMixin):
     starring = models.CharField('В главных ролях', max_length=255)
     duration = models.CharField('Продолжительность', max_length=10)
     age_restriction = models.CharField('Возрастное ограничение', max_length=10)
+    is_3d = models.BooleanField('3D', default=False)
     trailer = models.URLField('Трейлер')
+    purchase_link = models.URLField('Ссылка на сайт кинотеатра для покупки билета')
     publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
 
     class Meta:
@@ -186,25 +188,18 @@ class Film(BaseModel, IsActiveMixin):
         return self.title
 
 
-class FilmDate(BaseModel):
-    film = models.ForeignKey(Film, models.CASCADE, verbose_name='Фильм')
-    date = models.DateField('Дата')
-
-    class Meta:
-        verbose_name = 'Дата проката'
-        verbose_name_plural = 'Даты прокатов'
-
-
 class FilmSession(BaseModel):
-    film_date = models.ForeignKey(FilmDate, models.CASCADE, verbose_name='Дата проката')
-    time = models.TimeField('Время сеанса')
+    film = models.ForeignKey(Film, models.CASCADE, verbose_name='Фильм')
+    datetime = models.DateTimeField('Время сеанса')
     price = models.CharField('Цена', max_length=45)
-    is_3d = models.BooleanField('3D', default=False)
 
     class Meta:
         verbose_name = 'Сеанс'
         verbose_name_plural = 'Сеансы'
-        ordering = 'time'
+        ordering = 'datetime'
+
+    def __str__(self):
+        return '{} {}'.format(self.film.title, self.datetime)
 
 
 class SidebarBanner(BaseModel, IsActiveMixin):
