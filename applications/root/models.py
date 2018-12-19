@@ -264,78 +264,78 @@ class FilmSession(BaseModel):
         return '{} {}'.format(self.film.title, self.datetime)
 
 
-class SidebarBanner(BaseModel, IsActiveMixin):
-    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    title = models.CharField('Название', max_length=255)
-    link = models.CharField('Ссылка', max_length=255)
-    start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
-    end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
-
-    class Meta:
-        verbose_name = 'Баннер в сайдбаре'
-        verbose_name_plural = 'Баннеры в сайдбаре'
-
-
-class WideBanner(BaseModel, IsActiveMixin):
-    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    title = models.CharField('Название', max_length=255)
-    link = models.CharField('Ссылка', max_length=255)
-    start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
-    end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
-
-    class Meta:
-        verbose_name = 'Баннер-растяжка'
-        verbose_name_plural = 'Баннеры-растяжки'
-
-
-class Slider(BaseModel, IsActiveMixin):
-    title = models.CharField('Название', max_length=255)
-    start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
-    end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
-
-    class Meta:
-        verbose_name = 'Слайдер'
-        verbose_name_plural = 'Слайдеры'
-
-
-class SliderItem(models.Model, IsActiveMixin):
-    slider = models.ForeignKey(Slider, on_delete=models.CASCADE, verbose_name='Слайдер')
-    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    description = models.CharField('Описание', max_length=255)
-
-    class Meta:
-        verbose_name = 'Слайд'
-        verbose_name_plural = 'Слайды'
-
-
-class Feedback(models.Model):
-    NEWS = 'Поделиться хорошей новостью'
-    EVENT = 'Поделиться событием'
-    HISTORY = 'Поделиться своей историей'
-    PERSON = 'Предложить героя'
-    ERROR = 'Сообщить об ошибке'
-    QUESTION = 'Задать вопрос'
-    THEMES = (
-        ('news', NEWS),
-        ('event', EVENT),
-        ('history', HISTORY),
-        ('person', PERSON),
-        ('error', ERROR),
-        ('question', QUESTION)
-    )
-    theme = models.CharField(choices=THEMES, default=NEWS, max_length=255, verbose_name='Тема обращения')
-    sender_name = models.CharField('ФИО отправителя', max_length=255)
-    email = models.EmailField('E-mail')
-    phone = models.CharField('Телефон', max_length=20, blank=True)
-    content = models.TextField('Текст обращения')
-    file = models.FileField('Вложение', upload_to='attachments', max_length=1000)
-    is_agree = models.BooleanField('Согласие с правилами обработки данных', default=False)
-
-    class Meta:
-        verbose_name = 'Обращение в редакцию'
-        verbose_name_plural = 'Обращения в редакцию'
-        ordering = '-id',
+# class SidebarBanner(BaseModel, IsActiveMixin):
+#     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+#     title = models.CharField('Название', max_length=255)
+#     link = models.CharField('Ссылка', max_length=255)
+#     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
+#     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
+#     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+#
+#     class Meta:
+#         verbose_name = 'Баннер в сайдбаре'
+#         verbose_name_plural = 'Баннеры в сайдбаре'
+#
+#
+# class WideBanner(BaseModel, IsActiveMixin):
+#     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+#     title = models.CharField('Название', max_length=255)
+#     link = models.CharField('Ссылка', max_length=255)
+#     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
+#     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
+#     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+#
+#     class Meta:
+#         verbose_name = 'Баннер-растяжка'
+#         verbose_name_plural = 'Баннеры-растяжки'
+#
+#
+# class Slider(BaseModel, IsActiveMixin):
+#     title = models.CharField('Название', max_length=255)
+#     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
+#     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
+#
+#     class Meta:
+#         verbose_name = 'Слайдер'
+#         verbose_name_plural = 'Слайдеры'
+#
+#
+# class SliderItem(models.Model, IsActiveMixin):
+#     slider = models.ForeignKey(Slider, on_delete=models.CASCADE, verbose_name='Слайдер')
+#     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+#     description = models.CharField('Описание', max_length=255)
+#
+#     class Meta:
+#         verbose_name = 'Слайд'
+#         verbose_name_plural = 'Слайды'
+#
+#
+# class Feedback(models.Model):
+#     NEWS = 'Поделиться хорошей новостью'
+#     EVENT = 'Поделиться событием'
+#     HISTORY = 'Поделиться своей историей'
+#     PERSON = 'Предложить героя'
+#     ERROR = 'Сообщить об ошибке'
+#     QUESTION = 'Задать вопрос'
+#     THEMES = (
+#         ('news', NEWS),
+#         ('event', EVENT),
+#         ('history', HISTORY),
+#         ('person', PERSON),
+#         ('error', ERROR),
+#         ('question', QUESTION)
+#     )
+#     theme = models.CharField(choices=THEMES, default=NEWS, max_length=255, verbose_name='Тема обращения')
+#     sender_name = models.CharField('ФИО отправителя', max_length=255)
+#     email = models.EmailField('E-mail')
+#     phone = models.CharField('Телефон', max_length=20, blank=True)
+#     content = models.TextField('Текст обращения')
+#     file = models.FileField('Вложение', upload_to='attachments', max_length=1000)
+#     is_agree = models.BooleanField('Согласие с правилами обработки данных', default=False)
+#
+#     class Meta:
+#         verbose_name = 'Обращение в редакцию'
+#         verbose_name_plural = 'Обращения в редакцию'
+#         ordering = '-id',
 
 
