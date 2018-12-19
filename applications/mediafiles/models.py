@@ -29,7 +29,7 @@ def get_thumbnail_file_path(instance, filename):
 class Extension(models.Model):
     name = models.CharField(u'Название', max_length=20, unique=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def natural_key(self):
@@ -51,7 +51,7 @@ class MediaFile(models.Model):
     tags = models.ManyToManyField('MediaTag', verbose_name=u'Теги', blank=True)
     extension = models.ForeignKey(Extension, models.SET_NULL, verbose_name=u'Расширение', blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def natural_key(self):
@@ -175,7 +175,7 @@ class MediaFile(models.Model):
 
         if img is not None:
 
-            if len(size) == 3 and unicode(size[2]) == unicode('crop'):
+            if len(size) == 3 and str(size[2]) == str('crop'):
                 width, height = img.size
                 th_width = size[0]
                 th_height = size[1]
@@ -347,7 +347,7 @@ class MediaTag(models.Model):
     model = models.CharField(u'Модель', max_length=255, blank=True)
     is_default = models.BooleanField(default=False, verbose_name=u'Тег по умолчанию')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def natural_key(self):
@@ -368,7 +368,7 @@ class Thumbnail(models.Model):
     file_size = models.IntegerField(u'Размер оригинала, КБ')
     create_date = models.DateTimeField(auto_now_add=True, verbose_name=u'Дата создания')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def natural_key(self):
