@@ -66,7 +66,7 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE, max_length=45)
-    event = models.OneToOneField(Event, models.SET_NULL, null=True, verbose_name='Анонс события')
+    event = models.OneToOneField(Event, models.SET_NULL, null=True, verbose_name='Анонс события', related_name='report')
     title = models.CharField('Заголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
@@ -84,6 +84,9 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('reports-detail', args=[self.id])
 
 
 class Special(BaseModel, BaseSeoMixin, IsActiveMixin):

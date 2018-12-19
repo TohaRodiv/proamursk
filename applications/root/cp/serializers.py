@@ -12,7 +12,7 @@ from cp_vue.api.serializers import ModelSerializer
 from cp_vue.cp.serializers import CpRoleNestedSerializer
 # from applications.tools.utils import filter_number
 from cp_vue.models import CpRole
-from ..models import News, Event
+from ..models import News, Event, Report
 
 
 class NewsListSerializer(ModelSerializer):
@@ -35,15 +35,25 @@ class NewsDetailSerializer(ModelSerializer):
                   'is_active', 'site_link')
 
 
+class ReportsNestedSerializer(ModelSerializer):
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+
+    class Meta:
+        model = Report
+        fields = ('id', 'title', 'site_link')
+
+
 class EventsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
+    report = ObjectRelatedField(queryset=Report.objects.all(), serializer_class=ReportsNestedSerializer)
 
     class Meta:
         model = Event
         fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'start_event_date', 'site_link', 'comment',
-                  'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date', 'is_active')
+                  'report', 'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date',
+                  'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -63,3 +73,42 @@ class EventsDetailSerializer(ModelSerializer):
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
 
+
+class EventsNestedSerializer(ModelSerializer):
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+
+    class Meta:
+        model = Event
+        fields = ('id', 'title', 'site_link')
+
+
+class ReportsListSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+    cover_format_name = serializers.SerializerMethodField()
+    event = ObjectRelatedField(queryset=Event.objects.all(), serializer_class=EventsNestedSerializer, allow_null=True)
+
+    class Meta:
+        model = Report
+        fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'start_event_date', 'site_link', 'comment',
+                  'event', 'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date',
+                  'is_active')
+
+    def get_cover_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.cover_format)
+
+
+class ReportsDetailSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+    cover_format_name = serializers.SerializerMethodField()
+    event = ObjectRelatedField(queryset=Event.objects.all(), serializer_class=EventsNestedSerializer, allow_null=True)
+
+    class Meta:
+        model = Report
+        fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
+                  'cover_format', 'cover_format_name', 'site_link', 'comment', 'content', 'publication_date', 'event',
+                  'create_date', 'edit_date', 'is_active')
+
+    def get_cover_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.cover_format)

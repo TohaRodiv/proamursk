@@ -23,4 +23,6 @@ urlpatterns = [
     path('news/<int:pk>/',  test_view, name='news-detail'),
     path('events/', test_view, name='events-index'),
     path('events/<int:pk>/', test_view, name='events-detail'),
+    path('reports/', test_view, name='reports-list'),
+    path('reports/<int:pk>/', test_view, name='reports-detail'),
 ]
