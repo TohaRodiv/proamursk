@@ -2,15 +2,16 @@ from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.utils import timezone
 
-from core.models import BaseModel, IsActiveMixin
+from core.models import BaseModel, IsActiveMixin, BaseSeoMixin
 
 
-class News(BaseModel, IsActiveMixin):
+class News(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     title = models.CharField('Заголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
-    publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Новость'
@@ -21,16 +22,24 @@ class News(BaseModel, IsActiveMixin):
         return self.title
 
 
-class Event(BaseModel, IsActiveMixin):
+class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
+    SIMPLE = 'small'
+    FULL = 'full'
+    FORMATS = (
+        (SIMPLE, 'Обычная обложка'),
+        (FULL, 'Полноразмерная обложка')
+    )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE)
     title = models.CharField('Заголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
-    place = models.CharField('Место проведения', max_length=255, blank=True)
+    place = models.CharField('Место проведения', max_length=255)
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     start_event_date = models.DateTimeField('Дата начала события')
     event_date_text = models.CharField('Дата проведения', max_length=255)
-    publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Анонс события'
@@ -41,17 +50,25 @@ class Event(BaseModel, IsActiveMixin):
         return self.title
 
 
-class Report(BaseModel, IsActiveMixin):
+class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
+    SIMPLE = 'small'
+    FULL = 'full'
+    FORMATS = (
+        (SIMPLE, 'Обычная обложка'),
+        (FULL, 'Полноразмерная обложка')
+    )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE)
     event = models.OneToOneField(Event, models.SET_NULL, null=True, verbose_name='Анонс события')
     title = models.CharField('Заголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
-    place = models.CharField('Место проведения', max_length=255, blank=True)
+    place = models.CharField('Место проведения', max_length=255)
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     start_event_date = models.DateTimeField('Дата начала события')
     event_date_text = models.CharField('Дата проведения', max_length=255)
-    publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Репортаж о событии'
@@ -62,11 +79,20 @@ class Report(BaseModel, IsActiveMixin):
         return self.title
 
 
-class Special(BaseModel, IsActiveMixin):
+class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
+    SIMPLE = 'small'
+    FULL = 'full'
+    FORMATS = (
+        (SIMPLE, 'Обычная обложка'),
+        (FULL, 'Полноразмерная обложка')
+    )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE)
     title = models.CharField('Заголовок', max_length=255)
-    codename = models.CharField('Коднейм', max_length=255)
-    publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
+    descriptor = models.CharField('Подзаголовок', max_length=255)
+    codename = models.CharField('URL (кодовое название)', max_length=255)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Спецпроект'
@@ -77,12 +103,21 @@ class Special(BaseModel, IsActiveMixin):
         return self.title
 
 
-class Person(BaseModel, IsActiveMixin):
+class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
+    SIMPLE = 'small'
+    FULL = 'full'
+    FORMATS = (
+        (SIMPLE, 'Обычная обложка'),
+        (FULL, 'Полноразмерная обложка')
+    )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE)
     title = models.CharField('Заголовок', max_length=255)
+    descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
-    publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Статья о людях'
@@ -93,12 +128,21 @@ class Person(BaseModel, IsActiveMixin):
         return self.title
 
 
-class History(BaseModel, IsActiveMixin):
+class History(BaseModel, BaseSeoMixin, IsActiveMixin):
+    SIMPLE = 'small'
+    FULL = 'full'
+    FORMATS = (
+        (SIMPLE, 'Обычная обложка'),
+        (FULL, 'Полноразмерная обложка')
+    )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE)
     title = models.CharField('Заголовок', max_length=255)
+    descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
-    publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Историческая статья'
@@ -109,12 +153,21 @@ class History(BaseModel, IsActiveMixin):
         return self.title
 
 
-class CityGuide(BaseModel, IsActiveMixin):
+class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
+    SIMPLE = 'small'
+    FULL = 'full'
+    FORMATS = (
+        (SIMPLE, 'Обычная обложка'),
+        (FULL, 'Полноразмерная обложка')
+    )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE)
     title = models.CharField('Заголовок', max_length=255)
+    descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
-    publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Гид по городу'
@@ -125,14 +178,24 @@ class CityGuide(BaseModel, IsActiveMixin):
         return self.title
 
 
-class Place(BaseModel, IsActiveMixin):
+class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
+    SIMPLE = 'small'
+    FULL = 'full'
+    FORMATS = (
+        (SIMPLE, 'Обычная обложка'),
+        (FULL, 'Полноразмерная обложка')
+    )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE)
     title = models.CharField('Заголовок', max_length=255)
+    descriptor = models.CharField('Подзаголовок', max_length=255)
+    lead = models.CharField('Лид', max_length=255)
+    content = JSONField()
     address = models.CharField('Адрес', max_length=255, blank=True)
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     schedule = models.CharField('Режим работы', max_length=255, blank=True)
-    content = JSONField()
-    publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Статья о местах'
@@ -161,12 +224,10 @@ class PlaceComment(BaseModel):
         return 'Отзыв №{} о {}'.format(self.pk, self.place.title)
 
 
-class Film(BaseModel, IsActiveMixin):
+class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     title = models.CharField('Название', max_length=255)
-    description = models.TextField('Описание')
-    start_date = models.DateTimeField('Дата и время начала проката', null=True)
-    end_date = models.DateTimeField('Дата и время окончания проката', null=True)
+    description = models.TextField('Описание фильма')
     release_year = models.CharField('Год выпуска', max_length=4)
     country = models.CharField('Страна', max_length=255)
     genre = models.CharField('Жанр', max_length=255)
@@ -175,9 +236,10 @@ class Film(BaseModel, IsActiveMixin):
     duration = models.CharField('Продолжительность', max_length=10)
     age_restriction = models.CharField('Возрастное ограничение', max_length=10)
     is_3d = models.BooleanField('3D', default=False)
-    trailer = models.URLField('Трейлер')
-    purchase_link = models.URLField('Ссылка на сайт кинотеатра для покупки билета')
-    publication_date = models.DateTimeField('Дата публикации', default=timezone.now)
+    trailer = models.URLField('Ссылка на трейлер в YouTube')
+    purchase_link = models.URLField('Ссылка на страницу фильма на сайте кинотеатра "Молодость"')
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Киноанонс'
@@ -190,8 +252,8 @@ class Film(BaseModel, IsActiveMixin):
 
 class FilmSession(BaseModel):
     film = models.ForeignKey(Film, models.CASCADE, verbose_name='Фильм')
-    datetime = models.DateTimeField('Время сеанса')
-    price = models.CharField('Цена', max_length=45)
+    datetime = models.DateTimeField('Дата и время начала сеанса')
+    price = models.PositiveSmallIntegerField('Цена')
 
     class Meta:
         verbose_name = 'Сеанс'
@@ -208,6 +270,7 @@ class SidebarBanner(BaseModel, IsActiveMixin):
     link = models.CharField('Ссылка', max_length=255)
     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Баннер в сайдбаре'
@@ -220,6 +283,7 @@ class WideBanner(BaseModel, IsActiveMixin):
     link = models.CharField('Ссылка', max_length=255)
     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Баннер-растяжка'
@@ -239,6 +303,7 @@ class Slider(BaseModel, IsActiveMixin):
 class SliderItem(models.Model, IsActiveMixin):
     slider = models.ForeignKey(Slider, on_delete=models.CASCADE, verbose_name='Слайдер')
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    description = models.CharField('Описание', max_length=255)
 
     class Meta:
         verbose_name = 'Слайд'
