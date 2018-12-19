@@ -1,5 +1,6 @@
 from django.contrib.postgres.fields import JSONField
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 from core.models import BaseModel, IsActiveMixin, BaseSeoMixin
@@ -21,16 +22,19 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('news-detail', args=[self.id])
+
 
 class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
-    SIMPLE = 'small'
+    SMALL = 'small'
     FULL = 'full'
     FORMATS = (
-        (SIMPLE, 'Обычная обложка'),
+        (SMALL, 'Обычная обложка'),
         (FULL, 'Полноразмерная обложка')
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE, max_length=45)
+    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
@@ -48,6 +52,9 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('events-detail', args=[self.id])
 
 
 class Report(BaseModel, BaseSeoMixin, IsActiveMixin):

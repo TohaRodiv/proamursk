@@ -17,6 +17,5 @@ class UserFilter(APIFilterSet):
         fields = {
             'instant_search': 'instant_search',
             'create_date': ['gte', 'lte'],
-            'edit_date': ['gte', 'lte'],
-            'last_seen': ['gte', 'lte']
+            'edit_date': ['gte', 'lte']
         }

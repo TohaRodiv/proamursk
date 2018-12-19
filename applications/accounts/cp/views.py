@@ -9,14 +9,13 @@ from rest_framework import permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from applications.api.views import PasswordRecoveryAPIView
+# from applications.api.views import PasswordRecoveryAPIView
 from cp_vue.api.permissions import SapPermissions
 from cp_vue.api.views import CpViewSet
 from cp_vue.api.core import cp_api
 from .serializers import UserDetailSerializer, UserListSerializer, UserNestedSerializer
 from .filters import UserFilter
 from ..models import User
-from project.authentication import CpVueSessionAuthentication
 
 try:
     from applications.notifications.tasks import send_notification
@@ -40,7 +39,6 @@ class SelfUserPermission(permissions.BasePermission):
 class UserDetailAPIView(APIView):
     model = User
     serializer_class = UserDetailSerializer
-    authentication_classes = (CpVueSessionAuthentication,)
     queryset = User.objects.all()
     permission_classes = (SapPermissions, SelfUserPermission)
 
@@ -86,17 +84,17 @@ class SigninAPIView(APIView):
         return urlpatterns
 
 
-class AdminPasswordRecoveryAPIView(APIView):
-
-    def post(self, request):
-        return PasswordRecoveryAPIView().post(request=request)
-
-    @classmethod
-    def get_urls(self):
-        urlpatterns = [
-            url(r'^auth/password-recovery/', self.as_view(), name='api-admin-password-recovery'),
-        ]
-        return urlpatterns
+# class AdminPasswordRecoveryAPIView(APIView):
+#
+#     def post(self, request):
+#         return PasswordRecoveryAPIView().post(request=request)
+#
+#     @classmethod
+#     def get_urls(self):
+#         urlpatterns = [
+#             url(r'^auth/password-recovery/', self.as_view(), name='api-admin-password-recovery'),
+#         ]
+#         return urlpatterns
 
 
 class LogoutAPIView(APIView):
@@ -160,5 +158,5 @@ class UsersCpViewSet(CpViewSet):
 cp_api.register(UsersCpViewSet)
 cp_api.register(SigninAPIView)
 cp_api.register(LogoutAPIView)
-cp_api.register(AdminPasswordRecoveryAPIView)
+# cp_api.register(AdminPasswordRecoveryAPIView)
 cp_api.register(UserDetailAPIView)

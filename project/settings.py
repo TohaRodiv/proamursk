@@ -115,3 +115,47 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        # 'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'cp_vue.api.pagination.APILimitOffsetPagination',
+    'PAGE_SIZE': 50,
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    'ORDERING_PARAM': 'order_by',
+}
+
+MEDIALIB_THUMB_SIZE = {
+    'sap_min': (140, 140),
+    'sap_medium': (350, 350),
+    'sap_large': (1410, 1410),
+    'sap_min_crop': (140, 140, 'crop'),
+    'sap_medium_crop': (350, 350, 'crop'),
+
+    'parent_category_cover': (656, 656),
+
+    'news_grid': (656, 400),
+    'stretch_banner_img': (2960, 430),
+    'popup_banner': (1200, 1200),
+
+    'index_page_slide': (1770, 620),
+
+    'og_image_default': (1200, 630, 'crop'),
+    'og_image_crop600': (600, 600, 'crop'),
+    'og_image_crop1230': (1230, 1230, 'crop'),
+
+}
+
+MEDIALIB_JPEG_QUALITY = 70
+MEDIALIB_EXT = ('jpg', 'jpeg', 'png', 'gif')
+
