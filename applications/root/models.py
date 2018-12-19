@@ -252,16 +252,16 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
 
 class FilmSession(BaseModel):
     film = models.ForeignKey(Film, models.CASCADE, verbose_name='Фильм')
-    datetime = models.DateTimeField('Дата и время начала сеанса')
+    session_time = models.DateTimeField('Дата и время начала сеанса')
     price = models.PositiveSmallIntegerField('Цена')
 
     class Meta:
         verbose_name = 'Сеанс'
         verbose_name_plural = 'Сеансы'
-        ordering = 'datetime'
+        ordering = 'session_time',
 
     def __str__(self):
-        return '{} {}'.format(self.film.title, self.datetime)
+        return '{} {}'.format(self.film.title, self.session_time)
 
 
 # class SidebarBanner(BaseModel, IsActiveMixin):

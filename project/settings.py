@@ -14,14 +14,19 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'cp_vue',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'applications.accounts',
+    'django.contrib.postgres',
+    'rest_framework',
+    'django_filters',
+    'corsheaders',
     'applications.mediafiles',
+    'applications.accounts',
     'core',
     'applications.root'
 

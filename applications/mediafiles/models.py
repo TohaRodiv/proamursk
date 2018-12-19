@@ -49,7 +49,7 @@ class MediaFile(models.Model):
     create_date = models.DateTimeField(auto_now_add=True, verbose_name=u'Дата загрузки')
     is_active = models.BooleanField(default=True, verbose_name=u'Активный')
     tags = models.ManyToManyField('MediaTag', verbose_name=u'Теги', blank=True)
-    extension = models.ForeignKey(Extension, verbose_name=u'Расширение', blank=True, null=True)
+    extension = models.ForeignKey(Extension, models.SET_NULL, verbose_name=u'Расширение', blank=True, null=True)
 
     def __unicode__(self):
         return self.name
@@ -361,7 +361,7 @@ class MediaTag(models.Model):
 class Thumbnail(models.Model):
     name = models.CharField(max_length=255, verbose_name=u'Имя файла')
     suffix = models.CharField(max_length=255, verbose_name=u'Суффикс')
-    original_file = models.ForeignKey(MediaFile, verbose_name=u'Оригинал')
+    original_file = models.ForeignKey(MediaFile, models.CASCADE, verbose_name=u'Оригинал')
     file = models.FileField(upload_to=get_thumbnail_file_path, verbose_name=u'Файл', max_length=1000)
     width = models.IntegerField(u'Ширина, px', blank=True, null=True)
     height = models.IntegerField(u'Высота, px', blank=True, null=True)
