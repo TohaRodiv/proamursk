@@ -224,8 +224,11 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('places-detail', args=[self.id])
 
-class PlaceComment(BaseModel):
+
+class PlaceReview(BaseModel):
     sender_name = models.CharField('ФИО отправителя', max_length=255)
     place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name='Место')
     email = models.EmailField('E-mail')
