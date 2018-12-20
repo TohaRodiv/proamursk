@@ -3,6 +3,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.tokens import default_token_generator
 from django.conf.urls import url
+from django.db.models import Count
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from rest_framework import permissions
@@ -14,8 +15,10 @@ from cp_vue.api.views import CpViewSet
 from cp_vue.api.core import cp_api
 from .serializers import NewsListSerializer, NewsDetailSerializer, EventsListSerializer, EventsDetailSerializer, \
     ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer, \
-    PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer, CityGuidesListSerializer
-from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter
+    PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer, CityGuidesListSerializer, \
+    PlacesDetailSerializer, PlacesListSerializer
+from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
+    PlacesFilter
 from ..models import News, Event, Report, History, Person, Place, CityGuide
 
 try:
@@ -94,12 +97,23 @@ class CityGuidesCpViewSet(CpViewSet):
     ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
 
 
+class PlacesCpViewSet(CpViewSet):
+    path = 'places'
+    model = Place
+    queryset = Place.objects.all().annotate(reviews_count=Count('reviews'))
+    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
+    serializer_class = PlacesDetailSerializer
+    list_serializer_class = PlacesListSerializer
+    filter_class = PlacesFilter
+    ordering_fields = ('id', 'title', 'address', 'reviews_count', 'publications_date', 'edit_date', 'create_date')
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
 cp_api.register(HistoryCpViewSet)
 cp_api.register(PersonsCpViewSet)
 cp_api.register(CityGuidesCpViewSet)
-
+cp_api.register(PlacesCpViewSet)
 
 

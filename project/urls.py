@@ -31,4 +31,6 @@ urlpatterns = [
     path('persons/<int:pk>/', test_view, name='persons-detail'),
     path('city-guides/', test_view, name='city-guides-list'),
     path('city-guides/<int:pk>/', test_view, name='city-guides-detail'),
+    path('places/', test_view, name='places-list'),
+    path('places/<int:pk>/', test_view, name='places-detail'),
 ]

@@ -12,7 +12,7 @@ from cp_vue.api.serializers import ModelSerializer
 from cp_vue.cp.serializers import CpRoleNestedSerializer
 # from applications.tools.utils import filter_number
 from cp_vue.models import CpRole
-from ..models import News, Event, Report, History, Person, CityGuide
+from ..models import News, Event, Report, History, Person, CityGuide, Place
 
 
 class NewsListSerializer(ModelSerializer):
@@ -193,6 +193,39 @@ class CityGuidesDetailSerializer(ModelSerializer):
         model = CityGuide
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'site_link')
+
+    def get_cover_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.cover_format)
+
+
+class PlacesListSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+    cover_format_name = serializers.SerializerMethodField()
+    reviews_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Place
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'address', 'site_link', 'comment',
+                  'publication_date', 'create_date', 'edit_date', 'is_active', 'reviews_count')
+
+    def get_cover_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.cover_format)
+    
+    def get_reviews_count(self, instance):
+        return instance.reviews_count if hasattr(instance, 'reviews_count') else 0
+
+
+class PlacesDetailSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+    cover_format_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Place
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
+                  'address', 'coordinates', 'comment', 'publication_date', 'create_date', 'edit_date', 'is_active',
+                  'site_link')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
