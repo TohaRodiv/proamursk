@@ -27,4 +27,6 @@ urlpatterns = [
     path('reports/<int:pk>/', test_view, name='reports-detail'),
     path('history/', test_view, name='history-list'),
     path('history/<int:pk>/', test_view, name='history-detail'),
+    path('persons/', test_view, name='persons-list'),
+    path('persons/<int:pk>/', test_view, name='persons-detail'),
 ]

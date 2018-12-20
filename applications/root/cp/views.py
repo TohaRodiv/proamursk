@@ -13,9 +13,10 @@ from cp_vue.api.permissions import SapPermissions
 from cp_vue.api.views import CpViewSet
 from cp_vue.api.core import cp_api
 from .serializers import NewsListSerializer, NewsDetailSerializer, EventsListSerializer, EventsDetailSerializer, \
-    ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer
-from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter
-from ..models import News, Event, Report, History
+    ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer, \
+    PersonsDetailSerializer, PersonsListSerializer
+from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter
+from ..models import News, Event, Report, History, Person
 
 try:
     from applications.notifications.tasks import send_notification
@@ -71,10 +72,22 @@ class HistoryCpViewSet(CpViewSet):
     ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
 
 
+class PersonsCpViewSet(CpViewSet):
+    path = 'persons'
+    model = Person
+    queryset = Person.objects.all()
+    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
+    serializer_class = PersonsDetailSerializer
+    list_serializer_class = PersonsListSerializer
+    filter_class = PersonsFilter
+    ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
 cp_api.register(HistoryCpViewSet)
+cp_api.register(PersonsCpViewSet)
 
 
 
