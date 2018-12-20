@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ..models import News, Event, Report
+from ..models import News, Event, Report, History
 from cp_vue.api.filters import NumberInFilter, CharInFilter, SearchFilter
 from cp_vue.api.filterset import APIFilterSet
 from django_filters import rest_framework as filters
@@ -48,6 +48,17 @@ class ReportsFilter(APIFilterSet):
         }
 
 
+class HistoryFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['title', 'comment'])
+    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
 
+    class Meta:
+        model = History
+        fields = {
+            'create_date': ['gte', 'lte'],
+            'edit_date': ['gte', 'lte'],
+            'publication_date': ['gte', 'lte']
+        }
 
 

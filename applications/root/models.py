@@ -162,6 +162,9 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('history-detail', args=[self.id])
+
 
 class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     SIMPLE = 'small'
