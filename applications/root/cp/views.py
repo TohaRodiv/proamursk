@@ -16,10 +16,10 @@ from cp_vue.api.core import cp_api
 from .serializers import NewsListSerializer, NewsDetailSerializer, EventsListSerializer, EventsDetailSerializer, \
     ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer, \
     PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer, CityGuidesListSerializer, \
-    PlacesDetailSerializer, PlacesListSerializer
+    PlacesDetailSerializer, PlacesListSerializer, SpecialsDetailSerializer, SpecialsListSerializer
 from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
-    PlacesFilter
-from ..models import News, Event, Report, History, Person, Place, CityGuide
+    PlacesFilter, SpecialsFilter
+from ..models import News, Event, Report, History, Person, Place, CityGuide, Special
 
 try:
     from applications.notifications.tasks import send_notification
@@ -108,6 +108,17 @@ class PlacesCpViewSet(CpViewSet):
     ordering_fields = ('id', 'title', 'address', 'reviews_count', 'publications_date', 'edit_date', 'create_date')
 
 
+class SpecialsCpViewSet(CpViewSet):
+    path = 'specials'
+    model = Special
+    queryset = Special.objects.all()
+    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
+    serializer_class = SpecialsDetailSerializer
+    list_serializer_class = SpecialsListSerializer
+    filter_class = SpecialsFilter
+    ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
@@ -115,5 +126,5 @@ cp_api.register(HistoryCpViewSet)
 cp_api.register(PersonsCpViewSet)
 cp_api.register(CityGuidesCpViewSet)
 cp_api.register(PlacesCpViewSet)
-
+cp_api.register(SpecialsCpViewSet)
 

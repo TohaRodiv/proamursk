@@ -100,7 +100,7 @@ class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
-    codename = models.CharField('URL (кодовое название)', max_length=255)
+    codename = models.CharField('URL (кодовое название)', max_length=255, unique=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
@@ -111,6 +111,9 @@ class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('specials-detail', args=[self.codename])
 
 
 class Person(BaseModel, BaseSeoMixin, IsActiveMixin):

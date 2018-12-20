@@ -33,4 +33,6 @@ urlpatterns = [
     path('city-guides/<int:pk>/', test_view, name='city-guides-detail'),
     path('places/', test_view, name='places-list'),
     path('places/<int:pk>/', test_view, name='places-detail'),
+    path('specials/', test_view, name='specials-list'),
+    path('specials/<str:pk>/', test_view, name='specials-detail'),
 ]
