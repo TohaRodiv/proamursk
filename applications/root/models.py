@@ -58,14 +58,14 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
 
 
 class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
-    SIMPLE = 'small'
+    SMALL = 'small'
     FULL = 'full'
     FORMATS = (
-        (SIMPLE, 'Обычная обложка'),
+        (SMALL, 'Обычная обложка'),
         (FULL, 'Полноразмерная обложка')
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE, max_length=45)
+    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     event = models.OneToOneField(Event, models.SET_NULL, null=True, verbose_name='Анонс события', related_name='report')
     title = models.CharField('Заголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
@@ -90,14 +90,14 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
 
 
 class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
-    SIMPLE = 'small'
+    SMALL = 'small'
     FULL = 'full'
     FORMATS = (
-        (SIMPLE, 'Обычная обложка'),
+        (SMALL, 'Обычная обложка'),
         (FULL, 'Полноразмерная обложка')
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE, max_length=45)
+    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
     codename = models.CharField('URL (кодовое название)', max_length=255)
@@ -114,14 +114,14 @@ class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
 
 
 class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
-    SIMPLE = 'small'
+    SMALL = 'small'
     FULL = 'full'
     FORMATS = (
-        (SIMPLE, 'Обычная обложка'),
+        (SMALL, 'Обычная обложка'),
         (FULL, 'Полноразмерная обложка')
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE, max_length=45)
+    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
@@ -142,14 +142,14 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
 
 
 class History(BaseModel, BaseSeoMixin, IsActiveMixin):
-    SIMPLE = 'small'
+    SMALL = 'small'
     FULL = 'full'
     FORMATS = (
-        (SIMPLE, 'Обычная обложка'),
+        (SMALL, 'Обычная обложка'),
         (FULL, 'Полноразмерная обложка')
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE, max_length=45)
+    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
@@ -170,14 +170,14 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
 
 
 class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
-    SIMPLE = 'small'
+    SMALL = 'small'
     FULL = 'full'
     FORMATS = (
-        (SIMPLE, 'Обычная обложка'),
+        (SMALL, 'Обычная обложка'),
         (FULL, 'Полноразмерная обложка')
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE, max_length=45)
+    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
@@ -193,16 +193,19 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('city-guides-detail', args=[self.id])
+
 
 class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
-    SIMPLE = 'small'
+    SMALL = 'small'
     FULL = 'full'
     FORMATS = (
-        (SIMPLE, 'Обычная обложка'),
+        (SMALL, 'Обычная обложка'),
         (FULL, 'Полноразмерная обложка')
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SIMPLE, max_length=45)
+    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)

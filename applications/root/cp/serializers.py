@@ -12,7 +12,7 @@ from cp_vue.api.serializers import ModelSerializer
 from cp_vue.cp.serializers import CpRoleNestedSerializer
 # from applications.tools.utils import filter_number
 from cp_vue.models import CpRole
-from ..models import News, Event, Report, History, Person
+from ..models import News, Event, Report, History, Person, CityGuide
 
 
 class NewsListSerializer(ModelSerializer):
@@ -168,4 +168,33 @@ class PersonsDetailSerializer(ModelSerializer):
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
+
+
+class CityGuidesListSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+    cover_format_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CityGuide
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'site_link', 'comment',
+                  'publication_date', 'create_date', 'edit_date', 'is_active')
+
+    def get_cover_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.cover_format)
+
+
+class CityGuidesDetailSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+    cover_format_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CityGuide
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
+                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'site_link')
+
+    def get_cover_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.cover_format)
+
 

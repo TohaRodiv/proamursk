@@ -14,9 +14,9 @@ from cp_vue.api.views import CpViewSet
 from cp_vue.api.core import cp_api
 from .serializers import NewsListSerializer, NewsDetailSerializer, EventsListSerializer, EventsDetailSerializer, \
     ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer, \
-    PersonsDetailSerializer, PersonsListSerializer
-from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter
-from ..models import News, Event, Report, History, Person
+    PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer, CityGuidesListSerializer
+from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter
+from ..models import News, Event, Report, History, Person, Place, CityGuide
 
 try:
     from applications.notifications.tasks import send_notification
@@ -83,11 +83,23 @@ class PersonsCpViewSet(CpViewSet):
     ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
 
 
+class CityGuidesCpViewSet(CpViewSet):
+    path = 'city-guides'
+    model = CityGuide
+    queryset = CityGuide.objects.all()
+    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
+    serializer_class = CityGuidesDetailSerializer
+    list_serializer_class = CityGuidesListSerializer
+    filter_class = CityGuidesFilter
+    ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
 cp_api.register(HistoryCpViewSet)
 cp_api.register(PersonsCpViewSet)
+cp_api.register(CityGuidesCpViewSet)
 
 
 
