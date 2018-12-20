@@ -3,7 +3,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.tokens import default_token_generator
 from django.conf.urls import url
-from django.db.models import Count
+from django.db.models import Count, F
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from rest_framework import permissions
@@ -13,14 +13,16 @@ from rest_framework.response import Response
 from cp_vue.api.permissions import SapPermissions
 from cp_vue.api.views import CpViewSet
 from cp_vue.api.core import cp_api
-from .serializers import NewsListSerializer, NewsDetailSerializer, EventsListSerializer, EventsDetailSerializer, \
-    ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer, \
-    PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer, CityGuidesListSerializer, \
-    PlacesDetailSerializer, PlacesListSerializer, SpecialsDetailSerializer, SpecialsListSerializer, \
-    FilmsDetailSerializer, FilmsListSerializer, SidebarBannerSerializer, WideBannerSerializer
+from .serializers import (NewsListSerializer, NewsDetailSerializer, EventsListSerializer, EventsDetailSerializer,
+    ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer,
+    PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer, CityGuidesListSerializer,
+    PlacesDetailSerializer, PlacesListSerializer, SpecialsDetailSerializer, SpecialsListSerializer,
+    FilmsDetailSerializer, FilmsListSerializer, SidebarBannerSerializer, WideBannerSerializer,
+    PlaceReviewsListSerializer, PlaceReviewsDetailSerializer)
 from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
-    PlacesFilter, SpecialsFilter, FilmsFilter
-from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner
+    PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter
+from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner, \
+    PlaceReview
 
 try:
     from applications.notifications.tasks import send_notification
@@ -151,6 +153,17 @@ class WideBannerCpViewSet(CpViewSet):
     ordering_fields = ('id', 'title', 'edit_date', 'create_date')
 
 
+class PlaceReviewsCpViewSet(CpViewSet):
+    path = 'reviews'
+    model = PlaceReview
+    queryset = PlaceReview.objects.all().annotate(title=F('place__title'))
+    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
+    serializer_class = PlaceReviewsDetailSerializer
+    list_serializer_class = PlaceReviewsListSerializer
+    filter_class = PlaceReviewsFilter
+    ordering_fields = ('id', 'title', 'sender_name', 'email', 'phone', 'create_date', 'edit_date')
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
@@ -162,4 +175,5 @@ cp_api.register(SpecialsCpViewSet)
 cp_api.register(FilmsCpViewSet)
 cp_api.register(SidebarBannerCpViewSet)
 cp_api.register(WideBannerCpViewSet)
+cp_api.register(PlaceReviewsCpViewSet)
 

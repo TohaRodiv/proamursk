@@ -13,7 +13,7 @@ from cp_vue.cp.serializers import CpRoleNestedSerializer
 # from applications.tools.utils import filter_number
 from cp_vue.models import CpRole
 from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner, \
-    WideBanner
+    WideBanner, PlaceReview
 
 
 class NewsListSerializer(ModelSerializer):
@@ -315,3 +315,27 @@ class WideBannerSerializer(ModelSerializer):
         model = WideBanner
         fields = ('id', 'cover', 'title', 'link', 'start_publication_date', 'end_publication_date', 'comment',
                   'create_date', 'edit_date', 'is_active')
+
+
+class PlaceReviewsListSerializer(ModelSerializer):
+    title = serializers.SerializerMethodField()
+
+    class Meta:
+        model = PlaceReview
+        fields = ('id', 'place', 'title', 'sender_name', 'email', 'phone', 'comment', 'create_date', 'edit_date',
+                  'is_active')
+
+    def get_title(self, instance):
+        return instance.title if hasattr(instance, 'title') else ''
+
+
+class PlaceReviewsDetailSerializer(ModelSerializer):
+    title = serializers.SerializerMethodField()
+
+    class Meta:
+        model = PlaceReview
+        fields = ('id', 'place', 'title', 'sender_name', 'email', 'phone', 'content', 'comment', 'create_date',
+                  'edit_date', 'is_active')
+
+    def get_title(self, instance):
+        return instance.title if hasattr(instance, 'title') else ''

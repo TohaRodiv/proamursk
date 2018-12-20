@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
+from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview
 from cp_vue.api.filters import NumberInFilter, CharInFilter, SearchFilter
 from cp_vue.api.filterset import APIFilterSet
 from django_filters import rest_framework as filters
@@ -130,3 +130,17 @@ class FilmsFilter(APIFilterSet):
             'create_date': ['gte', 'lte'],
             'edit_date': ['gte', 'lte']
         }
+
+
+class PlaceReviewsFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['sender_name', 'email', 'phone', 'comment'])
+    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    places__in = NumberInFilter(field_name='place', lookup_expr='in')
+
+    class Meta:
+        model = PlaceReview
+        fields = {
+            'create_date': ['gte', 'lte'],
+            'edit_date': ['gte', 'lte']
+        }
+

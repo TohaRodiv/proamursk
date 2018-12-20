@@ -239,6 +239,7 @@ class PlaceReview(BaseModel):
     content = models.TextField('Контент')
     is_agree = models.BooleanField('Согласие с правилами обработки данных', default=False)
     is_active = models.BooleanField('Статус', default=False)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = 'Отзыв о местах'
