@@ -16,10 +16,11 @@ from cp_vue.api.core import cp_api
 from .serializers import NewsListSerializer, NewsDetailSerializer, EventsListSerializer, EventsDetailSerializer, \
     ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer, \
     PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer, CityGuidesListSerializer, \
-    PlacesDetailSerializer, PlacesListSerializer, SpecialsDetailSerializer, SpecialsListSerializer
+    PlacesDetailSerializer, PlacesListSerializer, SpecialsDetailSerializer, SpecialsListSerializer, \
+    FilmsDetailSerializer, FilmsListSerializer
 from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
-    PlacesFilter, SpecialsFilter
-from ..models import News, Event, Report, History, Person, Place, CityGuide, Special
+    PlacesFilter, SpecialsFilter, FilmsFilter
+from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film
 
 try:
     from applications.notifications.tasks import send_notification
@@ -119,6 +120,17 @@ class SpecialsCpViewSet(CpViewSet):
     ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
 
 
+class FilmsCpViewSet(CpViewSet):
+    path = 'films'
+    model = Film
+    queryset = Film.objects.all().prefetch_related('sessions')
+    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
+    serializer_class = FilmsDetailSerializer
+    list_serializer_class = FilmsListSerializer
+    filter_class = FilmsFilter
+    ordering_fields = ('id', 'title', 'edit_date', 'create_date')
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
@@ -127,4 +139,4 @@ cp_api.register(PersonsCpViewSet)
 cp_api.register(CityGuidesCpViewSet)
 cp_api.register(PlacesCpViewSet)
 cp_api.register(SpecialsCpViewSet)
-
+cp_api.register(FilmsCpViewSet)

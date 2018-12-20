@@ -253,17 +253,16 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     title = models.CharField('Название', max_length=255)
     description = models.TextField('Описание фильма')
-    release_year = models.CharField('Год выпуска', max_length=4)
+    release_year = models.PositiveSmallIntegerField('Год выпуска')
     country = models.CharField('Страна', max_length=255)
     genre = models.CharField('Жанр', max_length=255)
     director = models.CharField('Режиссер', max_length=255)
     starring = models.CharField('В главных ролях', max_length=255)
-    duration = models.CharField('Продолжительность', max_length=10)
-    age_restriction = models.CharField('Возрастное ограничение', max_length=10)
+    duration = models.PositiveSmallIntegerField('Продолжительность, мин')
+    age_restriction = models.PositiveSmallIntegerField('Возрастное ограничение')
     is_3d = models.BooleanField('3D', default=False)
     trailer = models.URLField('Ссылка на трейлер в YouTube')
     purchase_link = models.URLField('Ссылка на страницу фильма на сайте кинотеатра "Молодость"')
-    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
@@ -274,9 +273,12 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('films-detail', args=[self.id])
+
 
 class FilmSession(BaseModel):
-    film = models.ForeignKey(Film, models.CASCADE, verbose_name='Фильм')
+    film = models.ForeignKey(Film, models.CASCADE, verbose_name='Фильм', related_name='sessions')
     session_time = models.DateTimeField('Дата и время начала сеанса')
     price = models.PositiveSmallIntegerField('Цена')
 

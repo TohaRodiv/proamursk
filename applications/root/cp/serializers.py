@@ -12,7 +12,7 @@ from cp_vue.api.serializers import ModelSerializer
 from cp_vue.cp.serializers import CpRoleNestedSerializer
 # from applications.tools.utils import filter_number
 from cp_vue.models import CpRole
-from ..models import News, Event, Report, History, Person, CityGuide, Place, Special
+from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession
 
 
 class NewsListSerializer(ModelSerializer):
@@ -257,3 +257,44 @@ class SpecialsDetailSerializer(ModelSerializer):
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
+
+
+class FilmsSessionsSerializer(ModelSerializer):
+    class Meta:
+        model = FilmSession
+        fields = ('id', 'session_time', 'price')
+
+
+class FilmsListSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+
+    class Meta:
+        model = Film
+        fields = ('id', 'cover', 'title', 'site_link', 'comment', 'create_date', 'edit_date', 'is_active')
+
+
+class FilmsDetailSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
+    sessions = FilmsSessionsSerializer(many=True, required=False)
+
+    class Meta:
+        model = Film
+        fields = ('id', 'cover', 'title', 'description', 'release_year', 'country', 'genre', 'director', 'starring',
+                  'duration', 'age_restriction', 'is_3d', 'trailer', 'purchase_link', 'comment',
+                  'create_date', 'edit_date', 'is_active', 'site_link', 'sessions')
+
+    def create(self, validated_data):
+        sessions_data = validated_data.pop('sessions') if 'sessions' in validated_data else []
+        instance = super(FilmsDetailSerializer, self).create(validated_data)
+        self.create_child_objects(sessions_data, FilmSession, dict(film=instance))
+        return instance
+
+    def update(self, instance, validated_data):
+        sessions_data = validated_data.pop('sessions') if 'sessions' in validated_data else []
+        instance = super(FilmsDetailSerializer, self).update(instance, validated_data)
+        self.update_child_objects(sessions_data, FilmSession, dict(film=instance))
+        return instance
+
+

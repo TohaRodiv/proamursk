@@ -35,4 +35,6 @@ urlpatterns = [
     path('places/<int:pk>/', test_view, name='places-detail'),
     path('specials/', test_view, name='specials-list'),
     path('specials/<str:pk>/', test_view, name='specials-detail'),
+    path('films/', test_view, name='films-list'),
+    path('films/<int:pk>/', test_view, name='films-detail'),
 ]

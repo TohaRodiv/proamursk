@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ..models import News, Event, Report, History, Person, CityGuide, Place, Special
+from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
 from cp_vue.api.filters import NumberInFilter, CharInFilter, SearchFilter
 from cp_vue.api.filterset import APIFilterSet
 from django_filters import rest_framework as filters
@@ -119,3 +119,14 @@ class SpecialsFilter(APIFilterSet):
             'publication_date': ['gte', 'lte']
         }
 
+
+class FilmsFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['title', 'comment'])
+    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+
+    class Meta:
+        model = Film
+        fields = {
+            'create_date': ['gte', 'lte'],
+            'edit_date': ['gte', 'lte']
+        }
