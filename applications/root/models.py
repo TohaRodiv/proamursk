@@ -291,32 +291,32 @@ class FilmSession(BaseModel):
         return '{} {}'.format(self.film.title, self.session_time)
 
 
-# class SidebarBanner(BaseModel, IsActiveMixin):
-#     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-#     title = models.CharField('Название', max_length=255)
-#     link = models.CharField('Ссылка', max_length=255)
-#     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
-#     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
-#     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
-#
-#     class Meta:
-#         verbose_name = 'Баннер в сайдбаре'
-#         verbose_name_plural = 'Баннеры в сайдбаре'
-#
-#
-# class WideBanner(BaseModel, IsActiveMixin):
-#     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-#     title = models.CharField('Название', max_length=255)
-#     link = models.CharField('Ссылка', max_length=255)
-#     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
-#     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
-#     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
-#
-#     class Meta:
-#         verbose_name = 'Баннер-растяжка'
-#         verbose_name_plural = 'Баннеры-растяжки'
-#
-#
+class SidebarBanner(BaseModel, IsActiveMixin):
+    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    title = models.CharField('Название', max_length=255)
+    link = models.CharField('Ссылка', max_length=255)
+    start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
+    end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'Баннер в сайдбаре'
+        verbose_name_plural = 'Баннеры в сайдбаре'
+
+
+class WideBanner(BaseModel, IsActiveMixin):
+    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    title = models.CharField('Название', max_length=255)
+    link = models.CharField('Ссылка', max_length=255)
+    start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
+    end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'Баннер-растяжка'
+        verbose_name_plural = 'Баннеры-растяжки'
+
+
 # class Slider(BaseModel, IsActiveMixin):
 #     title = models.CharField('Название', max_length=255)
 #     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)

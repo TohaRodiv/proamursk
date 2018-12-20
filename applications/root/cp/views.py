@@ -17,10 +17,10 @@ from .serializers import NewsListSerializer, NewsDetailSerializer, EventsListSer
     ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer, \
     PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer, CityGuidesListSerializer, \
     PlacesDetailSerializer, PlacesListSerializer, SpecialsDetailSerializer, SpecialsListSerializer, \
-    FilmsDetailSerializer, FilmsListSerializer
+    FilmsDetailSerializer, FilmsListSerializer, SidebarBannerSerializer, WideBannerSerializer
 from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
     PlacesFilter, SpecialsFilter, FilmsFilter
-from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film
+from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner
 
 try:
     from applications.notifications.tasks import send_notification
@@ -131,6 +131,26 @@ class FilmsCpViewSet(CpViewSet):
     ordering_fields = ('id', 'title', 'edit_date', 'create_date')
 
 
+class SidebarBannerCpViewSet(CpViewSet):
+    path = 'sidebar-banners'
+    model = SidebarBanner
+    queryset = SidebarBanner.objects.all()
+    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
+    serializer_class = SidebarBannerSerializer
+    # filter_class = None
+    ordering_fields = ('id', 'title', 'edit_date', 'create_date')
+
+
+class WideBannerCpViewSet(CpViewSet):
+    path = 'wide-banners'
+    model = WideBanner
+    queryset = WideBanner.objects.all()
+    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
+    serializer_class = WideBannerSerializer
+    # filter_class = None
+    ordering_fields = ('id', 'title', 'edit_date', 'create_date')
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
@@ -140,3 +160,6 @@ cp_api.register(CityGuidesCpViewSet)
 cp_api.register(PlacesCpViewSet)
 cp_api.register(SpecialsCpViewSet)
 cp_api.register(FilmsCpViewSet)
+cp_api.register(SidebarBannerCpViewSet)
+cp_api.register(WideBannerCpViewSet)
+

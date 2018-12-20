@@ -12,7 +12,8 @@ from cp_vue.api.serializers import ModelSerializer
 from cp_vue.cp.serializers import CpRoleNestedSerializer
 # from applications.tools.utils import filter_number
 from cp_vue.models import CpRole
-from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession
+from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner, \
+    WideBanner
 
 
 class NewsListSerializer(ModelSerializer):
@@ -298,3 +299,19 @@ class FilmsDetailSerializer(ModelSerializer):
         return instance
 
 
+class SidebarBannerSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+
+    class Meta:
+        model = SidebarBanner
+        fields = ('id', 'cover', 'title', 'link', 'start_publication_date', 'end_publication_date', 'comment',
+                  'create_date', 'edit_date', 'is_active')
+
+
+class WideBannerSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+
+    class Meta:
+        model = WideBanner
+        fields = ('id', 'cover', 'title', 'link', 'start_publication_date', 'end_publication_date', 'comment',
+                  'create_date', 'edit_date', 'is_active')
