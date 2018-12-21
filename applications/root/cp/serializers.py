@@ -1,4 +1,5 @@
 # -*-coding: utf-8 -*-
+import os
 
 from django.contrib.auth import authenticate, login
 from django.core.exceptions import ValidationError
@@ -402,7 +403,7 @@ class FeedbackListSerializer(ModelSerializer):
         return dict(instance.THEMES).get(instance.theme)
 
     def get_file(self, instance):
-        return instance.file.name if instance.file else None
+        return {'name': os.path.basename(instance.file.name), 'url': instance.file.url} if instance.file else None
 
 
 class FeedbackDetailSerializer(ModelSerializer):
@@ -417,4 +418,4 @@ class FeedbackDetailSerializer(ModelSerializer):
         return dict(instance.THEMES).get(instance.theme)
 
     def get_file(self, instance):
-        return instance.file.name if instance.file else None
+        return {'name': os.path.basename(instance.file.name), 'url': instance.file.url} if instance.file else None
