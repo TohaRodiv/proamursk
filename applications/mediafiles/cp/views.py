@@ -236,7 +236,6 @@ class ImagePopUpCpViewSet(CpViewSet):
     filter_class = ImageFilter
     available_actions = dict()
     available_views = ['list',]
-    permission_classes = (SapPermissions,)
     ordering_fields = ('id', 'name', 'width', 'height', 'file_size', 'thumbnails_size', 'create_date',)
     exclude_permissions = dict(list=['get', 'post', 'put', 'delete', 'patch'])
 
