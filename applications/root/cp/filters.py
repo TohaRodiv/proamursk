@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview, Slider
+from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview, Slider, \
+    Feedback
 from cp_vue.api.filters import NumberInFilter, CharInFilter, SearchFilter
 from cp_vue.api.filterset import APIFilterSet
 from django_filters import rest_framework as filters
@@ -157,3 +158,15 @@ class SlidersFilter(APIFilterSet):
             'create_date': ['gte', 'lte'],
             'edit_date': ['gte', 'lte']
         }
+
+
+class FeedbackFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['sender_name', 'email', 'phone'])
+    themes__in = CharInFilter(field_name='theme', lookup_expr='in')
+
+    class Meta:
+        model = Feedback
+        fields = {
+            'create_date': ['gte', 'lte']
+        }
+

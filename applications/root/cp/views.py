@@ -22,11 +22,11 @@ from .serializers import (NewsListSerializer, NewsDetailSerializer, EventsListSe
                           SpecialsListSerializer,
                           FilmsDetailSerializer, FilmsListSerializer, SidebarBannerSerializer, WideBannerSerializer,
                           PlaceReviewsListSerializer, PlaceReviewsDetailSerializer, SlidersDetailSerializer,
-                          SlidersListSerializer)
+                          SlidersListSerializer, FeedbackDetailSerializer, FeedbackListSerializer)
 from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
-    PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter
+    PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter, FeedbackFilter
 from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner, \
-    PlaceReview, Slider
+    PlaceReview, Slider, Feedback
 
 try:
     from applications.notifications.tasks import send_notification
@@ -179,6 +179,19 @@ class SlidersCpViewSet(CpViewSet):
     ordering_fields = ('id', 'title', 'slides_count', 'create_date', 'edit_date')
 
 
+class FeedbackCpViewSet(CpViewSet):
+    path = 'feedbacks'
+    model = Feedback
+    queryset = Feedback.objects.all()
+    available_actions = dict()
+    serializer_class = FeedbackDetailSerializer
+    list_serializer_class = FeedbackListSerializer
+    filter_class = FeedbackFilter
+    ordering_fields = ('id', 'sender_name', 'email', 'phone', 'file', 'create_date')
+    list_http_method_names = ['get', 'head', 'options', 'trace']
+    detail_http_method_names = ['get', 'head', 'options', 'trace']
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
@@ -192,4 +205,4 @@ cp_api.register(SidebarBannerCpViewSet)
 cp_api.register(WideBannerCpViewSet)
 cp_api.register(PlaceReviewsCpViewSet)
 cp_api.register(SlidersCpViewSet)
-
+cp_api.register(FeedbackCpViewSet)

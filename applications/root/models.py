@@ -348,32 +348,36 @@ class SliderItem(models.Model):
         verbose_name_plural = 'Слайды'
 
 
-# class Feedback(models.Model):
-#     NEWS = 'Поделиться хорошей новостью'
-#     EVENT = 'Поделиться событием'
-#     HISTORY = 'Поделиться своей историей'
-#     PERSON = 'Предложить героя'
-#     ERROR = 'Сообщить об ошибке'
-#     QUESTION = 'Задать вопрос'
-#     THEMES = (
-#         ('news', NEWS),
-#         ('event', EVENT),
-#         ('history', HISTORY),
-#         ('person', PERSON),
-#         ('error', ERROR),
-#         ('question', QUESTION)
-#     )
-#     theme = models.CharField(choices=THEMES, default=NEWS, max_length=255, verbose_name='Тема обращения')
-#     sender_name = models.CharField('ФИО отправителя', max_length=255)
-#     email = models.EmailField('E-mail')
-#     phone = models.CharField('Телефон', max_length=20, blank=True)
-#     content = models.TextField('Текст обращения')
-#     file = models.FileField('Вложение', upload_to='attachments', max_length=1000)
-#     is_agree = models.BooleanField('Согласие с правилами обработки данных', default=False)
-#
-#     class Meta:
-#         verbose_name = 'Обращение в редакцию'
-#         verbose_name_plural = 'Обращения в редакцию'
-#         ordering = '-id',
+class Feedback(models.Model):
+    NEWS = 'news'
+    EVENT = 'event'
+    HISTORY = 'history'
+    PERSON = 'person'
+    ERROR = 'error'
+    QUESTION = 'question'
+    THEMES = (
+        (NEWS, 'Поделиться хорошей новостью'),
+        (EVENT, 'Поделиться событием'),
+        (HISTORY, 'Поделиться своей историей'),
+        (PERSON, 'Предложить героя'),
+        (ERROR, 'Сообщить об ошибке'),
+        (QUESTION, 'Задать вопрос')
+    )
+    theme = models.CharField(choices=THEMES, max_length=255, verbose_name='Тема обращения')
+    sender_name = models.CharField('ФИО отправителя', max_length=255)
+    email = models.EmailField('E-mail')
+    phone = models.CharField('Телефон', max_length=20, blank=True)
+    content = models.TextField('Текст обращения')
+    file = models.FileField('Вложение', upload_to='attachments', max_length=1000)
+    is_agree = models.BooleanField('Согласие с правилами обработки данных', default=False)
+    create_date = models.DateTimeField('Дата создания', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Обращение в редакцию'
+        verbose_name_plural = 'Обращения в редакцию'
+        ordering = '-id',
+
+    def __str__(self):
+        return 'Обращение с сайта id{}'.format(self.id)
 
 

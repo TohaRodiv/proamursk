@@ -13,7 +13,7 @@ from cp_vue.cp.serializers import CpRoleNestedSerializer
 # from applications.tools.utils import filter_number
 from cp_vue.models import CpRole
 from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner, \
-    WideBanner, PlaceReview, SliderItem, Slider
+    WideBanner, PlaceReview, SliderItem, Slider, Feedback
 
 
 class NewsListSerializer(ModelSerializer):
@@ -389,3 +389,32 @@ class SlidersDetailSerializer(ModelSerializer):
         self.update_child_objects(sessions_data, SliderItem, dict(slider=instance))
         return instance
 
+
+class FeedbackListSerializer(ModelSerializer):
+    theme_name = serializers.SerializerMethodField()
+    file = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Feedback
+        fields = ('id', 'theme', 'theme_name', 'sender_name', 'email', 'phone', 'file', 'create_date')
+
+    def get_theme_name(self, instance):
+        return dict(instance.THEMES).get(instance.theme)
+
+    def get_file(self, instance):
+        return instance.file.name if instance.file else None
+
+
+class FeedbackDetailSerializer(ModelSerializer):
+    theme_name = serializers.SerializerMethodField()
+    file = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Feedback
+        fields = ('id', 'theme', 'theme_name', 'sender_name', 'email', 'phone', 'content', 'file', 'create_date')
+
+    def get_theme_name(self, instance):
+        return dict(instance.THEMES).get(instance.theme)
+
+    def get_file(self, instance):
+        return instance.file.name if instance.file else None
