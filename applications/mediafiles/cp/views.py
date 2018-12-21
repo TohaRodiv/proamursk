@@ -235,7 +235,8 @@ class ImagePopUpCpViewSet(CpViewSet):
     queryset = MediaFile.objects.all().select_related('extension').annotate(thumbnails_size=Sum('thumbnail__file_size')).order_by('id')
     filter_class = ImageFilter
     available_actions = dict()
-    available_views = ['list',]
+    available_views = ['list', 'detail']
+    permission_classes = (SapPermissions,)
     ordering_fields = ('id', 'name', 'width', 'height', 'file_size', 'thumbnails_size', 'create_date',)
     exclude_permissions = dict(list=['get', 'post', 'put', 'delete', 'patch'])
 
