@@ -14,15 +14,19 @@ from cp_vue.api.permissions import SapPermissions
 from cp_vue.api.views import CpViewSet
 from cp_vue.api.core import cp_api
 from .serializers import (NewsListSerializer, NewsDetailSerializer, EventsListSerializer, EventsDetailSerializer,
-    ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer, HistoryListSerializer,
-    PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer, CityGuidesListSerializer,
-    PlacesDetailSerializer, PlacesListSerializer, SpecialsDetailSerializer, SpecialsListSerializer,
-    FilmsDetailSerializer, FilmsListSerializer, SidebarBannerSerializer, WideBannerSerializer,
-    PlaceReviewsListSerializer, PlaceReviewsDetailSerializer)
+                          ReportsDetailSerializer, ReportsListSerializer, HistoryDetailSerializer,
+                          HistoryListSerializer,
+                          PersonsDetailSerializer, PersonsListSerializer, CityGuidesDetailSerializer,
+                          CityGuidesListSerializer,
+                          PlacesDetailSerializer, PlacesListSerializer, SpecialsDetailSerializer,
+                          SpecialsListSerializer,
+                          FilmsDetailSerializer, FilmsListSerializer, SidebarBannerSerializer, WideBannerSerializer,
+                          PlaceReviewsListSerializer, PlaceReviewsDetailSerializer, SlidersDetailSerializer,
+                          SlidersListSerializer)
 from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
-    PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter
+    PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter
 from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner, \
-    PlaceReview
+    PlaceReview, Slider
 
 try:
     from applications.notifications.tasks import send_notification
@@ -164,6 +168,17 @@ class PlaceReviewsCpViewSet(CpViewSet):
     ordering_fields = ('id', 'title', 'sender_name', 'email', 'phone', 'create_date', 'edit_date')
 
 
+class SlidersCpViewSet(CpViewSet):
+    path = 'sliders'
+    model = Slider
+    queryset = Slider.objects.all().annotate(slides_count=Count('slides'))
+    available_actions = dict(delete='Удаление')
+    serializer_class = SlidersDetailSerializer
+    list_serializer_class = SlidersListSerializer
+    filter_class = SlidersFilter
+    ordering_fields = ('id', 'title', 'slides_count', 'create_date', 'edit_date')
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
@@ -176,4 +191,5 @@ cp_api.register(FilmsCpViewSet)
 cp_api.register(SidebarBannerCpViewSet)
 cp_api.register(WideBannerCpViewSet)
 cp_api.register(PlaceReviewsCpViewSet)
+cp_api.register(SlidersCpViewSet)
 

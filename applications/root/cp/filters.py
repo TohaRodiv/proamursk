@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview
+from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview, Slider
 from cp_vue.api.filters import NumberInFilter, CharInFilter, SearchFilter
 from cp_vue.api.filterset import APIFilterSet
 from django_filters import rest_framework as filters
@@ -144,3 +144,16 @@ class PlaceReviewsFilter(APIFilterSet):
             'edit_date': ['gte', 'lte']
         }
 
+
+class SlidersFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['title', 'comment'])
+    formats__in = CharInFilter(field_name='format', lookup_expr='in')
+    slides_count__lte = filters.NumberFilter(field_name='slides_count__lte', method='common_filter')
+    slides_count__gte = filters.NumberFilter(field_name='slides_count__gte', method='common_filter')
+
+    class Meta:
+        model = Slider
+        fields = {
+            'create_date': ['gte', 'lte'],
+            'edit_date': ['gte', 'lte']
+        }

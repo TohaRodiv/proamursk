@@ -13,7 +13,7 @@ from cp_vue.cp.serializers import CpRoleNestedSerializer
 # from applications.tools.utils import filter_number
 from cp_vue.models import CpRole
 from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner, \
-    WideBanner, PlaceReview
+    WideBanner, PlaceReview, SliderItem, Slider
 
 
 class NewsListSerializer(ModelSerializer):
@@ -339,3 +339,53 @@ class PlaceReviewsDetailSerializer(ModelSerializer):
 
     def get_title(self, instance):
         return instance.title if hasattr(instance, 'title') else ''
+
+
+class SlidersItemSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+
+    class Meta:
+        model = SliderItem
+        fields = ('id', 'cover', 'description', 'is_active')
+
+
+class SlidersListSerializer(ModelSerializer):
+    slides_count = serializers.SerializerMethodField()
+    format_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Slider
+        fields = ('id', 'title', 'format', 'format_name', 'comment', 'slides_count', 'create_date', 'edit_date',
+                  'is_active')
+
+    def get_slides_count(self, instance):
+        return instance.slides_count if hasattr(instance, 'slides_count') else 0
+
+    def get_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.format)
+
+
+class SlidersDetailSerializer(ModelSerializer):
+    slides = SlidersItemSerializer(many=True, required=False)
+    format_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Slider
+        fields = ('id', 'title', 'format', 'format_name', 'comment', 'start_publication_date', 'end_publication_date',
+                  'create_date', 'edit_date', 'is_active', 'slides')
+
+    def get_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.format)
+
+    def create(self, validated_data):
+        sessions_data = validated_data.pop('slides') if 'slides' in validated_data else []
+        instance = super(SlidersDetailSerializer, self).create(validated_data)
+        self.create_child_objects(sessions_data, SliderItem, dict(slider=instance))
+        return instance
+
+    def update(self, instance, validated_data):
+        sessions_data = validated_data.pop('slides') if 'slides' in validated_data else []
+        instance = super(SlidersDetailSerializer, self).update(instance, validated_data)
+        self.update_child_objects(sessions_data, SliderItem, dict(slider=instance))
+        return instance
+

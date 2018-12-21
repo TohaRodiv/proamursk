@@ -318,26 +318,36 @@ class WideBanner(BaseModel, IsActiveMixin):
         verbose_name_plural = 'Баннеры-растяжки'
 
 
-# class Slider(BaseModel, IsActiveMixin):
-#     title = models.CharField('Название', max_length=255)
-#     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
-#     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
-#
-#     class Meta:
-#         verbose_name = 'Слайдер'
-#         verbose_name_plural = 'Слайдеры'
-#
-#
-# class SliderItem(models.Model, IsActiveMixin):
-#     slider = models.ForeignKey(Slider, on_delete=models.CASCADE, verbose_name='Слайдер')
-#     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-#     description = models.CharField('Описание', max_length=255)
-#
-#     class Meta:
-#         verbose_name = 'Слайд'
-#         verbose_name_plural = 'Слайды'
-#
-#
+class Slider(BaseModel, IsActiveMixin):
+    FORMAT_3x2 = 'format_3x2'
+    FORMAT_2x1 = 'format_2x1'
+    FORMATS = (
+        (FORMAT_3x2, 'Горизонтальный / 3:2 — 1716x1144 px'),
+        (FORMAT_2x1, 'Горизонтальный / 2:1 — 1716x858 px')
+    )
+    title = models.CharField('Название', max_length=255)
+    format = models.CharField('Формат слайдера', choices=FORMATS, max_length=45)
+    start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
+    end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'Слайдер'
+        verbose_name_plural = 'Слайдеры'
+        ordering = '-id',
+
+
+class SliderItem(models.Model):
+    slider = models.ForeignKey(Slider, on_delete=models.CASCADE, verbose_name='Слайдер', related_name='slides')
+    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    description = models.CharField('Описание', max_length=255)
+    is_active = models.BooleanField(default=True, verbose_name='Состояние')
+
+    class Meta:
+        verbose_name = 'Слайд'
+        verbose_name_plural = 'Слайды'
+
+
 # class Feedback(models.Model):
 #     NEWS = 'Поделиться хорошей новостью'
 #     EVENT = 'Поделиться событием'
