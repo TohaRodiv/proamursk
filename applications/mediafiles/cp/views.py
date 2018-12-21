@@ -1,24 +1,22 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-
-from cp_vue.api.core import cp_api
-from cp_vue.api.views import CpViewSet
-
-from rest_framework import status
-from django.conf.urls import url
+from PIL import Image
+from django import forms
+from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Sum
 from django.http import HttpResponseNotAllowed
-from rest_framework.views import APIView
+from rest_framework import status
 from rest_framework.parsers import MultiPartParser
 from rest_framework.response import Response
-from django.core.exceptions import ObjectDoesNotExist
-from PIL import Image
-from django.db.models import Sum
-from django.conf import settings
-from django import forms
+
+from cp_vue.api.core import cp_api
+from cp_vue.api.permissions import SapPermissions
 from cp_vue.api.utils import get_deleted_objects, get_values
-from .serializers import (ImageNestedSerializer, ImageListSerializer, ImageDetailSerializer, ExtensionSerializer)
+from cp_vue.api.views import CpViewSet
 from .filters import ImageFilter
+from .serializers import (ImageNestedSerializer, ImageListSerializer, ImageDetailSerializer, ExtensionSerializer)
 from ..models import MediaFile, MediaTag, Extension
 
 
@@ -227,6 +225,23 @@ class ImageCpViewSet(CpViewSet):
         else:
             return HttpResponseNotAllowed(['GET', 'POST'])
 
+
+class ImagePopUpCpViewSet(CpViewSet):
+    path = 'mediafiles-pop-up'
+    name = 'Поп-ап галерея'
+    model = MediaFile
+    list_serializer_class = ImageListSerializer
+    serializer_class = ImageDetailSerializer
+    queryset = MediaFile.objects.all().select_related('extension').annotate(thumbnails_size=Sum('thumbnail__file_size')).order_by('id')
+    filter_class = ImageFilter
+    available_actions = dict()
+    available_views = ['list',]
+    permission_classes = (SapPermissions,)
+    ordering_fields = ('id', 'name', 'width', 'height', 'file_size', 'thumbnails_size', 'create_date',)
+    exclude_permissions = dict(list=['get', 'post', 'put', 'delete', 'patch'])
+
+
+cp_api.register(ImagePopUpCpViewSet)
 cp_api.register(ImageCpViewSet)
 cp_api.register(ExtensionCpViewSet)
 cp_api.register(MediaTagCpViewSet)
