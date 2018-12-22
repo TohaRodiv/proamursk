@@ -16,6 +16,7 @@ Including another URLconf
 from django.urls import path, include, re_path
 from cp_vue.api.core import cp_api
 from applications.root.views import test_view
+from applications.sitesettings.views import RobotsTxtView
 
 urlpatterns = [
     path('api/v1/', include(cp_api.urls)),
@@ -37,4 +38,5 @@ urlpatterns = [
     path('specials/<str:pk>/', test_view, name='specials-detail'),
     path('films/', test_view, name='films-list'),
     path('films/<int:pk>/', test_view, name='films-detail'),
+    path('robots.txt', RobotsTxtView.as_view()),
 ]

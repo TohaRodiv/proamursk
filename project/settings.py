@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'core',
     'applications.root',
     'applications.contentblocks',
-
+    'applications.sitesettings',
 ]
 
 MIDDLEWARE = [
@@ -41,6 +41,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'applications.sitesettings.middleware.AddSettingsInRequest',
+    'applications.sitesettings.middleware.CheckDisableSite',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -56,6 +58,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'applications.contentblocks.context_processors.content_blocks'
             ],
         },
     },
@@ -117,7 +120,12 @@ USE_L10N = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+if DEBUG:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+else:
+    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'uploads')
+    STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 
 
 REST_FRAMEWORK = {

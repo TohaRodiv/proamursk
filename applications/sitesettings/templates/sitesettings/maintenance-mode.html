@@ -1,0 +1,21 @@
+{% load static %}
+{% load static_version %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="{% static 'site/css/dev-mode-styles.css' %}{% static_version %}" />
+</head>
+<body>
+    <div class="dev-mode-wrapper">
+        <div class="dev-mode-container">
+            <div class="dev-mode-title">{{ new_settings.disable_title }}</div>
+            <div class="dev-mode-text">{{ new_settings.disable_text|safe }}</div>
+        </div>
+        <div class="dev-mode-footer">
+            <div class="dev-mode-label"></div>
+            <div class="dev-mode-footer-text">© 2018, Фотостог</div>
+        </div>
+    </div>
+</body>
+</html>
