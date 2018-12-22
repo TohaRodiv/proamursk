@@ -60,7 +60,8 @@ class UserDetailSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'avatar', 'username', 'first_name', 'last_name', 'patronymic', 'roles', 'is_active', 'is_staff',
-                  'request_change_password', 'password1', 'password2', 'is_superuser', 'create_date', 'edit_date')
+                  'request_change_password', 'password1', 'password2', 'is_superuser', 'create_date', 'edit_date',
+                  'comment')
         read_only_fields = 'is_superuser',
         extra_kwargs = {
             'username': {'required': True},

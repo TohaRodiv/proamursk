@@ -83,4 +83,5 @@ class AbstractAccount(AbstractBaseUser, PermissionsMixin):
 
 class User(AbstractAccount):
     roles = models.ManyToManyField('cp_vue.CpRole', related_name='users')
+    comment = models.CharField('Комментарий', max_length=255, default='', blank=True)
 
