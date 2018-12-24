@@ -10,6 +10,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'localhost'
+]
 
 # Application definition
 
@@ -32,6 +36,7 @@ INSTALLED_APPS = [
     'applications.contentblocks',
     'applications.sitesettings',
     'applications.notifications',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -44,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'applications.sitesettings.middleware.AddSettingsInRequest',
     'applications.sitesettings.middleware.CheckDisableSite',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+</head>
+<body>
+    <h1>{% if news %}Последние новости Амурска{% else %}Список новостей пуст{% endif %}</h1>
+    {% if news %}
+        {% for news_item in news %}
+            <h3>{{ news_item.title }}</h3>
+            <p>{{ news_item.content }}</p>
+            <a href="{{ news_item.get_absolute_url }}">Читать новость >></a>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

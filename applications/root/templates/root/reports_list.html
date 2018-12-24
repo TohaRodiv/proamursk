@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Репортажи</title>
+</head>
+<body>
+{% for report in reports %}
+    <h3>{{ report.title }}</h3>
+    <p>{{ report.content }}</p>
+    <a href="{{ report.get_absolute_url }}">Смотреть репортаж >></a>
+    <hr>
+{% endfor %}
+</body>
+</html>

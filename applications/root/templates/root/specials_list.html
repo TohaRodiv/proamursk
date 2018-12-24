@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Спецпроекты</title>
+</head>
+<body>
+    <h1>Спецпроекты</h1>
+    {% if specials %}
+        {% for special in specials %}
+            <h3>{{ special.title }}</h3>
+            <a href="{{ special.get_absolute_url }}">Подробнее >></a>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

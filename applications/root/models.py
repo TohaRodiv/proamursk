@@ -141,7 +141,7 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('history-detail', args=[self.id])
+        return reverse('persons-detail', args=[self.id])
 
 
 class History(BaseModel, BaseSeoMixin, IsActiveMixin):

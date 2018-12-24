@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Амурск в именах и лицах</title>
+</head>
+<body>
+    <h1>Амурск в именах и лицах</h1>
+    {% if persons %}
+        {% for person in persons %}
+            <h3>{{ person.title }}</h3>
+            <p>{{ person.content }}</p>
+            <a href="{{ person.get_absolute_url }}">Подробнее о событии >></a>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

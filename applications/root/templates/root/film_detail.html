@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ film.title }}</title>
+</head>
+<body>
+    <h3>{{ film.title }}</h3>
+    <p>Описание: {{ film.description }}</p>{{ film.description.f }}
+    <p>Год выпуска: {{ film.release_year }}</p>
+    <p>Страна: {{ film.country }}</p>
+    <p>Жанр: {{ film.genre }}</p>
+    <p>Режиссер: {{ film.director }}</p>
+    <p>В главных ролях: {{ film.starring }}</p>
+    <p>Продолжительность: {{ film.duration }} мин.</p>
+    <p>Возрастное ограничение: {{ film.age_restriction }}</p>
+    <p>3D: {{ film.is_3d }}</p>
+    <p>Трейлер: {{ film.trailer }}</p>
+    <p>Купить билет на сайте: {{ film.purchase_link }}</p>
+
+    {% if film.sessions %}
+        <h3>Сеансы</h3>
+        {% for session in film.sessions.all %}
+            <p>Дата и время сенса: {{ session.session_time }} / Цена: {{ session.price }}</p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

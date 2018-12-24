@@ -6,3 +6,4 @@ psycopg2-binary==2.7.5
 django-cors-headers==2.4.0
 fabric==2.4.0
 celery==4.2.1
+django-debug-toolbar==1.11
