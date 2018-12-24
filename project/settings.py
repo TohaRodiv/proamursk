@@ -169,3 +169,13 @@ MEDIALIB_THUMB_SIZE = {
 MEDIALIB_JPEG_QUALITY = 70
 MEDIALIB_EXT = ('jpg', 'jpeg', 'png', 'gif')
 
+CELERY_IMPORTS = (
+    'applications.notifications'
+)
+
+CELERY_SEND_TASK_ERROR_EMAILS = True
+if DEBUG:
+    CELERY_BROKER_URL = 'amqp://guest:guest@127.0.0.1:5672//'
+else:
+    CELERY_BROKER_URL = 'amqp://superadmin:air3N97r@rabbitmq:5672//'
+
