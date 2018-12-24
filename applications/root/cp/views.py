@@ -50,7 +50,7 @@ class NewsCpViewSet(CpViewSet):
 
 
 class EventsCpViewSet(CpViewSet):
-    path = 'events'
+    path = 'event-announcements'
     model = Event
     queryset = Event.objects.all()
     available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
