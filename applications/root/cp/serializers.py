@@ -19,43 +19,37 @@ from ..models import News, Event, Report, History, Person, CityGuide, Place, Spe
 
 class NewsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
 
     class Meta:
         model = News
-        fields = ('id', 'cover', 'title', 'site_link', 'comment', 'publication_date', 'create_date', 'edit_date',
-                  'is_active')
+        fields = ('id', 'cover', 'title', 'comment', 'publication_date', 'create_date', 'edit_date', 'is_active')
 
 
 class NewsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
 
     class Meta:
         model = News
         fields = ('id', 'cover', 'title', 'lead', 'content', 'comment', 'publication_date', 'create_date', 'edit_date',
-                  'is_active', 'site_link')
+                  'is_active', )
 
 
 class ReportsNestedSerializer(ModelSerializer):
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
 
     class Meta:
         model = Report
-        fields = ('id', 'title', 'site_link')
+        fields = ('id', 'title',)
 
 
 class EventsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
     report = ObjectRelatedField(queryset=Report.objects.all(), serializer_class=ReportsNestedSerializer)
 
     class Meta:
         model = Event
-        fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'start_event_date', 'site_link', 'comment',
-                  'report', 'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date',
-                  'is_active')
+        fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'start_event_date', 'comment',  'report',
+                  'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -63,38 +57,34 @@ class EventsListSerializer(ModelSerializer):
 
 class EventsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = Event
         fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
-                  'cover_format', 'cover_format_name', 'site_link', 'comment', 'content', 'publication_date',
-                  'create_date', 'edit_date', 'is_active')
+                  'cover_format', 'cover_format_name', 'comment', 'content', 'publication_date', 'create_date',
+                  'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
 
 
 class EventsNestedSerializer(ModelSerializer):
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
 
     class Meta:
         model = Event
-        fields = ('id', 'title', 'site_link')
+        fields = ('id', 'title', )
 
 
 class ReportsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
     event = ObjectRelatedField(queryset=Event.objects.all(), serializer_class=EventsNestedSerializer, allow_null=True)
 
     class Meta:
         model = Report
-        fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'start_event_date', 'site_link', 'comment',
-                  'event', 'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date',
-                  'is_active')
+        fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'start_event_date', 'comment', 'event',
+                  'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -102,14 +92,13 @@ class ReportsListSerializer(ModelSerializer):
 
 class ReportsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
     event = ObjectRelatedField(queryset=Event.objects.all(), serializer_class=EventsNestedSerializer, allow_null=True)
 
     class Meta:
         model = Report
         fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
-                  'cover_format', 'cover_format_name', 'site_link', 'comment', 'content', 'publication_date', 'event',
+                  'cover_format', 'cover_format_name', 'comment', 'content', 'publication_date', 'event',
                   'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
@@ -118,13 +107,12 @@ class ReportsDetailSerializer(ModelSerializer):
 
 class HistoryListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = History
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'site_link', 'comment',
-                  'publication_date', 'create_date', 'edit_date', 'is_active')
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'comment', 'publication_date',
+                  'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -132,13 +120,12 @@ class HistoryListSerializer(ModelSerializer):
 
 class HistoryDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = History
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
-                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'site_link')
+                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active',)
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -146,12 +133,11 @@ class HistoryDetailSerializer(ModelSerializer):
 
 class PersonsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = Person
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'site_link', 'comment',
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'comment',
                   'publication_date', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
@@ -160,13 +146,12 @@ class PersonsListSerializer(ModelSerializer):
 
 class PersonsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = Person
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
-                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'site_link')
+                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active',)
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -174,13 +159,12 @@ class PersonsDetailSerializer(ModelSerializer):
 
 class CityGuidesListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = CityGuide
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'site_link', 'comment',
-                  'publication_date', 'create_date', 'edit_date', 'is_active')
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'comment', 'publication_date',
+                  'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -188,13 +172,12 @@ class CityGuidesListSerializer(ModelSerializer):
 
 class CityGuidesDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = CityGuide
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
-                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'site_link')
+                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', )
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -202,13 +185,12 @@ class CityGuidesDetailSerializer(ModelSerializer):
 
 class PlacesListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
     reviews_count = serializers.SerializerMethodField()
 
     class Meta:
         model = Place
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'address', 'site_link', 'comment',
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'address', 'comment',
                   'publication_date', 'create_date', 'edit_date', 'is_active', 'reviews_count')
 
     def get_cover_format_name(self, instance):
@@ -220,14 +202,12 @@ class PlacesListSerializer(ModelSerializer):
 
 class PlacesDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = Place
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
-                  'address', 'coordinates', 'comment', 'publication_date', 'create_date', 'edit_date', 'is_active',
-                  'site_link')
+                  'address', 'coordinates', 'comment', 'publication_date', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -235,13 +215,12 @@ class PlacesDetailSerializer(ModelSerializer):
 
 class SpecialsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = Special
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'site_link', 'comment',
-                  'publication_date', 'create_date', 'edit_date', 'is_active')
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'comment', 'publication_date',
+                  'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -249,13 +228,12 @@ class SpecialsListSerializer(ModelSerializer):
 
 class SpecialsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = Special
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'descriptor', 'codename',
-                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'site_link')
+                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', )
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -269,23 +247,21 @@ class FilmsSessionsSerializer(ModelSerializer):
 
 class FilmsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
 
     class Meta:
         model = Film
-        fields = ('id', 'cover', 'title', 'site_link', 'comment', 'create_date', 'edit_date', 'is_active')
+        fields = ('id', 'cover', 'title', 'comment', 'create_date', 'edit_date', 'is_active')
 
 
 class FilmsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    site_link = serializers.URLField(source='get_absolute_url', read_only=True)
     sessions = FilmsSessionsSerializer(many=True, required=False)
 
     class Meta:
         model = Film
         fields = ('id', 'cover', 'title', 'description', 'release_year', 'country', 'genre', 'director', 'starring',
                   'duration', 'age_restriction', 'is_3d', 'trailer', 'purchase_link', 'comment',
-                  'create_date', 'edit_date', 'is_active', 'site_link', 'sessions')
+                  'create_date', 'edit_date', 'is_active', 'sessions')
 
     def create(self, validated_data):
         sessions_data = validated_data.pop('sessions') if 'sessions' in validated_data else []
