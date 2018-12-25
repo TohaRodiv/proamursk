@@ -368,30 +368,32 @@ class SlidersDetailSerializer(ModelSerializer):
 
 
 class FeedbackListSerializer(ModelSerializer):
-    theme_name = serializers.SerializerMethodField()
-    file = serializers.SerializerMethodField()
+    subject_name = serializers.SerializerMethodField()
+    attachment = serializers.SerializerMethodField()
 
     class Meta:
         model = Feedback
-        fields = ('id', 'theme', 'theme_name', 'sender_name', 'email', 'phone', 'file', 'create_date')
+        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone', 'attachment', 'create_date')
 
-    def get_theme_name(self, instance):
-        return dict(instance.THEMES).get(instance.theme)
+    def get_subject_name(self, instance):
+        return dict(instance.SUBJECTS).get(instance.subject)
 
-    def get_file(self, instance):
-        return {'name': os.path.basename(instance.file.name), 'url': instance.file.url} if instance.file else None
+    def get_attachment(self, instance):
+        return {'name': os.path.basename(instance.attachment.name),
+                'url': instance.attachment.url} if instance.attachment else None
 
 
 class FeedbackDetailSerializer(ModelSerializer):
-    theme_name = serializers.SerializerMethodField()
-    file = serializers.SerializerMethodField()
+    subject_name = serializers.SerializerMethodField()
+    attachment = serializers.SerializerMethodField()
 
     class Meta:
         model = Feedback
-        fields = ('id', 'theme', 'theme_name', 'sender_name', 'email', 'phone', 'content', 'file', 'create_date')
+        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone', 'text', 'attachment', 'create_date')
 
-    def get_theme_name(self, instance):
-        return dict(instance.THEMES).get(instance.theme)
+    def get_subject_name(self, instance):
+        return dict(instance.SUBJECTS).get(instance.subject)
 
-    def get_file(self, instance):
-        return {'name': os.path.basename(instance.file.name), 'url': instance.file.url} if instance.file else None
+    def get_attachment(self, instance):
+        return {'name': os.path.basename(instance.attachment.name),
+                'url': instance.attachment.url} if instance.attachment else None

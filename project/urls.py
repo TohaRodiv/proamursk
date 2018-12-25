@@ -43,6 +43,7 @@ urlpatterns = [
     path('specials/<str:slug>/', root_views.SpecialsDetailView.as_view(), name='specials-detail'),
     path('films/', RedirectView.as_view(url='/')),
     path('films/<int:pk>/', root_views.FilmDetailView.as_view(), name='films-detail'),
+    path('api/site/feedback/', root_views.feedback, name='feedback'),
     path('robots.txt', RobotsTxtView.as_view()),
 ]
 

@@ -187,7 +187,7 @@ class FeedbackCpViewSet(CpViewSet):
     serializer_class = FeedbackDetailSerializer
     list_serializer_class = FeedbackListSerializer
     filter_class = FeedbackFilter
-    ordering_fields = ('id', 'sender_name', 'email', 'phone', 'file', 'create_date')
+    ordering_fields = ('id', 'name', 'email', 'phone', 'attachment', 'create_date')
     list_http_method_names = ['get', 'head', 'options', 'trace']
     detail_http_method_names = ['get', 'head', 'options', 'trace']
 

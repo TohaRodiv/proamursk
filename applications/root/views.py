@@ -1,7 +1,12 @@
+import json
+
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.http import require_POST
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
 
+from applications.root.forms import FeedbackForm
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
 
 
@@ -150,4 +155,13 @@ class FilmDetailView(DetailView):
     queryset = Film.objects.filter(is_active=True).prefetch_related('sessions')
     context_object_name = 'film'
     template_name = 'root/film_detail.html'
+
+
+@require_POST
+def feedback(request):
+    form = FeedbackForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.save()
+        return JsonResponse({'status': True, 'message': 'Обращение отправлено, скоро мы с вами свяжемся'})
+    return JsonResponse({'status': False, 'message': 'Одно или несколько полей формы содержат ошибки'})
 

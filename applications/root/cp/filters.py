@@ -161,8 +161,8 @@ class SlidersFilter(APIFilterSet):
 
 
 class FeedbackFilter(APIFilterSet):
-    q = SearchFilter(search_fields=['sender_name', 'email', 'phone'])
-    themes__in = CharInFilter(field_name='theme', lookup_expr='in')
+    q = SearchFilter(search_fields=['name', 'email', 'phone'])
+    subjects__in = CharInFilter(field_name='subject', lookup_expr='in')
 
     class Meta:
         model = Feedback

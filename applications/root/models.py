@@ -355,7 +355,7 @@ class Feedback(models.Model):
     PERSON = 'person'
     ERROR = 'error'
     QUESTION = 'question'
-    THEMES = (
+    SUBJECTS = (
         (NEWS, 'Поделиться хорошей новостью'),
         (EVENT, 'Поделиться событием'),
         (HISTORY, 'Поделиться своей историей'),
@@ -363,12 +363,12 @@ class Feedback(models.Model):
         (ERROR, 'Сообщить об ошибке'),
         (QUESTION, 'Задать вопрос')
     )
-    theme = models.CharField(choices=THEMES, max_length=255, verbose_name='Тема обращения')
-    sender_name = models.CharField('ФИО отправителя', max_length=255)
+    subject = models.CharField(choices=SUBJECTS, max_length=255, verbose_name='Тема обращения')
+    name = models.CharField('ФИО отправителя', max_length=255)
     email = models.EmailField('E-mail')
     phone = models.CharField('Телефон', max_length=20, blank=True)
-    content = models.TextField('Текст обращения')
-    file = models.FileField('Вложение', upload_to='attachments', max_length=1000)
+    text = models.TextField('Текст обращения')
+    attachment = models.FileField('Вложение', upload_to='attachments', max_length=1000, blank=True)
     is_agree = models.BooleanField('Согласие с правилами обработки данных', default=False)
     create_date = models.DateTimeField('Дата создания', auto_now_add=True)
 
