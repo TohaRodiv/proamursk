@@ -204,3 +204,6 @@ if DEBUG:
 else:
     CELERY_BROKER_URL = 'amqp://superadmin:air3N97r@rabbitmq:5672//'
 
+COMMON_ERROR_MESSAGE = 'Ошибка сервера, попробуйте повторить попытку позже'
+COMMON_FORM_ERROR_MESSAGE = 'Одно или несколько полей формы содержат ошибки'
+API_ERROR_MESSAGE = 'Ошибка в процессе выполнения запроса к API'

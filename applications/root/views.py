@@ -1,7 +1,10 @@
 import json
 
-from django.http import JsonResponse
+from django.conf import settings
+from django.core.paginator import Paginator, EmptyPage
+from django.http import JsonResponse, Http404
 from django.shortcuts import render
+from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
@@ -50,7 +53,7 @@ class EventsListPastView(ListView):
     allow_empty = True
     queryset = Event.objects.filter(is_active=True, publication_date__lte=timezone.now(),
                                     start_event_date__lt=timezone.now())
-    paginate_by = 50
+    paginate_by = 16
     context_object_name = 'events'
     template_name = 'root/events_list.html'
 
@@ -159,18 +162,66 @@ class FilmDetailView(DetailView):
 
 @require_POST
 def feedback(request):
-    form = FeedbackForm(request.POST, request.FILES)
-    if form.is_valid():
-        form.save()
-        return JsonResponse({'status': True, 'message': 'Обращение отправлено, скоро мы с вами свяжемся'})
-    return JsonResponse({'status': False, 'message': 'Одно или несколько полей формы содержат ошибки'})
+    if request.is_ajax():
+        form = FeedbackForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'status': True, 'message': 'Обращение отправлено, скоро мы с вами свяжемся'})
+        return JsonResponse({'status': False, 'message': 'Одно или несколько полей формы содержат ошибки'})
+    else:
+        raise Http404
 
 
 @require_POST
 def place_review(request):
-    form = PlaceReviewForm(request.POST)
-    if form.is_valid():
-        form.save()
-        return JsonResponse({'status': True,
-                             'message': 'Отзыв отправлен, он появится на сайте после прохождения модерации'})
-    return JsonResponse({'status': False, 'message': 'Одно или несколько полей формы содержат ошибки'})
+    if request.is_ajax():
+        form = PlaceReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'status': True,
+                                 'message': 'Отзыв отправлен, он появится на сайте после прохождения модерации'})
+        return JsonResponse({'status': False, 'message': 'Одно или несколько полей формы содержат ошибки'})
+    else:
+        raise Http404
+
+
+@require_POST
+def announcements(request):
+    result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
+    if request.is_ajax():
+        page_number = request.POST.get('page')
+        if page_number:
+            try:
+                page_number = int(page_number)
+            except ValueError:
+                pass
+            else:
+                now = timezone.now()
+                main_page_event_ids = list(Event.objects.values_list('id', flat=True).filter(
+                    start_event_date__lt=now).order_by('-start_event_date')[:16])
+                event_announcements = Event.objects.filter(start_event_date__lt=now).exclude(
+                    id__in=main_page_event_ids).order_by('-start_event_date')
+                paginator = Paginator(event_announcements, 24)
+                if page_number in paginator.page_range:
+                    page = paginator.page(page_number)
+                    rendered_html = render_to_string('root/ajax_past_events_list.html', context={'events': page})
+                    result = {
+                        'status': True,
+                        'data': {'last': not page.has_next()},
+                        'templates':
+                            {'announcements': rendered_html.replace('\n', '')}
+                    }
+                else:
+                    pass
+        return JsonResponse(result)
+
+    else:
+        raise Http404
+
+
+
+
+
+
+
+
