@@ -1,0 +1,9 @@
+{% if objects %}
+    {% for object in objects %}
+        <h3>{{ object.title }}</h3>
+        <p>{{ object.content }}</p>
+        <p>{{ object.event_date_text }}</p>
+        <a href="{{ object.get_absolute_url }}">Подробнее о событии >></a>
+        <hr>
+    {% endfor %}
+{% endif %}

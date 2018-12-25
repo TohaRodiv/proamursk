@@ -1,18 +1,3 @@
-"""project URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.conf import settings
 from django.urls import path, include, re_path
 from django.views.generic import RedirectView
@@ -45,7 +30,11 @@ urlpatterns = [
     path('films/<int:pk>/', root_views.FilmDetailView.as_view(), name='films-detail'),
     path('api/site/place-review/', root_views.place_review, name='place-review'),
     path('api/site/feedback/', root_views.feedback, name='feedback'),
-    path('api/site/announcements/', root_views.announcements, name='announcements'),
+    path('api/site/announcements/', root_views.announcements, name='ajax-announcements'),
+    path('api/site/reports/', root_views.reports, name='ajax-reports'),
+    path('api/site/persons/', root_views.persons, name='ajax-persons'),
+    path('api/site/places/', root_views.places, name='ajax-places'),
+    path('api/site/history/', root_views.history, name='ajax-history'),
     path('robots.txt', RobotsTxtView.as_view()),
 ]
 
