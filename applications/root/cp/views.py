@@ -165,7 +165,7 @@ class PlaceReviewsCpViewSet(CpViewSet):
     serializer_class = PlaceReviewsDetailSerializer
     list_serializer_class = PlaceReviewsListSerializer
     filter_class = PlaceReviewsFilter
-    ordering_fields = ('id', 'title', 'sender_name', 'email', 'phone', 'create_date', 'edit_date')
+    ordering_fields = ('id', 'title', 'name', 'email', 'phone', 'create_date', 'edit_date')
 
 
 class SlidersCpViewSet(CpViewSet):

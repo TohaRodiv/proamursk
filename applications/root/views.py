@@ -6,7 +6,7 @@ from django.views.decorators.http import require_POST
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
 
-from applications.root.forms import FeedbackForm
+from applications.root.forms import FeedbackForm, PlaceReviewForm
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
 
 
@@ -165,3 +165,12 @@ def feedback(request):
         return JsonResponse({'status': True, 'message': 'Обращение отправлено, скоро мы с вами свяжемся'})
     return JsonResponse({'status': False, 'message': 'Одно или несколько полей формы содержат ошибки'})
 
+
+@require_POST
+def place_review(request):
+    form = PlaceReviewForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return JsonResponse({'status': True,
+                             'message': 'Отзыв отправлен, он появится на сайте после прохождения модерации'})
+    return JsonResponse({'status': False, 'message': 'Одно или несколько полей формы содержат ошибки'})

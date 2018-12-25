@@ -299,7 +299,7 @@ class PlaceReviewsListSerializer(ModelSerializer):
 
     class Meta:
         model = PlaceReview
-        fields = ('id', 'place', 'title', 'sender_name', 'email', 'phone', 'comment', 'create_date', 'edit_date',
+        fields = ('id', 'place', 'title', 'name', 'email', 'phone', 'comment', 'create_date', 'edit_date',
                   'is_active')
 
     def get_title(self, instance):
@@ -311,7 +311,7 @@ class PlaceReviewsDetailSerializer(ModelSerializer):
 
     class Meta:
         model = PlaceReview
-        fields = ('id', 'place', 'title', 'sender_name', 'email', 'phone', 'content', 'comment', 'create_date',
+        fields = ('id', 'place', 'title', 'name', 'email', 'phone', 'text', 'comment', 'create_date',
                   'edit_date', 'is_active')
 
     def get_title(self, instance):

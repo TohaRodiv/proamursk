@@ -134,7 +134,7 @@ class FilmsFilter(APIFilterSet):
 
 
 class PlaceReviewsFilter(APIFilterSet):
-    q = SearchFilter(search_fields=['sender_name', 'email', 'phone', 'comment'])
+    q = SearchFilter(search_fields=['name', 'email', 'phone', 'comment'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
     places__in = NumberInFilter(field_name='place', lookup_expr='in')
 

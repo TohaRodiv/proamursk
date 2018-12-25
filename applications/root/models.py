@@ -232,11 +232,11 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
 
 
 class PlaceReview(BaseModel):
-    sender_name = models.CharField('ФИО отправителя', max_length=255)
+    name = models.CharField('ФИО отправителя', max_length=255)
     place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name='Место', related_name='reviews')
     email = models.EmailField('E-mail')
     phone = models.CharField('Телефон', max_length=20, blank=True)
-    content = models.TextField('Контент')
+    text = models.TextField('Текст отзыва')
     is_agree = models.BooleanField('Согласие с правилами обработки данных', default=False)
     is_active = models.BooleanField('Статус', default=False)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
