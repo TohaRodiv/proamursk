@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'applications.contentblocks',
     'applications.sitesettings',
     'applications.notifications',
+    'applications.banrequest',
     'debug_toolbar',
 ]
 
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'applications.sitesettings.middleware.AddSettingsInRequest',
     'applications.sitesettings.middleware.CheckDisableSite',
+    'applications.banrequest.middleware.BanRequestMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
@@ -207,3 +209,19 @@ else:
 COMMON_ERROR_MESSAGE = 'Ошибка сервера, попробуйте повторить попытку позже'
 COMMON_FORM_ERROR_MESSAGE = 'Одно или несколько полей формы содержат ошибки'
 API_ERROR_MESSAGE = 'Ошибка в процессе выполнения запроса к API'
+
+BAN_REQUEST = {
+    'feedback': {
+        'min': {'count': 5, 'minutes': 5, 'check_url': False},
+        'max': {'count': 30, 'minutes': 60, 'check_url': False},
+        'ban_minutes': 300
+    },
+    'place-review': {
+        'min': {'count': 5, 'minutes': 5, 'check_url': False},
+        'max': {'count': 30, 'minutes': 60, 'check_url': False},
+        'ban_minutes': 300
+    }
+
+}
+
+BAN_MESSAGE = 'Превышен лимит запросов, попробуйте повторить попытку позже'

@@ -5,10 +5,12 @@ from django.core.paginator import Paginator, EmptyPage
 from django.http import JsonResponse, Http404
 from django.shortcuts import render
 from django.template.loader import render_to_string
+from django.urls import resolve
 from django.views.decorators.http import require_POST
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
 
+from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
 
@@ -163,10 +165,14 @@ class FilmDetailView(DetailView):
 @require_POST
 def feedback(request):
     if request.is_ajax():
+        current_url = resolve(request.path_info).url_name
+        if not check(request, current_url):
+            return JsonResponse({'status': False, 'message': settings.BAN_MESSAGE})
         form = FeedbackForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return JsonResponse({'status': True, 'message': 'Обращение отправлено, скоро мы с вами свяжемся'})
+        print(form.errors)
         return JsonResponse({'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE})
     else:
         raise Http404
@@ -175,6 +181,9 @@ def feedback(request):
 @require_POST
 def place_review(request):
     if request.is_ajax():
+        current_url = resolve(request.path_info).url_name
+        if not check(request, current_url):
+            return JsonResponse({'status': False, 'message': settings.BAN_MESSAGE})
         form = PlaceReviewForm(request.POST)
         if form.is_valid():
             form.save()
