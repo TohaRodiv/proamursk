@@ -167,7 +167,7 @@ def feedback(request):
         if form.is_valid():
             form.save()
             return JsonResponse({'status': True, 'message': 'Обращение отправлено, скоро мы с вами свяжемся'})
-        return JsonResponse({'status': False, 'message': 'Одно или несколько полей формы содержат ошибки'})
+        return JsonResponse({'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE})
     else:
         raise Http404
 
@@ -180,14 +180,14 @@ def place_review(request):
             form.save()
             return JsonResponse({'status': True,
                                  'message': 'Отзыв отправлен, он появится на сайте после прохождения модерации'})
-        return JsonResponse({'status': False, 'message': 'Одно или несколько полей формы содержат ошибки'})
+        return JsonResponse({'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE})
     else:
         raise Http404
 
 
 @require_POST
 def announcements(request):
-    result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
+    result = {'status': False, 'message': settings.COMMON_ERROR_MESSAGE}
     if request.is_ajax():
         page_number = request.POST.get('page')
         if page_number:
