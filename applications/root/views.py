@@ -339,7 +339,7 @@ def history(request):
                         'status': True,
                         'data': {'last': not page.has_next()},
                         'templates':
-                            {'places': rendered_html.replace('\n', '')}
+                            {'articles': rendered_html.replace('\n', '')}
                     }
         return JsonResponse(result)
 
