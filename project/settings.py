@@ -136,7 +136,6 @@ if DEBUG:
 else:
     MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'uploads')
     STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 REST_FRAMEWORK = {
@@ -222,7 +221,12 @@ BAN_REQUEST = {
         'min': {'count': 5, 'minutes': 5, 'check_url': False},
         'max': {'count': 30, 'minutes': 60, 'check_url': False},
         'ban_minutes': 300
-    }
+    },
+    'api-password-recovery': {
+        'min': {'count': 5, 'minutes': 5, 'check_url': False},
+        'max': {'count': 30, 'minutes': 60, 'check_url': False},
+        'ban_minutes': 300
+    },
 
 }
 
@@ -237,3 +241,14 @@ CORS_ORIGIN_WHITELIST = (
 if DEBUG:
     CORS_ORIGIN_ALLOW_ALL = True
     CORS_ALLOW_CREDENTIALS = True
+
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'no-reply@perfectura.ru'
+EMAIL_HOST_PASSWORD = 'Bq1ty3h7'
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'Photostog <no-reply@perfectura.ru>'
+SERVER_EMAIL = 'no-reply@perfectura.ru'
+EMAIL_SUBJECT_PREFIX = ''
+
