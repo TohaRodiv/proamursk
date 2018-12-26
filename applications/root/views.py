@@ -3,7 +3,8 @@ import json
 from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage
 from django.http import JsonResponse, Http404
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.urls import resolve
 from django.views.decorators.http import require_POST
@@ -13,6 +14,19 @@ from django.utils import timezone
 from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
+
+try:
+    from applications.notifications.tasks import send_notification
+except ImportError:
+    send_notification = None
+    try:
+        from applications.api.tasks import send_email
+    except ImportError:
+        send_email = None
+
+
+def custom_handler404(request, exception):
+    return render(request, 'site/404.html', status=404)
 
 
 class NewsListView(ListView):
@@ -171,8 +185,27 @@ def feedback(request):
         form = FeedbackForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            if send_notification is not None:
+                instance = form.instance
+                template_context = {
+                    'subject': dict(instance.SUBJECTS).get(instance.subject),
+                    'sender_name': instance.name,
+                    'sender_email': instance.email,
+                    'sender_phone': instance.email,
+                    'feedback_content': instance.content,
+                    'feedback_cp_link': '{scheme}:{host}/admin/feedbacks/{id}/'.format(
+                        scheme=request.scheme, host=request.get_host(), id=instance.id
+                    )
+                }
+                if instance.attachment:
+                    template_context['attachment_title'] = instance.attachment.original_name
+                    template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.file.url)
+                try:
+                    send_notification.delay('feedback', template_context=template_context, recipient_sms=[],
+                                            recipient_email=[instance.email])
+                except Exception as e:
+                    pass
             return JsonResponse({'status': True, 'message': 'Обращение отправлено, скоро мы с вами свяжемся'})
-        print(form.errors)
         return JsonResponse({'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE})
     else:
         raise Http404
@@ -187,6 +220,23 @@ def place_review(request):
         form = PlaceReviewForm(request.POST)
         if form.is_valid():
             form.save()
+            if send_notification is not None:
+                instance = form.instance
+                template_context = {
+                    'place': instance.place.title,
+                    'sender_name': instance.name,
+                    'sender_email': instance.email,
+                    'sender_phone': instance.email,
+                    'review_content': instance.content,
+                    'review_cp_link': '{scheme}:{host}/admin/reviews/{id}/'.format(
+                        scheme=request.scheme, host=request.get_host(), id=instance.id
+                    )
+                }
+                try:
+                    send_notification.delay('place_review', template_context=template_context, recipient_sms=[],
+                                            recipient_email=[instance.email])
+                except Exception as e:
+                    pass
             return JsonResponse({'status': True,
                                  'message': 'Отзыв отправлен, он появится на сайте после прохождения модерации'})
         return JsonResponse({'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE})
