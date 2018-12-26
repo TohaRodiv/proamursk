@@ -7,3 +7,5 @@ django-cors-headers==2.4.0
 fabric==2.4.0
 celery==4.2.1
 django-debug-toolbar==1.11
+requests==2.21.0
+requests-toolbelt==0.8.0

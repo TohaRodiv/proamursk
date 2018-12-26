@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'applications.sitesettings',
     'applications.notifications',
     'applications.banrequest',
+    'applications.mailing',
     'debug_toolbar',
 ]
 
