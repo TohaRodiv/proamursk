@@ -29,6 +29,17 @@ def custom_handler404(request, exception):
     return render(request, 'site/404.html', status=404)
 
 
+def test_view(request):
+    content = """Лучшие материалы за месяц
+    {% news 1 %}
+    {% events 25 %}
+    Места боевой славы
+    {% places 1 %}
+    """
+
+    return render(request, template_name='mailing/mailing_template.html', context={'content': content})
+
+
 class NewsListView(ListView):
     model = News
     allow_empty = True

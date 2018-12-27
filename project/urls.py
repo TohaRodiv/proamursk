@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, include, re_path
 from django.views.generic import RedirectView
 
@@ -37,6 +38,7 @@ urlpatterns = [
     path('api/site/history/', root_views.history, name='ajax-history'),
     path('api/mailing/', include('applications.mailing.urls')),
     path('robots.txt', RobotsTxtView.as_view()),
+    path('test/', root_views.test_view),
 ]
 
 if settings.DEBUG:
@@ -44,6 +46,7 @@ if settings.DEBUG:
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
-
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = root_views.custom_handler404
