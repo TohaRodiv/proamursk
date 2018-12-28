@@ -2,8 +2,8 @@ from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 
-from applications.mailing.mailer import MailerApi
-from applications.mailing.models import Subscriber
+from applications.mailing.tasks import create_subscriber
+from . models import Subscriber
 from . forms import SubscribeForm
 
 
@@ -24,6 +24,7 @@ def subscribe(request):
             return JsonResponse({'status': True, 'message': 'Вы успешно восстановили подписку на рассылку'})
         if form.is_valid():
             form.save()
+            create_subscriber.delay(form.instance.id)
             return JsonResponse({'status': True, 'message': 'Вы успешно подписались на рассылку'})
         else:
             return JsonResponse({'status': False, 'message': form.errors['email'][0]})
