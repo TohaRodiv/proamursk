@@ -37,8 +37,7 @@ urlpatterns = [
     path('api/site/places/', root_views.places, name='ajax-places'),
     path('api/site/history/', root_views.history, name='ajax-history'),
     path('api/mailing/', include('applications.mailing.urls')),
-    path('robots.txt', RobotsTxtView.as_view()),
-    path('test/', root_views.test_view),
+    path('robots.txt', RobotsTxtView.as_view())
 ]
 
 if settings.DEBUG:
