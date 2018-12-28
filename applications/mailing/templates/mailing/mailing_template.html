@@ -6,6 +6,8 @@
     <title>{{ subject }}</title>
 </head>
 <body>
-    {{ content | linebreaks | render }}
+    <div style="max-width: 500px; margin: 0 auto">
+        {% autoescape off %}{{ content | linebreaks |  render }}{% endautoescape %}
+    </div>
 </body>
 </html>

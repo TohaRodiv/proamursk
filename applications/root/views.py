@@ -30,11 +30,17 @@ def custom_handler404(request, exception):
 
 
 def test_view(request):
-    content = """Лучшие материалы за месяц
+    content = """<h1>Лучшие материалы за месяц</h1>
+    {% specials 1 %}
+    <p>Узнаем о подводной рыбалке все в подробностях от наших корреспондентов</p>
+    {% separator %}
     {% news 1 %}
+    {% link "https://mail.ru" "Увидеть и умереть!" %} 
     {% events 25 %}
+    {% button "https://mail.ru" "Жми, дружище" %}
     Места боевой славы
     {% places 1 %}
+    {% email "mail@mail.ru" "Написать в редакцию" %}
     """
 
     return render(request, template_name='mailing/mailing_template.html', context={'content': content})

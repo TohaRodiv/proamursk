@@ -193,6 +193,9 @@ MEDIALIB_THUMB_SIZE = {
     'og_image_crop600': (600, 600, 'crop'),
     'og_image_crop1230': (1230, 1230, 'crop'),
 
+    # E-mail рассылки
+    'mailing_article': (1000, 500),  # Все публикации, кроме спецпроектов и киноанонсов
+    'mailing_special': (1000, 1000, 'crop'),  # Спецпроекты
 }
 
 MEDIALIB_JPEG_QUALITY = 70
