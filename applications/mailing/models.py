@@ -16,3 +16,15 @@ class Subscriber(BaseModel, IsActiveMixin):
     def __str__(self):
         return self.email
 
+
+class Campaign(BaseModel):
+    name = models.CharField('Название', max_length=255)
+    content = models.TextField('Содержание письма')
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'Кампания рассылки'
+        verbose_name_plural = 'Кампании рассылки'
+
+    def __str__(self):
+        return self.name

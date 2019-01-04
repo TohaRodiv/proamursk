@@ -7,9 +7,9 @@ from rest_framework.response import Response
 from applications.mailing.tasks import update_subscribers, create_subscriber
 from cp_vue.api.core import cp_api
 from cp_vue.api.views import CpViewSet
-from .filters import SubscribersFilter
-from .serializers import SubscribersSerializer
-from ..models import Subscriber
+from .filters import SubscribersFilter, CampaignsFilter
+from .serializers import SubscribersSerializer, CampaignDetailSerializer, CampaignListSerializer
+from ..models import Subscriber, Campaign
 
 
 class SubscriberCpViewSet(CpViewSet):
@@ -63,4 +63,16 @@ class SubscriberCpViewSet(CpViewSet):
         return Response(data)
 
 
+class CampaignsCpViewSet(CpViewSet):
+    path = 'campaigns'
+    model = Campaign
+    queryset = Campaign.objects.all()
+    available_actions = dict(delete='Удаление')
+    serializer_class = CampaignDetailSerializer
+    list_serializer_class = CampaignListSerializer
+    filter_class = CampaignsFilter
+    ordering_fields = ('id', 'name', 'edit_date', 'create_date')
+
+
 cp_api.register(SubscriberCpViewSet)
+cp_api.register(CampaignsCpViewSet)
