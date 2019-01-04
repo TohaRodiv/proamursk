@@ -2,10 +2,12 @@ from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 
-from applications.mailing.tasks import create_subscriber, update_subscribers
 from . models import Subscriber
 from . forms import SubscribeForm
-
+try:
+    from .tasks import update_subscribers, create_subscriber
+except:
+    pass
 
 @require_POST
 def subscribe(request):

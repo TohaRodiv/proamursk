@@ -4,13 +4,15 @@ from copy import deepcopy
 from rest_framework import status
 from rest_framework.response import Response
 
-from applications.mailing.tasks import update_subscribers, create_subscriber
 from cp_vue.api.core import cp_api
 from cp_vue.api.views import CpViewSet
 from .filters import SubscribersFilter, CampaignsFilter
 from .serializers import SubscribersSerializer, CampaignDetailSerializer, CampaignListSerializer
 from ..models import Subscriber, Campaign
-
+try:
+    from ..tasks import update_subscribers, create_subscriber
+except:
+    pass
 
 class SubscriberCpViewSet(CpViewSet):
     path = 'subscribers'
