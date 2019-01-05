@@ -5,11 +5,13 @@ import filesApiMode from './configs/files/filesConfig'
 
 //Подключаем разделы списков
 import newsList from './configs/publications/lists/news'
+import eventAnnouncementsList from './configs/publications/lists/eventAnnouncements'
 
 //Подключаем разделы инфо-попапов
 
 //Подключаем разделы форм
 import newsForm from './configs/publications/forms/news'
+import eventAnnouncementsForm from './configs/publications/forms/eventAnnouncements'
 
 //Просто пустые значения которые наполнятся ниже
 let state = {};
@@ -19,13 +21,15 @@ let mutations = {};
 //Перечисляем разделы которые надо подключить
 let lists = [
     newsList,
+    eventAnnouncementsList
 ];
 
 let infoPopups = [
 ];
 
 let forms = [
-    newsForm
+    newsForm,
+    eventAnnouncementsForm
 ];
 
 

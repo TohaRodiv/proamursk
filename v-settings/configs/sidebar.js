@@ -10,7 +10,13 @@ const state = {
                     newFormName: 'Новая новость',
                     hasAddButton: true
                 },
-
+                {
+                    name: 'Анонсы событий',
+                    view: 'event-announcements',
+                    formsName: 'Анонс события #',
+                    newFormName: 'Новый анонс события',
+                    hasAddButton: true
+                },
             ]
         },
     ],

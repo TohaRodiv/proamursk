@@ -1,6 +1,6 @@
 const state = {
     columnsConfig: {
-        'news': [
+        'event-announcements': [
             {
                 name: '',
                 type: 'flag',
@@ -39,12 +39,53 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 240,
+                width: 200,
                 codename: 'title',
                 isMain: true,
                 sort: {
                     order_by: 'title'
                 }
+            },
+            {
+                name: 'Место проведения',
+                type: 'comment',
+                is_sortable: false,
+                align_text: 'left',
+                width: 160,
+                codename: 'place',
+                sort: {
+                    order_by: 'place'
+                }
+            },
+            {
+                name: 'Дата проведения',
+                type: 'text',
+                is_sortable: true,
+                align_text: 'left',
+                width: 160,
+                codename: 'event_date_text',
+                sort: {
+                    order_by: 'event_date_text'
+                }
+            },
+            // В API нет поля для связи с репортажем
+            // {
+            //     name: 'Репортаж',
+            //     type: 'link',
+            //     is_sortable: false,
+            //     align_text: 'left',
+            //     width: 120,
+            //     codename: 'reportage',
+            //     sort: 'none'
+            // },
+            {
+                name: 'Формат обложки',
+                type: 'text',
+                is_sortable: false,
+                align_text: 'center',
+                width: 100,
+                codename: 'cover_format',
+                sort: 'none'
             },
             {
                 name: 'Ссылка',
@@ -100,15 +141,41 @@ const state = {
         ]
     },
     actionsConfig: {
-        'news': {
+        'event-announcements': {
             addButton: true,
             activationButtons: true,
             deleteButton: true,
         }
     },
-    additionalListInterfaces: {},
     filterConfig: {
-        'news': [
+        'event-announcements': [
+            {
+                filterTitle: 'Дата начала события',
+                minMaxCodename: 'start_event_date',
+                queryName: {
+                    min: 'start_event_date__gte',
+                    max: 'start_event_date__lte'
+                },
+                input_type: 'toFromDate',
+                type: 'date_time'
+            },
+            {
+                filterTitle: 'Форматы обложек',
+                queryName: 'cover_formats__in',
+                viewValue: 'name',
+                input_type: 'CheckboxList',
+                callbackValue: 'name',
+                values: [
+                    {
+                        codename: 'small',
+                        name: 'Обычная обложка',
+                    },
+                    {
+                        codename: 'full',
+                        name: 'Полноразмерная обложка',
+                    },
+                ]
+            },
             {
                 filterTitle: 'Дата публикации',
                 minMaxCodename: 'publication_date',
@@ -147,19 +214,19 @@ const state = {
                 values: [
                     {
                         id: 2,
-                        name: 'Все новости',
+                        name: 'Все анонсы событий',
                         value: '',
                         checked: true
                     },
                     {
                         id: 1,
-                        name: 'Активные новости',
+                        name: 'Активные анонсы событий',
                         value: 'true',
                         checked: false
                     },
                     {
                         id: 0,
-                        name: 'Неактивные новости',
+                        name: 'Неактивные анонсы событий',
                         value: 'false',
                         checked: false
                     }

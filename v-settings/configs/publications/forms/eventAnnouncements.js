@@ -1,14 +1,14 @@
 
 const state = {
     formsOptions: {
-        news: [
+        'event-announcements': [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
                 blocks: [
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom24',
                         direction: 'row',
                         elements: [
                             {
@@ -25,16 +25,16 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom50',
+                        modClass: 'marginBottom24',
                         direction: 'row',
                         elements: [
                             {
-                                type: 'mask-datetime',
-                                label: 'Дата и время публикации',
+                                type: 'field',
+                                label: 'Название места проведения',
                                 required: true,
                                 invalid: true,
-                                width: 4,
-                                codename: 'publication_date',
+                                width: 12,
+                                codename: 'place',
                                 widget: 'simpleInput',
                                 hint: ''
                             }
@@ -42,8 +42,81 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
+                        modClass: 'marginBottom48',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        elements: [
+                            {
+                                label: 'Точка на карте',
+                                required: false,
+                                invalid: false,
+                                width: 12,
+                                codename: 'coordinates',
+                                widget: 'geoinput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom24',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Дата проведения<br>(для отображения на сайте)',
+                                required: true,
+                                invalid: true,
+                                width: 4,
+                                codename: 'event_date_text',
+                                widget: 'simpleInput',
+                                hint: ''
+                            },
+                            {
+                                type: 'mask-datetime',
+                                label: 'Дата начала<br>(для сортировки на сайте)',
+                                required: true,
+                                invalid: true,
+                                width: 4,
+                                codename: 'start_event_date',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        direction: 'column',
+                        modClass: 'marginBottom48',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Формат обложки<br>(представление в сетке)',
+                                codename: 'cover_format',
+                                has_borders: true,
+                                required: true,
+                                invalid: false,
+                                hasLabel: true,
+                                widget: 'radioButtons',
+                                hint: '',
+                                values: [
+                                    {
+                                        label: 'Обычная обложка',
+                                        flag: true,
+                                        codename: 'small'
+                                    },
+                                    {
+                                        label: 'Полноформатная обложка',
+                                        flag: false,
+                                        codename: 'full'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        modClass: 'marginBottom24',
                         elements: [
                             {
                                 type: 'field',
@@ -51,7 +124,7 @@ const state = {
                                 required: false,
                                 invalid: false,
                                 width: 12,
-                                height: 58,
+                                height: 60,
                                 codename: 'comment',
                                 widget: 'textarea',
                                 hint: ''
@@ -79,7 +152,7 @@ const state = {
                 blocks: [
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom24',
                         direction: 'row',
                         elements: [
                             {
@@ -88,10 +161,10 @@ const state = {
                                 required: true,
                                 invalid: true,
                                 width: 12,
-                                height: 58,
+                                height: 60,
                                 codename: 'lead',
                                 widget: 'textarea',
-                                modClass: 'marginBottom22',
+                                modClass: 'marginBottom24',
                                 hint: ''
                             }
                         ]
@@ -126,8 +199,8 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                inputID: 'newsCoverInput',
-                                dragID: 'newsCoverDrag',
+                                inputID: 'eventAnnouncementsCoverInput',
+                                dragID: 'eventAnnouncementsCoverDrag',
                                 label: 'Обложка',
                                 expected_value: 'medium_url',
                                 required: true,
@@ -139,7 +212,7 @@ const state = {
                                 },
                                 codename: 'cover',
                                 widget: 'singleImageLoader',
-                                modClass: 'marginBottom22',
+                                modClass: 'marginBottom24',
                                 requireSendId: true,
                                 key_attr: 'id',
                                 hint: ''
@@ -156,7 +229,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom20',
+                        modClass: 'marginBottom24',
                         elements: [
                             {
                                 type: 'field',
@@ -173,7 +246,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom20',
+                        modClass: 'marginBottom24',
                         elements: [
                             {
                                 type: 'field',
@@ -189,7 +262,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom20',
+                        modClass: 'marginBottom24',
                         direction: 'row',
                         elements: [
                             {
@@ -210,8 +283,8 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                inputID: 'newsCoverInputOG',
-                                dragID: 'newsCoverDragOG',
+                                inputID: 'eventAnnouncementsCoverInputOG',
+                                dragID: 'eventAnnouncementsCoverDragOG',
                                 label: 'Обложка для социальных сетей (og:image)',
                                 expected_value: 'medium_url',
                                 required: false,
