@@ -1,0 +1,287 @@
+.formatter-wrapper
+    border: 1px solid transparent
+
+
+
+.formatter-wrapper-full-screen
+    position: fixed
+    top: 65px
+    left: 240px
+    width: calc(100% - 240px - 20px)
+    height: calc(100% - 65px - 56px)
+    border: 1px solid #eaf3f9
+    background-color: #fff
+    border-radius: 5px
+    z-index: 30
+
+
+
+.formatter-block_full-screen
+    position: absolute !important
+    top: 30px !important
+    left: 30px !important
+    width: calc(100% - 60px) !important
+    height: calc(100% - 60px) !important
+
+    & .formatter-workspace
+        height: calc(100% - 40px - 84px) !important
+
+
+
+
+
+.formatter-code
+    height: calc(100%) !important
+    font-family: "Ubuntu Mono"
+    font-weight: 400
+    -webkit-font-smoothing: unset
+
+
+
+
+
+.formatter-block
+    border-radius: 5px
+
+
+
+
+//toolbar
+.formatter-toolbar
+    background-color: $child-ent-quantify-bkgr1
+
+    border-top-left-radius: 5px !important
+    border-top-right-radius: 5px !important
+    //overflow: hidden
+
+
+.formatter-toolbar__line
+    &:first-child
+        border-bottom: 1px solid $additional-color-4
+
+
+
+
+.formatter-content
+    border: 1px solid $additional-color-4
+
+
+
+
+//.formatter-toolbar__button
+//    box-shadow: none !important
+
+
+
+
+.formatter-toolbar__button_font-color
+    &:before
+        left: 4px
+
+    &:after
+        left: 7px
+
+
+
+
+.formatter-toolbar__button_background-color
+    &:before
+        left: 4px
+
+    &:after
+        left: 7px
+
+
+
+
+
+//selector
+.formatter-toolbar__select
+    width: 219px !important
+    height: 30px !important
+    border-radius: 2px
+
+
+
+
+.formatter-toolbar__button-wrapper
+    overflow: visible
+
+
+
+
+//.formatter-toolbar__button_click-active
+//    box-shadow: 0 0 5px 0 rgba(35, 41, 46, 0.2)
+
+
+
+
+
+
+
+.formatter-toolbar__select-text
+    font-size: 13px
+
+
+
+.formatter-toolbar__select-arrow
+    box-shadow: none !important
+    border-left-color: #e1e1e1
+
+
+
+.formatter-variants__item
+    height: 28px
+    font-size: 13px
+
+
+
+.formatter-variants__item_active
+    color: $blue-button-color !important
+    background-color: $hint-color !important
+
+
+
+.formatter-variants__item:hover
+    color: $blue-button-color !important
+    background-color: $hint-color !important
+
+
+
+
+
+.formatter-footer
+    background-color: $child-ent-quantify-bkgr1
+
+    border-bottom-left-radius: 5px !important
+    border-bottom-right-radius: 5px !important
+
+.formatter-footer__cursor-path-item
+    font-size: 13px
+
+
+
+
+
+//formatter_popup
+.formatter-popup
+    border-radius: 2px
+
+
+
+.formatter-popup__label
+    font-weight: 400
+
+
+
+.formatter-color-picker
+    display: flex
+    flex-wrap: wrap
+    width: 210px !important
+
+
+
+
+.formatter-color-picker__item
+    margin-left: 0 !important
+    margin-bottom: 0 !important
+
+
+
+
+.formatter-popup__input-line
+    display: flex
+
+
+
+.formatter-popup__input
+    font-size: 13px !important
+    border-radius: 4px !important
+
+
+
+.formatter-popup-buttons
+    border-top: 1px solid $additional-color-4
+
+
+
+.formatter-popup-buttons__button
+    font-family: "Source Sans Pro"
+    font-size: 13px
+
+    &:hover
+        text-decoration: none
+
+
+
+.formatter-popup-buttons__button_apply
+    color: $blue-button-color
+    transition: color linear .2s
+
+    &:hover
+        color: $dark-blue
+
+
+
+
+.formatter-popup-buttons__button_cancel
+    color: $cancel-button-color
+    transition: color linear .2s
+
+    &:hover
+        color: $dark-red
+
+
+
+
+.formatter-popup__label
+    font-size: 13px
+    width: 80px !important
+
+
+
+
+#target
+    margin-top: 20px
+
+
+
+.formatter-popup_link,
+.formatter-popup_font-color,
+.formatter-popup_footnote,
+.formatter-special-chars-wrapper,
+.formatter-popup_background-color,
+.formatter-variants
+    box-shadow: 0 5px 10px 0 rgba(35, 41, 46, 0.2)
+
+
+
+
+//special symbols
+.formatter-special-chars-wrapper
+    border-radius: 2px
+    padding: 11px
+
+
+
+
+.formatter-special-char
+    &:hover
+        color: $blue-button-color
+        background-color: $hint-color
+
+
+
+
+//buttons
+
+.formatter-toolbar__button_full-screen,
+.formatter-toolbar__button_edit-code,
+.formatter-toolbar__button_show-blocks
+    box-shadow: none !important
+
+
+
+
+
+

@@ -1,0 +1,106 @@
+.geo-wrapper
+    min-height: 35px
+    width: 100%
+    background-color: #fff
+    border: 1px solid $input-innactive-border-color
+    border-radius: 4px
+    transition: border .2s, box-shadow linear .2s
+
+
+
+
+.geo-selector-icon
+    position: absolute
+    top: 0
+    right: 2px
+    width: 50px
+    height: 31px
+    margin-top: 1px
+    border: none !important
+    color: $main-color-innactive-bright
+    z-index: 5
+    background-color: #fff
+    cursor: default
+    transition: color linear .2s
+
+    &:before
+        position: absolute
+        right: 8px
+        top: 10px
+        font-size: 16px
+
+
+
+
+.geo-selector-icon-opened
+    color: $blue-button-color
+    cursor: pointer
+
+    &:hover
+        color: $dark-blue !important
+
+
+
+
+.geo-selector-arrow-bright
+    color: $main-text-color
+
+
+
+
+.geo-map-container
+    height: 300px
+    width: 690px
+    margin-left: auto
+    margin-right: auto
+    margin-top: 10px
+
+
+
+
+.geo-dropwdown
+    border: 1px solid $input-innactive-border-color
+    padding: 0 15px
+    border-radius: 5px
+    max-height: 185px
+    overflow-y: auto
+    background-color: $child-ent-quantify-bkgr1
+
+
+
+
+.geo-selector-item
+    display: flex
+    align-items: center
+    padding: 0
+    height: 35px
+
+    &:hover
+        color: $blue-button-color
+
+
+
+
+.geo-selector-picked-container
+    display: flex
+    width: 100%
+    height: 33px
+    padding: 8px 8px 9px 8px
+    font-size: 14px
+    color: $main-text-color
+
+    & > span
+        font-size: 14px
+
+    &:after
+        content: ''
+        position: absolute
+        right: 40px
+        top: 1px
+        width: 30px
+        height: 33px
+        background: -moz-linear-gradient(left, rgba(255, 255, 255, 0.26), #fff 100%)
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.26), #fff 100%)
+        background: -o-linear-gradient(left, rgba(255, 255, 255, 0.26), #fff 100%)
+        background: -ms-linear-gradient(left, rgba(255, 255, 255, 0.26), #fff 100%)
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.26), #fff 100%)
