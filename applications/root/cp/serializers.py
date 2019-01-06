@@ -44,7 +44,8 @@ class ReportsNestedSerializer(ModelSerializer):
 class EventsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
-    report = ObjectRelatedField(queryset=Report.objects.all(), serializer_class=ReportsNestedSerializer)
+    report = ObjectRelatedField(queryset=Report.objects.all(), serializer_class=ReportsNestedSerializer,
+                                allow_null=True)
 
     class Meta:
         model = Event
@@ -58,12 +59,14 @@ class EventsListSerializer(ModelSerializer):
 class EventsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
+    report = ObjectRelatedField(queryset=Report.objects.all(), serializer_class=ReportsNestedSerializer,
+                                allow_null=True)
 
     class Meta:
         model = Event
         fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
                   'cover_format', 'cover_format_name', 'comment', 'content', 'publication_date', 'create_date',
-                  'edit_date', 'is_active')
+                  'report', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
