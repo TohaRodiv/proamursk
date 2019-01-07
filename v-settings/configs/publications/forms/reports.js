@@ -99,6 +99,16 @@ const state = {
                                 codename: 'event_date_text',
                                 widget: 'simpleInput',
                                 hint: ''
+                            },
+                            {
+                                type: 'mask-datetime',
+                                label: 'Дата начала<br>(для сортировки на сайте)',
+                                required: true,
+                                invalid: true,
+                                width: 4,
+                                codename: 'start_event_date',
+                                widget: 'simpleInput',
+                                hint: ''
                             }
                         ]
                     },
