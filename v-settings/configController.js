@@ -13,6 +13,7 @@ import reportsList from './configs/publications/lists/reports'
 //Подключаем разделы форм
 import newsForm from './configs/publications/forms/news'
 import eventAnnouncementsForm from './configs/publications/forms/eventAnnouncements'
+import reportsForm from './configs/publications/forms/reports'
 
 //Просто пустые значения которые наполнятся ниже
 let state = {};
@@ -31,7 +32,8 @@ let infoPopups = [
 
 let forms = [
     newsForm,
-    eventAnnouncementsForm
+    eventAnnouncementsForm,
+    reportsForm
 ];
 
 
