@@ -6,6 +6,7 @@ import filesApiMode from './configs/files/filesConfig'
 //Подключаем разделы списков
 import newsList from './configs/publications/lists/news'
 import eventAnnouncementsList from './configs/publications/lists/eventAnnouncements'
+import reportsList from './configs/publications/lists/reports'
 
 //Подключаем разделы инфо-попапов
 
@@ -21,7 +22,8 @@ let mutations = {};
 //Перечисляем разделы которые надо подключить
 let lists = [
     newsList,
-    eventAnnouncementsList
+    eventAnnouncementsList,
+    reportsList
 ];
 
 let infoPopups = [

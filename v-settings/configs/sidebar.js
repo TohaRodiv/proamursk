@@ -17,6 +17,13 @@ const state = {
                     newFormName: 'Новый анонс события',
                     hasAddButton: true
                 },
+                {
+                    name: 'Репортажи о событиях',
+                    view: 'reports',
+                    formsName: 'Репортаж о событии #',
+                    newFormName: 'Новый репортаж о событии',
+                    hasAddButton: true
+                },
             ]
         },
     ],
