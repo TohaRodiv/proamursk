@@ -23,3 +23,6 @@ npm-debug.log
 *.pyc
 *.python-version
 *.pkl
+
+package-lock.json
+.vscode
