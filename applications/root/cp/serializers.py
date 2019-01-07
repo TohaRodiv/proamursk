@@ -81,7 +81,7 @@ class EventsNestedSerializer(ModelSerializer):
 class ReportsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
-    event = ObjectRelatedField(queryset=Event.objects.all(), serializer_class=EventsNestedSerializer, allow_null=True)
+    event = ObjectRelatedField(serializer_class=EventsNestedSerializer, read_only=True)
 
     class Meta:
         model = Report
@@ -95,7 +95,8 @@ class ReportsListSerializer(ModelSerializer):
 class ReportsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
-    event = ObjectRelatedField(queryset=Event.objects.all(), serializer_class=EventsNestedSerializer, allow_null=True)
+    event = ObjectRelatedField(queryset=Event.objects.all(), serializer_class=EventsNestedSerializer, allow_null=True,
+                               required=False)
 
     class Meta:
         model = Report
