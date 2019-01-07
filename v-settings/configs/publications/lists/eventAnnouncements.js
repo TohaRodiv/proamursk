@@ -39,7 +39,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 200,
+                width: 300,
                 codename: 'title',
                 isMain: true,
                 sort: {
@@ -51,7 +51,7 @@ const state = {
                 type: 'text',
                 is_sortable: false,
                 align_text: 'left',
-                width: 160,
+                width: 240,
                 codename: 'place',
                 sort: {
                     order_by: 'place'
@@ -62,7 +62,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 160,
+                width: 180,
                 codename: 'event_date_text',
                 sort: {
                     order_by: 'event_date_text'
@@ -82,7 +82,7 @@ const state = {
                 type: 'text',
                 is_sortable: false,
                 align_text: 'center',
-                width: 100,
+                width: 160,
                 codename: 'cover_format_name',
                 sort: 'none'
             },
