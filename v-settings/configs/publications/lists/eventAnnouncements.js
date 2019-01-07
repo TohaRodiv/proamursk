@@ -74,7 +74,7 @@ const state = {
                 is_sortable: false,
                 align_text: 'left',
                 width: 120,
-                codename: 'report.site_link',
+                codename: 'report.site_url',
                 sort: 'none'
             },
             {
