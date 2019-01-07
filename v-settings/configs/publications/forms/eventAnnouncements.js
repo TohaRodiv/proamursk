@@ -8,7 +8,7 @@ const state = {
                 blocks: [
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {
@@ -25,7 +25,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {
@@ -42,7 +42,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom48',
+                        modClass: 'marginBottom50',
                         direction: 'row',
                         elements: [
                             {
@@ -58,7 +58,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {
@@ -86,7 +86,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'column',
-                        modClass: 'marginBottom48',
+                        modClass: 'marginBottom50',
                         elements: [
                             {
                                 type: 'field',
@@ -115,7 +115,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',
@@ -151,7 +151,7 @@ const state = {
                 blocks: [
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {
@@ -163,7 +163,7 @@ const state = {
                                 height: 60,
                                 codename: 'lead',
                                 widget: 'textarea',
-                                modClass: 'marginBottom24',
+                                modClass: 'marginBottom22',
                                 hint: ''
                             }
                         ]
@@ -211,7 +211,6 @@ const state = {
                                 },
                                 codename: 'cover',
                                 widget: 'singleImageLoader',
-                                modClass: 'marginBottom24',
                                 requireSendId: true,
                                 key_attr: 'id',
                                 hint: ''
@@ -228,7 +227,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',
@@ -245,7 +244,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',
@@ -261,7 +260,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {
