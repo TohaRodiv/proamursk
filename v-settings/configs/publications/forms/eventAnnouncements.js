@@ -95,7 +95,6 @@ const state = {
                                 has_borders: true,
                                 required: true,
                                 invalid: false,
-                                hasLabel: true,
                                 widget: 'radioButtons',
                                 hint: '',
                                 values: [
@@ -307,7 +306,7 @@ const state = {
         ],
     },
     activeFlag: {
-        news: {
+        'event-announcements': {
             title: 'Активная запись',
             hint: 'Страницы неактивных записей не отображаются на сайте',
         }
