@@ -31,6 +31,58 @@ const state = {
                     newFormName: 'Новый киноанонс',
                     hasAddButton: true
                 },
+                {
+                    name: 'Исторические статьи',
+                    view: 'history',
+                    formsName: 'Историческая статья #',
+                    newFormName: 'Новая историческая статья',
+                    hasAddButton: true
+                },
+            ]
+        },
+        {
+            name: 'Информирование',
+            'sub-headers': [
+                {
+                    name: 'Шаблоны уведомлений',
+                    view: 'notification-templates',
+                    formsName: 'Шаблон уведомлений #',
+                    newFormName: 'Новый шаблон уведомлений',
+                    hasAddButton: true
+                },
+                {
+                    name: 'Получатели уведомлений',
+                    view: 'recipients',
+                    formsName: 'Получатель уведомлений #',
+                    newFormName: 'Новый получатель уведомлений',
+                    hasAddButton: true
+                },
+                {
+                    name: 'События для уведомлений',
+                    view: 'events',
+                    formsName: 'Событие для уведомления #',
+                    newFormName: 'Новое событие для уведомления',
+                    hasAddButton: true
+                },
+            ]
+        },
+        {
+            name: 'Учетные записи',
+            'sub-headers': [
+                {
+                    name: 'Пользователи',
+                    view: 'users',
+                    formsName: 'Пользователь #',
+                    newFormName: 'Новый пользователь',
+                    hasAddButton: true
+                },
+                {
+                    name: 'Роли',
+                    view: 'user-roles',
+                    formsName: 'Роль #',
+                    newFormName: 'Новая роль',
+                    hasAddButton: true
+                },
             ]
         },
     ],

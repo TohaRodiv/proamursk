@@ -8,6 +8,12 @@ import newsList from './configs/publications/lists/news'
 import eventAnnouncementsList from './configs/publications/lists/eventAnnouncements'
 import reportsList from './configs/publications/lists/reports'
 import filmsList from './configs/publications/lists/films'
+import historyList from './configs/publications/lists/history'
+import userList from './configs/administration/lists/users'
+import rolesList from './configs/administration/lists/roles'
+import notificationTemplateList from './configs/informing/lists/notificationTemplates'
+import recipientsList from './configs/informing/lists/recipients'
+import eventList from './configs/informing/lists/events'
 
 //Подключаем разделы инфо-попапов
 
@@ -16,6 +22,12 @@ import newsForm from './configs/publications/forms/news'
 import eventAnnouncementsForm from './configs/publications/forms/eventAnnouncements'
 import reportsForm from './configs/publications/forms/reports'
 import filmsForm from './configs/publications/forms/films'
+import historyForm from './configs/publications/forms/history'
+import usersForm from './configs/administration/forms/users'
+import rolesForm from './configs/administration/forms/roles'
+import notificationTemplateForm from './configs/informing/forms/notificationTemplates'
+import recipientsForm from './configs/informing/forms/recipients'
+import eventsForm from './configs/informing/forms/events'
 
 //Просто пустые значения которые наполнятся ниже
 let state = {};
@@ -27,7 +39,13 @@ let lists = [
     newsList,
     eventAnnouncementsList,
     reportsList,
-    filmsList
+    filmsList,
+    historyList,
+    userList,
+    rolesList,
+    notificationTemplateList,
+    recipientsList,
+    eventList
 ];
 
 let infoPopups = [
@@ -37,7 +55,13 @@ let forms = [
     newsForm,
     eventAnnouncementsForm,
     reportsForm,
-    filmsForm
+    filmsForm,
+    historyForm,
+    usersForm,
+    rolesForm,
+    notificationTemplateForm,
+    recipientsForm,
+    eventsForm
 ];
 
 
