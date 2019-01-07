@@ -123,7 +123,8 @@ const state = {
                                 codename: 'cover_format',
                                 has_borders: true,
                                 required: true,
-                                invalid: false,
+                                invalid: true,
+                                hasLabel: true,
                                 widget: 'radioButtons',
                                 hint: '',
                                 values: [

@@ -278,48 +278,29 @@ const state = {
                 title: 'РАСПИСАНИЕ СЕАНСОВ',
                 blocks: [
                     {
-                        labelPosition: 'left',
-                        direction: 'row',
                         elements: [
                             {
+                                // FIXME: настроить отображение label
+                                // FIXME: добавить margin-bottom после row
                                 codename: 'sessions',
                                 widget: 'simpleChildEntity',
                                 hint: '',
                                 label: 'Сеансы',
+                                modClass: 'marginBottom22',
                                 type: 'field',
-                                fields: [
+                                rows: [
                                     {
-                                        labelPosition: 'top',
-                                        direction: 'row',
-                                        modClass: 'marginBottom22',
-                                        elements: [
-                                            {
-                                                type: 'field',
-                                                label: 'Дата и время начала сеанса',
-                                                required: true,
-                                                invalid: true,
-                                                codename: 'session_time',
-                                                widget: 'simpleInput',
-                                                hint: ''
-                                            }
-                                        ]
+                                        type: 'mask-datetime',
+                                        widget: 'simpleInput',
+                                        codename: 'sessions.session_time',
+                                        width: 5,
                                     },
                                     {
-                                        labelPosition: 'top',
-                                        direction: 'row',
-                                        modClass: 'marginBottom22',
-                                        elements: [
-                                            {
-                                                type: 'field',
-                                                label: 'Стоимость билета, ₽',
-                                                required: true,
-                                                invalid: true,
-                                                codename: 'price',
-                                                widget: 'simpleInput',
-                                                hint: ''
-                                            }
-                                        ]
-                                    },
+                                        type: 'price',
+                                        widget: 'simpleInput',
+                                        codename: 'sessions.price',
+                                        width: 4
+                                    }
                                 ]
                             },
                         ]
