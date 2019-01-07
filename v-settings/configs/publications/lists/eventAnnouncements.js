@@ -48,7 +48,7 @@ const state = {
             },
             {
                 name: 'Место проведения',
-                type: 'comment',
+                type: 'text',
                 is_sortable: false,
                 align_text: 'left',
                 width: 160,
@@ -68,23 +68,22 @@ const state = {
                     order_by: 'event_date_text'
                 }
             },
-            // В API нет поля для связи с репортажем
-            // {
-            //     name: 'Репортаж',
-            //     type: 'link',
-            //     is_sortable: false,
-            //     align_text: 'left',
-            //     width: 120,
-            //     codename: 'reportage',
-            //     sort: 'none'
-            // },
+            {
+                name: 'Репортаж',
+                type: 'link',
+                is_sortable: false,
+                align_text: 'left',
+                width: 120,
+                codename: 'report.site_link',
+                sort: 'none'
+            },
             {
                 name: 'Формат обложки',
                 type: 'text',
                 is_sortable: false,
                 align_text: 'center',
                 width: 100,
-                codename: 'cover_format',
+                codename: 'cover_format_name',
                 sort: 'none'
             },
             {
