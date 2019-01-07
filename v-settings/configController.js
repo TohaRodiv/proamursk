@@ -7,6 +7,7 @@ import filesApiMode from './configs/files/filesConfig'
 import newsList from './configs/publications/lists/news'
 import eventAnnouncementsList from './configs/publications/lists/eventAnnouncements'
 import reportsList from './configs/publications/lists/reports'
+import filmsList from './configs/publications/lists/films'
 
 //Подключаем разделы инфо-попапов
 
@@ -14,6 +15,7 @@ import reportsList from './configs/publications/lists/reports'
 import newsForm from './configs/publications/forms/news'
 import eventAnnouncementsForm from './configs/publications/forms/eventAnnouncements'
 import reportsForm from './configs/publications/forms/reports'
+import filmsForm from './configs/publications/forms/films'
 
 //Просто пустые значения которые наполнятся ниже
 let state = {};
@@ -24,7 +26,8 @@ let mutations = {};
 let lists = [
     newsList,
     eventAnnouncementsList,
-    reportsList
+    reportsList,
+    filmsList
 ];
 
 let infoPopups = [
@@ -33,7 +36,8 @@ let infoPopups = [
 let forms = [
     newsForm,
     eventAnnouncementsForm,
-    reportsForm
+    reportsForm,
+    filmsForm
 ];
 
 

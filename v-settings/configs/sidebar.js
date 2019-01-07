@@ -24,6 +24,13 @@ const state = {
                     newFormName: 'Новый репортаж о событии',
                     hasAddButton: true
                 },
+                {
+                    name: 'Киноанонсы',
+                    view: 'films',
+                    formsName: 'Киноанонс #',
+                    newFormName: 'Новый киноанонс',
+                    hasAddButton: true
+                },
             ]
         },
     ],
