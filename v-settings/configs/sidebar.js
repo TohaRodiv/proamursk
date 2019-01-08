@@ -48,6 +48,18 @@ const state = {
             ]
         },
         {
+            name: 'Сопутствующий контент',
+            'sub-headers': [
+                {
+                    name: 'Слайдеры',
+                    view: 'sliders',
+                    formsName: 'Слайдер #',
+                    newFormName: 'Новый слайдер',
+                    hasAddButton: true
+                }
+            ]
+        },
+        {
             name: 'Информирование',
             'sub-headers': [
                 {

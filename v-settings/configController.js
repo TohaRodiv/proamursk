@@ -10,6 +10,7 @@ import reportsList from './configs/publications/lists/reports'
 import filmsList from './configs/publications/lists/films'
 import historyList from './configs/publications/lists/history'
 import cityGuidesList from './configs/publications/lists/cityGuides'
+import slidersList from './configs/companionContent/lists/sliders'
 import userList from './configs/administration/lists/users'
 import rolesList from './configs/administration/lists/roles'
 import notificationTemplateList from './configs/informing/lists/notificationTemplates'
@@ -25,6 +26,7 @@ import reportsForm from './configs/publications/forms/reports'
 import filmsForm from './configs/publications/forms/films'
 import historyForm from './configs/publications/forms/history'
 import cityGuidesForm from './configs/publications/forms/cityGuides'
+import slidersForm from './configs/companionContent/forms/sliders'
 import usersForm from './configs/administration/forms/users'
 import rolesForm from './configs/administration/forms/roles'
 import notificationTemplateForm from './configs/informing/forms/notificationTemplates'
@@ -48,7 +50,8 @@ let lists = [
     notificationTemplateList,
     recipientsList,
     eventList,
-    cityGuidesList
+    cityGuidesList,
+    slidersList
 ];
 
 let infoPopups = [
@@ -65,7 +68,8 @@ let forms = [
     notificationTemplateForm,
     recipientsForm,
     eventsForm,
-    cityGuidesForm
+    cityGuidesForm,
+    slidersForm
 ];
 
 
