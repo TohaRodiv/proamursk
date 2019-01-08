@@ -254,7 +254,7 @@ const state = {
                                 label: 'Обложка',
                                 expected_value: 'medium_url',
                                 required: true,
-                                invalid: true,
+                                invalid: false,
                                 width: 6,
                                 image: {
                                     width: 616,
