@@ -8,7 +8,7 @@ from applications.mailing.models import Subscriber
 from applications.sitesettings.models import Settings
 
 
-if Settings.objects.exists() and Settings.objects.first().mailerlite_api_key:
+if Settings.objects.exists() and Settings.objects.first().mailer_lite_api_key:
     API_KEY = Settings.objects.first().mailer_lite_api_key
 else:
     API_KEY = None
