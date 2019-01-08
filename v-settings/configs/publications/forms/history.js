@@ -46,12 +46,12 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
+                                type: 'mask-datetime',
                                 label: 'Дата и время публикации',
                                 required: true,
                                 invalid: true,
                                 width: 4,
-                                codename: 'event_date_text',
+                                codename: 'publication_date',
                                 widget: 'simpleInput',
                                 hint: ''
                             }
