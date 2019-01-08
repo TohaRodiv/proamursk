@@ -202,12 +202,10 @@
     import blockedInput from './widgets/BlockedInput.vue'
     import formatter from './widgets/Formatter.vue'
     import geoinput from './widgets/GeoInput.vue'
-    import simpleInput from './widgets/simpleInput.vue'
 
     source.components.blockedInput = blockedInput;
     source.components.formatter = formatter;
     source.components.geoinput = geoinput;
-    source.components.simpleInput = simpleInput;
 
     export default source
 </script>
