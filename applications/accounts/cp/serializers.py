@@ -59,7 +59,7 @@ class UserNestedSerializer(ModelSerializer):
 
     def get_avatar(self, instance):
         return {
-            'min_crop_url': instance.avatar.get_thumbnail_url_by_name('avatar_mini')
+            'min_crop_url': instance.avatar.get_thumbnail_url_by_name('sap_min_crop')
         } if instance.avatar else {}
 
 
