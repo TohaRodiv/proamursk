@@ -191,20 +191,17 @@ const state = {
                         ]
                     },
                     {
-                        // TODO: заменить виджет textarea на визуальный редактор текста
                         labelPosition: 'left',
                         direction: 'row',
                         modClass: 'marginBottom50',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Описание',
-                                required:  true,
+                                required: true,
                                 invalid: true,
-                                widget: 'textarea',
+                                widget: 'formatter',
                                 codename: 'description',
                                 width: 12,
-                                height: 200,
                                 hint: ''
                             }
                         ]
@@ -280,26 +277,29 @@ const state = {
                     {
                         elements: [
                             {
-                                // FIXME: настроить отображение label
-                                // FIXME: добавить margin-bottom после row
                                 codename: 'sessions',
                                 widget: 'simpleChildEntity',
                                 hint: '',
                                 label: 'Сеансы',
                                 modClass: 'marginBottom22',
                                 type: 'field',
+                                gotHeaders: true,
                                 rows: [
                                     {
                                         type: 'mask-datetime',
                                         widget: 'simpleInput',
-                                        codename: 'sessions.session_time',
+                                        codename: 'session_time',
                                         width: 5,
+                                        text: 'Дата и время начала сеанса',
+                                        required: true
                                     },
                                     {
                                         type: 'price',
                                         widget: 'simpleInput',
-                                        codename: 'sessions.price',
-                                        width: 4
+                                        codename: 'price',
+                                        width: 4,
+                                        text: 'Стоимость билета, ₽',
+                                        required: true
                                     }
                                 ]
                             },

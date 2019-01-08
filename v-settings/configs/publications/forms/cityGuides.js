@@ -69,7 +69,6 @@ const state = {
                                 has_borders: true,
                                 required: true,
                                 invalid: true,
-                                hasLabel: true,
                                 widget: 'radioButtons',
                                 hint: '',
                                 values: [
@@ -142,21 +141,20 @@ const state = {
                                 hint: ''
                             }
                         ]
+
                     },
                     {
-                        // TODO: заменить виджет textarea на визуальный редактор текста
                         labelPosition: 'left',
                         direction: 'row',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
-                                type: 'field',
                                 label: '',
                                 required: false,
                                 invalid: false,
-                                widget: 'textarea',
+                                widget: 'formatter',
                                 codename: 'content',
                                 width: 12,
-                                height: 200,
                                 hint: ''
                             }
                         ]

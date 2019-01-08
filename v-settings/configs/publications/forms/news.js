@@ -97,19 +97,16 @@ const state = {
                         ]
                     },
                     {
-                        // TODO: заменить виджет textarea на визуальный редактор текста
                         labelPosition: 'left',
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: '',
                                 required: false,
                                 invalid: false,
-                                widget: 'textarea',
+                                widget: 'formatter',
                                 codename: 'content',
                                 width: 12,
-                                height: 200,
                                 hint: ''
                             }
                         ]
