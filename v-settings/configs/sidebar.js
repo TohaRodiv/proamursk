@@ -38,6 +38,13 @@ const state = {
                     newFormName: 'Новая историческая статья',
                     hasAddButton: true
                 },
+                {
+                    name: 'Гиды по городу',
+                    view: 'city-guides',
+                    formsName: 'Гид по городу #',
+                    newFormName: 'Новый гид по городу',
+                    hasAddButton: true
+                },
             ]
         },
         {

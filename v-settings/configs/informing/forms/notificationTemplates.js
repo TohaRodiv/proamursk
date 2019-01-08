@@ -58,6 +58,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
+                        modClass: 'marginBottom28',
                         elements: [
                             {
                                 type: 'field',
@@ -188,7 +189,7 @@ const state = {
                         elements: [
                             {
                                 type: 'header',
-                                label: 'Получатели уведомлений',
+                                label: 'Кто будет получать уведомления?',
                                 size: 'first',
                                 required: false,
                                 invalid: false,
@@ -258,7 +259,7 @@ const state = {
                         elements: [
                             {
                                 type: 'shortTag',
-                                label: 'Получатели',
+                                label: 'Получатели уведомлений',
                                 required: false,
                                 width: 6,
                                 codename: 'recipients',
@@ -283,7 +284,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom50',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',

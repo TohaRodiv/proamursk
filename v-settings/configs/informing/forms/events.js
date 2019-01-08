@@ -225,6 +225,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',

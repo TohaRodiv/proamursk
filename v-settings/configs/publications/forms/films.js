@@ -212,7 +212,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',
@@ -315,7 +315,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',
@@ -332,7 +332,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',
@@ -348,7 +348,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom24',
+                        modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {
