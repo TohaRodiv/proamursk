@@ -52,7 +52,7 @@ const state = {
                 is_sortable: false,
                 align_text: 'left',
                 width: 120,
-                codename: 'site_url',
+                codename: 'link',
                 sort: 'none'
             },
             {
