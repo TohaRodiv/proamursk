@@ -23,7 +23,19 @@ const state = {
                                 hint: '',
                             },
                         ]
-                    }
+                    },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        elements: [
+                            {
+                                required: false,
+                                invalid: false,
+                                widget: 'rightsWidget',
+                                codename: 'permissions',
+                            },
+                        ]
+                    },
                 ]
             },
         ],
