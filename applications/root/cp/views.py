@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from copy import deepcopy
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.tokens import default_token_generator
@@ -6,7 +7,7 @@ from django.conf.urls import url
 from django.db.models import Count, F
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
-from rest_framework import permissions
+from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -146,6 +147,17 @@ class SidebarBannerCpViewSet(CpViewSet):
     # filter_class = None
     ordering_fields = ('id', 'title', 'edit_date', 'create_date')
 
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        obj = deepcopy(instance)
+        self.perform_destroy(instance)
+        self.write_log('delete', request.user, obj)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def delete_action(self, qs, data):
+        qs.delete()
+        return Response(status=200)
+
 
 class WideBannerCpViewSet(CpViewSet):
     path = 'wide-banners'
@@ -155,6 +167,17 @@ class WideBannerCpViewSet(CpViewSet):
     serializer_class = WideBannerSerializer
     # filter_class = None
     ordering_fields = ('id', 'title', 'edit_date', 'create_date')
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        obj = deepcopy(instance)
+        self.perform_destroy(instance)
+        self.write_log('delete', request.user, obj)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def delete_action(self, qs, data):
+        qs.delete()
+        return Response(status=200)
 
 
 class PlaceReviewsCpViewSet(CpViewSet):
@@ -177,6 +200,17 @@ class SlidersCpViewSet(CpViewSet):
     list_serializer_class = SlidersListSerializer
     filter_class = SlidersFilter
     ordering_fields = ('id', 'title', 'slides_count', 'create_date', 'edit_date')
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        obj = deepcopy(instance)
+        self.perform_destroy(instance)
+        self.write_log('delete', request.user, obj)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def delete_action(self, qs, data):
+        qs.delete()
+        return Response(status=200)
 
 
 class FeedbackCpViewSet(CpViewSet):
