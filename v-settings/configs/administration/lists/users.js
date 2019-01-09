@@ -18,7 +18,7 @@ const state = {
                 align_text: 'left',
                 width: 120,
                 fixed: true,
-                codename: 'avatar.min_url',
+                codename: 'avatar.min_crop_url',
                 sort: 'none'
             },
             {
