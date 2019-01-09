@@ -60,6 +60,25 @@ const state = {
             ]
         },
         {
+            name: 'Реклама',
+            'sub-headers': [
+                {
+                    name: 'Баннеры-растяжки',
+                    view: 'wide-banners',
+                    formsName: 'Баннер-растяжка #',
+                    newFormName: 'Новый баннер-растяжка',
+                    hasAddButton: true
+                },
+                {
+                    name: 'Баннеры для сайдбара',
+                    view: 'sidebar-banners',
+                    formsName: 'Баннер для сайдабара #',
+                    newFormName: 'Новый баннер для сайдбара',
+                    hasAddButton: true
+                }
+            ]
+        },
+        {
             name: 'Информирование',
             'sub-headers': [
                 {

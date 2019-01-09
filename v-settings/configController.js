@@ -11,6 +11,8 @@ import filmsList from './configs/publications/lists/films'
 import historyList from './configs/publications/lists/history'
 import cityGuidesList from './configs/publications/lists/cityGuides'
 import slidersList from './configs/companionContent/lists/sliders'
+import wideBannersList from './configs/ad/lists/wideBanners'
+import sidebarBannersList from './configs/ad/lists/sidebarBanners'
 import userList from './configs/administration/lists/users'
 import rolesList from './configs/administration/lists/roles'
 import notificationTemplateList from './configs/informing/lists/notificationTemplates'
@@ -27,6 +29,8 @@ import filmsForm from './configs/publications/forms/films'
 import historyForm from './configs/publications/forms/history'
 import cityGuidesForm from './configs/publications/forms/cityGuides'
 import slidersForm from './configs/companionContent/forms/sliders'
+import wideBannersForm from './configs/ad/forms/wideBanners'
+import sidebarBannersForm from './configs/ad/forms/sidebarBanners'
 import usersForm from './configs/administration/forms/users'
 import rolesForm from './configs/administration/forms/roles'
 import notificationTemplateForm from './configs/informing/forms/notificationTemplates'
@@ -45,13 +49,15 @@ let lists = [
     reportsList,
     filmsList,
     historyList,
+    cityGuidesList,
+    slidersList,
+    wideBannersList,
+    sidebarBannersList,
     userList,
     rolesList,
     notificationTemplateList,
     recipientsList,
     eventList,
-    cityGuidesList,
-    slidersList
 ];
 
 let infoPopups = [
@@ -63,15 +69,16 @@ let forms = [
     reportsForm,
     filmsForm,
     historyForm,
+    cityGuidesForm,
+    slidersForm,
+    wideBannersForm,
+    sidebarBannersForm,
     usersForm,
     rolesForm,
     notificationTemplateForm,
     recipientsForm,
     eventsForm,
-    cityGuidesForm,
-    slidersForm
 ];
-
 
 
 //Циклом собираем разделы из конфигов массивов выше
