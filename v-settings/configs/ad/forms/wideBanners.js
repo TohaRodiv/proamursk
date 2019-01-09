@@ -1,7 +1,7 @@
 
 const state = {
     formsOptions: {
-        news: [
+        'wide-banners': [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -135,7 +135,7 @@ const state = {
         ],
     },
     activeFlag: {
-        news: {
+        'wide-banners': {
             title: 'Активный баннер',
             hint: 'Неактивные баннеры не отображаются на сайте',
         }

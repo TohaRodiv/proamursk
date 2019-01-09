@@ -35,6 +35,18 @@ const state = {
                 }
             },
             {
+                name: 'Название',
+                type: 'text',
+                is_sortable: true,
+                align_text: 'left',
+                width: 300,
+                codename: 'title',
+                isMain: true,
+                sort: {
+                    order_by: 'title'
+                }
+            },
+            {
                 name: 'Ссылка',
                 type: 'link',
                 is_sortable: false,
