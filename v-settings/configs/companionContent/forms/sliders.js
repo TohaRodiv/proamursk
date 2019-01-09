@@ -207,20 +207,19 @@ const state = {
                                 required: false,
                                 invalid: false,
                                 isDraggable: true,
-                                codename: 'format',
+                                codename: 'slides',
                                 widget: 'childEntity',
-                                api_route: 'sliders',
                                 modClass: 'marginBottom40',
                                 requireSendId: true,
                                 hint: '',
                                 entity_structure: [
                                     {
                                         type: 'image',
-                                        codename: 'cover.medium_url'
+                                        requiredValue: 'cover.medium_url'
                                     },
                                     {
-                                        type: 'text',
-                                        codename: 'description'
+                                        type: 'field',
+                                        requiredValue: 'description'
                                     }
                                 ],
                                 popup_structure: [
@@ -288,9 +287,14 @@ const state = {
                                 ],
                                 rows: [
                                     {
-                                        width: 8,
-                                        codename: 'text',
-                                        widget: 'textField',
+                                        width: 2,
+                                        codename: 'cover.medium_url',
+                                        widget: 'image',
+                                    },
+                                    {
+                                        width: 4,
+                                        codename: 'description',
+                                        widget: 'field',
                                     },
                                 ]
                             },
