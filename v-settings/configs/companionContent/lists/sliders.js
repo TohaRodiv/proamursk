@@ -31,7 +31,7 @@ const state = {
                 type: 'text',
                 is_sortable: false,
                 align_text: 'left',
-                width: 160,
+                width: 240,
                 codename: 'format_name',
                 sort: 'none'
             },
