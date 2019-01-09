@@ -123,6 +123,19 @@ const state = {
                 },
             ]
         },
+        {
+            name: 'Настройки',
+            'sub-headers': [
+                {
+                    name: 'Общие настройки сервиса',
+                    view: 'settings',
+                    formsName: 'Общие настройки сервиса',
+                    newFormName: 'Общие настройки сервиса',
+                    hasAddButton: false,
+                    onlyForm: true
+                },
+            ]
+        },
     ],
 };
 

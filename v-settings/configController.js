@@ -36,6 +36,7 @@ import rolesForm from './configs/administration/forms/roles'
 import notificationTemplateForm from './configs/informing/forms/notificationTemplates'
 import recipientsForm from './configs/informing/forms/recipients'
 import eventsForm from './configs/informing/forms/events'
+import settingsForm from './configs/settings/forms/settings'
 
 //Просто пустые значения которые наполнятся ниже
 let state = {};
@@ -78,6 +79,7 @@ let forms = [
     notificationTemplateForm,
     recipientsForm,
     eventsForm,
+    settingsForm
 ];
 
 
