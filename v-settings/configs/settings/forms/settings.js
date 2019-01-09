@@ -19,7 +19,7 @@ const state = {
                                 required: true,
                                 invalid: false,
                                 height: 56,
-                                width: 8,
+                                width: 12,
                                 codename: 'mailer_lite_api_key',
                                 widget: 'simpleInput',
                                 hint: ''
@@ -37,7 +37,7 @@ const state = {
                                 required: true,
                                 invalid: false,
                                 height: 56,
-                                width: 8,
+                                width: 10,
                                 codename: 'instagram',
                                 widget: 'simpleInput',
                                 hint: ''
@@ -55,7 +55,7 @@ const state = {
                                 required: true,
                                 invalid: false,
                                 height: 56,
-                                width: 8,
+                                width: 10,
                                 codename: 'odnoklassniki',
                                 widget: 'simpleInput',
                                 hint: ''
