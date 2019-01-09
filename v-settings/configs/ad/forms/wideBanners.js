@@ -115,7 +115,7 @@ const state = {
                                 label: 'Баннер',
                                 expected_value: 'medium_url',
                                 required: true,
-                                invalid: true,
+                                invalid: false,
                                 width: 12,
                                 image: {
                                     width: 2596,
