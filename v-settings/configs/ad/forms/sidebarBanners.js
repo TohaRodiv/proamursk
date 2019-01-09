@@ -116,7 +116,7 @@ const state = {
                                 expected_value: 'medium_url',
                                 required: true,
                                 invalid: true,
-                                width: 12,
+                                width: 6,
                                 image: {
                                     width: 748,
                                     height: 858,
