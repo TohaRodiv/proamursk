@@ -161,7 +161,6 @@ class PasswordChangeAPIView(APIView):
         return urlpatterns
 
 
-
 class LogoutAPIView(APIView):
 
     def post(self, request):
@@ -196,28 +195,6 @@ class UsersCpViewSet(CpViewSet):
             queryset = queryset.filter(is_superuser=False)
 
         return queryset
-
-    def perform_create(self, serializer, token_generator=default_token_generator):
-        serializer.save()
-        user = serializer.instance
-        if send_notification is not None:
-            notification_context = {
-                'user_name': user.first_name,
-                'user_company': user.company.name,
-                'user_email': user.email,
-                'password_recovery_link': '%s://%s/%s/%s/%s/' % (self.request.scheme, self.request.get_host(),
-                                                                 'password-change',
-                                                                 urlsafe_base64_encode(force_bytes(user.pk)).decode(),
-                                                                 token_generator.make_token(user))
-            }
-            if send_notification:
-                try:
-                    send_notification.delay('create_user',
-                                            template_context=notification_context,
-                                            recipient_email=[user.email],
-                                            recipient_sms=[])
-                except Exception as e:
-                    pass
 
 
 cp_api.register(UsersCpViewSet)
