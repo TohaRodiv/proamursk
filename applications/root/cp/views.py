@@ -25,7 +25,8 @@ from .serializers import (NewsListSerializer, NewsDetailSerializer, EventsListSe
                           PlaceReviewsListSerializer, PlaceReviewsDetailSerializer, SlidersDetailSerializer,
                           SlidersListSerializer, FeedbackDetailSerializer, FeedbackListSerializer)
 from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
-    PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter, FeedbackFilter
+    PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter, FeedbackFilter, SidebarBannersFilter, \
+    WideBannersFilter
 from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner, \
     PlaceReview, Slider, Feedback
 
@@ -144,8 +145,8 @@ class SidebarBannerCpViewSet(CpViewSet):
     queryset = SidebarBanner.objects.all()
     available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
     serializer_class = SidebarBannerSerializer
-    # filter_class = None
-    ordering_fields = ('id', 'title', 'edit_date', 'create_date')
+    filter_class = SidebarBannersFilter
+    ordering_fields = ('id', 'title', 'start_publication_date', 'end_publication_date', 'edit_date', 'create_date')
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -165,8 +166,8 @@ class WideBannerCpViewSet(CpViewSet):
     queryset = WideBanner.objects.all()
     available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
     serializer_class = WideBannerSerializer
-    # filter_class = None
-    ordering_fields = ('id', 'title', 'edit_date', 'create_date')
+    filter_class = WideBannersFilter
+    ordering_fields = ('id', 'title', 'start_publication_date', 'end_publication_date', 'edit_date', 'create_date')
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()

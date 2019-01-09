@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview, Slider, \
-    Feedback
+    Feedback, SidebarBanner, WideBanner
 from cp_vue.api.filters import NumberInFilter, CharInFilter, SearchFilter
 from cp_vue.api.filterset import APIFilterSet
 from django_filters import rest_framework as filters
@@ -170,3 +170,30 @@ class FeedbackFilter(APIFilterSet):
             'create_date': ['gte', 'lte']
         }
 
+
+class SidebarBannersFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['title', 'link', 'comment'])
+    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+
+    class Meta:
+        model = SidebarBanner
+        fields = {
+            'start_publication_date': ['gte', 'lte'],
+            'end_publication_date': ['gte', 'lte'],
+            'create_date': ['gte', 'lte'],
+            'edit_date': ['gte', 'lte']
+        }
+
+
+class WideBannersFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['title', 'link', 'comment'])
+    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+
+    class Meta:
+        model = WideBanner
+        fields = {
+            'start_publication_date': ['gte', 'lte'],
+            'end_publication_date': ['gte', 'lte'],
+            'create_date': ['gte', 'lte'],
+            'edit_date': ['gte', 'lte']
+        }
