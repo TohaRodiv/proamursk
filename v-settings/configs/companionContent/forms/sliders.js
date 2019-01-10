@@ -102,7 +102,9 @@ const state = {
                                 entity_structure: [
                                     {
                                         type: 'image',
-                                        requiredValue: 'cover.medium_url'
+                                        requiredValue: 'cover.medium_url',
+                                        height: '100px',
+                                        width: 'auto'
                                     },
                                     {
                                         type: 'field',
@@ -215,7 +217,9 @@ const state = {
                                 entity_structure: [
                                     {
                                         type: 'image',
-                                        requiredValue: 'cover.medium_url'
+                                        requiredValue: 'cover.medium_url',
+                                        height: '100px',
+                                        width: 'auto'
                                     },
                                     {
                                         type: 'field',
