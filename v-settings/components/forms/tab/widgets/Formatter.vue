@@ -109,7 +109,8 @@
 
         watch: {
             'text': function () {
-                this.value = this.text;
+                if (typeof this.text !== 'undefined')
+                    this.value = this.text;
             },
 
             'value': function () {
@@ -123,7 +124,7 @@
 
         mounted() {
             const callMe = () => {
-                if (this.loadStatus.mainData && typeof (this.text) !== 'undefined') {
+                if (this.loadStatus.mainData) {
                     const el = document.getElementById('formatter');
                     new Formatter(el, {toolbar: [
                             ['bold', 'italic', 'strikeThrough', 'underline', '|', 'insertUnorderedList','insertOrderedList', '|', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', '|', 'link', 'specialChar', 'footnote'],
