@@ -39,6 +39,13 @@ const state = {
                     hasAddButton: true
                 },
                 {
+                    name: 'Cтатьи о людях',
+                    view: 'persons',
+                    formsName: 'Cтатья о людях #',
+                    newFormName: 'Новая статья о людях',
+                    hasAddButton: true
+                },
+                {
                     name: 'Гиды по городу',
                     view: 'city-guides',
                     formsName: 'Гид по городу #',
