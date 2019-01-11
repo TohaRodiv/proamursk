@@ -199,11 +199,9 @@
 
 <script>
     import source from '../../../../cp_vue/frontend/vue/components/workzone/forms/Tab.vue'
-    import blockedInput from './widgets/BlockedInput.vue'
     import formatter from './widgets/Formatter.vue'
     import geoinput from './widgets/GeoInput.vue'
 
-    source.components.blockedInput = blockedInput;
     source.components.formatter = formatter;
     source.components.geoinput = geoinput;
 
