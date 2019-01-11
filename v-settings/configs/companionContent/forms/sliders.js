@@ -111,7 +111,7 @@ const state = {
                                         width: 'auto'
                                     },
                                     {
-                                        type: 'field',
+                                        type: 'text',
                                         requiredValue: 'description',
                                         flex: 1
                                     }
@@ -223,7 +223,7 @@ const state = {
                                         width: 'auto'
                                     },
                                     {
-                                        type: 'field',
+                                        type: 'text',
                                         requiredValue: 'description',
                                         flex: 1
                                     }
