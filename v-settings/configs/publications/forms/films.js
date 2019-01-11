@@ -29,7 +29,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'float',
+                                type: 'autocomplete',
+                                autoCompleteConfig: {
+                                    type: 'float',
+                                },
                                 label: 'Год выпуска',
                                 required: true,
                                 invalid: true,
@@ -46,7 +49,7 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
+                                type: 'autocomplete',
                                 label: 'Страна',
                                 required: true,
                                 invalid: true,
@@ -80,7 +83,7 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
+                                type: 'autocomplete',
                                 label: 'Режиссер',
                                 required: true,
                                 invalid: true,
