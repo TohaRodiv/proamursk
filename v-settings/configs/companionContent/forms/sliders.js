@@ -71,7 +71,11 @@ const state = {
                                         value: 'name',
                                         flex: 1.5
                                     },
-                                ]
+                                ],
+                                blockedCondition: {
+                                    type: 'isEmpty',
+                                    flag: 'slides'
+                                }
                             },
                             
                         ]
@@ -108,14 +112,13 @@ const state = {
                                     },
                                     {
                                         type: 'field',
-                                        requiredValue: 'description'
+                                        requiredValue: 'description',
+                                        flex: 1
                                     }
                                 ],
                                 popup_structure: [
                                     {
                                         id: 1,
-                                        // label: 'Свойство товара',
-                                        // clearFlags: ['isVar'],
                                         blocks: [
                                             {
                                                 labelPosition: 'top',
@@ -178,12 +181,10 @@ const state = {
                                 ],
                                 rows: [
                                     {
-                                        width: 2,
                                         codename: 'cover.medium_url',
                                         widget: 'image',
                                     },
                                     {
-                                        width: 4,
                                         codename: 'description',
                                         widget: 'field',
                                     },
@@ -223,7 +224,8 @@ const state = {
                                     },
                                     {
                                         type: 'field',
-                                        requiredValue: 'description'
+                                        requiredValue: 'description',
+                                        flex: 1
                                     }
                                 ],
                                 popup_structure: [
@@ -291,12 +293,10 @@ const state = {
                                 ],
                                 rows: [
                                     {
-                                        width: 2,
                                         codename: 'cover.medium_url',
                                         widget: 'image',
                                     },
                                     {
-                                        width: 4,
                                         codename: 'description',
                                         widget: 'field',
                                     },
