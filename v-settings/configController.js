@@ -9,6 +9,7 @@ import eventAnnouncementsList from './configs/publications/lists/eventAnnounceme
 import reportsList from './configs/publications/lists/reports'
 import filmsList from './configs/publications/lists/films'
 import historyList from './configs/publications/lists/history'
+import placesList from './configs/publications/lists/places'
 import personsList from './configs/publications/lists/persons'
 import cityGuidesList from './configs/publications/lists/cityGuides'
 import slidersList from './configs/companionContent/lists/sliders'
@@ -28,6 +29,7 @@ import eventAnnouncementsForm from './configs/publications/forms/eventAnnounceme
 import reportsForm from './configs/publications/forms/reports'
 import filmsForm from './configs/publications/forms/films'
 import historyForm from './configs/publications/forms/history'
+import placesForm from './configs/publications/forms/places'
 import personsForm from './configs/publications/forms/persons'
 import cityGuidesForm from './configs/publications/forms/cityGuides'
 import slidersForm from './configs/companionContent/forms/sliders'
@@ -52,6 +54,7 @@ let lists = [
     reportsList,
     filmsList,
     historyList,
+    placesList,
     personsList,
     cityGuidesList,
     slidersList,
@@ -73,6 +76,7 @@ let forms = [
     reportsForm,
     filmsForm,
     historyForm,
+    placesForm,
     personsForm,
     cityGuidesForm,
     slidersForm,
