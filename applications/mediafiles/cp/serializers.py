@@ -43,6 +43,9 @@ class ImageNestedSerializer(ModelSerializer):
 
 class ImageListSerializer(ModelSerializer):
     original_url = serializers.SerializerMethodField(read_only=True)
+    min_url = serializers.SerializerMethodField(read_only=True)
+    medium_url = serializers.SerializerMethodField(read_only=True)
+    large_url = serializers.SerializerMethodField(read_only=True)
     min_crop_url = serializers.SerializerMethodField(read_only=True)
     medium_crop_url = serializers.SerializerMethodField(read_only=True)
     size = serializers.SerializerMethodField(read_only=True)
@@ -53,10 +56,20 @@ class ImageListSerializer(ModelSerializer):
     class Meta:
         model = MediaFile
         fields = ('id', 'name', 'width', 'height', 'size', 'extension', 'tags', 'thumbnails_size',
-                  'original_url', 'min_crop_url', 'medium_crop_url', 'create_date')
+                  'original_url', 'min_url', 'medium_url', 'large_url', 'min_crop_url', 'medium_crop_url',
+                  'create_date')
 
     def get_original_url(self, instance):
         return instance.file.url
+
+    def get_min_url(self, instance):
+        return instance.get_thumbnail_url_by_name('sap_min')
+
+    def get_medium_url(self, instance):
+        return instance.get_thumbnail_url_by_name('sap_medium')
+
+    def get_large_url(self, instance):
+        return instance.get_thumbnail_url_by_name('sap_large')
 
     def get_min_crop_url(self, instance):
         return instance.get_thumbnail_url_by_name('sap_min_crop')
