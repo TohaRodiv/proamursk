@@ -119,6 +119,23 @@ const state = {
             ]
         },
         {
+            name: 'Обратная связь',
+            'sub-headers': [
+                {
+                    name: 'Обращения в редакцию',
+                    view: 'feedbacks',
+                    hasAddButton: false
+                },
+                {
+                    name: 'Отзывы о местах',
+                    view: 'reviews',
+                    formsName: 'Отзыв о месте #',
+                    newFormName: 'Новый отзыв о месте',
+                    hasAddButton: true
+                },
+            ]
+        },
+        {
             name: 'Учетные записи',
             'sub-headers': [
                 {

@@ -29,6 +29,23 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
+                                label: 'Заголовок',
+                                required: true,
+                                invalid: true,
+                                width: 12,
+                                codename: 'title',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
                                 label: 'Подзаголовок',
                                 required: true,
                                 invalid: true,
@@ -147,128 +164,14 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                label: 'Содержание',
+                                label: 'Текст отзыва',
                                 required: false,
                                 invalid: false,
                                 widget: 'formatter',
-                                codename: 'content',
+                                codename: 'text',
                                 width: 12,
                                 hint: ''
                             }
-                        ]
-                    },
-                ]
-            },
-            {
-                id: 3,
-                title: 'ИЗОБРАЖЕНИЯ',
-                blocks: [
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                inputID: 'personsCoverInput',
-                                dragID: 'personsCoverDrag',
-                                label: 'Обложка',
-                                expected_value: 'medium_url',
-                                required: true,
-                                invalid: true,
-                                width: 12,
-                                image: {
-                                    width: 1716,
-                                    height: 858,
-                                },
-                                codename: 'cover',
-                                widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: ''
-                            },
-                        ]
-                    },
-                ]
-            },
-            {
-                id: 4,
-                title: 'SEO и OG',
-                invalid: false,
-                blocks: [
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginBottom20',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Заголовок страницы (title/ og:title)',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                codename: 'meta_title',
-                                widget: 'simpleInput',
-                                hint: ''
-                            },
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginBottom20',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Описание страницы<br>(description / og:description)',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                codename: 'meta_description',
-                                widget: 'textarea',
-                                hint: ''
-                            },
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom20',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Ключевые слова, через запятую (keywords)',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                codename: 'meta_keywords',
-                                widget: 'textarea',
-                                hint: ''
-                            },
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                inputID: 'personsCoverInputOG',
-                                dragID: 'personsCoverDragOG',
-                                label: 'Обложка для социальных сетей (og:image)',
-                                expected_value: 'medium_url',
-                                required: false,
-                                width: 12,
-                                image: {
-                                    width: 1200,
-                                    height: 630,
-                                },
-
-                                codename: 'og_image',
-                                widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: ''
-                            },
                         ]
                     },
                 ]

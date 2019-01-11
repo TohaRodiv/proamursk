@@ -20,8 +20,12 @@ import rolesList from './configs/administration/lists/roles'
 import notificationTemplateList from './configs/informing/lists/notificationTemplates'
 import recipientsList from './configs/informing/lists/recipients'
 import eventList from './configs/informing/lists/events'
+import feedbacksList from './configs/feedback/lists/feedbacks'
+import reviewsList from './configs/feedback/lists/reviews'
+
 
 //Подключаем разделы инфо-попапов
+import feedbacksPopup from './configs/feedback/info-popups/feedbacks'
 
 //Подключаем разделы форм
 import newsForm from './configs/publications/forms/news'
@@ -41,6 +45,7 @@ import notificationTemplateForm from './configs/informing/forms/notificationTemp
 import recipientsForm from './configs/informing/forms/recipients'
 import eventsForm from './configs/informing/forms/events'
 import settingsForm from './configs/settings/forms/settings'
+import reviewsForm from './configs/feedback/forms/reviews'
 
 //Просто пустые значения которые наполнятся ниже
 let state = {};
@@ -65,9 +70,12 @@ let lists = [
     notificationTemplateList,
     recipientsList,
     eventList,
+    feedbacksList,
+    reviewsList
 ];
 
 let infoPopups = [
+    feedbacksPopup
 ];
 
 let forms = [
@@ -87,7 +95,8 @@ let forms = [
     notificationTemplateForm,
     recipientsForm,
     eventsForm,
-    settingsForm
+    settingsForm,
+    reviewsForm
 ];
 
 
