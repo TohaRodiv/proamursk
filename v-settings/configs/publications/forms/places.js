@@ -1,7 +1,7 @@
 
 const state = {
     formsOptions: {
-        reports: [
+        'places': [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -30,24 +30,12 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Анонс события',
-                                expected_value: 'id',
-                                required: false,
-                                width: 8,
-                                codename: 'event',
-                                widget: 'singleSelector',
-                                invalid: false,
-                                api_route: 'event-announcements',
-                                sortFlag: {
-                                    value: 'title',
-                                    direction: 'asc'
-                                },
-                                view_structure: [
-                                    {
-                                        value: 'title',
-                                        flex: 1.5,
-                                    },
-                                ],
+                                label: 'Подзаголовок',
+                                required: true,
+                                invalid: true,
+                                width: 12,
+                                codename: 'descriptor',
+                                widget: 'simpleInput',
                                 hint: ''
                             }
                         ]
@@ -57,56 +45,13 @@ const state = {
                         modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
-                            {
-                                type: 'field',
-                                label: 'Название места проведения',
-                                required: true,
-                                invalid: true,
-                                width: 12,
-                                codename: 'place',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom50',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Точка на карте',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                codename: 'coordinates',
-                                widget: 'geoinput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Дата проведения<br>(для отображения на сайте)',
-                                required: true,
-                                invalid: true,
-                                width: 4,
-                                codename: 'event_date_text',
-                                widget: 'simpleInput',
-                                hint: ''
-                            },
                             {
                                 type: 'mask-datetime',
-                                label: 'Дата начала<br>(для сортировки на сайте)',
+                                label: 'Дата и время публикации',
                                 required: true,
                                 invalid: true,
                                 width: 4,
-                                codename: 'start_event_date',
+                                codename: 'publication_date',
                                 widget: 'simpleInput',
                                 hint: ''
                             }
@@ -115,18 +60,18 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'column',
-                        modClass: 'marginBottom50',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',
                                 label: 'Формат обложки<br>(представление в сетке)',
                                 codename: 'cover_format',
+                                width: 6,
                                 has_borders: true,
                                 required: true,
                                 invalid: true,
                                 widget: 'radioButtons',
                                 hint: '',
-                                width: 6,
                                 values: [
                                     {
                                         label: 'Обычная обложка',
@@ -139,6 +84,57 @@ const state = {
                                         codename: 'full'
                                     }
                                 ]
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        modClass: 'marginBottom22',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Адрес, отображаемый на сайте',
+                                required: true,
+                                invalid: false,
+                                width: 8,
+                                codename: 'address',
+                                widget: 'simpleInput',
+                                hint: ''
+                            },
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom21',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: 'Точка на карте',
+                                required: false,
+                                invalid: false,
+                                widget: 'geoinput',
+                                codename: 'coordinates',
+                                width: 12,
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        modClass: 'marginBottom50',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Режим работы',
+                                required: false,
+                                invalid: false,
+                                width: 12,
+                                height: 60,
+                                codename: 'schedule',
+                                widget: 'textarea',
+                                hint: ''
                             }
                         ]
                     },
@@ -193,13 +189,16 @@ const state = {
                                 height: 60,
                                 codename: 'lead',
                                 widget: 'textarea',
+                                modClass: 'marginBottom22',
                                 hint: ''
                             }
                         ]
+
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 label: '',
@@ -224,8 +223,8 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                inputID: 'reportsCoverInput',
-                                dragID: 'reportsCoverDrag',
+                                inputID: 'cityGuidesCoverInput',
+                                dragID: 'cityGuidesCoverDrag',
                                 label: 'Обложка',
                                 expected_value: 'medium_url',
                                 required: true,
@@ -307,8 +306,8 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                inputID: 'reportsCoverInputOG',
-                                dragID: 'reportsCoverDragOG',
+                                inputID: 'cityGuidesCoverInputOG',
+                                dragID: 'cityGuidesCoverDragOG',
                                 label: 'Обложка для социальных сетей (og:image)',
                                 expected_value: 'medium_url',
                                 required: false,
@@ -331,7 +330,7 @@ const state = {
         ],
     },
     activeFlag: {
-        reports: {
+        'places': {
             title: 'Активная запись',
             hint: 'Страницы неактивных записей не отображаются на сайте',
         }

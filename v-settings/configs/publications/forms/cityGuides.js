@@ -71,6 +71,7 @@ const state = {
                                 invalid: true,
                                 widget: 'radioButtons',
                                 hint: '',
+                                width: 6,
                                 values: [
                                     {
                                         label: 'Обычная обложка',

@@ -206,11 +206,16 @@ class PlacesListSerializer(ModelSerializer):
 class PlacesDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
 
     class Meta:
         model = Place
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
-                  'address', 'coordinates', 'comment', 'publication_date', 'create_date', 'edit_date', 'is_active')
+                  'address', 'coordinates', 'schedule', 'comment', 'publication_date', 'meta_title', 'meta_description',
+                  'meta_keywords', 'og_image', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)

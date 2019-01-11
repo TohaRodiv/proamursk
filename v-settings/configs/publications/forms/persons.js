@@ -1,7 +1,6 @@
-
 const state = {
     formsOptions: {
-        reports: [
+        persons: [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -30,40 +29,11 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Анонс события',
-                                expected_value: 'id',
-                                required: false,
-                                width: 8,
-                                codename: 'event',
-                                widget: 'singleSelector',
-                                invalid: false,
-                                api_route: 'event-announcements',
-                                sortFlag: {
-                                    value: 'title',
-                                    direction: 'asc'
-                                },
-                                view_structure: [
-                                    {
-                                        value: 'title',
-                                        flex: 1.5,
-                                    },
-                                ],
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Название места проведения',
+                                label: 'Подзаголовок',
                                 required: true,
                                 invalid: true,
                                 width: 12,
-                                codename: 'place',
+                                codename: 'descriptor',
                                 widget: 'simpleInput',
                                 hint: ''
                             }
@@ -75,38 +45,12 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                label: 'Точка на карте',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                codename: 'coordinates',
-                                widget: 'geoinput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Дата проведения<br>(для отображения на сайте)',
-                                required: true,
-                                invalid: true,
-                                width: 4,
-                                codename: 'event_date_text',
-                                widget: 'simpleInput',
-                                hint: ''
-                            },
-                            {
                                 type: 'mask-datetime',
-                                label: 'Дата начала<br>(для сортировки на сайте)',
+                                label: 'Дата и время публикации',
                                 required: true,
                                 invalid: true,
                                 width: 4,
-                                codename: 'start_event_date',
+                                codename: 'publication_date',
                                 widget: 'simpleInput',
                                 hint: ''
                             }
@@ -126,7 +70,6 @@ const state = {
                                 invalid: true,
                                 widget: 'radioButtons',
                                 hint: '',
-                                width: 6,
                                 values: [
                                     {
                                         label: 'Обычная обложка',
@@ -153,7 +96,7 @@ const state = {
                                 required: false,
                                 invalid: false,
                                 width: 12,
-                                height: 60,
+                                height: 58,
                                 codename: 'comment',
                                 widget: 'textarea',
                                 hint: ''
@@ -190,9 +133,10 @@ const state = {
                                 required: true,
                                 invalid: true,
                                 width: 12,
-                                height: 60,
+                                height: 58,
                                 codename: 'lead',
                                 widget: 'textarea',
+                                modClass: 'marginBottom22',
                                 hint: ''
                             }
                         ]
@@ -202,7 +146,7 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                label: '',
+                                label: 'Содержание',
                                 required: false,
                                 invalid: false,
                                 widget: 'formatter',
@@ -224,8 +168,8 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                inputID: 'reportsCoverInput',
-                                dragID: 'reportsCoverDrag',
+                                inputID: 'personsCoverInput',
+                                dragID: 'personsCoverDrag',
                                 label: 'Обложка',
                                 expected_value: 'medium_url',
                                 required: true,
@@ -253,7 +197,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',
@@ -270,7 +214,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',
@@ -286,7 +230,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -307,8 +251,8 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                inputID: 'reportsCoverInputOG',
-                                dragID: 'reportsCoverDragOG',
+                                inputID: 'personsCoverInputOG',
+                                dragID: 'personsCoverDragOG',
                                 label: 'Обложка для социальных сетей (og:image)',
                                 expected_value: 'medium_url',
                                 required: false,
@@ -331,7 +275,7 @@ const state = {
         ],
     },
     activeFlag: {
-        reports: {
+        persons: {
             title: 'Активная запись',
             hint: 'Страницы неактивных записей не отображаются на сайте',
         }
