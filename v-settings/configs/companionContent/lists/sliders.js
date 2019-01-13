@@ -99,7 +99,7 @@ const state = {
     filterConfig: {
         'sliders': [
             {
-                filterTitle: 'Форматы слайдеров',
+                filterTitle: 'Формат слайдера',
                 queryName: 'formats__in',
                 viewValue: 'name',
                 input_type: 'CheckboxList',
@@ -107,11 +107,11 @@ const state = {
                 values: [
                     {
                         codename: 'format_3x2',
-                        name: 'Формат 3х2',
+                        name: 'Горизонтальный / 3:2',
                     },
                     {
                         codename: 'format_2x1',
-                        name: 'Формат 2х1',
+                        name: 'Горизонтальный / 2:1',
                     },
                 ]
             },
