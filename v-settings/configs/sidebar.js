@@ -174,6 +174,16 @@ const state = {
             ]
         },
         {
+            name: 'Журнал операций',
+            'sub-headers': [
+                {
+                    name: 'Поведение пользователей',
+                    view: 'operation-log',
+                    hasAddButton: false,
+                },
+            ]
+        },
+        {
             name: 'Настройки',
             'sub-headers': [
                 {
