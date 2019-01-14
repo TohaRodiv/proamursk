@@ -142,7 +142,7 @@ const state = {
         ],
     },
     activeFlag: {
-        persons: {
+        reviews: {
             title: 'Активная запись',
             hint: 'Страницы неактивных записей не отображаются на сайте',
         }
