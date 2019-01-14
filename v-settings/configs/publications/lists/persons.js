@@ -47,6 +47,15 @@ const state = {
                 }
             },
             {
+                name: 'Формат обложки',
+                type: 'text',
+                is_sortable: false,
+                align_text: 'center',
+                width: 160,
+                codename: 'cover_format_name',
+                sort: 'none'
+            },
+            {
                 name: 'Ссылка',
                 type: 'link',
                 is_sortable: false,
