@@ -29,10 +29,7 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'autocomplete',
-                                autoCompleteConfig: {
-                                    type: 'float',
-                                },
+                                type: 'float',
                                 label: 'Год выпуска',
                                 required: true,
                                 invalid: true,
