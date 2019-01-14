@@ -136,6 +136,25 @@ const state = {
             ]
         },
         {
+            name: 'Email-рассылки',
+            'sub-headers': [
+                {
+                    name: 'Подписчики',
+                    view: 'subscribers',
+                    formsName: 'Подписчик #',
+                    newFormName: 'Новый подписчик',
+                    hasAddButton: true
+                },
+                {
+                    name: 'Рассылки',
+                    view: 'campaigns',
+                    formsName: 'Рассылка #',
+                    newFormName: 'Новая рассылка',
+                    hasAddButton: true
+                },
+            ]
+        },
+        {
             name: 'Учетные записи',
             'sub-headers': [
                 {

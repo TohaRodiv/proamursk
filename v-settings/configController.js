@@ -22,6 +22,8 @@ import recipientsList from './configs/informing/lists/recipients'
 import eventList from './configs/informing/lists/events'
 import feedbacksList from './configs/feedback/lists/feedbacks'
 import reviewsList from './configs/feedback/lists/reviews'
+import subscribersList from './configs/emailing/lists/subscribers'
+import campaignsList from './configs/emailing/lists/campaigns'
 
 
 //Подключаем разделы инфо-попапов
@@ -46,6 +48,8 @@ import recipientsForm from './configs/informing/forms/recipients'
 import eventsForm from './configs/informing/forms/events'
 import settingsForm from './configs/settings/forms/settings'
 import reviewsForm from './configs/feedback/forms/reviews'
+import subscribersForm from './configs/emailing/forms/subscribers'
+import campaignsForm from './configs/emailing/forms/campaigns'
 
 //Просто пустые значения которые наполнятся ниже
 let state = {};
@@ -71,7 +75,9 @@ let lists = [
     recipientsList,
     eventList,
     feedbacksList,
-    reviewsList
+    reviewsList,
+    subscribersList,
+    campaignsList
 ];
 
 let infoPopups = [
@@ -96,7 +102,9 @@ let forms = [
     recipientsForm,
     eventsForm,
     settingsForm,
-    reviewsForm
+    reviewsForm,
+    subscribersForm,
+    campaignsForm
 ];
 
 
