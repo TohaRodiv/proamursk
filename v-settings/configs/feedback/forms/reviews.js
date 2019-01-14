@@ -1,6 +1,6 @@
 const state = {
     formsOptions: {
-        persons: [
+        reviews: [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -12,94 +12,76 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Заголовок',
+                                label: 'ID места',
+                                expected_value: 'id',
                                 required: true,
                                 invalid: true,
                                 width: 12,
-                                codename: 'title',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Заголовок',
-                                required: true,
-                                invalid: true,
-                                width: 12,
-                                codename: 'title',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Подзаголовок',
-                                required: true,
-                                invalid: true,
-                                width: 12,
-                                codename: 'descriptor',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom50',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'mask-datetime',
-                                label: 'Дата и время публикации',
-                                required: true,
-                                invalid: true,
-                                width: 4,
-                                codename: 'publication_date',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'column',
-                        modClass: 'marginBottom50',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Формат обложки<br>(представление в сетке)',
-                                codename: 'cover_format',
-                                has_borders: true,
-                                required: true,
-                                invalid: true,
-                                widget: 'radioButtons',
-                                width: 6,
-                                hint: '',
-                                values: [
+                                codename: 'place',
+                                widget: 'singleSelector',
+                                api_route: 'places',
+                                sortFlag: {
+                                    value: 'title',
+                                    direction: 'asc'
+                                },
+                                view_structure: [
                                     {
-                                        label: 'Обычная обложка',
-                                        flag: true,
-                                        codename: 'small'
+                                        value: 'title',
+                                        flex: 1.5,
                                     },
-                                    {
-                                        label: 'Полноформатная обложка',
-                                        flag: false,
-                                        codename: 'full'
-                                    }
-                                ]
+                                ],
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'ФИО пользователя, оставившего отзыв',
+                                required: true,
+                                invalid: true,
+                                width: 12,
+                                codename: 'name',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Email',
+                                required: true,
+                                invalid: true,
+                                width: 12,
+                                codename: 'email',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'mask-phone',
+                                label: 'Номер телефона',
+                                required: false,
+                                invalid: false,
+                                width: 12,
+                                codename: 'phone',
+                                widget: 'simpleInput',
+                                hint: ''
                             }
                         ]
                     },
@@ -142,31 +124,12 @@ const state = {
                 blocks: [
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Лид',
-                                required: true,
-                                invalid: true,
-                                width: 12,
-                                height: 58,
-                                codename: 'lead',
-                                widget: 'textarea',
-                                modClass: 'marginBottom22',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
                         direction: 'row',
                         elements: [
                             {
                                 label: 'Текст отзыва',
-                                required: false,
-                                invalid: false,
+                                required: true,
+                                invalid: true,
                                 widget: 'formatter',
                                 codename: 'text',
                                 width: 12,

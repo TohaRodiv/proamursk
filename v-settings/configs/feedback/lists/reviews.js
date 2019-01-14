@@ -15,7 +15,7 @@ const state = {
                 }
             },
             {
-                name: 'Название места',
+                name: 'Место',
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
@@ -23,11 +23,11 @@ const state = {
                 codename: 'title',
                 isMain: true,
                 sort: {
-                    order_by: 'name'
+                    order_by: 'title'
                 }
             },
             {
-                name: 'ФИО',
+                name: 'Отправитель',
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
@@ -50,7 +50,7 @@ const state = {
                 }
             },
             {
-                name: 'Номер телефона отправителя',
+                name: 'Телефон',
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
@@ -61,7 +61,16 @@ const state = {
                 }
             },
             {
-                name: ' Дата и время создания',
+                name: 'Комментарий',
+                type: 'comment',
+                is_sortable: false,
+                align_text: 'center',
+                width: 160,
+                codename: 'comment',
+                sort: 'none'
+            },
+            {
+                name: ' Дата создания',
                 type: 'dateTime',
                 is_sortable: true,
                 align_text: 'left',
@@ -72,7 +81,7 @@ const state = {
                 }
             },
             {
-                name: 'Дата и время редактирования',
+                name: 'Дата изменения',
                 type: 'dateTime',
                 is_sortable: true,
                 align_text: 'left',
@@ -96,12 +105,16 @@ const state = {
             {
                 filterTitle: 'Места',
                 queryName: 'places__in',
-                viewValue: 'title',
-                input_type: 'CheckboxList',
+                input_type: 'tagSelector',
+                api_route: 'places',
                 callbackValue: 'id',
+                sortFlag: {
+                    value: 'name',
+                    direction: 'asc'
+                },
             },
             {
-                filterTitle: 'Дата и время создания',
+                filterTitle: 'Дата отправки',
                 minMaxCodename: 'create_date',
                 queryName: {
                     min: 'create_date__gte',

@@ -15,13 +15,22 @@ const state = {
                 }
             },
             {
-                name: 'ФИО',
+                name: 'Тема обращения',
+                type: 'text',
+                is_sortable: false,
+                align_text: 'left',
+                width: 200,
+                codename: 'subjects',
+                isMain: true,
+                sort: 'none'
+            },
+            {
+                name: 'Отправитель',
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
                 width: 200,
                 codename: 'name',
-                isMain: true,
                 sort: {
                     order_by: 'name'
                 }
@@ -38,7 +47,7 @@ const state = {
                 }
             },
             {
-                name: 'Номер телефона',
+                name: 'Телефон',
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
@@ -61,7 +70,7 @@ const state = {
                 }
             },
             {
-                name: ' Дата и время создания',
+                name: ' Дата создания',
                 type: 'dateTime',
                 is_sortable: true,
                 align_text: 'left',
