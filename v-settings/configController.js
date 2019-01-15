@@ -24,10 +24,12 @@ import feedbacksList from './configs/feedback/lists/feedbacks'
 import reviewsList from './configs/feedback/lists/reviews'
 import subscribersList from './configs/emailing/lists/subscribers'
 import campaignsList from './configs/emailing/lists/campaigns'
+import operationsList from './configs/operations/lists/operationLog'
 
 
 //Подключаем разделы инфо-попапов
 import feedbacksPopup from './configs/feedback/info-popups/feedbacks'
+import operationsPopup from './configs/operations/info-popups/operationLog'
 
 //Подключаем разделы форм
 import newsForm from './configs/publications/forms/news'
@@ -77,11 +79,13 @@ let lists = [
     feedbacksList,
     reviewsList,
     subscribersList,
-    campaignsList
+    campaignsList,
+    operationsList
 ];
 
 let infoPopups = [
-    feedbacksPopup
+    feedbacksPopup,
+    operationsPopup
 ];
 
 let forms = [

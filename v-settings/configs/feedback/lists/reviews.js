@@ -106,9 +106,10 @@ const state = {
                 queryName: 'places__in',
                 input_type: 'tagSelector',
                 api_route: 'places',
+                tagValue: 'title',
                 callbackValue: 'id',
                 sortFlag: {
-                    value: 'name',
+                    value: 'title',
                     direction: 'asc'
                 },
             },
