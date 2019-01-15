@@ -27,6 +27,10 @@ class NewsListSerializer(ModelSerializer):
 
 class NewsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
 
     class Meta:
         model = News
@@ -60,6 +64,10 @@ class EventsDetailSerializer(ModelSerializer):
     cover_format_name = serializers.SerializerMethodField()
     report = ObjectRelatedField(queryset=Report.objects.all(), serializer_class=ReportsNestedSerializer,
                                 allow_null=True, required=False)
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
 
     class Meta:
         model = Event
@@ -98,6 +106,10 @@ class ReportsDetailSerializer(ModelSerializer):
     cover_format_name = serializers.SerializerMethodField()
     event = ObjectRelatedField(queryset=Event.objects.all(), serializer_class=EventsNestedSerializer, allow_null=True,
                                required=False)
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
 
     class Meta:
         model = Report
@@ -126,6 +138,10 @@ class HistoryListSerializer(ModelSerializer):
 class HistoryDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
 
     class Meta:
         model = History
@@ -153,6 +169,10 @@ class PersonsListSerializer(ModelSerializer):
 class PersonsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
 
     class Meta:
         model = Person
@@ -180,6 +200,10 @@ class CityGuidesListSerializer(ModelSerializer):
 class CityGuidesDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
 
     class Meta:
         model = CityGuide
@@ -242,6 +266,10 @@ class SpecialsListSerializer(ModelSerializer):
 class SpecialsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
 
     class Meta:
         model = Special
@@ -270,6 +298,10 @@ class FilmsListSerializer(ModelSerializer):
 class FilmsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     sessions = FilmsSessionsSerializer(many=True, required=False)
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
 
     class Meta:
         model = Film
