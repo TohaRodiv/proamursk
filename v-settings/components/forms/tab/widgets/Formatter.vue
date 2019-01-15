@@ -145,11 +145,14 @@
         methods: {
             setInvalid(status) {
                 let wrapper = document.getElementsByClassName('formatter-wrapper')[0];
-                if (status) {
-                    wrapper.style.border = '1px solid #ffb9c4';
-                    wrapper.style.borderRadius = '5px';
-                } else
-                    wrapper.style.border = '1px solid transparent';
+                if (typeof wrapper !== 'undefined') {
+                    if (status) {
+                        wrapper.style.border = '1px solid #ffb9c4';
+                        wrapper.style.borderRadius = '5px';
+                    } else {
+                        wrapper.style.border = '1px solid transparent';
+                    }
+                }
             },
 
             changeValue(e){
