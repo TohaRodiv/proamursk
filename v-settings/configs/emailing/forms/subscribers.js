@@ -57,6 +57,7 @@ const state = {
                                 label: 'Mailer Lite ID',
                                 required: false,
                                 invalid: false,
+                                isBlocked: true,
                                 width: 4,
                                 codename: 'mailerlite_id',
                                 widget: 'simpleInput',
@@ -70,10 +71,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'mask-datetime',
+                                type: 'field',
                                 label: 'Дата и время последней синхронизации',
                                 required: false,
                                 invalid: false,
+                                isBlocked: true,
                                 width: 4,
                                 codename: 'synchronization_date',
                                 widget: 'simpleInput',
