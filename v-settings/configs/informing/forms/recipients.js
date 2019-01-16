@@ -108,19 +108,6 @@ const state = {
                             },
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Активный получатель (неактивным получателям не поступают уведомления)',
-                                required: false,
-                                codename: 'is_active',
-                                widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    },
                 ]
             },
         ],

@@ -85,19 +85,6 @@ const state = {
                             }
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Активный баннер (неактивные баннеры не отображаются на странице)',
-                                required: false,
-                                codename: 'is_active',
-                                widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    },
                 ]
             },
             {

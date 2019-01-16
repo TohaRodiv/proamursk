@@ -299,19 +299,6 @@ const state = {
                             },
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Активный шаблон (неактивные шаблоны игнорируются и уведомления не отправляются)',
-                                required: false,
-                                codename: 'is_active',
-                                widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    },
                 ]
             },
         ],

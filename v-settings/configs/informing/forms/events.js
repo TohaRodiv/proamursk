@@ -240,19 +240,6 @@ const state = {
                             },
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Активное событие (неактивные события игнорируются и уведомления не отправляются)',
-                                required: false,
-                                codename: 'is_active',
-                                widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    },
                 ]
             },
         ],

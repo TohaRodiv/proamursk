@@ -156,19 +156,6 @@ const state = {
                             }
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Активная запись (страницы неактивных записей не отображаются на странице)',
-                                required: false,
-                                codename: 'is_active',
-                                widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    },
                 ]
             },
             {
