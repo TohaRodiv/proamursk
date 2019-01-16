@@ -2,6 +2,16 @@ const state = {
     columnsConfig: {
         'reviews': [
             {
+                name: '',
+                type: 'flag',
+                is_sortable: false,
+                align_text: 'left',
+                width: 80,
+                fixed: true,
+                codename: 'checkbox',
+                sort: 'none'
+            },
+            {
                 name: '#',
                 type: 'int',
                 is_sortable: true,
