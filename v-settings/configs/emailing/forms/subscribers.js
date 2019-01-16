@@ -70,7 +70,7 @@ const state = {
                                 label: 'Mailer Lite ID',
                                 required: false,
                                 invalid: false,
-                                width: 6,
+                                width: 4,
                                 codename: 'mailerlite_id',
                                 widget: 'simpleInput',
                                 hint: ''
@@ -87,7 +87,7 @@ const state = {
                                 label: 'Дата и время последней синхронизации',
                                 required: false,
                                 invalid: false,
-                                width: 6,
+                                width: 4,
                                 codename: 'synchronization_date',
                                 widget: 'simpleInput',
                                 hint: ''
