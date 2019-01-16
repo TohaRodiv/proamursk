@@ -59,6 +59,13 @@ const state = {
                     newFormName: 'Новый гид по городу',
                     hasAddButton: true
                 },
+                {
+                    name: 'Спецпроекты',
+                    view: 'specials',
+                    formsName: 'Спецпроект #',
+                    newFormName: 'Новый спецпроект',
+                    hasAddButton: true
+                },
             ]
         },
         {

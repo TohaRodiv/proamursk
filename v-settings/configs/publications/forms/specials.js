@@ -1,7 +1,7 @@
 
 const state = {
     formsOptions: {
-        'places': [
+        'specials': [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -54,13 +54,23 @@ const state = {
                                 codename: 'publication_date',
                                 widget: 'simpleInput',
                                 hint: ''
+                            },
+                            {
+                                type: 'field',
+                                label: 'URL (кодовое название)',
+                                required: true,
+                                invalid: true,
+                                width: 4,
+                                codename: 'codename',
+                                widget: 'simpleInput',
+                                hint: ''
                             }
                         ]
                     },
                     {
                         labelPosition: 'left',
                         direction: 'column',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom50',
                         elements: [
                             {
                                 type: 'field',
@@ -87,57 +97,7 @@ const state = {
                             }
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginBottom22',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Адрес, отображаемый на сайте',
-                                required: true,
-                                invalid: false,
-                                width: 8,
-                                codename: 'address',
-                                widget: 'simpleInput',
-                                hint: ''
-                            },
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom21',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Точка на карте',
-                                required: false,
-                                invalid: false,
-                                widget: 'geoinput',
-                                codename: 'coordinates',
-                                width: 12,
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginBottom50',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Режим работы',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                height: 60,
-                                codename: 'schedule',
-                                widget: 'textarea',
-                                hint: ''
-                            }
-                        ]
-                    },
+
                     {
                         labelPosition: 'left',
                         direction: 'row',
@@ -156,52 +116,23 @@ const state = {
                             }
                         ]
                     },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: 'Активная запись (страницы неактивных записей не отображаются на странице)',
+                                required: false,
+                                codename: 'is_active',
+                                widget: 'singleCheckbox',
+                                hint: ''
+                            }
+                        ]
+                    },
                 ]
             },
             {
                 id: 2,
-                title: 'КОНТЕНТ',
-                blocks: [
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Лид',
-                                required: true,
-                                invalid: true,
-                                width: 12,
-                                height: 60,
-                                codename: 'lead',
-                                widget: 'textarea',
-                                modClass: 'marginBottom22',
-                                hint: ''
-                            }
-                        ]
-
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginBottom22',
-                        elements: [
-                            {
-                                label: '',
-                                required: false,
-                                invalid: false,
-                                widget: 'formatter',
-                                codename: 'content',
-                                width: 12,
-                                hint: ''
-                            }
-                        ]
-                    },
-                ]
-            },
-            {
-                id: 3,
                 title: 'ИЗОБРАЖЕНИЯ',
                 blocks: [
                     {
@@ -210,8 +141,8 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                inputID: 'placesCoverInput',
-                                dragID: 'placesCoverDrag',
+                                inputID: 'specialsCoverInput',
+                                dragID: 'specialsCoverDrag',
                                 label: 'Обложка',
                                 expected_value: 'medium_url',
                                 required: true,
@@ -232,7 +163,7 @@ const state = {
                 ]
             },
             {
-                id: 4,
+                id: 3,
                 title: 'SEO и OG',
                 invalid: false,
                 blocks: [
@@ -317,7 +248,7 @@ const state = {
         ],
     },
     activeFlag: {
-        'places': {
+        'specials': {
             title: 'Активная запись',
             hint: 'Страницы неактивных записей не отображаются на сайте',
         }

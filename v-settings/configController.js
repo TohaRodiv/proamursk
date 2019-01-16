@@ -12,6 +12,7 @@ import historyList from './configs/publications/lists/history'
 import placesList from './configs/publications/lists/places'
 import personsList from './configs/publications/lists/persons'
 import cityGuidesList from './configs/publications/lists/cityGuides'
+import specialsList from './configs/publications/lists/specials'
 import slidersList from './configs/companionContent/lists/sliders'
 import wideBannersList from './configs/ad/lists/wideBanners'
 import sidebarBannersList from './configs/ad/lists/sidebarBanners'
@@ -40,6 +41,7 @@ import historyForm from './configs/publications/forms/history'
 import placesForm from './configs/publications/forms/places'
 import personsForm from './configs/publications/forms/persons'
 import cityGuidesForm from './configs/publications/forms/cityGuides'
+import specialsForm from './configs/publications/forms/specials'
 import slidersForm from './configs/companionContent/forms/sliders'
 import wideBannersForm from './configs/ad/forms/wideBanners'
 import sidebarBannersForm from './configs/ad/forms/sidebarBanners'
@@ -68,6 +70,7 @@ let lists = [
     placesList,
     personsList,
     cityGuidesList,
+    specialsList,
     slidersList,
     wideBannersList,
     sidebarBannersList,
@@ -97,6 +100,7 @@ let forms = [
     placesForm,
     personsForm,
     cityGuidesForm,
+    specialsForm,
     slidersForm,
     wideBannersForm,
     sidebarBannersForm,
