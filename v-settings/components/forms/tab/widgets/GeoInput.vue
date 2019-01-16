@@ -201,47 +201,49 @@
 
         methods: {
             mapInstance(){
-                ymaps.geolocation.get()
-                    .then((res) => {
-                        if (this.map === '') {
-                            this.map = new ymaps.Map('map', {
-                                center: [res.geoObjects.position[0], res.geoObjects.position[1]],
-                                zoom: 13
-                            });
-                        }
-
-                        this.map.controls.remove('searchControl');
-                        this.map.controls.remove('routeButton');
-                        this.map.controls.remove('routeEditor');
-                        this.map.controls.remove('routePanel');
-                        this.map.controls.remove('trafficControl');
-                        this.map.controls.remove('fullscreenControl');
-                        this.map.controls.remove('listBox');
-                        this.map.controls.remove('typeSelector');
-
-                        if (this.coordinates) {
-                            let split = this.coordinates.split(', ');
-                            let cords = [+split[0], +split[1]];
-                            this.map.setCenter(cords, this.map.zoom);
-                            this.getNameFromPlace(cords, false);
-                        }
-
-                        this.showPreloader = false;
-                    })
-                    .then(()=>{
-                        this.map.events.add('click', (e) => {
-                            if (!this.isBlocked){
-                                let cords = e.get('coords');
-                                this.instantCords = cords;
-                                this.getNameFromPlace(cords);
-                                this.$store.commit('setFormsObject', {[this.options.codename]: cords[1] + ', ' + cords[0]});
+                if (typeof ymaps.geolocation !== 'undefined') {
+                    ymaps.geolocation.get()
+                        .then((res) => {
+                            if (this.map === '') {
+                                this.map = new ymaps.Map('map', {
+                                    center: [res.geoObjects.position[0], res.geoObjects.position[1]],
+                                    zoom: 13
+                                });
                             }
-                        });
 
-                        this.objectManager = new ymaps.GeoObjectCollection();
-                        this.map.geoObjects.add(this.objectManager);
-                        this.objectManager.events.add('click', this.clickObjectOnMap);
-                    })
+                            this.map.controls.remove('searchControl');
+                            this.map.controls.remove('routeButton');
+                            this.map.controls.remove('routeEditor');
+                            this.map.controls.remove('routePanel');
+                            this.map.controls.remove('trafficControl');
+                            this.map.controls.remove('fullscreenControl');
+                            this.map.controls.remove('listBox');
+                            this.map.controls.remove('typeSelector');
+
+                            if (this.coordinates) {
+                                let split = this.coordinates.split(', ');
+                                let cords = [+split[0], +split[1]];
+                                this.map.setCenter(cords, this.map.zoom);
+                                this.getNameFromPlace(cords, false);
+                            }
+
+                            this.showPreloader = false;
+                        })
+                        .then(()=>{
+                            this.map.events.add('click', (e) => {
+                                if (!this.isBlocked){
+                                    let cords = e.get('coords');
+                                    this.instantCords = cords;
+                                    this.getNameFromPlace(cords);
+                                    this.$store.commit('setFormsObject', {[this.options.codename]: cords[1] + ', ' + cords[0]});
+                                }
+                            });
+
+                            this.objectManager = new ymaps.GeoObjectCollection();
+                            this.map.geoObjects.add(this.objectManager);
+                            this.objectManager.events.add('click', this.clickObjectOnMap);
+                        })
+                }
             },
 
             clickObjectOnMap(e) {
