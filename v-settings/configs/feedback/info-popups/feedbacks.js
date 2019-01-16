@@ -1,7 +1,7 @@
 const state = {
     infoPopupsConfig: {
         'feedbacks': {
-            title: 'Информация об обращении с сайта',
+            title: 'Информация об обращении в редакцию',
             infoConfig: [
                 {
                     type: 'simpleRow',
@@ -12,21 +12,25 @@ const state = {
                 },
                 {
                     type: 'simpleRow',
-                    title: 'Тема',
+                    title: 'Дата создания',
+                    content: {
+                        type: 'dateTime',
+                        codename: 'create_date',
+                    }
+                },
+                {
+                    type: 'hr',
+                },
+                {
+                    type: 'simpleRow',
+                    title: 'Тема обращения',
                     content: {
                         codename: 'subject',
                     }
                 },
                 {
                     type: 'simpleRow',
-                    title: 'Название темы',
-                    content: {
-                        codename: 'subject_name',
-                    }
-                },
-                {
-                    type: 'simpleRow',
-                    title: 'ФИО',
+                    title: 'Отправитель',
                     content: {
                         codename: 'name',
                     }
@@ -40,18 +44,10 @@ const state = {
                 },
                 {
                     type: 'simpleRow',
-                    title: 'Номер телефона',
+                    title: 'Телефон',
                     content: {
                         codename: 'phone',
                     }
-                },
-                {
-                    type: 'hr',
-                },
-                {
-                    type: 'textarea',
-                    title: 'Текст обращения',
-                    codename: 'text',
                 },
                 {
                     type: 'simpleRow',
@@ -63,12 +59,12 @@ const state = {
                     }
                 },
                 {
-                    type: 'simpleRow',
-                    title: 'Дата и время создания',
-                    content: {
-                        type: 'dateTime',
-                        codename: 'create_date',
-                    }
+                    type: 'hr',
+                },
+                {
+                    type: 'textarea',
+                    title: 'Текст обращения',
+                    codename: 'text',
                 },
             ]
         }
