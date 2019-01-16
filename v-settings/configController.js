@@ -14,6 +14,7 @@ import personsList from './configs/publications/lists/persons'
 import cityGuidesList from './configs/publications/lists/cityGuides'
 import specialsList from './configs/publications/lists/specials'
 import slidersList from './configs/companionContent/lists/sliders'
+import staticPagesList from './configs/companionContent/lists/staticPages'
 import wideBannersList from './configs/ad/lists/wideBanners'
 import sidebarBannersList from './configs/ad/lists/sidebarBanners'
 import userList from './configs/administration/lists/users'
@@ -26,6 +27,7 @@ import reviewsList from './configs/feedback/lists/reviews'
 import subscribersList from './configs/emailing/lists/subscribers'
 import campaignsList from './configs/emailing/lists/campaigns'
 import operationsList from './configs/operations/lists/operationLog'
+import staticPagesSettsList from './configs/settings/lists/staticPage'
 
 
 //Подключаем разделы инфо-попапов
@@ -43,6 +45,7 @@ import personsForm from './configs/publications/forms/persons'
 import cityGuidesForm from './configs/publications/forms/cityGuides'
 import specialsForm from './configs/publications/forms/specials'
 import slidersForm from './configs/companionContent/forms/sliders'
+import staticPagesForm from './configs/companionContent/forms/staticPages'
 import wideBannersForm from './configs/ad/forms/wideBanners'
 import sidebarBannersForm from './configs/ad/forms/sidebarBanners'
 import usersForm from './configs/administration/forms/users'
@@ -54,6 +57,7 @@ import settingsForm from './configs/settings/forms/settings'
 import reviewsForm from './configs/feedback/forms/reviews'
 import subscribersForm from './configs/emailing/forms/subscribers'
 import campaignsForm from './configs/emailing/forms/campaigns'
+import staticPagesSettsForm from './configs/settings/forms/staticPage'
 
 //Просто пустые значения которые наполнятся ниже
 let state = {};
@@ -72,6 +76,7 @@ let lists = [
     cityGuidesList,
     specialsList,
     slidersList,
+    staticPagesList,
     wideBannersList,
     sidebarBannersList,
     userList,
@@ -83,7 +88,8 @@ let lists = [
     reviewsList,
     subscribersList,
     campaignsList,
-    operationsList
+    operationsList,
+    staticPagesSettsList
 ];
 
 let infoPopups = [
@@ -102,6 +108,7 @@ let forms = [
     cityGuidesForm,
     specialsForm,
     slidersForm,
+    staticPagesForm,
     wideBannersForm,
     sidebarBannersForm,
     usersForm,
@@ -112,7 +119,8 @@ let forms = [
     settingsForm,
     reviewsForm,
     subscribersForm,
-    campaignsForm
+    campaignsForm,
+    staticPagesSettsForm
 ];
 
 

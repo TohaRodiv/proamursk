@@ -77,6 +77,13 @@ const state = {
                     formsName: 'Слайдер #',
                     newFormName: 'Новый слайдер',
                     hasAddButton: true
+                },
+                {
+                    name: 'Статические страницы',
+                    formsName: 'Статическая страница #',
+                    newFormName: 'Новая статическая страница',
+                    view: 'static-pages',
+                    hasAddButton: false,
                 }
             ]
         },
@@ -193,6 +200,13 @@ const state = {
         {
             name: 'Настройки',
             'sub-headers': [
+                {
+                    name: 'Статические страницы',
+                    formsName: 'Статическая страница #',
+                    newFormName: 'Новая статическая страница',
+                    view: 'static-page-settings',
+                    hasAddButton: true,
+                },
                 {
                     name: 'Общие настройки сервиса',
                     view: 'settings',
