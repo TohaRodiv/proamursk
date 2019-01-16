@@ -1,3 +1,4 @@
+import vue from 'vue';
 
 const state = {
     formsOptions: {
@@ -72,20 +73,15 @@ const state = {
                                         flex: 1.5
                                     },
                                 ],
-                                blockedCondition: {
-                                    type: 'isEmpty',
-                                    flag: 'slides'
-                                }
                             },
                             
                         ]
                     },
                     {
-                        // childEntity для формата 3х2
                         labelPosition: 'top',
                         direction: 'row',
                         hasWideLabel: true,
-                        renderFlag: 'is3x2',
+                        renderFlag: ['is2x1', 'is3x2'],
                         elements: [
                             {
                                 type: 'field',
@@ -193,118 +189,6 @@ const state = {
                         ]
                     },
                     {
-                        // childEntity для формата 2х1
-                        labelPosition: 'top',
-                        direction: 'row',
-                        hasWideLabel: true,
-                        renderFlag: 'is2x1',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Слайды',
-                                popupLabels: {
-                                    new: 'Слайд в слайдере',
-                                    existing: 'Слайд в слайдере',
-                                },
-                                dragOrder: 'weight',
-                                required: false,
-                                invalid: false,
-                                isDraggable: true,
-                                codename: 'slides',
-                                widget: 'childEntity',
-                                modClass: 'marginBottom40',
-                                requireSendId: true,
-                                hint: '',
-                                entity_structure: [
-                                    {
-                                        type: 'image',
-                                        requiredValue: 'cover.medium_url',
-                                        height: '100px',
-                                        width: 'auto'
-                                    },
-                                    {
-                                        type: 'text',
-                                        requiredValue: 'description',
-                                        flex: 1
-                                    }
-                                ],
-                                popup_structure: [
-                                    {
-                                        id: 1,
-                                        blocks: [
-                                            {
-                                                labelPosition: 'top',
-                                                direction: 'row',
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        inputID: 'slide2x1CoverInput',
-                                                        dragID: 'slide2x1CoverDrag',
-                                                        label: 'Дополнительные фотографии товара',
-                                                        expected_value: 'medium_url',
-                                                        required: true,
-                                                        invalid: false,
-                                                        width: 12,
-                                                        image: {
-                                                            width: 1716,
-                                                            height: 858,
-                                                        },
-                                                        codename: 'cover',
-                                                        widget: 'singleImageLoader',
-                                                        modClass: 'marginBottom22',
-                                                        requireSendId: true,
-                                                        key_attr: 'id',
-                                                        hint: ''
-                                                    },
-                                                ]
-                                            },
-                                            {
-                                                labelPosition: 'top',
-                                                direction: 'row',
-                                                modClass: 'marginBottom22',
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        label: 'Описание',
-                                                        required: true,
-                                                        invalid: false,
-                                                        width: 12,
-                                                        codename: 'description',
-                                                        widget: 'simpleInput',
-                                                        hint: ''
-                                                    },
-                                                ]
-                                            },
-                                            {
-                                                labelPosition: 'top',
-                                                direction: 'row',
-                                                elements: [
-                                                    {
-                                                        label: 'Активный слайд (неактивный слайд не отображается на странице)',
-                                                        required: false,
-                                                        codename: 'is_active',
-                                                        widget: 'singleCheckbox',
-                                                        hint: ''
-                                                    }
-                                                ]
-                                            },
-                                        ]
-                                    },
-                                ],
-                                rows: [
-                                    {
-                                        codename: 'cover.medium_url',
-                                        widget: 'image',
-                                    },
-                                    {
-                                        codename: 'description',
-                                        widget: 'field',
-                                    },
-                                ]
-                            },
-                        ]
-                    },
-                    {
                         labelPosition: 'left',
                         direction: 'row',
                         modClass: 'marginBottom22',
@@ -325,6 +209,24 @@ const state = {
                 ]
             },
         ],
+    },
+    formsEvents: {
+        sliders: [
+            {
+                type: 'onChange',
+                actionType: 'changeOtherWidget',
+                watch: 'format',
+                change: 'slides',
+                handler: function (widget, value) {
+                    let loader = widget.popup_structure[0].blocks[0].elements[0];
+                    if (value === 'format_3x2') {
+                        vue.set(loader, 'image', {width: 1716, height: 1144});
+                    } else if (value === 'format_2x1') {
+                        vue.set(loader, 'image', {width: 1716, height: 858});
+                    }
+                }
+            }
+        ]
     },
 };
 
