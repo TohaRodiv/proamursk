@@ -41,6 +41,23 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
+                        modClass: 'marginBottom50',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'mask-datetime',
+                                label: 'Дата и время публикации',
+                                required: true,
+                                invalid: true,
+                                width: 4,
+                                codename: 'publication_date',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
                         direction: 'column',
                         modClass: 'marginBottom50',
                         elements: [
