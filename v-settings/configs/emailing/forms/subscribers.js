@@ -15,7 +15,7 @@ const state = {
                                 type: 'field',
                                 label: 'Email',
                                 required: true,
-                                invalid: true,
+                                invalid: false,
                                 width: 8,
                                 codename: 'email',
                                 widget: 'simpleInput',
