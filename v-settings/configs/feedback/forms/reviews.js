@@ -15,13 +15,8 @@ const state = {
                                 label: 'Место',
                                 expected_value: 'id',
                                 required: true,
-<<<<<<< HEAD
-                                invalid: false,
-                                width: 12,
-=======
                                 invalid: true,
                                 width: 8,
->>>>>>> Поправила по прототипу
                                 codename: 'place',
                                 widget: 'singleSelector',
                                 api_route: 'places',
@@ -48,13 +43,8 @@ const state = {
                                 type: 'field',
                                 label: 'Отправитель',
                                 required: true,
-<<<<<<< HEAD
-                                invalid: false,
-                                width: 12,
-=======
                                 invalid: true,
                                 width: 6,
->>>>>>> Поправила по прототипу
                                 codename: 'name',
                                 widget: 'simpleInput',
                                 hint: ''
@@ -70,13 +60,8 @@ const state = {
                                 type: 'field',
                                 label: 'Email',
                                 required: true,
-<<<<<<< HEAD
-                                invalid: false,
-                                width: 12,
-=======
                                 invalid: true,
                                 width: 6,
->>>>>>> Поправила по прототипу
                                 codename: 'email',
                                 widget: 'simpleInput',
                                 hint: ''
