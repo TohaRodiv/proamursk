@@ -72,8 +72,8 @@ const state = {
     actionsConfig: {
         'campaigns': {
             addButton: true,
-            activationButtons: true,
-            deleteButton: false,
+            activationButtons: false,
+            deleteButton: true,
         }
     },
     filterConfig: {
