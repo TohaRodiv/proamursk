@@ -89,6 +89,7 @@ const state = {
             },
         ]
     },
+
     actionsConfig: {
         'sliders': {
             addButton: true,
@@ -96,6 +97,7 @@ const state = {
             deleteButton: true,
         }
     },
+
     filterConfig: {
         'sliders': [
             {

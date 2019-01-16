@@ -2,7 +2,7 @@ import vue from 'vue';
 
 const state = {
     formsOptions: {
-        'sliders': [
+        sliders: [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -225,7 +225,7 @@ const state = {
                         vue.set(loader, 'image', {width: 1716, height: 858});
                     }
                 }
-            }
+            },
         ]
     },
 };
