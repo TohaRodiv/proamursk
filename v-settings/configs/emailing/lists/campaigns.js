@@ -97,32 +97,6 @@ const state = {
                 },
                 input_type: 'toFromDate',
                 type: 'date_time'
-            },
-            {
-                filterTitle: 'Состояние',
-                queryName: 'is_active',
-                input_type: 'radiobuttonsList',
-                callbackValue: 'value',
-                values: [
-                    {
-                        id: 2,
-                        name: 'Все кампании рассылок',
-                        value: '',
-                        checked: true
-                    },
-                    {
-                        id: 1,
-                        name: 'Активные кампании рассылок',
-                        value: 'true',
-                        checked: false
-                    },
-                    {
-                        id: 0,
-                        name: 'Неактивные кампании рассылок',
-                        value: 'false',
-                        checked: false
-                    }
-                ]
             }
         ]
     },
