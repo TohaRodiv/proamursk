@@ -12,11 +12,11 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'ID места',
+                                label: 'Место',
                                 expected_value: 'id',
                                 required: true,
-                                invalid: false,
-                                width: 12,
+                                invalid: true,
+                                width: 8,
                                 codename: 'place',
                                 widget: 'singleSelector',
                                 api_route: 'places',
@@ -41,10 +41,10 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'ФИО пользователя, оставившего отзыв',
+                                label: 'Отправитель',
                                 required: true,
-                                invalid: false,
-                                width: 12,
+                                invalid: true,
+                                width: 6,
                                 codename: 'name',
                                 widget: 'simpleInput',
                                 hint: ''
@@ -60,8 +60,8 @@ const state = {
                                 type: 'field',
                                 label: 'Email',
                                 required: true,
-                                invalid: false,
-                                width: 12,
+                                invalid: true,
+                                width: 6,
                                 codename: 'email',
                                 widget: 'simpleInput',
                                 hint: ''
@@ -75,12 +75,28 @@ const state = {
                         elements: [
                             {
                                 type: 'mask-phone',
-                                label: 'Номер телефона',
+                                label: 'Телефон',
                                 required: false,
                                 invalid: false,
-                                width: 12,
+                                width: 6,
                                 codename: 'phone',
                                 widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        modClass: 'marginBottom22',
+                        elements: [
+                            {
+                                label: 'Текст отзыва',
+                                required: true,
+                                invalid: true,
+                                widget: 'textarea',
+                                codename: 'text',
+                                width: 12,
                                 hint: ''
                             }
                         ]
@@ -99,40 +115,6 @@ const state = {
                                 height: 58,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Активная запись (страницы неактивных записей не отображаются на странице)',
-                                required: false,
-                                codename: 'is_active',
-                                widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    },
-                ]
-            },
-            {
-                id: 2,
-                title: 'КОНТЕНТ',
-                blocks: [
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Текст отзыва',
-                                required: true,
-                                invalid: false,
-                                widget: 'formatter',
-                                codename: 'text',
-                                width: 12,
                                 hint: ''
                             }
                         ]
