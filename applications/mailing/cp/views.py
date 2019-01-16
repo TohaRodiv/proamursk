@@ -14,6 +14,7 @@ try:
 except:
     pass
 
+
 class SubscriberCpViewSet(CpViewSet):
     path = 'subscribers'
     model = Subscriber
