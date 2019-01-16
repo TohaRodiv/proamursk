@@ -115,7 +115,6 @@ const state = {
             deleteButton: true,
         }
     },
-    additionalListInterfaces: {},
     filterConfig: {
         'persons': [
             {
