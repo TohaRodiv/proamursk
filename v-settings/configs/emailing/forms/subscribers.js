@@ -16,7 +16,7 @@ const state = {
                                 label: 'Email',
                                 required: true,
                                 invalid: true,
-                                width: 12,
+                                width: 8,
                                 codename: 'email',
                                 widget: 'simpleInput',
                                 hint: ''
@@ -37,6 +37,19 @@ const state = {
                                 height: 58,
                                 codename: 'comment',
                                 widget: 'textarea',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: 'Активная запись (страницы неактивных записей не отображаются на странице)',
+                                required: false,
+                                codename: 'is_active',
+                                widget: 'singleCheckbox',
                                 hint: ''
                             }
                         ]
