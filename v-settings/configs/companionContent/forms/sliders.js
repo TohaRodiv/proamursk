@@ -211,22 +211,21 @@ const state = {
         ],
     },
     formsEvents: {
-        sliders: [
-            {
-                type: 'onChange',
-                actionType: 'changeOtherWidget',
-                watch: 'format',
-                change: 'slides',
-                handler: function (widget, value) {
-                    let loader = widget.popup_structure[0].blocks[0].elements[0];
-                    if (value === 'format_3x2') {
-                        vue.set(loader, 'image', {width: 1716, height: 1144});
-                    } else if (value === 'format_2x1') {
-                        vue.set(loader, 'image', {width: 1716, height: 858});
-                    }
-                }
+        sliders: {
+            onChange: {
+                format: {
+                    slides: function (from, widget, formsData) {
+                        let loader = widget.popup_structure[0].blocks[0].elements[0];
+                        if (from === 'format') {
+                            if (formsData[from] === 'format_3x2')
+                                vue.set(loader, 'image', {width: 1716, height: 1144});
+                            else if (formsData[from] === 'format_2x1')
+                                vue.set(loader, 'image', {width: 1716, height: 858});
+                        }
+                    },
+                },
             },
-        ]
+        },
     },
 };
 
