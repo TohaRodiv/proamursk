@@ -169,6 +169,21 @@ const state = {
             ]
         },
         {
+            name: 'Медиатека',
+            'sub-headers': [
+                {
+                    name: 'Галерея',
+                    view: 'mediafiles',
+                    hasAddButton: false,
+                },
+                {
+                    name: 'Файлы',
+                    view: 'files',
+                    hasAddButton: false,
+                },
+            ]
+        },
+        {
             name: 'Учетные записи',
             'sub-headers': [
                 {

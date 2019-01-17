@@ -73,6 +73,10 @@ const state = {
                                         flex: 1.5
                                     },
                                 ],
+                                blockedCondition: {
+                                    type: 'isEmpty',
+                                    flag: 'slides'
+                                }
                             },
                             
                         ]

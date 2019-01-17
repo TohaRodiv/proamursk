@@ -28,6 +28,8 @@ import subscribersList from './configs/emailing/lists/subscribers'
 import campaignsList from './configs/emailing/lists/campaigns'
 import operationsList from './configs/operations/lists/operationLog'
 import staticPagesSettsList from './configs/settings/lists/staticPage'
+import imagesList from './configs/files/lists/images'
+import filesList from './configs/files/lists/files'
 
 
 //Подключаем разделы инфо-попапов
@@ -89,7 +91,9 @@ let lists = [
     subscribersList,
     campaignsList,
     operationsList,
-    staticPagesSettsList
+    staticPagesSettsList,
+    imagesList,
+    filesList,
 ];
 
 let infoPopups = [
