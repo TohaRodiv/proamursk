@@ -31,18 +31,6 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                controlFlag: [
-                                    {
-                                        toBeChecked: 'codename',
-                                        value: 'format_3x2',
-                                        flag: 'is3x2',
-                                    },
-                                    {
-                                        toBeChecked: 'codename',
-                                        value: 'format_2x1',
-                                        flag: 'is2x1'
-                                    },
-                                ],
                                 label: 'Формат слайдера',
                                 codename: 'format',
                                 required: true,
@@ -52,8 +40,7 @@ const state = {
                                     {
                                         name: 'Горизонтальный / 3:2',
                                         codename: 'format_3x2',
-                                        id: 'format_3x2',
-                                        isDefault: true,
+                                        id: 'format_3x2'
                                     },
                                     {
                                         name: 'Горизонтальный / 2:1',
@@ -85,10 +72,10 @@ const state = {
                         labelPosition: 'top',
                         direction: 'row',
                         hasWideLabel: true,
-                        renderFlag: ['is2x1', 'is3x2'],
                         elements: [
                             {
                                 type: 'field',
+                                isBlocked: true,
                                 label: 'Слайды',
                                 popupLabels: {
                                     new: 'Слайд в слайдере',
@@ -126,8 +113,8 @@ const state = {
                                                 elements: [
                                                     {
                                                         type: 'field',
-                                                        inputID: 'slide3x2CoverInput',
-                                                        dragID: 'slide3x2CoverDrag',
+                                                        inputID: 'slideCoverInput',
+                                                        dragID: 'slideCoverDrag',
                                                         label: 'Дополнительные фотографии товара',
                                                         expected_value: 'medium_url',
                                                         required: true,
@@ -154,7 +141,7 @@ const state = {
                                                     {
                                                         type: 'field',
                                                         label: 'Описание',
-                                                        required: true,
+                                                        required: false,
                                                         invalid: false,
                                                         width: 12,
                                                         codename: 'description',
@@ -221,10 +208,15 @@ const state = {
                     slides: function (from, widget, formsData) {
                         let loader = widget.popup_structure[0].blocks[0].elements[0];
                         if (from === 'format') {
-                            if (formsData[from] === 'format_3x2')
+                            if (formsData[from] === 'format_3x2') {
                                 vue.set(loader, 'image', {width: 1716, height: 1144});
-                            else if (formsData[from] === 'format_2x1')
+                                vue.set(widget, 'isBlocked', false);
+                            } else if (formsData[from] === 'format_2x1') {
                                 vue.set(loader, 'image', {width: 1716, height: 858});
+                                vue.set(widget, 'isBlocked', false);
+                            } else if (formsData[from] === null) {
+                                vue.set(widget, 'isBlocked', true);
+                            }
                         }
                     },
                 },
