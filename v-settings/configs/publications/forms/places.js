@@ -185,15 +185,14 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        hasWideLabel: true,
                         elements: [
                             {
                                 label: '',
                                 required: false,
                                 invalid: false,
-                                widget: 'formatter',
+                                widget: 'postEditor',
                                 codename: 'content',
-                                width: 12,
                                 hint: ''
                             }
                         ]

@@ -192,6 +192,13 @@
                         :passedData="data[element.codename]"
                         :options="element">
                 </rightsWidget>
+
+                <postEditor
+                        v-if="element.widget === 'postEditor'"
+                        :isBlocked="isBlocked(element)"
+                        :passedData="data[element.codename]"
+                        :options="element">
+                </postEditor>
             </div>
         </div>
     </div>

@@ -2,6 +2,8 @@ import merge from 'lodash/merge'
 import gettersMutations from './configs/getters&Mutations'
 import sidebar from './configs/sidebar'
 import filesApiMode from './configs/files/filesConfig'
+import postEditorConfig from './post-editor/postEditorTemplates'
+import postEditorMethods from './post-editor/postEditorMethods'
 
 //Подключаем разделы списков
 import newsList from './configs/publications/lists/news'
@@ -65,6 +67,7 @@ import staticPagesSettsForm from './configs/settings/forms/staticPage'
 let state = {};
 let getters = {};
 let mutations = {};
+let actions = {};
 
 //Перечисляем разделы которые надо подключить
 let lists = [
@@ -137,13 +140,19 @@ if (infoPopups) for (let i = 0; i < infoPopups.length; i++) merge(state, infoPop
 merge(state, sidebar.state);
 merge(state, gettersMutations.state);
 merge(state, filesApiMode.state);
+merge(state, postEditorConfig.state);
 merge(getters, gettersMutations.getters);
 merge(getters, sidebar.getters);
+merge(getters, postEditorMethods.getters);
 merge(mutations, gettersMutations.mutations);
+merge(mutations, postEditorMethods.mutations);
+merge(actions, postEditorMethods.actions);
+
 
 export default {
     state,
     getters,
-    mutations
+    mutations,
+    actions
 }
 
