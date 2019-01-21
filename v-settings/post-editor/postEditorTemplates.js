@@ -1,7 +1,7 @@
 const state = {
     postEditor: {
         default: {
-            blocks: [
+            sections: [
                 {
                     name: 'Полноразмерная (по ширине экрана)',
                     columns: ['100%', '50%:50%']
