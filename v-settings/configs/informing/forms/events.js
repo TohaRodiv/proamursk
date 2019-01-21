@@ -127,7 +127,6 @@ const state = {
                                                         required: true,
                                                         width: 6,
                                                         widget: 'singleSelector',
-                                                        returnOnly: 'codename',
                                                         invalid: false,
                                                         controlFlag: [  /*Данный виджет способен управлять этими флагами*/
                                                             {
@@ -159,6 +158,7 @@ const state = {
                                                                 codename: 'tag',
                                                             },
                                                         ],
+                                                        returnFromAvailableValues: 'codename',
                                                         hint: ''
                                                     },
                                                 ]
