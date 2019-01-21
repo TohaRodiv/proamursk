@@ -48,7 +48,7 @@ const state = {
                                 type: 'mask-datetime',
                                 label: 'Дата и время публикации',
                                 required: true,
-                                invalid: true,
+                                invalid: false,
                                 width: 4,
                                 codename: 'publication_date',
                                 widget: 'simpleInput',
