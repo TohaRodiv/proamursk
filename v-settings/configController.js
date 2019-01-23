@@ -3,7 +3,6 @@ import gettersMutations from './configs/getters&Mutations'
 import sidebar from './configs/sidebar'
 import filesApiMode from './configs/files/filesConfig'
 import postEditorConfig from './post-editor/postEditorTemplates'
-import postEditorMethods from './post-editor/postEditorMethods'
 
 //Подключаем разделы списков
 import newsList from './configs/publications/lists/news'
@@ -143,10 +142,7 @@ merge(state, filesApiMode.state);
 merge(state, postEditorConfig.state);
 merge(getters, gettersMutations.getters);
 merge(getters, sidebar.getters);
-merge(getters, postEditorMethods.getters);
 merge(mutations, gettersMutations.mutations);
-merge(mutations, postEditorMethods.mutations);
-merge(actions, postEditorMethods.actions);
 
 
 export default {

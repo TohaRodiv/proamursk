@@ -16,7 +16,7 @@ const state = {
                 },
             ],
         },
-    }
+    },
 };
 
 export default {
