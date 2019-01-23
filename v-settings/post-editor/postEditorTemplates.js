@@ -15,6 +15,11 @@ const state = {
                     columns: ['6', '3:3']
                 },
             ],
+            sectionConfigs: {
+                hasMargins: true,
+                hasPaddings: true,
+                hasHorizontalMargin: true,
+            },
         },
     },
 };
