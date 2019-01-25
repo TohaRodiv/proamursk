@@ -89,6 +89,7 @@
                     }
                 }
             },
+            onlyEmit: Boolean,
             text: String,
             isBlocked: Boolean,
         },
@@ -114,7 +115,11 @@
             },
 
             'value': function () {
-                this.$store.commit('setFormsObject', {[this.options.codename]: this.value});
+                if (!this.onlyEmit)
+                    this.$store.commit('setFormsObject', {[this.options.codename]: this.value});
+                else
+                    this.$emit('callback', {[this.options.codename]: this.value});
+
                 this.validateOnchange();
             },
             'options.invalid': function () {
