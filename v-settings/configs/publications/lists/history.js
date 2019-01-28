@@ -172,19 +172,19 @@ const state = {
                 values: [
                     {
                         id: 2,
-                        name: 'Все анонсы событий',
+                        name: 'Все статьи',
                         value: '',
                         checked: true
                     },
                     {
                         id: 1,
-                        name: 'Активные анонсы событий',
+                        name: 'Активные статьи',
                         value: 'true',
                         checked: false
                     },
                     {
                         id: 0,
-                        name: 'Неактивные анонсы событий',
+                        name: 'Неактивные статьи',
                         value: 'false',
                         checked: false
                     }

@@ -148,26 +148,26 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Состояние',
+                filterTitle: 'Состояния',
                 queryName: 'is_active',
                 input_type: 'radiobuttonsList',
                 callbackValue: 'value',
                 values: [
                     {
                         id: 2,
-                        name: 'Все анонсы событий',
+                        name: 'Все слайдеры',
                         value: '',
                         checked: true
                     },
                     {
                         id: 1,
-                        name: 'Активные анонсы событий',
+                        name: 'Активные слайдеры',
                         value: 'true',
                         checked: false
                     },
                     {
                         id: 0,
-                        name: 'Неактивные анонсы событий',
+                        name: 'Неактивные слайдеры',
                         value: 'false',
                         checked: false
                     }

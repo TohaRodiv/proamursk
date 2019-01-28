@@ -118,7 +118,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Состояние',
+                filterTitle: 'Состояния',
                 queryName: 'is_active',
                 input_type: 'radiobuttonsList',
                 callbackValue: 'value',
