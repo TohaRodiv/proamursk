@@ -155,7 +155,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Дата редактирования',
+                filterTitle: 'Дата изменения',
                 minMaxCodename: 'edit_date',
                 queryName: {
                     min: 'edit_date__gte',
