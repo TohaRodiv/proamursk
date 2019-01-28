@@ -51,7 +51,7 @@ const state = {
                 type: 'text',
                 is_sortable: false,
                 align_text: 'left',
-                width: 200,
+                width: 240,
                 codename: 'place',
                 sort: {
                     order_by: 'place'
@@ -62,7 +62,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 180,
+                width: 240,
                 codename: 'event_date_text',
                 sort: {
                     order_by: 'event_date_text'

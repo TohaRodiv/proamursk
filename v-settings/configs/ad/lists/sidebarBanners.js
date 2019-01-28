@@ -51,7 +51,7 @@ const state = {
                 type: 'link',
                 is_sortable: false,
                 align_text: 'left',
-                width: 500,
+                width: 300,
                 codename: 'link',
                 sort: 'none'
             },
@@ -130,7 +130,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Дата окончания события',
+                filterTitle: 'Дата окончания публикации',
                 minMaxCodename: 'end_publication_date',
                 queryName: {
                     min: 'end_publication_date__gte',

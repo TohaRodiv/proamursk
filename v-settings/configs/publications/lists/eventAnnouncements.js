@@ -110,9 +110,9 @@ const state = {
                 is_sortable: true,
                 align_text: 'left',
                 width: 180,
-                codename: 'publication_date',
+                codename: 'start_event_date',
                 sort: {
-                    order_by: 'publication_date'
+                    order_by: 'start_event_date'
                 }
             },
             {
