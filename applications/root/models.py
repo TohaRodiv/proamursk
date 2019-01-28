@@ -322,8 +322,8 @@ class Slider(BaseModel, IsActiveMixin):
     FORMAT_3x2 = 'format_3x2'
     FORMAT_2x1 = 'format_2x1'
     FORMATS = (
-        (FORMAT_3x2, 'Горизонтальный / 3:2 — 1716x1144 px'),
-        (FORMAT_2x1, 'Горизонтальный / 2:1 — 1716x858 px')
+        (FORMAT_3x2, 'Горизонтальный / 3:2'),
+        (FORMAT_2x1, 'Горизонтальный / 2:1')
     )
     title = models.CharField('Название', max_length=255)
     format = models.CharField('Формат слайдера', choices=FORMATS, max_length=45)

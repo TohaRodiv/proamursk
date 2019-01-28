@@ -41,7 +41,7 @@ const state = {
                 type: 'text',
                 is_sortable: false,
                 align_text: 'left',
-                width: 240,
+                width: 200,
                 codename: 'format_name',
                 sort: 'none'
             },
@@ -49,7 +49,7 @@ const state = {
                 name: 'Кол-во слайдов',
                 type: 'int',
                 is_sortable: false,
-                align_text: 'center',
+                align_text: 'right',
                 width: 120,
                 codename: 'slides_count',
                 sort: {
@@ -146,32 +146,6 @@ const state = {
                 },
                 input_type: 'toFromDate',
                 type: 'date_time'
-            },
-            {
-                filterTitle: 'Состояния',
-                queryName: 'is_active',
-                input_type: 'radiobuttonsList',
-                callbackValue: 'value',
-                values: [
-                    {
-                        id: 2,
-                        name: 'Все слайдеры',
-                        value: '',
-                        checked: true
-                    },
-                    {
-                        id: 1,
-                        name: 'Активные слайдеры',
-                        value: 'true',
-                        checked: false
-                    },
-                    {
-                        id: 0,
-                        name: 'Неактивные слайдеры',
-                        value: 'false',
-                        checked: false
-                    }
-                ]
             }
         ]
     },
