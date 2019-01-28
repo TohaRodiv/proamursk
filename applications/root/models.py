@@ -260,7 +260,7 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
     director = models.CharField('Режиссер', max_length=255)
     starring = models.CharField('В главных ролях', max_length=255)
     duration = models.PositiveSmallIntegerField('Продолжительность, мин')
-    age_restriction = models.PositiveSmallIntegerField('Возрастное ограничение')
+    age_restriction = models.CharField('Возрастное ограничение', max_length=255)
     is_3d = models.BooleanField('3D', default=False)
     trailer = models.URLField('Ссылка на трейлер в YouTube')
     purchase_link = models.URLField('Ссылка на страницу фильма на сайте кинотеатра "Молодость"')
