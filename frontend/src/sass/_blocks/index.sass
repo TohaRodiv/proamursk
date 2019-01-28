@@ -1,0 +1,92 @@
+.index-about-grid
+    display: flex
+
+    @media (max-width: 1439px)
+        flex-wrap: wrap
+
+.index__top-categories-carousel
+    +media(xs-s)
+        display: none
+
+.index-about
+    &-company
+        display: flex
+        flex-grow: 1
+
+        +maxMedia(l)
+            flex-direction: column
+
+        @media (min-width: 1440px) and (max-width: 1509px)
+            width: 836px
+            flex-shrink: 0
+
+        @media (max-width: 1439px)
+            margin-bottom: 8px
+
+    &__slider
+        flex-grow: 1
+
+        img
+            height: 100%
+            object-fit: cover
+
+        +media(xs-s)
+            width: 100vw
+            margin-left: -15px
+            padding-bottom: 71.8125%
+
+        +media(s-m)
+            height: 407px
+
+        +media(m-l)
+            height: 488px
+
+        +maxMedia(l)
+            margin-top: 8px
+            order: 2
+            border-radius: 5px
+            overflow: hidden
+
+        @media (min-width: 1024px) and (max-width: 1439px)
+            width: 496px
+            height: 387px
+            flex-shrink: 0
+
+    &__company-text
+        display: flex
+        padding: 24px
+        flex-direction: column
+        flex-grow: 0
+        flex-shrink: 0
+        background-color: $primary-light-c
+
+        +maxMedia(l)
+            order: 1
+            border-radius: 5px
+
+        @media (min-width: 1024px) and (max-width: 1439px)
+            flex-shrink: 1
+
+        @media (min-width: 1440px) and (max-width: 1509px)
+            width: 320px
+
+        +minMedia(l)
+            border-radius: 0 5px 5px 0
+
+        +media(xxl)
+            width: 392px
+
+    &__title
+        margin-bottom: 24px
+        font-size: $big-fz
+        font-family: $bold-f
+        line-height: $mini-lh
+
+    &__text
+        margin-bottom: 24px
+        font-size: $mini-fz
+
+    &__link
+        margin-top: auto
+        margin-left: auto
+

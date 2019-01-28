@@ -1,0 +1,179 @@
+.last-news
+
+    &__section-title
+        margin-bottom: 24px
+        font-size: $medium-fz
+
+    &__list
+        margin-bottom: 24px
+
+        +media(m-l)
+            column-count: 2
+
+    &__item
+        &:not(:last-of-type)
+            margin-bottom: 20px
+
+    &__date
+        margin-bottom: 4px
+        font-size: $small-fz
+        color: $base-gray
+
+    &__title
+        display: block
+        font-size: $base-fz
+        line-height: $mini-lh
+        color: $dark-c
+        text-decoration: none
+
+        &:hover,
+        &:focus
+            color: $primary-blue
+
+    &__link
+        margin-top: auto
+        margin-left: auto
+
+.index-last-news
+    display: flex
+    flex-direction: column
+
+    +media(xxl)
+        +block-widthXXL(7)
+        flex-shrink: 0
+        margin-left: 8px
+
+    +maxMedia(xxl)
+        flex-grow: 1
+
+    +minMedia(s)
+        padding: 24px
+
+    +media(xs-s)
+        margin-top: 24px
+        margin-bottom: 12px
+
+    .last-news__list
+
+        +media(m-l)
+            column-count: 2
+
+.aside-last-news
+    display: flex
+    flex-direction: column
+
+.news-layout
+    +minMedia(l)
+        display: flex
+        align-items: flex-start
+
+    &__main
+        flex-shrink: 0
+        flex-grow: 0
+
+        +media(xxl)
+            +block-widthXXL(18)
+
+        @media (min-width: 1250px) and (max-width: 1509px)
+            +block-widthL(10)
+
+        @media (max-width: 1249px)
+            width: 100%
+
+    &__article
+        flex-shrink: 0
+        flex-grow: 0
+
+        +media(xxl)
+            +block-widthXXL(12)
+            margin-right: 176px
+
+        +media(l-xxl)
+            +block-widthL(7)
+            margin-right: (6400 / 856 + 800 / 856 * 2) * 1%
+
+        +maxMedia(l)
+            width: 100%
+
+
+    &__aside
+        padding: 24px
+        background-color: $light-c
+        box-shadow: $layer-1
+        border-radius: 5px
+
+        +media(xxl)
+            +block-widthXXL(6)
+
+        +media(l-xxl)
+            +block-widthL(4)
+
+        +maxMedia(l)
+            width: 100%
+            margin-top: 36px
+
+.news-list
+    &__item
+        display: flex
+        align-items: stretch
+        background-color: $light-c
+        box-shadow: $layer-1
+        border-radius: 5px
+        overflow: hidden
+        color: $dark-c
+        text-decoration: none
+
+        &:not(:last-of-type)
+            margin-bottom: 16px
+
+        &:hover
+            box-shadow: $layer-1-hover
+
+    &__img
+        display: block
+        width: 100%
+
+    &__img-wrap
+        position: relative
+        flex-shrink: 0
+        background-size: cover
+        background-position: 50% 50%
+
+        +media(xxl)
+            +block-widthXXL(6)
+
+        +media(l-xxl)
+            width: 328px
+
+        +media(m-l)
+            +block-widthM(5)
+
+        +maxMedia(m)
+            display: none
+
+    &__text-wrap
+        flex-grow: 1
+        padding: 24px
+
+    &__title
+        display: block
+        margin-bottom: 12px
+        font-size: $big-fz
+        color: $dark-c
+        text-decoration: none
+
+        &:hover
+            color: $primary-blue
+
+    &__date
+        margin-bottom: 16px
+        font-size: $mini-fz
+
+    &__text
+        line-height: $base-lh
+
+    &__more-link
+        font-size: $mini-fz
+
+        &:hover
+            text-decoration: underline

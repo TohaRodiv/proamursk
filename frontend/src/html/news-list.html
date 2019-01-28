@@ -1,0 +1,49 @@
+@@include('page-block/head.html')
+@@include('page-block/header.html')
+
+<main>
+    @@include('page-block/breadcrumbs.html')
+
+    <div class="container page-title-wrap">
+        <h1 class="page-title">Новости</h1>
+    </div>
+
+    <div class="layout-section light-bg">
+        <div class="container">
+            <div class="news-layout">
+                <div class="news-layout__main">
+                    <div class="news-list">
+                        @@include('modules/news-list-item.html', {
+                            "img": "images/news1.jpg",
+                            "date": "1 сентября 2017",
+                            "title": "Коллекционные сады-питомники на ВДНХ",
+                            "text": "Активно развиваем корпоративное направление, если у вашей организации есть свой а..."
+                        })
+                        @@include('modules/news-list-item.html', {
+                            "img": "images/news2.jpg",
+                            "date": "10 сентября 2017",
+                            "title": "Коты и сюрреализм в новом видео Prada",
+                            "text": "За каждый букет высадили от имени клиента кедр в Красноярском крае. Мы не идеаль..."
+                        })
+                        @@include('modules/news-list-item.html', {
+                            "img": "images/news1.jpg",
+                            "date": "29 июня 2017",
+                            "title": "Джефф Дэниелс: «Сейчас все могут писать новости в твиттер»",
+                            "text": "Мы звоним клиенту сразу после вручения цветов, чтобы он мог лично поздравить пол..."
+                        })
+                        @@include('modules/news-list-item.html', {
+                            "img": "images/news2.jpg",
+                            "date": "1 сентября 2017",
+                            "title": "Коллекционные сады-питомники на ВДНХ",
+                            "text": "Вы получите доступ к специальным корпоративным ценам, как на товары, так и на ко..."
+                        })
+                    </div>
+                    <button class="btn btn_size_base btn_white btn_more btn_center js-more-news" data-page-count="1">Показать больше новостей</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')
