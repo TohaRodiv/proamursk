@@ -131,7 +131,7 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'float',
+                                type: 'field',
                                 label: 'Возрастное ограничение',
                                 required: true,
                                 invalid: false,
