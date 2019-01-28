@@ -107,6 +107,23 @@ const state = {
             ]
         },
         {
+            name: 'Обратная связь',
+            'sub-headers': [
+                {
+                    name: 'Обращения в редакцию',
+                    view: 'feedbacks',
+                    hasAddButton: false
+                },
+                {
+                    name: 'Отзывы о местах',
+                    view: 'reviews',
+                    formsName: 'Отзыв о месте #',
+                    newFormName: 'Новый отзыв о месте',
+                    hasAddButton: true
+                },
+            ]
+        },
+        {
             name: 'Информирование',
             'sub-headers': [
                 {
@@ -128,23 +145,6 @@ const state = {
                     view: 'events',
                     formsName: 'Событие для уведомления #',
                     newFormName: 'Новое событие для уведомления',
-                    hasAddButton: true
-                },
-            ]
-        },
-        {
-            name: 'Обратная связь',
-            'sub-headers': [
-                {
-                    name: 'Обращения в редакцию',
-                    view: 'feedbacks',
-                    hasAddButton: false
-                },
-                {
-                    name: 'Отзывы о местах',
-                    view: 'reviews',
-                    formsName: 'Отзыв о месте #',
-                    newFormName: 'Новый отзыв о месте',
                     hasAddButton: true
                 },
             ]
