@@ -62,7 +62,7 @@ const state = {
                                 label: 'Название места проведения',
                                 required: true,
                                 invalid: false,
-                                width: 12,
+                                width: 8,
                                 codename: 'place',
                                 widget: 'simpleInput',
                                 hint: ''
