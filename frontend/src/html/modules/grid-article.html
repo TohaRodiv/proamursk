@@ -1,0 +1,14 @@
+<div class="article @@class">
+    <img src="@@img" alt="" class="article__cover">
+    <h2 class="article__title">@@title</h2>
+
+    @@if (description === true) {
+        <p class="article__description">@@description</p>
+    }
+
+    <div class="article__wobbler">
+        @@include('modules/wobbler.html', {
+            "wobbler": "@@wobbler"
+        })
+    </div>
+</div>
