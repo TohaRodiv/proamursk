@@ -101,7 +101,7 @@ const state = {
                                 hint: ''
                             },
                             {
-                                type: 'mask-datetime',
+                                type: 'mask-date',
                                 label: 'Дата начала<br>(для сортировки на сайте)',
                                 required: true,
                                 invalid: false,

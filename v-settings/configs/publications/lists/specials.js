@@ -60,7 +60,7 @@ const state = {
                 type: 'link',
                 is_sortable: false,
                 align_text: 'left',
-                width: 120,
+                width: 300,
                 codename: 'site_url',
                 sort: 'none'
             },
