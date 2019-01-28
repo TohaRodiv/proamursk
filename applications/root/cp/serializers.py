@@ -94,7 +94,7 @@ class ReportsListSerializer(ModelSerializer):
 
     class Meta:
         model = Report
-        fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'start_event_date', 'comment', 'event',
+        fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'comment', 'event',
                   'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
@@ -113,7 +113,7 @@ class ReportsDetailSerializer(ModelSerializer):
 
     class Meta:
         model = Report
-        fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
+        fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text',
                   'cover_format', 'cover_format_name', 'comment', 'content', 'publication_date', 'event',
                   'create_date', 'edit_date', 'is_active', 'meta_title', 'meta_description',
                   'meta_keywords', 'og_image')

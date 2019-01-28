@@ -101,12 +101,12 @@ const state = {
                                 hint: ''
                             },
                             {
-                                type: 'mask-date',
-                                label: 'Дата начала<br>(для сортировки на сайте)',
+                                type: 'mask-datetime',
+                                label: 'Дата и время публикации',
                                 required: true,
                                 invalid: false,
                                 width: 4,
-                                codename: 'start_event_date',
+                                codename: 'publication_date',
                                 widget: 'simpleInput',
                                 hint: ''
                             }
