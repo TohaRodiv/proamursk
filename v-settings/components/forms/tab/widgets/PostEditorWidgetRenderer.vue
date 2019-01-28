@@ -14,9 +14,14 @@
         </div>
         <div class="post-editor-render-content" :style="calculatePadding()">
             <div class="post-editor-render-padding-top-em" v-if="widget.paddingTop">{{widget.paddingTop + ' em'}}</div>
-            osdlhas;LDH A;LSKD;AOlks.d
-            sad asdasdasdasdasda sdasdasd
-            as dasdalsjdg balsihdk
+            <textView
+                    v-if="widget.type === 'text' && widget.text"
+                    :text="widget.text"
+            ></textView>
+            <imageView
+                    v-if="widget.type === 'image'"
+                    :data="widget"
+            ></imageView>
             <div class="post-editor-render-padding-bottom-em" v-if="widget.paddingBottom">{{widget.paddingBottom + ' em'}}</div>
         </div>
         <div class="post-editor-render-margin-bottom-em" v-if="widget.marginBottom">{{widget.marginBottom + ' em'}}</div>
@@ -43,6 +48,9 @@
 </template>
 
 <script>
+    import textView from './postEditorWidgetViews/Text.vue'
+    import imageView from './postEditorWidgetViews/Image.vue'
+
     export default {
         props: {
             widget: Object,
@@ -84,6 +92,9 @@
                 else if (this.widget.type === 'instagram') return 'Инстраграм';
             },
         },
-        components: {}
+        components: {
+            textView,
+            imageView,
+        }
     }
 </script>
