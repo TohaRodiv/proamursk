@@ -297,7 +297,7 @@ class FilmsListSerializer(ModelSerializer):
 
 class FilmsDetailSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    sessions = FilmsSessionsSerializer(many=True, required=False)
+    sessions = FilmsSessionsSerializer(many=True, required=True)
     og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
                                   required=False,
                                   allow_null=True
@@ -309,6 +309,12 @@ class FilmsDetailSerializer(ModelSerializer):
                   'duration', 'age_restriction', 'is_3d', 'trailer', 'purchase_link', 'comment',
                   'create_date', 'edit_date', 'is_active', 'sessions', 'meta_title',
                   'meta_description', 'meta_keywords', 'og_image')
+
+    def validate_sessions(self, data):
+        if not data:
+            raise serializers.ValidationError("Добавьте запись")
+
+        return data
 
     def create(self, validated_data):
         sessions_data = validated_data.pop('sessions') if 'sessions' in validated_data else []
