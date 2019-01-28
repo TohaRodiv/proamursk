@@ -59,7 +59,7 @@ class EventsCpViewSet(CpViewSet):
     serializer_class = EventsDetailSerializer
     list_serializer_class = EventsListSerializer
     filter_class = EventsFilter
-    ordering_fields = ('id', 'title', 'place', 'start_event_date', 'publications_date', 'edit_date', 'create_date')
+    ordering_fields = ('id', 'title', 'place', 'start_event_date', 'edit_date', 'create_date')
 
 
 class ReportsCpViewSet(CpViewSet):

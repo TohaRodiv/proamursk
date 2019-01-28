@@ -42,7 +42,6 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     start_event_date = models.DateTimeField('Дата начала события')
     event_date_text = models.CharField('Дата проведения', max_length=255)
-    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:

@@ -53,7 +53,7 @@ class EventsListSerializer(ModelSerializer):
     class Meta:
         model = Event
         fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'start_event_date', 'comment',  'report',
-                  'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date', 'is_active')
+                  'cover_format', 'cover_format_name', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -72,7 +72,7 @@ class EventsDetailSerializer(ModelSerializer):
     class Meta:
         model = Event
         fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
-                  'cover_format', 'cover_format_name', 'comment', 'content', 'publication_date', 'create_date',
+                  'cover_format', 'cover_format_name', 'comment', 'content', 'create_date',
                   'report', 'edit_date', 'is_active', 'meta_title', 'meta_description',
                   'meta_keywords', 'og_image', )
 
