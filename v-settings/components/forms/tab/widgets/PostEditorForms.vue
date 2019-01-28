@@ -6,13 +6,27 @@
                 @changed="handleChanging"
                 @closePopup = "$emit('clearStore')"
         ></textForm>
+        <directSpeech
+                v-if="data.popupType === 'direct-speech'"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
+                @changed="handleChanging"
+                @closePopup = "$emit('clearStore')"
+        ></directSpeech>
+        <imageComp
+                v-if="data.popupType === 'image'"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
+                @changed="handleChanging"
+                @closePopup = "$emit('clearStore')"
+        ></imageComp>
     </div>
 </template>
 
 <script>
     import vue from 'vue'
 
+    import imageComp from './postEditorForms/Image.vue'
     import text from './postEditorForms/Text.vue'
+    import directSpeech from './postEditorForms/DirectSpeech.vue'
 
     export default {
         props: {
@@ -41,6 +55,8 @@
         },
         components: {
             textForm: text,
+            directSpeech,
+            imageComp,
         }
     }
 </script>

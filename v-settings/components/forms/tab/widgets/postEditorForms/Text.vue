@@ -21,14 +21,14 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseConfig('Внешний сверху, em')"
-                                @callback="callbax('marginTop', $event)"
+                                @callback="indentsCallbacks('marginTop', $event)"
                         ></selector>
                         <selector
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseConfig('Внешний снизу, em')"
-                                @callback="callbax('marginBottom', $event)"
+                                @callback="indentsCallbacks('marginBottom', $event)"
                         ></selector>
                         <selector
                                 style="margin-bottom: 20px;"
@@ -36,14 +36,14 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseConfig('Внутр. сверху, em')"
-                                @callback="callbax('paddingTop', $event)"
+                                @callback="indentsCallbacks('paddingTop', $event)"
                         ></selector>
                         <selector
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseConfig('Внутр. снизу, em')"
-                                @callback="callbax('paddingBottom', $event)"
+                                @callback="indentsCallbacks('paddingBottom', $event)"
                         ></selector>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
             <div class="popup-buttons-wrapper">
                 <div class="popup-buttons-post-editor-container">
                     <button class="button borderless-button forms-cancel-button" @click="closePopup" style="border-right: none !important;">Отмена</button>
-                    <button class="button forms-save-button" @click="saveForm">Сохранить</button>
+                    <button class="button forms-save-button" @click="validate">Сохранить</button>
                 </div>
             </div>
         </div>
@@ -135,6 +135,16 @@
         },
         computed: {},
         methods: {
+            validate(){
+                let hasError = false;
+                if (!this.text) {
+                    this.formatterOptions.invalid = true;
+                    this.formatterOptions.message = 'Заполните поле';
+                    hasError = true;
+                }
+                if (!hasError) this.saveForm()
+            },
+
             saveForm(){
                 let payload = {};
                 payload.text = this.text;
@@ -148,7 +158,7 @@
                 return copy
             },
 
-            callbax(from, value){
+            indentsCallbacks(from, value){
                 if (from === 'marginTop') this.indents.marginTop = value.callback;
                 else if (from === 'marginBottom') this.indents.marginBottom = value.callback;
                 else if (from === 'paddingTop') this.indents.paddingTop = value.callback;

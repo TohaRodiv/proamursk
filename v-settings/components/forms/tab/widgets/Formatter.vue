@@ -201,6 +201,9 @@
                     }
                     if (tabHasErrors.status === false) this.$store.commit('setInvalidStatusOnTab', {view: this.$route.params.view, tabId: tabHasErrors.tabId, status: false});
                 }
+
+                this.options.invalid = false;
+                this.options.message = '';
             },
         },
     }
