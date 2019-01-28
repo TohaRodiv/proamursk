@@ -25,7 +25,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom50',
                         direction: 'row',
                         elements: [
                             {

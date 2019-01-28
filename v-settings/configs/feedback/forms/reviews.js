@@ -88,7 +88,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom50',
                         elements: [
                             {
                                 label: 'Текст отзыва',
