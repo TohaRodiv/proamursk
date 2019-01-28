@@ -94,6 +94,10 @@
     import formatter from '../Formatter.vue'
 
     export default {
+        props: {
+            passedData: Object,
+        },
+
         data() {
             return {
                 showTransition: false,

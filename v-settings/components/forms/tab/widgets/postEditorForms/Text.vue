@@ -6,7 +6,7 @@
             <div class="popup-post-editor-forms-wrapper">
                 <formatter
                         style="margin-bottom: 43px;"
-                        :text="text"
+                        :text="(passedData.text) ? passedData.text : ''"
                         :onlyEmit="true"
                         @callback="text = $event.text"
                         :labelPosition="'none'"
@@ -21,6 +21,7 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseConfig('Внешний сверху, em')"
+                                :passedData="(passedData.marginTop) ? passedData.marginTop : ''"
                                 @callback="indentsCallbacks('marginTop', $event)"
                         ></selector>
                         <selector
@@ -28,6 +29,7 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseConfig('Внешний снизу, em')"
+                                :passedData="(passedData.marginBottom) ? passedData.marginBottom : ''"
                                 @callback="indentsCallbacks('marginBottom', $event)"
                         ></selector>
                         <selector
@@ -36,6 +38,7 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseConfig('Внутр. сверху, em')"
+                                :passedData="(passedData.paddingTop) ? passedData.paddingTop : ''"
                                 @callback="indentsCallbacks('paddingTop', $event)"
                         ></selector>
                         <selector
@@ -43,6 +46,7 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseConfig('Внутр. снизу, em')"
+                                :passedData="(passedData.paddingBottom) ? passedData.paddingBottom : ''"
                                 @callback="indentsCallbacks('paddingBottom', $event)"
                         ></selector>
                     </div>
@@ -64,6 +68,10 @@
     import formatter from '../Formatter.vue'
 
     export default {
+        props: {
+            passedData: Object,
+        },
+
         data() {
             return {
                 showTransition: false,

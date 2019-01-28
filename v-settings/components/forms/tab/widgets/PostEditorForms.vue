@@ -47,9 +47,10 @@
                 };
                 Object.assign(widget, payload);
 
-                if (!this.data.block.widgets) {
-                    vue.set(this.data.block, 'widgets', [widget])
-                }
+                if (!this.data.block.widgets) vue.set(this.data.block, 'widgets', [widget]);
+                else if (typeof this.data.widgetIndex === 'undefined') this.data.block.widgets.push(widget);
+                else if (typeof this.data.widgetIndex !== 'undefined') this.data.block.widgets.splice(this.data.index, 1, widget);
+
                 this.$emit('clearStore');
             },
         },

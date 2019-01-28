@@ -12,7 +12,7 @@ const state = {
                 },
                 {
                     name: 'Узкая',
-                    columns: ['6', '3:3']
+                    columns: ['6', '3:3', '1:2:3']
                 },
             ],
             sectionConfigs: {
@@ -24,11 +24,11 @@ const state = {
             widgets: [
                 {
                     type: 'text',
-                    available: [6, 4, 3],
+                    available: [1, 6, 4, 3],
                 },
                 {
                     type: 'image',
-                    available: [8, 6, 4, 3],
+                    available: [1, 8, 6, 4, 3],
                 },
                 {
                     type: 'hr',
