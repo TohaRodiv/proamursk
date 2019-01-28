@@ -160,10 +160,10 @@ const state = {
                     hasAddButton: true
                 },
                 {
-                    name: 'Рассылки',
+                    name: 'Шаблоны рассылок',
                     view: 'campaigns',
-                    formsName: 'Рассылка #',
-                    newFormName: 'Новая рассылка',
+                    formsName: 'Шаблон рассылки #',
+                    newFormName: 'Новый шаблон рассылки',
                     hasAddButton: true
                 },
             ]
