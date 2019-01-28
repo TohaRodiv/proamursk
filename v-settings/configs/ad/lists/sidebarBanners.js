@@ -51,7 +51,7 @@ const state = {
                 type: 'link',
                 is_sortable: false,
                 align_text: 'left',
-                width: 120,
+                width: 500,
                 codename: 'link',
                 sort: 'none'
             },

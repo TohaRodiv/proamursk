@@ -98,10 +98,10 @@ const state = {
                     hasAddButton: true
                 },
                 {
-                    name: 'Баннеры для сайдбара',
+                    name: 'Баннеры в сайдбаре',
                     view: 'sidebar-banners',
-                    formsName: 'Баннер для сайдабара #',
-                    newFormName: 'Новый баннер для сайдбара',
+                    formsName: 'Баннер в сайдбаре #',
+                    newFormName: 'Новый баннер в сайдбаре',
                     hasAddButton: true
                 }
             ]

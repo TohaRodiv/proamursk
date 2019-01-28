@@ -47,8 +47,8 @@ const state = {
                         elements: [
                             {
                                 type: 'mask-datetime',
-                                label: 'Дата и время начала публикации',
-                                required: true,
+                                label: 'Дата и время<br>начала публикации',
+                                required: false,
                                 invalid: false,
                                 width: 4,
                                 codename: 'start_publication_date',
@@ -57,8 +57,8 @@ const state = {
                             },
                             {
                                 type: 'mask-datetime',
-                                label: 'Дата и время окончания публикации',
-                                required: true,
+                                label: 'Дата и время<br>окончания публикации',
+                                required: false,
                                 invalid: false,
                                 width: 4,
                                 codename: 'end_publication_date',
