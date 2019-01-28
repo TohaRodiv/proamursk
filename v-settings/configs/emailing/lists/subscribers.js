@@ -59,7 +59,7 @@ const state = {
             },
             {
                 name: ' Дата создания',
-                type: 'dateTime',
+                type: 'date',
                 is_sortable: true,
                 align_text: 'left',
                 width: 180,
@@ -70,7 +70,7 @@ const state = {
             },
             {
                 name: 'Дата изменения',
-                type: 'dateTime',
+                type: 'date',
                 is_sortable: true,
                 align_text: 'left',
                 width: 180,
