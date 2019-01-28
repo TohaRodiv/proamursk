@@ -223,10 +223,9 @@ const state = {
                     hasAddButton: true,
                 },
                 {
-                    name: 'Общие настройки сервиса',
+                    name: 'Общие настройки сайта',
                     view: 'settings',
-                    formsName: 'Общие настройки сервиса',
-                    newFormName: 'Общие настройки сервиса',
+                    formsName: 'Общие настройки сайта',
                     hasAddButton: false,
                     onlyForm: true
                 },
