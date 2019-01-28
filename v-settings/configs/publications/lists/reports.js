@@ -81,7 +81,7 @@ const state = {
                 name: 'Формат обложки',
                 type: 'text',
                 is_sortable: false,
-                align_text: 'center',
+                align_text: 'left',
                 width: 160,
                 codename: 'cover_format_name',
                 sort: 'none'
@@ -186,7 +186,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Дата редактирования',
+                filterTitle: 'Дата изменения',
                 minMaxCodename: 'edit_date',
                 queryName: {
                     min: 'edit_date__gte',
