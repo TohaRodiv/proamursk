@@ -63,7 +63,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 250,
+                width: 140,
                 codename: 'phone',
                 sort: {
                     order_by: 'phone'
