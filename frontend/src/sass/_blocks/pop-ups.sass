@@ -1,0 +1,244 @@
+@keyframes zoomIn
+    0%
+        transform: scale(0.9)
+        opacity: 0
+
+    100%
+        transform: scale(1)
+        opacity: 1
+
+.body-cover
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 100
+    overflow: auto
+
+    &.visible
+        display: block
+
+.back
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    min-height: 100vh
+    background-position: center center
+    background-repeat: no-repeat
+    cursor: pointer
+
+    +minMedia(s)
+        background-color: rgba($dark-c, .3)
+
+    +media(xs-s)
+        background-color: $light-c
+
+.always-visible
+    cursor: default !important
+
+.pop-up__close
+    position: absolute
+    z-index: 1
+    cursor: pointer
+
+    &_inner
+        top: 12px
+        right: 12px
+        width: 28px
+        height: 28px
+        font-size: 14px
+        color: $base-gray
+        background-color: rgba($light-c, .8)
+        border-radius: 50%
+
+    &_desktop
+        +media(xs-s)
+            display: none
+
+    &_mobile
+        +minMedia(s)
+            display: none
+
+        +media(xs-s)
+            position: fixed
+            top: 16px
+            right: 16px
+            z-index: 1
+
+        &:hover
+            color: $dark-c
+
+    &_outer
+
+        +minMedia(s)
+            height: 36px
+            padding: 5px
+            top: -5px
+            right: -50px
+            color: $light-c
+            font-size: 25px
+
+        +media(xs-s)
+            width: 24px
+            height: 24px
+            position: fixed
+            top: 16px
+            right: 16px
+            font-size: 14px
+            line-height: 24px
+            color: $base-gray
+            text-align: center
+
+        &_desktop
+            +media(xs-s)
+                display: none
+
+        &_mobile
+            +minMedia(s)
+                display: none
+
+        &:hover
+            opacity: .8
+
+.pop-up-wrapper
+    display: none
+    position: relative
+    min-height: 100%
+
+    &.visible
+        display: flex
+        align-items: center
+        justify-content: center
+
+        .pop-up-inner-container
+            animation: zoomIn .2s linear forwards
+
+.pop-up-content
+    background-color: $light-c
+
+    +minMedia(s)
+        border-radius: 5px
+        box-shadow: $modal-shadow
+
+.pop-up-inner-container
+    position: relative
+    margin: 36px auto
+    opacity: 0
+
+    +media(xs-s)
+        min-width: 290px
+        width: 100%
+
+.page-loaded-banner
+    display: block
+    width: 600px
+    height: 600px
+    border-radius: 5px
+
+.popup-open
+    overflow: hidden
+
+.user-pop-up
+    +minMedia(s)
+        padding: 24px
+        width: 355px
+
+    +media(xs-s)
+        width: 100%
+        max-width: 370px
+        padding: 0 15px
+        margin: 0 auto
+
+    &__input-wrap
+        &:not(:last-of-type):not(.input-size_half)
+            margin-bottom: 16px
+
+    &__agrement
+        margin-top: 24px
+        font-size: $mini-fz
+
+    &__submit
+        display: block
+        width: 100%
+        margin-top: 24px
+
+    &__note
+        display: block
+        margin-top: 24px
+        font-size: $mini-fz
+        text-align: center
+
+        &:not(.hidden) + .user-pop-up__note
+            margin-top: 12px
+
+        &_left
+            text-align: left
+
+.pop-up
+    &__user-form
+        font-size: 0
+
+    &__title
+        margin-bottom: 36px
+        font-size: $big-fz
+        font-family: $bold-f
+
+        +media(xs-s)
+            text-align: center
+
+    &__subtitle
+        margin-bottom: 24px
+        font-size: $medium-fz
+        font-family: $bold-f
+
+    &__text
+        margin-bottom: 24px
+        font-size: $mini-fz
+
+    &__btns-wrap
+        font-size: 0
+        text-align: right
+
+        button
+            margin-left: 12px
+
+    &__timer
+        white-space: nowrap
+
+.cancel-order
+
+    &__text
+        margin-bottom: 24px
+        font-size: $mini-fz
+        line-height: $base-lh
+
+        &:not(:first-of-type)
+            margin-top: 24px
+
+    &__textarea-wrap
+        margin-top: 24px
+        margin-bottom: 24px
+
+    &__textarea
+        height: 90px
+
+    &__reason-input
+        margin-bottom: 16px
+
+.popup__scheme-img
+    display: block
+
+    +media(xxl)
+        width: 900px
+    +media(l-xxl)
+        width: 750px
+    +media(m-l)
+        width: 600px
+    +media(s-m)
+        width: 320px
+    +media(xs-s)
+        width: 100%

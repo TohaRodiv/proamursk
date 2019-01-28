@@ -1,0 +1,109 @@
+.footer__subscribe-section
+    border-top: 3px solid $primary-yellow
+    border-bottom: 3px solid $primary-yellow
+
+    +minMedia(l)
+        border-radius: 5px
+        border-left: 3px solid $primary-yellow
+        border-right: 3px solid $primary-yellow
+
+    +media(xxl)
+        margin: 0 -72px 48px
+        padding: 24px 69px
+
+    +media(l-xxl)
+        margin: 0 -46px 48px
+        padding: 24px 43px
+
+    +media(m-l)
+        width: 100vw
+        margin-left: calc((100vw - 708px) / (-2))
+        margin-bottom: 48px
+        padding-top: 24px
+        padding-bottom: 24px
+        padding-left: calc((100vw - 708px) / 2)
+        padding-right: calc((100vw - 708px) / 2)
+
+    +media(s-m)
+        width: 100vw
+        margin-left: calc((100vw - 522px) / (-2))
+        margin-bottom: 36px
+        padding-top: 24px
+        padding-bottom: 24px
+        padding-left: calc((100vw - 522px) / 2)
+        padding-right: calc((100vw - 522px) / 2)
+
+    +minMedia(s)
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+
+    +media(xs-s)
+        margin: 0 -15px 36px
+        padding: 24px 15px
+
+.subscribe-title
+    font-size: $base-fz
+    font-family: $bold-f
+
+    @media (min-width: 1024px) and (max-width: 1249px)
+        width: 35%
+
+    +maxMedia(l)
+        margin-bottom: 16px
+
+.subscribe-form
+
+    +minMedia(l)
+        margin-left: 40px
+
+    +minMedia(s)
+        display: flex
+        align-items: center
+        width: 380px
+        margin-right: auto
+
+    +media(xs-s)
+        margin-bottom: 24px
+
+    &__input-wrap
+        flex-grow: 1
+
+    &__input
+        +minMedia(s)
+            border-top-right-radius: 0
+            border-bottom-right-radius: 0
+
+        +media(xs-s)
+            width: 290px
+
+    &__submit
+        z-index: 1
+
+        +minMedia(s)
+            margin-left: -2px
+            border: none
+            border-bottom-left-radius: 0
+            border-top-left-radius: 0
+
+        +media(xs-s)
+            width: 290px
+            margin: 14px auto 0
+
+.subscribe__social-wrap
+    margin-left: 24px
+    flex-shrink: 0
+
+.social-wrap
+    font-size: 0
+
+.social-link
+    display: inline-block
+    text-decoration: none
+
+    img
+        display: block
+        height: 24px
+
+    &:not(:last-of-type)
+        margin-right: 12px

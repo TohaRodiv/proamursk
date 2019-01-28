@@ -1,0 +1,84 @@
+.notice-wrapper
+    position: fixed
+    bottom: 0
+    width: 100%
+    z-index: 20
+    background-color: rgba($dark-c, .8)
+
+.notice
+    padding: 16px 0
+    color: $light-c
+    line-height: $mini-lh
+
+    +minMedia(l)
+        align-items: center
+
+    +media(m-l)
+        align-items: flex-start
+
+    +minMedia(m)
+        display: flex
+
+    &__icon
+        margin-right: 20px
+        font-size: 0
+
+        +maxMedia(m)
+            display: none
+
+        &::before
+            font-size: 24px
+
+        &.icon-card-fill
+            &::before
+                font-size: 20px
+
+        &.icon-car,
+        &.icon-repairs
+            &::before
+                font-size: 22px
+
+    &__text-wrap
+        font-size: $mini-fz
+
+        +minMedia(l)
+            display: flex
+            align-items: center
+
+    &__text
+        margin-right: 40px
+
+    &__link
+        display: inline-block
+        font-family: $bold-f
+        color: inherit
+        text-decoration: none
+
+        &:hover
+            text-decoration: underline
+
+        +minMedia(l)
+            margin-right: 24px
+
+        +maxMedia(l)
+            margin-top: 4px
+
+    &__close
+        width: 24px
+        height: 24px
+        margin-left: auto
+        font-size: 0
+        text-align: center
+        line-height: 24px
+        opacity: .8
+
+        &:hover
+            opacity: 1
+
+        &::before
+            font-size: 16px
+
+        +maxMedia(l)
+            position: absolute
+            top: 16px
+            right: 15px
