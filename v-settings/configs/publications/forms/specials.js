@@ -89,7 +89,7 @@ const state = {
                                         codename: 'small'
                                     },
                                     {
-                                        label: 'Полноформатная обложка',
+                                        label: 'Полноразмерная обложка',
                                         flag: false,
                                         codename: 'full'
                                     }
