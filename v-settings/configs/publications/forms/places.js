@@ -242,7 +242,7 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Заголовок страницы (title/ og:title)',
+                                label: 'Заголовок страницы (title / og:title)',
                                 required: false,
                                 invalid: false,
                                 width: 12,
