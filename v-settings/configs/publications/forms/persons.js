@@ -41,7 +41,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom50',
+                        modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {

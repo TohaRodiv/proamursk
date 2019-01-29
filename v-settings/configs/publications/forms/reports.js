@@ -33,7 +33,7 @@ const state = {
                                 label: 'Анонс события',
                                 expected_value: 'id',
                                 required: false,
-                                width: 8,
+                                width: 12,
                                 codename: 'event',
                                 widget: 'singleSelector',
                                 invalid: false,
@@ -58,6 +58,40 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
+                                type: 'mask-datetime',
+                                label: 'Дата и время публикации',
+                                required: true,
+                                invalid: false,
+                                width: 4,
+                                codename: 'publication_date',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Дата и время проведения<br>(для отображения на сайте)',
+                                required: true,
+                                invalid: false,
+                                width: 6,
+                                codename: 'event_date_text',
+                                widget: 'simpleInput',
+                                hint: ''
+                            },
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
                                 type: 'field',
                                 label: 'Название места проведения',
                                 required: true,
@@ -71,7 +105,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom50',
+                        modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {
@@ -81,33 +115,6 @@ const state = {
                                 width: 12,
                                 codename: 'coordinates',
                                 widget: 'geoinput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Дата проведения<br>(для отображения на сайте)',
-                                required: true,
-                                invalid: false,
-                                width: 4,
-                                codename: 'event_date_text',
-                                widget: 'simpleInput',
-                                hint: ''
-                            },
-                            {
-                                type: 'mask-datetime',
-                                label: 'Дата и время публикации',
-                                required: true,
-                                invalid: false,
-                                width: 4,
-                                codename: 'publication_date',
-                                widget: 'simpleInput',
                                 hint: ''
                             }
                         ]

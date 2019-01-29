@@ -103,6 +103,7 @@ const state = {
                                         flex: 1
                                     }
                                 ],
+                                textOptions: true,
                                 popup_structure: [
                                     {
                                         id: 1,

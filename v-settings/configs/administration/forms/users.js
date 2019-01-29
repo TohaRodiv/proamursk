@@ -8,7 +8,7 @@ const state = {
                 blocks: [
                     {
                         labelPosition: 'top',
-                        modClass: 'marginBottom18',
+                        modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {
