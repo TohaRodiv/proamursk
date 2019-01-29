@@ -5,12 +5,28 @@
 
     &__item
         display: inline-block
-        &:not(:last-child)
-            margin-right: 25px
 
     &__link
         display: inline-block
-        font-size: $small-fz
         color: $light-c
         text-decoration: none
         text-transform: uppercase
+
+.header__nav
+    .site-nav
+        &__item
+            &:not(:last-child)
+                margin-right: 25px
+
+        &__link
+            font-size: $small-fz
+
+
+.footer__nav
+    .site-nav
+        width: 530px
+        display: flex
+        justify-content: space-between
+
+        &__link
+            font-size: 12px

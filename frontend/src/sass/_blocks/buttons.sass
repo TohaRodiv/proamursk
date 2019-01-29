@@ -1,128 +1,15 @@
 .btn
+    height: 40px
+    padding: 9px 16px 7px
     font-family: $bold-f
-    border: 2px solid
-    border-radius: 5px
+    font-size: 14px
+    background: #fff
+    border-radius: 20px
     text-decoration: none
 
-    &_size
-
-        &_base
-            height: 40px
-            padding: 9px 16px 7px
-            font-size: $mini-fz
-            line-height: 22px
-
-        &_xxl
-            height: 65px
-            font-size: $big-fz
-
-        &_xl
-            height: 52px
-            padding: 15px 30px
-            font-size: $base-fz
-
-        &_s
-            height: 32px
-            padding: 4px 10px
-            font-size: $mini-fz
-            line-height: 22px
-
-    &_icon
-        span[class^="icon-"]
-            margin-right: 10px
-            font-size: 0
-
-        .icon-close-thin
-            font-weight: 900
-            vertical-align: 1px
-
-            &::before
-                font-size: 10px
-
-        .icon-plus::before
-            font-size: 12px
-
-        .icon-card
-            vertical-align: -1px
-
-        .icon-car
-            vertical-align: -2px
-
-        .icon-card,
-        .icon-car
-            &::before
-                font-size: $mini-fz
-
-    &_blue_fill
-        color: $light-c
-        background-color: $primary-blue
-        border-color: $primary-blue
-
-        &:hover,
-        &:focus,
-        &.active
-            &:not(.btn_preloader)
-                background-color: $primary-blue-dark
-                border-color: $primary-blue-dark
-
-        &:active
-            &:not(.btn_preloader)
-                background-color: $primary-blue-darker
-                border-color: $primary-blue-darker
-
-    &_blue_border
-        color: $dark-c
-        background-color: $light-c
-        border-color: $primary-blue
-
-        &:hover,
-        &:focus,
-        &.active
-            &:not(.btn_preloader)
-                color: $light-c
-                background-color: $primary-blue
-                border-color: $primary-blue
-
-            span[class^="icon-"]
-                color: $light-c
-
-        &:active
-            &:not(.btn_preloader)
-                background-color: $primary-blue-dark
-                border-color: $primary-blue-dark
-
-            span[class^="icon-"]
-                color: $light-c
-
-        span[class^="icon-"]
-            color: $primary-blue
-
-    &_yellow
-        color: $dark-c
-        background-color: $primary-yellow
-        border-color: $primary-yellow
-
-        &:hover,
-        &:focus
-            &:not(.btn_preloader)
-                background-color: $primary-yellow-dark
-                border-color: $primary-yellow-dark
-
-        &:active
-            &:not(.btn_preloader)
-                background-color: $primary-yellow-darker
-                border-color: $primary-yellow-darker
-
-    &_yellow_active
-        color: $dark-c
-        background: $light-c
-        border-color: $primary-yellow
-
     &_white
-        color: $dark-c
+        color: #283348
         background-color: $light-c
-        border-color: transparent
-        box-shadow: $layer-2
 
         &:hover,
         &:focus,
