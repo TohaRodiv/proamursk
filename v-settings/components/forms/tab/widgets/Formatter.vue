@@ -89,6 +89,7 @@
                     }
                 }
             },
+            onlyEmit: Boolean,
             text: String,
             isBlocked: Boolean,
         },
@@ -114,7 +115,11 @@
             },
 
             'value': function () {
-                this.$store.commit('setFormsObject', {[this.options.codename]: this.value});
+                if (!this.onlyEmit)
+                    this.$store.commit('setFormsObject', {[this.options.codename]: this.value});
+                else
+                    this.$emit('callback', {[this.options.codename]: this.value});
+
                 this.validateOnchange();
             },
             'options.invalid': function () {
@@ -196,6 +201,9 @@
                     }
                     if (tabHasErrors.status === false) this.$store.commit('setInvalidStatusOnTab', {view: this.$route.params.view, tabId: tabHasErrors.tabId, status: false});
                 }
+
+                this.options.invalid = false;
+                this.options.message = '';
             },
         },
     }
