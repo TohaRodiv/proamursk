@@ -48,7 +48,12 @@ const state = {
                                         flex: 1.5,
                                     },
                                 ],
-                                hint: ''
+                                hint: '',
+                                syncDataOnForm: {
+                                    event_date_text: 'event_date_text',
+                                    place: 'place',
+                                    coordinates: 'coordinates'
+                                }
                             }
                         ]
                     },
