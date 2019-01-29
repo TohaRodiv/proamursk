@@ -48,7 +48,11 @@
                 Object.assign(widget, payload);
 
                 if (!this.data.block.widgets) vue.set(this.data.block, 'widgets', [widget]);
-                else if (typeof this.data.widgetIndex === 'undefined') this.data.block.widgets.push(widget);
+                else if (typeof this.data.insertIndex !== 'undefined' && typeof this.data.insertIndex !== 'string') {
+                    console.log(this.data.insertIndex);
+                    this.data.block.widgets.splice(this.data.insertIndex, 0, widget);
+                }
+                else if (typeof this.data.widgetIndex === 'undefined' || !this.data.widgetIndex) this.data.block.widgets.push(widget);
                 else if (typeof this.data.widgetIndex !== 'undefined') this.data.block.widgets.splice(this.data.index, 1, widget);
 
                 this.$emit('clearStore');

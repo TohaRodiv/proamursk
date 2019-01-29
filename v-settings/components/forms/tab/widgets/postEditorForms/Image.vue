@@ -104,7 +104,7 @@
 
     export default {
         props: {
-            passedData: Object,
+            passedData: [Object, Boolean],
         },
 
         data() {
