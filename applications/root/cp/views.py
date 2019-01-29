@@ -23,12 +23,13 @@ from .serializers import (NewsListSerializer, NewsDetailSerializer, EventsListSe
                           SpecialsListSerializer,
                           FilmsDetailSerializer, FilmsListSerializer, SidebarBannerSerializer, WideBannerSerializer,
                           PlaceReviewsListSerializer, PlaceReviewsDetailSerializer, SlidersDetailSerializer,
-                          SlidersListSerializer, FeedbackDetailSerializer, FeedbackListSerializer)
+                          SlidersListSerializer, FeedbackDetailSerializer, FeedbackListSerializer, TextErrorDetailSerializer,
+                          TextErrorListSerializer)
 from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
     PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter, FeedbackFilter, SidebarBannersFilter, \
-    WideBannersFilter
+    WideBannersFilter, TextErrorFilter
 from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner, \
-    PlaceReview, Slider, Feedback
+    PlaceReview, Slider, Feedback, TextError
 
 try:
     from applications.notifications.tasks import send_notification
@@ -227,6 +228,19 @@ class FeedbackCpViewSet(CpViewSet):
     detail_http_method_names = ['get', 'head', 'options', 'trace']
 
 
+class TextErrorCpViewSet(CpViewSet):
+    path = 'text-errors'
+    model = TextError
+    queryset = TextError.objects.all()
+    available_actions = dict()
+    serializer_class = TextErrorDetailSerializer
+    list_serializer_class = TextErrorListSerializer
+    filter_class = TextErrorFilter
+    ordering_fields = ('id', 'url', 'create_date')
+    list_http_method_names = ['get', 'head', 'options', 'trace']
+    detail_http_method_names = ['get', 'head', 'options', 'trace']
+
+
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
@@ -241,3 +255,4 @@ cp_api.register(WideBannerCpViewSet)
 cp_api.register(PlaceReviewsCpViewSet)
 cp_api.register(SlidersCpViewSet)
 cp_api.register(FeedbackCpViewSet)
+cp_api.register(TextErrorCpViewSet)

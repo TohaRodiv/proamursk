@@ -115,10 +115,6 @@ const state = {
                         name: 'Персона',
                     },
                     {
-                        codename: 'error',
-                        name: 'Отчёт об ошибке',
-                    },
-                    {
                         codename: 'question',
                         name: 'Вопрос',
                     },

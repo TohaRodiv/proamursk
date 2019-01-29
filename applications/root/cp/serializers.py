@@ -13,8 +13,8 @@ from cp_vue.api.serializers import ModelSerializer
 from cp_vue.cp.serializers import CpRoleNestedSerializer
 # from applications.tools.utils import filter_number
 from cp_vue.models import CpRole
-from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner, \
-    WideBanner, PlaceReview, SliderItem, Slider, Feedback
+from ..models import (News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner,
+    WideBanner, PlaceReview, SliderItem, Slider, Feedback, TextError)
 
 
 class NewsListSerializer(ModelSerializer):
@@ -450,3 +450,17 @@ class FeedbackDetailSerializer(ModelSerializer):
     def get_attachment(self, instance):
         return {'name': os.path.basename(instance.attachment.name),
                 'url': instance.attachment.url} if instance.attachment else None
+
+
+class TextErrorListSerializer(ModelSerializer):
+
+    class Meta:
+        model = TextError
+        fields = ('id', 'url', 'create_date')
+
+
+class TextErrorDetailSerializer(ModelSerializer):
+
+    class Meta:
+        model = TextError
+        fields = ('id', 'url', 'text', 'create_date')

@@ -351,14 +351,12 @@ class Feedback(models.Model):
     EVENT = 'event'
     HISTORY = 'history'
     PERSON = 'person'
-    ERROR = 'error'
     QUESTION = 'question'
     SUBJECTS = (
         (NEWS, 'Поделиться хорошей новостью'),
         (EVENT, 'Поделиться событием'),
         (HISTORY, 'Поделиться своей историей'),
         (PERSON, 'Предложить героя'),
-        (ERROR, 'Сообщить об ошибке'),
         (QUESTION, 'Задать вопрос')
     )
     subject = models.CharField(choices=SUBJECTS, max_length=255, verbose_name='Тема обращения')
@@ -378,4 +376,17 @@ class Feedback(models.Model):
     def __str__(self):
         return 'Обращение с сайта id{}'.format(self.id)
 
+
+class TextError(models.Model):
+    url = models.CharField('URL старницы', max_length=255)
+    text = models.TextField('Текст с ошибкой')
+    create_date = models.DateTimeField('Дата создания', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Сообщение об ошибке'
+        verbose_name_plural = 'Сообщения об ошибках'
+        ordering = '-id',
+
+    def __str__(self):
+        return 'Сообщение об ошибке id{}'.format(self.id)
 

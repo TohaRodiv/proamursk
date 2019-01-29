@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview, Slider, \
-    Feedback, SidebarBanner, WideBanner
+    Feedback, SidebarBanner, WideBanner, TextError
 from cp_vue.api.filters import NumberInFilter, CharInFilter, SearchFilter
 from cp_vue.api.filterset import APIFilterSet
 from django_filters import rest_framework as filters
@@ -195,4 +195,13 @@ class WideBannersFilter(APIFilterSet):
             'end_publication_date': ['gte', 'lte'],
             'create_date': ['gte', 'lte'],
             'edit_date': ['gte', 'lte']
+        }
+
+
+class TextErrorFilter(APIFilterSet):
+
+    class Meta:
+        model = TextError
+        fields = {
+            'create_date': ['gte', 'lte'],
         }
