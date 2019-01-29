@@ -7,10 +7,50 @@
         display: inline-block
 
     &__link
+        position: relative
         display: inline-block
         color: $light-c
         text-decoration: none
         text-transform: uppercase
+
+        &::after
+            content: ""
+            display: none
+            width: 100%
+            height: 3px
+            position: absolute
+            bottom: -8px
+            left: 0
+
+        &:hover,
+        &.active
+            &::after
+                display: block
+
+        &_news
+            &::after
+                background: linear-gradient(#c31ddc 0%, #8d00de 100%)
+
+        &_events
+            &::after
+                background: linear-gradient(#ff4006 0%, #ff0038 100%)
+
+        &_history
+            &::after
+                background: linear-gradient(#4840ff 0%, #0094ff 100%)
+
+        &_places
+            &::after
+                background: linear-gradient(#22c8d2 0%, #00d8ff 100%)
+
+        &_people
+            &::after
+                background: linear-gradient(#18ce7e 0%, #80c44c 100%)
+
+        &_special-projects
+            &::after
+                background: linear-gradient(#ffba00 0%, #f80 100%)
+
 
 .header__nav
     .site-nav
@@ -20,7 +60,6 @@
 
         &__link
             font-size: $small-fz
-
 
 .footer__nav
     .site-nav

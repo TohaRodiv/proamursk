@@ -2062,10 +2062,51 @@ footer {
   .site-nav__item {
     display: inline-block; }
   .site-nav__link {
+    position: relative;
     display: inline-block;
     color: #FFFFFF;
     text-decoration: none;
     text-transform: uppercase; }
+    .site-nav__link::after {
+      content: "";
+      display: none;
+      width: 100%;
+      height: 3px;
+      position: absolute;
+      bottom: -8px;
+      left: 0; }
+    .site-nav__link:hover::after, .site-nav__link.active::after {
+      display: block; }
+    .site-nav__link_news::after {
+      background: -webkit-gradient(linear, left top, left bottom, from(#c31ddc), to(#8d00de));
+      background: -webkit-linear-gradient(#c31ddc 0%, #8d00de 100%);
+      background: -o-linear-gradient(#c31ddc 0%, #8d00de 100%);
+      background: linear-gradient(#c31ddc 0%, #8d00de 100%); }
+    .site-nav__link_events::after {
+      background: -webkit-gradient(linear, left top, left bottom, from(#ff4006), to(#ff0038));
+      background: -webkit-linear-gradient(#ff4006 0%, #ff0038 100%);
+      background: -o-linear-gradient(#ff4006 0%, #ff0038 100%);
+      background: linear-gradient(#ff4006 0%, #ff0038 100%); }
+    .site-nav__link_history::after {
+      background: -webkit-gradient(linear, left top, left bottom, from(#4840ff), to(#0094ff));
+      background: -webkit-linear-gradient(#4840ff 0%, #0094ff 100%);
+      background: -o-linear-gradient(#4840ff 0%, #0094ff 100%);
+      background: linear-gradient(#4840ff 0%, #0094ff 100%); }
+    .site-nav__link_places::after {
+      background: -webkit-gradient(linear, left top, left bottom, from(#22c8d2), to(#00d8ff));
+      background: -webkit-linear-gradient(#22c8d2 0%, #00d8ff 100%);
+      background: -o-linear-gradient(#22c8d2 0%, #00d8ff 100%);
+      background: linear-gradient(#22c8d2 0%, #00d8ff 100%); }
+    .site-nav__link_people::after {
+      background: -webkit-gradient(linear, left top, left bottom, from(#18ce7e), to(#80c44c));
+      background: -webkit-linear-gradient(#18ce7e 0%, #80c44c 100%);
+      background: -o-linear-gradient(#18ce7e 0%, #80c44c 100%);
+      background: linear-gradient(#18ce7e 0%, #80c44c 100%); }
+    .site-nav__link_special-projects::after {
+      background: -webkit-gradient(linear, left top, left bottom, from(#ffba00), to(#f80));
+      background: -webkit-linear-gradient(#ffba00 0%, #f80 100%);
+      background: -o-linear-gradient(#ffba00 0%, #f80 100%);
+      background: linear-gradient(#ffba00 0%, #f80 100%); }
 
 .header__nav .site-nav__item:not(:last-child) {
   margin-right: 25px; }
