@@ -81,7 +81,7 @@
             <div class="forms-wrapper-inner" :class="{'width100percents': !getMovingData || !getMovingData.status_log}">
                 <div class="forms-workzone" :class="{'forms-workzone-no-tabs': config.length === 1 || formsCurrentMode === 'moving'}">
                     <tab
-                            :data="($route.params.id !== 'add') ? data : []"
+                            :data="data"
                             v-for="(tab, index) in config"
                             :key="tab.id"
                             :options="tab"
