@@ -28,7 +28,7 @@ const state = {
                 },
                 {
                     type: 'image',
-                    available: [1, 8, 6, 4, 3],
+                    available: [8, 6, 4, 3],
                 },
                 {
                     type: 'hr',
