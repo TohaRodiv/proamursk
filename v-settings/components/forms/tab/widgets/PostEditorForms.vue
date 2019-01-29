@@ -2,13 +2,13 @@
     <div>
         <textForm
                 v-if="data.popupType === 'text'"
-                :passedData="(Object.keys(data.widget).length ? data.widget : undefined)"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
                 @changed="handleChanging"
                 @closePopup = "$emit('clearStore')"
         ></textForm>
         <directSpeech
                 v-if="data.popupType === 'direct-speech'"
-                :passedData="(Object.keys(data.widget).length ? data.widget : undefined)"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
                 @changed="handleChanging"
                 @closePopup = "$emit('clearStore')"
         ></directSpeech>
