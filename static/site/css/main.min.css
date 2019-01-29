@@ -1048,11 +1048,32 @@ select:-webkit-autofill {
     -webkit-animation: fadeOut .5s 1 forwards;
             animation: fadeOut .5s 1 forwards; }
 
+.slider-arrow-container {
+  position: absolute;
+  z-index: 1; }
+
 .slider-arrow {
   display: none;
   cursor: pointer; }
   .slider-arrow.active {
     display: inline-block; }
+  .slider-arrow_round {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+    font-size: 32px;
+    line-height: 52px;
+    text-align: center; }
+    .slider-arrow_round:hover {
+      background-color: rgba(0, 0, 0, 0.5); }
+  .slider-arrow_simple {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: center; }
 
 .slide-nav-counter {
   display: none;
@@ -1128,6 +1149,21 @@ select:-webkit-autofill {
   100% {
     opacity: 0;
     visibility: hidden; } }
+
+.full-width-slider .slider-arrow-container {
+  width: 1260px;
+  top: 50%;
+  right: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
 
 .notification-wrapper {
   position: fixed;
