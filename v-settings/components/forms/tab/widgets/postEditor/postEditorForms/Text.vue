@@ -64,8 +64,8 @@
 
 <script>
     import cloneDeep from 'lodash/cloneDeep'
-    import selector from '../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
-    import formatter from '../Formatter.vue'
+    import selector from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
+    import formatter from '../../Formatter.vue'
 
     export default {
         props: {
