@@ -1,225 +1,64 @@
 footer
-    color: $primary-dark-c
-    margin-top: 36px
-
-    +media(xs-s)
-        text-align: center
-
-    a
-        text-decoration: none
-        &:hover,
-        &:focus
-            text-decoration: underline
+    padding-bottom: 100px
+    background-color: $primary-blue
+    background-image: url(../images/svg/footer-pattern.svg)
+    background-repeat: no-repeat
+    background-position: center bottom
 
 .footer__main
     padding-bottom: 30px
-    border-bottom: 1px solid $light-gray
 
-    +minMedia(s)
-        display: flex
-        align-items: flex-start
+.footer-top
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-bottom: 15px
+    border-bottom: 1px solid #ECEEF1
 
-    @media (min-width: 568px) and (max-width: 1249px)
-        flex-wrap: wrap
+.footer-bottom
+    display: flex
+    align-items: center
+    padding-top: 15px
+    font-size: 14px
+    color: $light-c
 
-.footer-nav
+.footer__copyright-text
+    width: 640px
+    margin-bottom: 0
+    line-height: 1.5
 
-    &__subcol
+.footer__editor-text
+    width: 250px
+    margin-left: 130px
+    line-height: 1.5
 
-        &:not(:last-child)
-            margin-bottom: 24px
+.footer__social-wrap
+    margin-left: auto
 
-        +media(s-m)
-            width: 50%
+.footer__copyright-section
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-top: 30px
+    font-size: 14px
+    color: #7A8BA1
 
-    &__col
-        +minMedia(s)
-            flex-grow: 1
-
-        +minMedia(l)
-            width: calc(100% / 4)
-
-        +media(xxl)
-            &:not(:last-child)
-                margin-right: 8px
-
-        @media (min-width: 1250px) and (max-width: 1509px)
-            &:nth-child(1)
-                margin-right: 12px
-
-            &:nth-child(2),
-            &:nth-child(3)
-                margin-right: 24px
-
-        +media(m-l)
-            width: calc(100% / 3)
-
-            &:nth-child(2)
-                padding-right: 24px
-
-        +media(s-m)
-            width: 50%
-
-            &:not(:last-child())
-                margin-bottom: 36px
-
-            &:nth-child(3),
-            &:nth-child(4)
-                width: 100%
-                display: flex
-                flex-grow: 1
-
-        +media(xs-s)
-            &:not(:last-child())
-                margin-bottom: 24px
-
-    &__title
-        margin-bottom: 12px
-        font-family: $bold-f
-
-        +minMedia(l)
-            font-size: $bigger-fz
-
-        +maxMedia(l)
-            font-size: $big-fz
-
-    &__list
-        padding: 0
-        margin: 0
-
-    &__item
-        &:not(:last-of-type)
-            margin-bottom: 12px
-
-    &__link
-        font-size: $mini-fz
-        line-height: $base-lh
-        color: $primary-dark-c
+    a
+        color: #7A8BA1
         text-decoration: underline
 
-        &:hover,
-        &:focus
+        &:hover
             text-decoration: none
 
-.footer-info
+.footer__copyright-subblock
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 640px
 
-    +media(xxl)
-        padding-left: 56px
+.footer__copyrights-wrap
+    display: flex
+    margin-left: auto
 
-    @media (min-width: 768px) and (max-width: 1249px)
-        width: 100%
-        display: flex
-        margin-top: 48px
-
-    &__contacts
-        @media (min-width: 1250px)
-            margin-bottom: 36px
-
-        @media (min-width: 768px) and (max-width: 1249px)
-            width: calc(100% / 3)
-            order: 1
-            margin-left: auto
-
-        +media(s-m)
-            order: 1
-            flex-shrink: 0
-            width: 50%
-            margin-left: 24px
-            margin-bottom: 36px
-
-        +media(xs-s)
-            margin-bottom: 36px
-
-    &__payment
-
-
-.footer__contact-wrap
-    &:first-of-type
-        margin-bottom: 24px
-
-.footer-contact
-
-    &__phone
-        +minMedia(l)
-            font-size: $bigger-fz
-
-        +maxMedia(l)
-            font-size: $big-fz
-
-    &__email
-        +minMedia(l)
-            font-size: $big-fz
-
-        +maxMedia(l)
-            font-size: $medium-fz
-
-    &__phone,
-    &__email
-        color: $dark-c
-        font-family: $bold-f
-        &:hover,
-        &:focus
-            text-decoration: none
-
-    &__email
-        &:hover,
-        &:focus
-            color: $primary-blue
-
-    &__text
-        font-size: $small-fz
-        color: $base-gray
-
-.footer__copyright
-    margin-top: 16px
-    margin-bottom: 16px
-    font-size: $small-fz
-
-    +minMedia(s)
-        display: flex
-        align-items: center
-        justify-content: space-between
-
-.footer__perfectura-copyright
-    display: inline-block
-    color: inherit
-
-    +media(xs-s)
-        margin-top: 8px
-
-.payment__text
-    color: $base-gray
-
-.footer__notice,
-.payment__text
-    font-size: $small-fz
-    line-height: $base-lh
-    +minMedia(m)
-        width: 290px
-
-    +media(xs-s)
-        max-width: 70%
-        margin-left: auto
-        margin-right: auto
-
-.footer__notice
-    margin-top: 30px
-
-.footer__payment-methods
-    margin-bottom: 12px
-
-.payment-methods
-    font-size: 0
-
-    &__item
-        line-height: 20px
-        vertical-align: middle
-
-        &:first-child
-            height: 20px
-
-        &:not(:first-child)
-            height: 14px
-
-        &:not(:last-child)
-            margin-right: 16px
+    & :not(:last-child)
+        margin-right: 25px
