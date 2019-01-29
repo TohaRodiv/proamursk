@@ -196,6 +196,14 @@
 
             'coordinates': function() {
                 this.$store.commit('setFormsObject', {[this.options.codename]: this.coordinates});
+
+                if (this.coordinates) {
+                    let split = this.coordinates.split(', ');
+                    let cords = [+split[0], +split[1]];
+                    this.map.setCenter(cords, this.map.zoom);
+                    this.getNameFromPlace(cords, false);
+                }
+
             },
         },
 
