@@ -1,0 +1,141 @@
+@@include('page-block/head.html')
+@@include('page-block/header.html')
+
+<main>
+    @@include('page-block/breadcrumbs.html')
+
+    <div class="container page-title-wrap">
+        <h1 class="page-title">Результаты поиска по запросу «Шины»</h1>
+    </div>
+
+    <div class="tabs-wrap search-result-page" data-search-query="">
+        <div class="container">
+            <div class="tab__btns-wrap buttons-panel search-result__buttons-panel">
+                <button class="tab__btn buttons-panel__item js-search-result-section">Товары 15</button>
+                <button class="tab__btn buttons-panel__item js-search-result-section">Категории товаров 3</button>
+            </div>
+
+            <div class="select input-wrap search-result__tabs-select">
+                <div class="input-base select__value select__value_visible" tabindex="1">Товары 15</div>
+                <div class="icon-arrow-down select__arrow"></div>
+                <div class="select__options-list tab__btns-wrap hidden">
+                    <button class="select__option select__option_choosen product-card__tab-select-option tab__btn js-search-result-section">Товары 15</button>
+                    <button class="select__option product-card__tab-select-option tab__btn js-search-result-section">Категории товаров 3</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-section light-bg">
+            <div class="container">
+                <div class="tab__content-wrap">
+                    <div class="tab__content visible">
+
+                    </div>
+
+                    <div class="tab__content">
+                        <div class="parent-category-grid product-grid_4">
+                            <div class="grid-product parent-category-item">
+                                <a href="market-category-last.html" class="grid-product__img-wrap">
+                                    <img src="images/tire1.jpg" alt="" class="grid-product__img">
+                                </a>
+                                <div class="grid-product__info">
+                                    <div class="grid-product__title-wrap">
+                                        <a href="market-category-last.html" class="grid-product__title">Шины для легковых авто</a>
+                                        <div class="grid-product__type">56 товаров</div>
+                                    </div>
+                                    <div class="grid-product__price_new">от 1 500 ₽</div>
+                                </div>
+                            </div>
+                            <div class="grid-product parent-category-item">
+                                <a href="market-category-last.html" class="grid-product__img-wrap">
+                                    <img src="images/tire2.jpg" alt="" class="grid-product__img">
+                                </a>
+                                <div class="grid-product__info">
+                                    <div class="grid-product__title-wrap">
+                                        <a href="market-category-last.html" class="grid-product__title">Шины для грузовых авто</a>
+                                        <div class="grid-product__type">110 товаров</div>
+                                    </div>
+                                    <div class="grid-product__price_new">от 5 800 ₽</div>
+                                </div>
+                            </div>
+                            <div class="grid-product parent-category-item">
+                                <a href="market-category-last.html" class="grid-product__img-wrap">
+                                    <img src="images/tire3.jpg" alt="" class="grid-product__img">
+                                </a>
+                                <div class="grid-product__info">
+                                    <div class="grid-product__title-wrap">
+                                        <a href="market-category-last.html" class="grid-product__title">Шины для легковых авто</a>
+                                        <div class="grid-product__type">56 товаров</div>
+                                    </div>
+                                    <div class="grid-product__price_new">от 1 500 ₽</div>
+                                </div>
+                            </div>
+                            <div class="grid-product parent-category-item">
+                                <a href="" class="grid-product__img-wrap">
+                                    <img src="images/tire4.jpg" alt="" class="grid-product__img">
+                                </a>
+                                <div class="grid-product__info">
+                                    <div class="grid-product__title-wrap">
+                                        <a href="" class="grid-product__title">Шины для грузовых авто</a>
+                                        <div class="grid-product__type">110 товаров</div>
+                                    </div>
+                                    <div class="grid-product__price_new">от 5 800 ₽</div>
+                                </div>
+                            </div>
+                            <div class="grid-product parent-category-item">
+                                <a href="market-category-last.html" class="grid-product__img-wrap">
+                                    <img src="images/tire3.jpg" alt="" class="grid-product__img">
+                                </a>
+                                <div class="grid-product__info">
+                                    <div class="grid-product__title-wrap">
+                                        <a href="market-category-last.html" class="grid-product__title">Шины для легковых авто</a>
+                                        <div class="grid-product__type">56 товаров</div>
+                                    </div>
+                                    <div class="grid-product__price_new">от 1 500 ₽</div>
+                                </div>
+                            </div>
+                            <div class="grid-product parent-category-item">
+                                <a href="market-category-last.html" class="grid-product__img-wrap">
+                                    <img src="images/tire4.jpg" alt="" class="grid-product__img">
+                                </a>
+                                <div class="grid-product__info">
+                                    <div class="grid-product__title-wrap">
+                                        <a href="market-category-last.html" class="grid-product__title">Шины для грузовых авто</a>
+                                        <div class="grid-product__type">110 товаров</div>
+                                    </div>
+                                    <div class="grid-product__price_new">от 5 800 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ничего не найдено -->
+    <div class="hidden">
+        <div class="container">
+            <div class="empty-block empty-block_border">
+                <div class="empty-block__title">Ничего не найдено</div>
+                <div class="empty-block__text">Попробуйте изменить условия поиска&nbsp;&mdash; вы&nbsp;можете искать по&nbsp;названиям товаров и&nbsp;категорий.</div>
+                <a href="catalog.html" class="empty-block__link btn btn_size_base btn_yellow">Перейти в каталог</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Запрос в два символа -->
+    <div class="hidden">
+        <div class="container">
+            <div class="empty-block empty-block_border">
+                <div class="empty-block__title">Поисковый запрос должен быть больше двух символов</div>
+                <div class="empty-block__text">Вы можете искать по&nbsp;названиям товаров и&nbsp;категорий.</div>
+                <a href="catalog.html" class="empty-block__link btn btn_size_base btn_yellow">Перейти в каталог</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')

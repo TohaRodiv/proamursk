@@ -1,0 +1,190 @@
+@@include('page-block/head.html')
+@@include("page-block/header.html")
+
+<main>
+    <div class="container">
+        <div class="section hand-manage-grid">
+            <div class="last-news">
+                <h3 class="last-news__block-title">Последние новости</h3>
+                <ul class="last-news-list">
+                    <li class="last-news-item">
+                        <img src="" alt="" class="last-news-item__img">
+                        <div class="last-news-item__title">В Амурске появится роллердром</div>
+                        <div class="last-news-item__date">16 декабря 2019</div>
+                    </li>
+                    <li class="last-news-item">
+                        <img src="" alt="" class="last-news-item__img">
+                        <div class="last-news-item__title">Есть золото!</div>
+                        <div class="last-news-item__date">11 января 2019</div>
+                    </li>
+                    <li class="last-news-item">
+                        <img src="" alt="" class="last-news-item__img">
+                        <div class="last-news-item__title">Возить сотрудников«Вымпела» будут частныеавтобусы</div>
+                        <div class="last-news-item__date">1 ноября 2018</div>
+                    </li>
+                    <li class="last-news-item">
+                        <img src="" alt="" class="last-news-item__img">
+                        <div class="last-news-item__title">На 5 процентов больше</div>
+                        <div class="last-news-item__date">28 сентября 2019</div>
+                    </li>
+                </ul>
+            </div>
+
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article1.jpg",
+                "title": "Проект «Дети»",
+                "description": "Олег Пермяков 20 лет выращивает чемпионов на татами",
+                "wobbler": "special-project"
+            })
+
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article2.jpg",
+                "title": "Сильный телом и духом",
+                "description": "Олег Пермяков 20 лет выращивает чемпионов на татами",
+                "wobbler": "people"
+            })
+
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article3.jpg",
+                "title": "Я люблю Амурск спортивный!",
+                "description": "Звезды спорта, футбол и слезы радости",
+                "wobbler": "reportage"
+            })
+
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article4.jpg",
+                "title": "Ботанический сад",
+                "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
+                "wobbler": "place"
+            })
+        </div>
+    </div>
+
+    <div class="section slider full-width-slider" style="height: 520px">
+        <div class="slide">
+            @@include("modules/grid-article.html", {
+                "class": "article_full-width-slider",
+                "img": "images/slider-article.jpg",
+                "title": "Легенды Амурска",
+                "description": "Шаман сказал: «Здесь города не будет». Но ошибся",
+                "wobbler": "special-project"
+            })
+        </div>
+        <div class="slide">
+            @@include("modules/grid-article.html", {
+                "class": "article_full-width-slider",
+                "img": "images/slider-article.jpg",
+                "title": "Ботанический сад",
+                "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
+                "wobbler": "place"
+            })
+        </div>
+        <div class="slide">
+            @@include("modules/grid-article.html", {
+                "class": "article_full-width-slider",
+                "img": "images/slider-article.jpg",
+                "title": "Я люблю Амурск спортивный!",
+                "description": "Звезды спорта, футбол и слезы радости",
+                "wobbler": "story"
+            })
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section todo-layout">
+            <div class="cinema-widget"></div>
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article1.jpg",
+                "title": "Краеведческий музей",
+                "description": "История нашей земли — от Вознесенской культуры до Амурского ГМК",
+                "wobbler": "place"
+            })
+
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article2.jpg",
+                "title": "Амурские теплицы",
+                "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
+                "wobbler": "place"
+            })
+
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article3.jpg",
+                "title": "Музей природы Приамурья",
+                "description": "Богатства Приамурья, собранные руками юннатов",
+                "wobbler": "place"
+            })
+
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article4.jpg",
+                "title": "Ночь кино в Амурске!",
+                "description": "Кинотеатр «Молодость» 3 февраля, 18.00",
+                "wobbler": "reportage"
+            })
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article3.jpg",
+                "title": "Я люблю Амурск спортивный!",
+                "description": "Звезды спорта, футбол и слезы радости",
+                "wobbler": "place"
+            })
+
+            @@include("modules/grid-article.html", {
+                "class": "article_fullscreen",
+                "img": "images/article4.jpg",
+                "title": "Фестиваль «Станица»",
+                "description": "Дворец культуры 17 февраля, 14:00 ",
+                "wobbler": "reportage"
+            })
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section reade-also">
+            <h2 class="section__title"></h2>
+            <div class="reade-also__grid">
+                @@include("modules/grid-article.html", {
+                    "class": "article_fullscreen",
+                    "img": "images/article1.jpg",
+                    "title": "Встреча с мэром без формальностей",
+                    "description": "Активисты молодежки задали свои вопросы Кристине Черницыной",
+                    "wobbler": "news"
+                })
+
+                @@include("modules/grid-article.html", {
+                    "class": "article_fullscreen",
+                    "img": "images/article2.jpg",
+                    "title": "Возить сотрудников «Вымпела» будут частные автобусы",
+                    "description": "Богатства Приамурья, собранные руками юннатов",
+                    "wobbler": "news"
+                })
+
+                @@include("modules/grid-article.html", {
+                    "class": "article_fullscreen",
+                    "img": "images/article3.jpg",
+                    "title": "Я люблю Амурск спортивный!",
+                    "description": "Богатства Приамурья, собранные руками юннатов",
+                    "wobbler": "reportage"
+                })
+
+                @@include("modules/grid-article.html", {
+                    "class": "article_fullscreen",
+                    "img": "images/article4.jpg",
+                    "title": "Прошла выставка художника Владимира Копанова",
+                    "description": "Богатства Приамурья, собранные руками юннатов",
+                    "wobbler": "reportage"
+                })
+            </div>
+        </div>
+    </div>
+</main>
+
+@@include("page-block/footer.html")
+@@include("page-block/page-end.html")

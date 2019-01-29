@@ -1,0 +1,71 @@
+.slider
+    position: relative
+
+.slider-container
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    padding: 0
+    overflow: hidden
+
+.slide
+    display: none
+    position: absolute
+    top: 0
+    left: 0
+    min-width: 100%
+    padding: 0
+
+    &.active
+        display: block
+        animation: fadeIn .5s 1 forwards
+
+    &.was-active
+        animation: fadeOut .5s 1 forwards
+
+.slider-arrow
+    display: none
+    cursor: pointer
+
+    &.active
+        display: inline-block
+
+.slide-nav-counter
+    display: none
+    width: 77px
+    font-size: $mini-fz
+    line-height: $micro-lh
+    text-align: center
+    color: rgba($light-c, .7)
+
+    &.active
+        display: inline-block
+
+    span
+        display: inline-block
+        font-size: $mini-fz
+        line-height: $micro-lh
+        text-align: center
+
+.slider-circles-container
+    position: absolute
+    font-size: 0
+    line-height: 0
+
+    &.active
+        display: block
+
+.slider-circle-item
+    display: inline-block
+    border-radius: 50%
+    cursor: pointer
+
+    &:last-child
+        margin-right: 0
+
+.post-editor__element_slider .slide
+    cursor: pointer
+

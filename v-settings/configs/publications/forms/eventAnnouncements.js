@@ -73,7 +73,7 @@ const state = {
                             },
                             {
                                 type: 'mask-datetime',
-                                label: 'Дата начала события<br>(для сортировки на сайте)',
+                                label: 'Дата и время начала события<br>(для сортировки на сайте)',
                                 required: true,
                                 invalid: false,
                                 width: 4,

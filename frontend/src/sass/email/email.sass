@@ -1,0 +1,427 @@
+$primary-blue: #0080F2
+$primary-yellow: #FCE420
+
+$primary-blue-dark: #006DCE
+$primary-yellow-light: #FFF038
+
+$light-c: #FFFFFF
+$bg-light: #FAFAF2
+
+$dark-c: #000000
+
+$base-gray: #777777
+$light-gray: #DFDFDF
+$dark-gray: #BEBEBE
+
+$border-gray: #EDEDED
+
+$accent-green: #57A700
+$accent-orange: #E28E01
+
+$micro-fz: 12px
+$small-fz: 14px
+$mini-fz: 16px
+$base-fz: 18px
+$medium-fz: 20px
+$big-fz: 24px
+$bigger-fz: 30px
+$huge-fz: 36px
+
+body
+    background-color: $bg-light
+    color: $dark-c
+    font-size: 14px
+    line-height: 1.5
+    font-family: Arial, sans-serif
+
+table
+    width: 100%
+    border-collapse: collapse
+
+p
+    margin-top: 0
+    margin-bottom: 1em
+    font-size: 16px
+    line-height: 1.5
+
+a
+    color: $primary-blue
+    text-decoration: none
+    cursor: pointer
+
+.btn
+    display: block
+    margin-left: auto
+    margin-right: auto
+    width: 185px
+    padding: 11px 15px
+    font-size: $base-fz
+    line-height: 1
+    font-weight: bold
+    color: $dark-c
+    text-align: center
+    border-radius: 5px
+    background-color: $primary-yellow
+
+.separator
+    margin: 24px auto
+    border-top: 1px solid rgb(242, 242, 242)
+
+.p0
+    padding: 0
+
+.accent-green
+    td,
+    span
+        color: $accent-green
+
+.accent-orange
+    td,
+    span
+        color: $accent-orange
+
+.wrapper
+    // table
+    width: 600px
+    margin: 90px auto 90px auto
+
+.header
+    background-color: $primary-yellow
+
+.content
+    background-color: $light-c
+
+.container
+    margin-top: 24px
+    border: 1px solid $border-gray
+
+.header-cover-logo
+    // img
+    display: block
+    width: 600px
+
+.header-logo
+    // img
+    display: block
+    width: 195px
+    padding: 48px
+
+.header__contacts
+    padding: 48px
+    text-align: right
+
+.header__phone
+    font-size: $big-fz
+    font-weight: bold
+    color: $dark-c
+
+.header__phone-description
+    margin-bottom: 0
+    font-size: $micro-fz
+
+.content-td
+    // td
+    padding: 24px 48px 48px
+    text-align: left
+    font-size: 16px
+    line-height: 1.5
+
+.section-title
+    margin-bottom: 1em
+    font-size: $base-fz
+    font-weight: bold
+
+.order
+    margin-bottom: 30px
+
+    td
+        vertical-align: middle
+
+.order-img-td
+    width: 70px
+    padding: 0 15px 0 0
+
+.order-product-cover
+    // img
+    display: block
+    width: 70px
+    height: 70px
+
+.order-title-td
+    // td
+    width: 220px
+    padding: 8px 0
+    text-align: left
+    font-size: 14px
+
+.order-product-title
+    // span
+    display: block
+    line-height: 1.5
+    font-weight: bold
+    color: $dark-c
+
+.order-product-code
+    // span
+    display: block
+    color: $base-gray
+
+.order-product-description
+    // span
+    display: inline-block
+    font-size: 14px
+    color: $base-gray
+
+.order-amount-td
+    // td
+    padding: 0
+    padding-left: 30px
+    font-size: 14px
+    color: $dark-c
+    text-align: right
+
+.order-price-td
+    // td
+    width: 110px
+    padding: 0
+    font-size: 0
+    text-align: right
+
+.price
+    // span
+    font-size: 18px
+    line-height: 1
+    color: $dark-c
+
+.old-price
+    display: block
+    margin-bottom: 3px
+    font-size: 16px
+    color: $dark-gray
+    text-decoration: line-through
+
+.label
+    margin-bottom: 0
+    font-size: 16px
+    font-weight: bold
+
+.label-text
+    margin-bottom: 24px
+    font-size: 16px
+    line-height: 1.5
+    color: $dark-c
+
+.order-info
+    text-align: right
+
+    .separator
+        width: 320px
+        margin: 15px 0 15px auto
+
+.order-total
+    width: 320px
+    margin-left: auto
+
+    &-row
+        vertical-align: top
+        line-height: 1.3
+
+        &:not(:last-of-type)
+            .order-total-value
+                padding-bottom: 10px
+
+    &-label
+        padding: 0
+        font-size: 16px
+        text-align: left
+
+    &-value
+        padding: 0
+        color: $dark-c
+        font-size: 18px
+        text-align: right
+
+.order-cashback
+    width: 320px
+    margin-left: auto
+    line-height: 1.3
+
+    tr:not(:last-of-type)
+        td
+            padding-bottom: 10px
+
+    &-label
+        text-align: right
+        font-size: 16px
+
+    &-price
+        display: inline-block
+        margin-left: 10px
+        font-size: $big-fz
+
+    &-img
+        display: inline-block
+        margin-right: 5px
+
+        &_card
+            width: 18px
+            vertical-align: -1px
+
+.check__cashback-card-img
+    width: 110px
+
+.check__cashback-text
+    margin-bottom: 0
+    padding-right: 20px
+    font-size: $small-fz
+    line-height: 1.3
+    color: $base-gray
+    text-align: left
+
+    span
+        color: $dark-c
+
+.banner-img
+    display: block
+    width: 600px
+
+.ul,
+.ol
+    // ol
+    margin: 0
+    padding-left: 30px
+
+.li
+    // li
+    margin-top: 20px
+    padding-left: 5px
+
+.li-title
+    // div
+    margin-bottom: 10px
+    color: $dark-c
+    line-height: 1.2
+    font-weight: bold
+
+.footer
+    td,
+    td a
+        color: $base-gray
+
+    &__contacts-wrap
+        border-top: 1px solid $border-gray
+        border-bottom: 1px solid $border-gray
+
+    &__info-text
+        padding-top: 24px
+        padding-bottom: 24px
+        text-align: center
+        font-size: 14px
+
+    &__contacts
+        margin: 24px 48px
+        font-size: $micro-fz
+        line-height: 1.5
+
+        tr
+            td
+                padding-left: 0
+                padding-right: 0
+
+            &:first-of-type td
+                padding-top: 0
+
+            &:last-of-type td
+                padding-bottom: 0
+
+            &:not(:first-of-type) td
+                padding-top: 3px
+
+            &:not(:last-of-type) td
+                padding-bottom: 3px
+
+    &__copyright
+        padding: 20px
+        font-size: 14px
+
+.contact-phone
+    font-weight: bold
+
+.social-wrap
+    // td
+    padding: 20px
+    font-size: 0
+    text-align: right
+
+.social-link
+    // a
+    display: inline-block
+
+    img
+        width: 24px
+        margin-left: 12px
+        vertical-align: middle
+
+.email-product
+    &-td
+        padding: 0
+
+    &-cover
+        width: 140px
+        padding-right: 8px
+
+    &-code
+        margin-bottom: 3px
+        color: $base-gray
+
+    &-title
+        margin-bottom: 0
+        color: $dark-c
+        text-decoration: none
+        font-weight: bold
+
+    &-model
+        margin-top: 3px
+        margin-bottom: 0
+        color: $base-gray
+
+    &-price
+        margin-top: 15px
+        margin-bottom: 0
+        font-size: $base-fz
+        font-weight: bold
+
+.email-comment
+    &__title
+        margin-bottom: 6px
+        font-size: $big-fz
+        font-weight: bold
+
+    &__buy-date
+        margin-bottom: 4px
+
+    &__car,
+    &__buy-date
+        font-size: $mini-fz
+
+    &__rating
+        font-size: 0
+        text-align: right
+
+    &__star
+        width: 14px
+        margin-left: 5px
+
+    &__label
+        font-size: $mini-fz
+        font-weight: bold
+        margin-bottom: 0
+
+    &__link
+        margin-top: 30px
+
+    &__label-text
+        font-size: $mini-fz
+
+        &:not(:last-of-type)
+            margin-bottom: 15px
