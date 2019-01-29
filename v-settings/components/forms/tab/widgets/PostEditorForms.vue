@@ -47,13 +47,14 @@
                 };
                 Object.assign(widget, payload);
 
-                if (!this.data.block.widgets) vue.set(this.data.block, 'widgets', [widget]);
-                else if (typeof this.data.insertIndex !== 'undefined' && typeof this.data.insertIndex !== 'string') {
-                    console.log(this.data.insertIndex);
+                if (!this.data.block.widgets)
+                    vue.set(this.data.block, 'widgets', [widget]);
+                else if (typeof this.data.insertIndex !== 'undefined' && typeof this.data.insertIndex !== 'string')
                     this.data.block.widgets.splice(this.data.insertIndex, 0, widget);
-                }
-                else if (typeof this.data.widgetIndex === 'undefined' || !this.data.widgetIndex) this.data.block.widgets.push(widget);
-                else if (typeof this.data.widgetIndex !== 'undefined') this.data.block.widgets.splice(this.data.index, 1, widget);
+                else if (typeof this.data.widgetIndex === 'undefined' && typeof this.data.widgetIndex !== 'string')
+                    this.data.block.widgets.push(widget);
+                else if (typeof this.data.widgetIndex !== 'undefined' && typeof this.data.widgetIndex !== 'string')
+                    this.data.block.widgets.splice(this.data.index, 1, widget);
 
                 this.$emit('clearStore');
             },
