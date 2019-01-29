@@ -7,12 +7,14 @@
                 <imageLoader
                         :labelPosition="'none'"
                         @callback="imageCallback($event.__image)"
+                        :passedData="(passedData.image) ? passedData.image : undefined"
                         :options="loaderConfig">
                 </imageLoader>
                 <radioButtonGroup
                         :direction="'row'"
                         :type="'postEditor'"
                         style="margin-top: 20px; margin-left: 15px;"
+                        :passedData="(passedData.align) ? passedData.align : undefined"
                         @callback="align = $event"
                         :options="alignConfig">
                 </radioButtonGroup>
@@ -21,6 +23,7 @@
                             style="width: 340px; margin-right: 20px;"
                             :labelPosition="'top'"
                             :type="'childEntity'"
+                            :passedData="(passedData.sign) ? passedData.sign : undefined"
                             @callback="sign = $event.name"
                             :options="signConfig">
                     </simpleInput>
@@ -28,6 +31,7 @@
                             style="width: 340px;"
                             :labelPosition="'top'"
                             :type="'childEntity'"
+                            :passedData="(passedData.link) ? passedData.link : undefined"
                             @callback="link = $event.name"
                             :options="linkConfig">
                     </simpleInput>
@@ -35,6 +39,7 @@
                 <singleCheckbox
                         style="margin-top: 22px;"
                         :type="'childEntity'"
+                        :passedData="(passedData.backgroundFlag) ? passedData.backgroundFlag : undefined"
                         @callback="backgroundFlag = $event.backgroundFlag"
                         :options="backgroundFlagConfig">
                 </singleCheckbox>
@@ -47,6 +52,7 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseIndentsConfig('Внешний сверху, em')"
+                                :passedData="(passedData.marginTop) ? passedData.marginTop : ''"
                                 @callback="indentsCallbacks('marginTop', $event)"
                         ></selector>
                         <selector
@@ -54,6 +60,7 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseIndentsConfig('Внешний снизу, em')"
+                                :passedData="(passedData.marginBottom) ? passedData.marginBottom : ''"
                                 @callback="indentsCallbacks('marginBottom', $event)"
                         ></selector>
                         <selector
@@ -62,6 +69,7 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseIndentsConfig('Внутр. сверху, em')"
+                                :passedData="(passedData.paddingTop) ? passedData.paddingTop : ''"
                                 @callback="indentsCallbacks('paddingTop', $event)"
                         ></selector>
                         <selector
@@ -69,6 +77,7 @@
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
                                 :options="initialiseIndentsConfig('Внутр. снизу, em')"
+                                :passedData="(passedData.paddingBottom) ? passedData.paddingBottom : ''"
                                 @callback="indentsCallbacks('paddingBottom', $event)"
                         ></selector>
                     </div>
@@ -150,7 +159,7 @@
                     inputID: 'yomamasofat',
                     dragID: 'yomamasofatdrags',
                     label: 'Фото',
-                    expected_value: 'medium_url',
+                    expected_value: 'large_url',
                     required: true,
                     invalid: false,
                     width: 4,
@@ -236,6 +245,12 @@
         },
         mounted() {
             setTimeout(() => this.showTransition = true, 200);
+
+            if (this.passedData && Object.keys(this.passedData).length) {
+                if (this.passedData.image && Object.keys(this.passedData.image).length) {
+                    this.image = this.passedData.image;
+                }
+            }
         },
         computed: {},
         methods: {

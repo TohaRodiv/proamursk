@@ -1,7 +1,7 @@
 <template>
     <div class="post-editor-render-wrapper" :style="calculateMargin()" @mouseenter="hovered = true" @mouseleave="hovered = false">
-        <div class="post-editor-render-margin-top-em" v-if="widget.marginTop">{{widget.marginTop + ' em'}}</div>
-        <div class="post-editor-render-info">
+        <div class="post-editor-render-margin-top-em" v-if="widget.marginTop && hovered">{{widget.marginTop + ' em'}}</div>
+        <div class="post-editor-render-info" v-if="hovered">
             <div class="post-editor-render-info-name ellipsis" :title="getWidgetType()">
                 <span>{{getWidgetType()}}</span>
             </div>
@@ -13,13 +13,18 @@
             </div>
         </div>
         <div class="post-editor-render-content" :style="calculatePadding()">
-            <div class="post-editor-render-padding-top-em" v-if="widget.paddingTop">{{widget.paddingTop + ' em'}}</div>
-            osdlhas;LDH A;LSKD;AOlks.d
-            sad asdasdasdasdasda sdasdasd
-            as dasdalsjdg balsihdk
-            <div class="post-editor-render-padding-bottom-em" v-if="widget.paddingBottom">{{widget.paddingBottom + ' em'}}</div>
+            <div class="post-editor-render-padding-top-em" v-if="widget.paddingTop && hovered">{{widget.paddingTop + ' em'}}</div>
+            <textView
+                    v-if="widget.type === 'text' && widget.text"
+                    :text="widget.text"
+            ></textView>
+            <imageView
+                    v-if="widget.type === 'image'"
+                    :data="widget"
+            ></imageView>
+            <div class="post-editor-render-padding-bottom-em" v-if="widget.paddingBottom && hovered">{{widget.paddingBottom + ' em'}}</div>
         </div>
-        <div class="post-editor-render-margin-bottom-em" v-if="widget.marginBottom">{{widget.marginBottom + ' em'}}</div>
+        <div class="post-editor-render-margin-bottom-em" v-if="widget.marginBottom && hovered">{{widget.marginBottom + ' em'}}</div>
         <div class="post-editor-render-block-buttons-container">
             <div class="post-editor-column-empty" v-if="hovered">
                 <div
@@ -43,6 +48,9 @@
 </template>
 
 <script>
+    import textView from './postEditorWidgetViews/Text.vue'
+    import imageView from './postEditorWidgetViews/Image.vue'
+
     export default {
         props: {
             widget: Object,
@@ -84,6 +92,9 @@
                 else if (this.widget.type === 'instagram') return 'Инстраграм';
             },
         },
-        components: {}
+        components: {
+            textView,
+            imageView,
+        }
     }
 </script>
