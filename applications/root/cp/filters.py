@@ -199,6 +199,7 @@ class WideBannersFilter(APIFilterSet):
 
 
 class TextErrorFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['url', 'text',])
 
     class Meta:
         model = TextError
