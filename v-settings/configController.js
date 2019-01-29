@@ -24,6 +24,7 @@ import notificationTemplateList from './configs/informing/lists/notificationTemp
 import recipientsList from './configs/informing/lists/recipients'
 import eventList from './configs/informing/lists/events'
 import feedbacksList from './configs/feedback/lists/feedbacks'
+import textErrorsList from './configs/feedback/lists/textErrors'
 import reviewsList from './configs/feedback/lists/reviews'
 import subscribersList from './configs/emailing/lists/subscribers'
 import campaignsList from './configs/emailing/lists/campaigns'
@@ -35,6 +36,7 @@ import filesList from './configs/files/lists/files'
 
 //Подключаем разделы инфо-попапов
 import feedbacksPopup from './configs/feedback/info-popups/feedbacks'
+import textErrorsPopup from './configs/feedback/info-popups/textErrors'
 import operationsPopup from './configs/operations/info-popups/operationLog'
 
 //Подключаем разделы форм
@@ -89,6 +91,7 @@ let lists = [
     recipientsList,
     eventList,
     feedbacksList,
+    textErrorsList,
     reviewsList,
     subscribersList,
     campaignsList,
@@ -100,6 +103,7 @@ let lists = [
 
 let infoPopups = [
     feedbacksPopup,
+    textErrorsPopup,
     operationsPopup
 ];
 

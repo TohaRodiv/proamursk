@@ -115,6 +115,11 @@ const state = {
                     hasAddButton: false
                 },
                 {
+                    name: 'Сообщение об ошибках',
+                    view: 'text-errors',
+                    hasAddButton: false
+                },
+                {
                     name: 'Отзывы о местах',
                     view: 'reviews',
                     formsName: 'Отзыв о месте #',
