@@ -54,7 +54,7 @@
                 else if (typeof this.data.widgetIndex === 'undefined' && typeof this.data.widgetIndex !== 'string')
                     this.data.block.widgets.push(widget);
                 else if (typeof this.data.widgetIndex !== 'undefined' && typeof this.data.widgetIndex !== 'string')
-                    this.data.block.widgets.splice(this.data.index, 1, widget);
+                    this.data.block.widgets.splice(this.data.widgetIndex, 1, widget);
 
                 this.$emit('clearStore');
             },
