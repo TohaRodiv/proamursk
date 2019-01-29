@@ -1,7 +1,7 @@
 <template>
     <div class="post-editor-image-widget">
         <img :src="data.image.large_url" style="width: 100%;">
-        <div class="post-editor-image-widget-sign">{{data.sign}}</div>
+        <div class="post-editor-image-widget-sign" :style="{textAlign: data.align}">{{data.sign}}</div>
     </div>
 </template>
 
