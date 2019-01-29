@@ -3,43 +3,59 @@
 
 <main>
     <div class="container">
-        <div class="section hand-manage-grid">
+        <div class="layout-section hand-manage-grid">
             <div class="last-news">
-                <h3 class="last-news__block-title">Последние новости</h3>
+                <h3 class="last-news__section-title">Последние новости</h3>
                 <ul class="last-news-list">
                     <li class="last-news-item">
-                        <img src="" alt="" class="last-news-item__img">
-                        <div class="last-news-item__title">В Амурске появится роллердром</div>
-                        <div class="last-news-item__date">16 декабря 2019</div>
+                        <a href="news-details.html" class="last-news-item__link">
+                            <img src="images/news1.jpg" alt="" class="last-news-item__img">
+                            <div class="last-news-item__text-wrap">
+                                <h4 class="last-news-item__title">В Амурске появится роллердром</h4>
+                                <div class="last-news-item__date">16 декабря 2019</div>
+                            </div>
+                        </a>
                     </li>
                     <li class="last-news-item">
-                        <img src="" alt="" class="last-news-item__img">
-                        <div class="last-news-item__title">Есть золото!</div>
-                        <div class="last-news-item__date">11 января 2019</div>
+                        <a href="news-details.html" class="last-news-item__link">
+                            <img src="images/news2.jpg" alt="" class="last-news-item__img">
+                            <div class="last-news-item__text-wrap">
+                                <h4 class="last-news-item__title">Есть золото!</h4>
+                                <div class="last-news-item__date">11 января 2019</div>
+                            </div>
+                        </a>
                     </li>
                     <li class="last-news-item">
-                        <img src="" alt="" class="last-news-item__img">
-                        <div class="last-news-item__title">Возить сотрудников«Вымпела» будут частныеавтобусы</div>
-                        <div class="last-news-item__date">1 ноября 2018</div>
+                        <a href="news-details.html" class="last-news-item__link">
+                        <img src="images/news3.jpg" alt="" class="last-news-item__img">
+                        <div class="last-news-item__text-wrap">
+                            <h4 class="last-news-item__title">Возить сотрудников «Вымпела» будут частные автобусы</h4>
+                            <div class="last-news-item__date">1 ноября 2018</div>
+                        </div>
+                        </a>
                     </li>
                     <li class="last-news-item">
-                        <img src="" alt="" class="last-news-item__img">
-                        <div class="last-news-item__title">На 5 процентов больше</div>
-                        <div class="last-news-item__date">28 сентября 2019</div>
+                        <a href="news-details.html" class="last-news-item__link">
+                            <img src="images/news4.jpg" alt="" class="last-news-item__img">
+                            <div class="last-news-item__text-wrap">
+                                <h4 class="last-news-item__title">На 5 процентов больше</h4>
+                                <div class="last-news-item__date">28 сентября 2019</div>
+                            </div>
+                        </a>
                     </li>
                 </ul>
             </div>
 
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
+                "class": "article_format-full article_text-size-big",
                 "img": "images/article1.jpg",
                 "title": "Проект «Дети»",
-                "description": "Олег Пермяков 20 лет выращивает чемпионов на татами",
+                "description": "Амурские школьники становятся лауреатами престижных конкурсов, выпускники без труда поступают в лучшие вузы страны. Все дело в качестве образования, которое в нашем городе остается стабильно высоким.",
                 "wobbler": "special-project"
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
+                "class": "article_format-base",
                 "img": "images/article2.jpg",
                 "title": "Сильный телом и духом",
                 "description": "Олег Пермяков 20 лет выращивает чемпионов на татами",
@@ -47,7 +63,7 @@
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
+                "class": "article_format-full article_text-size-base",
                 "img": "images/article3.jpg",
                 "title": "Я люблю Амурск спортивный!",
                 "description": "Звезды спорта, футбол и слезы радости",
@@ -55,7 +71,7 @@
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
+                "class": "article_format-base",
                 "img": "images/article4.jpg",
                 "title": "Ботанический сад",
                 "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
@@ -64,122 +80,130 @@
         </div>
     </div>
 
-    <div class="section slider full-width-slider" style="height: 520px">
-        <div class="slide">
-            @@include("modules/grid-article.html", {
-                "class": "article_full-width-slider",
-                "img": "images/slider-article.jpg",
-                "title": "Легенды Амурска",
-                "description": "Шаман сказал: «Здесь города не будет». Но ошибся",
-                "wobbler": "special-project"
-            })
+    <div class="layout-section slider full-width-slider" style="height: 520px">
+        <div class="slider-container">
+            <div class="slide">
+                @@include("modules/grid-article.html", {
+                    "class": "article_full-width-slider",
+                    "img": "images/slider-article.jpg",
+                    "title": "Легенды Амурска",
+                    "description": "Шаман сказал: «Здесь города не будет». Но ошибся",
+                    "wobbler": "special-project"
+                })
+            </div>
+            <div class="slide">
+                @@include("modules/grid-article.html", {
+                    "class": "article_full-width-slider",
+                    "img": "images/slider-article.jpg",
+                    "title": "Ботанический сад",
+                    "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
+                    "wobbler": "place"
+                })
+            </div>
+            <div class="slide">
+                @@include("modules/grid-article.html", {
+                    "class": "article_full-width-slider",
+                    "img": "images/slider-article.jpg",
+                    "title": "Я люблю Амурск!",
+                    "description": "Звезды спорта, футбол и слезы радости",
+                    "wobbler": "history"
+                })
+            </div>
         </div>
-        <div class="slide">
-            @@include("modules/grid-article.html", {
-                "class": "article_full-width-slider",
-                "img": "images/slider-article.jpg",
-                "title": "Ботанический сад",
-                "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
-                "wobbler": "place"
-            })
-        </div>
-        <div class="slide">
-            @@include("modules/grid-article.html", {
-                "class": "article_full-width-slider",
-                "img": "images/slider-article.jpg",
-                "title": "Я люблю Амурск спортивный!",
-                "description": "Звезды спорта, футбол и слезы радости",
-                "wobbler": "story"
-            })
+        <div class="slider-circles-container"></div>
+        <div class="slider-arrow-wrap">
+            <div class="slider-arrow slider-nav-prev icon-arrow-left active"></div>
+            <div class="slider-arrow slider-nav-next icon-arrow-right active"></div>
         </div>
     </div>
 
     <div class="container">
-        <div class="section todo-layout">
+        <div class="layout-section todo-layout">
             <div class="cinema-widget"></div>
+
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
-                "img": "images/article1.jpg",
+                "class": "article_format-full article_text-size-big",
+                "img": "images/article5.jpg",
                 "title": "Краеведческий музей",
                 "description": "История нашей земли — от Вознесенской культуры до Амурского ГМК",
                 "wobbler": "place"
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
-                "img": "images/article2.jpg",
+                "class": "article_format-base",
+                "img": "images/article9.jpg",
                 "title": "Амурские теплицы",
                 "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
                 "wobbler": "place"
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
-                "img": "images/article3.jpg",
+                "class": "article_format-base",
+                "img": "images/article10.jpg",
                 "title": "Музей природы Приамурья",
                 "description": "Богатства Приамурья, собранные руками юннатов",
                 "wobbler": "place"
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
-                "img": "images/article4.jpg",
+                "class": "article_format-full article_text-size-base",
+                "img": "images/article7.jpg",
                 "title": "Ночь кино в Амурске!",
                 "description": "Кинотеатр «Молодость» 3 февраля, 18.00",
-                "wobbler": "reportage"
+                "wobbler": "announcement"
             })
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
-                "img": "images/article3.jpg",
+                "class": "article_format-base",
+                "img": "images/article11.jpg",
                 "title": "Я люблю Амурск спортивный!",
                 "description": "Звезды спорта, футбол и слезы радости",
                 "wobbler": "place"
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_fullscreen",
-                "img": "images/article4.jpg",
+                "class": "article_format-base",
+                "img": "images/article12.jpg",
                 "title": "Фестиваль «Станица»",
                 "description": "Дворец культуры 17 февраля, 14:00 ",
-                "wobbler": "reportage"
+                "wobbler": "announcement"
             })
         </div>
     </div>
 
-    <div class="container">
-        <div class="section reade-also">
-            <h2 class="section__title"></h2>
-            <div class="reade-also__grid">
+    <div class="read-also layout-section">
+        <div class="container">
+            <h2 class="section__title read-also__title">ЧИТАЙТЕ ТАКЖЕ:</h2>
+            <div class="read-also__grid">
                 @@include("modules/grid-article.html", {
-                    "class": "article_fullscreen",
-                    "img": "images/article1.jpg",
+                    "class": "article_format-base",
+                    "img": "images/article13.jpg",
                     "title": "Встреча с мэром без формальностей",
                     "description": "Активисты молодежки задали свои вопросы Кристине Черницыной",
-                    "wobbler": "news"
+                    "wobbler": "history"
                 })
 
                 @@include("modules/grid-article.html", {
-                    "class": "article_fullscreen",
-                    "img": "images/article2.jpg",
+                    "class": "article_format-base",
+                    "img": "images/article15.jpg",
                     "title": "Возить сотрудников «Вымпела» будут частные автобусы",
                     "description": "Богатства Приамурья, собранные руками юннатов",
-                    "wobbler": "news"
+                    "wobbler": "people"
                 })
 
                 @@include("modules/grid-article.html", {
-                    "class": "article_fullscreen",
-                    "img": "images/article3.jpg",
+                    "class": "article_format-base",
+                    "img": "images/article14.jpg",
                     "title": "Я люблю Амурск спортивный!",
                     "description": "Богатства Приамурья, собранные руками юннатов",
-                    "wobbler": "reportage"
+                    "wobbler": "history"
                 })
 
                 @@include("modules/grid-article.html", {
-                    "class": "article_fullscreen",
-                    "img": "images/article4.jpg",
+                    "class": "article_format-full article_text-size-base",
+                    "img": "images/article16.jpg",
                     "title": "Прошла выставка художника Владимира Копанова",
                     "description": "Богатства Приамурья, собранные руками юннатов",
-                    "wobbler": "reportage"
+                    "wobbler": "people"
                 })
             </div>
         </div>
