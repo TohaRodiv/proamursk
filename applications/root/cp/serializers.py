@@ -52,7 +52,7 @@ class EventsListSerializer(ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'start_event_date', 'comment',  'report',
+        fields = ('id', 'cover', 'title', 'place', 'coordinates', 'event_date_text', 'start_event_date', 'comment',  'report',
                   'cover_format', 'cover_format_name', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
