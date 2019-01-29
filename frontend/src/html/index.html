@@ -47,7 +47,8 @@
             </div>
 
             @@include("modules/grid-article.html", {
-                "class": "article_format-full article_text-size-big",
+                "class": "article_format-full article_text-size-big article_special-project",
+                "link": "special-project-details.html",
                 "img": "images/article1.jpg",
                 "title": "Проект «Дети»",
                 "description": "Амурские школьники становятся лауреатами престижных конкурсов, выпускники без труда поступают в лучшие вузы страны. Все дело в качестве образования, которое в нашем городе остается стабильно высоким.",
@@ -55,7 +56,8 @@
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_format-base",
+                "class": "article_format-base article_people",
+                "link": "people-details.html",
                 "img": "images/article2.jpg",
                 "title": "Сильный телом и духом",
                 "description": "Олег Пермяков 20 лет выращивает чемпионов на татами",
@@ -63,7 +65,8 @@
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_format-full article_text-size-base",
+                "class": "article_format-full article_text-size-base article_reportage",
+                "link": "reportage-details.html",
                 "img": "images/article3.jpg",
                 "title": "Я люблю Амурск спортивный!",
                 "description": "Звезды спорта, футбол и слезы радости",
@@ -71,7 +74,8 @@
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_format-base",
+                "class": "article_format-base article_place",
+                "link": "place-details.html",
                 "img": "images/article4.jpg",
                 "title": "Ботанический сад",
                 "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
@@ -84,7 +88,8 @@
         <div class="slider-container">
             <div class="slide">
                 @@include("modules/grid-article.html", {
-                    "class": "article_full-width-slider",
+                    "class": "article_full-width-slider article_special-project",
+                    "link": "special-project-details.html",
                     "img": "images/slider-article.jpg",
                     "title": "Легенды Амурска",
                     "description": "Шаман сказал: «Здесь города не будет». Но ошибся",
@@ -93,20 +98,22 @@
             </div>
             <div class="slide">
                 @@include("modules/grid-article.html", {
-                    "class": "article_full-width-slider",
+                    "class": "article_full-width-slider article_special-project",
+                    "link": "special-project-details.html",
                     "img": "images/slider-article.jpg",
                     "title": "Ботанический сад",
                     "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
-                    "wobbler": "place"
+                    "wobbler": "special-project"
                 })
             </div>
             <div class="slide">
                 @@include("modules/grid-article.html", {
-                    "class": "article_full-width-slider",
+                    "class": "article_full-width-slider article_special-project",
+                    "link": "special-project-details.html",
                     "img": "images/slider-article.jpg",
                     "title": "Я люблю Амурск!",
                     "description": "Звезды спорта, футбол и слезы радости",
-                    "wobbler": "history"
+                    "wobbler": "special-project"
                 })
             </div>
         </div>
@@ -117,12 +124,14 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="layout-section todo-layout">
+    <div class="container layout-section">
+        <h2 class="section__title">ЧЕМ ЗАНЯТЬСЯ В АМУРСКЕ?</h2>
+        <div class="todo-layout">
             <div class="cinema-widget"></div>
 
             @@include("modules/grid-article.html", {
-                "class": "article_format-full article_text-size-big",
+                "class": "article_format-full article_text-size-big article_place",
+                "link": "place-details.html",
                 "img": "images/article5.jpg",
                 "title": "Краеведческий музей",
                 "description": "История нашей земли — от Вознесенской культуры до Амурского ГМК",
@@ -130,7 +139,8 @@
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_format-base",
+                "class": "article_format-base article_place",
+                "link": "place-details.html",
                 "img": "images/article9.jpg",
                 "title": "Амурские теплицы",
                 "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
@@ -138,7 +148,8 @@
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_format-base",
+                "class": "article_format-base article_place",
+                "link": "place-details.html",
                 "img": "images/article10.jpg",
                 "title": "Музей природы Приамурья",
                 "description": "Богатства Приамурья, собранные руками юннатов",
@@ -146,14 +157,16 @@
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_format-full article_text-size-base",
+                "class": "article_format-full article_text-size-base article_announcement",
+                "link": "announcement-details.html",
                 "img": "images/article7.jpg",
                 "title": "Ночь кино в Амурске!",
                 "description": "Кинотеатр «Молодость» 3 февраля, 18.00",
                 "wobbler": "announcement"
             })
             @@include("modules/grid-article.html", {
-                "class": "article_format-base",
+                "class": "article_format-base article_place",
+                "link": "place-details.html",
                 "img": "images/article11.jpg",
                 "title": "Я люблю Амурск спортивный!",
                 "description": "Звезды спорта, футбол и слезы радости",
@@ -161,7 +174,8 @@
             })
 
             @@include("modules/grid-article.html", {
-                "class": "article_format-base",
+                "class": "article_format-base article_announcement",
+                "link": "announcement-details.html",
                 "img": "images/article12.jpg",
                 "title": "Фестиваль «Станица»",
                 "description": "Дворец культуры 17 февраля, 14:00 ",
@@ -175,7 +189,8 @@
             <h2 class="section__title read-also__title">ЧИТАЙТЕ ТАКЖЕ:</h2>
             <div class="read-also__grid">
                 @@include("modules/grid-article.html", {
-                    "class": "article_format-base",
+                    "class": "article_format-base article_history",
+                    "link": "history-details.html",
                     "img": "images/article13.jpg",
                     "title": "Встреча с мэром без формальностей",
                     "description": "Активисты молодежки задали свои вопросы Кристине Черницыной",
@@ -183,7 +198,8 @@
                 })
 
                 @@include("modules/grid-article.html", {
-                    "class": "article_format-base",
+                    "class": "article_format-base article_people",
+                    "link": "people-details.html",
                     "img": "images/article15.jpg",
                     "title": "Возить сотрудников «Вымпела» будут частные автобусы",
                     "description": "Богатства Приамурья, собранные руками юннатов",
@@ -191,7 +207,8 @@
                 })
 
                 @@include("modules/grid-article.html", {
-                    "class": "article_format-base",
+                    "class": "article_format-base article_history",
+                    "link": "history-details.html",
                     "img": "images/article14.jpg",
                     "title": "Я люблю Амурск спортивный!",
                     "description": "Богатства Приамурья, собранные руками юннатов",
@@ -199,7 +216,8 @@
                 })
 
                 @@include("modules/grid-article.html", {
-                    "class": "article_format-full article_text-size-base",
+                    "class": "article_format-full article_text-size-base article_people",
+                    "link": "people-details.html",
                     "img": "images/article16.jpg",
                     "title": "Прошла выставка художника Владимира Копанова",
                     "description": "Богатства Приамурья, собранные руками юннатов",
