@@ -130,7 +130,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Дата редактирования',
+                filterTitle: 'Дата изменения',
                 minMaxCodename: 'edit_date',
                 queryName: {
                     min: 'edit_date__gte',
@@ -140,7 +140,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Состояние',
+                filterTitle: 'Состояния',
                 queryName: 'is_active',
                 input_type: 'radiobuttonsList',
                 callbackValue: 'value',

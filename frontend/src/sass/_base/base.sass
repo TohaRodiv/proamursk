@@ -1,0 +1,215 @@
+*,
+*::before,
+*::after
+    box-sizing: border-box
+
+body
+    position: relative
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+    margin: 0
+    padding: 0
+    font-family: $base-f
+    font-size: $base-fz
+    line-height: $mini-lh
+    color: $dark-c
+    -webkit-text-size-adjust: none
+    -webkit-overflow-scrolling: touch
+    text-rendering: optimizeLegibility
+    -moz-osx-font-smoothing: grayscale
+    font-smoothing: antialiased
+    -webkit-font-smoothing: antialiased
+
+main
+    flex: 1 0 auto
+    display: flex
+    flex-direction: column
+
+    &.fixed-header
+        +minMedia(m)
+            margin-top: 60px
+
+header + main
+    +maxMedia(m)
+        margin-top: 60px
+
+header, footer
+    flex-shrink: 0
+
+img
+    max-width: 100%
+
+b, strong
+    font-family: $bold-f
+
+a,
+button,
+input,
+textarea
+    &:focus,
+    &:active
+        outline: none
+
+input,
+textarea
+    border: none
+    box-shadow: none
+    font-family: inherit
+    line-height: inherit
+
+input[type=text], input[type=submit], textarea
+    -webkit-appearance: none
+
+input[type=submit]
+    cursor: pointer
+
+input[readonly]
+    pointer-events: none
+    cursor: default
+
+textarea
+    resize: none
+
+button
+    margin: 0
+    padding: 0
+    font-size: inherit
+    line-height: inherit
+    font-family: inherit
+    color: inherit
+    background-color: transparent
+    border: none
+    box-shadow: none
+    cursor: pointer
+
+fieldset
+    all: unset
+    margin: 0
+    padding: 0
+    border: none
+
+h1
+    margin: 0
+    font-size: $h1-fz
+
+h2
+    margin: 0
+    font-size: $h2-fz
+
+h3
+    margin: 0
+    font-size: $h3-fz
+
+h4
+    margin: 0
+    font-size: $h4-fz
+
+h5
+    margin: 0
+    font-size: $h5-fz
+
+h6
+    margin: 0
+    font-size: $h6-fz
+
+figure
+    margin: 0
+
+p
+    margin-top: 0
+    line-height: $base-lh
+
+    & + p:last-of-type
+        margin-bottom: 0
+
+    &:not(:last-of-type)
+        margin-bottom: 24px
+
+ul, ol
+    list-style: none
+
+[hidden],
+.hidden
+    display: none !important
+
+.disabled,
+*:disabled
+    pointer-events: none
+    cursor: default
+
+.visually-hidden
+    visibility: hidden
+
+.no-action
+    pointer-events: none
+    cursor: default
+
+.light-bg
+    flex-grow: 1
+    background-color: $primary-light-c
+
+.body-overlay
+    position: absolute
+    z-index: 10
+    width: 100%
+    height: 100%
+    background: rgba($dark-c, .3)
+    cursor: pointer
+
+    +minMedia(l)
+        top: 0
+
+    +media(m-l)
+        position: absolute
+        top: 172px
+
+    +maxMedia(m)
+        top: 60px
+
+.page-description
+    margin-top: 24px
+    font-size: $base-fz
+    line-height: $base-lh
+
+.accent
+    &_red
+        color: $error-c
+
+    &_green
+        color: $success-c
+
+    &_orange
+        color: $accent-orange
+
+    &_blue
+        color: $primary-blue
+
+    &_gray
+        color: $base-gray
+
+
+.password-recovery-page
+    display: flex
+    min-height: 100vh
+    flex-direction: column
+    justify-content: center
+    text-align: center
+
+    +minMedia(s)
+        padding: 24px
+        background-image: url(../images/password-recovery-bg.jpg)
+        background-size: cover
+        background-position: center center
+
+    &__logo
+        display: block
+        width: 200px
+        margin: 0 auto 36px
+
+        +media(xs-s)
+            display: none
+
+    &__pop-up
+        margin-left: auto
+        margin-right: auto

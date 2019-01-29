@@ -48,7 +48,7 @@ class NewsDetailView(DetailView):
 class EventsListView(ListView):
     model = Event
     allow_empty = True
-    queryset = Event.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = Event.objects.filter(is_active=True, start_event_date__lte=timezone.now())
     paginate_by = 50
     context_object_name = 'events'
     template_name = 'root/events_list.html'
@@ -57,7 +57,7 @@ class EventsListView(ListView):
 class EventsListFutureView(ListView):
     model = Event
     allow_empty = True
-    queryset = Event.objects.filter(is_active=True, publication_date__lte=timezone.now(),
+    queryset = Event.objects.filter(is_active=True, start_event_date__lte=timezone.now(),
                                     start_event_date__gt=timezone.now())
     paginate_by = 50
     context_object_name = 'events'
@@ -67,7 +67,7 @@ class EventsListFutureView(ListView):
 class EventsListPastView(ListView):
     model = Event
     allow_empty = True
-    queryset = Event.objects.filter(is_active=True, publication_date__lte=timezone.now(),
+    queryset = Event.objects.filter(is_active=True, start_event_date__lte=timezone.now(),
                                     start_event_date__lt=timezone.now())
     paginate_by = 16
     context_object_name = 'events'
@@ -76,7 +76,7 @@ class EventsListPastView(ListView):
 
 class EventsDetailView(DetailView):
     model = Event
-    queryset = Event.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = Event.objects.filter(is_active=True, start_event_date__lte=timezone.now())
     context_object_name = 'event'
     template_name = 'root/events_detail.html'
 

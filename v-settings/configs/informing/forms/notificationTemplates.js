@@ -255,7 +255,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom46',
+                        modClass: 'marginBottom50',
                         elements: [
                             {
                                 type: 'shortTag',

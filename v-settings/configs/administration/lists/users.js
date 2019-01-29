@@ -151,19 +151,19 @@ const state = {
                 values: [
                     {
                         id: 2,
-                        name: 'Все записи',
+                        name: 'Все пользователи',
                         value: '',
                         checked: true
                     },
                     {
                         id: 1,
-                        name: 'Активные записи',
+                        name: 'Активные пользователи',
                         value: 'true',
                         checked: false
                     },
                     {
                         id: 0,
-                        name: 'Неактивные записи',
+                        name: 'Неактивные пользователи',
                         value: 'false',
                         checked: false
                     },

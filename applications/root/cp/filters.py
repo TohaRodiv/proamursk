@@ -30,7 +30,6 @@ class EventsFilter(APIFilterSet):
         fields = {
             'create_date': ['gte', 'lte'],
             'edit_date': ['gte', 'lte'],
-            'publication_date': ['gte', 'lte'],
             'start_event_date': ['gte', 'lte'],
         }
 

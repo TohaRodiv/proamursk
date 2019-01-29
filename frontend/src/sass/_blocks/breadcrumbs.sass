@@ -1,0 +1,90 @@
+.breadcrumbs
+    position: relative
+    font-size: $mini-fz
+    color: $primary-dark-c
+
+    +minMedia(l)
+        margin-top: 36px
+        margin-bottom: 24px
+
+    +maxMedia(l)
+        margin-top: 24px
+        margin-bottom: 16px
+
+    +media(xs-s)
+        margin-top: 16px
+        margin-bottom: 12px
+
+    &__link
+        color: currentColor
+        text-decoration: underline
+
+        &:hover
+            text-decoration: none
+
+    &__current
+        +minMedia(s)
+            color: $base-gray
+
+    &__dash
+        display: inline
+
+    &.mobile
+        font-size: $mini-fz
+
+        .breadcrumbs
+
+            &__dash
+                display: none
+
+            &__link
+                display: block
+                padding: 8px 16px
+                text-decoration: none
+
+                &:hover
+                    text-decoration: underline
+
+        .breadcrumbs-list
+            display: none
+            max-width: 340px
+            padding: 16px
+            position: absolute
+            top: 32px
+            left: 0
+            z-index: 1
+            border-radius: 5px
+            background-color: $light-c
+            box-shadow: $layer-3
+
+            &.visible
+                display: block
+
+        .toggle-breadcrumbs
+            display: inline-block
+
+.breadcrumbs-list
+    display: inline
+
+.toggle-breadcrumbs
+    display: none
+    width: 24px
+    height: 24px
+    margin-right: 6px
+    font-size: 0
+    line-height: 24px
+    color: $base-gray
+    border-radius: 5px
+    border: 1px solid $dark-gray
+    vertical-align: 2px
+
+    &::before
+        font-size: 7px
+
+    &.list-visible
+        color: $dark-c
+
+        &::before
+            display: block
+            height: 24px
+            transform: rotate(180deg)

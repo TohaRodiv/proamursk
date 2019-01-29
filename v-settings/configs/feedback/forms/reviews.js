@@ -88,7 +88,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom50',
                         elements: [
                             {
                                 label: 'Текст отзыва',
@@ -125,8 +125,8 @@ const state = {
     },
     activeFlag: {
         reviews: {
-            title: 'Активная запись',
-            hint: 'Страницы неактивных записей не отображаются на сайте',
+            title: 'Активный отзыв',
+            hint: 'Неактивные отзывы не отображаются на сайте',
         }
     },
 };

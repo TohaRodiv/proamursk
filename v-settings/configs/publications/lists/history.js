@@ -50,8 +50,8 @@ const state = {
                 name: 'Формат обложки',
                 type: 'text',
                 is_sortable: false,
-                align_text: 'center',
-                width: 160,
+                align_text: 'left',
+                width: 200,
                 codename: 'cover_format_name',
                 sort: 'none'
             },
@@ -155,7 +155,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Дата редактирования',
+                filterTitle: 'Дата изменения',
                 minMaxCodename: 'edit_date',
                 queryName: {
                     min: 'edit_date__gte',
@@ -172,19 +172,19 @@ const state = {
                 values: [
                     {
                         id: 2,
-                        name: 'Все анонсы событий',
+                        name: 'Все статьи',
                         value: '',
                         checked: true
                     },
                     {
                         id: 1,
-                        name: 'Активные анонсы событий',
+                        name: 'Активные статьи',
                         value: 'true',
                         checked: false
                     },
                     {
                         id: 0,
-                        name: 'Неактивные анонсы событий',
+                        name: 'Неактивные статьи',
                         value: 'false',
                         checked: false
                     }

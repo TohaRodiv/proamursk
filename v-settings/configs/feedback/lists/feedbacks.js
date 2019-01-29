@@ -125,7 +125,7 @@ const state = {
                 ]
             },
             {
-                filterTitle: 'Дата отправки',
+                filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',
                 queryName: {
                     min: 'create_date__gte',

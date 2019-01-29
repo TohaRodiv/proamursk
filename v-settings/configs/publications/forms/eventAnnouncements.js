@@ -33,7 +33,7 @@ const state = {
                                 label: 'Название места проведения',
                                 required: true,
                                 invalid: false,
-                                width: 12,
+                                width: 8,
                                 codename: 'place',
                                 widget: 'simpleInput',
                                 hint: ''
@@ -73,7 +73,7 @@ const state = {
                             },
                             {
                                 type: 'mask-datetime',
-                                label: 'Дата начала<br>(для сортировки на сайте)',
+                                label: 'Дата и время начала события<br>(для сортировки на сайте)',
                                 required: true,
                                 invalid: false,
                                 width: 4,
@@ -105,7 +105,7 @@ const state = {
                                         codename: 'small'
                                     },
                                     {
-                                        label: 'Полноформатная обложка',
+                                        label: 'Полноразмерная обложка',
                                         flag: false,
                                         codename: 'full'
                                     }

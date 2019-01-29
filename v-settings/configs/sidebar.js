@@ -39,17 +39,17 @@ const state = {
                     hasAddButton: true
                 },
                 {
+                    name: 'Cтатьи о людях',
+                    view: 'persons',
+                    formsName: 'Cтатья о жителе Амурска #',
+                    newFormName: 'Новая статья о жителе Амурска',
+                    hasAddButton: true
+                },
+                {
                     name: 'Статьи о местах',
                     view: 'places',
                     formsName: 'Статья о месте #',
                     newFormName: 'Новая статья о месте',
-                    hasAddButton: true
-                },
-                {
-                    name: 'Cтатьи о людях',
-                    view: 'persons',
-                    formsName: 'Cтатья о людях #',
-                    newFormName: 'Новая статья о людях',
                     hasAddButton: true
                 },
                 {
@@ -98,12 +98,29 @@ const state = {
                     hasAddButton: true
                 },
                 {
-                    name: 'Баннеры для сайдбара',
+                    name: 'Баннеры в сайдбаре',
                     view: 'sidebar-banners',
-                    formsName: 'Баннер для сайдабара #',
-                    newFormName: 'Новый баннер для сайдбара',
+                    formsName: 'Баннер в сайдбаре #',
+                    newFormName: 'Новый баннер в сайдбаре',
                     hasAddButton: true
                 }
+            ]
+        },
+        {
+            name: 'Обратная связь',
+            'sub-headers': [
+                {
+                    name: 'Обращения в редакцию',
+                    view: 'feedbacks',
+                    hasAddButton: false
+                },
+                {
+                    name: 'Отзывы о местах',
+                    view: 'reviews',
+                    formsName: 'Отзыв о месте #',
+                    newFormName: 'Новый отзыв о месте',
+                    hasAddButton: true
+                },
             ]
         },
         {
@@ -133,23 +150,6 @@ const state = {
             ]
         },
         {
-            name: 'Обратная связь',
-            'sub-headers': [
-                {
-                    name: 'Обращения в редакцию',
-                    view: 'feedbacks',
-                    hasAddButton: false
-                },
-                {
-                    name: 'Отзывы о местах',
-                    view: 'reviews',
-                    formsName: 'Отзыв о месте #',
-                    newFormName: 'Новый отзыв о месте',
-                    hasAddButton: true
-                },
-            ]
-        },
-        {
             name: 'Email-рассылки',
             'sub-headers': [
                 {
@@ -160,10 +160,10 @@ const state = {
                     hasAddButton: true
                 },
                 {
-                    name: 'Рассылки',
+                    name: 'Шаблоны рассылок',
                     view: 'campaigns',
-                    formsName: 'Рассылка #',
-                    newFormName: 'Новая рассылка',
+                    formsName: 'Шаблон рассылки #',
+                    newFormName: 'Новый шаблон рассылки',
                     hasAddButton: true
                 },
             ]
@@ -223,10 +223,9 @@ const state = {
                     hasAddButton: true,
                 },
                 {
-                    name: 'Общие настройки сервиса',
+                    name: 'Общие настройки сайта',
                     view: 'settings',
-                    formsName: 'Общие настройки сервиса',
-                    newFormName: 'Общие настройки сервиса',
+                    formsName: 'Общие настройки сайта',
                     hasAddButton: false,
                     onlyForm: true
                 },

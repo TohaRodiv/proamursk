@@ -1,0 +1,79 @@
+.notification-wrapper
+    position: fixed
+    right: 16px
+    z-index: -1
+    padding: 24px 32px 24px 24px
+    opacity: 0
+    background-color: $light-c
+    border-left: 8px solid
+    border-radius: 5px
+    box-shadow: $layer-3
+    overflow: hidden
+    transition: opacity .3s, top .3s
+
+    &.visible
+        z-index: 200
+        opacity: 1
+
+        +minMedia(l)
+            top: 80px
+
+        +media(m-l)
+            top: 68px
+
+        +maxMedia(m)
+            top: 36px
+
+    +minMedia(l)
+        top: 60px
+
+    +media(m-l)
+        top: 48px
+
+    +maxMedia(m)
+        top: 16px
+
+    +minMedia(s)
+        width: 350px
+
+    +media(xs-s)
+        max-width: 350px
+        width: calc(100% - 32px)
+
+    &.error
+        border-color: $error-c
+
+        .notification__title_error
+            display: block
+
+    &.success
+        border-color: $success-c
+
+        .notification__title_success
+            display: block
+
+.notification
+    &__title
+        display: none
+        margin-bottom: 8px
+        font-size: $medium-fz
+        line-height: $micro-lh
+        font-family: $bold-f
+
+    &__message
+        font-size: $mini-fz
+        line-height: $mini-lh
+
+    &__close
+        position: absolute
+        right: 8px
+        top: 8px
+        width: 24px
+        height: 24px
+        text-align: center
+        font-size: 14px
+        line-height: 24px
+        color: $base-gray
+
+        &:hover
+            color: $dark-c

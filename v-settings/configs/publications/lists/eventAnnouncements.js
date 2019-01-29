@@ -62,7 +62,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 180,
+                width: 240,
                 codename: 'event_date_text',
                 sort: {
                     order_by: 'event_date_text'
@@ -81,8 +81,8 @@ const state = {
                 name: 'Формат обложки',
                 type: 'text',
                 is_sortable: false,
-                align_text: 'center',
-                width: 160,
+                align_text: 'left',
+                width: 200,
                 codename: 'cover_format_name',
                 sort: 'none'
             },
@@ -105,14 +105,14 @@ const state = {
                 sort: 'none'
             },
             {
-                name: 'Дата публикации',
+                name: 'Дата начала события',
                 type: 'date',
                 is_sortable: true,
                 align_text: 'left',
                 width: 180,
-                codename: 'publication_date',
+                codename: 'start_event_date',
                 sort: {
-                    order_by: 'publication_date'
+                    order_by: 'start_event_date'
                 }
             },
             {
@@ -149,16 +149,6 @@ const state = {
     filterConfig: {
         'event-announcements': [
             {
-                filterTitle: 'Дата начала события',
-                minMaxCodename: 'start_event_date',
-                queryName: {
-                    min: 'start_event_date__gte',
-                    max: 'start_event_date__lte'
-                },
-                input_type: 'toFromDate',
-                type: 'date_time'
-            },
-            {
                 filterTitle: 'Форматы обложек',
                 queryName: 'cover_formats__in',
                 viewValue: 'name',
@@ -176,15 +166,16 @@ const state = {
                 ]
             },
             {
-                filterTitle: 'Дата публикации',
-                minMaxCodename: 'publication_date',
+                filterTitle: 'Дата начала события',
+                minMaxCodename: 'start_event_date',
                 queryName: {
-                    min: 'publication_date__gte',
-                    max: 'publication_date__lte'
+                    min: 'start_event_date__gte',
+                    max: 'start_event_date__lte'
                 },
                 input_type: 'toFromDate',
                 type: 'date_time'
             },
+
             {
                 filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',
@@ -196,7 +187,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Дата редактирования',
+                filterTitle: 'Дата изменения',
                 minMaxCodename: 'edit_date',
                 queryName: {
                     min: 'edit_date__gte',
@@ -206,7 +197,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Состояние',
+                filterTitle: 'Состояния',
                 queryName: 'is_active',
                 input_type: 'radiobuttonsList',
                 callbackValue: 'value',

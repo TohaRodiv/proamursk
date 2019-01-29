@@ -1,0 +1,34 @@
+<div class="body-cover">
+    <div class="pop-up-wrapper get-callback">
+        <div class="back"></div>
+        <button class="js-pop-up__close pop-up__close pop-up__close_inner pop-up__close_mobile icon-close"></button>
+        <div class="pop-up-inner-container">
+            <button class="js-pop-up__close pop-up__close pop-up__close_inner pop-up__close_desktop icon-close"></button>
+
+            <div class="pop-up-content user-pop-up">
+                <div class="pop-up__title">Заказать звонок</div>
+
+                <form class="pop-up__user-form js-user-form">
+                    <div class="input-wrap user-pop-up__input-wrap">
+                        <input type="text" class="input-base required-input" name="first_name" placeholder="Имя *" title="Имя">
+                    </div>
+                    <div class="input-wrap user-pop-up__input-wrap">
+                        <input type="tel" class="input-base required-input" name="phone" placeholder="Телефон *" title="Телефон">
+                    </div>
+                    <div class="input-wrap user-pop-up__agrement">
+                        <input type="checkbox" name="i_agree" id="get-callback-agrement-input" class="hidden-checkbox required-input" value="true">
+                        <label for="get-callback-agrement-input" class="label-checkbox">
+                            <span class="label-checkbox__text">
+                                Я согласен с
+                                <a href="" target="_blank">правилами использования сайта</a>,
+                                <a href="" target="_blank">политикой конфиденциальности</a> и
+                                <a href="" target="_blank">положениями договора-оферты</a>.
+                            </span>
+                        </label>
+                    </div>
+                    <input type="submit" value="Заказать звонок" class="btn btn_size_base btn_yellow user-pop-up__submit" data-request="get-callback">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

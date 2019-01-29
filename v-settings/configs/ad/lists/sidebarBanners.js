@@ -51,7 +51,7 @@ const state = {
                 type: 'link',
                 is_sortable: false,
                 align_text: 'left',
-                width: 120,
+                width: 300,
                 codename: 'link',
                 sort: 'none'
             },
@@ -130,7 +130,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Дата окончания события',
+                filterTitle: 'Дата окончания публикации',
                 minMaxCodename: 'end_publication_date',
                 queryName: {
                     min: 'end_publication_date__gte',
@@ -150,7 +150,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Дата редактирования',
+                filterTitle: 'Дата изменения',
                 minMaxCodename: 'edit_date',
                 queryName: {
                     min: 'edit_date__gte',
@@ -160,26 +160,26 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Состояние',
+                filterTitle: 'Состояния',
                 queryName: 'is_active',
                 input_type: 'radiobuttonsList',
                 callbackValue: 'value',
                 values: [
                     {
                         id: 2,
-                        name: 'Все баннеры для сайдбара',
+                        name: 'Все баннеры',
                         value: '',
                         checked: true
                     },
                     {
                         id: 1,
-                        name: 'Активные баннеры для сайдбара',
+                        name: 'Активные баннеры',
                         value: 'true',
                         checked: false
                     },
                     {
                         id: 0,
-                        name: 'Неактивные баннеры для сайдбара',
+                        name: 'Неактивные баннеры',
                         value: 'false',
                         checked: false
                     }

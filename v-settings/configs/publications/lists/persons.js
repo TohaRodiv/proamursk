@@ -50,8 +50,8 @@ const state = {
                 name: 'Формат обложки',
                 type: 'text',
                 is_sortable: false,
-                align_text: 'center',
-                width: 160,
+                align_text: 'left',
+                width: 200,
                 codename: 'cover_format_name',
                 sort: 'none'
             },
@@ -165,7 +165,7 @@ const state = {
                 type: 'date_time'
             },
             {
-                filterTitle: 'Состояние',
+                filterTitle: 'Состояния',
                 queryName: 'is_active',
                 input_type: 'radiobuttonsList',
                 callbackValue: 'value',

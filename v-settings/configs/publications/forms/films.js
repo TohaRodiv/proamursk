@@ -1,7 +1,7 @@
 
 const state = {
     formsOptions: {
-        'films': [
+        films: [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -131,7 +131,7 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'float',
+                                type: 'field',
                                 label: 'Возрастное ограничение',
                                 required: true,
                                 invalid: false,
@@ -306,7 +306,7 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Заголовок страницы (title/ og:title)',
+                                label: 'Заголовок страницы (title / og:title)',
                                 required: false,
                                 invalid: false,
                                 width: 12,
@@ -356,8 +356,8 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                inputID: 'eventAnnouncementsCoverInputOG',
-                                dragID: 'eventAnnouncementsCoverDragOG',
+                                inputID: 'filmsCoverInputOG',
+                                dragID: 'filmsCoverDragOG',
                                 label: 'Обложка для социальных сетей (og:image)',
                                 expected_value: 'medium_url',
                                 required: false,
@@ -380,7 +380,7 @@ const state = {
         ],
     },
     activeFlag: {
-        'films': {
+        films: {
             title: 'Активная запись',
             hint: 'Страницы неактивных записей не отображаются на сайте',
         }

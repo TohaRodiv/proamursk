@@ -5,6 +5,7 @@ npm-debug.log
 /cp/node_modules/
 /frontend/node_modules/
 /frontend/email/node_modules/
+/frontend/static/
 /static/maintenance_mode.html
 /webpack/statistics.html
 /uploads/

@@ -114,7 +114,7 @@ const state = {
                                                         type: 'field',
                                                         inputID: 'slideCoverInput',
                                                         dragID: 'slideCoverDrag',
-                                                        label: 'Дополнительные фотографии товара',
+                                                        label: 'Изображение',
                                                         expected_value: 'medium_url',
                                                         required: true,
                                                         invalid: false,
@@ -154,7 +154,7 @@ const state = {
                                                 direction: 'row',
                                                 elements: [
                                                     {
-                                                        label: 'Активный слайд (неактивный слайд не отображается на странице)',
+                                                        label: 'Активный слайд (Неактивные слайды не отображаются на странице)',
                                                         required: false,
                                                         codename: 'is_active',
                                                         widget: 'singleCheckbox',

@@ -25,7 +25,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom50',
                         direction: 'row',
                         elements: [
                             {
@@ -34,7 +34,7 @@ const state = {
                                 required: true,
                                 invalid: false,
                                 width: 12,
-                                height: 200,
+                                height: 400,
                                 codename: 'content',
                                 widget: 'textarea',
                                 hint: ''

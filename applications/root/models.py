@@ -42,7 +42,6 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     start_event_date = models.DateTimeField('Дата начала события')
     event_date_text = models.CharField('Дата проведения', max_length=255)
-    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
@@ -72,7 +71,6 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
     content = JSONField()
     place = models.CharField('Место проведения', max_length=255)
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
-    start_event_date = models.DateTimeField('Дата начала события')
     event_date_text = models.CharField('Дата проведения', max_length=255)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
@@ -260,7 +258,7 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
     director = models.CharField('Режиссер', max_length=255)
     starring = models.CharField('В главных ролях', max_length=255)
     duration = models.PositiveSmallIntegerField('Продолжительность, мин')
-    age_restriction = models.PositiveSmallIntegerField('Возрастное ограничение')
+    age_restriction = models.CharField('Возрастное ограничение', max_length=255)
     is_3d = models.BooleanField('3D', default=False)
     trailer = models.URLField('Ссылка на трейлер в YouTube')
     purchase_link = models.URLField('Ссылка на страницу фильма на сайте кинотеатра "Молодость"')
@@ -322,8 +320,8 @@ class Slider(BaseModel, IsActiveMixin):
     FORMAT_3x2 = 'format_3x2'
     FORMAT_2x1 = 'format_2x1'
     FORMATS = (
-        (FORMAT_3x2, 'Горизонтальный / 3:2 — 1716x1144 px'),
-        (FORMAT_2x1, 'Горизонтальный / 2:1 — 1716x858 px')
+        (FORMAT_3x2, 'Горизонтальный / 3:2'),
+        (FORMAT_2x1, 'Горизонтальный / 2:1')
     )
     title = models.CharField('Название', max_length=255)
     format = models.CharField('Формат слайдера', choices=FORMATS, max_length=45)
@@ -340,7 +338,7 @@ class Slider(BaseModel, IsActiveMixin):
 class SliderItem(models.Model):
     slider = models.ForeignKey(Slider, on_delete=models.CASCADE, verbose_name='Слайдер', related_name='slides')
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    description = models.CharField('Описание', max_length=255)
+    description = models.CharField('Описание', max_length=255, blank=True)
     is_active = models.BooleanField(default=True, verbose_name='Состояние')
 
     class Meta:

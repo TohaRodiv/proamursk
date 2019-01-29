@@ -1,0 +1,45 @@
+.section-title-wrap
+    display: flex
+    align-items: center
+    margin-bottom: 24px
+
+.section-title
+    line-height: $micro-lh
+    font-family: $bold-f
+
+    &_h2
+        +minMedia(l)
+            font-size: $huge-fz
+
+        +media(m-l)
+            font-size: $bigger-fz
+
+        +maxMedia(m)
+            font-size: $big-fz
+
+    &__more-link
+        margin-top: 3px
+        margin-left: auto
+
+.page-title
+    +minMedia(l)
+        font-size: $h1-fz
+
+    +media(m-l)
+        font-size: $h2-fz
+
+    +maxMedia(m)
+        font-size: $h3-fz
+
+.page-title-wrap
+    +minMedia(l)
+        margin-bottom: 36px
+
+    +media(m-l)
+        margin-bottom: 24px
+
+    +media(s-m)
+        margin-bottom: 24px
+
+    +media(xs-s)
+        margin-bottom: 16px

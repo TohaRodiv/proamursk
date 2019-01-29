@@ -29,7 +29,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 200,
+                width: 300,
                 codename: 'title',
                 isMain: true,
                 sort: {
@@ -63,7 +63,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 250,
+                width: 140,
                 codename: 'phone',
                 sort: {
                     order_by: 'phone'
@@ -124,7 +124,7 @@ const state = {
                 },
             },
             {
-                filterTitle: 'Дата отправки',
+                filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',
                 queryName: {
                     min: 'create_date__gte',
@@ -133,6 +133,42 @@ const state = {
                 input_type: 'toFromDate',
                 type: 'date_time'
             },
+            {
+                filterTitle: 'Дата изменения',
+                minMaxCodename: 'edit_date',
+                queryName: {
+                    min: 'edit_date__gte',
+                    max: 'edit_date__lte'
+                },
+                input_type: 'toFromDate',
+                type: 'date_time'
+            },
+            {
+                filterTitle: 'Состояния',
+                queryName: 'is_active',
+                input_type: 'radiobuttonsList',
+                callbackValue: 'value',
+                values: [
+                    {
+                        id: 2,
+                        name: 'Все отзывы',
+                        value: '',
+                        checked: true
+                    },
+                    {
+                        id: 1,
+                        name: 'Активные отзывы',
+                        value: 'true',
+                        checked: false
+                    },
+                    {
+                        id: 0,
+                        name: 'Неактивные отзывы',
+                        value: 'false',
+                        checked: false
+                    }
+                ]
+            }
         ]
     },
 };
