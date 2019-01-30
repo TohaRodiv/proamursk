@@ -30,12 +30,8 @@
     background-position: center center
     background-repeat: no-repeat
     cursor: pointer
+    background-color: rgba($dark-c, .3)
 
-    +minMedia(s)
-        background-color: rgba($dark-c, .3)
-
-    +media(xs-s)
-        background-color: $light-c
 
 .always-visible
     cursor: default !important
@@ -54,52 +50,18 @@
         color: $base-gray
         background-color: rgba($light-c, .8)
         border-radius: 50%
-
-    &_desktop
-        +media(xs-s)
-            display: none
-
-    &_mobile
-        +minMedia(s)
-            display: none
-
-        +media(xs-s)
-            position: fixed
-            top: 16px
-            right: 16px
-            z-index: 1
+        display: none
 
         &:hover
             color: $dark-c
 
     &_outer
-
-        +minMedia(s)
-            height: 36px
-            padding: 5px
-            top: -5px
-            right: -50px
-            color: $light-c
-            font-size: 25px
-
-        +media(xs-s)
-            width: 24px
-            height: 24px
-            position: fixed
-            top: 16px
-            right: 16px
-            font-size: 14px
-            line-height: 24px
-            color: $base-gray
-            text-align: center
-
-        &_desktop
-            +media(xs-s)
-                display: none
-
-        &_mobile
-            +minMedia(s)
-                display: none
+        height: 36px
+        padding: 5px
+        top: -5px
+        right: -50px
+        color: $light-c
+        font-size: 25px
 
         &:hover
             opacity: .8
@@ -119,19 +81,15 @@
 
 .pop-up-content
     background-color: $light-c
-
-    +minMedia(s)
-        border-radius: 5px
-        box-shadow: $modal-shadow
+    border-radius: 5px
+    box-shadow: $modal-shadow
 
 .pop-up-inner-container
     position: relative
     margin: 36px auto
     opacity: 0
-
-    +media(xs-s)
-        min-width: 290px
-        width: 100%
+    min-width: 290px
+    width: 100%
 
 .page-loaded-banner
     display: block
@@ -143,15 +101,8 @@
     overflow: hidden
 
 .user-pop-up
-    +minMedia(s)
-        padding: 24px
-        width: 355px
-
-    +media(xs-s)
-        width: 100%
-        max-width: 370px
-        padding: 0 15px
-        margin: 0 auto
+    padding: 24px
+    width: 355px
 
     &__input-wrap
         &:not(:last-of-type):not(.input-size_half)
@@ -186,9 +137,6 @@
         margin-bottom: 36px
         font-size: $big-fz
         font-family: $bold-f
-
-        +media(xs-s)
-            text-align: center
 
     &__subtitle
         margin-bottom: 24px
@@ -228,17 +176,3 @@
 
     &__reason-input
         margin-bottom: 16px
-
-.popup__scheme-img
-    display: block
-
-    +media(xxl)
-        width: 900px
-    +media(l-xxl)
-        width: 750px
-    +media(m-l)
-        width: 600px
-    +media(s-m)
-        width: 320px
-    +media(xs-s)
-        width: 100%

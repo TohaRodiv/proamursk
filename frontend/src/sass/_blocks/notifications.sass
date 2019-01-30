@@ -10,35 +10,12 @@
     box-shadow: $layer-3
     overflow: hidden
     transition: opacity .3s, top .3s
+    top: 60px
 
     &.visible
         z-index: 200
         opacity: 1
-
-        +minMedia(l)
-            top: 80px
-
-        +media(m-l)
-            top: 68px
-
-        +maxMedia(m)
-            top: 36px
-
-    +minMedia(l)
-        top: 60px
-
-    +media(m-l)
-        top: 48px
-
-    +maxMedia(m)
-        top: 16px
-
-    +minMedia(s)
-        width: 350px
-
-    +media(xs-s)
-        max-width: 350px
-        width: calc(100% - 32px)
+        top: 80px
 
     &.error
         border-color: $error-c

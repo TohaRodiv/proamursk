@@ -15,6 +15,7 @@ body
     font-size: $base-fz
     line-height: $mini-lh
     color: $dark-c
+    background-color: #F5F6F7
     -webkit-text-size-adjust: none
     -webkit-overflow-scrolling: touch
     text-rendering: optimizeLegibility
@@ -26,14 +27,6 @@ main
     flex: 1 0 auto
     display: flex
     flex-direction: column
-
-    &.fixed-header
-        +minMedia(m)
-            margin-top: 60px
-
-header + main
-    +maxMedia(m)
-        margin-top: 60px
 
 header, footer
     flex-shrink: 0
@@ -114,7 +107,7 @@ h6
     margin: 0
     font-size: $h6-fz
 
-figure
+figure, figcaption
     margin: 0
 
 p
@@ -152,65 +145,9 @@ ul, ol
 
 .body-overlay
     position: absolute
+    top: 0
     z-index: 10
     width: 100%
     height: 100%
     background: rgba($dark-c, .3)
     cursor: pointer
-
-    +minMedia(l)
-        top: 0
-
-    +media(m-l)
-        position: absolute
-        top: 172px
-
-    +maxMedia(m)
-        top: 60px
-
-.page-description
-    margin-top: 24px
-    font-size: $base-fz
-    line-height: $base-lh
-
-.accent
-    &_red
-        color: $error-c
-
-    &_green
-        color: $success-c
-
-    &_orange
-        color: $accent-orange
-
-    &_blue
-        color: $primary-blue
-
-    &_gray
-        color: $base-gray
-
-
-.password-recovery-page
-    display: flex
-    min-height: 100vh
-    flex-direction: column
-    justify-content: center
-    text-align: center
-
-    +minMedia(s)
-        padding: 24px
-        background-image: url(../images/password-recovery-bg.jpg)
-        background-size: cover
-        background-position: center center
-
-    &__logo
-        display: block
-        width: 200px
-        margin: 0 auto 36px
-
-        +media(xs-s)
-            display: none
-
-    &__pop-up
-        margin-left: auto
-        margin-right: auto

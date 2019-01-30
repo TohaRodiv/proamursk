@@ -130,8 +130,6 @@ select:-webkit-autofill
 
 .label-radio
 
-    +maxMedia(l)
-        flex-wrap: wrap
 
     &::before
         border-radius: 50%
@@ -239,12 +237,6 @@ select:-webkit-autofill
         flex-shrink: 1
         font-size: $mini-fz
         margin-right: auto
-
-        +minMedia(l)
-            max-width: 80%
-
-        +maxMedia(l)
-            width: calc(100% - 32px)
 
     &__text
         font-family: $bold-f
