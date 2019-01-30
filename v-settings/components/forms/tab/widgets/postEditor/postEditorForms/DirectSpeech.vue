@@ -9,6 +9,7 @@
                             style="width: 340px;"
                             :labelPosition="'top'"
                             @callback="imageCallback($event.__directSpeechImage)"
+                            :passedData="(passedData.image) ? passedData.image : undefined"
                             :options="loaderConfig">
                     </imageLoader>
                     <div style="margin-left: 20px;">
@@ -16,15 +17,17 @@
                                 style="width: 340px; margin-bottom: 22px;"
                                 :labelPosition="'top'"
                                 :type="'childEntity'"
+                                :passedData="(passedData.fio) ? passedData.fio : ''"
                                 @callback="fio = $event.name"
-                                :options="initialiseConfigInput('ФИО')">
+                                :options="fioConfig">
                         </simpleInput>
                         <simpleInput
                                 style="width: 340px;"
                                 :labelPosition="'top'"
                                 :type="'childEntity'"
+                                :passedData="(passedData.job) ? passedData.job : ''"
                                 @callback="job = $event.name"
-                                :options="initialiseConfigInput('Род деятельности')">
+                                :options="jobConfig">
                         </simpleInput>
                     </div>
                 </div>
@@ -44,14 +47,16 @@
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
-                                :options="initialiseConfigSelector('Внешний сверху, em')"
+                                :passedData="(passedData && passedData.marginTop) ? passedData.marginTop : ''"
+                                :options="initialiseIndentsConfig('Внешний сверху, em')"
                                 @callback="indentsCallbacks('marginTop', $event)"
                         ></selector>
                         <selector
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
-                                :options="initialiseConfigSelector('Внешний снизу, em')"
+                                :passedData="(passedData && passedData.marginBottom) ? passedData.marginBottom : ''"
+                                :options="initialiseIndentsConfig('Внешний снизу, em')"
                                 @callback="indentsCallbacks('marginBottom', $event)"
                         ></selector>
                         <selector
@@ -59,14 +64,16 @@
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
-                                :options="initialiseConfigSelector('Внутр. сверху, em')"
+                                :passedData="(passedData && passedData.paddingTop) ? passedData.paddingTop : ''"
+                                :options="initialiseIndentsConfig('Внутр. сверху, em')"
                                 @callback="indentsCallbacks('paddingTop', $event)"
                         ></selector>
                         <selector
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
-                                :options="initialiseConfigSelector('Внутр. снизу, em')"
+                                :passedData="(passedData && passedData.paddingBottom) ? passedData.paddingBottom : ''"
+                                :options="initialiseIndentsConfig('Внутр. снизу, em')"
                                 @callback="indentsCallbacks('paddingBottom', $event)"
                         ></selector>
                     </div>
@@ -75,7 +82,7 @@
             <div class="popup-buttons-wrapper">
                 <div class="popup-buttons-post-editor-container">
                     <button class="button borderless-button forms-cancel-button" @click="closePopup" style="border-right: none !important;">Отмена</button>
-                    <button class="button forms-save-button" @click="saveForm">Сохранить</button>
+                    <button class="button forms-save-button" @click="validate">Сохранить</button>
                 </div>
             </div>
         </div>
@@ -90,12 +97,16 @@
     import formatter from '../../Formatter.vue'
 
     export default {
+        props: {
+            passedData: [Object, Boolean],
+        },
+
         data() {
             return {
                 showTransition: false,
-                inputConfig: {
+                fioConfig: {
                     type: 'field',
-                    label: '',
+                    label: 'ФИО',
                     required: true,
                     invalid: false,
                     placeholder: 'Введите значение',
@@ -104,7 +115,18 @@
                     widget: 'simpleInput',
                     hint: '',
                 },
-                selectorConfig: {
+                jobConfig: {
+                    type: 'field',
+                    label: 'Род деятельности',
+                    required: true,
+                    invalid: false,
+                    placeholder: 'Введите значение',
+                    width: 4,
+                    codename: 'name',
+                    widget: 'simpleInput',
+                    hint: '',
+                },
+                indentsConfig: {
                     type: 'field',
                     label: '',
                     codename: 'callback',
@@ -194,6 +216,31 @@
         },
         computed: {},
         methods: {
+            validate(){
+                let hasError = false;
+                if (!Object.keys(this.image).length) {
+                    this.loaderConfig.invalid = true;
+                    this.loaderConfig.message = 'Загрузите изображение или вставьте из Галереи';
+                    hasError = true;
+                }
+                if (!this.text) {
+                    this.formatterOptions.invalid = true;
+                    this.formatterOptions.message = 'Заполните поле';
+                    hasError = true;
+                }
+                if (!this.fio) {
+                    this.fioConfig.invalid = true;
+                    this.fioConfig.message = 'Заполните поле';
+                    hasError = true;
+                }
+                if (!this.job) {
+                    this.jobConfig.invalid = true;
+                    this.jobConfig.message = 'Заполните поле';
+                    hasError = true;
+                }
+                if (!hasError) this.saveForm()
+            },
+
             saveForm(){
                 let payload = {};
                 payload.text = this.text;
@@ -204,14 +251,8 @@
                 this.$emit('changed', payload);
             },
 
-            initialiseConfigSelector(label){
-                let copy = cloneDeep(this.selectorConfig);
-                copy.label = label;
-                return copy
-            },
-
-            initialiseConfigInput(label){
-                let copy = cloneDeep(this.inputConfig);
+            initialiseIndentsConfig(label){
+                let copy = cloneDeep(this.indentsConfig);
                 copy.label = label;
                 return copy
             },

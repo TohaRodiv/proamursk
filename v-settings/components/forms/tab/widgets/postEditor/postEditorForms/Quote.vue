@@ -1,53 +1,62 @@
 <template>
     <div class="popup-wrapper" :class="{'popup-wrapper-transition': showTransition}" @click.self="closePopup">
-        <div class="popup-container" style="max-width: 780px;" v-show="showTransition">
+        <div class="popup-container" style="max-width: 540px;" v-show="showTransition">
             <div class="popup-close-icon icon-close" @click="closePopup"></div>
-            <div class="popup-post-editor-forms-label">Текст</div>
+            <div class="popup-post-editor-forms-label">Цитата</div>
             <div class="popup-post-editor-forms-wrapper">
-                <formatter
-                        :labelPosition="'top'"
-                        :options="element">
-                </formatter>
                 <div class="popup-post-editor-forms-indents-wrapper">
-                    <span>Отступы</span>
-                    <div class="popup-post-editor-forms-indents-container" style="margin-top: 30px;">
+                    <textComp
+                            style="width: 460px; margin-bottom: 50px;"
+                            :labelPosition="'top'"
+                            :type="'childEntity'"
+                            :passedData="(passedData.text) ? passedData.text : ''"
+                            @callback="text = $event.name"
+                            :options="textareaOptions">
+                    </textComp>
+                    <div class="popup-post-editor-forms-indents-container">
                         <selector
-                                style="margin-bottom: 20px;"
+                                style="margin-right: 20px; margin-bottom: 22px; width: 220px;"
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
-                                :options="initialiseConfig('Внешний сверху, em')"
-                                @callback="callbax('marginTop', $event)"
+                                :passedData="(passedData.marginTop) ? passedData.marginTop : ''"
+                                :options="initialiseConfig('Внешний отступ сверху, em')"
+                                @callback="indentsCallbacks('marginTop', $event)"
                         ></selector>
                         <selector
+                                style="margin-right: 0; margin-bottom: 22px; width: 220px;"
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
-                                :options="initialiseConfig('Внешний снизу, em')"
-                                @callback="callbax('marginBottom', $event)"
+                                :passedData="(passedData.marginBottom) ? passedData.marginBottom : ''"
+                                :options="initialiseConfig('Внешний отступ снизу, em')"
+                                @callback="indentsCallbacks('marginBottom', $event)"
                         ></selector>
                         <selector
-                                style="margin-bottom: 20px;"
+                                style="margin-right: 20px; margin-bottom: 20px; width: 220px;"
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
-                                :options="initialiseConfig('Внутр. сверху, em')"
-                                @callback="callbax('paddingTop', $event)"
+                                :passedData="(passedData.paddingTop) ? passedData.paddingTop : ''"
+                                :options="initialiseConfig('Внутренний отступ сверху, em')"
+                                @callback="indentsCallbacks('paddingTop', $event)"
                         ></selector>
                         <selector
+                                style="margin-right: 0; margin-bottom: 20px; width: 220px;"
                                 :isBlocked="false"
                                 :type="'childEntity'"
                                 :labelPosition="'top'"
-                                :options="initialiseConfig('Внутр. снизу, em')"
-                                @callback="callbax('paddingBottom', $event)"
+                                :passedData="(passedData.paddingBottom) ? passedData.paddingBottom : ''"
+                                :options="initialiseConfig('Внутренний отступ снизу, em')"
+                                @callback="indentsCallbacks('paddingBottom', $event)"
                         ></selector>
                     </div>
                 </div>
             </div>
             <div class="popup-buttons-wrapper">
                 <div class="popup-buttons-post-editor-container">
-                    <button class="button borderless-button forms-cancel-button" @click="closePopup" style="border-right: none !important;">Отмена</button>
-                    <button class="button forms-save-button" @click="saveForm">Сохранить</button>
+                    <button class="button borderless-button forms-cancel-button" style="border-right: none !important;" @click="closePopup">Отмена</button>
+                    <button class="button forms-save-button" @click="validate">Сохранить</button>
                 </div>
             </div>
         </div>
@@ -60,16 +69,33 @@
     import textarea from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/Textarea.vue'
 
     export default {
+        props: {
+            passedData: [Object, Boolean],
+        },
+
         data() {
             return {
                 showTransition: false,
-                selectorConfig: {
+
+                textareaOptions:  {
+                    type: 'field',
+                    label: 'Текст',
+                    required: true,
+                    invalid: false,
+                    width: 12,
+                    height: 100,
+                    codename: 'name',
+                    widget: 'textarea',
+                    hint: ''
+                },
+
+                indentsConfig: {
                     type: 'field',
                     label: '',
                     codename: 'callback',
                     required: false,
                     invalid: false,
-                    width: 3,
+                    width: 4,
                     available_values: [
                         {
                             name: '1',
@@ -107,19 +133,9 @@
                         },
                     ],
                 },
-                textareaOptions:  {
-                    type: 'field',
-                    label: 'Комментарий',
-                    required: true,
-                    invalid: false,
-                    width: 12,
-                    height: 58,
-                    codename: 'comment',
-                    widget: 'textarea',
-                    hint: ''
-                },
 
                 text: '',
+
                 indents: {
                     marginTop: '',
                     marginBottom: '',
@@ -133,6 +149,16 @@
         },
         computed: {},
         methods: {
+            validate(){
+                let hasError = false;
+                if (!this.text) {
+                    this.textareaOptions.invalid = true;
+                    this.textareaOptions.message = 'Заполните поле';
+                    hasError = true;
+                }
+                if (!hasError) this.saveForm()
+            },
+
             saveForm(){
                 let payload = {};
                 payload.text = this.text;
@@ -141,12 +167,12 @@
             },
 
             initialiseConfig(label){
-                let copy = cloneDeep(this.selectorConfig);
+                let copy = cloneDeep(this.indentsConfig);
                 copy.label = label;
                 return copy
             },
 
-            callbax(from, value){
+            indentsCallbacks(from, value){
                 if (from === 'marginTop') this.indents.marginTop = value.callback;
                 else if (from === 'marginBottom') this.indents.marginBottom = value.callback;
                 else if (from === 'paddingTop') this.indents.paddingTop = value.callback;

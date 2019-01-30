@@ -18,6 +18,36 @@
                 @changed="handleChanging"
                 @closePopup = "$emit('clearStore')"
         ></imageComp>
+        <HR
+                v-if="data.popupType === 'hr'"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
+                @changed="handleChanging"
+                @closePopup = "$emit('clearStore')"
+        ></HR>
+        <slider
+                v-if="data.popupType === 'slider'"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
+                @changed="handleChanging"
+                @closePopup = "$emit('clearStore')"
+        ></slider>
+        <videoComponent
+                v-if="data.popupType === 'video'"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
+                @changed="handleChanging"
+                @closePopup = "$emit('clearStore')"
+        ></videoComponent>
+        <quote
+                v-if="data.popupType === 'quote'"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
+                @changed="handleChanging"
+                @closePopup = "$emit('clearStore')"
+        ></quote>
+        <instagram
+                v-if="data.popupType === 'instagram'"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
+                @changed="handleChanging"
+                @closePopup = "$emit('clearStore')"
+        ></instagram>
     </div>
 </template>
 
@@ -27,6 +57,11 @@
     import imageComp from './postEditorForms/Image.vue'
     import text from './postEditorForms/Text.vue'
     import directSpeech from './postEditorForms/DirectSpeech.vue'
+    import slider from './postEditorForms/Slider.vue'
+    import HR from './postEditorForms/HR.vue'
+    import video from './postEditorForms/Video.vue'
+    import quote from './postEditorForms/Quote.vue'
+    import instagram from './postEditorForms/Instagram.vue'
 
     export default {
         props: {
@@ -63,6 +98,11 @@
             textForm: text,
             directSpeech,
             imageComp,
+            HR,
+            videoComponent: video,
+            slider,
+            quote,
+            instagram
         }
     }
 </script>
