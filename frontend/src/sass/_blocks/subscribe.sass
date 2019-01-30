@@ -7,33 +7,72 @@
     border-radius: 4px
     background: linear-gradient(to left, #00caff 0%, #0073ff 100%)
 
-.subscribe-img
-    margin-right: 35px
+    .subscribe-img
+        margin-right: 35px
+        height: 65px
+
+    .subscribe-title
+        font-size: $big-fz
+
+    .subscribe-form
+        position: relative
+        display: flex
+        align-items: center
+        width: 340px
+        margin-right: auto
+        flex-shrink: 0
+
+        &__input
+            width: 340px
+            padding-right: 120px
+            color: $light-c
+            background: rgba($light-c, .4)
+            border: 1px solid transparent
+            border-radius: 20px
+
+            &:focus
+                border: 1px solid transparent
+
+        &__submit
+            position: absolute
+            right: 0
+            top: 0
+            z-index: 1
+
+.aside-subscribe-widget
+    padding: 40px 50px
+    background: linear-gradient(to left, #00caff 0%, #0073ff 100%)
+    text-align: center
+
+    .subscribe-img
+        display: block
+        height: 80px
+        margin: 0 auto 20px
+
+    .subscribe-title
+        margin-bottom: 40px
+        font-size: 28px
+
+    .subscribe-form
+        width: 240px
+        margin-left: auto
+        margin-right: auto
+
+        &__input
+            text-align: center
+
+        &__submit
+            display: block
+            width: 150px
+            margin: 40px auto 0
 
 .subscribe-title
-    font-size: $big-fz
     font-family: $bold-f
     color: $light-c
 
 .subscribe-form
-    position: relative
-    display: flex
-    align-items: center
-    width: 340px
-    margin-right: auto
-    flex-shrink: 0
 
     &__input
-        width: 340px
-        height: 40px
-        padding-right: 120px
-        color: $light-c
-        background: rgba($light-c, .4)
-        border: 1px solid transparent
-        border-radius: 20px
-
-        &:focus
-            border: 1px solid transparent
 
         &::-webkit-input-placeholder
             color: $light-c
@@ -48,10 +87,6 @@
             color: $light-c
 
     &__submit
-        position: absolute
-        right: 0
-        top: 0
-        z-index: 1
         font-size: 14px
 
     &__submited
