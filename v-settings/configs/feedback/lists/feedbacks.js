@@ -95,34 +95,35 @@ const state = {
                 filterTitle: 'Темы обращения',
                 queryName: 'subjects__in',
                 viewValue: 'name',
-                input_type: 'CheckboxList',
+                input_type: 'tagSelector',
                 callbackValue: 'codename',
+                tagValue: 'name',
                 values: [
                     {
-                        id: 1,
-                        codename: 'news',
+                        id: 'news',
                         name: 'Поделиться хорошей новостью'
                     },
                     {
-                        id: 2,
-                        codename: 'event',
+                        id: 'event',
                         name: 'Поделиться событием'
                     },
                     {
-                        id: 3,
-                        codename: 'history',
+                        id: 'history',
                         name: 'Поделиться своей историей'
                     },
                     {
-                        id: 4,
-                        codename: 'person',
+                        id: 'person',
                         name: 'Предложить героя'
                     },
                     {
-                        id: 5,
-                        codename: 'question',
+                        id: 'question',
                         name: 'Задать вопрос'
                     },
+                ],
+                entity_structure: [
+                    {
+                        value: 'name'
+                    }
                 ]
             },
             {
