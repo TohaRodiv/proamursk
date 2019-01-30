@@ -20,6 +20,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-width: 1920px;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -3198,7 +3199,7 @@ footer {
   background: #283348;
   border: 1px solid #b1c1d2; }
   .cinema-widget__title {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     font-size: 24px;
     letter-spacing: 0.02em;
@@ -3206,12 +3207,30 @@ footer {
     color: #fff;
     text-align: center; }
   .cinema-widget__slider {
-    height: 330px;
+    height: 370px;
     margin-left: 20px;
-    margin-right: 20px; }
+    margin-right: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
   .cinema-widget .slider-circles-container {
-    bottom: -30px; }
+    position: relative;
+    bottom: -15px;
+    left: 0;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    margin-left: auto;
+    margin-right: auto; }
   .cinema-widget .slider-arrow-container {
+    position: relative;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3222,7 +3241,6 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    bottom: -35px;
     color: #FFFFFF; }
 
 /*# sourceMappingURL=main.min.css.map */
