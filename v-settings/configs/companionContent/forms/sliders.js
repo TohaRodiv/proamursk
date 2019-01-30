@@ -85,7 +85,7 @@ const state = {
                                 invalid: false,
                                 isDraggable: true,
                                 widget: 'childEntity',
-                                modClass: 'marginBottom40',
+                                modClass: 'marginBottom50',
                                 codename: 'slides',
                                 requireSendId: true,
                                 hint: '',
