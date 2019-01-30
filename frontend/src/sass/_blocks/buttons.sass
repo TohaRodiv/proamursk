@@ -2,52 +2,14 @@
     height: 40px
     padding: 9px 16px 7px
     font-family: $bold-f
-    font-size: 14px
-    background: #fff
-    border-radius: 20px
+    font-size: 16px
+    letter-spacing: 0.04em
     text-decoration: none
+    border-radius: 20px
 
     &_white
         color: #283348
         background-color: $light-c
-
-        &:hover,
-        &:focus,
-        &.active
-            &:not(.btn_preloader)
-                box-shadow: $layer-2-hover
-
-        &:hover:active
-            box-shadow: $layer-2
-
-    &_gray
-        color: $dark-c
-        background-color: $light-c
-        border-color: $light-gray
-
-        &:hover,
-        &:focus
-            color: $primary-blue
-            border-color: $light-gray
-
-        &:active
-            background-color: $primary-light-c
-
-    &_gray-yellow
-        color: $dark-c
-        background-color: $light-c
-        border-color: $light-gray
-
-        &:hover,
-        &:focus
-            &:not(.btn_preloader)
-                background-color: $primary-yellow-dark
-                border-color: $primary-yellow-dark
-
-        &:active
-            &:not(.btn_preloader)
-                background-color: $primary-yellow-darker
-                border-color: $primary-yellow-darker
 
     &_more
         display: block
@@ -60,144 +22,6 @@
     &_right
         margin-left: auto
 
-    &_inline-small
-        display: inline-block
-
-        &:not(:last-of-type)
-            margin-right: 12px
-
-    &_round
-        font-family: $base-f
-        color: $dark-c
-        background-color: $primary-light-c
-        border: 1px solid $dark-gray
-        border-radius: 19px
-
-    &_disabled
-        color: $base-gray
-        background-color: $light-gray
-        border-color: $light-gray
-
     &.disabled,
     &:disabled
         @extend %disabled
-
-.buttons-panel
-    display: flex
-    align-items: center
-    border-radius: 5px
-    overflow: hidden
-
-    &__item
-        height: 40px
-        padding: 9px 16px 7px
-        font-size: $mini-fz
-        line-height: 22px
-        font-family: $bold-f
-        background-color: $light-c
-        border-top: 2px solid $light-gray
-        border-bottom: 2px solid $light-gray
-
-        &:hover,
-        &:focus
-            color: $primary-blue
-
-        &:first-of-type
-            border-top-left-radius: 5px
-            border-left: 2px solid $light-gray
-            border-bottom-left-radius: 5px
-
-        &:last-of-type
-            border-top-right-radius: 5px
-            border-right: 2px solid $light-gray
-            border-bottom-right-radius: 5px
-
-        &.active
-            color: $light-c
-            background-color: $primary-blue
-            border-color: $primary-blue
-            pointer-events: none
-
-            .counter
-                color: inherit
-
-.to-top-btn
-    position: fixed
-    z-index: 30
-    color: $base-gray
-    border-radius: 50%
-    background-color: $primary-light-c
-    box-shadow: $layer-3-hover
-
-    +minMedia(l)
-        width: 60px
-        height: 60px
-        bottom: 60px
-        right: 20px
-        font-size: 12px
-        line-height: 60px
-
-    +maxMedia(l)
-        right: 12px
-
-    +media(m-l)
-        width: 48px
-        height: 48px
-        bottom: 36px
-        font-size: 10px
-        line-height: 48px
-
-    +media(s-m)
-        width: 48px
-        height: 48px
-        bottom: 36px
-        font-size: 10px
-        line-height: 48px
-
-    +media(xs-s)
-        width: 36px
-        height: 36px
-        bottom: 24px
-        font-size: 7px
-        line-height: 36px
-
-.base-link
-    font-size: $mini-fz
-    line-height: $micro-lh
-    color: $primary-blue
-    text-decoration: underline
-
-    &:hover,
-    &:focus
-        text-decoration: none
-
-.pseudo-link
-    position: relative
-    font-size: inherit
-    line-height: inherit
-    color: inherit
-    text-decoration: none
-
-    &::after
-        content: ""
-        width: 100%
-        display: block
-        position: absolute
-        bottom: 3px
-        left: 0
-        border-bottom: 1px dotted
-
-    &:hover,
-    &:focus
-        text-decoration: none
-        border-bottom-color: transparent
-
-.color-link
-    color: $primary-blue
-
-    &:hover,
-    &:focus
-        color: $primary-blue-darker
-
-.blue-link
-    color: $primary-blue
