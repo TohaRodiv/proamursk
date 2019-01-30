@@ -3052,19 +3052,13 @@ footer {
       margin-top: 30px; }
   @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .article_cover-format-base .article__cover {
-      height: 207px;
-      -o-object-fit: cover;
-         object-fit: cover; } }
+      height: 207px; } }
   @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .article_cover-format-bigger .article__cover {
-      height: 322px;
-      -o-object-fit: cover;
-         object-fit: cover; } }
+      height: 322px; } }
   @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .article_cover-format-6col .article__cover {
-      height: 320px;
-      -o-object-fit: cover;
-         object-fit: cover; } }
+      height: 320px; } }
   .article_text-size-base .article__title {
     margin-bottom: 5px;
     font-size: 22px; }
