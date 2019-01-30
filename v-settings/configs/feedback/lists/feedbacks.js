@@ -19,7 +19,7 @@ const state = {
                 type: 'text',
                 is_sortable: false,
                 align_text: 'left',
-                width: 200,
+                width: 260,
                 codename: 'subjects',
                 isMain: true,
                 sort: 'none'
