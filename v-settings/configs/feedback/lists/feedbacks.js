@@ -96,27 +96,32 @@ const state = {
                 queryName: 'subjects__in',
                 viewValue: 'name',
                 input_type: 'CheckboxList',
-                callbackValue: 'id',
+                callbackValue: 'codename',
                 values: [
                     {
+                        id: 1,
                         codename: 'news',
-                        name: 'Новость',
+                        name: 'Поделиться хорошей новостью'
                     },
                     {
+                        id: 2,
                         codename: 'event',
-                        name: 'Событие',
+                        name: 'Поделиться событием'
                     },
                     {
+                        id: 3,
                         codename: 'history',
-                        name: 'История',
+                        name: 'Поделиться своей историей'
                     },
                     {
+                        id: 4,
                         codename: 'person',
-                        name: 'Персона',
+                        name: 'Предложить героя'
                     },
                     {
+                        id: 5,
                         codename: 'question',
-                        name: 'Вопрос',
+                        name: 'Задать вопрос'
                     },
                 ]
             },
