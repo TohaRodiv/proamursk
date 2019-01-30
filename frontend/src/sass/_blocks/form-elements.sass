@@ -4,12 +4,12 @@ input[type=password]
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill
-    -webkit-text-fill-color: $dark-c
-    -webkit-box-shadow: 0 0 0px 1000px $light-c inset
+    -webkit-text-fill-color: $light-c
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset
     transition: background-color 5000s ease-in-out 0s
 
     &:hover:not(:focus)
-        -webkit-box-shadow: 0 0 0px 1000px $primary-light-c inset
+        -webkit-box-shadow: 0 0 0px 1000px transparent inset
 
 \::-webkit-input-placeholder
     color: $base-gray
@@ -78,7 +78,7 @@ select:-webkit-autofill
 .input-base,
 .textarea-base
     width: 100%
-    font-size: $mini-fz
+    font-size: 14px
     color: $dark-c
     background-color: $light-c
     border: 1px solid $dark-gray
