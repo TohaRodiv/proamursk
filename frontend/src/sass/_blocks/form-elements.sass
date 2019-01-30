@@ -1,3 +1,6 @@
+input
+    margin: 0
+
 input[type=password]
     letter-spacing: .1em
 
@@ -33,42 +36,10 @@ select:-webkit-autofill
     &_password
         position: relative
 
-.base-inputs-set
-    display: flex
-    flex-wrap: wrap
-    margin-bottom: -16px
-
-    +minMedia(s)
-        margin-right: -8px
-
-    .input-wrap
-        margin-bottom: 16px
-
-        +minMedia(s)
-            margin-right: 8px
-
-.base-input-size
-    width: 250px
-
-.input-size_half
-    display: inline-block
-    margin-bottom: 0
-    width: calc(50% - 6px)
-
-    & + .input-size_half
-        margin-left: 12px
-
 .input-base
     height: 40px
     padding: 9px 16px 7px
     line-height: 24px
-
-.input-big
-    height: 52px
-    padding: 20px 20px 18px
-    font-size: $base-fz
-    line-height: 24px
-    font-family: $bold-f
 
 .textarea-base
     display: block
@@ -223,102 +194,6 @@ select:-webkit-autofill
     &.checked
         &::before
             border: 5px solid $primary-blue
-
-.icon-input-label
-    &__input
-        &:focus
-            & + .icon-input-label__label
-                background-color: $primary-light-c
-
-        &:checked
-            & + .icon-input-label__label
-                background-color: $blue
-                border-color: $blue-dark
-                cursor: default
-                pointer-events: none
-
-                .icon-input-label__description
-                    color: $dark-c
-
-    &__label
-        display: flex
-        height: 100%
-        align-items: center
-        cursor: pointer
-        border: 1px solid $dark-gray
-        border-radius: 5px
-
-        +media(xxl)
-            padding: 36px 24px
-
-        +media(l-xxl)
-            padding: 24px 12px
-
-        +maxMedia(l)
-            padding: 16px
-
-        &:hover
-            background-color: $primary-light-c
-
-    &__icon
-        flex-shrink: 0
-        text-align: center
-
-        +media(xxl)
-            width: 64px
-            height: 64px
-            margin-right: 24px
-            font-size: 30px
-            line-height: 64px
-
-        +media(l-xxl)
-            width: 36px
-            height: 36px
-            margin-right: 12px
-            line-height: 36px
-            font-size: $mini-fz
-
-        +maxMedia(l)
-            width: 48px
-            height: 48px
-            margin-right: 16px
-            line-height: 48px
-            font-size: $medium-fz
-
-        &.icon-map,
-        &.icon-wallet-stroke
-            +media(xxl)
-                font-size: 36px
-            +media(l-xxl)
-                font-size: $medium-fz
-            +maxMedia(l)
-                font-size: 27px
-
-    &__text-wrap
-        font-size: $mini-fz
-
-    &__title
-        line-height: $mini-lh
-        font-family: $bold-f
-
-        +media(xxl)
-            font-size: $medium-fz
-
-        +maxMedia(xxl)
-            font-size: $mini-fz
-
-    &__description
-        line-height: $mini-lh
-        color: $dark-gray
-
-        +media(xxl)
-            font-size: $base-fz
-
-        +maxMedia(xxl)
-            font-size: $small-fz
-
-        &:not(:empty)
-            margin-top: 4px
 
 .radio-input
     &:not(:last-of-type)
@@ -513,69 +388,3 @@ select:-webkit-autofill
     &_required
         &::after
             content: " *"
-
-.toggle
-    display: block
-    text-align: center
-    user-select: none
-
-    &__checkbox
-        display: none
-
-        &:checked
-            & + .toggle__btn
-                &::after
-                    background-color: $primary-blue
-
-                &::before
-                    left: 18px
-
-    &__btn
-        display: flex
-        position: relative
-        cursor: pointer
-
-        &::after
-            content: ""
-            display: block
-            position: absolute
-            width: 36px
-            height: 20px
-            background-color: $base-gray
-            border-radius: 70px
-            z-index: 1
-
-        &::before
-            content: ""
-            display: block
-            position: absolute
-            top: 2px
-            left: 2px
-            width: 16px
-            height: 16px
-            background-color: $light-c
-            border-radius: 50%
-            z-index: 2
-
-    &__text
-        margin-top: 2px
-        margin-left: 52px
-        font-size: $mini-fz
-
-.btn-checkbox__checkbox
-    &:checked
-        & + .btn-checkbox__label
-            background-color: $primary-dark-c
-            border-color: $primary-dark-c
-            color: $light-c
-
-.btn-checkbox__label
-    display: block
-    background-color: $light-c
-    border: 2px solid $light-gray
-    border-radius: 5px
-    cursor: pointer
-
-    &:hover,
-    &:focus
-        color: $primary-blue
