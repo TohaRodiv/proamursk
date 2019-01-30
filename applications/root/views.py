@@ -12,7 +12,7 @@ from django.views.generic import ListView, DetailView
 from django.utils import timezone
 
 from applications.banrequest.views import check
-from applications.root.forms import FeedbackForm, PlaceReviewForm
+from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
 
 try:
@@ -402,5 +402,35 @@ def history(request):
                     }
         return JsonResponse(result)
 
+    else:
+        raise Http404
+
+
+@require_POST
+def bugreport(request):
+    result = {'status': False, 'message': settings.COMMON_ERROR_MESSAGE}
+    if request.is_ajax():
+        form = TextErrorForm(request.POST)
+        if form.is_active():
+            obj = form.save()
+            template_context = {
+                'page_url': obj.url,
+                'text': obj.text,
+            }
+
+            try:
+                send_notification.delay('bugreport',
+                                        template_context=template_context,
+                                        recipient_sms=[],
+                                        recipient_email=[])
+            except Exception as e:
+                pass
+            result = {
+                'status': True,
+                'message': 'Сообщение отправлено, спасибо за помощь'
+            }
+        else:
+            result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
+        return JsonResponse(result)
     else:
         raise Http404
