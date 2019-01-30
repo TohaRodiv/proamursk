@@ -2,18 +2,8 @@
     position: relative
     font-size: $mini-fz
     color: $primary-dark-c
-
-    +minMedia(l)
-        margin-top: 36px
-        margin-bottom: 24px
-
-    +maxMedia(l)
-        margin-top: 24px
-        margin-bottom: 16px
-
-    +media(xs-s)
-        margin-top: 16px
-        margin-bottom: 12px
+    margin-top: 36px
+    margin-bottom: 24px
 
     &__link
         color: currentColor
@@ -23,8 +13,7 @@
             text-decoration: none
 
     &__current
-        +minMedia(s)
-            color: $base-gray
+        color: $base-gray
 
     &__dash
         display: inline

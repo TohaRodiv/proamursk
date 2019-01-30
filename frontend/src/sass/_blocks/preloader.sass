@@ -17,25 +17,12 @@
     border-radius: 50%
     background: $primary-blue
     visibility: hidden
-
-    +minMedia(m)
-        top: 200px
-        margin: 200px auto
-
-    +maxMedia(m)
-        top: 100px
-        margin: 100px auto
+    top: 200px
+    margin: 200px auto
 
 .preloader.visible
     visibility: visible
     animation: fadeInPreloader .3s 1 linear forwards,preloader $preloader-time infinite ease-in-out
-
-.preloader + *
-    +minMedia(m)
-        margin-top: -460px
-
-    +maxMedia(m)
-        margin-top: -260px
 
 .btn_preloader
     cursor: default
