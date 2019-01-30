@@ -1839,11 +1839,15 @@ header {
   height: 30px; }
 
 footer {
+  padding-top: 40px;
   padding-bottom: 100px;
   background-color: #2C3240;
   background-image: url(../images/svg/footer-pattern.svg);
   background-repeat: no-repeat;
   background-position: center bottom; }
+
+.read-also + footer {
+  padding-top: 0; }
 
 .footer__main {
   padding-bottom: 30px; }
