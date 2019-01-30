@@ -6,3 +6,21 @@
 
 .layout-section
     margin-top: 40px
+
+.base-layout
+    display: flex
+    align-items: flex-start
+
+    &__main
+        width: 860px
+        flex-shrink: 0
+        margin-right: 20px
+
+    &__aside
+        width: 420px
+        padding-left: 20px
+        flex-shrink: 0
+
+.aside-widget
+    &:not(:last-child)
+        margin-bottom: 20px
