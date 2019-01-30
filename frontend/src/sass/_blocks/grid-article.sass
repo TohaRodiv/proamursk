@@ -1,11 +1,11 @@
-.article
+.grid-article
     position: relative
     display: block
     background-color: $light-c
     text-decoration: none
     color: inherit
     @extend %border
-    
+
     &__cover
         position: relative
         display: block
@@ -37,7 +37,7 @@
         display: flex
         flex-direction: column
 
-        .article
+        .grid-article
             &__cover
                 border-bottom: 1px solid #b1c1d2
 
@@ -61,7 +61,7 @@
     &_format-full
         color: $light-c
 
-        .article
+        .grid-article
             &__cover-wrap
                 position: relative
                 height: 100%
@@ -89,25 +89,25 @@
                 margin-top: 30px
 
     &_cover-format-base
-        .article
+        .grid-article
             &__cover
                 @supports (object-fit: cover)
                     height: 207px
 
     &_cover-format-bigger
-        .article
+        .grid-article
             &__cover
                 @supports (object-fit: cover)
                     height: 322px
 
     &_cover-format-6col
-        .article
+        .grid-article
             &__cover
                 @supports (object-fit: cover)
                     height: 320px
 
     &_text-size-base
-        .article
+        .grid-article
             &__title
                 margin-bottom: 5px
                 font-size: $medium-fz
@@ -116,7 +116,7 @@
                 font-size: $mini-fz
 
     &_text-size-big
-        .article
+        .grid-article
             &__title
                 margin-bottom: 15px
                 font-size: $huge-fz
@@ -128,7 +128,7 @@
         height: 100%
         border: none
 
-        .article
+        .grid-article
             &__cover-wrap
                 position: relative
                 height: 100%
@@ -172,40 +172,40 @@
                 .wobbler
                     margin: auto
 
-.article
+.grid-article
     &:hover,
     &:focus
-        .article__bg-gradient
+        .grid-article__bg-gradient
             display: block
 
     &_special-project
-        .article__bg-gradient
+        .grid-article__bg-gradient
             background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(255, 176, 0, 0.06) 61.5%, #ffb000 100%)
             opacity: 0.2
 
     &_announcement,
     &_reportage
-        .article__bg-gradient
+        .grid-article__bg-gradient
             background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(255, 0, 56, 0.06) 61.5%, #ff0038 100%)
             opacity: 0.2
 
     &_news
-        .article__bg-gradient
+        .grid-article__bg-gradient
             background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(156, 0, 206, 0.06) 61.5%, #9c00ce 100%)
             opacity: 0.3
 
     &_history
-        .article__bg-gradient
+        .grid-article__bg-gradient
             background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(0, 148, 255, 0.06) 61.5%, #0094ff 100%)
             opacity: 0.2
 
     &_people
-        .article__bg-gradient
+        .grid-article__bg-gradient
             background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(26, 201, 121, 0.06) 61.5%, #18ce6a 100%)
             opacity: 0.2
 
     &_place
-        .article__bg-gradient
+        .grid-article__bg-gradient
             background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(34, 201, 209, 0.06) 61.5%, #22c9d1 100%)
             opacity: 0.2
 
