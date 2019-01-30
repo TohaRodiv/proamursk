@@ -1,24 +1,31 @@
-@@include('page-block/head.html')
-@@include('page-block/header.html')
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "news"
+})
 
 <main>
-    @@include('page-block/breadcrumbs.html')
+    <div class="container page-container">
+        <div class="base-layout">
+            <div class="base-layout__main">
+                <article class="news-item">
+                    <figure class="news-item__cover-wrap">
+                        <img src="images/article13.jpg" alt="" class="news-item__cover">
+                        <figcaption class="news-item__img-figcaption">
+                            <span class="news-item__img-description">Подпись к изображению</span>
+                            <span class="news-item__img-author">Источник изображения (автор)</span>
+                        </figcaption>
+                    </figure>
 
-    <div class="container page-title-wrap">
-        <h1 class="page-title">Хотите сэкономить на покупке шин в этом сезоне?</h1>
-    </div>
+                    <div class="news-item__content">
+                        <!-- <div class="news-item__date">Дата новости: 21 мая 2018</div> -->
 
-    <div class="layout-section light-bg">
-        <div class="container">
-            <div class="news-layout">
-                <div class="news-layout__article">
-                    <div class="article">
-                        <div class="article__date">Дата новости: 21 мая 2018</div>
+                        <h1 class="news-item__title">Встреча с мэром без формальностей</h1>
+
+                        <p class="news-item__lead">Самые активные и&nbsp;творческие представители молодежи традиционно собрались в&nbsp;ДК, чтобы подвести итоги и&nbsp;в неформальной обстановке пообщаться с&nbsp;первыми лицами города.</p>
+
                         <div class="wysiwyg-container">
                             <p class="wysiwyg-h1">Заголовок h1</p>
-                            <p>Компания Алтан Шина продает шины оптом в Хабаровске, Биробиджане и Комсомольске-на-Амуре. Являясь официальным представителем легкосплавных колес марки TG Racing в России, мы продаем легкосплавные колеса оптом по всей стране, имеем филиалы в Хабаровске, Москве, Краснодаре.</p>
                             <p class="wysiwyg-h2">Заголовок h2</p>
-                            <p>Активно развиваем корпоративное направление, если у вашей организации есть свой автопарк, предлагаем вам стать нашими клиентами. Вы получите доступ к специальным корпоративным ценам, как на товары, так и на комплексное сервисное обслуживание ваших автомобилей.</p>
                             <ol>
                                 <li>Большие запасы шин и легкосплавных колес в наличии на складе</li>
                                 <li>Гибкая система <a href="">оплаты</a> для постоянных клиентов</li>

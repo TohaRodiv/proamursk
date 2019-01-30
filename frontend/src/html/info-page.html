@@ -1,5 +1,7 @@
 @@include('page-block/head.html')
-@@include('page-block/header.html')
+@@include("page-block/header.html", {
+    "page": "news"
+})
 
 <main>
     @@include('page-block/breadcrumbs.html')
@@ -8,7 +10,7 @@
         <h1 class="page-title">Партнерам</h1>
     </div>
 
-    <div class="layout-section light-bg">
+    <div class="layout-section ">
         <div class="container">
             <div class="info-page">
                 <div class="wysiwyg-container">
