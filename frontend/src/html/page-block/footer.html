@@ -6,27 +6,19 @@
 
             <form class="subscribe-form">
                 <div class="input-wrap subscribe-form__input-wrap">
-                    <input type="text" name="email" class="input-base subscribe-form__input required-input" placeholder="Ваш Email">
+                    <input type="text" name="email" class="input-base subscribe-form__input required-input" placeholder="Ваш E-mail">
                 </div>
                 <input type="submit" class="js-subscribe-form__submit subscribe-form__submit btn btn_size_base btn_blue_fill" value="Подписаться">
-                <div class="js-subscribe-form__submited subscribe-form__submited subscribe-form__submit btn btn_size_base disabled hidden">Вы подписаны</div>
+                <div class="js-subscribe-form__submited subscribe-form__submited subscribe-form__submit btn btn_size_base hidden">Вы подписаны</div>
             </form>
-
         </div>
 
         <div class="footer__main">
             <div class="footer-top">
-                <a href="" class="footer__logo"><img src="images/svg/logo.svg" alt=""></a>
+                <a href="index.html" class="footer__logo-link"><img src="images/svg/logo.svg" alt="проАмурск" class="footer__logo-img"></a>
 
                 <div class="footer__nav">
-                    <ul class="site-nav">
-                        <li class="site-nav__item"><a href="info-page.html" class="site-nav__link">Новости</a></li>
-                        <li class="site-nav__item"><a href="info-page.html" class="site-nav__link">События</a></li>
-                        <li class="site-nav__item"><a href="info-page.html" class="site-nav__link">История</a></li>
-                        <li class="site-nav__item"><a href="info-page.html" class="site-nav__link">Места</a></li>
-                        <li class="site-nav__item"><a href="info-page.html" class="site-nav__link">Люди</a></li>
-                        <li class="site-nav__item"><a href="info-page.html" class="site-nav__link">Спецпроекты</a></li>
-                    </ul>
+                        @@include('page-block/site-nav.html')
                 </div>
             </div>
 
@@ -38,10 +30,10 @@
                 <div class="footer__social-wrap">
                     <div class="social-wrap">
                         <a href="" class="social-link">
-                            <img src="images/svg/instagram.svg" alt="">
+                            <img src="images/svg/instagram.svg" alt="Инстаграм">
                         </a>
                         <a href="" class="social-link">
-                            <img src="images/svg/odnoklassniki.svg" alt="">
+                            <img src="images/svg/odnoklassniki.svg" alt="Одноклассники">
                         </a>
                     </div>
                 </div>

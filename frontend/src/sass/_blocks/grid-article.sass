@@ -1,15 +1,22 @@
 .article
     position: relative
+    display: block
     overflow: hidden
     border-radius: 4px
-    border: 0.5px solid #b1c1d2
+    border: 1px solid #b1c1d2
     background-color: $light-c
+    text-decoration: none
+    color: inherit
 
     &__cover
+        position: relative
         display: block
         width: 100%
+        object-fit: cover
 
     &__text-wrap
+        position: relative
+        z-index: 1
 
     &__title
         font-family: $bold-f
@@ -19,17 +26,22 @@
 
     &__wobbler
 
+    &__bg-gradient
+        display: none
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: 2
+
     &_format-base
         display: flex
         flex-direction: column
 
         .article
             &__cover
-                border-bottom: 0.5px solid #b1c1d2
-
-                @supports (object-fit: cover)
-                    height: 230px
-                    object-fit: cover
+                border-bottom: 1px solid #b1c1d2
 
             &__text-wrap
                 display: flex
@@ -52,6 +64,20 @@
         color: $light-c
 
         .article
+            &__cover-wrap
+                position: relative
+                height: 100%
+
+                &::after
+                    content: ""
+                    display: block
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%)
+
             &__cover
                 height: 100%
 
@@ -63,6 +89,24 @@
 
             &__wobbler
                 margin-top: 30px
+
+    &_cover-format-base
+        .article
+            &__cover
+                @supports (object-fit: cover)
+                    height: 207px
+
+    &_cover-format-bigger
+        .article
+            &__cover
+                @supports (object-fit: cover)
+                    height: 322px
+
+    &_cover-format-6col
+        .article
+            &__cover
+                @supports (object-fit: cover)
+                    height: 320px
 
     &_text-size-base
         .article
@@ -84,8 +128,23 @@
 
     &_full-width-slider
         height: 100%
+        border: none
 
         .article
+            &__cover-wrap
+                position: relative
+                height: 100%
+
+                &::after
+                    content: ""
+                    display: block
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%)
+
             &__cover
                 height: 100%
 
@@ -114,3 +173,41 @@
             &__wobbler
                 .wobbler
                     margin: auto
+
+.article
+    &:hover,
+    &:focus
+        .article__bg-gradient
+            display: block
+
+    &_special-project
+        .article__bg-gradient
+            background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(255, 176, 0, 0.06) 61.5%, #ffb000 100%)
+            opacity: 0.2
+
+    &_announcement,
+    &_reportage
+        .article__bg-gradient
+            background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(255, 0, 56, 0.06) 61.5%, #ff0038 100%)
+            opacity: 0.2
+
+    &_news
+        .article__bg-gradient
+            background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(156, 0, 206, 0.06) 61.5%, #9c00ce 100%)
+            opacity: 0.3
+
+    &_history
+        .article__bg-gradient
+            background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(0, 148, 255, 0.06) 61.5%, #0094ff 100%)
+            opacity: 0.2
+
+    &_people
+        .article__bg-gradient
+            background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(26, 201, 121, 0.06) 61.5%, #18ce6a 100%)
+            opacity: 0.2
+
+    &_place
+        .article__bg-gradient
+            background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(34, 201, 209, 0.06) 61.5%, #22c9d1 100%)
+            opacity: 0.2
+
