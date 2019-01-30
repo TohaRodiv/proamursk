@@ -33,7 +33,7 @@ const state = {
                 is_sortable: false,
                 align_text: 'left',
                 width: 230,
-                codename: 'site_url',
+                codename: 'link',
                 sort: 'none'
             },
             {
