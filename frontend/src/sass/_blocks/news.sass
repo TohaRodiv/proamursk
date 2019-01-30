@@ -1,10 +1,24 @@
-.last-news
+.index__last-news
     padding: 20px
+    background-color: $light-c
     @extend %border
 
-.last-news__section-title
-    margin-bottom: 15px
-    font-size: $big-fz
+.last-news
+    &__section-title
+        margin-bottom: 15px
+        font-size: $big-fz
+
+    &__link
+        display: inline-block
+        margin-top: 20px
+        color: #000
+        font-size: 14px
+        letter-spacing: 0.08em
+        text-decoration: underline
+
+        &:hover,
+        &:focus
+            text-decoration: none
 
 .last-news-list
     margin: 0
@@ -17,6 +31,7 @@
 
     &__link
         display: flex
+        align-items: flex-start
         color: $dark-c
         text-decoration: none
 
@@ -26,6 +41,7 @@
                 text-decoration: underline
 
     &__img
+        width: 110px
         margin-right: 20px
 
     &__title
