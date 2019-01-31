@@ -9,9 +9,9 @@
                             style="width: 460px; margin-bottom: 50px;"
                             :type="'childEntity'"
                             :labelPosition="'top'"
-                            :passedData="(passedData.slides) ? passedData.slides.id : ''"
+                            :passedData="(passedData.slides) ? passedData.slides : ''"
                             :options="slidesConfig"
-                            @FullDataCallback="slides = $event.callback"
+                            @FullDataCallback="$event.callback ? slides = $event.callback.id : ''"
                     ></selector>
                     <div class="popup-post-editor-forms-indents-container">
                         <selector
@@ -85,11 +85,11 @@
                     width: 8,
                     api_route: 'sliders',
                     sortFlag: {
-                        value: 'format_name'
+                        value: 'title'
                     },
                     view_structure: [
                         {
-                            value: 'format_name',
+                            value: 'title',
                             flex: 1.5
                         },
                     ],

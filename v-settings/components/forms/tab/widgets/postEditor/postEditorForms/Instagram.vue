@@ -9,8 +9,8 @@
                             style="width: 460px;"
                             :labelPosition="'top'"
                             :type="'childEntity'"
-                            :passedData="(passedData.text) ? passedData.text : ''"
-                            @callback="text = $event.name"
+                            :passedData="(passedData.link) ? passedData.link : ''"
+                            @callback="link = $event.name"
                             :options="textareaOptions">
                     </textComp>
                     <radioButtonGroup
@@ -170,7 +170,7 @@
                     ],
                 },
 
-                text: '',
+                link: '',
                 align: '',
 
                 indents: {
@@ -188,7 +188,7 @@
         methods: {
             validate(){
                 let hasError = false;
-                if (!this.text) {
+                if (!this.link) {
                     this.textareaOptions.invalid = true;
                     this.textareaOptions.message = 'Заполните поле';
                     hasError = true;
@@ -198,7 +198,7 @@
 
             saveForm(){
                 let payload = {};
-                payload.text = this.text;
+                payload.link = this.link;
                 payload.align = this.align;
                 Object.assign(payload, this.indents);
                 this.$emit('changed', payload);
