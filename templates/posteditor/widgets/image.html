@@ -1,0 +1,24 @@
+{% load posteditor_tags %}
+{% load media_filters %}
+
+{% if widget.image %}
+    <div class="post-editor-element-image">
+        <div class="image-container">
+            Картинка {{ widget.image.id }}
+{#            {% if element.element_content_link %}#}
+{#                <a href="{{ element.element_content_link }}" {% if request.get_host not in element.element_content_link %}target="_blank"{% endif %} {% if element.element_unhoverable.checked %}class="unhoverable"{% endif %}>#}
+{#            {% endif %}#}
+{#                {% get_image_size block column as image_size %}#}
+{#                <img src="{{ images|get_item:element.element_content.id|get_thumbnail_url_by_size:image_size }}">#}
+{#            {% if element.element_content_link %}#}
+{#                <div class="img-cover-hover">#}
+{#                    <div class="icon-link"></div>#}
+{#                </div>#}
+{#                </a>#}
+{#            {% endif %}#}
+{#            {% if element.element_content_description %}#}
+{#                <p class="image-caption-container">{{ element.element_content_description }}</p>#}
+{#            {% endif %}#}
+        </div>
+    </div>
+{% endif %}

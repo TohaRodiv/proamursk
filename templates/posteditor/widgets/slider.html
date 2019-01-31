@@ -1,0 +1,6 @@
+{% load posteditor_tags %}
+<div class="post-editor-element-slider">
+    {% if element.element_content.id %}
+        {% get_posteditor_slider element.element_content.id %}
+    {% endif %}
+</div>

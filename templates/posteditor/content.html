@@ -1,0 +1,22 @@
+
+{% if content %}
+    <div class="post-editor-content">
+        {% for section in content %}
+            <div class="post-editor-block-{{ block.class }} {% if block.block_icon %}{{ block.block_icon }}{% endif %}" >
+                {% for column in section.columns %}
+                    <div class="post-editor-column">
+                        {% for widget in column.widgets %}
+                            {% if widget %}
+                                {% with template_name=widget.type|add:".html" %}
+                                    {% include "posteditor/widgets/"|add:template_name %}
+                                {% endwith %}
+                                <div class="clear"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="clear"></div>
+        {% endfor %}
+    </div>
+{% endif %}

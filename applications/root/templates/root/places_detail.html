@@ -1,3 +1,5 @@
+{% load posteditor_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,6 @@
 </head>
 <body>
     <h3>{{ place.title }}</h3>
-    <p>{{ place.content }}</p>
+    <p>{% make_content place.content %}</p>
 </body>
 </html>
