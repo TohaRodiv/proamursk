@@ -1403,6 +1403,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center bottom; }
 
+.layout-section + footer,
 .read-also + footer {
   margin-top: 0;
   padding-top: 0; }
