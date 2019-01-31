@@ -1434,6 +1434,19 @@ input.btn_preloader {
       background-color: rgba(0, 0, 0, 0.3); }
   .post-editor__block_img img {
     display: block; }
+  .post-editor__block_img.center img {
+    margin-left: auto;
+    margin-right: auto; }
+  .post-editor__block_img.center .post-editor__block_caption {
+    text-align: center; }
+  .post-editor__block_img.left img {
+    margin-right: auto; }
+  .post-editor__block_img.left .post-editor__block_caption {
+    text-align: left; }
+  .post-editor__block_img.right img {
+    margin-left: auto; }
+  .post-editor__block_img.right .post-editor__block_caption {
+    text-align: right; }
 
 .post-editor__block_slider .nav-wrapper {
   position: absolute;
