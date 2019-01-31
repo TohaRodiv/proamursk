@@ -145,13 +145,15 @@
         left: auto
 
 .post-editor__block_quote
-    margin-right: auto
-    margin-left: auto
-    color: $dark-c
-    background-color: $light-c
-    text-align: center
-    padding: 80px 110px
-    font-size: $h2-fz
+    min-height: 90px
+    padding-left: 25px
+    border-left: 4px solid #05f
+
+    p
+        margin-bottom: 0
+        font-size: 26px
+        line-height: $mini-lh
+        font-family: $additional-f
 
 .post-editor__block_video
 
@@ -178,11 +180,9 @@
         font-family: $bold-f !important
         color: $dark-c
 
-.post-editor__block_advantages
-    margin-top: 70px
-    margin-bottom: 105px
-
 .post-editor__block_separator
     .line
         height: 1px
         background-color: $dark-c
+
+.post-editor__block_direct-speech
