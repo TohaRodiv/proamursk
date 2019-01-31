@@ -1,0 +1,72 @@
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "event"
+})
+
+<main>
+    <div class="container page-container">
+        <div class="base-layout">
+            <div class="base-layout__main">
+                <article class="publication">
+                    <figure class="publication__cover-wrap">
+                        <img src="images/event1.jpg" alt="" class="publication__cover">
+                        <figcaption class="publication__img-figcaption">
+                            <span class="publication__img-description">Подпись к изображению</span>
+                            <span class="publication__img-author">Источник изображения (автор)</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="publication__content">
+                        <!-- <div class="publication__date">Дата новости: 21 мая 2018</div> -->
+
+                        <h1 class="publication__title">Бильярдный турнир на кубок Амурска</h1>
+
+                        <div class="publication__event-info">
+                            <div class="publication__event-place">
+                                <span class="icon-geo"></span>
+                                ГРК «Родник»
+                            </div>
+
+                            <div class="publication__event-date">
+                                <span class="icon-calendar"></span>
+                                5 сентября 2018
+                            </div>
+                        </div>
+
+
+                        <p class="publication__lead">Самые активные и&nbsp;творческие представители молодежи традиционно собрались в&nbsp;ДК, чтобы подвести итоги и&nbsp;в неформальной обстановке пообщаться с&nbsp;первыми лицами города.</p>
+
+                        <div class="post-editor-content wysiwyg-container"></div>
+
+                        <div class="publication__footer">
+                            <div class="publication__author">Автор материала</div>
+
+                            @@include('page-block/share-widget.html')
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <aside class="base-layout__aside">
+                <div class="aside-widget">
+
+                </div>
+                <div class="aside-widget">
+                    @@include("page-block/aside-subscribe-widget.html")
+                </div>
+                <div class="aside-widget">
+                    @@include('modules/offer-widget.html', {
+                        "class": "event",
+                        "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "btnText": "Предложить новость"
+                    })
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+@@include("page-block/read-also.html")
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')
