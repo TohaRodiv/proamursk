@@ -2,7 +2,7 @@
 {% if content %}
     <div class="post-editor-content">
         {% for section in content %}
-            <div class="post-editor-block {{ column.classSuffix }}" >
+            <div class="post-editor-block {{ section.classSuffix }}" >
                 {% for column in section.columns %}
                     <div class="post-editor-column {{ column.width }}">
                         {% for widget in column.widgets %}
