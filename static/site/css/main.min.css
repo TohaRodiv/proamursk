@@ -1387,7 +1387,9 @@ input.btn_preloader {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   .post-editor__section_4-4 .post-editor-column {
-    width: calc(50% - 10px); }
+    width: calc(50% - 10px);
+    -ms-flex-negative: 0;
+        flex-shrink: 0; }
   .post-editor__section_4-4 .slider-caption {
     width: 100%; }
 
@@ -1402,7 +1404,9 @@ input.btn_preloader {
   margin-right: auto;
   margin-left: auto; }
   .post-editor__section_3-3 .post-editor-column {
-    width: calc(50% - 10px); }
+    width: calc(50% - 10px);
+    -ms-flex-negative: 0;
+        flex-shrink: 0; }
   .post-editor__section_3-3 .slider-caption {
     width: 100%; }
 
