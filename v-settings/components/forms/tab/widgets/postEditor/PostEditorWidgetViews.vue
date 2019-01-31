@@ -20,6 +20,10 @@
                 v-if="widget.type === 'direct-speech'"
                 :data="widget"
         ></directSpeech>
+        <videoComponent
+                v-if="widget.type === 'video'"
+                :code="widget.link"
+        ></videoComponent>
     </div>
 </template>
 
@@ -30,6 +34,7 @@
     import slider from './postEditorWidgetViews/Slider.vue'
     import quote from './postEditorWidgetViews/Quote.vue'
     import directSpeech from './postEditorWidgetViews/DirectSpeech.vue'
+    import video from './postEditorWidgetViews/Video.vue'
 
     export default {
         props: {
@@ -51,6 +56,7 @@
             slider,
             quote,
             directSpeech,
+            videoComponent: video,
         }
     }
 </script>
