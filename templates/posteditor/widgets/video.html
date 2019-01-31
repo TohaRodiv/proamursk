@@ -1,5 +1,8 @@
 {% load utils_tags %}
 
-<div class="post-editor__block_video">
-    <iframe src="{{ element.element_content|get_player_link }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<div class="post-editor__block_video center">
+    <div class="post-editor__block_video-wrap">
+        <iframe src="{{ element.element_content|get_player_link }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <p class="post-editor__block_caption">{{ element.element_content_description }}</p>
 </div>
