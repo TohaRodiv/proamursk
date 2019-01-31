@@ -2,16 +2,10 @@
 {% load media_filters %}
 
 <div class="post-editor__block_direct-speech {{ element.element_content_format.id }}">
-    <div class="left-column">
-        <img src="{{ images|get_item:element.element_content_photo.id|get_thumbnail_url_by_name:"posteditor_direct_photo" }}">
-        <div class="name">{{ element.element_content_name }}</div>
-        <div class="title">{{ element.element_content_post }}</div>
-    </div>
-    <div class="right-column">
-        <div class="name">{{ element.element_content_name }}</div>
-        <div class="title">{{ element.element_content_post }}</div>
-        <div class="direct-speach wysiwyg-container">
-            {{ element.element_content|safe }}
-        </div>
+    <img src="{{ images|get_item:element.element_content_photo.id|get_thumbnail_url_by_name:"posteditor_direct_photo" }}" alt="" class="direct-speech__avatar">
+    <div class="direct-speech__text-wrap">
+        <div class="direct-speech__author">{{ element.element_content_name }}</div>
+        <div class="direct-speech__author-description">{{ element.element_content_description }}</div>
+        <div class="direct-speech__text wysiwyg-container">{{ element.element_content|safe }}</div>
     </div>
 </div>
