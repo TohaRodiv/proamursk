@@ -1,0 +1,134 @@
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "event"
+})
+
+<main>
+    <div class="layout-section">
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main">
+                    @@include("modules/grid-article.html", {
+                        "class": "grid-article_format-full grid-article_text-size-big grid-article_event",
+                        "link": "special-project-details.html",
+                        "img": "images/event1.jpg",
+                        "title": "Бильярдный турнир на кубок Амурска",
+                        "date": "ГРК «Родник»",
+                        "place": "5 октября",
+                        "description": false,
+                        "wobbler": "announcement"
+                    })
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+                        @@include("modules/events-links-widget.html", {
+                            "active": "future"
+                        })
+                    </div>
+
+                    <!-- <div class="aside-widget">
+                        <a href="news-details.html" class="ad-widget">
+                            <img src="images/aside-banner1.jpg" alt="" class="ad-widget__img">
+                        </a>
+                    </div> -->
+
+                    <div class="aside-widget">
+                        @@include('modules/offer-widget.html', {
+                            "class": "event",
+                            "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                            "btnText": "Поделиться событием"
+                        })
+                    </div>
+                </aside>
+            </div>
+
+            <div class="base-3items-grid">
+                @@include("modules/grid-article.html", {
+                    "class": "grid-article_format-base grid-article_cover-format-bigger grid-article_people",
+                    "link": "people-details.html",
+                    "img": "images/article2.jpg",
+                    "title": "Сильный телом и духом",
+                    "description": "Олег Пермяков 20 лет выращивает чемпионов на татами",
+                    "date": false,
+                    "place": false,
+                    "wobbler": "announcement"
+                })
+
+                @@include("modules/grid-article.html", {
+                    "class": "grid-article_format-full grid-article_text-size-base grid-article_event",
+                    "link": "announcement-details.html",
+                    "img": "images/article7.jpg",
+                    "title": "Ночь кино в Амурске!",
+                    "description": false,
+                    "place": "Кинотеатр «Молодость»",
+                    "date": "3 февраля, 18.00",
+                    "wobbler": "announcement"
+                })
+
+                @@include("modules/grid-article.html", {
+                    "class": "grid-article_format-base grid-article_cover-format-6col grid-article_event",
+                    "link": "place-details.html",
+                    "img": "images/article16.jpg",
+                    "title": "Прошла выставка художника Владимира Копанова",
+                    "description": false,
+                    "place": "Детская художественная школа",
+                    "date": "18 февраля, 13.00",
+                    "wobbler": "announcement"
+                })
+            </div>
+
+            <div class="js-infinity-loader-wrap">
+                <div class="base-4items-grid js-infinity-loader-grid">
+                    @@include("modules/grid-article.html", {
+                        "class": "grid-article_format-base grid-article_cover-format-bigger grid-article_place",
+                        "link": "place-details.html",
+                        "img": "images/article10.jpg",
+                        "title": "Музей природы Приамурья",
+                        "description": false,
+                        "place": "Дворец культуры",
+                        "date": "20 октября",
+                        "wobbler": "announcement"
+                    })
+
+                    @@include("modules/grid-article.html", {
+                        "class": "grid-article_format-base grid-article_cover-format-bigger grid-article_place",
+                        "link": "place-details.html",
+                        "img": "images/article14.jpg",
+                        "title": "Я люблю Амурск спортивный!",
+                        "description": false,
+                        "place": "ДЮСШ",
+                        "date": "3 февраля, 18.00",
+                        "wobbler": "announcement"
+                    })
+
+                    @@include("modules/grid-article.html", {
+                        "class": "grid-article_format-full grid-article_text-size-base grid-article_event",
+                        "link": "announcement-details.html",
+                        "img": "images/article7.jpg",
+                        "title": "Ночь кино в Амурске!",
+                        "description": false,
+                        "place": "Кинотеатр «Молодость»",
+                        "date": "3 февраля, 18.00",
+                        "wobbler": "announcement"
+                    })
+
+                    @@include("modules/grid-article.html", {
+                        "class": "grid-article_format-base grid-article_cover-format-bigger grid-article_event",
+                        "link": "announcement-details.html",
+                        "img": "images/article12.jpg",
+                        "title": "Фестиваль «Станица»",
+                        "description": false,
+                        "place": "Дворец культуры",
+                        "date": "17 февраля, 14:00",
+                        "wobbler": "announcement"
+                    })
+                </div>
+                <button class="btn btn_size_base btn_blue btn_more btn_center js-more-future-events" data-page-count="1">Показать еще <span class="icon-arrow-down"></span></button>
+            </div>
+        </div>
+    </div>
+</main>
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')
