@@ -2,7 +2,7 @@
 {% if content %}
     <div class="post-editor-content">
         {% for section in content %}
-            <div class="post-editor__section {{ section.classSuffix }}">
+            <div class="post-editor__section post-editor__section_{{ section.classSuffix }}">
                 {% for column in section.columns %}
                     <div class="post-editor-column">
                         {% for widget in column.widgets %}
@@ -10,13 +10,11 @@
                                 {% with template_name=widget.type|add:".html" %}
                                     {% include "posteditor/widgets/"|add:template_name %}
                                 {% endwith %}
-                                <div class="clear"></div>
                             {% endif %}
                         {% endfor %}
                     </div>
                 {% endfor %}
             </div>
-            <div class="clear"></div>
         {% endfor %}
     </div>
 {% endif %}
