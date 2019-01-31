@@ -66,28 +66,30 @@
         display: block
         position: relative
 
-        &::after
-            content: ' ' attr(href) ' '
-            position: absolute
-            bottom: 20px
-            display: block
-            max-width: 250px
-            height: 22px
-            margin-left: 20px
-            opacity: 0
-            font-size: $mini-fz
-            color: rgba($light-c, 0.9)
-            text-align: left
-            text-overflow: ellipsis
-            overflow: hidden
-            transition: opacity .3s
+        &.hoverable
 
-        &:hover
             &::after
-                opacity: 1
+                content: ' ' attr(href) ' '
+                position: absolute
+                bottom: 20px
+                display: block
+                max-width: 250px
+                height: 22px
+                margin-left: 20px
+                opacity: 0
+                font-size: $mini-fz
+                color: rgba($light-c, 0.9)
+                text-align: left
+                text-overflow: ellipsis
+                overflow: hidden
+                transition: opacity .3s
 
-            .img-shadow
-                background-color: rgba($dark-c, 0.3)
+            &:hover
+                &::after
+                    opacity: 1
+
+                .img-shadow
+                    background-color: rgba($dark-c, 0.3)
 
     img
         display: block
@@ -167,3 +169,11 @@
         background-color: $dark-c
 
 .post-editor__block_direct-speech
+
+.img-shadow
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    transition: background-color .3s
