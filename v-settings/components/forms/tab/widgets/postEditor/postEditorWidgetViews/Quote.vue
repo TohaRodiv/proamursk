@@ -1,6 +1,6 @@
 <template>
     <div class="post-editor-quote-container">
-        <div class="post-editor-quote"><i>{{text}}</i></div>
+        <div class="post-editor-quote">{{text}}</div>
     </div>
 </template>
 
@@ -9,15 +9,5 @@
         props: {
             text: String,
         },
-
-        data() {
-            return {}
-        },
-        mounted() {
-
-        },
-        computed: {},
-        methods: {},
-        components: {}
     }
 </script>

@@ -16,6 +16,10 @@
                 v-if="widget.type === 'quote'"
                 :text="widget.text"
         ></quote>
+        <directSpeech
+                v-if="widget.type === 'direct-speech'"
+                :data="widget"
+        ></directSpeech>
     </div>
 </template>
 
@@ -25,6 +29,7 @@
     import separator from './postEditorWidgetViews/HR.vue'
     import slider from './postEditorWidgetViews/Slider.vue'
     import quote from './postEditorWidgetViews/Quote.vue'
+    import directSpeech from './postEditorWidgetViews/DirectSpeech.vue'
 
     export default {
         props: {
@@ -45,6 +50,7 @@
             separator,
             slider,
             quote,
+            directSpeech,
         }
     }
 </script>
