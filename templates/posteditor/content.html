@@ -2,9 +2,9 @@
 {% if content %}
     <div class="post-editor-content">
         {% for section in content %}
-            <div class="post-editor-block-{{ block.class }} {% if block.block_icon %}{{ block.block_icon }}{% endif %}" >
+            <div class="post-editor-block" >
                 {% for column in section.columns %}
-                    <div class="post-editor-column">
+                    <div class="post-editor-column {{ column.width }}">
                         {% for widget in column.widgets %}
                             {% if widget %}
                                 {% with template_name=widget.type|add:".html" %}

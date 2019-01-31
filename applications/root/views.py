@@ -149,7 +149,7 @@ class PlaceDetailView(DetailView):
     model = Place
     queryset = Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'place'
-    template_name = 'root/places_detail.html'
+    template_name = 'site/event-announcement.html'
 
 
 class SpecialsListView(ListView):
