@@ -2303,8 +2303,9 @@ footer {
   .grid-publication__title {
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
   .grid-publication__description {
-    margin-bottom: 0;
-    font-size: 20px; }
+    margin-bottom: 0; }
+  .grid-publication__text {
+    line-height: 1.5; }
   .grid-publication__bg-gradient {
     display: none;
     position: absolute;
@@ -2338,8 +2339,9 @@ footer {
     .grid-publication_format-base .grid-publication__title {
       margin-bottom: 5px;
       font-size: 22px; }
-    .grid-publication_format-base .grid-publication__description {
-      margin-bottom: 10px;
+    .grid-publication_format-base .grid-publication__description, .grid-publication_format-base .grid-publication__date {
+      margin-bottom: 10px; }
+    .grid-publication_format-base .grid-publication__text {
       font-size: 16px; }
     .grid-publication_format-base .grid-publication__wobbler {
       margin-top: auto; }
@@ -2381,12 +2383,12 @@ footer {
   .grid-publication_text-size-base .grid-publication__title {
     margin-bottom: 5px;
     font-size: 22px; }
-  .grid-publication_text-size-base .grid-publication__description {
+  .grid-publication_text-size-base .grid-publication__text {
     font-size: 16px; }
   .grid-publication_text-size-big .grid-publication__title {
     margin-bottom: 15px;
     font-size: 36px; }
-  .grid-publication_text-size-big .grid-publication__description {
+  .grid-publication_text-size-big .grid-publication__text {
     font-size: 20px; }
   .grid-publication_full-width-slider {
     height: 100%;
@@ -2430,7 +2432,7 @@ footer {
       margin-bottom: 35px;
       font-size: 56px;
       text-transform: uppercase; }
-    .grid-publication_full-width-slider .grid-publication__description {
+    .grid-publication_full-width-slider .grid-publication__text {
       margin-bottom: 20px;
       font-size: 20px;
       -webkit-box-flex: 1;
