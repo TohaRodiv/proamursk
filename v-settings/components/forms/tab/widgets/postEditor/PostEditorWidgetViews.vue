@@ -12,6 +12,9 @@
                 v-if="widget.type === 'slider'"
                 :sliderId="widget.slides"
         ></slider>
+        <separator
+                v-if="widget.type === 'hr'">
+        </separator>
         <quote
                 v-if="widget.type === 'quote'"
                 :text="widget.text"
