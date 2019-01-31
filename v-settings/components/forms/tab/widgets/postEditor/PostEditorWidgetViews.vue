@@ -24,6 +24,10 @@
                 v-if="widget.type === 'video'"
                 :code="widget.link"
         ></videoComponent>
+        <instagram
+                v-if="widget.type === 'instagram'"
+                :code="widget.link"
+        ></instagram>
     </div>
 </template>
 
@@ -35,6 +39,7 @@
     import quote from './postEditorWidgetViews/Quote.vue'
     import directSpeech from './postEditorWidgetViews/DirectSpeech.vue'
     import video from './postEditorWidgetViews/Video.vue'
+    import instagram from './postEditorWidgetViews/Instagram.vue'
 
     export default {
         props: {
@@ -57,6 +62,7 @@
             quote,
             directSpeech,
             videoComponent: video,
+            instagram,
         }
     }
 </script>
