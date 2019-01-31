@@ -1,0 +1,29 @@
+<a href="@@link" class="grid-publication @@class">
+    <div class="grid-publication__bg-gradient"></div>
+
+    <div class="grid-publication__cover-wrap">
+        <img src="@@img" alt="" class="grid-publication__cover">
+    </div>
+
+    <div class="grid-publication__text-wrap">
+        <h2 class="grid-publication__title">@@title</h2>
+
+        @@if (description !== false) {
+            <p class="grid-publication__description">@@description</p>
+        }
+
+        @@if (place !== false) {
+            <div class="grid-publication__description">@@place</div>
+        }
+
+        @@if (date !== false) {
+            <div class="grid-publication__description">@@date</div>
+        }
+
+        <div class="grid-publication__wobbler">
+            @@include('modules/wobbler.html', {
+                "wobbler": "@@wobbler"
+            })
+        </div>
+    </div>
+</a>
