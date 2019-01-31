@@ -226,6 +226,12 @@ ul, ol {
 .icon-arrow-right:before {
   content: "\e902"; }
 
+.icon-arrow-left-thin:before {
+  content: "\e903"; }
+
+.icon-arrow-right-thin:before {
+  content: "\e904"; }
+
 .icon-arrow-down:before {
   content: "\e90a"; }
 
@@ -251,8 +257,10 @@ ul, ol {
   margin-left: auto; }
 
 .page-container {
-  padding-top: 20px;
-  background-color: #FFFFFF; }
+  width: 1340px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(131, 164, 199, 0.4); }
 
 .layout-section {
   margin-top: 40px; }
@@ -272,8 +280,6 @@ ul, ol {
   .base-layout__aside {
     width: 420px;
     padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
     -ms-flex-negative: 0;
         flex-shrink: 0; }
 
@@ -713,26 +719,21 @@ select:-webkit-autofill {
     .slider-arrow_round:hover {
       background-color: rgba(0, 0, 0, 0.5); }
   .slider-arrow_simple {
-    width: 16px;
-    height: 16px;
-    font-size: 16px;
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
     color: #FFFFFF;
     text-align: center; }
 
 .slide-nav-counter {
   display: none;
-  width: 77px;
-  font-size: 16px;
+  width: 50px;
+  font-size: 15px;
   line-height: 1;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.7); }
-  .slide-nav-counter.active {
-    display: inline-block; }
+  text-align: center; }
+  .slide-nav-counter.active,
   .slide-nav-counter span {
-    display: inline-block;
-    font-size: 16px;
-    line-height: 1;
-    text-align: center; }
+    display: inline-block; }
 
 .slider-circles-container {
   position: absolute;
@@ -759,7 +760,7 @@ select:-webkit-autofill {
   .slider-circle-item:last-child {
     margin-right: 0; }
 
-.post-editor__element_slider .slide {
+.post-editor__block_slider .slide {
   cursor: pointer; }
 
 @-webkit-keyframes fadeIn {
@@ -1363,7 +1364,7 @@ input.btn_preloader {
   .post-editor__section_8 .slider-caption {
     width: 100%; }
   .post-editor__section_8 .post-editor__block_slider .slider {
-    height: 868px; }
+    height: 520px; }
   .post-editor__section_8 .post-editor__block_video-wrap {
     height: 730px; }
 
@@ -1374,7 +1375,7 @@ input.btn_preloader {
   .post-editor__section_6 .slider-caption {
     width: 100%; }
   .post-editor__section_6 .post-editor__block_slider .slider {
-    height: 572px; }
+    height: 440px; }
   .post-editor__section_6 .post-editor__block_video-wrap {
     height: 480px; }
 
@@ -1448,35 +1449,26 @@ input.btn_preloader {
   .post-editor__block_img.right .post-editor__block_caption {
     text-align: right; }
 
+.post-editor__block_slider img {
+  display: block; }
+
 .post-editor__block_slider .nav-wrapper {
   position: absolute;
-  left: 20px;
-  bottom: 20px;
-  display: inline-block;
-  font-size: 0;
-  padding: 11px 15px;
-  color: #FFFFFF;
-  border-radius: 18px; }
+  right: 0;
+  bottom: -40px;
+  font-size: 0; }
+
+.post-editor__block_slider .slider-arrow {
+  vertical-align: bottom;
+  color: #283348; }
 
 .post-editor__block_slider .slider-caption {
-  display: inline-block;
-  padding: 13px 20px 0;
-  font-size: 22px;
-  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
-
-.post-editor__block_slider.left .nav-wrapper {
-  left: 20px;
-  right: auto; }
-
-.post-editor__block_slider.center .nav-wrapper {
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%); }
-
-.post-editor__block_slider.right .nav-wrapper {
-  right: 20px;
-  left: auto; }
+  width: 50%;
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  color: #283348; }
 
 .post-editor__block_quote {
   min-height: 90px;
@@ -1871,8 +1863,7 @@ footer {
     grid-row: 2/3; }
 
 .publication {
-  margin-bottom: 40px;
-  padding-left: 20px; }
+  margin-bottom: 40px; }
   .publication__cover-wrap {
     position: relative; }
     .publication__cover-wrap::after {
@@ -1910,8 +1901,7 @@ footer {
     line-height: 20px;
     color: #dde2e5; }
   .publication__content {
-    margin-top: 20px;
-    margin-left: 110px; }
+    margin-top: 20px; }
   .publication__event-info {
     display: -webkit-box;
     display: -ms-flexbox;

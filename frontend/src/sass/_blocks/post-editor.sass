@@ -16,7 +16,7 @@
         width: 100%
 
     .post-editor__block_slider .slider
-        height: 868px
+        height: 520px
 
     .post-editor__block_video-wrap
         height: 730px
@@ -30,7 +30,7 @@
         width: 100%
 
     .post-editor__block_slider .slider
-        height: 572px
+        height: 440px
 
     .post-editor__block_video-wrap
         height: 480px
@@ -116,33 +116,26 @@
 
 .post-editor__block_slider
 
+    img
+        display: block
+
     .nav-wrapper
         position: absolute
-        left: 20px
-        bottom: 20px
-        display: inline-block
+        right: 0
+        bottom: -40px
         font-size: 0
-        padding: 11px 15px
-        color: $light-c
-        border-radius: 18px
+
+    .slider-arrow
+        vertical-align: bottom
+        color: #283348
 
     .slider-caption
-        display: inline-block
-        padding: 13px 20px 0
-        font-size: $medium-fz
-        font-family: $bold-f
-
-    &.left .nav-wrapper
-        left: 20px
-        right: auto
-
-    &.center .nav-wrapper
-        left: 50%
-        transform: translateX(-50%)
-
-    &.right .nav-wrapper
-        right: 20px
-        left: auto
+        width: 50%
+        margin-top: 20px
+        font-size: 15px
+        line-height: $mini-lh
+        letter-spacing: 0.08em
+        color: #283348
 
 .post-editor__block_quote
     min-height: 90px

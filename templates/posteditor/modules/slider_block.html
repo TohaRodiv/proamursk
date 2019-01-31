@@ -1,28 +1,23 @@
 {% load i18n %}
 
 {% if slider %}
-    <div class="slider format-{{ slider_obj.slider_format.system_name }}">
-        <div class="slider-content-wrapper">
-            <div class="slider-container">
-                {% for slide in slider %}
-                    <div class="slide" data-description="{{ slide.description }}">
-                        <img src="{{ slide.img }}" />
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="slider-footer-wrapper">
-            <div class="caption-wrapper"></div>
-            {% if slider|length > 1 %}
-                <div class="nav-wrapper">
-                    <div class="slider-nav-prev icon-arrow-left"></div>
-                    <div class="slide-nav-counter">
-                        <span></span>&nbsp;/&nbsp;<span></span>
-                    </div>
-                    <div class="slider-nav-next icon-arrow-right"></div>
+    <div class="slider">
+        <div class="slider-container">
+            {% for slide in slider %}
+                <div class="slide" data-description="{{ slide.description }}">
+                    <img src="{{ slide.img }}" alt="{{ slide.description }}">
                 </div>
-            {% endif %}
-            <div class="clear"></div>
+            {% endfor %}
         </div>
+        {% if slider|length > 1 %}
+            <div class="slider-arrow-container nav-wrapper">
+                <button class="slider-arrow slider-arrow-prev slider-arrow_simple icon-arrow-left-thin active"></button>
+                <div class="slide-nav-counter active">
+                    <span></span>&nbsp;/&nbsp;<span></span>
+                </div>
+                <button class="slider-arrow slider-arrow-next slider-arrow_simple icon-arrow-right-thin active"></button>
+            </div>
+        {% endif %}
     </div>
+    <div class="slider-caption"></div>
 {% endif %}
