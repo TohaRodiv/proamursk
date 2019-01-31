@@ -36,7 +36,7 @@
                         <p class="publication__lead">{{ place.lead }}</p>
 
                         <div class="post-editor-content wysiwyg-container">
-                            {% make_content place.content %}
+                            {% post_editor_make_content place.content 'default' %}
                         </div>
 
                         <div class="publication__footer">

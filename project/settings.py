@@ -201,6 +201,13 @@ MEDIALIB_THUMB_SIZE = {
     'mailing_special': (1000, 1000, 'crop'),  # Спецпроекты
 }
 
+POST_EDITOR = dict(
+    default=dict(
+        column=90,
+        gutter=20
+    ),
+)
+
 MEDIALIB_JPEG_QUALITY = 70
 MEDIALIB_EXT = ('jpg', 'jpeg', 'png', 'gif')
 

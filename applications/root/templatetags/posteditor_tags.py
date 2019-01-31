@@ -8,7 +8,7 @@ register = template.Library()
 
 
 @register.inclusion_tag('posteditor/content.html', takes_context=True)
-def make_content(context, content_json):
+def post_editor_make_content(context, content_json, config='default'):
     request = context.get('request')
     all_images = {}
 
