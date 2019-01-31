@@ -12,6 +12,10 @@
                 v-if="widget.type === 'slider'"
                 :sliderId="widget.slides"
         ></slider>
+        <quote
+                v-if="widget.type === 'quote'"
+                :text="widget.text"
+        ></quote>
     </div>
 </template>
 
@@ -20,6 +24,7 @@
     import textComponent from './postEditorWidgetViews/Text.vue'
     import separator from './postEditorWidgetViews/HR.vue'
     import slider from './postEditorWidgetViews/Slider.vue'
+    import quote from './postEditorWidgetViews/Quote.vue'
 
     export default {
         props: {
@@ -38,7 +43,8 @@
             imageComponent,
             textComponent,
             separator,
-            slider
+            slider,
+            quote,
         }
     }
 </script>
