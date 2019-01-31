@@ -3,16 +3,12 @@ const state = {
         default: {
             sections: [
                 {
-                    name: 'Полноразмерная (по ширине экрана)',
-                    columns: ['100%', '50%:50%']
-                },
-                {
                     name: 'Широкая',
-                    columns: ['8', '4:4', '2:2:2:2', '3:2:3', '3:3:2', '2:1:5']
+                    columns: ['8', '4:4']
                 },
                 {
                     name: 'Узкая',
-                    columns: ['6', '3:3', '1:2:3']
+                    columns: ['6', '3:3']
                 },
             ],
             sectionConfigs: {
@@ -24,7 +20,7 @@ const state = {
             widgets: [
                 {
                     type: 'text',
-                    available: [1, 6, 4, 3],
+                    available: [6, 4, 3],
                 },
                 {
                     type: 'image',
@@ -36,7 +32,7 @@ const state = {
                 },
                 {
                     type: 'video',
-                    available: [8, 6,],
+                    available: [8, 6],
                 },
                 {
                     type: 'slider',
