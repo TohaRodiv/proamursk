@@ -2,7 +2,7 @@
 {% load media_filters %}
 {% load utils_tags %}
 
-<div class="post-editor-element-card" {% if element.element_background_color %}style="background-color: {{ element.element_background_color }};"{% endif %}>
+<div class="post-editor__block_card" {% if element.element_background_color %}style="background-color: {{ element.element_background_color }};"{% endif %}>
     {% if element.element_icon.id %}
         <img src="{{ images|get_item:element.element_icon.id|get_thumbnail_url_by_size:"200,200" }}" class="header-icon">
     {% elif element.element_title %}

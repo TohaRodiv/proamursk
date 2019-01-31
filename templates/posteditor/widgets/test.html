@@ -1,7 +1,7 @@
 {% load posteditor_tags %}
 {% load media_filters %}
 
-<div class="post-editor-element-test">
+<div class="post-editor__block_test">
     {% get_posteditor_test element.element_content.id as test %}
     <div class="test-wrapper" data-id="{{ test.id }}">
         <h2>{{ test.name }}</h2>

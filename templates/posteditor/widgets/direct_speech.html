@@ -1,7 +1,7 @@
 {% load posteditor_tags %}
 {% load media_filters %}
 
-<div class="post-editor-element-direct-speech {{ element.element_content_format.id }}">
+<div class="post-editor__block_direct-speech {{ element.element_content_format.id }}">
     <div class="left-column">
         <img src="{{ images|get_item:element.element_content_photo.id|get_thumbnail_url_by_name:"posteditor_direct_photo" }}">
         <div class="name">{{ element.element_content_name }}</div>
