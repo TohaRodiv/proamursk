@@ -1,6 +1,8 @@
 {% load posteditor_tags %}
 <div class="post-editor__block_slider">
-    {% if element.element_content.id %}
-        {% get_posteditor_slider element.element_content.id %}
-    {% endif %}
+    <div class="indent-wrap indent-wrap_mt2 indent-wrap_mb2 indent-wrap_pt2 indent-wrap_pb2">
+        {% if element.element_content.id %}
+            {% get_posteditor_slider element.element_content.id %}
+        {% endif %}
+    </div>
 </div>

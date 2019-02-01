@@ -3,20 +3,20 @@
 
 {% if widget.image %}
     <div class="post-editor__block_image">
-        <div class="image-container">
+        <div class="indent-wrap indent-wrap_mt2 indent-wrap_mb2 indent-wrap_pt2 indent-wrap_pb2">
             Картинка {{ widget.image.id }}
-{#            {% if element.element_content_link %}#}
-{#                <a href="{{ element.element_content_link }}" {% if request.get_host not in element.element_content_link %}target="_blank"{% endif %} {% if element.element_hoverable.checked %}class="hoverable"{% endif %}>#}
-{#            {% endif %}#}
-{#                {% get_image_size block column as image_size %}#}
-{#                <img src="{{ images|get_item:element.element_content.id|get_thumbnail_url_by_size:image_size }}">#}
-{#            {% if element.element_content_link %}#}
-{#                <div class="img-shadow"></div>#}
-{#                </a>#}
-{#            {% endif %}#}
-{#            {% if element.element_content_description %}#}
-{#                <div class="post-editor__block_caption">{{ element.element_content_description }}</div>#}
-{#            {% endif %}#}
+{#              {% if element.element_content_link %}#}
+{#                  <a href="{{ element.element_content_link }}" {% if request.get_host not in element.element_content_link %}target="_blank"{% endif %} {% if element.element_hoverable.checked %}class="hoverable"{% endif %}>#}
+{#              {% endif %}#}
+{#                  {% get_image_size block column as image_size %}#}
+{#                  <img src="{{ images|get_item:element.element_content.id|get_thumbnail_url_by_size:image_size }}">#}
+{#              {% if element.element_content_link %}#}
+{#                  <div class="img-shadow"></div>#}
+{#                  </a>#}
+{#              {% endif %}#}
+{#              {% if element.element_content_description %}#}
+{#                  <figcaption class="post-editor__block_caption">{{ element.element_content_description }}</figcaption>#}
+{#              {% endif %}#}
         </div>
     </div>
 {% endif %}
