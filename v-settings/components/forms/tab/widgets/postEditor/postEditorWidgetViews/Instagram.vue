@@ -1,9 +1,12 @@
 <template>
-    <iframe width="364" height="440" :src="formatInstagramLink()" frameborder="0"></iframe>
+    <div>
+        <iframe width="364" height="440" :src="formatInstagramLink()" frameborder="0"></iframe>
+    </div>
 </template>
 
 <script>
     export default {
+        name: 'instagramComponent',
         props: {
             code: String,
         },

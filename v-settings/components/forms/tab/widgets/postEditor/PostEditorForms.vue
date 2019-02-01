@@ -30,18 +30,18 @@
                 @changed="handleChanging"
                 @closePopup = "$emit('clearStore')"
         ></slider>
-        <videoComponent
-                v-if="data.popupType === 'video'"
-                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
-                @changed="handleChanging"
-                @closePopup = "$emit('clearStore')"
-        ></videoComponent>
         <quote
                 v-if="data.popupType === 'quote'"
                 :passedData="(Object.keys(data.widget).length ? data.widget : false)"
                 @changed="handleChanging"
                 @closePopup = "$emit('clearStore')"
         ></quote>
+        <videoComponent
+                v-if="data.popupType === 'video'"
+                :passedData="(Object.keys(data.widget).length ? data.widget : false)"
+                @changed="handleChanging"
+                @closePopup = "$emit('clearStore')"
+        ></videoComponent>
         <instagram
                 v-if="data.popupType === 'instagram'"
                 :passedData="(Object.keys(data.widget).length ? data.widget : false)"
@@ -64,17 +64,12 @@
     import instagram from './postEditorForms/Instagram.vue'
 
     export default {
+        name: 'widgetLoader',
+
         props: {
             data: Object
         },
 
-        data() {
-            return {}
-        },
-        mounted() {
-
-        },
-        computed: {},
         methods: {
             handleChanging(payload){
                 let widget = {
