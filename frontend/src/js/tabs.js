@@ -15,6 +15,8 @@ function switchTab(elem) {
     allTabContents.removeClass('visible').eq(clickedBtnIndex).addClass('visible');
     allTabBtns.removeClass('active');
     elem.addClass('active');
+
+    $('.movie-posters-slider').slick('reinit');
 }
 
 $(function () {

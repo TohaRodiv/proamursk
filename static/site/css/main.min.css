@@ -309,6 +309,13 @@ ul, ol {
     background: -webkit-linear-gradient(#ff4006 0%, #ff0038 100%);
     background: -o-linear-gradient(#ff4006 0%, #ff0038 100%);
     background: linear-gradient(#ff4006 0%, #ff0038 100%); }
+  .btn_yellow {
+    color: #FFBA00;
+    font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    background-color: transparent; }
+    .btn_yellow:hover, .btn_yellow.active {
+      background-color: #3a4961; }
   .btn_more {
     display: block;
     margin-top: 40px; }
@@ -388,7 +395,7 @@ select:-webkit-autofill {
   border: 1px solid #BEBEBE; }
   .input-base:focus,
   .textarea-base:focus {
-    border-color: #2C3240; }
+    border-color: #283348; }
   .input-base.has-error,
   .textarea-base.has-error {
     border-color: #E20101; }
@@ -449,8 +456,8 @@ select:-webkit-autofill {
     line-height: 18px;
     color: #FFFFFF;
     text-align: center;
-    background-color: #2C3240;
-    border-color: #2C3240; }
+    background-color: #283348;
+    border-color: #283348; }
   .label-checkbox:active::before {
     background-color: #0067c3;
     border-color: #0067c3; }
@@ -486,8 +493,8 @@ select:-webkit-autofill {
   border-color: #0067c3; }
 
 .hidden-checkbox:checked + .label-checkbox::before {
-  background-color: #2C3240;
-  border-color: #2C3240; }
+  background-color: #283348;
+  border-color: #283348; }
 
 .hidden-radio:focus:not(:checked) + .label-radio:not(.has-error)::before {
   border-color: #89B7E0; }
@@ -496,7 +503,7 @@ select:-webkit-autofill {
   border: 5px solid #0067c3; }
 
 .hidden-radio:checked + .label-radio::before {
-  border: 5px solid #2C3240; }
+  border: 5px solid #283348; }
 
 .hidden-radio:focus:not(:checked) + .label-radio:not(.has-error)::before {
   border-color: #89B7E0; }
@@ -505,7 +512,7 @@ select:-webkit-autofill {
   border: 5px solid #0067c3; }
 
 .label-radio.checked::before {
-  border: 5px solid #2C3240; }
+  border: 5px solid #283348; }
 
 .radio-input:not(:last-of-type) {
   margin-bottom: 8px; }
@@ -640,7 +647,7 @@ select:-webkit-autofill {
   .select__more-option {
     width: 100%;
     padding: 8px 16px;
-    color: #2C3240;
+    color: #283348;
     text-align: left; }
     .select__more-option:hover {
       text-decoration: underline; }
@@ -821,6 +828,108 @@ select:-webkit-autofill {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between; }
+
+.slick-slider {
+  position: relative;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: pan-y;
+      touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent; }
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+
+.slick-slide:focus,
+.slick-list:focus {
+  outline: none; }
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand; }
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: ''; }
+
+.slick-track:after {
+  clear: both; }
+
+.slick-loading .slick-track {
+  visibility: hidden; }
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px; }
+
+.slick-slide img {
+  display: block; }
+
+.slick-slide.slick-loading img {
+  display: none; }
+
+.slick-slide.dragging img {
+  pointer-events: none; }
+
+.slick-initialized .slick-slide {
+  display: block; }
+
+.slick-loading .slick-slide {
+  visibility: hidden; }
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent; }
+
+.slick-arrow {
+  position: absolute;
+  top: 134px;
+  color: #A1A3A3;
+  font-size: 0; }
+  .slick-arrow:hover {
+    color: #FFFFFF; }
+  .slick-arrow::before {
+    font-size: 32px; }
+  .slick-arrow.slick-hidden {
+    display: none; }
+
+.slick-prev {
+  left: -60px; }
+  .slick-prev::before {
+    content: "\e900";
+    font-family: "proamursk"; }
+
+.slick-next {
+  right: -60px; }
+  .slick-next::before {
+    content: "\e902";
+    font-family: "proamursk"; }
 
 .notification-wrapper {
   position: fixed;
@@ -1094,7 +1203,7 @@ select:-webkit-autofill {
   .wysiwyg-container a,
   .wysiwyg-container a:link,
   .wysiwyg-container a:visited {
-    color: #2C3240;
+    color: #283348;
     text-decoration: none; }
     .wysiwyg-container a:hover,
     .wysiwyg-container a:link:hover,
@@ -1154,7 +1263,7 @@ select:-webkit-autofill {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #2C3240;
+  background: #283348;
   visibility: hidden;
   top: 200px;
   margin: 200px auto; }
@@ -1186,7 +1295,7 @@ button.btn_preloader {
     margin-top: -20px;
     margin-left: -20px;
     border-radius: 50%;
-    background: #2C3240;
+    background: #283348;
     -webkit-animation: fadeInPreloader 0.3s 1 linear forwards, preloader 1s infinite ease-in-out;
             animation: fadeInPreloader 0.3s 1 linear forwards, preloader 1s infinite ease-in-out; }
 
@@ -1202,7 +1311,7 @@ input.btn_preloader {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 50%;
-  background: #2C3240;
+  background: #283348;
   -webkit-animation: fadeInPreloader 0.3s 1 linear forwards, preloader 1s infinite ease-in-out;
           animation: fadeInPreloader 0.3s 1 linear forwards, preloader 1s infinite ease-in-out; }
 
@@ -1612,7 +1721,7 @@ input.btn_preloader {
 
 header {
   padding: 15px 0;
-  background-color: #2C3240; }
+  background-color: #283348; }
 
 .header-container {
   height: 30px;
@@ -1652,13 +1761,12 @@ footer {
   margin-top: 60px;
   padding-top: 40px;
   padding-bottom: 100px;
-  background-color: #2C3240;
+  background-color: #283348;
   background-image: url(../images/svg/footer-pattern.svg);
   background-repeat: no-repeat;
   background-position: center bottom; }
 
-.layout-section + footer,
-.read-also + footer {
+.additional-block + footer {
   margin-top: 0;
   padding-top: 0; }
 
@@ -2140,7 +2248,7 @@ footer {
     color: #000000;
     text-decoration: none; }
     .news-list-item__title:hover {
-      color: #2C3240; }
+      color: #283348; }
   .news-list-item__text {
     margin-bottom: 40px;
     font-size: 16px; }
@@ -2543,7 +2651,71 @@ footer {
   padding: 40px;
   background-color: #283348; }
   .read-also__title {
+    color: #FFFFFF;
+    text-transform: uppercase; }
+
+.movie-posters-widget {
+  padding: 40px;
+  background-color: #283348; }
+  .movie-posters-widget__title-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 40px; }
+  .movie-posters-widget__title {
+    margin-bottom: 0;
+    color: #FFFFFF;
+    text-transform: uppercase; }
+  .movie-posters-widget__btns {
+    margin-left: 50px;
+    font-size: 0; }
+  .movie-posters-widget__btn {
+    margin-right: 15px; }
+  .movie-posters-widget .slick-list {
+    margin-left: -25px;
+    margin-right: -25px; }
+  .movie-posters-widget .slick-active .movie-posters-item__cover {
+    -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); }
+
+.movie-posters-item {
+  position: relative;
+  margin-left: 25px;
+  margin-right: 25px;
+  text-decoration: none; }
+  .movie-posters-item__cover {
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 10px; }
+  .movie-posters-item__title {
+    font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 0.02em;
     color: #FFFFFF; }
+  .movie-posters-item__genre {
+    font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    color: #7a8ba1; }
+  .movie-posters-item__icons-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 15px; }
+  .movie-posters-item__icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-left: 10px; }
 
 .cinema-widget {
   display: -webkit-box;

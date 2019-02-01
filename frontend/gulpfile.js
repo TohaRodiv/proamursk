@@ -23,12 +23,14 @@ const gulp = require('gulp'),
     // NPM paths
     jquery = 'node_modules/jquery/dist/jquery.min.js',
     jqueryMaskPlugin = 'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js',
+    slickCarousel = 'node_modules/slick-carousel/slick/slick.min.js',
 
 
     // JS paths
     srcJS = [
         jquery,
         jqueryMaskPlugin,
+        slickCarousel,
         'src/js/**/*.js'
     ],
 
