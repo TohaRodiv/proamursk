@@ -19,13 +19,15 @@
                 mozallowfullscreen
                 allowfullscreen>
         </iframe>
+        <div class="post-editor-image-widget-sign" v-if="description" style="text-align: left">{{description}}</div>
     </div>
 </template>
 
 <script>
     export default {
         props: {
-            code: String
+            code: String,
+            description: String,
         },
 
         methods: {

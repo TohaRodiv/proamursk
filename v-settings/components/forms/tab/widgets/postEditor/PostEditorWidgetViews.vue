@@ -26,6 +26,7 @@
         <videoComponent
                 v-if="widget.type === 'video'"
                 :code="widget.link"
+                :description="widget.description"
         ></videoComponent>
         <instagram
                 v-if="widget.type === 'instagram'"
