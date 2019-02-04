@@ -2600,6 +2600,7 @@ footer {
   .grid-publication_format-full {
     color: #FFFFFF; }
     .grid-publication_format-full .grid-publication__cover-wrap {
+      display: block;
       position: relative;
       height: 100%; }
       .grid-publication_format-full .grid-publication__cover-wrap::after {
