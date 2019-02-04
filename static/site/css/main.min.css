@@ -5,8 +5,8 @@
   background-color: #DFDFDF;
   border-color: #DFDFDF; }
 
-.index__last-news, .news-list-item, .grid-publication, .cinema-widget, .ad-widget, .events-links-widget, .nearest-event-widget__item {
-  border: 1px solid #b1c1d2;
+.index__last-news, .news-list-item, .grid-publication, .cinema-widget, .events-links-widget {
+  border: 1px solid #4C607B;
   border-radius: 4px;
   overflow: hidden; }
 
@@ -2810,7 +2810,9 @@ footer {
     font-size: 0; }
 
 .ad-widget {
-  display: block; }
+  display: block;
+  border-radius: 4px;
+  overflow: hidden; }
   .ad-widget__img {
     display: block;
     width: 100%; }
@@ -2867,7 +2869,9 @@ footer {
   margin-bottom: 15px; }
 
 .nearest-event-widget__item {
-  display: block; }
+  display: block;
+  border-radius: 4px;
+  overflow: hidden; }
   .nearest-event-widget__item:not(:last-child) {
     margin-bottom: 20px; }
 
