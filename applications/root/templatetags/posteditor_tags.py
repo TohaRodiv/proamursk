@@ -13,7 +13,7 @@ def post_editor_make_content(context, content_json, config='default'):
     all_images = {}
 
     if content_json:
-        post_widgets = dict(image=[])
+        post_images = []
 
         for section in content_json:
             for column in section['columns']:
@@ -21,7 +21,7 @@ def post_editor_make_content(context, content_json, config='default'):
                     if element:
                         element_images = []
                         element_type = element.get('type')
-                        if element_type == 'image':
+                        if element_type in ['image', 'direct-speech']:
                             element_images.append(element.get('image'))
 
                         for image_dict in element_images:
@@ -32,11 +32,11 @@ def post_editor_make_content(context, content_json, config='default'):
                                     image_id = None
 
                                 if image_id:
-                                    post_widgets[element_type].append(image_id)
+                                    post_images.append(image_id)
 
-        if post_widgets['image']:
+        if post_images:
             ids = set()
-            ids.update(post_widgets['image'])
+            ids.update(post_images)
             images = MediaFile.objects.select_related().filter(pk__in=ids)
             all_images = {int(image.id): image for image in images}
 

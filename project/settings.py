@@ -200,6 +200,8 @@ MEDIALIB_THUMB_SIZE = {
     # E-mail рассылки
     'mailing_article': (1000, 500),  # Все публикации, кроме спецпроектов и киноанонсов
     'mailing_special': (1000, 1000, 'crop'),  # Спецпроекты
+
+    'poste_ditor_direct_photo': (220, 220, 'crop')
 }
 
 POST_EDITOR = dict(
