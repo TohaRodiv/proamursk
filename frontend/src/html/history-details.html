@@ -1,0 +1,59 @@
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "history"
+})
+
+<main>
+    <div class="container page-container">
+        <div class="base-layout">
+            <div class="base-layout__main">
+                <article class="publication">
+                    <figure class="publication__cover-wrap">
+                        <img src="images/article18.jpg" alt="" class="publication__cover">
+                        <figcaption class="publication__img-figcaption">
+                            <span class="publication__img-description">Подпись к изображению</span>
+                            <span class="publication__img-author">Источник изображения (автор)</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="publication__content">
+                        <div class="publication__date">Дата новости: 21 мая 2018</div>
+
+                        <h1 class="publication__title">От прошлого к настоящему</h1>
+
+                        <p class="publication__lead">В Амурске легко прикоснуться к истории. Достаточно прийти в Краеведческий музей, заглянуть в палатку первостроителей и представить себя на месте мальчишек и девчонок, которые за 10 лет построили новый город посреди тайги.</p>
+
+                        @@include("page-block/post-editor.html")
+
+                        <div class="publication__footer">
+                            <div class="publication__author">Автор материала</div>
+
+                            @@include('page-block/share-widget.html')
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <aside class="base-layout__aside">
+                <div class="aside-widget">
+                    @@include("page-block/nearest-event-widget.html")
+                </div>
+                <div class="aside-widget">
+                    @@include("page-block/aside-subscribe-widget.html")
+                </div>
+                <div class="aside-widget">
+                    @@include('modules/offer-widget.html', {
+                        "class": "history",
+                        "text": "Любой житель Амурска может поделиться интересной историей с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "btnText": "Поделиться историей"
+                    })
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+@@include("page-block/read-also.html")
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')

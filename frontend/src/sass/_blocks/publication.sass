@@ -45,18 +45,32 @@
         margin-top: 20px
 
     &__date
+        margin-bottom: 20px
+        font-size: 14px
+        letter-spacing: 0.08em
+        line-height: 20px
+        color: #7a7a7a
 
     &__event-info
         display: flex
         align-items: center
         margin-bottom: 20px
         font-size: 16px
+        font-family: $bold-f
 
         [class^="icon-"]
             display: inline-block
             margin-right: 5px
-            font-size: 11px
-            color: #4C607B
+            font-size: 18px
+            color: #0055FF
+            vertical-align: bottom
+
+        a
+            color: inherit
+            text-decoration: underline
+
+            &:hover
+                text-decoration: none
 
     &__event-place
         margin-right: 30px
@@ -64,12 +78,12 @@
     &__event-date
 
     &__title
-        margin-bottom: 30px
+        margin-bottom: 20px
         font-size: $huge-fz
         font-family: $bold-f
 
     &__lead
-        margin-bottom: 30px
+        margin-bottom: 20px
         font-size: 21px
         font-family: $additional-f
         line-height: $mini-lh
