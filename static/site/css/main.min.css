@@ -5,7 +5,7 @@
   background-color: #DFDFDF;
   border-color: #DFDFDF; }
 
-.index__last-news, .news-list-item, .grid-publication, .cinema-widget, .aside-nav-widget {
+.index__last-news, .news-list-item, .grid-publication, .cinema-widget {
   border: 1px solid #4C607B;
   border-radius: 4px;
   overflow: hidden; }
@@ -2951,7 +2951,10 @@ footer {
     height: 24px; }
 
 .aside-nav-widget {
-  padding: 20px 15px; }
+  padding: 20px 15px;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #d2d7dd; }
 
 .aside-nav__list {
   margin: 0;
