@@ -6,12 +6,20 @@
             <div class="popup-post-editor-forms-wrapper">
                 <div class="popup-post-editor-forms-indents-wrapper">
                     <simpleInput
-                            style="width: 460px; margin-bottom: 50px;"
+                            style="width: 460px; margin-bottom: 22px;"
                             :labelPosition="'top'"
                             :type="'childEntity'"
                             :passedData="(passedData.link) ? passedData.link : ''"
                             @callback="link = $event.name"
                             :options="videoConfig">
+                    </simpleInput>
+                    <simpleInput
+                            style="width: 460px; margin-bottom: 50px;"
+                            :labelPosition="'top'"
+                            :type="'childEntity'"
+                            :passedData="(passedData.description) ? passedData.description : ''"
+                            @callback="description = $event.name"
+                            :options="descriptionConfig">
                     </simpleInput>
                     <div class="popup-post-editor-forms-indents-container">
                         <selector
@@ -89,6 +97,17 @@
                     hint: '',
                 },
 
+                descriptionConfig: {
+                    type: 'field',
+                    label: 'Подпись',
+                    required: false,
+                    invalid: false,
+                    width: 8,
+                    codename: 'name',
+                    widget: 'simpleInput',
+                    hint: '',
+                },
+
                 indentsConfig: {
                     type: 'field',
                     label: '',
@@ -135,6 +154,7 @@
                 },
 
                 link: '',
+                description: '',
 
                 indents: {
                     marginTop: '',
@@ -162,6 +182,7 @@
             saveForm(){
                 let payload = {};
                 payload.link = this.link;
+                payload.description = this.description;
                 Object.assign(payload, this.indents);
                 this.$emit('changed', payload);
             },
