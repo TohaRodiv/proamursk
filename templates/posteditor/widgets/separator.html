@@ -1,4 +1,5 @@
 <div class="post-editor__block_separator">
-    <div class="line"></div>
-    <div class="mustache icon-mustache"></div>
+    <div class="indent-wrap {% if widget.marginTop %}indent-wrap_mt{{ widget.marginTop }}{% endif %} {% if widget.marginBottom %}indent-wrap_mb{{ widget.marginBottom }}{% endif %} {% if widget.paddingTop %}indent-wrap_pt{{ widget.paddingTop }}{% endif %} {% if widget.paddingBottom %}indent-wrap_pb{{ widget.paddingBottom }}{% endif %}">
+        <div class="line"></div>
+    </div>
 </div>
