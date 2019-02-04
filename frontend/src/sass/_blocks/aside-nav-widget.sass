@@ -1,0 +1,39 @@
+.aside-nav-widget
+    padding: 20px 15px
+    @extend %border
+
+.aside-nav
+
+    &__list
+        margin: 0
+        padding: 0
+
+    &__item
+        &:not(:last-child)
+            margin-bottom: 20px
+
+    &__link
+        display: inline-flex
+        align-items: center
+        padding-right: 20px
+        font-size: 16px
+        font-family: $bold-f
+        line-height: $base-lh
+        letter-spacing: 0.02em
+        color: #000
+        text-decoration: none
+        border-radius: 18px
+
+        &:hover,
+        &:focus
+            background-color: #eff2f5
+            color: #0055FF
+
+        &.active
+            background-color: #eff2f5
+
+    &__icon
+        width: 36px
+        height: 36px
+        margin-right: 20px
+
