@@ -3,7 +3,7 @@
 
 {% if widget.image %}
     <div class="post-editor__block_image">
-        <div class="indent-wrap {% if section.marginTop %}indent-wrap_mt{{ section.marginTop }}{% endif %} {% if section.marginBottom %}indent-wrap_mb{{ section.marginBottom }}{% endif %} {% if section.paddingTop %}indent-wrap_pt{{ section.paddingTop }}{% endif %} {% if section.paddingBottom %}indent-wrap_pb{{ section.paddingBottom }}{% endif %}">
+        <div class="indent-wrap {% if widget.marginTop %}indent-wrap_mt{{ widget.marginTop }}{% endif %} {% if widget.marginBottom %}indent-wrap_mb{{ widget.marginBottom }}{% endif %} {% if widget.paddingTop %}indent-wrap_pt{{ widget.paddingTop }}{% endif %} {% if widget.paddingBottom %}indent-wrap_pb{{ widget.paddingBottom }}{% endif %}">
             {% if widget.link %}
                 <a href="{{ widget.link }}" {% if request.get_host not in widget.link %}target="_blank"{% endif %} {% if widget.backgroundFlag %}class="hoverable"{% endif %}>
             {% endif %}
