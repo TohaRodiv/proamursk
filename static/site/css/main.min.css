@@ -1613,7 +1613,7 @@ input.btn_preloader {
 
 .post-editor__block_separator .line {
   height: 1px;
-  background-color: #000000; }
+  background-color: #b1c1d2; }
 
 .direct-speech {
   display: -webkit-box;
@@ -1738,8 +1738,10 @@ header {
 .header__logo-img {
   display: block;
   width: 147px; }
-  .header__logo-img_other {
+  .header__logo-img_news {
     margin-bottom: 12px; }
+  .header__logo-img_event {
+    margin-bottom: 11px; }
 
 .header__nav {
   margin-left: auto;
