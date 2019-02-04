@@ -3,7 +3,7 @@
     <div class="post-editor-content">
         {% for section in content %}
             <div class="post-editor__section post-editor__section_{{ section.classSuffix }}">
-                <div class="indent-wrap indent-wrap_mt2 indent-wrap_mb2 indent-wrap_pt2 indent-wrap_pb2">
+                <div class="indent-wrap {% if section.marginTop %}indent-wrap_mt{{ section.marginTop }}{% endif %} {% if section.marginBottom %}indent-wrap_mb{{ section.marginBottom }}{% endif %} {% if section.paddingTop %}indent-wrap_pt{{ section.paddingTop }}{% endif %} {% if section.paddingBottom %}indent-wrap_pb{{ section.paddingBottom }}{% endif %}">
                     {% for column in section.columns %}
                         <div class="post-editor-column">
                             {% for widget in column.widgets %}

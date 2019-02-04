@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-
+from django.conf import settings
 from django import template
 from applications.mediafiles.models import MediaFile
 register = template.Library()
@@ -70,16 +70,18 @@ def post_editor_make_content(context, content_json, config='default'):
 #     return obj
 
 
+@register.simple_tag(takes_context=True)
+def get_image_size(context, width, config='default'):
+    post_editor_conf = settings.POST_EDITOR.get(config)
+    column_width = post_editor_conf.get('column', 0)
+    gutter_width = post_editor_conf.get('gutter', 0)
 
+    img_width = (column_width * width) + (gutter_width * (width-1))
 
-# @register.assignment_tag(takes_context=True)
-# def get_image_size(context, block, column):
-#     size_name = '%s.%s_%s' % (block['class'], column['part'], block['columns_count'])
-#     retina_factor = RETINA_FACTOR
-#     size = list(IMAGE_THUMBNAILS.get(size_name))
-#     size[0] = size[0] * retina_factor
-#     size = [str(i) for i in size]
-#     return ', '.join(size)
+    if img_width:
+        return '%s,10000' % (img_width*2)
+    else:
+        return '2000,10000'
 
 
 @register.filter
