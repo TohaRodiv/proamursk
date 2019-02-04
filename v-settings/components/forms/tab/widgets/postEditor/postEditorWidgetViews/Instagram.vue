@@ -1,6 +1,6 @@
 <template>
     <div>
-        <iframe width="364" height="440" :src="formatInstagramLink()" frameborder="0"></iframe>
+        <iframe width="364" height="500" :src="`https://www.instagram.com/p/${formatInstagramLink()}/embed`" frameborder="0"></iframe>
     </div>
 </template>
 
@@ -13,8 +13,10 @@
 
         methods: {
             formatInstagramLink(){
-                if (this.code[this.code.length - 1] === '/') return this.code + 'embed';
-                else return this.code + '/embed'
+                let firstSplit = this.code.split('/p/');
+                let secondSplit = firstSplit[firstSplit.length - 1].split('/?');
+                
+                return secondSplit[0]
             },
         },
     }
