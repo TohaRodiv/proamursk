@@ -232,8 +232,11 @@ ul, ol {
 .icon-arrow-right-thin:before {
   content: "\e904"; }
 
-.icon-arrow-down:before {
+.icon-arrow-down-dir:before {
   content: "\e90a"; }
+
+.icon-arrow-right-dir:before {
+  content: "\e905"; }
 
 .icon-search:before {
   content: "\e907"; }
@@ -943,9 +946,9 @@ select:-webkit-autofill {
   -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.18);
           box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.18);
   overflow: hidden;
-  -webkit-transition: opacity .3s, top .3s;
-  -o-transition: opacity .3s, top .3s;
-  transition: opacity .3s, top .3s;
+  -webkit-transition: opacity 0.3s, top 0.3s;
+  -o-transition: opacity 0.3s, top 0.3s;
+  transition: opacity 0.3s, top 0.3s;
   top: 60px; }
   .notification-wrapper.visible {
     z-index: 200;
@@ -1546,9 +1549,9 @@ input.btn_preloader {
       -o-text-overflow: ellipsis;
          text-overflow: ellipsis;
       overflow: hidden;
-      -webkit-transition: opacity .3s;
-      -o-transition: opacity .3s;
-      transition: opacity .3s; }
+      -webkit-transition: opacity 0.3s;
+      -o-transition: opacity 0.3s;
+      transition: opacity 0.3s; }
     .post-editor__block_image .post-editor__img-wrap.hoverable:hover::after {
       opacity: 1; }
     .post-editor__block_image .post-editor__img-wrap.hoverable:hover .img-shadow {
@@ -1665,9 +1668,9 @@ input.btn_preloader {
   right: 0;
   bottom: 0;
   left: 0;
-  -webkit-transition: background-color .3s;
-  -o-transition: background-color .3s;
-  transition: background-color .3s; }
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s; }
 
 .indent-wrap {
   display: inherit;
@@ -2462,13 +2465,66 @@ footer {
        object-fit: cover; }
   .grid-publication__text-wrap {
     position: relative;
-    z-index: 1; }
+    z-index: 3; }
   .grid-publication__title {
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+    .grid-publication__title a {
+      color: currentColor;
+      text-decoration: none; }
   .grid-publication__description {
     margin-bottom: 0; }
   .grid-publication__text {
     line-height: 1.5; }
+  .grid-publication__wobbler {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .grid-publication__link {
+    position: relative;
+    margin-left: 20px;
+    height: 26px;
+    font-size: 12px;
+    line-height: 22px;
+    font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    -webkit-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    transition: color 0.3s; }
+    .grid-publication__link:hover {
+      color: #0055FF; }
+      .grid-publication__link:hover::before {
+        width: calc(100% + 14px);
+        border-radius: 26px; }
+    .grid-publication__link span {
+      vertical-align: middle;
+      position: relative;
+      z-index: 2; }
+    .grid-publication__link .text {
+      padding-left: 2px; }
+    .grid-publication__link .icon {
+      margin-left: 10px;
+      font-size: 10px;
+      color: #0055FF;
+      vertical-align: -2px; }
+    .grid-publication__link::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 1px;
+      right: -7px;
+      z-index: 1;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-color: #EFF2F5;
+      -webkit-transition: width 0.3s, border-radius 0.3s;
+      -o-transition: width 0.3s, border-radius 0.3s;
+      transition: width 0.3s, border-radius 0.3s; }
   .grid-publication__bg-gradient {
     display: none;
     position: absolute;
@@ -2508,6 +2564,8 @@ footer {
       font-size: 16px; }
     .grid-publication_format-base .grid-publication__wobbler {
       margin-top: auto; }
+    .grid-publication_format-base .grid-publication__link {
+      color: #0055FF; }
   .grid-publication_format-full {
     color: #FFFFFF; }
     .grid-publication_format-full .grid-publication__cover-wrap {
@@ -2534,6 +2592,10 @@ footer {
       right: 20px; }
     .grid-publication_format-full .grid-publication__wobbler {
       margin-top: 30px; }
+    .grid-publication_format-full .grid-publication__link {
+      color: #FFFFFF; }
+      .grid-publication_format-full .grid-publication__link:hover {
+        color: #0055FF; }
   @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .grid-publication_cover-format-base .grid-publication__cover {
       height: 207px; } }

@@ -14,10 +14,13 @@
 
     &__text-wrap
         position: relative
-        z-index: 1
+        z-index: 3
 
     &__title
         font-family: $bold-f
+        a
+            color: currentColor
+            text-decoration: none
 
     &__description
         margin-bottom: 0
@@ -26,6 +29,54 @@
         line-height: $base-lh
 
     &__wobbler
+        display: flex
+        align-items: center
+
+    &__link
+        position: relative
+        margin-left: 20px
+        height: 26px
+        font-size: 12px
+        line-height: 22px
+        font-family: $additional-f
+        font-weight: bold
+        letter-spacing: 0.08em
+        text-decoration: none
+        transition: color $transition-time
+
+        &:hover
+            color: #0055FF
+
+            &::before
+                width: calc(100% + 14px)
+                border-radius: 26px
+
+        span
+            vertical-align: middle
+            position: relative
+            z-index: 2
+
+        .text
+            padding-left: 2px
+
+        .icon
+            margin-left: 10px
+            font-size: 10px
+            color: #0055FF
+            vertical-align: -2px
+
+        &::before
+            content: ""
+            display: block
+            position: absolute
+            top: 1px
+            right: -7px
+            z-index: 1
+            width: 26px
+            height: 26px
+            border-radius: 50%
+            background-color: #EFF2F5
+            transition: width $transition-time, border-radius $transition-time
 
     &__bg-gradient
         display: none
@@ -64,6 +115,9 @@
             &__wobbler
                 margin-top: auto
 
+            &__link
+                color: #0055FF
+
     &_format-full
         color: $light-c
 
@@ -93,6 +147,12 @@
 
             &__wobbler
                 margin-top: 30px
+
+            &__link
+                color: $light-c
+
+                &:hover
+                    color: #0055FF
 
     &_cover-format-base
         .grid-publication

@@ -1,12 +1,16 @@
-<a href="@@link" class="grid-publication @@class">
-    <div class="grid-publication__bg-gradient"></div>
+<div class="grid-publication @@class">
+    <a href="@@link" class="grid-publication__bg-gradient"></a>
 
     <div class="grid-publication__cover-wrap">
-        <img src="@@img" alt="" class="grid-publication__cover">
+        <a href="@@link">
+            <img src="@@img" alt="" class="grid-publication__cover">
+        </a>
     </div>
 
     <div class="grid-publication__text-wrap">
-        <h2 class="grid-publication__title">@@title</h2>
+        <h2 class="grid-publication__title">
+            <a href="@@link">@@title</a>
+        </h2>
 
         <div class="grid-publication__text">@@place</div>
 
@@ -16,6 +20,19 @@
             @@include('modules/wobbler.html', {
                 "wobbler": "@@wobbler"
             })
+
+            @@if ((wobbler === "announcement" || wobbler === "past-event") && addLink === true) {
+                <a href="reportage-details.html" class="grid-publication__link">
+                    <span class="text">Репортаж</span>
+                    <span class="icon icon-arrow-right-dir"></span>
+                </a>
+            }
+            @@if (wobbler === "reportage" && addLink === true) {
+                <a href="event-announcement.html" class="grid-publication__link">
+                    <span class="text">Событие</span>
+                    <span class="icon icon-arrow-right-dir"></span>
+                </a>
+            }
         </div>
     </div>
-</a>
+</div>

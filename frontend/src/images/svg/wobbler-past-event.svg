@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="26" viewBox="0 0 140 26">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.014" y1="0.609" x2="0.016" y2="0.588" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff4006"/>
+      <stop offset="1" stop-color="#ff0038"/>
+    </linearGradient>
+  </defs>
+  <g id="pst_evnt" transform="translate(-1640 -1307)">
+    <rect id="Rectangle_571" data-name="Rectangle 571" width="140" height="26" rx="13" transform="translate(1640 1307)" fill="url(#linear-gradient)"/>
+    <text id="СОСТОЯЛОСЬ" transform="translate(1677 1324)" fill="#fff" font-size="12" font-family="ProximaNova-Bold, Proxima Nova" font-weight="700" letter-spacing="0.04em"><tspan x="0" y="0">СОСТОЯЛОСЬ</tspan></text>
+    <g id="Group_834" data-name="Group 834">
+      <g id="Group_833" data-name="Group 833" transform="translate(1554.096 1256.176)">
+        <rect id="Rectangle_574" data-name="Rectangle 574" width="14.596" height="11.151" transform="translate(97.904 58.408)" stroke-width="2" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path id="Path_454" data-name="Path 454" d="M102.587,63.96l1.759,1.759,3.218-3.218" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <g id="Group_832" data-name="Group 832">
+          <line id="Line_174" data-name="Line 174" y2="1.583" transform="translate(101.702 56.824)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line id="Line_175" data-name="Line 175" y2="1.583" transform="translate(108.703 56.824)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

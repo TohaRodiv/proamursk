@@ -1,12 +1,16 @@
-<a href="@@link" class="grid-publication @@class">
-    <div class="grid-publication__bg-gradient"></div>
+<div class="grid-publication @@class">
+    <a href="@@link" class="grid-publication__bg-gradient"></a>
 
     <div class="grid-publication__cover-wrap">
-        <img src="@@img" alt="" class="grid-publication__cover">
+        <a href="@@link">
+            <img src="@@img" alt="" class="grid-publication__cover">
+        </a>
     </div>
 
     <div class="grid-publication__text-wrap">
-        <h2 class="grid-publication__title">@@title</h2>
+        <h2 class="grid-publication__title">
+            <a href="@@link">@@title</a>
+        </h2>
 
         <p class="grid-publication__text grid-publication__description">@@description</p>
 
@@ -16,4 +20,4 @@
             })
         </div>
     </div>
-</a>
+</div>
