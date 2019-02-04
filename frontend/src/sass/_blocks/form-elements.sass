@@ -61,11 +61,8 @@ select:-webkit-autofill
     background-color: $light-c
     border: 1px solid $dark-gray
 
-    &:focus
+    &:focus:not(.has-error)
         border-color: $primary-blue
-
-    &.has-error
-        border-color: $error-c
 
     &.disabled,
     &:disabled
@@ -376,7 +373,7 @@ select:-webkit-autofill
             text-decoration: underline
 
 .has-error
-    border-color: $error-c
+    border-color: $error-c !important
 
 .input-label
     display: block

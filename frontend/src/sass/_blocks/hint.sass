@@ -2,24 +2,10 @@
     display: none
     width: max-content
     max-width: 280px
-    padding: 12px 16px
+    padding: 5px 15px
     position: absolute
-    top: calc(100% + 12px)
-    left: 50%
-    z-index: 5
-    transform: translateX(-50%)
-    border-radius: 5px
+    top: -30px
     white-space: normal
-
-    &::before
-        content: ""
-        display: block
-        width: 12px
-        height: 12px
-        position: absolute
-        top: -6px
-        left: 50%
-        transform: translateX(-50%) rotate(45deg)
 
     &_visible
         display: block
@@ -27,13 +13,11 @@
     &_error
         position: absolute
         z-index: 3
-        color: $error-hint-text
-        background-color: $error-bg
-        box-shadow: 0 4px 6px 0 rgba(213,1,0,0.24)
-
-        &:before
-            background-color: $error-bg
+        height: 24px
+        color: $light-c
+        background-color: #ff4006
+        border-radius: 12px
 
     &__text
-        font-size: $small-fz
+        font-size: 10px
         line-height: $base-lh
