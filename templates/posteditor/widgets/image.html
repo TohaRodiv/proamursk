@@ -2,7 +2,7 @@
 {% load media_filters %}
 
 {% if widget.image %}
-    <div class="post-editor__block_image">
+    <div class="post-editor__block_image {% if widget.align %}{{ widget.align }}{% endif %}">
         <div class="indent-wrap {% if widget.marginTop %}indent-wrap_mt{{ widget.marginTop }}{% endif %} {% if widget.marginBottom %}indent-wrap_mb{{ widget.marginBottom }}{% endif %} {% if widget.paddingTop %}indent-wrap_pt{{ widget.paddingTop }}{% endif %} {% if widget.paddingBottom %}indent-wrap_pb{{ widget.paddingBottom }}{% endif %}">
             {% if widget.link %}
                 <a href="{{ widget.link }}" {% if request.get_host not in widget.link %}target="_blank"{% endif %} class="post-editor__img-wrap {% if not widget.backgroundFlag %}hoverable{% endif %}">

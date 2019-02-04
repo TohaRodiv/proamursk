@@ -46,18 +46,19 @@ def post_editor_make_content(context, content_json, config='default'):
             'images': all_images}
 
 
-# @register.inclusion_tag('posteditor/modules/slider_block.html', takes_context=True)
-# def get_posteditor_slider(context, slider_id):
-#     try:
-#         slider_obj = Slider.objects.select_related().get(id=int(slider_id))
-#     except:
-#         slider_obj = None
-#
-#     slider = slider_obj.get_slides() if slider_obj else None
-#
-#     return {'slider_obj': slider_obj,
-#             'slider': slider}
-#
+@register.inclusion_tag('posteditor/modules/slider_block.html', takes_context=True)
+def get_posteditor_slider(context, slider_id):
+    from applications.root.models import Slider
+    try:
+        slider_obj = Slider.objects.get(id=int(slider_id))
+    except:
+        slider_obj = None
+
+    slider = slider_obj.get_slides() if slider_obj else None
+
+    return {'slider_obj': slider_obj,
+            'slider': slider}
+
 
 
 # @register.assignment_tag(takes_context=True)

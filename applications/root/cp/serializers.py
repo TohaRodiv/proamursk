@@ -376,7 +376,7 @@ class SlidersItemSerializer(ModelSerializer):
 
     class Meta:
         model = SliderItem
-        fields = ('id', 'cover', 'description', 'is_active')
+        fields = ('id', 'cover', 'description', 'is_active', 'weight')
 
 
 class SlidersListSerializer(ModelSerializer):

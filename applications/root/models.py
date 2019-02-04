@@ -334,12 +334,23 @@ class Slider(BaseModel, IsActiveMixin):
         verbose_name_plural = 'Слайдеры'
         ordering = '-id',
 
+    def get_slides(self):
+        slides = []
+        for slide in self.slides.filter(is_active=True).order_by('weight'):
+            if slide.is_active:
+                slides.append({'id': int(slide.pk),
+                               'img': slide.cover.get_thumbnail_url_by_name('slide_%s' % self.format),
+                               'description': slide.description,
+                               })
+        return slides
+
 
 class SliderItem(models.Model):
     slider = models.ForeignKey(Slider, on_delete=models.CASCADE, verbose_name='Слайдер', related_name='slides')
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     description = models.CharField('Описание', max_length=255, blank=True)
     is_active = models.BooleanField(default=True, verbose_name='Состояние')
+    weight = models.PositiveIntegerField('Вес', default=0)
 
     class Meta:
         verbose_name = 'Слайд'

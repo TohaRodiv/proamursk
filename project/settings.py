@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'applications.banrequest',
     'applications.mailing',
     'applications.files',
+    'applications.tools',
     'debug_toolbar',
 ]
 
@@ -189,8 +190,8 @@ MEDIALIB_THUMB_SIZE = {
     # Слайдеры и баннеры
     'wide_banner': (2596, 300),  # баннеры-растяжки
     'sidebar_banner': (748, 858),  # баннеры в сайдбаре
-    'slider3x2': (1716, 1144),  # слайдер горизонтальный / 3:2 — 1716x1144 px
-    'slider2x1': (1716, 858),  # слайдер горизонтальный / 2:1 — 1716x858 px
+    'slide_format_3x2': (1716, 1144),  # слайдер горизонтальный / 3:2 — 1716x1144 px
+    'slide_format_2x1': (1716, 858),  # слайдер горизонтальный / 2:1 — 1716x858 px
 
     'og_image_default': (1200, 630, 'crop'),
     'og_image_crop600': (600, 600, 'crop'),
