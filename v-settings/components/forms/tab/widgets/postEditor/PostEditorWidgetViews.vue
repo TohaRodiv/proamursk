@@ -29,7 +29,8 @@
                 :description="widget.description"
         ></videoComponent>
         <instagram
-                v-if="widget.type === 'instagram'"
+                v-if="widget.type === 'instagram' && instaReloader"
+                @reloadMe="reloadInstargam()"
                 :code="widget.link"
         ></instagram>
     </div>
@@ -51,13 +52,20 @@
         },
 
         data() {
-            return {}
+            return {
+                instaReloader: true,
+            }
         },
-        mounted() {
 
+        methods: {
+            reloadInstargam(){
+                this.instaReloader = false;
+                setTimeout(() => {
+                    this.instaReloader = true;
+                }, 500);
+            },
         },
-        computed: {},
-        methods: {},
+
         components: {
             imageComponent,
             textComponent,
