@@ -170,8 +170,22 @@
 
 .post-editor__block_separator
     .line
-        height: 1px
-        background-color: #b1c1d2
+        display: flex
+        align-items: center
+        color: #7A8BA1
+
+        &::before,
+        &::after
+            content: ""
+            height: 2px
+            flex-grow: 1
+            background-color: #b1c1d2
+
+        &::before
+            margin-right: 3px
+
+        &::after
+            margin-left: 3px
 
 .post-editor__block_direct-speech
 
