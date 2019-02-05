@@ -1,5 +1,4 @@
 <div class="last-news">
-    <h3 class="last-news__section-title">Последние новости</h3>
     <ul class="last-news-list">
         <li class="last-news-item">
             <a href="news-details.html" class="last-news-item__link">
@@ -39,7 +38,9 @@
         </li>
     </ul>
 
-    @@if (link === true) {
-        <a href="news-list.html" class="last-news__link">все новости</a>
-    }
+    <div class="last-news__wobbler">
+        <img src="images/svg/wobbler-news.svg" alt="Новости" class="wobbler">
+    </div>
+
+    <span class="last-news__icon icon-news"></span>
 </div>
