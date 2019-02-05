@@ -4,7 +4,7 @@
 })
 
 <main>
-    <div class="container page-container">
+    <div class="container">
         <div class="base-layout">
             <div class="base-layout__main">
                 <article class="publication">
@@ -17,8 +17,6 @@
                     </figure>
 
                     <div class="publication__content">
-                        <div class="publication__date">Дата новости: 21 мая 2018</div>
-
                         <h1 class="publication__title">От прошлого к настоящему</h1>
 
                         <p class="publication__lead">В Амурске легко прикоснуться к истории. Достаточно прийти в Краеведческий музей, заглянуть в палатку первостроителей и представить себя на месте мальчишек и девчонок, которые за 10 лет построили новый город посреди тайги.</p>
@@ -36,9 +34,6 @@
 
             <aside class="base-layout__aside">
                 <div class="aside-widget">
-                    @@include("page-block/nearest-event-widget.html")
-                </div>
-                <div class="aside-widget">
                     @@include("page-block/aside-subscribe-widget.html")
                 </div>
                 <div class="aside-widget">
@@ -48,12 +43,17 @@
                         "btnText": "Поделиться историей"
                     })
                 </div>
+                <div class="aside-widget">
+                    @@include("page-block/nearest-event-widget.html")
+                </div>
             </aside>
         </div>
     </div>
 </main>
 
-@@include("page-block/read-also.html")
+<div class="additional-block layout-section">
+    @@include("page-block/read-also.html")
+</div>
 
 @@include('page-block/footer.html')
 @@include('page-block/page-end.html')

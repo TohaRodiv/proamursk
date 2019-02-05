@@ -4,7 +4,7 @@
 })
 
 <main>
-    <div class="container page-container">
+    <div class="container">
         <div class="base-layout">
             <div class="base-layout__main">
                 <article class="publication">
@@ -17,8 +17,6 @@
                     </figure>
 
                     <div class="publication__content">
-                        <div class="publication__date">Дата новости: 21 мая 2018</div>
-
                         <div class="publication__additional-info-wrap publication__additional-info-wrap_row">
                             <div class="publication__event-info publication__event-date">
                                 <span class="icon-calendar"></span>
@@ -51,9 +49,6 @@
 
             <aside class="base-layout__aside">
                 <div class="aside-widget">
-                    @@include("page-block/nearest-event-widget.html")
-                </div>
-                <div class="aside-widget">
                     @@include("page-block/aside-subscribe-widget.html")
                 </div>
                 <div class="aside-widget">
@@ -63,12 +58,17 @@
                         "btnText": "Предложить новость"
                     })
                 </div>
+                <div class="aside-widget">
+                    @@include("page-block/nearest-event-widget.html")
+                </div>
             </aside>
         </div>
     </div>
 </main>
 
-@@include("page-block/read-also.html")
+<div class="additional-block layout-section">
+    @@include("page-block/read-also.html")
+</div>
 
 @@include('page-block/footer.html')
 @@include('page-block/page-end.html')

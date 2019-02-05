@@ -4,7 +4,7 @@
 })
 
 <main>
-    <div class="container page-container">
+    <div class="container">
         <div class="base-layout">
             <div class="base-layout__main">
                 <article class="publication">
@@ -17,7 +17,7 @@
                     </figure>
 
                     <div class="publication__content">
-                        <div class="publication__date">Дата новости: 21 мая 2018</div>
+                        <div class="publication__date">00:00, 21 мая 2018</div>
 
                         <h1 class="publication__title">Встреча с мэром без формальностей</h1>
 
@@ -56,9 +56,9 @@
 
             <aside class="base-layout__aside">
                 <div class="aside-widget">
-                    @@include("page-block/last-news-widget.html", {
-                        "link": true
-                    })
+                    <div class="aside-last-news">
+                        @@include("page-block/last-news-widget.html")
+                    </div>
                 </div>
                 <div class="aside-widget">
                     @@include("page-block/aside-subscribe-widget.html")
@@ -75,7 +75,9 @@
     </div>
 </main>
 
-@@include("page-block/read-also.html")
+<div class="additional-block layout-section">
+    @@include("page-block/read-also.html")
+</div>
 
 @@include('page-block/footer.html')
 @@include('page-block/page-end.html')

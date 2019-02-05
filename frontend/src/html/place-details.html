@@ -4,7 +4,7 @@
 })
 
 <main>
-    <div class="container page-container">
+    <div class="container">
         <div class="base-layout">
             <div class="base-layout__main">
                 <article class="publication">
@@ -17,8 +17,6 @@
                     </figure>
 
                     <div class="publication__content">
-                        <div class="publication__date">Дата новости: 21 мая 2018</div>
-
                         <h1 class="publication__title">Дендрарий</h1>
 
                         <p class="publication__lead">Самые активные и&nbsp;творческие представители молодежи традиционно собрались в&nbsp;ДК, чтобы подвести итоги и&nbsp;в неформальной обстановке пообщаться с&nbsp;первыми лицами города.</p>
@@ -59,24 +57,26 @@
 
             <aside class="base-layout__aside">
                 <div class="aside-widget">
-                    @@include("page-block/nearest-event-widget.html")
-                </div>
-                <div class="aside-widget">
                     @@include("page-block/aside-subscribe-widget.html")
                 </div>
                 <div class="aside-widget">
                     @@include('modules/offer-widget.html', {
-                        "class": "event",
-                        "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "class": "place",
+                        "text": "Любой житель Амурска может поделиться своим мнением об&nbsp;этом месте с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
                         "btnText": "Предложить новость"
                     })
+                </div>
+                <div class="aside-widget">
+                    @@include("page-block/nearest-event-widget.html")
                 </div>
             </aside>
         </div>
     </div>
 </main>
 
-@@include("page-block/read-also.html")
+<div class="additional-block layout-section">
+    @@include("page-block/read-also.html")
+</div>
 
 @@include('page-block/footer.html')
 @@include('page-block/page-end.html')
