@@ -1,0 +1,82 @@
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "place"
+})
+
+<main>
+    <div class="container page-container">
+        <div class="base-layout">
+            <div class="base-layout__main">
+                <article class="publication">
+                    <figure class="publication__cover-wrap">
+                        <img src="images/event1.jpg" alt="" class="publication__cover">
+                        <figcaption class="publication__img-figcaption">
+                            <span class="publication__img-description">Подпись к изображению</span>
+                            <span class="publication__img-author">Источник изображения (автор)</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="publication__content">
+                        <div class="publication__date">Дата новости: 21 мая 2018</div>
+
+                        <h1 class="publication__title">Дендрарий</h1>
+
+                        <p class="publication__lead">Самые активные и&nbsp;творческие представители молодежи традиционно собрались в&nbsp;ДК, чтобы подвести итоги и&nbsp;в неформальной обстановке пообщаться с&nbsp;первыми лицами города.</p>
+
+                        <div class="publication__additional-info-wrap">
+                            <div class="publication__place-info publication__place-place">
+                                <span class="icon-place"></span>
+                                <a href="" target="_blank">г. Амурск, 2-я зона промышленного района</a>
+                            </div>
+                            <div class="publication__place-info publication__place-date">
+                                <span class="icon-clock"></span>
+                                Ср, Чт, Пт, Сб, Вс с 10.00 до 18.00
+                            </div>
+                            <div class="publication__place-info publication__place-date">
+                                <span class="icon-phone"></span>
+                                8 (4214) 22-52-94 (с 8.30 до 12.00)8 924 934-34-20
+                            </div>
+                            <div class="publication__place-info publication__place-place">
+                                <span class="icon-web"></span>
+                                <a href="" target="_blank">botsad.amursk.ru</a>
+                            </div>
+                            <div class="publication__place-info publication__place-date">
+                                <span class="icon-instagram"></span>
+                                <a href="">amursk.dendrariy</a>
+                            </div>
+                        </div>
+
+                        @@include("page-block/post-editor.html")
+
+                        <div class="publication__footer">
+                            <div class="publication__author">Автор материала</div>
+
+                            @@include('page-block/share-widget.html')
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <aside class="base-layout__aside">
+                <div class="aside-widget">
+                    @@include("page-block/nearest-event-widget.html")
+                </div>
+                <div class="aside-widget">
+                    @@include("page-block/aside-subscribe-widget.html")
+                </div>
+                <div class="aside-widget">
+                    @@include('modules/offer-widget.html', {
+                        "class": "event",
+                        "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "btnText": "Предложить новость"
+                    })
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+@@include("page-block/read-also.html")
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')
