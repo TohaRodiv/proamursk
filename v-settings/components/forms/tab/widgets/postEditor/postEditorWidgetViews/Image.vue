@@ -25,7 +25,6 @@
 
         mounted() {
             this.setBlackedHeight();
-            console.log('sssSSsss');
         },
         methods: {
             setBlackedHeight(){

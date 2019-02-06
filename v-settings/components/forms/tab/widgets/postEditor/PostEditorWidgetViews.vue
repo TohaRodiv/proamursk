@@ -1,5 +1,5 @@
 <template>
-    <div :style="widget.type === 'instagram' ? {minHeight: '600px'} : ''">
+    <div :style="[widget.type === 'instagram' ? {minHeight: '576px', backgroundColor: 'rgba(233, 243, 253, .2)', borderRadius: '5px'} : '', widget.type === 'video' ? {backgroundColor: 'rgba(233, 243, 253, .2)', borderRadius: '5px'} : '']">
         <imageComponent
                 v-if="widget.type === 'image'"
                 :data="widget"
