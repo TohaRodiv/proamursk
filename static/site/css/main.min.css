@@ -300,9 +300,6 @@ ul, ol {
         flex-shrink: 0; }
 
 .aside-widget:not(:last-child) {
-  margin-bottom: 40px; }
-
-.aside-widget_mb20:not(:last-child) {
   margin-bottom: 20px; }
 
 .btn {
@@ -333,7 +330,8 @@ ul, ol {
     text-decoration: underline;
     background-color: transparent; }
     .btn_yellow:hover, .btn_yellow.active {
-      background-color: #3a4961; }
+      background-color: #3a4961;
+      text-decoration: none; }
   .btn_more {
     display: block;
     margin-top: 40px; }
