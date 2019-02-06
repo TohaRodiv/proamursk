@@ -5,6 +5,14 @@
             <div class="popup-post-editor-forms-label">Цитата</div>
             <div class="popup-post-editor-forms-wrapper">
                 <div class="popup-post-editor-forms-indents-wrapper">
+                    <simpleInput
+                            style="width: 460px; margin-bottom: 22px;"
+                            :labelPosition="'top'"
+                            :type="'childEntity'"
+                            :passedData="(passedData.title) ? passedData.title : ''"
+                            @callback="title = $event.name"
+                            :options="titleConfig">
+                    </simpleInput>
                     <textComp
                             style="width: 460px; margin-bottom: 50px;"
                             :labelPosition="'top'"
@@ -65,6 +73,7 @@
 
 <script>
     import cloneDeep from 'lodash/cloneDeep'
+    import simpleInput from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/SimpleInput.vue'
     import selector from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
     import textarea from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/Textarea.vue'
 
@@ -87,6 +96,18 @@
                     codename: 'name',
                     widget: 'textarea',
                     hint: ''
+                },
+
+                titleConfig: {
+                    type: 'field',
+                    label: 'Заголовок',
+                    required: false,
+                    invalid: false,
+                    placeholder: 'Введите значение',
+                    width: 12,
+                    codename: 'name',
+                    widget: 'simpleInput',
+                    hint: '',
                 },
 
                 indentsConfig: {
@@ -135,6 +156,7 @@
                 },
 
                 text: '',
+                title: '',
 
                 indents: {
                     marginTop: '',
@@ -162,6 +184,7 @@
             saveForm(){
                 let payload = {};
                 payload.text = this.text;
+                payload.title = this.title;
                 Object.assign(payload, this.indents);
                 this.$emit('changed', payload);
             },
@@ -186,6 +209,7 @@
 
         components: {
             selector,
+            simpleInput,
             textComp: textarea,
         }
     }

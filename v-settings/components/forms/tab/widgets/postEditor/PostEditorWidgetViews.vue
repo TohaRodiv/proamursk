@@ -18,7 +18,7 @@
         </separator>
         <quote
                 v-if="widget.type === 'quote'"
-                :text="widget.text"
+                :widget="widget"
         ></quote>
         <directSpeech
                 v-if="widget.type === 'direct-speech'"

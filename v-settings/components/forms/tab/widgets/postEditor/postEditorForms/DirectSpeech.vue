@@ -33,7 +33,7 @@
                 </div>
                 <formatter
                         style="margin-bottom: 43px;"
-                        :text="text"
+                        :text="(passedData.text) ? passedData.text : ''"
                         :onlyEmit="true"
                         @callback="text = $event.text"
                         :labelPosition="'top'"
