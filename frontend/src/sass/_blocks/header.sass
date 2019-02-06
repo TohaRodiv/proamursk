@@ -1,16 +1,17 @@
 header
     margin-bottom: 20px
-    padding: 15px 0
-    background-color: $primary-blue
+    border-bottom: 1px solid #D7DBE0
+    color: $dark-c
 
 .header-container
-    height: 30px
     display: flex
     align-items: center
 
 .header
     &__logo-link
         display: block
+        position: relative
+        z-index: 2
 
     &__logo-img
         display: block
@@ -36,16 +37,26 @@ header
 
     &__nav
         margin-left: auto
-        margin-right: 25px
+        margin-right: 30px
 
     &__search-btn
         display: block
         width: 43px
         height: 18px
-        padding-left: 25px
-        color: $light-c
+        color: $dark-c
         font-size: $base-fz
 
-.weather-widget img
-    display: block
-    height: 30px
+    &__weather-widget
+        position: absolute
+        top: 30px
+        left: 420px
+        font-size: $mini-fz
+        font-family: $bold-f
+        color: $dark-c
+
+    &__pattern
+        position: absolute
+        width: 465px
+        left: 0
+        bottom: 0
+        z-index: 1
