@@ -1276,7 +1276,7 @@ input.btn_preloader {
     border-radius: 50%; }
 
 .post-editor__block_slider .slider-caption {
-  width: 50%; }
+  width: 75%; }
 
 .post-editor__block_quote .quote {
   padding-top: 10px;
@@ -1883,8 +1883,6 @@ footer {
     margin-right: 50px; }
   .publication__place-info:not(:last-child) {
     margin-bottom: 15px; }
-  .publication__place-info:nth-child(3) {
-    margin-bottom: 30px; }
   .publication__place-info:last-child {
     margin-bottom: 0; }
   .publication__title {
