@@ -192,6 +192,12 @@ ul, ol {
   font-style: normal; }
 
 @font-face {
+  font-family: "SegoeUI Semibold It";
+  src: url("../fonts/SegoeUI-SemiboldItalic.woff2") format("woff2"), url("../fonts/SegoeUI-SemiboldItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
   font-family: "proamursk";
   src: url("../fonts/proamursk.woff2") format("woff2"), url("../fonts/proamursk.woff") format("woff");
   font-weight: normal;
@@ -1858,7 +1864,7 @@ footer {
   .publication__lead {
     margin-bottom: 20px;
     font-size: 21px;
-    font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+    font-family: "SegoeUI Semibold It", Arial, Helvetica, sans-serif;
     line-height: 1.3; }
   .publication__footer {
     display: -webkit-box;
