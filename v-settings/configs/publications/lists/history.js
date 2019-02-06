@@ -47,6 +47,16 @@ const state = {
                 }
             },
             {
+                name: 'Рубрика',
+                type: 'text',
+                is_sortable: false,
+                align_text: 'left',
+                width: 240,
+                codename: 'rubric',
+                isMain: true,
+                sort: 'none'
+            },
+            {
                 name: 'Формат обложки',
                 type: 'text',
                 is_sortable: false,
@@ -117,6 +127,22 @@ const state = {
     },
     filterConfig: {
         'history': [
+            {
+                filterTitle: 'Рубрики',
+                queryName: 'rubrics_id__in',
+                input_type: 'tagSelector',
+                api_route: 'hystory-rubrics',
+                callbackValue: 'id',
+                sortFlag: {
+                    value: 'name',
+                    direction: 'asc'
+                },
+                entity_structure: [
+                    {
+                        value: 'name'
+                    }
+                ]
+            },
             {
                 filterTitle: 'Форматы обложек',
                 queryName: 'cover_formats__in',

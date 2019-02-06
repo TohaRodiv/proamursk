@@ -38,6 +38,13 @@ const state = {
                     newFormName: 'Новая историческая статья',
                     hasAddButton: true
                 },
+                // {
+                //     name: 'Рубрики истор. статей',
+                //     view: 'history-rubric',
+                //     formsName: 'Рубрика исторических статей #',
+                //     newFormName: 'Новая рубрика исторических статей',
+                //     hasAddButton: true
+                // },
                 {
                     name: 'Cтатьи о людях',
                     view: 'persons',
