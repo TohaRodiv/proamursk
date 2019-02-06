@@ -4,136 +4,128 @@
 })
 
 <main>
-    <div class="layout-section">
-        <div class="container">
-            <div class="base-layout">
-                <div class="base-layout__main">
-                    @@include("modules/grid-event.html", {
-                        "class": "grid-publication_format-full grid-publication_text-size-big grid-publication_event",
-                        "link": "event-announcement.html",
-                        "img": "images/event1.jpg",
-                        "title": "Бильярдный турнир на кубок Амурска",
-                        "date": "ГРК «Родник»",
-                        "place": "5 октября",
-                        "wobbler": "announcement",
-                        "addLink": false
-                    })
-                </div>
-
-                <aside class="base-layout__aside">
-                    <div class="aside-widget">
-                        @@include("modules/events-links-widget.html", {
-                            "active": "future"
-                        })
-                    </div>
-
-                    <!-- <div class="aside-widget">
-                        <a href="news-details.html" class="ad-widget">
-                            <img src="images/aside-banner1.jpg" alt="" class="ad-widget__img">
-                        </a>
-                    </div> -->
-
-                    <div class="aside-widget">
-                        @@include('modules/offer-widget.html', {
-                            "class": "event",
-                            "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
-                            "btnText": "Поделиться событием"
-                        })
-                    </div>
-                </aside>
-            </div>
-
-            <div class="base-3items-grid">
+    <div class="container">
+        <div class="base-layout">
+            <div class="base-layout__main">
                 @@include("modules/grid-event.html", {
-                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_people",
+                    "class": "grid-publication_format-full grid-publication_text-size-big grid-publication_event",
                     "link": "event-announcement.html",
-                    "img": "images/article2.jpg",
-                    "title": "Сильный телом и духом",
+                    "img": "images/publication-big3.jpg",
+                    "title": "Бильярдный турнир на кубок Амурска",
                     "date": "ГРК «Родник»",
                     "place": "5 октября",
                     "wobbler": "announcement",
                     "addLink": false
                 })
-
-                @@include("modules/grid-event.html", {
-                    "class": "grid-publication_format-full grid-publication_text-size-base grid-publication_event",
-                    "link": "event-announcement.html",
-                    "img": "images/article7.jpg",
-                    "title": "Ночь кино в Амурске!",
-                    "place": "Кинотеатр «Молодость»",
-                    "date": "3 февраля, 18.00",
-                    "wobbler": "announcement",
-                    "addLink": false
-                })
-
-                @@include("modules/grid-event.html", {
-                    "class": "grid-publication_format-base grid-publication_cover-format-6col grid-publication_event",
-                    "link": "event-announcement.html",
-                    "img": "images/article16.jpg",
-                    "title": "Прошла выставка художника Владимира Копанова",
-                    "place": "Детская художественная школа",
-                    "date": "18 февраля, 13.00",
-                    "wobbler": "announcement",
-                    "addLink": false
-                })
             </div>
 
-            <div class="base-4items-grid">
-                @@include("modules/grid-event.html", {
-                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_place",
-                    "link": "event-announcement.html",
-                    "img": "images/article10.jpg",
-                    "title": "Музей природы Приамурья",
-                    "place": "Дворец культуры",
-                    "date": "20 октября",
-                    "wobbler": "announcement",
-                    "addLink": false
-                })
+            <aside class="base-layout__aside">
+                <div class="aside-widget aside-widget_mb20">
+                    @@include("modules/events-links-widget.html", {
+                        "active": "future"
+                    })
+                </div>
 
-                @@include("modules/grid-event.html", {
-                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_place",
-                    "link": "event-announcement.html",
-                    "img": "images/article14.jpg",
-                    "title": "Я люблю Амурск спортивный!",
-                    "place": "ДЮСШ",
-                    "date": "3 февраля, 18.00",
-                    "wobbler": "announcement",
-                    "addLink": false
-                })
+                <div class="aside-widget">
+                    @@include('modules/offer-widget.html', {
+                        "class": "event",
+                        "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "btnText": "Поделиться событием"
+                    })
+                </div>
+            </aside>
+        </div>
 
-                @@include("modules/grid-event.html", {
-                    "class": "grid-publication_format-full grid-publication_text-size-base grid-publication_event",
-                    "link": "event-announcement.html",
-                    "img": "images/article7.jpg",
-                    "title": "Ночь кино в Амурске!",
-                    "place": "Кинотеатр «Молодость»",
-                    "date": "3 февраля, 18.00",
-                    "wobbler": "announcement",
-                    "addLink": false
-                })
+        <div class="base-3items-grid">
+            @@include("modules/grid-event.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_event",
+                "link": "event-announcement.html",
+                "img": "images/article2.jpg",
+                "title": "Сильный телом и духом",
+                "date": "ГРК «Родник»",
+                "place": "5 октября",
+                "wobbler": "announcement",
+                "addLink": false
+            })
 
-                @@include("modules/grid-event.html", {
-                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_event",
-                    "link": "event-announcement.html",
-                    "img": "images/article12.jpg",
-                    "title": "Фестиваль «Станица»",
-                    "place": "Дворец культуры",
-                    "date": "17 февраля, 14:00",
-                    "wobbler": "announcement",
-                    "addLink": false
-                })
+            @@include("modules/grid-event.html", {
+                "class": "grid-publication_format-full grid-publication_text-size-base grid-publication_event",
+                "link": "event-announcement.html",
+                "img": "images/article7.jpg",
+                "title": "Ночь кино в Амурске!",
+                "place": "Кинотеатр «Молодость»",
+                "date": "3 февраля, 18.00",
+                "wobbler": "announcement",
+                "addLink": false
+            })
 
-                @@include("modules/grid-event.html", {
-                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_event",
-                    "link": "event-announcement.html",
-                    "img": "images/article4.jpg",
-                    "title": "Фестиваль «Станица»",
-                    "place": "Дворец культуры",
-                    "date": "17 февраля, 14:00",
-                    "wobbler": "announcement",
-                    "addLink": false
-                })
-            </div>
+            @@include("modules/grid-event.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-6col grid-publication_event",
+                "link": "event-announcement.html",
+                "img": "images/article16.jpg",
+                "title": "Прошла выставка художника Владимира Копанова",
+                "place": "Детская художественная школа",
+                "date": "18 февраля, 13.00",
+                "wobbler": "announcement",
+                "addLink": false
+            })
+        </div>
+
+        <div class="base-4items-grid">
+            @@include("modules/grid-event.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_event",
+                "link": "event-announcement.html",
+                "img": "images/article10.jpg",
+                "title": "Музей природы Приамурья",
+                "place": "Дворец культуры",
+                "date": "20 октября",
+                "wobbler": "announcement",
+                "addLink": false
+            })
+
+            @@include("modules/grid-event.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_event",
+                "link": "event-announcement.html",
+                "img": "images/article14.jpg",
+                "title": "Я люблю Амурск спортивный!",
+                "place": "ДЮСШ",
+                "date": "3 февраля, 18.00",
+                "wobbler": "announcement",
+                "addLink": false
+            })
+
+            @@include("modules/grid-event.html", {
+                "class": "grid-publication_format-full grid-publication_text-size-base grid-publication_event",
+                "link": "event-announcement.html",
+                "img": "images/article7.jpg",
+                "title": "Ночь кино в Амурске!",
+                "place": "Кинотеатр «Молодость»",
+                "date": "3 февраля, 18.00",
+                "wobbler": "announcement",
+                "addLink": false
+            })
+
+            @@include("modules/grid-event.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_event",
+                "link": "event-announcement.html",
+                "img": "images/article12.jpg",
+                "title": "Фестиваль «Станица»",
+                "place": "Дворец культуры",
+                "date": "17 февраля, 14:00",
+                "wobbler": "announcement",
+                "addLink": false
+            })
+
+            @@include("modules/grid-event.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_event",
+                "link": "event-announcement.html",
+                "img": "images/article4.jpg",
+                "title": "Фестиваль «Станица»",
+                "place": "Дворец культуры",
+                "date": "17 февраля, 14:00",
+                "wobbler": "announcement",
+                "addLink": false
+            })
         </div>
     </div>
 </main>

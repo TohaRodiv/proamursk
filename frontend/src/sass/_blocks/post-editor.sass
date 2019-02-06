@@ -9,6 +9,7 @@
     width: 100%
 
     .post-editor__block_text
+        width: 640px
         margin-right: auto
         margin-left: auto
 
@@ -129,23 +130,34 @@
         bottom: -40px
         font-size: 0
 
-    .slider-arrow
-        vertical-align: bottom
+    .slide-nav-counter
         color: #283348
+
+    .slider-arrow
+        width: 24px
+        height: 24px
+        font-size: 10px
+        color: #283348
+
+        &:hover
+            border: 1px solid #b1c1d2
+            border-radius: 50%
 
     .slider-caption
         width: 50%
 
 .post-editor__block_quote
-    min-height: 90px
-    padding-left: 25px
-    border-left: 4px solid #05f
 
-    p
-        margin-bottom: 0
-        font-size: 26px
-        line-height: $mini-lh
-        font-family: $additional-f
+    .quote
+        min-height: 90px
+        padding-left: 25px
+        border-left: 4px solid #05f
+
+        p
+            margin-bottom: 0
+            font-size: 26px
+            line-height: $mini-lh
+            font-family: $additional-f
 
 .post-editor__block_video
 
@@ -167,8 +179,22 @@
 
 .post-editor__block_separator
     .line
-        height: 1px
-        background-color: #b1c1d2
+        display: flex
+        align-items: center
+        color: #7A8BA1
+
+        &::before,
+        &::after
+            content: ""
+            height: 2px
+            flex-grow: 1
+            background-color: #b1c1d2
+
+        &::before
+            margin-right: 3px
+
+        &::after
+            margin-left: 3px
 
 .post-editor__block_direct-speech
 
@@ -207,14 +233,14 @@
     &__author
         margin-bottom: 5px
         font-family: $bold-f
-        font-size: 22px
+        font-size: $medium-fz
         letter-spacing: 0.02em
         color: #05f
 
     &__author-description
         margin-bottom: 10px
         font-style: italic
-        font-size: 16px
+        font-size: $mini-fz
 
 .img-shadow
     position: absolute

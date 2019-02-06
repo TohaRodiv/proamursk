@@ -12,6 +12,7 @@
         height: 65px
 
     .subscribe-title
+        width: 390px
         font-size: $big-fz
 
     .subscribe-form
@@ -39,7 +40,15 @@
             top: 0
             z-index: 1
 
+        &__submited
+            width: 340px
+            flex-shrink: 0
+
+    .hint_error
+        left: 0
+
 .aside-subscribe-widget
+    height: 500px
     padding: 40px 50px
     background: linear-gradient(to left, #00caff 0%, #0073ff 100%)
     text-align: center
@@ -50,7 +59,7 @@
         margin: 0 auto 20px
 
     .subscribe-title
-        margin-bottom: 40px
+        margin-bottom: 50px
         font-size: 28px
 
     .subscribe-form
@@ -65,6 +74,13 @@
             display: block
             width: 150px
             margin: 40px auto 0
+
+        &__submited
+            margin-top: 60px
+
+    .hint_error
+        left: 50%
+        transform: translateX(-50%)
 
 .subscribe-title
     font-family: $bold-f
@@ -90,7 +106,9 @@
         font-size: 14px
 
     &__submited
+        font-size: $mini-fz
         line-height: 1.5
+        color: $light-c
 
 .subscribe__social-wrap
     margin-left: 24px

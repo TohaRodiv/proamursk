@@ -1,0 +1,110 @@
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "history"
+})
+
+<main>
+    <div class="container">
+        <div class="base-layout">
+            <div class="base-layout__main">
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full grid-publication_text-size-big grid-publication_history",
+                    "link": "history-details.html",
+                    "img": "images/publication-big4.jpg",
+                    "title": "От прошлого к настоящему",
+                    "description": "В Амурске легко прикоснуться к истории. Достаточно прийти в Краеведческий музей, заглянуть в палатку первостроителей и представить себя на месте мальчишек и девчонок, которые за 10 лет построили новый город посреди тайги.",
+                    "wobbler": "legends"
+                })
+            </div>
+
+            <aside class="base-layout__aside">
+                <div class="aside-widget aside-widget_mb20">
+                    @@include('modules/offer-widget.html', {
+                        "class": "history",
+                        "text": "Любой житель Амурска может поделиться интересной историей с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "btnText": "Поделиться историей"
+                    })
+                </div>
+
+                <div class="aside-widget">
+                    <a href="news-details.html" class="ad-widget">
+                        <img src="images/aside-banner2.jpg" alt="" class="ad-widget__img">
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <div class="base-3items-grid">
+            @@include("modules/grid-publication.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_history",
+                "link": "history-details.html",
+                "img": "images/article2.jpg",
+                "title": "Ольга Петровна Киршова",
+                "description": "Экскурсовод Амурского краеведческого музея",
+                "wobbler": "first-builders"
+            })
+
+            @@include("modules/grid-publication.html", {
+                "class": "grid-publication_format-full grid-publication_text-size-base grid-publication_history",
+                "link": "film-announcement.html",
+                "img": "images/article7.jpg",
+                "title": "Ночь кино в Амурске!",
+                "description": "Кинотеатр «Молодость»",
+                "wobbler": "legends"
+            })
+
+            @@include("modules/grid-publication.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-6col grid-publication_history",
+                "link": "history-details.html",
+                "img": "images/article16.jpg",
+                "title": "Прошла выставка художника Владимира Копанова",
+                "description": "Детская художественная школа",
+                "wobbler": "first-builders"
+            })
+        </div>
+
+        <div class="js-infinity-loader-wrap">
+            <div class="base-4items-grid js-infinity-loader-grid">
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_history",
+                    "link": "history-details.html",
+                    "img": "images/article10.jpg",
+                    "title": "Музей природы Приамурья",
+                    "description": "Дворец культуры",
+                    "wobbler": "legends"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_history",
+                    "link": "history-details.html",
+                    "img": "images/article14.jpg",
+                    "title": "Я люблю Амурск спортивный!",
+                    "description": "ДЮСШ",
+                    "wobbler": "first-builders"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full grid-publication_text-size-base grid-publication_history",
+                    "link": "film-announcement.html",
+                    "img": "images/article7.jpg",
+                    "title": "Ночь кино в Амурске!",
+                    "description": "Кинотеатр «Молодость»",
+                    "wobbler": "legends"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_history",
+                    "link": "history-details.html",
+                    "img": "images/article12.jpg",
+                    "title": "Фестиваль «Станица»",
+                    "description": "Дворец культуры",
+                    "wobbler": "first-builders"
+                })
+            </div>
+            <button class="btn btn_size_base btn_blue btn_more btn_center js-more-past-events" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+        </div>
+    </div>
+</main>
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')

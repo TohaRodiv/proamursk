@@ -4,19 +4,14 @@
 })
 
 <main>
-
     <div class="container">
-        <div class="layout-section index-manage-grid">
-            <div class="index__last-news">
-                @@include("page-block/last-news-widget.html", {
-                    "link": false
-                })
-            </div>
+        <div class="index-manage-grid">
+            @@include("page-block/last-news-widget.html")
 
             @@include("modules/grid-publication.html", {
                 "class": "grid-publication_format-full grid-publication_text-size-big grid-publication_special-project",
                 "link": "special-project-details.html",
-                "img": "images/article1.jpg",
+                "img": "images/publication-big1.jpg",
                 "title": "Проект «Дети»",
                 "description": "Амурские школьники становятся лауреатами престижных конкурсов, выпускники без труда поступают в лучшие вузы страны. Все дело в качестве образования, которое в нашем городе остается стабильно высоким.",
                 "wobbler": "special-project"
@@ -154,7 +149,6 @@
             })
         </div>
     </div>
-
 </main>
 
 <div class="additional-block layout-section">

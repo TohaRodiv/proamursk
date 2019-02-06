@@ -30,7 +30,7 @@ $('body').on('blur', 'input, textarea', function() {
         if ($(this).attr('type') == 'password') {
             isPasswordsEqual(form, true);
         }
-        hideErrorMessage($(this));
+        // hideErrorMessage($(this));
     }
 })
 
