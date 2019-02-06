@@ -186,6 +186,12 @@ ul, ol {
   font-style: normal; }
 
 @font-face {
+  font-family: "Proxima Nova Bold It";
+  src: url("../fonts/ProximaNova-BoldIt.woff2") format("woff2"), url("../fonts/ProximaNova-BoldIt.woff") format("woff");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
   font-family: "SegoeUI";
   src: url("../fonts/SegoeUI.woff2") format("woff2"), url("../fonts/SegoeUI.woff") format("woff");
   font-weight: normal;
@@ -196,6 +202,12 @@ ul, ol {
   src: url("../fonts/SegoeUI-SemiboldItalic.woff2") format("woff2"), url("../fonts/SegoeUI-SemiboldItalic.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
+
+@font-face {
+  font-family: "SegoeUI Light It";
+  src: url("../fonts/SegoeUI-LightItalic.woff2") format("woff2"), url("../fonts/SegoeUI-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic; }
 
 @font-face {
   font-family: "proamursk";
@@ -1267,14 +1279,19 @@ input.btn_preloader {
   width: 50%; }
 
 .post-editor__block_quote .quote {
-  min-height: 90px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 25px;
   border-left: 4px solid #05f; }
-  .post-editor__block_quote .quote p {
+  .post-editor__block_quote .quote__title {
+    font-family: "Proxima Nova Bold It", Arial, Helvetica, sans-serif;
+    font-size: 42px;
+    color: #05f; }
+  .post-editor__block_quote .quote__text {
     margin-bottom: 0;
     font-size: 26px;
     line-height: 1.3;
-    font-family: "SegoeUI", Arial, Helvetica, sans-serif; }
+    font-family: "SegoeUI Light It", Arial, Helvetica, sans-serif; }
 
 .post-editor__block_video-wrap {
   position: relative; }
