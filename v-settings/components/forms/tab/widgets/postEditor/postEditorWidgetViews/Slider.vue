@@ -16,22 +16,42 @@
 
 <script>
     import axios from 'axios';
+    import vue from 'vue';
+    import cloneDeep from 'lodash/cloneDeep';
 
     export default {
         props: {
-            sliderId: Number,
+            widget: Object,
+            isDragOn: Boolean,
         },
 
         data() {
             return {
                 currentImage: 0,
                 data: [],
+                randomMSec: Math.random() * 50
+            }
+        },
+
+        watch: {
+            'isDragOn': function (newValue) {
+                if (newValue === true) {
+                    vue.set(this.widget, 'cachedData', this.data);
+                } else {
+                    setTimeout(() => { //Разделяю процесс кеширования на части, чтобы при начале и конце драга браузер не зависал
+                        vue.delete(this.widget, 'cachedData');
+                    }, this.randomMSec);
+                }
             }
         },
 
         mounted(){
-            if (typeof this.sliderId !== 'undefined')
-            this.getSliderData();
+            if (this.widget.cachedData) {
+                this.data = cloneDeep(this.widget.cachedData)
+            }
+            else if (typeof this.widget.slides !== 'undefined') {
+                this.getSliderData();
+            }
         },
 
         methods: {
@@ -41,7 +61,7 @@
                         'Content-Type': 'application/json'
                     },
                 };
-                axios.get(`/sliders/${this.sliderId}/`, config)
+                axios.get(`/sliders/${this.widget.slides}/`, config)
                     .then(response =>{
                         this.data = response.data.slides
                     })
@@ -54,13 +74,13 @@
                         }
                         else if (error.response.status === 403) {
                             if (error.response.headers['user-id']) {
-                                this.$store.commit('setErrorMessage', `Нет прав на /api/sliders/${this.sliderId}/`);
+                                this.$store.commit('setErrorMessage', `Нет прав на /api/sliders/${this.widget.slides}/`);
                             } else {
                                 this.$router.push({name: 'auth'});
                             }
                         }
                         else if (error.response.status === 404) {
-                            this.$store.commit('setErrorMessage', `Адрес /api/sliders/${this.sliderId}/ не существует`);
+                            this.$store.commit('setErrorMessage', `Адрес /api/sliders/${this.widget.slides}/ не существует`);
                         }
                     });
             },

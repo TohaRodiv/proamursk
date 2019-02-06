@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :style="widget.type === 'instagram' ? {minHeight: '600px'} : ''">
         <imageComponent
                 v-if="widget.type === 'image'"
                 :data="widget"
@@ -10,7 +10,8 @@
         ></textComponent>
         <slider
                 v-if="widget.type === 'slider'"
-                :sliderId="widget.slides"
+                :isDragOn="isDragOn"
+                :widget="widget"
         ></slider>
         <separator
                 v-if="widget.type === 'hr'">
@@ -49,6 +50,7 @@
     export default {
         props: {
             widget: Object,
+            isDragOn: Boolean,
         },
 
         data() {

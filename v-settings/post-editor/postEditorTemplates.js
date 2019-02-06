@@ -36,7 +36,7 @@ const state = {
                 },
                 {
                     type: 'slider',
-                    available: [8],
+                    available: [8, 6],
                 },
                 {
                     type: 'quote',

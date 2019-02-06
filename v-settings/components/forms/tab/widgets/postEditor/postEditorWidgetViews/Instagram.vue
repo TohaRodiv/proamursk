@@ -1,5 +1,5 @@
 <template>
-    <div v-html="deleteScriptTag()"></div>
+    <div v-html="deleteScriptTag()" class="post-editor-instagram"></div>
 </template>
 
 <script>
@@ -28,7 +28,9 @@
             instaScript.setAttribute('src', '//www.instagram.com/embed.js');
             document.head.appendChild(instaScript);
             if (window.instgrm) {
-                window.instgrm.Embeds.process();
+                setTimeout(() => {
+                    window.instgrm.Embeds.process();
+                }, 1000);
             }
         },
 
