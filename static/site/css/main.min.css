@@ -2939,4 +2939,68 @@ footer {
   .film-seance__buy-btn {
     margin-left: auto; }
 
+.reviews {
+  margin-top: 40px;
+  margin-bottom: 20px; }
+  .reviews__title-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #7A8BA1; }
+  .reviews__title {
+    margin-right: 20px;
+    font-size: 36px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    color: #000000; }
+  .reviews__counter {
+    min-width: 48px;
+    height: 48px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 36px;
+    line-height: 50px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    letter-spacing: 0.02em;
+    text-align: center;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00caff), to(#0073ff));
+    background: -webkit-linear-gradient(#00caff 0%, #0073ff 100%);
+    background: -o-linear-gradient(#00caff 0%, #0073ff 100%);
+    background: linear-gradient(#00caff 0%, #0073ff 100%);
+    border-radius: 24px; }
+  .reviews__btn {
+    margin-top: 40px; }
+
+.review:not(:last-child) {
+  margin-bottom: 40px; }
+
+.review__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px; }
+
+.review__date {
+  margin-right: 20px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: #7a7a7a; }
+
+.review__name {
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.02em; }
+
+.review__text {
+  font-size: 16px;
+  line-height: 1.5; }
+
 /*# sourceMappingURL=main.min.css.map */
