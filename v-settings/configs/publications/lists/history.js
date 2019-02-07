@@ -53,7 +53,6 @@ const state = {
                 align_text: 'left',
                 width: 240,
                 codename: 'rubric',
-                isMain: true,
                 sort: 'none'
             },
             {
