@@ -54,7 +54,7 @@ const state = {
                                 codename: 'rubric',
                                 widget: 'singleSelector',
                                 invalid: false,
-                                api_route: 'history-rubric',
+                                api_route: 'history-rubrics',
                                 sortFlag: {
                                     value: 'name',
                                     direction: 'asc'
