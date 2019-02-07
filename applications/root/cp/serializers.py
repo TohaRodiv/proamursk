@@ -1,20 +1,14 @@
 # -*-coding: utf-8 -*-
 import os
 
-from django.contrib.auth import authenticate, login
-from django.core.exceptions import ValidationError
-from django.core.validators import validate_email
 from rest_framework import serializers
 
 from applications.mediafiles.cp.serializers import ImageNestedSerializer
 from applications.mediafiles.models import MediaFile
 from cp_vue.api.fields import ObjectRelatedField
 from cp_vue.api.serializers import ModelSerializer
-from cp_vue.cp.serializers import CpRoleNestedSerializer
-# from applications.tools.utils import filter_number
-from cp_vue.models import CpRole
 from ..models import (News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner,
-    WideBanner, PlaceReview, SliderItem, Slider, Feedback, TextError)
+                      WideBanner, PlaceReview, SliderItem, Slider, Feedback, TextError, HistoryRubric)
 
 
 class NewsListSerializer(ModelSerializer):
@@ -122,20 +116,46 @@ class ReportsDetailSerializer(ModelSerializer):
         return dict(instance.FORMATS).get(instance.cover_format)
 
 
+class HistoryRubricNestedSerializer(ModelSerializer):
+
+    class Meta:
+        model = HistoryRubric
+        fields = ('id', 'name')
+
+
+class HistoryRubricListSerializer(ModelSerializer):
+
+    class Meta:
+        model = HistoryRubric
+        fields = ('id', 'name', 'comment', 'create_date', 'edit_date')
+
+
+class HistoryRubricDetailSerializer(ModelSerializer):
+
+    class Meta:
+        model = HistoryRubric
+        fields = ('id', 'name', 'comment', 'create_date', 'edit_date')
+
+
 class HistoryListSerializer(ModelSerializer):
+    rubric = serializers.SerializerMethodField()
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = History
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'comment', 'publication_date',
+        fields = ('id', 'cover', 'cover_format', 'rubric', 'cover_format_name', 'title', 'comment', 'publication_date',
                   'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
 
+    def get_rubric(self, obj):
+        return obj.rubric.name
+
 
 class HistoryDetailSerializer(ModelSerializer):
+    rubric = ObjectRelatedField(queryset=HistoryRubric.objects.all(), serializer_class=HistoryRubricNestedSerializer)
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
     cover_format_name = serializers.SerializerMethodField()
     og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
@@ -145,7 +165,7 @@ class HistoryDetailSerializer(ModelSerializer):
 
     class Meta:
         model = History
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
+        fields = ('id', 'cover', 'cover_format', 'rubric', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
                   'meta_description', 'meta_keywords', 'og_image')
 

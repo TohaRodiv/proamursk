@@ -24,12 +24,14 @@ from .serializers import (NewsListSerializer, NewsDetailSerializer, EventsListSe
                           FilmsDetailSerializer, FilmsListSerializer, SidebarBannerSerializer, WideBannerSerializer,
                           PlaceReviewsListSerializer, PlaceReviewsDetailSerializer, SlidersDetailSerializer,
                           SlidersListSerializer, FeedbackDetailSerializer, FeedbackListSerializer, TextErrorDetailSerializer,
-                          TextErrorListSerializer)
-from .filters import NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter, \
-    PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter, FeedbackFilter, SidebarBannersFilter, \
-    WideBannersFilter, TextErrorFilter
-from ..models import News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner, \
-    PlaceReview, Slider, Feedback, TextError
+                          TextErrorListSerializer, HistoryRubricDetailSerializer, HistoryRubricListSerializer)
+
+from .filters import (NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter,
+                      PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter, FeedbackFilter,
+                      SidebarBannersFilter, WideBannersFilter, TextErrorFilter)
+
+from ..models import (News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner,
+                      PlaceReview, Slider, Feedback, TextError, HistoryRubric)
 
 try:
     from applications.notifications.tasks import send_notification
@@ -72,6 +74,16 @@ class ReportsCpViewSet(CpViewSet):
     list_serializer_class = ReportsListSerializer
     filter_class = ReportsFilter
     ordering_fields = ('id', 'title', 'place', 'start_event_date', 'publications_date', 'edit_date', 'create_date')
+
+
+class HistoryRubricCpViewSet(CpViewSet):
+    path = 'history-rubrics'
+    model = HistoryRubric
+    queryset = HistoryRubric.objects.all()
+    available_actions = dict(delete='Удаление')
+    serializer_class = HistoryRubricDetailSerializer
+    list_serializer_class = HistoryRubricListSerializer
+    ordering_fields = ('id', 'name', 'edit_date', 'create_date')
 
 
 class HistoryCpViewSet(CpViewSet):
@@ -244,6 +256,7 @@ class TextErrorCpViewSet(CpViewSet):
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)
+cp_api.register(HistoryRubricCpViewSet)
 cp_api.register(HistoryCpViewSet)
 cp_api.register(PersonsCpViewSet)
 cp_api.register(CityGuidesCpViewSet)
