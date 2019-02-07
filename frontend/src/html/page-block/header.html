@@ -2,7 +2,7 @@
     <div class="container header-container">
         <a href="index.html" class="header__logo-link">
             @@if (page === "index") {
-                <img src="images/svg/logo.svg" alt="проАмурск" class="header__logo-img header__logo-img_index">
+                <img src="images/svg/logo-black.svg" alt="проАмурск" class="header__logo-img header__logo-img_index">
             }
 
             @@if (page === "news") {
@@ -22,19 +22,19 @@
             @@if (page === "people") {
                 <img src="images/svg/logo_people.svg" alt="проАмурск" class="header__logo-img header__logo-img_people">
             }
-            @@if (page === "special-project") {
-                <img src="images/svg/logo_special-project.svg" alt="проАмурск" class="header__logo-img header__logo-img_special-project">
+            @@if (page === "special-projects") {
+                <img src="images/svg/logo_special-projects.svg" alt="проАмурск" class="header__logo-img header__logo-img_special-project">
             }
         </a>
+
+        <img src="images/svg/header-pattern.svg" alt="" class="header__pattern">
+
+        <div class="header__weather-widget">-24 C°</div>
 
         <div class="header__nav">
             @@include('page-block/site-nav.html', {
                 "active": "@@page"
             })
-        </div>
-
-        <div class="header__weather-widget weather-widget">
-            <img src="images/weather-widget.svg" alt="">
         </div>
 
         <button class="header__search-btn icon-search show-pop-up" data-pop-up="search"></button>
