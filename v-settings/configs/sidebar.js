@@ -40,7 +40,7 @@ const state = {
                 },
                 {
                     name: 'Рубрики истор. статей',
-                    view: 'history-rubric',
+                    view: 'history-rubrics',
                     formsName: 'Рубрика исторических статей #',
                     newFormName: 'Новая рубрика исторических статей',
                     hasAddButton: true
