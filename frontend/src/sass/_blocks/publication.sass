@@ -44,6 +44,15 @@
     &__content
         margin-top: 30px
 
+    &__rubric
+        margin-bottom: 20px
+        font-size: 16px
+
+        &-icon
+            margin-right: 10px
+            color: #05f
+            vertical-align: middle
+
     &__date
         margin-bottom: 20px
         font-size: 14px
@@ -52,12 +61,14 @@
         color: #7a7a7a
 
     &__additional-info-wrap
-        margin-bottom: 20px
         font-size: $mini-fz
 
         &_row
             display: flex
             align-items: center
+
+            & *:not(:last-child)
+                margin-right: 50px
 
         [class^="icon-"]
             display: inline-block
@@ -74,8 +85,8 @@
                 text-decoration: underline
 
     &__event-info
-        margin-right: 50px
-
+        margin-bottom: 20px
+        
     &__place-info
         &:not(:last-child)
             margin-bottom: 15px
@@ -89,7 +100,7 @@
         font-family: $bold-f
 
     &__lead
-        margin-bottom: 20px
+        margin-bottom: 40px
         font-size: 21px
         font-family: $add-sb-it-f
         line-height: $mini-lh
