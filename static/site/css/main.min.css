@@ -2695,11 +2695,11 @@ footer {
     right: 20px;
     font-size: 0; }
 
-.ad-widget {
+.sidebar-banner {
   display: block;
   border-radius: 4px;
   overflow: hidden; }
-  .ad-widget__img {
+  .sidebar-banner__img {
     display: block;
     width: 100%; }
 
