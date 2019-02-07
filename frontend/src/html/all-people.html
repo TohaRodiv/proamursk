@@ -1,0 +1,110 @@
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "people"
+})
+
+<main>
+    <div class="container">
+        <div class="base-layout">
+            <div class="base-layout__main">
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full grid-publication_text-size-big grid-publication_people",
+                    "link": "place-details.html",
+                    "img": "images/publication-big5.jpg",
+                    "title": "Дендрарий",
+                    "description": "Лучшие дни для посещения дендрария — с начала августа до середины сентября. В это время большинство растений еще цветет, а деревья уже начинают золотиться.",
+                    "wobbler": "people"
+                })
+            </div>
+
+            <aside class="base-layout__aside">
+                <div class="aside-widget">
+                    @@include('modules/offer-widget.html', {
+                        "class": "people",
+                        "text": "Любой житель Амурска может поделиться интересном человеке с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "btnText": "Предложить героя"
+                    })
+                </div>
+
+                <div class="aside-widget">
+                    <a href="news-details.html" class="ad-widget">
+                        <img src="images/aside-banner2.jpg" alt="" class="ad-widget__img">
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <div class="base-3items-grid">
+            @@include("modules/grid-publication.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_people",
+                "link": "place-details.html",
+                "img": "images/grid-cover-bigger1.jpg",
+                "title": "Лингвистическая школа",
+                "description": "Одна из лучших на Дальнем Востоке",
+                "wobbler": "people"
+            })
+
+            @@include("modules/grid-publication.html", {
+                "class": "grid-publication_format-full grid-publication_text-size-base grid-publication_people",
+                "link": "film-announcement.html",
+                "img": "images/grid-cover-3-full2.jpg",
+                "title": "Детско-юношеская спортивная школа",
+                "description": "Одна из самых крупных школ Хабаровского края",
+                "wobbler": "people"
+            })
+
+            @@include("modules/grid-publication.html", {
+                "class": "grid-publication_format-base grid-publication_cover-format-6col grid-publication_people",
+                "link": "place-details.html",
+                "img": "images/grid-cover-3-full1.jpg",
+                "title": "Ботанический сад",
+                "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
+                "wobbler": "people"
+            })
+        </div>
+
+        <div class="js-infinity-loader-wrap">
+            <div class="base-4items-grid js-infinity-loader-grid">
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_people",
+                    "link": "place-details.html",
+                    "img": "images/grid-cover-bigger2.jpg",
+                    "title": "Амурские теплицы",
+                    "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
+                    "wobbler": "people"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_people",
+                    "link": "place-details.html",
+                    "img": "images/grid-cover-bigger9.jpg",
+                    "title": "Я люблю Амурск спортивный!",
+                    "description": "Здесь рождается искусство",
+                    "wobbler": "people"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full grid-publication_text-size-base grid-publication_people",
+                    "link": "film-announcement.html",
+                    "img": "images/grid-cover-3-full2.jpg",
+                    "title": "Центральная городская библиотека",
+                    "description": "Место, где пахнет книгами",
+                    "wobbler": "people"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base grid-publication_cover-format-bigger grid-publication_people",
+                    "link": "place-details.html",
+                    "img": "images/grid-cover-bigger4.jpg",
+                    "title": "Центр творчества «Темп»",
+                    "description": "Cамое крупное учреждение дополнительного образования в Амурском районе",
+                    "wobbler": "people"
+                })
+            </div>
+            <button class="btn btn_size_base btn_blue btn_more btn_center js-more-news" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+        </div>
+    </div>
+</main>
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')
