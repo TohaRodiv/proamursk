@@ -40,34 +40,34 @@ const state = {
                             }
                         ]
                     },
-                    // {
-                    //     labelPosition: 'left',
-                    //     modClass: 'marginBottom22',
-                    //     direction: 'row',
-                    //     elements: [
-                    //         {
-                    //             type: 'field',
-                    //             label: 'Рубрика',
-                    //             expected_value: 'id',
-                    //             required: true,
-                    //             width: 6,
-                    //             codename: 'rubric',
-                    //             widget: 'singleSelector',
-                    //             invalid: false,
-                    //             api_route: 'history-rubric',
-                    //             sortFlag: {
-                    //                 value: 'name',
-                    //                 direction: 'asc'
-                    //             },
-                    //             view_structure: [
-                    //                 {
-                    //                     value: 'name'
-                    //                 },
-                    //             ],
-                    //             hint: ''
-                    //         }
-                    //     ]
-                    // },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Рубрика',
+                                expected_value: 'id',
+                                required: true,
+                                width: 6,
+                                codename: 'rubric',
+                                widget: 'singleSelector',
+                                invalid: false,
+                                api_route: 'history-rubric',
+                                sortFlag: {
+                                    value: 'name',
+                                    direction: 'asc'
+                                },
+                                view_structure: [
+                                    {
+                                        value: 'name'
+                                    },
+                                ],
+                                hint: ''
+                            }
+                        ]
+                    },
                     {
                         labelPosition: 'left',
                         modClass: 'marginBottom22',
