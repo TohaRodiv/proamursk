@@ -142,6 +142,22 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
         return reverse('persons-detail', args=[self.id])
 
 
+class HistoryRubric(BaseModel):
+    name = models.CharField('Заголовок', max_length=255)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'Рубрика исторических статей'
+        verbose_name_plural = 'Рубрики исторических статей'
+        ordering = '-id',
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return ''  # reverse('persons-detail', args=[self.id])
+
+
 class History(BaseModel, BaseSeoMixin, IsActiveMixin):
     SMALL = 'small'
     FULL = 'full'
@@ -149,6 +165,7 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
         (SMALL, 'Обычная обложка'),
         (FULL, 'Полноразмерная обложка')
     )
+    rubric = models.ForeignKey('HistoryRubric', on_delete=models.CASCADE, verbose_name='Рубрика')
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
