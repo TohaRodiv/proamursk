@@ -1610,7 +1610,6 @@ footer {
       width: 100%;
       height: 3px;
       position: absolute;
-      bottom: 0;
       left: 0; }
     .site-nav__link:hover::after, .site-nav__link.active::after {
       display: block; }
@@ -1652,6 +1651,8 @@ footer {
   padding: 32px 2px 28px;
   font-size: 15px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .header__nav .site-nav__link::after {
+    bottom: 0; }
 
 .footer__nav .site-nav {
   width: 530px;
@@ -1662,7 +1663,11 @@ footer {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   .footer__nav .site-nav__link {
+    padding-left: 2px;
+    padding-right: 2px;
     font-size: 12px; }
+    .footer__nav .site-nav__link::after {
+      bottom: -5px; }
 
 .index-manage-grid {
   display: -ms-grid;
@@ -1852,6 +1857,13 @@ footer {
     color: #dde2e5; }
   .publication__content {
     margin-top: 30px; }
+  .publication__rubric {
+    margin-bottom: 20px;
+    font-size: 16px; }
+    .publication__rubric-icon {
+      margin-right: 10px;
+      color: #05f;
+      vertical-align: middle; }
   .publication__date {
     margin-bottom: 20px;
     font-size: 14px;
@@ -1859,7 +1871,6 @@ footer {
     line-height: 20px;
     color: #7a7a7a; }
   .publication__additional-info-wrap {
-    margin-bottom: 20px;
     font-size: 16px; }
     .publication__additional-info-wrap_row {
       display: -webkit-box;
@@ -1868,6 +1879,8 @@ footer {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
+      .publication__additional-info-wrap_row *:not(:last-child) {
+        margin-right: 50px; }
     .publication__additional-info-wrap [class^="icon-"] {
       display: inline-block;
       margin-right: 5px;
@@ -1880,7 +1893,7 @@ footer {
       .publication__additional-info-wrap a:hover {
         text-decoration: underline; }
   .publication__event-info {
-    margin-right: 50px; }
+    margin-bottom: 20px; }
   .publication__place-info:not(:last-child) {
     margin-bottom: 15px; }
   .publication__place-info:last-child {
@@ -1890,7 +1903,7 @@ footer {
     font-size: 36px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
   .publication__lead {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     font-size: 21px;
     font-family: "SegoeUI Semibold It", Arial, Helvetica, sans-serif;
     line-height: 1.3; }

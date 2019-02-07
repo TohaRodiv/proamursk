@@ -19,7 +19,6 @@
             width: 100%
             height: 3px
             position: absolute
-            bottom: 0
             left: 0
 
         &:hover,
@@ -63,6 +62,9 @@
             font-size: $small-fz
             font-family: $bold-f
 
+            &::after
+                bottom: 0
+
 .footer__nav
     .site-nav
         width: 530px
@@ -70,4 +72,9 @@
         justify-content: space-between
 
         &__link
+            padding-left: 2px
+            padding-right: 2px
             font-size: 12px
+
+            &::after
+                bottom: -5px
