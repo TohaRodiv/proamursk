@@ -2571,9 +2571,8 @@ footer {
     right: 15px; }
   .movie-posters-item__icon {
     display: block;
-    width: 32px;
-    height: 32px;
-    margin-left: 10px; }
+    margin-left: 10px;
+    color: #FFFFFF; }
 
 .cinema-widget {
   display: -webkit-box;
@@ -2823,13 +2822,14 @@ footer {
 
 .film-info-table td {
   padding: 5px 0; }
-  .film-info-table td img {
-    display: block;
-    width: 32px;
-    height: 32px; }
+  .film-info-table td .round-rating {
+    color: #7A8BA1; }
 
 .film-info-table tr:nth-child(1) td {
   padding-top: 0; }
+
+.film-info-table tr:not(:last-child) td {
+  vertical-align: baseline; }
 
 .film-info-table tr:last-child td {
   padding-bottom: 0; }
@@ -2840,6 +2840,7 @@ footer {
   line-height: 1.5; }
 
 .film-info-table td:nth-child(2) {
+  width: 210px;
   font-size: 16px;
   line-height: 1.3; }
 
@@ -2912,14 +2913,13 @@ footer {
   display: flex; }
 
 .film-seance {
-  padding: 15px;
+  min-width: 80px;
+  margin-left: 20px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  font-size: 16px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
   text-align: left; }
-  .film-seance:nth-child(1) {
-    width: 113px; }
-  .film-seance:nth-child(2), .film-seance:nth-child(3), .film-seance:nth-child(4), .film-seance:nth-child(5), .film-seance:nth-child(6) {
-    width: 98px; }
-  .film-seance:nth-child(7) {
-    width: 110px; }
   .film-seance_3d {
     position: relative; }
     .film-seance_3d::after {
@@ -2928,21 +2928,35 @@ footer {
       width: 26px;
       height: 20px;
       position: absolute;
-      bottom: 15px;
+      top: 0;
       right: 8px; }
-  .film-seance:not(:last-child) {
-    margin-right: 6px; }
-  .film-seance__time {
-    height: 28px;
-    font-size: 22px;
-    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
-  .film-seance__price {
-    display: inline-block;
-    height: 20px;
-    font-size: 16px;
-    color: #7A8BA1; }
   .film-seance__buy-btn {
-    margin-left: auto; }
+    margin-right: auto;
+    -ms-flex-negative: 0;
+        flex-shrink: 0; }
+  .film-seance__text {
+    margin-left: 20px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    font-size: 12px;
+    text-align: right; }
+    .film-seance__text :nth-child(1) {
+      margin-bottom: 5px; }
+  .film-seance__note {
+    margin-top: 30px;
+    font-size: 12px; }
+
+.round-rating {
+  display: block;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  line-height: 28px;
+  font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid currentColor; }
 
 .reviews {
   margin-top: 40px;
