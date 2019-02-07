@@ -52,7 +52,7 @@ class HistoryFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
-    rubric__in = NumberInFilter(field_name='rubric', lookup_expr='in')
+    rubrics_id__in = NumberInFilter(field_name='rubric', lookup_expr='in')
 
     class Meta:
         model = History
