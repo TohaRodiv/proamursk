@@ -130,7 +130,7 @@ const state = {
                 filterTitle: 'Рубрики',
                 queryName: 'rubrics_id__in',
                 input_type: 'tagSelector',
-                api_route: 'hystory-rubrics',
+                api_route: 'history-rubrics',
                 callbackValue: 'id',
                 sortFlag: {
                     value: 'name',
