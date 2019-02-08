@@ -837,14 +837,13 @@ select:-webkit-autofill {
     .pop-up__close_inner:hover {
       color: #000000; }
   .pop-up__close_outer {
-    height: 36px;
+    position: fixed;
+    top: 30px;
+    right: calc((100vw - 1300px) / 2);
+    width: 43px;
+    height: 43px;
     padding: 5px;
-    top: -5px;
-    right: -50px;
-    color: #FFFFFF;
-    font-size: 25px; }
-    .pop-up__close_outer:hover {
-      opacity: .8; }
+    font-size: 14px; }
 
 .pop-up-wrapper {
   display: none;
