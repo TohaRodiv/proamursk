@@ -2038,10 +2038,7 @@ footer {
   margin: 0 auto 40px;
   padding: 25px 30px;
   border-radius: 4px;
-  background: -webkit-gradient(linear, right top, left top, from(#00caff), to(#0073ff));
-  background: -webkit-linear-gradient(right, #00caff 0%, #0073ff 100%);
-  background: -o-linear-gradient(right, #00caff 0%, #0073ff 100%);
-  background: linear-gradient(to left, #00caff 0%, #0073ff 100%); }
+  background-color: #0073FF; }
   .footer__subscribe-section .subscribe-img {
     margin-right: 35px;
     height: 65px; }
@@ -2084,10 +2081,7 @@ footer {
 .aside-subscribe-widget {
   height: 500px;
   padding: 40px 50px;
-  background: -webkit-gradient(linear, right top, left top, from(#00caff), to(#0073ff));
-  background: -webkit-linear-gradient(right, #00caff 0%, #0073ff 100%);
-  background: -o-linear-gradient(right, #00caff 0%, #0073ff 100%);
-  background: linear-gradient(to left, #00caff 0%, #0073ff 100%);
+  background-color: #0073FF;
   text-align: center; }
   .aside-subscribe-widget .subscribe-img {
     display: block;
