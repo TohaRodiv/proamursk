@@ -2634,7 +2634,8 @@ footer {
     letter-spacing: 0.02em;
     line-height: 24px;
     color: #FFFFFF;
-    text-align: center; }
+    text-align: center;
+    text-decoration: none; }
   .cinema-widget__slider {
     height: 390px;
     margin-left: 20px;
