@@ -45,7 +45,7 @@
         transition: color $transition-time
 
         &:hover
-            color: #0055FF
+            color: $base-c
 
             &::before
                 width: calc(100% + 14px)
@@ -62,7 +62,7 @@
         .icon
             margin-left: 10px
             font-size: 10px
-            color: #0055FF
+            color: $base-c
             vertical-align: -2px
 
         &::before
@@ -93,7 +93,7 @@
 
         .grid-publication
             &__cover
-                border-bottom: 1px solid #b1c1d2
+                border-bottom: 1px solid $border-c
 
             &__text-wrap
                 display: flex
@@ -116,7 +116,7 @@
                 margin-top: auto
 
             &__link
-                color: #0055FF
+                color: $base-c
 
     &_format-full
         color: $light-c
@@ -153,7 +153,7 @@
                 color: $light-c
 
                 &:hover
-                    color: #0055FF
+                    color: $base-c
 
     &_cover-format-base
         .grid-publication

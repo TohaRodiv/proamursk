@@ -533,7 +533,7 @@ select:-webkit-autofill {
   cursor: pointer;
   background-color: #A1A3A3; }
   .slider-circle-item.active {
-    background-color: #fff; }
+    background-color: #FFFFFF; }
   .slider-circle-item:last-child {
     margin-right: 0; }
 
@@ -1273,11 +1273,11 @@ input.btn_preloader {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 25px;
-  border-left: 4px solid #05f; }
+  border-left: 4px solid #0073FF; }
   .post-editor__block_quote .quote__title {
     font-family: "Proxima Nova Bold It", Arial, Helvetica, sans-serif;
     font-size: 42px;
-    color: #05f; }
+    color: #0073FF; }
   .post-editor__block_quote .quote__text {
     margin-bottom: 0;
     font-size: 26px;
@@ -1358,7 +1358,7 @@ input.btn_preloader {
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     font-size: 22px;
     letter-spacing: 0.02em;
-    color: #05f; }
+    color: #0073FF; }
   .direct-speech__author-description {
     margin-bottom: 10px;
     font-style: italic;
@@ -1831,7 +1831,7 @@ footer {
     font-size: 16px; }
     .publication__rubric-icon {
       margin-right: 10px;
-      color: #05f;
+      color: #0073FF;
       vertical-align: middle; }
   .publication__date {
     margin-bottom: 20px;
@@ -1854,10 +1854,10 @@ footer {
       display: inline-block;
       margin-right: 5px;
       font-size: 18px;
-      color: #0055FF;
+      color: #0073FF;
       vertical-align: bottom; }
     .publication__additional-info-wrap a {
-      color: #0055FF;
+      color: #0073FF;
       text-decoration: none; }
       .publication__additional-info-wrap a:hover {
         text-decoration: underline; }
@@ -1914,7 +1914,7 @@ footer {
     bottom: 10px;
     right: 20px;
     font-size: 0;
-    color: rgba(156, 0, 206, 0.1); }
+    color: rgba(0, 115, 255, 0.1); }
     .last-news__icon::before {
       font-size: 110px; }
 
@@ -2248,7 +2248,7 @@ footer {
     -o-transition: color 0.3s;
     transition: color 0.3s; }
     .grid-publication__link:hover {
-      color: #0055FF; }
+      color: #0073FF; }
       .grid-publication__link:hover::before {
         width: calc(100% + 14px);
         border-radius: 26px; }
@@ -2261,7 +2261,7 @@ footer {
     .grid-publication__link .icon {
       margin-left: 10px;
       font-size: 10px;
-      color: #0055FF;
+      color: #0073FF;
       vertical-align: -2px; }
     .grid-publication__link::before {
       content: "";
@@ -2317,7 +2317,7 @@ footer {
     .grid-publication_format-base .grid-publication__wobbler {
       margin-top: auto; }
     .grid-publication_format-base .grid-publication__link {
-      color: #0055FF; }
+      color: #0073FF; }
   .grid-publication_format-full {
     color: #FFFFFF; }
     .grid-publication_format-full .grid-publication__cover-wrap {
@@ -2348,7 +2348,7 @@ footer {
     .grid-publication_format-full .grid-publication__link {
       color: #FFFFFF; }
       .grid-publication_format-full .grid-publication__link:hover {
-        color: #0055FF; }
+        color: #0073FF; }
   @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .grid-publication_cover-format-base .grid-publication__cover {
       height: 207px; } }
@@ -2525,7 +2525,7 @@ footer {
     font-size: 24px;
     letter-spacing: 0.02em;
     line-height: 24px;
-    color: #fff;
+    color: #FFFFFF;
     text-align: center; }
   .cinema-widget__slider {
     height: 390px;
@@ -2653,12 +2653,12 @@ footer {
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #000;
+  color: inherit;
   text-decoration: none;
   border-radius: 18px; }
   .aside-nav__link:hover, .aside-nav__link:focus {
     background-color: #eff2f5;
-    color: #0055FF; }
+    color: #0073FF; }
   .aside-nav__link.active {
     background-color: #eff2f5; }
 
@@ -2881,10 +2881,10 @@ footer {
     color: #FFFFFF;
     letter-spacing: 0.02em;
     text-align: center;
-    background: -webkit-gradient(linear, left top, left bottom, from(#00caff), to(#0073ff));
-    background: -webkit-linear-gradient(#00caff 0%, #0073ff 100%);
-    background: -o-linear-gradient(#00caff 0%, #0073ff 100%);
-    background: linear-gradient(#00caff 0%, #0073ff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#00caff), to(#0073FF));
+    background: -webkit-linear-gradient(#00caff 0%, #0073FF 100%);
+    background: -o-linear-gradient(#00caff 0%, #0073FF 100%);
+    background: linear-gradient(#00caff 0%, #0073FF 100%);
     border-radius: 24px; }
   .reviews__btn {
     margin-top: 40px; }
