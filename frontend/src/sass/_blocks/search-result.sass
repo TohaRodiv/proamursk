@@ -1,11 +1,26 @@
-.search-result__buttons-panel
-    margin-bottom: 24px
+.search-result
+    &__form
+        width: 640px
+        margin: 100px auto 30px
 
-    +media(xs-s)
-        display: none
+    &__btns-panel
+        display: flex
+        justify-content: center
 
-.search-result__tabs-select
-    margin-bottom: 24px
-    
-    +minMedia(s)
-        display: none
+    &__btn
+        margin-left: 10px
+        margin-right: 10px
+
+.search-form
+    position: relative
+
+    &__input
+        padding-right: 50px
+
+    &__submit
+        position: absolute
+        top: 0
+        right: 0
+        padding: 17px 15px 13px
+        font-size: $base-fz
+        color: #7A8BA1

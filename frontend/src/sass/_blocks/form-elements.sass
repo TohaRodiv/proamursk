@@ -41,8 +41,18 @@ select:-webkit-autofill
         position: relative
 
 .input-base
-    height: 40px
-    padding: 9px 15px 7px
+    padding: 11px 15px 10px
+    font-size: 14px
+    line-height: $micro-lh
+
+.input-big
+    width: 100%
+    padding: 10px 15px 9px
+    font-size: 24px
+    line-height: $micro-lh
+    border-radius: 4px
+    background-color: $light-c
+    border: 1px solid #d7dbe0
 
 .input-line
     width: 100%
@@ -60,10 +70,8 @@ select:-webkit-autofill
 .input-base,
 .textarea-base
     width: 100%
-    font-size: 14px
     color: $dark-c
     background-color: $light-c
-    border: 1px solid $dark-gray
 
     &:focus:not(.has-error)
         border-color: $base-dark-c

@@ -10,6 +10,20 @@
         color: $base-dark-c
         background-color: $light-c
 
+    &_white-active
+        color: $dark-c
+        background-color: $light-c
+
+        .btn__counter
+            color: $base-gray
+
+        &.active
+            color: $light-c
+            background-color: $base-c
+
+            .btn__counter
+                color: $light-c
+
     &_blue
         color: $light-c
         background-color: $base-c
@@ -45,3 +59,8 @@
 
     &_right
         margin-left: auto
+
+.btn__counter
+    margin-left: 5px
+    font-size: $base-fz
+    font-family: $base-f

@@ -4,110 +4,150 @@
 })
 
 <main>
-    @@include('page-block/breadcrumbs.html')
-
-    <div class="container page-title-wrap">
-        <h1 class="page-title">Результаты поиска по запросу «Шины»</h1>
+    <div class="container">
+        <div class="search-result__form">
+            <form action="" class="search-form">
+                <input type="text" class="search-form__input input-big" placeholder="Поиск" value="Амурск">
+                <button type="submit" class="search-form__submit icon-search"></button>
+            </form>
+        </div>
     </div>
 
     <div class="tabs-wrap search-result-page" data-search-query="">
         <div class="container">
-            <div class="tab__btns-wrap buttons-panel search-result__buttons-panel">
-                <button class="tab__btn buttons-panel__item js-search-result-section">Товары 15</button>
-                <button class="tab__btn buttons-panel__item js-search-result-section">Категории товаров 3</button>
+            <div class="tab__btns-wrap buttons-panel search-result__btns-panel">
+                <button class="btn btn_white-active tab__btn js-tab__btn search-result__btn">Все<span class="btn__counter">168</span></button>
+                <button class="btn btn_white-active tab__btn js-tab__btn search-result__btn">Новости<span class="btn__counter">2</span></button>
+                <button class="btn btn_white-active tab__btn js-tab__btn search-result__btn">События<span class="btn__counter">4</span></button>
+                <button class="btn btn_white-active tab__btn js-tab__btn search-result__btn">История<span class="btn__counter">5</span></button>
+                <button class="btn btn_white-active tab__btn js-tab__btn search-result__btn">Места<span class="btn__counter">8</span></button>
+                <button class="btn btn_white-active tab__btn js-tab__btn search-result__btn">Гид по городу<span class="btn__counter">10</span></button>
+                <button class="btn btn_white-active tab__btn js-tab__btn search-result__btn">Люди<span class="btn__counter">7</span></button>
+                <button class="btn btn_white-active tab__btn js-tab__btn search-result__btn">Спецпроекты<span class="btn__counter">1</span></button>
             </div>
 
-            <div class="select input-wrap search-result__tabs-select">
-                <div class="input-base select__value select__value_visible" tabindex="1">Товары 15</div>
-                <div class="icon-arrow-down-dir select__arrow"></div>
-                <div class="select__options-list tab__btns-wrap hidden">
-                    <button class="select__option select__option_choosen product-card__tab-select-option tab__btn js-search-result-section">Товары 15</button>
-                    <button class="select__option product-card__tab-select-option tab__btn js-search-result-section">Категории товаров 3</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="layout-section ">
-            <div class="container">
+            <div class="layout-section">
                 <div class="tab__content-wrap">
-                    <div class="tab__content visible">
+                    <div class="tab__content">
+                        <div class="base-4items-grid">
+                            @@include("modules/grid-publication.html", {
+                                "class": "grid-publication_format-base grid-publication_cover-format-bigger",
+                                "link": "people-details.html",
+                                "img": "images/grid-cover-bigger2.jpg",
+                                "title": "Амурские теплицы",
+                                "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
+                                "wobbler": "people"
+                            })
 
+                            @@include("modules/grid-publication.html", {
+                                "class": "grid-publication_format-base grid-publication_cover-format-bigger",
+                                "link": "people-details.html",
+                                "img": "images/grid-cover-bigger9.jpg",
+                                "title": "Я люблю Амурск спортивный!",
+                                "description": "Здесь рождается искусство",
+                                "wobbler": "news"
+                            })
+
+                            @@include("modules/grid-publication.html", {
+                                "class": "grid-publication_format-full grid-publication_text-size-base",
+                                "link": "people-details.html",
+                                "img": "images/grid-cover-3-full2.jpg",
+                                "title": "Центральная городская библиотека",
+                                "description": "Место, где пахнет книгами",
+                                "wobbler": "place"
+                            })
+
+                            @@include("modules/grid-publication.html", {
+                                "class": "grid-publication_format-base grid-publication_cover-format-bigger",
+                                "link": "people-details.html",
+                                "img": "images/grid-cover-bigger4.jpg",
+                                "title": "Центр творчества «Темп»",
+                                "description": "Cамое крупное учреждение дополнительного образования в Амурском районе",
+                                "wobbler": "reportage"
+                            })
+                            @@include("modules/grid-event.html", {
+                                "class": "grid-publication_format-base grid-publication_cover-format-bigger",
+                                "link": "reportage-details.html",
+                                "img": "images/grid-cover-bigger2.jpg",
+                                "title": "Музей природы Приамурья",
+                                "place": "Дворец культуры",
+                                "date": "20 октября",
+                                "wobbler": "past-event",
+                                "addLink": true
+                            })
+
+                            @@include("modules/grid-event.html", {
+                                "class": "grid-publication_format-full grid-publication_text-size-base",
+                                "link": "film-announcement.html",
+                                "img": "images/grid-cover-3-full2.jpg",
+                                "title": "Ночь кино в Амурске!",
+                                "place": "Кинотеатр «Молодость»",
+                                "date": "3 февраля, 18.00",
+                                "wobbler": "announcement",
+                                "addLink": true
+                            })
+
+                            @@include("modules/grid-event.html", {
+                                "class": "grid-publication_format-base grid-publication_cover-format-bigger",
+                                "link": "reportage-details.html",
+                                "img": "images/grid-cover-bigger9.jpg",
+                                "title": "Я люблю Амурск спортивный!",
+                                "place": "ДЮСШ",
+                                "date": "3 февраля, 18.00",
+                                "wobbler": "past-event",
+                                "addLink": false
+                            })
+
+                            @@include("modules/grid-event.html", {
+                                "class": "grid-publication_format-base grid-publication_cover-format-bigger",
+                                "link": "event-announcement.html",
+                                "img": "images/grid-cover-bigger4.jpg",
+                                "title": "Фестиваль «Станица»",
+                                "place": "Дворец культуры",
+                                "date": "17 февраля, 14:00",
+                                "wobbler": "announcement",
+                                "addLink": false
+                            })
+                        </div>
                     </div>
 
                     <div class="tab__content">
-                        <div class="parent-category-grid product-grid_4">
-                            <div class="grid-product parent-category-item">
-                                <a href="market-category-last.html" class="grid-product__img-wrap">
-                                    <img src="images/tire1.jpg" alt="" class="grid-product__img">
-                                </a>
-                                <div class="grid-product__info">
-                                    <div class="grid-product__title-wrap">
-                                        <a href="market-category-last.html" class="grid-product__title">Шины для легковых авто</a>
-                                        <div class="grid-product__type">56 товаров</div>
-                                    </div>
-                                    <div class="grid-product__price_new">от 1 500 ₽</div>
-                                </div>
-                            </div>
-                            <div class="grid-product parent-category-item">
-                                <a href="market-category-last.html" class="grid-product__img-wrap">
-                                    <img src="images/tire2.jpg" alt="" class="grid-product__img">
-                                </a>
-                                <div class="grid-product__info">
-                                    <div class="grid-product__title-wrap">
-                                        <a href="market-category-last.html" class="grid-product__title">Шины для грузовых авто</a>
-                                        <div class="grid-product__type">110 товаров</div>
-                                    </div>
-                                    <div class="grid-product__price_new">от 5 800 ₽</div>
-                                </div>
-                            </div>
-                            <div class="grid-product parent-category-item">
-                                <a href="market-category-last.html" class="grid-product__img-wrap">
-                                    <img src="images/tire3.jpg" alt="" class="grid-product__img">
-                                </a>
-                                <div class="grid-product__info">
-                                    <div class="grid-product__title-wrap">
-                                        <a href="market-category-last.html" class="grid-product__title">Шины для легковых авто</a>
-                                        <div class="grid-product__type">56 товаров</div>
-                                    </div>
-                                    <div class="grid-product__price_new">от 1 500 ₽</div>
-                                </div>
-                            </div>
-                            <div class="grid-product parent-category-item">
-                                <a href="" class="grid-product__img-wrap">
-                                    <img src="images/tire4.jpg" alt="" class="grid-product__img">
-                                </a>
-                                <div class="grid-product__info">
-                                    <div class="grid-product__title-wrap">
-                                        <a href="" class="grid-product__title">Шины для грузовых авто</a>
-                                        <div class="grid-product__type">110 товаров</div>
-                                    </div>
-                                    <div class="grid-product__price_new">от 5 800 ₽</div>
-                                </div>
-                            </div>
-                            <div class="grid-product parent-category-item">
-                                <a href="market-category-last.html" class="grid-product__img-wrap">
-                                    <img src="images/tire3.jpg" alt="" class="grid-product__img">
-                                </a>
-                                <div class="grid-product__info">
-                                    <div class="grid-product__title-wrap">
-                                        <a href="market-category-last.html" class="grid-product__title">Шины для легковых авто</a>
-                                        <div class="grid-product__type">56 товаров</div>
-                                    </div>
-                                    <div class="grid-product__price_new">от 1 500 ₽</div>
-                                </div>
-                            </div>
-                            <div class="grid-product parent-category-item">
-                                <a href="market-category-last.html" class="grid-product__img-wrap">
-                                    <img src="images/tire4.jpg" alt="" class="grid-product__img">
-                                </a>
-                                <div class="grid-product__info">
-                                    <div class="grid-product__title-wrap">
-                                        <a href="market-category-last.html" class="grid-product__title">Шины для грузовых авто</a>
-                                        <div class="grid-product__type">110 товаров</div>
-                                    </div>
-                                    <div class="grid-product__price_new">от 5 800 ₽</div>
-                                </div>
-                            </div>
+                        <div class="base-4items-grid">
+                            @@include("modules/grid-publication.html", {
+                                "class": "grid-publication_format-base grid-publication_cover-format-bigger",
+                                "link": "people-details.html",
+                                "img": "images/grid-cover-bigger2.jpg",
+                                "title": "Амурские теплицы",
+                                "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
+                                "wobbler": "news"
+                            })
+
+                            @@include("modules/grid-publication.html", {
+                                "class": "grid-publication_format-base grid-publication_cover-format-bigger",
+                                "link": "people-details.html",
+                                "img": "images/grid-cover-bigger9.jpg",
+                                "title": "Я люблю Амурск спортивный!",
+                                "description": "Здесь рождается искусство",
+                                "wobbler": "news"
+                            })
+
+                            @@include("modules/grid-publication.html", {
+                                "class": "grid-publication_format-full grid-publication_text-size-base",
+                                "link": "people-details.html",
+                                "img": "images/grid-cover-3-full2.jpg",
+                                "title": "Центральная городская библиотека",
+                                "description": "Место, где пахнет книгами",
+                                "wobbler": "news"
+                            })
+
+                            @@include("modules/grid-publication.html", {
+                                "class": "grid-publication_format-base grid-publication_cover-format-bigger",
+                                "link": "people-details.html",
+                                "img": "images/grid-cover-bigger4.jpg",
+                                "title": "Центр творчества «Темп»",
+                                "description": "Cамое крупное учреждение дополнительного образования в Амурском районе",
+                                "wobbler": "news"
+                            })
                         </div>
                     </div>
                 </div>
@@ -121,10 +161,8 @@
             <div class="empty-block empty-block_border">
                 <div class="empty-block__title">Ничего не найдено</div>
                 <div class="empty-block__text">Попробуйте изменить условия поиска&nbsp;&mdash; вы&nbsp;можете искать по&nbsp;названиям товаров и&nbsp;категорий.</div>
-                <a href="catalog.html" class="empty-block__link btn btn_size_base btn_yellow">Перейти в каталог</a>
             </div>
         </div>
-
     </div>
 
     <!-- Запрос в два символа -->
@@ -133,7 +171,6 @@
             <div class="empty-block empty-block_border">
                 <div class="empty-block__title">Поисковый запрос должен быть больше двух символов</div>
                 <div class="empty-block__text">Вы можете искать по&nbsp;названиям товаров и&nbsp;категорий.</div>
-                <a href="catalog.html" class="empty-block__link btn btn_size_base btn_yellow">Перейти в каталог</a>
             </div>
         </div>
     </div>

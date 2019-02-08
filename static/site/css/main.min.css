@@ -293,9 +293,6 @@ ul, ol {
   margin-right: auto;
   margin-left: auto; }
 
-.page-container {
-  padding: 20px; }
-
 .layout-section {
   margin-top: 40px; }
 
@@ -330,6 +327,16 @@ ul, ol {
   .btn_white {
     color: #283348;
     background-color: #FFFFFF; }
+  .btn_white-active {
+    color: #000000;
+    background-color: #FFFFFF; }
+    .btn_white-active .btn__counter {
+      color: #7A7A7A; }
+    .btn_white-active.active {
+      color: #FFFFFF;
+      background-color: #0073FF; }
+      .btn_white-active.active .btn__counter {
+        color: #FFFFFF; }
   .btn_blue {
     color: #FFFFFF;
     background-color: #0073FF; }
@@ -359,6 +366,11 @@ ul, ol {
     margin-right: auto; }
   .btn_right {
     margin-left: auto; }
+
+.btn__counter {
+  margin-left: 5px;
+  font-size: 18px;
+  font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif; }
 
 input {
   margin: 0; }
@@ -401,8 +413,18 @@ select:-webkit-autofill {
     position: relative; }
 
 .input-base {
-  height: 40px;
-  padding: 9px 15px 7px; }
+  padding: 11px 15px 10px;
+  font-size: 14px;
+  line-height: 1; }
+
+.input-big {
+  width: 100%;
+  padding: 10px 15px 9px;
+  font-size: 24px;
+  line-height: 1;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  border: 1px solid #d7dbe0; }
 
 .input-line {
   width: 100%;
@@ -420,10 +442,8 @@ select:-webkit-autofill {
 .input-base,
 .textarea-base {
   width: 100%;
-  font-size: 14px;
   color: #000000;
-  background-color: #FFFFFF;
-  border: 1px solid #BEBEBE; }
+  background-color: #FFFFFF; }
   .input-base:focus:not(.has-error),
   .textarea-base:focus:not(.has-error) {
     border-color: #283348; }
@@ -1637,6 +1657,34 @@ footer {
     .footer__nav .site-nav__link::after {
       height: 1px;
       bottom: -5px; }
+
+.search-result__form {
+  width: 640px;
+  margin: 100px auto 30px; }
+
+.search-result__btns-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.search-result__btn {
+  margin-left: 10px;
+  margin-right: 10px; }
+
+.search-form {
+  position: relative; }
+  .search-form__input {
+    padding-right: 50px; }
+  .search-form__submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 17px 15px 13px;
+    font-size: 18px;
+    color: #7A8BA1; }
 
 .index-manage-grid {
   display: -ms-grid;
