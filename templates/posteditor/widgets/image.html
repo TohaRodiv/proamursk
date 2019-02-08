@@ -8,7 +8,7 @@
                 <a href="{{ widget.link }}" {% if request.get_host not in widget.link %}target="_blank"{% endif %} class="post-editor__img-wrap {% if not widget.backgroundFlag %}hoverable{% endif %}">
             {% endif %}
                 {% get_image_size column.width as image_size %}
-                <img src="{{ images|get_item:widget.image.id|get_thumbnail_url_by_size:image_size }}">
+                <img src="{{ images|get_item:widget.image.id|get_thumbnail_url_by_size:image_size }}" alt="" title="">
             {% if widget.link %}
                 <div class="img-shadow"></div>
                 </a>
