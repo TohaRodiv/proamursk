@@ -1911,12 +1911,10 @@ footer {
     left: 30px;
     right: 30px;
     z-index: 3;
-    font-size: 0; }
-  .publication__img-description {
-    margin-right: 20px; }
-  .publication__img-description, .publication__img-author {
+    font-size: 0;
+    text-align: right; }
+  .publication__img-author {
     display: inline-block;
-    width: 240px;
     font-size: 14px;
     letter-spacing: 0.08em;
     line-height: 20px;
@@ -2629,6 +2627,14 @@ footer {
     line-height: 24px;
     color: #FFFFFF;
     text-align: center; }
+  .cinema-widget__film-title {
+    margin-top: 20px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-align: center; }
   .cinema-widget__slider {
     height: 390px;
     margin-left: 20px;
@@ -2643,6 +2649,11 @@ footer {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end; }
+  .cinema-widget__slide-img {
+    display: block; }
+  .cinema-widget__poster-wrap {
+    margin-left: 20px;
+    margin-right: 20px; }
   .cinema-widget .slider-circles-container {
     position: relative;
     bottom: -15px;
