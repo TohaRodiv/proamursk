@@ -30,11 +30,8 @@
     background-position: center center
     background-repeat: no-repeat
     cursor: pointer
-    background-color: rgba($dark-c, .3)
-
-
-.always-visible
-    cursor: default !important
+    background-color: rgba(#C3CEDF, .8)
+    backdrop-filter: blur(2px)
 
 .pop-up__close
     position: absolute
@@ -73,32 +70,18 @@
 
     &.visible
         display: flex
-        align-items: center
         justify-content: center
 
         .pop-up-inner-container
-            animation: zoomIn .2s linear forwards
+            animation: zoomIn $transition-time linear forwards
 
 .pop-up-content
     background-color: $light-c
-    border-radius: 5px
-    box-shadow: $modal-shadow
+    border-radius: 4px
 
 .pop-up-inner-container
     position: relative
-    margin: 36px auto
-    opacity: 0
-    min-width: 290px
-    width: 100%
-
-.page-loaded-banner
-    display: block
-    width: 600px
-    height: 600px
-    border-radius: 5px
-
-.popup-open
-    overflow: hidden
+    margin: 185px auto 40px
 
 .user-pop-up
     padding: 24px
@@ -153,26 +136,3 @@
 
         button
             margin-left: 12px
-
-    &__timer
-        white-space: nowrap
-
-.cancel-order
-
-    &__text
-        margin-bottom: 24px
-        font-size: $mini-fz
-        line-height: $base-lh
-
-        &:not(:first-of-type)
-            margin-top: 24px
-
-    &__textarea-wrap
-        margin-top: 24px
-        margin-bottom: 24px
-
-    &__textarea
-        height: 90px
-
-    &__reason-input
-        margin-bottom: 16px

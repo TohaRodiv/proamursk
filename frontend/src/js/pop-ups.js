@@ -36,7 +36,6 @@ function hidePopUps() {
     $('.pop-up-wrapper form').find('input, textarea').not('[type="hidden"]').not('[type="checkbox"]').not('[type="radio"]').not('[readonly]').not('.disabled').not('[type="submit"]').val('');
     $('.pop-up-wrapper form').find('[type="checkbox"], [type="radio"]').prop('checked', false);
     $('.pop-up-wrapper form').find('input, textarea, label').removeClass('has-error');
-    clearInterval(idBackTimer);
 }
 
 // Показывает туман войны

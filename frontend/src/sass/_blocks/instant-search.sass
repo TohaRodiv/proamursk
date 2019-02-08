@@ -1,347 +1,56 @@
-.header__instant-search
-    height: 100%
-    flex-grow: 1
-    margin-right: auto
+.search-pop-up-content
+    width: 640px
 
-    +minMedia(l)
-        position: relative
+.search__result-block
+    position: relative
 
-    &.active
-        .instant-search__form
-            z-index: 20
-            +minMedia(s)
-                background-color: $primary-yellow-dark
+.search-result_full
+    padding: 20px 0
 
-        +maxMedia(m)
-            .instant-search__close-btn
-                display: block
+.search-result-list
+    margin: 0
+    padding: 0
 
-        +maxMedia(l)
-            .instant-search__form
-                display: block
+.search__all-result-link
+    display: block
+    margin-top: 20px
+    padding: 0 60px
+    font-size: $mini-fz
+    font-family: $bold-f
+    color: $base-c
+    text-decoration: none
 
-            .instant-search__show-btn
-                display: none
-
-        +media(xs-s)
-            .instant-search__form
-                display: flex
-                width: 100vw
-                position: absolute
-                left: 0
-
-.instant-search
-
-    &__form
-        background-color: $primary-yellow
-
-        +minMedia(s)
-            position: relative
-
-        +media(xxl)
-            padding: 8px 20px
-
-        +media(l-xxl)
-            padding: 8px 18px
-
-        +media(m-l)
-            padding: 8px 18px
-
-        +media(s-m)
-            padding: 8px 20px
-
-        +media(xs-s)
-            padding: 8px 15px 8px 0
-
-        +maxMedia(l)
-            flex-grow: 1
-            display: none
-
-    &__icon
-        position: absolute
-        top: 21px
-        font-size: $base-fz
+    span
+        margin-left: 10px
+        font-family: $base-f
+        font-size: 14px
+        letter-spacing: 0.08em
         color: $base-gray
 
-        +minMedia(s)
-            left: 35px
+.search-item
+    display: block
+    padding: 10px 60px
+    line-height: $base-lh
+    text-decoration: none
 
-        +media(xs-s)
-            left: 70px
+    &:hover,
+    &.focus
+        background-color: #F6F7F8
 
-    &__clear-btn
-        position: absolute
-        right: 30px
-        top: 19px
-        width: 24px
-        height: 24px
-        font-size: $small-fz
-        color: $base-gray
-
-    &__close-btn
-        height: 100%
-        font-size: $big-fz
-        background-color: $primary-yellow
-
-        &:hover
-            background-color: $primary-yellow-dark
-
-        +media(m-l)
-            width: 92px
-            left: -92px
-
-        +media(s-m)
-            width: 65px
-            left: -65px
-            line-height: 62px
-
-        +minMedia(s)
-            position: absolute
-            top: 0
-            z-index: 3
-
-        +media(xs-s)
-            width: 62px
-            height: 44px
-            line-height: 46px
-
-        +minMedia(l)
-            display: none
-
-        +maxMedia(l)
-            display: none
-
-    &__show-btn
-        height: 100%
-        font-size: 20px
-        line-height: 64px
-
-        &:hover
-            background-color: $primary-yellow-dark
-
-        +minMedia(l)
-            display: none
-
-        +maxMedia(l)
-            display: block
-            margin-left: auto
-
-        +media(m-l)
-            width: 62px
-
-        +maxMedia(m)
-            width: 60px
-
-    &__input
-        width: 100%
-        height: 100%
-        padding: 12px 40px 9px 50px
-        font-size: $mini-fz
-        color: $dark-c
-        border: none
-        border-radius: 30px
-
-    &__result-block
-        display: none
-        position: absolute
-        top: 60px
-        left: 0
-        right: 0
-        z-index: 20
-        background-color: $light-c
-        box-shadow: $layer-3
-
-        +media(l-xxl)
-            min-width: 500px
-
-        +minMedia(l)
-            border-bottom-right-radius: 5px
-            border-bottom-left-radius: 5px
-
-        &.visible
-            display: block
-
-    &__all-result-link
+    &__category
         display: block
-        text-align: right
-        padding: 12px 24px 24px
+        font-size: 14px
+        letter-spacing: 0.08em
+        color: $base-c
 
-    &__result
-
-        &.visible
-            display: block
-
-        &_empty
-
-            +media(xxl)
-                padding: 24px
-
-            +media(l-xxl)
-                padding: 20px
-
-            +media(m-l)
-                padding: 30px
-
-            +media(s-m)
-                padding: 24px
-
-            +media(xs-s)
-                padding: 24px 15px
-
-    &-empty
-        &__title
-            margin-bottom: 12px
-            font-size: $medium-fz
-            font-family: $bold-f
-
-        &__text
-            font-size: $mini-fz
-            line-height: $base-lh
-
-.instant-search-result
-
-    &__categories-list
-        margin: 0
-        padding: 12px 0
-
-        & + .instant-search-result__products-list
-            border-top: 1px solid $border-gray
-
-    &__products-list
-        margin: 0
-        padding: 12px 0
-
-.instant-search
-
-    &-category
-
-        &__link
-            display: flex
-            align-items: center
-            justify-content: space-between
-            text-decoration: none
-
-            +minMedia(s)
-                font-size: $base-fz
-
-            +media(xs-s)
-                font-size: $mini-fz
-
-            +media(xxl)
-                padding: 0 24px
-
-            +media(l-xxl)
-                padding: 0 20px
-
-            +media(m-l)
-                padding: 0 30px
-
-            +media(s-m)
-                padding: 0 23px
-
-            +media(xs-s)
-                padding: 0 15px
-
-        &__name
-            padding: 4px 0
-            color: $dark-c
-            white-space: nowrap
-            overflow: hidden
-            text-overflow: ellipsis
-
-        &__counter
-            flex-shrink: 0
-            margin-left: 16px
-            color: $base-gray
-
-    &-product
-        display: flex
-        align-items: center
-        padding-top: 12px
-        padding-bottom: 12px
+    &__title
+        font-size: $base-fz
+        font-family: $bold-f
         color: $dark-c
-        text-decoration: none
 
-        +media(xxl)
-            padding-left: 24px
-            padding-right: 24px
-
-        +media(l-xxl)
-            padding-left: 20px
-            padding-right: 20px
-
-        +media(m-l)
-            padding-left: 30px
-            padding-right: 30px
-
-        +media(s-m)
-            padding-left: 23px
-            padding-right: 23px
-
-        +media(xs-s)
-            padding-left: 15px
-            padding-right: 15px
-
-        &__img
-            display: block
-            width: 70px
-            height: 70px
-            margin-right: 12px
-            flex-shrink: 0
-            background-color: $light-c
-
-        &__info
-            flex-shrink: 1
-            line-height: 1.3
-
-            +minMedia(l)
-                max-width: 400px
-
-            +minMedia(s)
-                margin-right: 24px
-
-            +media(xs-s)
-                display: flex
-                flex-wrap: wrap
-
-        &__title
-            display: inline-block
-            font-family: $bold-f
-            text-decoration: none
-
-            +minMedia(s)
-                font-size: $base-fz
-
-            +media(xs-s)
-                width: 100%
-                font-size: $mini-fz
-
-        &__model
-            display: block
-            font-size: $small-fz
-            color: $base-gray
-
-            +media(xs-s)
-                margin-top: 12px
-                margin-right: auto
-
-        &__price
-            flex-shrink: 0
-            font-family: $bold-f
-            line-height: $micro-lh
-
-            +minMedia(s)
-                margin-left: auto
-                font-size: $base-fz
-
-            +media(xs-s)
-                margin-top: 12px
-                font-size: $mini-fz
-
-            &_mobile
-                +minMedia(s)
-                    display: none
-
-            &_desktop
-                +media(xs-s)
-                    display: none
+.search-result_empty
+    position: absolute
+    left: 15px
+    bottom: -30px
+    font-size: $base-fz
+    font-family: $bold-f

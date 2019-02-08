@@ -1,33 +1,67 @@
 <div class="body-cover">
-    <div class="pop-up-wrapper get-callback">
+    <div class="pop-up-wrapper search">
         <div class="back"></div>
-        <button class="js-pop-up__close pop-up__close pop-up__close_inner pop-up__close_mobile icon-close"></button>
+        <button class="js-pop-up__close pop-up__close pop-up__close_outer icon-close"></button>
         <div class="pop-up-inner-container">
-            <button class="js-pop-up__close pop-up__close pop-up__close_inner pop-up__close_desktop icon-close"></button>
 
-            <div class="pop-up-content user-pop-up">
-                <div class="pop-up__title">Заказать звонок</div>
-
-                <form class="pop-up__user-form js-user-form">
-                    <div class="input-wrap user-pop-up__input-wrap">
-                        <input type="text" class="input-base required-input" name="first_name" placeholder="Имя *" title="Имя">
-                    </div>
-                    <div class="input-wrap user-pop-up__input-wrap">
-                        <input type="tel" class="input-base required-input" name="phone" placeholder="Телефон *" title="Телефон">
-                    </div>
-                    <div class="input-wrap user-pop-up__agrement">
-                        <input type="checkbox" name="i_agree" id="get-callback-agrement-input" class="hidden-checkbox required-input" value="true">
-                        <label for="get-callback-agrement-input" class="label-checkbox">
-                            <span class="label-checkbox__text">
-                                Я согласен с
-                                <a href="" target="_blank">правилами использования сайта</a>,
-                                <a href="" target="_blank">политикой конфиденциальности</a> и
-                                <a href="" target="_blank">положениями договора-оферты</a>.
-                            </span>
-                        </label>
-                    </div>
-                    <input type="submit" value="Заказать звонок" class="btn btn_size_base btn_yellow user-pop-up__submit" data-request="get-callback">
+            <div class="pop-up-content search-pop-up-content">
+                <form class="search-form">
+                    <input type="text" name="search" class="search-form__input input-big" placeholder="Поиск" autocomplete="off">
+                    <button type="submit" class="search-form__submit icon-search"></button>
                 </form>
+
+                <div class="search__result-block hidden">
+                    <div class="search-result_full">
+                        <ul class="search-result-list">
+                            <li class="search-result-item">
+                                <a href="news-details.html" class="search-item">
+                                    <span class="search-item__category">Новости</span>
+                                    <div class="search-item__title">В Амурске появится роллердром</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="people-details.html" class="search-item">
+                                    <span class="search-item__category">Люди</span>
+                                    <div class="search-item__title">Сильный телом и духом</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="reportage-details.html" class="search-item">
+                                    <span class="search-item__category">Репортаж</span>
+                                    <div class="search-item__title">Я люблю Амурск спортивный!</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="event-announcement.html" class="search-item">
+                                    <span class="search-item__category">Анонс</span>
+                                    <div class="search-item__title">Концерт «Амурск в моем сердце»</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="place-details.html" class="search-item">
+                                    <span class="search-item__category">Место</span>
+                                    <div class="search-item__title">Музей природы Приамурья</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="news-details.html" class="search-item">
+                                    <span class="search-item__category">Новости</span>
+                                    <div class="search-item__title">Встреча с мэром без формальностей</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="reportage-details.html" class="search-item">
+                                    <span class="search-item__category">Репортаж</span>
+                                    <div class="search-item__title">Фестиваль «Станица» в ДК</div>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <a href="search-result.html" class="search__all-result-link">Показать все результаты <span>(13 материалов)</span></a>
+                    </div>
+
+                    <div class="search-result_empty">По вашему запросу ничего не найдено</div>
+                </div>
             </div>
         </div>
     </div>
