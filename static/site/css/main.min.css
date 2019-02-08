@@ -1263,7 +1263,7 @@ input.btn_preloader {
   font-size: 10px;
   color: #283348; }
   .post-editor__block_slider .slider-arrow:hover {
-    border: 1px solid #b1c1d2;
+    border: 1px solid #B1C1D2;
     border-radius: 50%; }
 
 .post-editor__block_slider .slider-caption {
@@ -1314,7 +1314,7 @@ input.btn_preloader {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-    background-color: #b1c1d2; }
+    background-color: #B1C1D2; }
   .post-editor__block_separator .line::before {
     margin-right: 3px; }
   .post-editor__block_separator .line::after {
@@ -1838,7 +1838,7 @@ footer {
     font-size: 14px;
     letter-spacing: 0.08em;
     line-height: 20px;
-    color: #7a7a7a; }
+    color: #7A7A7A; }
   .publication__additional-info-wrap {
     font-size: 16px; }
     .publication__additional-info-wrap_row {
@@ -2003,7 +2003,7 @@ footer {
     font-size: 14px;
     font-family: "SegoeUI", Arial, Helvetica, sans-serif;
     letter-spacing: 0.08em;
-    color: #7a7a7a; }
+    color: #7A7A7A; }
 
 .footer__subscribe-section {
   display: -webkit-box;
@@ -2294,7 +2294,7 @@ footer {
         -ms-flex-direction: column;
             flex-direction: column; }
     .grid-publication_format-base .grid-publication__cover {
-      border-bottom: 1px solid #b1c1d2; }
+      border-bottom: 1px solid #B1C1D2; }
     .grid-publication_format-base .grid-publication__text-wrap {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -2741,7 +2741,7 @@ footer {
 .film-timetable {
   margin-bottom: 40px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #b1c1d2; }
+  border-bottom: 1px solid #B1C1D2; }
   .film-timetable__days {
     margin-bottom: 40px; }
   .film-timetable__days, .film-timetable__times {
@@ -2905,7 +2905,7 @@ footer {
   margin-right: 20px;
   font-size: 14px;
   letter-spacing: 0.08em;
-  color: #7a7a7a; }
+  color: #7A7A7A; }
 
 .review__name {
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
