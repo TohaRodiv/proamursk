@@ -27,10 +27,12 @@ function showPopUp(popUpName) {
     popUpOuterWrap.addClass('visible');
     popUpAddBackImage();
     popUpAlwaysVisible();
+    $('body').addClass('popup-open');
 }
 
 // Скрывает все поп-апы
 function hidePopUps() {
+    $('body').removeClass('popup-open');
     hideBodyCover();
     $('.pop-up-wrapper').removeClass('visible');
     $('.pop-up-wrapper form').find('input, textarea').not('[type="hidden"]').not('[type="checkbox"]').not('[type="radio"]').not('[readonly]').not('.disabled').not('[type="submit"]').val('');

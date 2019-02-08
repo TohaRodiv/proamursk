@@ -1,4 +1,5 @@
 function hideSearch() {
+    $('.js-close-search').addClass('hidden');
     clearSearch();
     hidePopUps();
 }
@@ -33,6 +34,18 @@ $('.search-form').submit(function (event) {
     }
 })
 
+
+$('body').on('click', '.header__search-btn', function () {
+    clearSearch();
+    showPopUp('search');
+    $('.js-close-search').removeClass('hidden');
+});
+
+$('body').on('click', '.search .back', function () {
+    $('.js-close-search').addClass('hidden');
+});
+
+$('body').on('click', '.js-close-search', hideSearch);
 $('body').on('click', '.js-search__clear-btn', clearSearch);
 
 $('body').on('input', '.search-form__input', function () {

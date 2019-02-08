@@ -7,12 +7,17 @@
         transform: scale(1)
         opacity: 1
 
+.popup-open
+    height: 100vh
+    overflow-y: hidden
+
 .body-cover
     display: none
-    position: fixed
+    position: absolute
     top: 0
     left: 0
     width: 100%
+    min-width: 1340px
     height: 100%
     z-index: 100
     overflow: auto
@@ -53,12 +58,10 @@
             color: $dark-c
 
     &_outer
-        position: fixed
-        top: 30px
-        right: calc((100vw - 1300px) / 2)
-        width: 43px
-        height: 43px
-        padding: 5px
+        top: 28px
+        right: 20px
+        width: 46px
+        height: 46px
         font-size: 14px
 
 .pop-up-wrapper
@@ -71,7 +74,7 @@
         justify-content: center
 
         .pop-up-inner-container
-            animation: zoomIn $transition-time linear forwards
+            animation: zoomIn $transition-time ease-out forwards
 
 .pop-up-content
     background-color: $light-c
@@ -80,6 +83,7 @@
 .pop-up-inner-container
     position: relative
     margin: 185px auto 40px
+    align-self: flex-start
 
 .user-pop-up
     padding: 24px
