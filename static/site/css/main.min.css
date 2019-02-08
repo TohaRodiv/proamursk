@@ -2827,12 +2827,9 @@ footer {
     .film-timetable__day-btn:not(:last-child) {
       margin-right: 6px; }
     .film-timetable__day-btn:hover {
-      color: #FF231C; }
+      color: #0073FF; }
     .film-timetable__day-btn.active {
-      background: -webkit-gradient(linear, left top, left bottom, from(#ff4006), to(#ff0038));
-      background: -webkit-linear-gradient(#ff4006 0%, #ff0038 100%);
-      background: -o-linear-gradient(#ff4006 0%, #ff0038 100%);
-      background: linear-gradient(#ff4006 0%, #ff0038 100%);
+      background-color: #0073FF;
       color: #FFFFFF; }
 
 .film-description {
