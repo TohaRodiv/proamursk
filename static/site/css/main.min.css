@@ -1430,6 +1430,7 @@ header {
   color: #000000; }
 
 .header-container {
+  height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1438,25 +1439,32 @@ header {
           align-items: center; }
 
 .header__logo-link {
-  display: block;
+  margin-bottom: 24px;
+  height: 67px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  text-decoration: none; }
+
+.header__logo-subtext {
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.07em;
+  color: #242434; }
 
 .header__logo-img {
   display: block;
   width: 147px; }
-  .header__logo-img_news {
-    margin-bottom: 12px; }
-  .header__logo-img_event {
-    margin-bottom: 11px; }
-  .header__logo-img_history {
-    margin-bottom: 9px; }
-  .header__logo-img_place {
-    margin-bottom: 12px; }
-  .header__logo-img_people {
-    margin-bottom: 12px; }
-  .header__logo-img_special-project {
-    margin-bottom: 12px; }
 
 .header__nav {
   margin-left: auto;
@@ -1471,17 +1479,17 @@ header {
 
 .header__weather-widget {
   position: absolute;
-  top: 30px;
-  left: 420px;
+  top: 40px;
+  left: 490px;
   font-size: 16px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
   color: #000000; }
 
 .header__pattern {
   position: absolute;
-  width: 465px;
+  width: 540px;
   left: 0;
-  bottom: 0;
+  bottom: 10px;
   z-index: 1; }
 
 footer {
@@ -1593,57 +1601,28 @@ footer {
     position: relative;
     display: inline-block;
     color: inherit;
+    padding: 5px 2px;
     text-decoration: none;
     text-transform: uppercase; }
     .site-nav__link::after {
       content: "";
       display: none;
       width: 100%;
-      height: 3px;
       position: absolute;
-      left: 0; }
+      left: 0;
+      background-color: #0073FF; }
     .site-nav__link:hover::after, .site-nav__link.active::after {
       display: block; }
-    .site-nav__link_news::after {
-      background: -webkit-gradient(linear, left top, right top, from(#8d00de), to(#c31ddc));
-      background: -webkit-linear-gradient(left, #8d00de 0%, #c31ddc 100%);
-      background: -o-linear-gradient(left, #8d00de 0%, #c31ddc 100%);
-      background: linear-gradient(to right, #8d00de 0%, #c31ddc 100%); }
-    .site-nav__link_events::after {
-      background: -webkit-gradient(linear, left top, right top, from(#ff0038), to(#ff4006));
-      background: -webkit-linear-gradient(left, #ff0038 0%, #ff4006 100%);
-      background: -o-linear-gradient(left, #ff0038 0%, #ff4006 100%);
-      background: linear-gradient(to right, #ff0038 0%, #ff4006 100%); }
-    .site-nav__link_history::after {
-      background: -webkit-gradient(linear, left top, right top, from(#4840ff), to(#0094ff));
-      background: -webkit-linear-gradient(left, #4840ff 0%, #0094ff 100%);
-      background: -o-linear-gradient(left, #4840ff 0%, #0094ff 100%);
-      background: linear-gradient(to right, #4840ff 0%, #0094ff 100%); }
-    .site-nav__link_places::after {
-      background: -webkit-gradient(linear, left top, right top, from(#22c8d2), to(#00d8ff));
-      background: -webkit-linear-gradient(left, #22c8d2 0%, #00d8ff 100%);
-      background: -o-linear-gradient(left, #22c8d2 0%, #00d8ff 100%);
-      background: linear-gradient(to right, #22c8d2 0%, #00d8ff 100%); }
-    .site-nav__link_people::after {
-      background: -webkit-gradient(linear, left top, right top, from(#18ce7e), to(#80c44c));
-      background: -webkit-linear-gradient(left, #18ce7e 0%, #80c44c 100%);
-      background: -o-linear-gradient(left, #18ce7e 0%, #80c44c 100%);
-      background: linear-gradient(to right, #18ce7e 0%, #80c44c 100%); }
-    .site-nav__link_special-projects::after {
-      background: -webkit-gradient(linear, left top, right top, from(#f80), to(#ffba00));
-      background: -webkit-linear-gradient(left, #f80 0%, #ffba00 100%);
-      background: -o-linear-gradient(left, #f80 0%, #ffba00 100%);
-      background: linear-gradient(to right, #f80 0%, #ffba00 100%); }
 
 .header__nav .site-nav__item:not(:last-child) {
   margin-right: 30px; }
 
 .header__nav .site-nav__link {
-  padding: 32px 2px 28px;
   font-size: 15px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
   .header__nav .site-nav__link::after {
-    bottom: 0; }
+    height: 3px;
+    bottom: -5px; }
 
 .footer__nav .site-nav {
   width: 530px;
@@ -1654,10 +1633,9 @@ footer {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   .footer__nav .site-nav__link {
-    padding-left: 2px;
-    padding-right: 2px;
     font-size: 12px; }
     .footer__nav .site-nav__link::after {
+      height: 1px;
       bottom: -5px; }
 
 .index-manage-grid {
