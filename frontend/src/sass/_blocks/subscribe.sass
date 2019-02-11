@@ -34,6 +34,14 @@
             &:focus
                 border: 1px solid transparent
 
+            &:-webkit-autofill
+                -webkit-text-fill-color: $light-c
+                -webkit-box-shadow: 0 0 0px 1000px transparent inset
+                transition: background-color 5000s ease-in-out 0s
+
+                &:hover:not(:focus)
+                    -webkit-box-shadow: 0 0 0px 1000px transparent inset
+
         &__submit
             position: absolute
             right: 0
@@ -68,7 +76,21 @@
         margin-right: auto
 
         &__input
+            width: 100%
             text-align: center
+            padding: 5px 15px 15px
+            font-size: 14px
+            color: $light-c
+            background-color: transparent
+            border-bottom: 1px solid $light-c
+
+            &:-webkit-autofill
+                -webkit-text-fill-color: $light-c
+                -webkit-box-shadow: 0 0 0px 1000px transparent inset
+                transition: background-color 5000s ease-in-out 0s
+
+                &:hover:not(:focus)
+                    -webkit-box-shadow: 0 0 0px 1000px transparent inset
 
         &__submit
             display: block
