@@ -55,7 +55,9 @@ $('body').on('click', '.select__option', function() {
 })
 
 // очистка поля по клику на крестик
-$('body').on('click', '.select__clear', function() {
+$('body').on('click', '.select__clear', clearSelect);
+
+function clearSelect() {
     var select = $(this).parents('.select'),
         selectValueVisible = select.find('.select__value_visible'),
         selectValueHidden = select.find('.select__value_hidden'),
@@ -65,7 +67,20 @@ $('body').on('click', '.select__clear', function() {
     selectValueVisible.val('').text('').focus();
     selectValueHidden.val('');
     $(this).addClass('hidden');
-})
+}
+
+function clearAllSelect() {
+    var select = $('.select'),
+        selectValueVisible = select.find('.select__value_visible'),
+        selectValueHidden = select.find('.select__value_hidden'),
+        optionsList = select.find('.select__options-list'),
+        selectClearBtn = select.find('.select__clear');
+
+    optionsList.find('.select__option').removeClass('select__option_choosen hidden');
+    selectValueVisible.val('').text('').focus();
+    selectValueHidden.val('');
+    selectClearBtn.addClass('hidden');
+}
 
 // закрытие select при клике в любое место
 $('body').click(function(event) {
