@@ -1962,6 +1962,8 @@ footer {
         text-decoration: underline; }
   .publication__event-info {
     margin-bottom: 20px; }
+  .publication__place-info-wrap {
+    margin-left: 110px; }
   .publication__place-info:not(:last-child) {
     margin-bottom: 15px; }
   .publication__place-info:last-child {
@@ -2969,8 +2971,7 @@ footer {
   border: 2px solid currentColor; }
 
 .reviews {
-  margin-top: 40px;
-  margin-bottom: 20px; }
+  margin: 40px 110px 20px; }
   .reviews__title-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3002,8 +3003,22 @@ footer {
     background: -o-linear-gradient(#00caff 0%, #0073FF 100%);
     background: linear-gradient(#00caff 0%, #0073FF 100%);
     border-radius: 24px; }
-  .reviews__btn {
+  .reviews__btns-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin-top: 40px; }
+  .reviews__more-btn {
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    color: #0073FF; }
 
 .review:not(:last-child) {
   margin-bottom: 40px; }
