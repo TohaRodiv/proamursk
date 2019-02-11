@@ -3128,10 +3128,7 @@ footer {
     color: #FFFFFF;
     letter-spacing: 0.02em;
     text-align: center;
-    background: -webkit-gradient(linear, left top, left bottom, from(#00caff), to(#0073FF));
-    background: -webkit-linear-gradient(#00caff 0%, #0073FF 100%);
-    background: -o-linear-gradient(#00caff 0%, #0073FF 100%);
-    background: linear-gradient(#00caff 0%, #0073FF 100%);
+    background-color: #0073FF;
     border-radius: 24px; }
   .reviews__btns-wrap {
     display: -webkit-box;
