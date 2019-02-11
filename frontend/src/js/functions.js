@@ -11,3 +11,12 @@ $('body').on('keypress', '.filter__price-input, .cashback-form__input, .product-
         return false;
     }
 })
+
+
+$('body').keydown(function (event) {
+    if ((event.metaKey || event.ctrlKey) && event.keyCode == 13) {
+        var currentURL = window.location;
+        showPopUp('error');
+        $('input[name="url"]').val(currentURL);
+    }
+});
