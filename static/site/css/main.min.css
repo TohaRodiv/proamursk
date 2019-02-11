@@ -854,7 +854,7 @@ textarea {
 
 .body-cover {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -925,9 +925,12 @@ textarea {
       align-self: flex-start; }
 
 .pop-up__title {
-  margin-bottom: 50px;
   font-size: 24px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+
+.pop-up__subtitle {
+  margin-top: 30px;
+  font-size: 18px; }
 
 .pop-up__btns-wrap {
   display: -webkit-box;
@@ -937,6 +940,9 @@ textarea {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 60px; }
+
+.pop-up__form {
+  margin-top: 40px; }
 
 .pop-up-form-content {
   width: 680px;
@@ -2239,7 +2245,9 @@ footer {
         flex-shrink: 0; }
     .footer__subscribe-section .subscribe-form__input {
       width: 340px;
-      padding-right: 120px;
+      padding: 11px 120px 10px 15px;
+      font-size: 14px;
+      line-height: 1;
       color: #FFFFFF;
       background: rgba(255, 255, 255, 0.4);
       border: 1px solid transparent;
