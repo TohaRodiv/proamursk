@@ -2309,6 +2309,8 @@ footer {
   background-color: #FFFFFF;
   text-decoration: none;
   color: inherit; }
+  .grid-publication__cover-wrap {
+    position: relative; }
   .grid-publication__cover {
     position: relative;
     display: block;
@@ -2323,6 +2325,8 @@ footer {
     .grid-publication__title a {
       color: currentColor;
       text-decoration: none; }
+      .grid-publication__title a:hover, .grid-publication__title a:focus {
+        color: #0073FF; }
   .grid-publication__description {
     margin-bottom: 0; }
   .grid-publication__text {
@@ -2479,11 +2483,7 @@ footer {
 
 .grid-publication:hover .grid-publication__bg-gradient, .grid-publication:focus .grid-publication__bg-gradient {
   display: block;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(24, 206, 126, 0)), color-stop(61.5%, rgba(0, 148, 255, 0.06)), to(#0094ff));
-  background: -webkit-linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(0, 148, 255, 0.06) 61.5%, #0094ff 100%);
-  background: -o-linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(0, 148, 255, 0.06) 61.5%, #0094ff 100%);
-  background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(0, 148, 255, 0.06) 61.5%, #0094ff 100%);
-  opacity: 0.2; }
+  background-color: rgba(76, 96, 123, 0.1); }
 
 .special-project__cover-wrap {
   display: block;

@@ -6,6 +6,9 @@
     color: inherit
     @extend %border
 
+    &__cover-wrap
+        position: relative
+        
     &__cover
         position: relative
         display: block
@@ -18,9 +21,13 @@
 
     &__title
         font-family: $bold-f
+
         a
             color: currentColor
             text-decoration: none
+            &:hover,
+            &:focus
+                color: $base-c
 
     &__description
         margin-bottom: 0
@@ -207,8 +214,7 @@
     &:focus
         .grid-publication__bg-gradient
             display: block
-            background: linear-gradient(rgba(24, 206, 126, 0) 0%, rgba(0, 148, 255, 0.06) 61.5%, #0094ff 100%)
-            opacity: 0.2
+            background-color: rgba(#4c607b, .1)
 
 .special-project
     &__cover-wrap
