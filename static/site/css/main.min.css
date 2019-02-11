@@ -984,9 +984,6 @@ textarea {
       -ms-flex-align: center;
           align-items: center; }
 
-.attachment-input {
-  display: none; }
-
 .attachment-label {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1009,11 +1006,20 @@ textarea {
   font-size: 12px; }
 
 .attachment-list {
-  margin-top: 20px; }
+  margin-top: 10px; }
   .attachment-list__item {
-    font-size: 14px; }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 100%; }
     .attachment-list__item:not(:last-child) {
       margin-bottom: 5px; }
+  .attachment-list__item-name {
+    font-size: 14px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    white-space: nowrap; }
 
 .attachment-delete-btn {
   margin-left: 10px;

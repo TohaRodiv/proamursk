@@ -139,9 +139,6 @@
         display: flex
         align-items: center
 
-    &-input
-        display: none
-
     &-label
         display: flex
         align-items: center
@@ -162,13 +159,20 @@
         font-size: 12px
 
     &-list
-        margin-top: 20px
+        margin-top: 10px
 
         &__item
-            font-size: 14px
+            display: flex
+            max-width: 100%
 
             &:not(:last-child)
                 margin-bottom: 5px
+
+        &__item-name
+            font-size: 14px
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
 
     &-delete-btn
         margin-left: 10px
