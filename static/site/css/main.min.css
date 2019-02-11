@@ -877,7 +877,7 @@ select:-webkit-autofill {
 
 .pop-up-inner-container {
   position: relative;
-  margin: 185px auto 40px;
+  margin: 180px auto 40px;
   -ms-flex-item-align: start;
       align-self: flex-start; }
 
@@ -1698,12 +1698,16 @@ footer {
   .search-item__title {
     font-size: 18px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
-    color: #000000; }
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis; }
 
 .search-result_empty {
   position: absolute;
-  left: 15px;
-  bottom: -30px;
+  left: 20px;
+  bottom: -66px;
   font-size: 18px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
 
