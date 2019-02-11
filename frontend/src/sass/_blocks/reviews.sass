@@ -1,6 +1,5 @@
 .reviews
-    margin-top: 40px
-    margin-bottom: 20px
+    margin: 40px 110px 20px
 
     &__title-wrap
         display: flex
@@ -29,8 +28,17 @@
         background: linear-gradient(#00caff 0%, $base-c 100%)
         border-radius: 24px
 
-    &__btn
+    &__btns-wrap
+        display: flex
+        align-items: center
+        justify-content: space-between
         margin-top: 40px
+
+    &__more-btn
+        font-family: $bold-f
+        font-size: $mini-fz
+        letter-spacing: 0.02em
+        color: $base-c
 
 .review
     &:not(:last-child)
