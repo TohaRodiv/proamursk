@@ -15,8 +15,16 @@ $('body').on('keypress', '.filter__price-input, .cashback-form__input, .product-
 
 $('body').keydown(function (event) {
     if ((event.metaKey || event.ctrlKey) && event.keyCode == 13) {
-        var currentURL = window.location;
+        var currentURL = window.location,
+            selection = getSelectionText();
+
         showPopUp('error');
         $('input[name="url"]').val(currentURL);
+        $('.js-error-selection-textarea').val(selection);
     }
 });
+
+
+function getSelectionText() {
+   return window.getSelection().toString();
+}
