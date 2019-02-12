@@ -915,6 +915,7 @@ textarea {
               animation: zoomIn 0.3s ease-out forwards; }
 
 .pop-up-content {
+  position: relative;
   background-color: #FFFFFF;
   border-radius: 4px; }
 
@@ -3194,5 +3195,58 @@ footer {
     text-decoration: none; }
     .privacy__link:hover {
       text-decoration: underline; }
+
+.pop-up__form {
+  position: relative;
+  z-index: 2; }
+
+.drop-area.highlight .drop-area-outer {
+  opacity: 1; }
+
+.drop-area.highlight .pop-up__form {
+  opacity: 0; }
+
+.drop-area-wrap {
+  position: relative; }
+
+.drop-area-outer {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+  background-color: #F6FAFF; }
+
+.drop-area-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: calc(100% - 50px);
+  margin: 25px;
+  border: 3px dashed #D7DBE0; }
+
+.drop-area__icon {
+  margin: 0 auto 30px; }
+
+.drop-area__title {
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+
+.drop-area__text {
+  width: 190px;
+  font-size: 12px;
+  text-align: center; }
 
 /*# sourceMappingURL=main.min.css.map */
