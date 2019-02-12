@@ -21,7 +21,7 @@ function handleFiles(files, filesList) {
         for (var i = 0; i < files.length; i++) {
             var currentFile = files[i];
             if (currentFile.size > 2097152) {
-                console.log(currentFile.name, 'больше 2мб')
+                showNotification('Файл ' + currentFile.name + ' больше 2 Мб', 'error');
                 return false;
             }
             else {
