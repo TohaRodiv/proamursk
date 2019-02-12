@@ -11,7 +11,7 @@
                             :labelPosition="'top'"
                             :passedData="(passedData.slides) ? passedData.slides : ''"
                             :options="slidesConfig"
-                            @FullDataCallback="$event.callback ? slides = $event.callback.id : ''"
+                            @FullDataCallback="$event.callback ? slides = $event.callback : ''"
                     ></selector>
                     <div class="popup-post-editor-forms-indents-container">
                         <selector
