@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'applications.files',
     'applications.tools',
     'debug_toolbar',
+    'pytils',
 ]
 
 MIDDLEWARE = [
@@ -201,7 +202,9 @@ MEDIALIB_THUMB_SIZE = {
     'mailing_article': (1000, 500),  # Все публикации, кроме спецпроектов и киноанонсов
     'mailing_special': (1000, 1000, 'crop'),  # Спецпроекты
 
-    'poste_ditor_direct_photo': (220, 220, 'crop')
+    'poste_ditor_direct_photo': (220, 220, 'crop'),
+
+    'news_cover': (1720, 1000),
 }
 
 POST_EDITOR = dict(

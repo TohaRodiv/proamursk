@@ -1,0 +1,35 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+
+{% block content %}
+    <main class="light-bg">
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main js-infinity-loader-wrap">
+                    {% if news %}
+                        <div class="news-list js-infinity-loader-grid">
+                            {% include "site/modules/news-list-block.html" %}
+                        </div>
+                        <button class="btn btn_blue btn_more btn_center js-more-news" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+                    {% endif %}
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+{#                        @@include('modules/offer-widget.html', {#}
+{#                            "class": "news",#}
+{#                            "text": "Любой житель Амурска может поделиться интересными новостями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",#}
+{#                            "btnText": "Предложить новость"#}
+{#                        })#}
+                    </div>
+
+                    <div class="aside-widget">
+                        <a href="news-details.html" class="sidebar-banner">
+                            <img src="{% static "site/images/aside-banner1.jpg" %}{% static_version %}" alt="" class="sidebar-banner__img">
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+{% endblock %}

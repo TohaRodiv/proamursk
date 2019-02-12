@@ -40,39 +40,54 @@
 
     <div class="body-overlay hidden"></div>
 
-    {#  @@include('page-block/popup.html')#}
+    {% include "site/page-block/popup.html" %}
 
     <header>
         <div class="container header-container">
-            <a href="index.html" class="header__logo-link">
-{#                @@if (page === "index") {#}
-{#                    <img src="images/svg/logo.svg" alt="проАмурск" class="header__logo-img header__logo-img_index">#}
-{#                }#}
-{#    #}
-{#                @@if (page === "news") {#}
-{#                    <img src="images/svg/logo_news.svg" alt="проАмурск" class="header__logo-img header__logo-img_other">#}
-{#                }#}
-{#    #}
-{#                @@if (page === "event") {#}
-{#                    <img src="images/svg/logo_event.svg" alt="проАмурск" class="header__logo-img header__logo-img_other">#}
-{#                }#}
-{#    #}
-{#                @@if (page === "history") {#}
-{#                    <img src="images/svg/logo_history.svg" alt="проАмурск" class="header__logo-img header__logo-img_other">#}
-{#                }#}
+            <a href="{% url "index" %}" class="header__logo-link">
+                {% with url_name=request.resolver_match.url_name %}
+                    {% if url_name == 'index' %}
+                        <img src="{% static "site/images/svg/logo-black.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'news-list' or url_name == 'news-detail' %}
+                        <img src="{% static "site/images/svg/logo_news.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'events-index' or url_name == 'events-list-future' or url_name == 'events-list-past' or url_name == 'events-detail' %}
+                        <img src="{% static "site/images/svg/logo_event.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'history-list' or url_name == 'history-detail' %}
+                        <img src="{% static "site/images/svg/logo_history.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'places-list' or url_name == 'places-detail' %}
+                        <img src="{% static "site/images/svg/logo_place.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'persons-list' or url_name == 'persons-detail' %}
+                        <img src="{% static "site/images/svg/logo_people.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'specials-list' or url_name == 'specials-detail' %}
+                        <img src="{% static "site/images/svg/logo_special-projects.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+                {% endwith %}
+
+                <span class="header__logo-subtext">МЕСТА, СОБЫТИЯ, ЛЮДИ</span>
             </a>
 
+            <img src="{% static "site/images/svg/header-pattern.svg" %}{% static_version %}" alt="" class="header__pattern">
+
+            <div class="header__weather-widget">-24 C°</div>
+
             <div class="header__nav">
-{#                @@include('page-block/site-nav.html', {#}
-{#                    "active": "@@page"#}
-{#                })#}
+                {% include "site/page-block/site-nav.html" %}
             </div>
 
-            <div class="header__weather-widget weather-widget">
-                <img src="{% static "site/images/weather-widget.svg" %}{% static_version %}" alt="">
-            </div>
-
-            <button class="header__search-btn icon-search show-pop-up" data-pop-up="search"></button>
+            <button class="header__search-btn icon-search"></button>
+            <button class="header__close-search-btn js-close-search icon-close hidden"></button>
         </div>
     </header>
 

@@ -1,0 +1,150 @@
+{% extends "site/base.html" %}
+
+
+{% block content %}
+    <main class="light-bg">
+        <div class="container">
+            <div class="index-manage-grid">
+                {% include "site/page-block/last-news-widget.html" %}
+
+{#                @@include("modules/grid-publication.html", {#}
+{#                    "class": "grid-publication_format-full grid-publication_text-size-big",#}
+{#                    "link": "special-project-details.html",#}
+{#                    "img": "images/publication-big1.jpg",#}
+{#                    "title": "Проект «Дети»",#}
+{#                    "description": "Амурские школьники становятся лауреатами престижных конкурсов, выпускники без труда поступают в лучшие вузы страны. Все дело в качестве образования, которое в нашем городе остается стабильно высоким.",#}
+{#                    "wobbler": "special-project"#}
+{#                })#}
+{#    #}
+{#                @@include("modules/grid-publication.html", {#}
+{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
+{#                    "link": "people-details.html",#}
+{#                    "img": "images/grid-cover-bigger1.jpg",#}
+{#                    "title": "Сильный телом и духом",#}
+{#                    "description": "Олег Пермяков 20 лет выращивает чемпионов на татами",#}
+{#                    "wobbler": "people"#}
+{#                })#}
+{#    #}
+{#                @@include("modules/grid-publication.html", {#}
+{#                    "class": "grid-publication_format-full grid-publication_text-size-base",#}
+{#                    "link": "reportage-details.html",#}
+{#                    "img": "images/grid-cover-3-full1.jpg",#}
+{#                    "title": "Я люблю Амурск спортивный!",#}
+{#                    "description": "Звезды спорта, футбол и слезы радости",#}
+{#                    "wobbler": "reportage"#}
+{#                })#}
+{#    #}
+{#                @@include("modules/grid-publication.html", {#}
+{#                    "class": "grid-publication_format-base grid-publication_cover-format-6col",#}
+{#                    "link": "place-details.html",#}
+{#                    "img": "images/grid-cover-6-base1.jpg",#}
+{#                    "title": "Ботанический сад",#}
+{#                    "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",#}
+{#                    "wobbler": "place"#}
+{#                })#}
+            </div>
+        </div>
+
+{#        <div class="layout-section slider full-width-slider">#}
+{#            <div class="slider-container">#}
+{#                <div class="slide">#}
+{#                    @@include("modules/special-project.html", {#}
+{#                        "class": "grid-publication_full-width-slider",#}
+{#                        "img": "images/special-project-slider-cover1.jpg",#}
+{#                        "title": "Легенды Амурска",#}
+{#                        "description": "Шаман сказал: «Здесь города не будет». Но ошибся"#}
+{#                    })#}
+{#                </div>#}
+{#                <div class="slide">#}
+{#                    @@include("modules/special-project.html", {#}
+{#                        "class": "grid-publication_full-width-slider",#}
+{#                        "img": "images/special-project-slider-cover2.jpg",#}
+{#                        "title": "Ботанический сад",#}
+{#                        "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя..."#}
+{#                    })#}
+{#                </div>#}
+{#                <div class="slide">#}
+{#                    @@include("modules/special-project.html", {#}
+{#                        "class": "grid-publication_full-width-slider",#}
+{#                        "img": "images/special-project-slider-cover3.jpg",#}
+{#                        "title": "Я люблю Амурск!",#}
+{#                        "description": "Звезды спорта, футбол и слезы радости"#}
+{#                    })#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="slider-circles-container"></div>#}
+{#            <div class="slider-arrow-container">#}
+{#                <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>#}
+{#                <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>#}
+{#            </div>#}
+{#        </div>#}
+{#    #}
+{#        <div class="container layout-section">#}
+{#            <h2 class="section__title">ЧЕМ ЗАНЯТЬСЯ В АМУРСКЕ?</h2>#}
+{#            <div class="todo-layout">#}
+{#                @@include("page-block/cinema-widget.html")#}
+{#    #}
+{#                @@include("modules/grid-publication.html", {#}
+{#                    "class": "grid-publication_format-full grid-publication_text-size-big",#}
+{#                    "link": "place-details.html",#}
+{#                    "img": "images/grid-cover-6-full1.jpg",#}
+{#                    "title": "Краеведческий музей",#}
+{#                    "description": "История нашей земли — от Вознесенской культуры до Амурского ГМК",#}
+{#                    "wobbler": "place"#}
+{#                })#}
+{#    #}
+{#                @@include("modules/grid-publication.html", {#}
+{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
+{#                    "link": "place-details.html",#}
+{#                    "img": "images/grid-cover-bigger8.jpg",#}
+{#                    "title": "Амурские теплицы",#}
+{#                    "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",#}
+{#                    "wobbler": "place"#}
+{#                })#}
+{#    #}
+{#                @@include("modules/grid-publication.html", {#}
+{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
+{#                    "link": "place-details.html",#}
+{#                    "img": "images/grid-cover-bigger2.jpg",#}
+{#                    "title": "Музей природы Приамурья",#}
+{#                    "description": "Богатства Приамурья, собранные руками юннатов",#}
+{#                    "wobbler": "place"#}
+{#                })#}
+{#    #}
+{#                @@include("modules/grid-event.html", {#}
+{#                    "class": "grid-publication_format-full grid-publication_text-size-base",#}
+{#                    "link": "film-announcement.html",#}
+{#                    "img": "images/grid-cover-3-full2.jpg",#}
+{#                    "title": "Ночь кино в Амурске!",#}
+{#                    "place": "Кинотеатр «Молодость»",#}
+{#                    "date": "3 февраля, 18.00",#}
+{#                    "wobbler": "announcement",#}
+{#                    "addLink": false#}
+{#                })#}
+{#                @@include("modules/grid-publication.html", {#}
+{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
+{#                    "link": "place-details.html",#}
+{#                    "img": "images/grid-cover-bigger3.jpg",#}
+{#                    "title": "Я люблю Амурск спортивный!",#}
+{#                    "description": "Звезды спорта, футбол и слезы радости",#}
+{#                    "wobbler": "place"#}
+{#                })#}
+{#    #}
+{#                @@include("modules/grid-event.html", {#}
+{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
+{#                    "link": "event-announcement.html",#}
+{#                    "img": "images/grid-cover-bigger4.jpg",#}
+{#                    "title": "Фестиваль «Станица»",#}
+{#                    "place": "Дворец культуры",#}
+{#                    "date": "17 февраля, 14:00",#}
+{#                    "wobbler": "announcement",#}
+{#                    "addLink": true#}
+{#                })#}
+{#            </div>#}
+{#        </div>#}
+    </main>
+{% endblock %}
+
+{% block additional_content %}
+{#    @@include("page-block/read-also.html")#}
+{% endblock %}

@@ -1,16 +1,18 @@
 import json
 
 from django.conf import settings
-from django.core.paginator import Paginator, EmptyPage
-from django.http import JsonResponse, Http404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import JsonResponse, Http404, HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.urls import resolve
 from django.views.decorators.http import require_POST
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
 
+from django.template import loader
+from applications.tools.utils import make_ajax_response
 from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
@@ -29,13 +31,51 @@ def custom_handler404(request, exception):
     return render(request, 'site/404.html', status=404)
 
 
-class NewsListView(ListView):
-    model = News
-    allow_empty = True
-    queryset = News.objects.filter(is_active=True, publication_date__lte=timezone.now())
-    paginate_by = 50
-    context_object_name = 'news'
-    template_name = 'root/news_list.html'
+class IndexView(View):
+
+    def get(self, request):
+        return render(request, 'site/index.html', dict())
+
+
+class NewsListView(View):
+
+    def get_news(self, page=1):
+        news = News.objects.filter(is_active=True, publication_date__lte=timezone.now()).order_by('-publication_date')
+
+        paginator = Paginator(news, 10)
+
+        try:
+            news = paginator.page(page)
+        except PageNotAnInteger:
+            news = paginator.page(1)
+        except EmptyPage:
+            news = paginator.page(1)
+
+        return news
+
+    def get(self, request):
+        news = self.get_news()
+        return render(request, 'site/news-list.html', dict(news=news))
+
+    def post(self, request):
+        if request.is_ajax():
+            try:
+                page = int(request.POST.get('page', 1))
+            except:
+                page = 1
+            news = self.get_news(page=page)
+
+            if page <= news.paginator.page_range[-1]:
+                response = dict(templates=dict(news_grid=loader.render_to_string('site/modules/news-list-block.html',
+                                                                                  dict(news=news),
+                                                                                  request=request)),
+                                data={'last': not news.has_next()})
+                return HttpResponse(make_ajax_response(True, response))
+
+            response = dict(message=settings.COMMON_ERROR_MESSAGE)
+            return HttpResponse(make_ajax_response(False, response))
+        else:
+            raise Http404
 
 
 class NewsDetailView(DetailView):

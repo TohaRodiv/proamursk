@@ -9,6 +9,7 @@ from applications.sitesettings.views import RobotsTxtView
 
 urlpatterns = [
     path('api/v1/', include(cp_api.urls)),
+    path('',  root_views.IndexView.as_view(), name='index'),
     path('news/',  root_views.NewsListView.as_view(), name='news-list'),
     path('news/<int:pk>/',  root_views.NewsDetailView.as_view(), name='news-detail'),
     path('events/', root_views.EventsListView.as_view(), name='events-index'),
