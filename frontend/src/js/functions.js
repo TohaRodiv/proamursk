@@ -28,3 +28,12 @@ $('body').keydown(function (event) {
 function getSelectionText() {
    return window.getSelection().toString();
 }
+
+$('body').on('change', 'input, textarea, .select__value', function () {
+    if ($(this).val() === '') {
+        $(this).removeClass('fill');
+    }
+    else {
+        $(this).addClass('fill');
+    }
+})

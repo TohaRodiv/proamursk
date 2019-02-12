@@ -470,6 +470,7 @@ textarea {
     .select__clear:hover, .select__arrow:hover {
       color: #000000; }
   .select__value {
+    height: 36px;
     padding-right: 50px;
     overflow: hidden;
     -o-text-overflow: ellipsis;
@@ -511,6 +512,23 @@ textarea {
     cursor: pointer; }
     .select__option:hover, .select__option_choosen {
       background-color: #F6F7F8; }
+
+.label-base {
+  position: absolute;
+  top: 6px;
+  font-size: 18px;
+  color: #7A7A7A;
+  -webkit-transition: all .15s;
+  -o-transition: all .15s;
+  transition: all .15s; }
+
+.input-line:focus ~ .label-base, .input-line.focus ~ .label-base, .input-line.fill ~ .label-base,
+.select__value:focus ~ .label-base,
+.select__value.focus ~ .label-base,
+.select__value.fill ~ .label-base {
+  top: -10px;
+  font-size: 13px;
+  color: #C7C8C8; }
 
 .dropdown {
   position: relative; }

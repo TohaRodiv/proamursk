@@ -66,6 +66,8 @@ function clearSelect() {
     optionsList.find('.select__option').removeClass('select__option_choosen hidden');
     selectValueVisible.val('').text('').focus();
     selectValueHidden.val('');
+    selectValueHidden.removeClass('fill');
+    selectValueVisible.removeClass('fill');
     $(this).addClass('hidden');
 }
 

@@ -87,6 +87,7 @@ textarea
             color: $dark-c
 
     &__value
+        height: 36px
         padding-right: 50px
         overflow: hidden
         text-overflow: ellipsis
@@ -138,3 +139,20 @@ textarea
         &:hover,
         &_choosen
             background-color: #F6F7F8
+
+.label-base
+    position: absolute
+    top: 6px
+    font-size: $base-fz
+    color: $base-gray
+    transition: all .15s
+
+.input-line,
+.select__value
+    &:focus,
+    &.focus,
+    &.fill
+        & ~ .label-base
+            top: -10px
+            font-size: 13px
+            color: #C7C8C8
