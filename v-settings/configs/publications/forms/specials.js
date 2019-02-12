@@ -136,8 +136,8 @@ const state = {
                                 invalid: false,
                                 width: 12,
                                 image: {
-                                    width: 1720,
-                                    height: 1000,
+                                    width: 3840,
+                                    height: 1040,
                                 },
                                 codename: 'cover',
                                 widget: 'singleImageLoader',
