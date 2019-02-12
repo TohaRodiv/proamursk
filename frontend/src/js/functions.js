@@ -37,3 +37,7 @@ $('body').on('change', 'input, textarea, .select__value', function () {
         $(this).addClass('fill');
     }
 })
+
+$('.js-prev-page').click(function () {
+    window.history.go(-1);
+})

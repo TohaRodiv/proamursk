@@ -2405,34 +2405,58 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row; }
-  .page-error-outer {
-    margin-left: auto;
-    margin-right: auto; }
-  .page-error_500 {
-    width: 1336px;
-    margin-top: 150px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 100px 24px;
-    border-radius: 10px;
-    border: 1px solid #BEBEBE; }
-  .page-error-wrap {
-    height: 100%; }
-  .page-error__text-wrap {
-    margin-top: 24px;
-    text-align: center; }
-  .page-error__img {
-    display: block;
-    width: 50%;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-    margin-right: 24px; }
   .page-error__title {
-    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
-    max-width: 620px;
-    margin-bottom: 36px; }
-  .page-error__btn {
-    display: inline-block; }
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .page-error__subtitle {
+    font-size: 28px; }
+  .page-error-404 {
+    position: relative;
+    margin-top: 60px;
+    padding-top: 0; }
+    .page-error-404__text-wrap {
+      padding-bottom: 200px; }
+    .page-error-404__title {
+      margin-bottom: 20px;
+      font-size: 56px; }
+    .page-error-404__subtitle {
+      width: 365px; }
+    .page-error-404__btn {
+      width: 140px;
+      margin-top: 150px; }
+      .page-error-404__btn::before {
+        display: inline-block;
+        margin-right: 20px;
+        -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
+        vertical-align: -2px; }
+    .page-error-404__img {
+      width: 940px;
+      position: absolute;
+      top: 50px;
+      right: 0; }
+  .page-error-500 {
+    margin: 60px 15px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .page-error-500__title {
+      margin-top: 0;
+      margin-bottom: 40px;
+      font-size: 48px;
+      text-align: center; }
+    .page-error-500__subtitle {
+      max-width: 450px;
+      text-align: center;
+      margin: 0 auto; }
+    .page-error-500__img {
+      display: block;
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 60px; }
 
 .maintenance-mode {
   display: -webkit-box;
