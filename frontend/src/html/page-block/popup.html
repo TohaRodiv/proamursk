@@ -74,6 +74,21 @@
                 <div class="pop-up__title">Письмо в редакцию</div>
                 <div class="drop-area-wrap">
                     <form class="pop-up__form js-pop-up__form">
+                        <div class="select input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full" data-select-name="subject">
+                            <input type="text" name="subject" class="select__value select__value_hidden required-input" value="">
+                            <div class="input-line select__value select__value_visible" tabindex="1"></div>
+                            <label class="label-base">Тема сообщения *</label>
+                            <div class="select__arrow icon-triangle-down"></div>
+                            <div class="select__clear icon-close hidden"></div>
+                            <div class="select__options-list hidden">
+                                <div class="select__option" data-value-to-send="news">Поделиться хорошей новостью</div>
+                                <div class="select__option" data-value-to-send="event">Рассказать о событии</div>
+                                <div class="select__option" data-value-to-send="history">Поведать историю</div>
+                                <div class="select__option" data-value-to-send="people">Рассказать о герое</div>
+                                <div class="select__option" data-value-to-send="place">Оставить отзыв о месте</div>
+                                <div class="select__option" data-value-to-send="error">Рассказать об ошибке</div>
+                            </div>
+                        </div>
                         <div class="pop-up-form__inputs-set">
                             <input type="hidden" name="place" value="1">
 
