@@ -973,6 +973,7 @@ textarea {
     width: calc(50% - 20px); }
 
 .pop-up-form__agrement {
+  margin-right: 60px;
   font-size: 14px;
   opacity: .8; }
   .pop-up-form__agrement a {
@@ -984,7 +985,7 @@ textarea {
 .pop-up-form__submit {
   display: block;
   width: 155px;
-  margin-left: 60px;
+  margin-left: auto;
   -ms-flex-negative: 0;
       flex-shrink: 0; }
 
