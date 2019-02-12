@@ -1,18 +1,10 @@
 $('body').on('input', 'input, textarea', function() {
-    if ($(this).parents('.products-filter').length == 0) {
-        if ($(this).hasClass('has-error')) {
-            var form = $(this).parents('form');
+    if ($(this).hasClass('has-error')) {
+        var form = $(this).parents('form');
 
-            checkFormField($(this));
-            if ($(this).attr('type') == 'password') isPasswordsEqual(form, true);
-            if (!$(this).hasClass('has-error')) hideErrorMessage($(this));
-        }
-    }
-})
-
-$('body').on('change', 'input[name=date], input[type=radio], input[type=checkbox]', function() {
-    if ($(this).parents('.products-filter').length == 0) {
         checkFormField($(this));
+        if ($(this).attr('type') == 'password') isPasswordsEqual(form, true);
+        if (!$(this).hasClass('has-error')) hideErrorMessage($(this));
     }
 })
 
@@ -21,17 +13,10 @@ $('body').on('focus', 'input.has-error, textarea.has-error', function() {
 })
 
 $('body').on('blur', 'input, textarea', function() {
-    var form = $(this).parents('form');
-
     $(this).addClass('blured');
 
-    if ($(this).parents('.products-filter').length == 0) {
-        checkFormField($(this));
-        if ($(this).attr('type') == 'password') {
-            isPasswordsEqual(form, true);
-        }
-        hideErrorMessage($(this));
-    }
+    checkFormField($(this));
+    hideErrorMessage($(this));
 })
 
 // Проверяет отдельное поле формы
@@ -44,34 +29,14 @@ function checkFormField(jqField, onlyCheck) {
         regExp = new RegExp(),
         errorMessage = false;
 
-    if (!jqField.hasClass('disabled') && !jqField.hasClass('product-counter__input')){
+    if (!jqField.hasClass('disabled')){
 
         if (tagName == 'INPUT') {
             if (inputType == 'text') {
-                if ((~name.indexOf('username') || ~name.indexOf('first_name') || ~name.indexOf('last_name')) || ~name.indexOf('patronymic')) {
-                    if (!jqField.hasClass('item-counter__amount')) {
-                        if (jqField.hasClass('required-input')) regExp = /^[-–—а-яё\s]+$/i;
-                        else regExp = /(^[-–—а-яё\s]*$)|(^$)/i;
-                        errorMessage = 'Можно использовать только буквы русского алфавита или дефис';
-                    }
-                }
-
-                if (~name.indexOf('cashback')) {
-                    if (jqField.hasClass('required-input')) regExp = /^[0-9]*$/i;
-                    else regExp = /(^[0-9]*$)|(^$)/i;
-                    errorMessage = 'Можно использовать только цифры';
-                }
-
-                if (~name.indexOf('build')) {
-                    if (jqField.hasClass('required-input')) regExp = /^[-–—а-яё0-9\s]+$/i;
-                    else regExp = /(^[-–—а-яё0-9\s]*$)|(^$)/i;
-                    errorMessage = 'Можно использовать только буквы русского алфавита, цифры или дефис';
-                }
-
-                if (~name.indexOf('birthday') || (~name.indexOf('date')) && ~~name.indexOf('receiving_date')) {
-                    if (jqField.hasClass('required-input')) regExp = /^\d{1,2}\.\d{1,2}\.\d\d\d\d$/i;
-                    else regExp = /(^\d\d\.\d\d\.\d\d\d\d$)|(^$)/i;
-                    errorMessage = 'Можно использовать только цифры, в формате дд.мм.гггг';
+                if (~name.indexOf('name') || ~name.indexOf('subject')) {
+                    if (jqField.hasClass('required-input')) regExp = /^[-–—а-яё\s]+$/i;
+                    else regExp = /(^[-–—а-яё\s]*$)|(^$)/i;
+                    errorMessage = 'Можно использовать только буквы русского алфавита или дефис';
                 }
 
                 if (~name.indexOf('email')) {
@@ -94,40 +59,9 @@ function checkFormField(jqField, onlyCheck) {
                     errorMessage = 'Номер телефона должен быть в федеральном формате (10 цифр)';
                 }
             }
-            else if (inputType == 'password') {
-                if (~name.indexOf('password') || ~name.indexOf('password1') || ~name.indexOf('password2') || ~name.indexOf('new_password1') || ~name.indexOf('new_password2')) {
-                    if (jqField.hasClass('required-input')) {
-                        if (jqField.hasClass('strict')) {
-                            regExp = [
-                                /^[0-9a-zA-Z]{6,}$/i,
-                                /[a-z]+/,
-                                /\d+/
-                            ];
-                            errorMessage = 'Пароль может состоять только из цифр или букв английского алфавита, должен быть не короче шести символов, а также содержать как минимум одну цифру и одну букву в любом регистре, например: 8goods';
-                        }
-                        else regExp = /^.+$/i;
-                    }
-                    else regExp = /^.*$/i;
-                }
-            }
             else if ((inputType == 'checkbox') && (jqField.hasClass('required-input')) && (!jqField.prop('checked'))) {
                 $('label[for="' + jqField.attr('id') + '"]').addClass('has-error');
                 return false;
-            }
-            else if ((inputType == 'radio') && (jqField.hasClass('required-input'))) {
-
-                var parent = jqField.parents('.radio-set'),
-                    checkedRadiolength = parent.find($('input[type=radio]:checked')).length;
-
-                // если не выбран ни один radio из группы
-                if (checkedRadiolength == 0){
-                    $('label[for="' + jqField.attr('id') + '"]').addClass('has-error');
-                    return false;
-                }
-                else {
-                    parent.find('.has-error').removeClass('has-error');
-                    return true;
-                }
             }
         }
         else if (tagName == 'TEXTAREA') {

@@ -480,7 +480,7 @@ textarea {
     outline: none; }
     .select__value_hidden {
       display: none !important; }
-      .select__value_hidden.has-error + .select__value_visible {
+      .select__value_hidden.has-error + .select__value_visible:not(.focus) {
         border-color: #FF4006; }
     .select__value.focus, .select__value:focus {
       border-color: #0073FF; }
@@ -490,12 +490,6 @@ textarea {
             -ms-transform: rotate(180deg);
                 transform: rotate(180deg);
         color: #000000; }
-    .select__value.has-error {
-      border-color: #FF4006; }
-    .select__value:empty::after {
-      content: attr(placeholder);
-      color: #7A7A7A;
-      letter-spacing: initial; }
   .select__options-list {
     position: absolute;
     top: 100%;

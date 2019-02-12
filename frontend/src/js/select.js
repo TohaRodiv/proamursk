@@ -57,6 +57,17 @@ $('body').on('click', '.select__option', function() {
 // очистка поля по клику на крестик
 $('body').on('click', '.select__clear', clearSelect);
 
+$('body').on('blur', '.select__value_visible', function() {
+    $(this).addClass('blured');
+
+    checkFormField($(this).siblings('.select__value_hidden'));
+    hideErrorMessage($(this).siblings('.select__value_hidden'));
+})
+
+$('body').on('focus', '.select__value_visible', function() {
+    showErrorMessage($(this).siblings('.select__value_hidden.has-error'));
+})
+
 function clearSelect() {
     var select = $(this).parents('.select'),
         selectValueVisible = select.find('.select__value_visible'),

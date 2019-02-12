@@ -99,7 +99,7 @@ textarea
             display: none !important
 
             &.has-error
-                 + .select__value_visible
+                 + .select__value_visible:not(.focus)
                     border-color: $error-c
 
         &.focus,
@@ -110,15 +110,6 @@ textarea
                 margin-top: -5px
                 transform: rotate(180deg)
                 color: $dark-c
-
-        &.has-error
-            border-color: $error-c
-
-        &:empty
-            &::after
-                content: attr(placeholder)
-                color: $base-gray
-                letter-spacing: initial
 
     &__options-list
         position: absolute
