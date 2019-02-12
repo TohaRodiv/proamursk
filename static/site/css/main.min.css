@@ -294,6 +294,12 @@ ul, ol {
 .icon-phone:before {
   content: "\e912"; }
 
+.icon-clip-bold:before {
+  content: "\e915"; }
+
+.icon-clip-thin:before {
+  content: "\e916"; }
+
 .container {
   position: relative;
   width: 1300px;
@@ -3237,7 +3243,9 @@ footer {
   border: 3px dashed #D7DBE0; }
 
 .drop-area__icon {
-  margin: 0 auto 30px; }
+  margin: 0 auto 20px;
+  font-size: 90px;
+  color: #0073FF; }
 
 .drop-area__title {
   margin-bottom: 30px;
