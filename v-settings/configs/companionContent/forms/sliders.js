@@ -121,7 +121,7 @@ const state = {
                                                         invalid: false,
                                                         width: 12,
                                                         image: {
-                                                            width: 1716,
+                                                            width: 1720,
                                                             height: 1144,
                                                         },
                                                         codename: 'cover',
@@ -209,10 +209,10 @@ const state = {
                         let loader = widget.popup_structure[0].blocks[0].elements[0];
                         if (from === 'format') {
                             if (formsData[from] === 'format_3x2') {
-                                vue.set(loader, 'image', {width: 1716, height: 1144});
+                                vue.set(loader, 'image', {width: 1720, height: 1144});
                                 vue.set(widget, 'isBlocked', false);
                             } else if (formsData[from] === 'format_2x1') {
-                                vue.set(loader, 'image', {width: 1716, height: 858});
+                                vue.set(loader, 'image', {width: 1720, height: 860});
                                 vue.set(widget, 'isBlocked', false);
                             } else if (formsData[from] === null) {
                                 vue.set(widget, 'isBlocked', true);
