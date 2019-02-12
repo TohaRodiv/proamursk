@@ -361,12 +361,6 @@ ul, ol {
   .btn_blue {
     color: #FFFFFF;
     background-color: #0073FF; }
-  .btn_red {
-    color: #FFFFFF;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ff4006), to(#ff0038));
-    background: -webkit-linear-gradient(#ff4006 0%, #ff0038 100%);
-    background: -o-linear-gradient(#ff4006 0%, #ff0038 100%);
-    background: linear-gradient(#ff4006 0%, #ff0038 100%); }
   .btn_yellow {
     color: #FFBA00;
     font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
@@ -380,13 +374,12 @@ ul, ol {
     margin-top: 40px; }
     .btn_more span {
       margin-left: 10px;
-      font-size: 0;
-      font-size: 12px; }
+      font-size: 0; }
+      .btn_more span::before {
+        font-size: 12px; }
   .btn_center {
     margin-left: auto;
     margin-right: auto; }
-  .btn_right {
-    margin-left: auto; }
 
 .btn__counter {
   margin-left: 5px;
