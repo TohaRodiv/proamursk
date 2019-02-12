@@ -6,15 +6,15 @@ var dropArea = document.getElementsByClassName('js-drop-area');
     }
 });
 
-function preventDefaults(e) {
-    e.preventDefault()
-    e.stopPropagation()
+function preventDefaults(event) {
+    event.preventDefault();
+    event.stopPropagation();
 };
 
 ['dragenter', 'dragover'].forEach(eventName => {
     for (var i = 0; i < dropArea.length; i++) {
         dropArea[i].addEventListener(eventName, function() {
-            highlight(this)
+            highlight(this);
         }, false)
     }
 });
@@ -22,25 +22,25 @@ function preventDefaults(e) {
 ['dragleave', 'drop'].forEach(eventName => {
     for (var i = 0; i < dropArea.length; i++) {
         dropArea[i].addEventListener(eventName, function() {
-            unhighlight(this)
+            unhighlight(this);
         }, false)
     }
 });
 
 function highlight(currentDrop) {
-    currentDrop.classList.add('highlight')
+    currentDrop.classList.add('highlight');
 }
 
 function unhighlight(currentDrop) {
-    currentDrop.classList.remove('highlight')
+    currentDrop.classList.remove('highlight');
 }
 
 for (var i = 0; i < dropArea.length; i++) {
-    dropArea[i].addEventListener('drop', handleDrop, false)
+    dropArea[i].addEventListener('drop', handleDrop, false);
 }
 
-function handleDrop(e) {
-    var dt = e.dataTransfer,
+function handleDrop(event) {
+    var dt = event.dataTransfer,
         files = dt.files;
 
     var filesList = $(event.target).parents('.pop-up-form-content').find('.attachment-list');
