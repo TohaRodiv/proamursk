@@ -59,6 +59,57 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
+                        direction: 'row',
+                        modClass: 'marginBottom22',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Адрес, отображаемый на сайте',
+                                required: true,
+                                invalid: false,
+                                width: 8,
+                                codename: 'address',
+                                widget: 'simpleInput',
+                                hint: ''
+                            },
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: 'Точка на карте',
+                                required: false,
+                                invalid: false,
+                                widget: 'geoinput',
+                                codename: 'coordinates',
+                                width: 12,
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        modClass: 'marginBottom22',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Режим работы',
+                                required: false,
+                                invalid: false,
+                                width: 12,
+                                height: 60,
+                                codename: 'schedule',
+                                widget: 'textarea',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
                         direction: 'column',
                         modClass: 'marginBottom22',
                         elements: [
@@ -89,51 +140,30 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        direction: 'row',
                         modClass: 'marginBottom22',
+                        direction: 'row',
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Адрес, отображаемый на сайте',
-                                required: true,
-                                invalid: false,
+                                label: 'Автор обложки или источник',
                                 width: 8,
-                                codename: 'address',
+                                codename: 'cover_author',
                                 widget: 'simpleInput',
-                                hint: ''
-                            },
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom21',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Точка на карте',
-                                required: false,
-                                invalid: false,
-                                widget: 'geoinput',
-                                codename: 'coordinates',
-                                width: 12,
                                 hint: ''
                             }
                         ]
                     },
                     {
                         labelPosition: 'left',
-                        direction: 'row',
                         modClass: 'marginBottom50',
+                        direction: 'row',
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Режим работы',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                height: 60,
-                                codename: 'schedule',
-                                widget: 'textarea',
+                                label: 'Автор(ы) материала или источник',
+                                width: 8,
+                                codename: 'content_author',
+                                widget: 'simpleInput',
                                 hint: ''
                             }
                         ]

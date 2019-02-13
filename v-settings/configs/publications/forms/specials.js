@@ -70,7 +70,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'column',
-                        modClass: 'marginBottom50',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 type: 'field',
@@ -97,7 +97,36 @@ const state = {
                             }
                         ]
                     },
-
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Автор обложки или источник',
+                                width: 8,
+                                codename: 'cover_author',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom50',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Автор(ы) материала или источник',
+                                width: 8,
+                                codename: 'content_author',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
                     {
                         labelPosition: 'left',
                         direction: 'row',
