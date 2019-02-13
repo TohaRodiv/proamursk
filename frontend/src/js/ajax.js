@@ -67,7 +67,7 @@ function ajaxInfinityLoader(url, templateName, page) {
 
     dataToSend = 'page=' + page + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
 
-    console.log(dataToSend);
+    // console.log(dataToSend);
 
     $.ajax({
         data: dataToSend,
@@ -84,7 +84,31 @@ function ajaxInfinityLoader(url, templateName, page) {
                 if (responseObj.data.last) {
                     $('.btn_more').addClass('hidden');
                 }
-                $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.templateName);
+
+                if (templateName === 'news') {
+                    $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.news);
+                }
+                else if (templateName === 'announcements') {
+                    $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.announcements);
+                }
+                else if (templateName === 'reports') {
+                    $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.reports);
+                }
+                else if (templateName === 'history') {
+                    $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.articles);
+                }
+                else if (templateName === 'places') {
+                    $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.places);
+                }
+                else if (templateName === 'persons') {
+                    $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.articles);
+                }
+                else if (templateName === 'reviews') {
+                    $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.reviews);
+                }
+                else if (templateName === 'special-projects') {
+                    $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.specialProjects);
+                }
             }
             else {
                 if (responseObj.message) showNotification(responseObj.message, 'error');
