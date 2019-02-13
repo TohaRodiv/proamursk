@@ -2143,12 +2143,8 @@ footer {
     margin-top: auto; }
   .last-news__icon {
     position: absolute;
-    bottom: 10px;
-    right: 20px;
-    font-size: 0;
-    color: rgba(0, 115, 255, 0.1); }
-    .last-news__icon::before {
-      font-size: 110px; }
+    bottom: 0;
+    right: 20px; }
 
 .last-news-list {
   margin: 0;
