@@ -207,6 +207,11 @@ MEDIALIB_THUMB_SIZE = {
     'news_grid_cover': (620, 414, 'crop'),
     'news_aside_cover': (220, 160, 'crop'),
     'news_cover': (1720, 1000),
+
+    '8_column_img': (1720, 1000),
+    '6_column_img': (1280, 640),
+
+
 }
 
 POST_EDITOR = dict(

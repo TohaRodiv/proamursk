@@ -1,41 +1,43 @@
-@@if (wobbler === "special-project") {
-    <img src="images/svg/wobbler-special-projects.svg" alt="Спецпроекты" class="wobbler">
-}
+{% load static static_version %}
 
-@@if (wobbler === "reportage") {
-    <img src="images/svg/wobbler-reportage.svg" alt="Репортаж" class="wobbler">
-}
+{% if wobler_type == "special_project" %}
+    <img src="{% static "site/images/svg/wobbler-special-projects.svg" %}{% static_version %}" alt="Спецпроекты" class="wobbler">
+{% endif %}
 
-@@if (wobbler === "news") {
-    <img src="images/svg/wobbler-news.svg" alt="Новости" class="wobbler">
-}
+{% if wobler_type == "reportage" %}
+    <img src="{% static "site/images/svg/wobbler-reportage.svg" %}{% static_version %}" alt="Репортаж" class="wobbler">
+{% endif %}
 
-@@if (wobbler === "history") {
-    <img src="images/svg/wobbler-history.svg" alt="История" class="wobbler">
-}
+{% if wobler_type == "news" %}
+    <img src="{% static "site/images/svg/wobbler-news.svg" %}{% static_version %}" alt="Новости" class="wobbler">
+{% endif %}
 
-@@if (wobbler === "people") {
-    <img src="images/svg/wobbler-people.svg" alt="Люди" class="wobbler">
-}
+{% if wobler_type == "history" %}
+    <img src="{% static "site/images/svg/wobbler-history.svg" %}{% static_version %}" alt="История" class="wobbler">
+{% endif %}
 
-@@if (wobbler === "place") {
-    <img src="images/svg/wobbler-place.svg" alt="Место" class="wobbler">
-}
+{% if wobler_type == "people" %}
+    <img src="{% static "site/images/svg/wobbler-people.svg" %}{% static_version %}" alt="Люди" class="wobbler">
+{% endif %}
 
-@@if (wobbler === "announcement") {
-    <img src="images/svg/wobbler-announcement.svg" alt="Анонс" class="wobbler">
-}
+{% if wobler_type == "place" %}
+    <img src="{% static "site/images/svg/wobbler-place.svg" %}{% static_version %}" alt="Место" class="wobbler">
+{% endif %}
 
-@@if (wobbler === "past-event") {
-    <img src="images/svg/wobbler-past-event.svg" alt="Анонс" class="wobbler">
-}
+{% if wobler_type == "announcement" %}
+    <img src="{% static "site/images/svg/wobbler-announcement.svg" %}{% static_version %}" alt="Анонс" class="wobbler">
+{% endif %}
 
-@@if (wobbler === "first-builders") {
-    <img src="images/svg/wobbler-history-first-builders.svg" alt="Анонс" class="wobbler">
-}
+{% if wobler_type == "past_event" %}
+    <img src="{% static "site/images/svg/wobbler-past-event.svg" %}{% static_version %}" alt="Анонс" class="wobbler">
+{% endif %}
 
-@@if (wobbler === "legends") {
-    <img src="images/svg/wobbler-history-legends.svg" alt="Анонс" class="wobbler">
-}
+{% if wobler_type == "first-_builders" %}
+    <img src="{% static "site/images/svg/wobbler-history-first-builders.svg" %}{% static_version %}" alt="Анонс" class="wobbler">
+{% endif %}
+
+{% if wobler_type == "legends" %}
+    <img src="{% static "site/images/svg/wobbler-history-legends.svg" %}{% static_version %}" alt="Анонс" class="wobbler">
+{% endif %}
 
 

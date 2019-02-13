@@ -14,7 +14,9 @@
                         <figure class="publication__cover-wrap">
                             <img src="{{ news.cover|get_thumbnail_url_by_name:"news_cover" }}" alt="" class="publication__cover">
                             <figcaption class="publication__img-figcaption">
-                                <span class="publication__img-author">Источник изображения (автор)</span>
+                                {% if news.cover_author %}
+                                    <span class="publication__img-author">{{ news.cover_author }}</span>
+                                {% endif %}
                             </figcaption>
                         </figure>
 
@@ -34,7 +36,9 @@
                             </div>
 
                             <div class="publication__footer">
-                                <div class="publication__author">Автор материала</div>
+                                {% if news.content_author %}
+                                    <div class="publication__author">{{ news.content_author }}</div>
+                                {% endif %}
 
                                 {% include "site/page-block/share-widget.html" %}
                             </div>

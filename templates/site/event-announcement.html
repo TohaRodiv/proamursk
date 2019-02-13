@@ -1,71 +1,71 @@
-{% extends "site/base.html" %}
-{% load posteditor_tags %}
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "event"
+})
 
-{% block content %}
 <main>
     <div class="container">
         <div class="base-layout">
             <div class="base-layout__main">
                 <article class="publication">
                     <figure class="publication__cover-wrap">
-                        <img src="" alt="" class="publication__cover">
+                        <img src="images/publication-big3.jpg" alt="" class="publication__cover">
                         <figcaption class="publication__img-figcaption">
                             <span class="publication__img-author">Источник изображения (автор)</span>
                         </figcaption>
                     </figure>
 
                     <div class="publication__content">
-                        <h1 class="publication__title">{{ place.title }}</h1>
-
-                        <div class="publication__additional-info-wrap">
-                            <div class="publication__event-place">
-                                <span class="icon-geo"></span>
-{#                                ГРК «Родник»#}
-                            </div>
-
-                            <div class="publication__event-date">
+                        <div class="publication__additional-info-wrap publication__additional-info-wrap_row">
+                            <div class="publication__event-info publication__event-date">
                                 <span class="icon-calendar"></span>
-{#                                5 сентября 2018#}
+                                5 сентября 2018
+                            </div>
+                            <div class="publication__event-info publication__event-place">
+                                <span class="icon-geo"></span>
+                                <a href="" target="_blank">ГРК «Родник»</a>
+                            </div>
+                            <div class="publication__event-info publication__event-date">
+                                <span class="icon-reportage"></span>
+                                <a href="reportage-details.html">Репортаж</a>
                             </div>
                         </div>
 
+                        <h1 class="publication__title">Бильярдный турнир на кубок Амурска</h1>
 
-                        <p class="publication__lead">{{ place.lead }}</p>
+                        <p class="publication__lead">Самые активные и&nbsp;творческие представители молодежи традиционно собрались в&nbsp;ДК, чтобы подвести итоги и&nbsp;в неформальной обстановке пообщаться с&nbsp;первыми лицами города.</p>
 
-                        <div class="post-editor-content wysiwyg-container">
-                            {% post_editor_make_content place.content 'default' %}
-                        </div>
+                        @@include("page-block/post-editor.html")
 
                         <div class="publication__footer">
                             <div class="publication__author">Автор материала</div>
 
-{#                            @@include('page-block/share-widget.html')#}
+                            @@include('page-block/share-widget.html')
                         </div>
                     </div>
                 </article>
             </div>
 
-{#            <aside class="base-layout__aside">#}
-{#                <div class="aside-widget">#}
-{#                    @@include("page-block/nearest-event-widget.html")#}
-{#                </div>#}
-{#                <div class="aside-widget">#}
-{#                    @@include("page-block/aside-subscribe-widget.html")#}
-{#                </div>#}
-{#                <div class="aside-widget">#}
-{#                    @@include('modules/offer-widget.html', {#}
-{#                        "class": "event",#}
-{#                        "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",#}
-{#                        "btnText": "Предложить новость"#}
-{#                    })#}
-{#                </div>#}
-{#            </aside>#}
+            <aside class="base-layout__aside">
+                <div class="aside-widget">
+                    @@include("page-block/aside-subscribe-widget.html")
+                </div>
+                <div class="aside-widget">
+                    @@include('modules/offer-widget.html', {
+                        "class": "event",
+                        "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "btnText": "Предложить новость"
+                    })
+                </div>
+                <div class="aside-widget">
+                    @@include("page-block/nearest-event-widget.html")
+                </div>
+            </aside>
         </div>
     </div>
 </main>
-{% endblock %}
 
-{% block additional_content %}
-{#    @@include("page-block/read-also.html")#}
-{% endblock %}
+@@include("page-block/read-also.html")
 
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')

@@ -54,33 +54,38 @@ class NewsDetailView(DetailView):
     template_name = 'site/news-details.html'
 
 
-class EventsListView(ListView):
-    model = Event
-    allow_empty = True
-    queryset = Event.objects.filter(is_active=True, start_event_date__lte=timezone.now())
-    paginate_by = 50
-    context_object_name = 'events'
-    template_name = 'root/events_list.html'
+class EventsListView(View):
+
+    def get(self, request):
+        events = list(Event.objects.filter(is_active=True,
+                                           start_event_date__gte=timezone.now()).order_by('-start_event_date')[:8])
+
+        return render(request, 'site/all-events.html',
+                      dict(
+                          events=events
+                      )
+                     )
 
 
-class EventsListFutureView(ListView):
-    model = Event
-    allow_empty = True
-    queryset = Event.objects.filter(is_active=True, start_event_date__lte=timezone.now(),
-                                    start_event_date__gt=timezone.now())
-    paginate_by = 50
-    context_object_name = 'events'
-    template_name = 'root/events_list.html'
+class EventsListFutureView(InfinityLoaderListView):
+    queryset = Event.objects.filter(is_active=True,
+                                    start_event_date__gte=timezone.now())
+    template_name = 'site/future-events.html'
+    ajax_template_name = 'site/modules/news-list-block.html'
+    context_list_name = 'events'
+    ajax_context_list_name = 'events'
+    items_per_page = 1
 
 
-class EventsListPastView(ListView):
-    model = Event
-    allow_empty = True
-    queryset = Event.objects.filter(is_active=True, start_event_date__lte=timezone.now(),
+class EventsListPastView(InfinityLoaderListView):
+    queryset = Event.objects.filter(is_active=True,
                                     start_event_date__lt=timezone.now())
-    paginate_by = 16
-    context_object_name = 'events'
-    template_name = 'root/events_list.html'
+
+    template_name = 'site/past-events.html'
+    ajax_template_name = 'site/modules/news-list-block.html'
+    context_list_name = 'events'
+    ajax_context_list_name = 'events'
+    items_per_page = 1
 
 
 class EventsDetailView(DetailView):

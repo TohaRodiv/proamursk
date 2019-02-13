@@ -1,20 +1,22 @@
+{% load static static_version %}
+
 <div class="aside-nav-widget">
     <ul class="aside-nav__list">
         <li class="aside-nav__item">
-            <a href="future-events.html" class="aside-nav__link @@if (active === 'future') {active}">
-                <img src="images/svg/round-anounce.svg" alt="" class="aside-nav__icon">
+            <a href="{% url "events-list-future" %}" class="aside-nav__link {% if request.resolver_match.url_name == "events-list-future" %}active{% endif %}">
+                <img src="{% static "site/images/svg/round-anounce.svg" %}{% static_version %}" alt="" class="aside-nav__icon">
                 <span class="aside-nav__text">Анонсы ближайших событий</span>
             </a>
         </li>
         <li class="aside-nav__item">
-            <a href="past-events.html" class="aside-nav__link @@if (active === 'past') {active}">
-                <img src="images/svg/round-calendar.svg" alt="" class="aside-nav__icon">
+            <a href="{% url "events-list-past" %}" class="aside-nav__link {% if request.resolver_match.url_name == "events-list-past" %}active{% endif %}">
+                <img src="{% static "site/images/svg/round-calendar.svg" %}{% static_version %}" alt="" class="aside-nav__icon">
                 <span class="aside-nav__text">Прошедшие события</span>
             </a>
         </li>
         <li class="aside-nav__item">
-            <a href="all-reportage.html" class="aside-nav__link @@if (active === 'all') {active}">
-                <img src="images/svg/round-reportage.svg" alt="" class="aside-nav__icon">
+            <a href="{% url "reports-list" %}" class="aside-nav__link {% if request.resolver_match.url_name == "reports-list" %}active{% endif %}">
+                <img src="{% static "site/images/svg/round-reportage.svg" %}{% static_version %}" alt="" class="aside-nav__icon">
                 <span class="aside-nav__text">Все репортажи</span>
             </a>
         </li>
