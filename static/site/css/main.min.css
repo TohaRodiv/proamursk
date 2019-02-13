@@ -2021,7 +2021,7 @@ footer {
     grid-row: 2/3; }
 
 .publication {
-  margin-bottom: 20px; }
+  margin-bottom: 50px; }
   .publication__cover-wrap {
     position: relative; }
     .publication__cover-wrap::after {
@@ -2123,9 +2123,6 @@ footer {
     margin-top: 60px; }
   .publication__author {
     font-size: 18px; }
-
-.aside-last-news {
-  margin-left: -40px; }
 
 .last-news {
   position: relative;
