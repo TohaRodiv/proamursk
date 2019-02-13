@@ -3333,8 +3333,10 @@ footer {
   bottom: 20px; }
 
 .city-guide__title {
+  max-width: 350px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
   font-size: 36px;
+  line-height: 1.2;
   letter-spacing: 0.02em;
   color: #FFFFFF; }
 
@@ -3342,8 +3344,11 @@ footer {
   margin-top: 30px; }
 
 .city-guide__separator {
-  margin-top: 40px;
-  margin-bottom: 40px; }
+  margin-top: 60px;
+  margin-bottom: 60px; }
+
+.city-guide-item__cover {
+  margin-bottom: 30px; }
 
 .city-guide-item__text-wrap {
   width: 640px;
@@ -3356,5 +3361,38 @@ footer {
 
 .city-guide-item__additional-info-wrap {
   margin-bottom: 20px; }
+
+.city-guide-table {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 18px; }
+  .city-guide-table__tr {
+    border-bottom: 1px solid #7a8ba1; }
+    .city-guide-table__tr:first-child {
+      border-top: 1px solid #7a8ba1; }
+    .city-guide-table__tr .city-guide-table__td:nth-child(2) {
+      width: 330px;
+      padding-left: 20px;
+      font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .city-guide-table__td {
+    padding: 20px 0; }
+  .city-guide-table__td-phone {
+    color: #000000;
+    text-decoration: none;
+    white-space: nowrap; }
+    .city-guide-table__td-phone:hover {
+      color: #0073FF; }
+  .city-guide-table__img {
+    width: 24px;
+    height: 24px;
+    vertical-align: bottom; }
+    .city-guide-table__img:nth-child(2) {
+      margin-right: 10px; }
+    .city-guide-table__img:nth-child(3) {
+      margin-left: 30px;
+      margin-right: 10px; }
 
 /*# sourceMappingURL=main.min.css.map */
