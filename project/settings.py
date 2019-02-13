@@ -204,6 +204,8 @@ MEDIALIB_THUMB_SIZE = {
 
     'poste_ditor_direct_photo': (220, 220, 'crop'),
 
+    'news_grid_cover': (620, 414, 'crop'),
+    'news_aside_cover': (220, 160, 'crop'),
     'news_cover': (1720, 1000),
 }
 

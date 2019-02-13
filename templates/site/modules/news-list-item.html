@@ -2,7 +2,7 @@
 {% load pytils_dt %}
 
 <a href="{{ news_item.get_absolute_url }}" class="news-list-item">
-    <div class="news-list-item__img-wrap" style="background-image: url({{ news_item.cover|get_thumbnail_url_by_name:"news_cover" }});"></div>
+    <div class="news-list-item__img-wrap" style="background-image: url({{ news_item.cover|get_thumbnail_url_by_name:"news_grid_cover" }});"></div>
 
     <div class="news-list-item__text-wrap">
         <h2 class="news-list-item__title">{{ news_item.title }}</h2>

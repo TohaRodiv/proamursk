@@ -51,7 +51,7 @@ class NewsDetailView(DetailView):
     model = News
     queryset = News.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'news'
-    template_name = 'root/news_detail.html'
+    template_name = 'site/news-details.html'
 
 
 class EventsListView(ListView):
