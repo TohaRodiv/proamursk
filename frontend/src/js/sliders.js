@@ -42,10 +42,13 @@ $('.slider-arrow').on('click', function() {
 })
 
 // Переключение слайдов по клику на слайд
-$('.post-editor__block_slider .slide').on('click', function() {
+$('.post-editor__block_slider .slide').on('click', function () {
     var slider = $(this).parents('.slider').eq(0);
+        slidesAmount = slider.find('.slide').length;
 
-    slider.find('.slider-arrow-next').trigger('click');
+    if (slidesAmount > 1) {
+        slider.find('.slider-arrow-next').trigger('click');
+    }
 })
 
 // Переключение слайдов шариками

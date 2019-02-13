@@ -297,6 +297,21 @@ ul, ol {
 .icon-clip-bold:before {
   content: "\e915"; }
 
+.icon-cuisine:before {
+  content: "\e917"; }
+
+.icon-coin:before {
+  content: "\e918"; }
+
+.icon-ticket:before {
+  content: "\e919"; }
+
+.icon-star:before {
+  content: "\e91b"; }
+
+.icon-bed:before {
+  content: "\e91a"; }
+
 .icon-clip-thin:before {
   content: "\e916"; }
 
@@ -1088,7 +1103,7 @@ textarea {
   .wysiwyg-container a,
   .wysiwyg-container a:link,
   .wysiwyg-container a:visited {
-    color: #283348;
+    color: #0073FF;
     text-decoration: none; }
     .wysiwyg-container a:hover,
     .wysiwyg-container a:link:hover,
@@ -3293,5 +3308,50 @@ footer {
   width: 190px;
   font-size: 12px;
   text-align: center; }
+
+.city-guide__cover-wrap {
+  position: relative; }
+
+.city-guide__cover {
+  display: block;
+  width: 100%;
+  height: 140px; }
+
+.city-guide__cover-icon {
+  position: absolute;
+  top: 25px;
+  right: 110px;
+  width: 85px;
+  height: 85px; }
+
+.city-guide__img-figcaption {
+  position: absolute;
+  left: 40px;
+  bottom: 20px; }
+
+.city-guide__title {
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF; }
+
+.city-guide__slider {
+  margin-top: 30px; }
+
+.city-guide__separator {
+  margin-top: 40px;
+  margin-bottom: 40px; }
+
+.city-guide-item__text-wrap {
+  width: 640px;
+  margin: 0 auto; }
+
+.city-guide-item__title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+
+.city-guide-item__additional-info-wrap {
+  margin-bottom: 20px; }
 
 /*# sourceMappingURL=main.min.css.map */
