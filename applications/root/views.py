@@ -13,6 +13,7 @@ from django.utils import timezone
 
 from django.template import loader
 from applications.tools.utils import make_ajax_response
+from applications.tools.views import InfinityLoaderListView
 from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
@@ -37,45 +38,13 @@ class IndexView(View):
         return render(request, 'site/index.html', dict())
 
 
-class NewsListView(View):
-
-    def get_news(self, page=1):
-        news = News.objects.filter(is_active=True, publication_date__lte=timezone.now()).order_by('-publication_date')
-
-        paginator = Paginator(news, 10)
-
-        try:
-            news = paginator.page(page)
-        except PageNotAnInteger:
-            news = paginator.page(1)
-        except EmptyPage:
-            news = paginator.page(1)
-
-        return news
-
-    def get(self, request):
-        news = self.get_news()
-        return render(request, 'site/news-list.html', dict(news=news))
-
-    def post(self, request):
-        if request.is_ajax():
-            try:
-                page = int(request.POST.get('page', 1))
-            except:
-                page = 1
-            news = self.get_news(page=page)
-
-            if page <= news.paginator.page_range[-1]:
-                response = dict(templates=dict(news_grid=loader.render_to_string('site/modules/news-list-block.html',
-                                                                                  dict(news=news),
-                                                                                  request=request)),
-                                data={'last': not news.has_next()})
-                return HttpResponse(make_ajax_response(True, response))
-
-            response = dict(message=settings.COMMON_ERROR_MESSAGE)
-            return HttpResponse(make_ajax_response(False, response))
-        else:
-            raise Http404
+class NewsListView(InfinityLoaderListView):
+    queryset = News.objects.filter(is_active=True, publication_date__lte=timezone.now()).order_by('-publication_date')
+    template_name = 'site/news-list.html'
+    ajax_template_name = 'site/modules/news-list-block.html'
+    context_list_name = 'news'
+    ajax_context_list_name = 'news'
+    items_per_page = 1
 
 
 class NewsDetailView(DetailView):

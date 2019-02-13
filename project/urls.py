@@ -30,6 +30,7 @@ urlpatterns = [
     path('specials/<str:slug>/', root_views.SpecialsDetailView.as_view(), name='specials-detail'),
     path('films/', RedirectView.as_view(url='/')),
     path('films/<int:pk>/', root_views.FilmDetailView.as_view(), name='films-detail'),
+    path('api/site/news/', root_views.NewsListView.as_view(), name='api-news'),
     path('api/site/place-review/', root_views.place_review, name='place-review'),
     path('api/site/feedback/', root_views.feedback, name='feedback'),
     path('api/site/announcements/', root_views.announcements, name='ajax-announcements'),
