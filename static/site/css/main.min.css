@@ -3313,12 +3313,22 @@ footer {
   text-align: center; }
 
 .city-guide__cover-wrap {
-  position: relative; }
+  position: relative;
+  height: 150px;
+  padding: 10px 40px;
+  background-color: #0073FF; }
 
 .city-guide__cover {
   display: block;
-  width: 100%;
-  height: 140px; }
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+  width: 390px;
+  height: 70px; }
+
+.city-guide__cover-wobbler {
+  width: 160px;
+  margin-bottom: 20px; }
 
 .city-guide__cover-icon {
   position: absolute;
@@ -3328,15 +3338,23 @@ footer {
   height: 85px; }
 
 .city-guide__img-figcaption {
-  position: absolute;
-  left: 40px;
-  bottom: 20px; }
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 .city-guide__title {
   max-width: 350px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
   font-size: 36px;
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: 0.02em;
   color: #FFFFFF; }
 

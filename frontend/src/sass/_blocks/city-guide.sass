@@ -1,11 +1,21 @@
 .city-guide
     &__cover-wrap
         position: relative
+        height: 150px
+        padding: 10px 40px
+        background-color: $base-c
 
     &__cover
         display: block
-        width: 100%
-        height: 140px
+        position: absolute
+        right: 0
+        bottom: 15px
+        width: 390px
+        height: 70px
+
+    &__cover-wobbler
+        width: 160px
+        margin-bottom: 20px
 
     &__cover-icon
         position: absolute
@@ -15,15 +25,16 @@
         height: 85px
 
     &__img-figcaption
-        position: absolute
-        left: 40px
-        bottom: 20px
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
 
     &__title
         max-width: 350px
         font-family: $bold-f
         font-size: 36px
-        line-height: 1.2
+        line-height: 1.1
         letter-spacing: 0.02em
         color: $light-c
 
