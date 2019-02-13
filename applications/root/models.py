@@ -10,7 +10,9 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     title = models.CharField('Заголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
-    content = JSONField()
+    content = models.TextField()
+    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
+    content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
@@ -42,6 +44,8 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     start_event_date = models.DateTimeField('Дата начала события')
     event_date_text = models.CharField('Дата проведения', max_length=255)
+    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
+    content_author = models.CharField('Автор материала', max_length=255, blank=True)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
@@ -69,6 +73,8 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
     title = models.CharField('Заголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
+    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
+    content_author = models.CharField('Автор материала', max_length=255, blank=True)
     place = models.CharField('Место проведения', max_length=255)
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     event_date_text = models.CharField('Дата проведения', max_length=255)
@@ -99,6 +105,8 @@ class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
     codename = models.CharField('URL (кодовое название)', max_length=255, unique=True)
+    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
+    content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
@@ -127,6 +135,8 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
     descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
+    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
+    content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
@@ -172,6 +182,8 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
     descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
+    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
+    content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
@@ -200,6 +212,8 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
+    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
+    content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
@@ -228,6 +242,8 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
     descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = JSONField()
+    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
+    content_author = models.CharField('Автор материала', max_length=255, blank=True)
     address = models.CharField('Адрес', max_length=255, blank=True)
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     schedule = models.CharField('Режим работы', max_length=255, blank=True)

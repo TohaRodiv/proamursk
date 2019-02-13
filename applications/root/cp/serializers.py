@@ -29,7 +29,8 @@ class NewsDetailSerializer(ModelSerializer):
     class Meta:
         model = News
         fields = ('id', 'cover', 'title', 'lead', 'content', 'comment', 'publication_date', 'create_date', 'edit_date',
-                  'meta_title', 'meta_description', 'meta_keywords', 'og_image', 'is_active', )
+                  'meta_title', 'meta_description', 'meta_keywords', 'og_image', 'is_active', 'cover_author',
+                  'content_author')
 
 
 class ReportsNestedSerializer(ModelSerializer):
@@ -68,7 +69,7 @@ class EventsDetailSerializer(ModelSerializer):
         fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
                   'cover_format', 'cover_format_name', 'comment', 'content', 'create_date',
                   'report', 'edit_date', 'is_active', 'meta_title', 'meta_description',
-                  'meta_keywords', 'og_image', )
+                  'meta_keywords', 'og_image', 'cover_author', 'content_author')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -110,7 +111,7 @@ class ReportsDetailSerializer(ModelSerializer):
         fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text',
                   'cover_format', 'cover_format_name', 'comment', 'content', 'publication_date', 'event',
                   'create_date', 'edit_date', 'is_active', 'meta_title', 'meta_description',
-                  'meta_keywords', 'og_image')
+                  'meta_keywords', 'og_image', 'cover_author', 'content_author')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -167,7 +168,7 @@ class HistoryDetailSerializer(ModelSerializer):
         model = History
         fields = ('id', 'cover', 'cover_format', 'rubric', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image')
+                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -198,7 +199,7 @@ class PersonsDetailSerializer(ModelSerializer):
         model = Person
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image')
+                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -229,7 +230,7 @@ class CityGuidesDetailSerializer(ModelSerializer):
         model = CityGuide
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image')
+                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -264,7 +265,7 @@ class PlacesDetailSerializer(ModelSerializer):
         model = Place
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'address', 'coordinates', 'schedule', 'comment', 'publication_date', 'meta_title', 'meta_description',
-                  'meta_keywords', 'og_image', 'create_date', 'edit_date', 'is_active')
+                  'meta_keywords', 'og_image', 'create_date', 'edit_date', 'is_active', 'cover_author', 'content_author')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -295,7 +296,7 @@ class SpecialsDetailSerializer(ModelSerializer):
         model = Special
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'descriptor', 'codename',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image')
+                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
