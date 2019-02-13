@@ -3347,6 +3347,9 @@ footer {
   margin-top: 60px;
   margin-bottom: 60px; }
 
+.city-guide-item__section + .city-guide-item__section {
+  margin-top: 90px; }
+
 .city-guide-item__cover {
   margin-bottom: 30px; }
 
@@ -3355,6 +3358,19 @@ footer {
   margin: 0 auto; }
 
 .city-guide-item__title {
+  position: relative;
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+
+.city-guide-item__title-icon {
+  position: absolute;
+  left: -110px;
+  top: -12px;
+  width: 70px;
+  height: 70px; }
+
+.city-guide-item__subtitle {
   margin-bottom: 20px;
   font-size: 24px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
@@ -3362,10 +3378,24 @@ footer {
 .city-guide-item__additional-info-wrap {
   margin-bottom: 20px; }
 
+.city-guide-note {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin-top: 40px; }
+  .city-guide-note__icon {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #0073FF; }
+  .city-guide-note__text {
+    max-width: 360px; }
+
 .city-guide-table {
   width: 100%;
   margin-top: 30px;
-  margin-bottom: 60px;
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 18px; }
@@ -3373,12 +3403,14 @@ footer {
     border-bottom: 1px solid #7a8ba1; }
     .city-guide-table__tr:first-child {
       border-top: 1px solid #7a8ba1; }
-    .city-guide-table__tr .city-guide-table__td:nth-child(2) {
-      width: 330px;
-      padding-left: 20px;
-      font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .city-guide-table__th {
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    text-align: left; }
+    .city-guide-table__th_center {
+      text-align: center; }
   .city-guide-table__td {
-    padding: 20px 0; }
+    padding: 20px 0;
+    vertical-align: top; }
   .city-guide-table__td-phone {
     color: #000000;
     text-decoration: none;
@@ -3394,5 +3426,77 @@ footer {
     .city-guide-table__img:nth-child(3) {
       margin-left: 30px;
       margin-right: 10px; }
+
+.city-guide-table_emergency tr td:nth-child(2),
+.city-guide-table_repairs tr td:nth-child(2) {
+  width: 330px;
+  padding-left: 20px; }
+
+.city-guide-table_bus-inner-city tr td:nth-child(1),
+.city-guide-table_bus-inner-city tr th:nth-child(1) {
+  width: 110px; }
+
+.city-guide-table_bus-inner-city tr td:nth-child(1) {
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+
+.city-guide-table_bus-inner-city tr td:nth-child(2),
+.city-guide-table_bus-inner-city tr th:nth-child(2) {
+  width: 300px;
+  padding-left: 40px;
+  padding-right: 30px; }
+
+.city-guide-table_bus-inner-city tr td:nth-child(3),
+.city-guide-table_bus-inner-city tr th:nth-child(3) {
+  text-align: center; }
+
+.city-guide-table_bus-outer-city tr td:nth-child(1),
+.city-guide-table_bus-outer-city tr th:nth-child(1) {
+  width: 110px; }
+
+.city-guide-table_bus-outer-city tr td:nth-child(1) {
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+
+.city-guide-table_bus-outer-city tr td:nth-child(2),
+.city-guide-table_bus-outer-city tr th:nth-child(2) {
+  width: 270px;
+  padding-left: 40px;
+  padding-right: 30px; }
+
+.city-guide-table_bus-outer-city tr td:nth-child(3),
+.city-guide-table_bus-outer-city tr th:nth-child(3) {
+  width: 170px;
+  padding-right: 20px; }
+
+.city-guide-table_bus-outer-city tr td:nth-child(4),
+.city-guide-table_bus-outer-city tr th:nth-child(4) {
+  text-align: center; }
+
+.city-guide-item__taxi-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -10px;
+  margin-right: -10px; }
+
+.taxi-grid-item {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center; }
+  .taxi-grid-item__img {
+    display: block;
+    margin-bottom: 20px; }
+  .taxi-grid-item__title {
+    margin-bottom: 15px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .taxi-grid-item__phone {
+    display: block;
+    text-decoration: none;
+    color: #000000; }
+    .taxi-grid-item__phone:hover {
+      color: #0073FF; }
+    .taxi-grid-item__phone .icon-phone {
+      margin-right: 5px;
+      color: #0073FF;
+      vertical-align: middle; }
 
 /*# sourceMappingURL=main.min.css.map */
