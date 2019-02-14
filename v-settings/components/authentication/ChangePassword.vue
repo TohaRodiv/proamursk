@@ -2,12 +2,13 @@
     <div style="width: 100%; height: 100%;">
         <div class="auth_wrapper">
             <div class="auth-image">
+                <img src="../../src/images/fon.jpg">
             </div>
             <div class="auth-forms">
                 <div class="auth-forms-inner">
                     <div class="auth_container">
                         <div class="auth_logo">
-                            <!--<img src="../../src/images/logo_crown.svg">-->
+                            <img src="../../src/images/logo_crown.svg">
                         </div>
                         <div class="auth_title signin-title">
                             Новый пароль
@@ -44,7 +45,7 @@
                     <div class="auth-footer">
                         <span>©{{'&nbsp;'}}</span>
                         <a href="http://perfectura.ru/" target="_blank" class="link">Перфектура</a>
-                        <span>, 2018</span>
+                        <span>, 2019</span>
                     </div>
                 </div>
             </div>
