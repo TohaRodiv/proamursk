@@ -79,13 +79,18 @@ class EventsListFutureView(InfinityLoaderListView):
 
 class EventsListPastView(InfinityLoaderListView):
     queryset = Event.objects.filter(is_active=True,
-                                    start_event_date__lt=timezone.now())
+                                    start_event_date__lt=timezone.now()).order_by('-start_event_date')[8:]
 
     template_name = 'site/past-events.html'
-    ajax_template_name = 'site/modules/news-list-block.html'
+    ajax_template_name = 'site/modules/grid-event-block.html'
     context_list_name = 'events'
     ajax_context_list_name = 'events'
     items_per_page = 1
+
+    def get(self, request):
+        items = Event.objects.filter(is_active=True,
+                                     start_event_date__lt=timezone.now()).order_by('-start_event_date')[:8]
+        return render(request, self.template_name, {self.context_list_name: items})
 
 
 class EventsDetailView(DetailView):
@@ -254,40 +259,6 @@ def place_review(request):
             return JsonResponse({'status': True,
                                  'message': 'Отзыв отправлен, он появится на сайте после прохождения модерации'})
         return JsonResponse({'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE})
-    else:
-        raise Http404
-
-
-@require_POST
-def announcements(request):
-    result = {'status': False, 'message': settings.COMMON_ERROR_MESSAGE}
-    if request.is_ajax():
-        page_number = request.POST.get('page')
-        if page_number:
-            try:
-                page_number = int(page_number)
-            except ValueError:
-                pass
-            else:
-                now = timezone.now()
-                main_page_ids = list(Event.objects.filter(
-                    publication_date__lte=now, is_active=True).values_list('id', flat=True).filter(
-                    start_event_date__lt=now).order_by('-start_event_date')[:16])
-                event_announcements = Event.objects.filter(
-                    publication_date__lte=now, start_event_date__lt=now, is_active=True).exclude(
-                    id__in=main_page_ids).order_by('-start_event_date')
-                paginator = Paginator(event_announcements, 24)
-                if page_number in paginator.page_range:
-                    page = paginator.page(page_number)
-                    rendered_html = render_to_string('root/ajax_infinity_loader.html', context={'objects': page})
-                    result = {
-                        'status': True,
-                        'data': {'last': not page.has_next()},
-                        'templates':
-                            {'announcements': rendered_html.replace('\n', '')}
-                    }
-        return JsonResponse(result)
-
     else:
         raise Http404
 
