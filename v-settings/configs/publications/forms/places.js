@@ -99,9 +99,8 @@ const state = {
                                 type: 'field',
                                 label: 'Режим работы',
                                 width: 12,
-                                height: 60,
                                 codename: 'schedule',
-                                widget: 'textarea',
+                                widget: 'simpleInput',
                                 hint: ''
                             }
                         ]
