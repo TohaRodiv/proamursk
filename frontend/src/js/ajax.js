@@ -1,4 +1,3 @@
-// Мгновенный поиск
 function ajaxInstantSearch(q) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
         dataToSend;
@@ -29,7 +28,6 @@ function ajaxInstantSearch(q) {
     });
 }
 
-// Подписаться на рассылку
 function ajaxSubscribe(jqForm) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
         dataToSend;
@@ -120,7 +118,6 @@ function ajaxInfinityLoader(url, templateName, page) {
     });
 }
 
-// Запросы по кнопке "Показать больше"
 $('body').on('click', '.btn_more', function () {
     var pageCount = $(this).data('page-count'),
         url, templateName;
