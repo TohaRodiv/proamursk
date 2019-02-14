@@ -80,7 +80,7 @@ function ajaxInfinityLoader(url, templateName, page) {
             clearInterval(preloaderId);
             if (responseObj.status == true) {
                 if (responseObj.data.last) {
-                    $('.btn_more').addClass('hidden');
+                    // $('.btn_more').addClass('hidden');
                 }
 
                 if (templateName === 'news') {
@@ -122,7 +122,6 @@ $('body').on('click', '.btn_more', function () {
     var pageCount = $(this).data('page-count'),
         url, templateName;
 
-    $(this).data('page-count', pageCount);
     $(this).addClass('btn_preloader');
 
     if ($(this).hasClass('js-more-past-events')) {
@@ -160,4 +159,5 @@ $('body').on('click', '.btn_more', function () {
 
     ajaxInfinityLoader(url, templateName, pageCount);
     pageCount++;
+    $(this).data('page-count', pageCount);
 })
