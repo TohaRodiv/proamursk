@@ -2,7 +2,6 @@
     <div style="width: 100%; height: 100%;">
         <div class="auth_wrapper">
             <div class="auth-image">
-                <img src="../../src/images/fon.jpg">
             </div>
                 <div class="auth-forms">
                     <div class="auth-forms-inner">
