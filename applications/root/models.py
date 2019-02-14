@@ -247,6 +247,9 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
     address = models.CharField('Адрес', max_length=255, blank=True)
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     schedule = models.CharField('Режим работы', max_length=255, blank=True)
+    contacts = models.CharField('Контактная информация', max_length=255, blank=True)
+    site = models.URLField('Сайт', max_length=255, blank=True)
+    instagram = models.URLField('Профиль в Instagram', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 

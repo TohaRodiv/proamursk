@@ -3,6 +3,20 @@
 {% load media_filters %}
 {% load pytils_dt %}
 {% load site_tags %}
+{% load utils_tags %}
+
+{% block title %}
+    {{ news.meta_title|default:news.title }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ news.meta_keywords }}">
+    <meta name="description" content="{{ news.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=news.meta_title|default:news.title og_description=news.meta_description og_image=news.og_image|default:news.cover|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
 
 
 {% block content %}

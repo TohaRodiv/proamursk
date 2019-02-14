@@ -264,7 +264,8 @@ class PlacesDetailSerializer(ModelSerializer):
     class Meta:
         model = Place
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
-                  'address', 'coordinates', 'schedule', 'comment', 'publication_date', 'meta_title', 'meta_description',
+                  'address', 'coordinates', 'schedule', 'contacts', 'site',  'instagram', 'comment',
+                  'publication_date', 'meta_title', 'meta_description',
                   'meta_keywords', 'og_image', 'create_date', 'edit_date', 'is_active', 'cover_author', 'content_author')
 
     def get_cover_format_name(self, instance):

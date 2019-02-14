@@ -1,0 +1,15 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+
+{% block title %}Страница не найдена{% endblock %}
+
+{% block content %}
+    <main class="container page-error-404">
+        <div class="page-error-404__text-wrap">
+            <h1 class="page-error__title page-error-404__title">Что-то пошло не так</h1>
+            <div class="page-error__subtitle page-error-404__subtitle">Извините, такой страницы не существует</div>
+            <button class="btn btn_blue page-error-404__btn js-prev-page icon-arrow-down-dir">Назад</button>
+            <img src="{% static "site/images/svg/404.svg" %}{% static_version %}" alt="Ошибка 404" class="page-error-404__img">
+        </div>
+    </main>
+{% endblock %}

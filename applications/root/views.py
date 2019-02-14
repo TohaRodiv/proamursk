@@ -90,9 +90,9 @@ class EventsListPastView(InfinityLoaderListView):
 
 class EventsDetailView(DetailView):
     model = Event
-    queryset = Event.objects.filter(is_active=True, start_event_date__lte=timezone.now())
+    queryset = Event.objects.filter(is_active=True, start_event_date__gte=timezone.now())
     context_object_name = 'event'
-    template_name = 'root/events_detail.html'
+    template_name = 'site/event-announcement.html'
 
 
 class ReportsListView(ListView):

@@ -6,14 +6,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
     <meta name="yandex-tableau-widget" content="'images/favicons/tableau-logo.png', color=#FCE420" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="format-detection" content="address=no" />
     <meta name="theme-color" content="#FCE420">
 
-    <title>Про Амурск</title>
+    {% block seo %}
+    {% endblock %}
+
+    {{ settings.meta_tags|safe }}
+
+    {% block og %}
+    {% endblock %}
+
+    <title>{% block title %}Про Амурск{% endblock %}</title>
 
     <link href="{% static "site/images/favicons/favicon.svg" %}{% static_version %}" color="#000000" rel="mask-icon" />
     <link href="{% static "site/images/favicons/favicon.ico" %}{% static_version %}" rel="shortcut icon" />

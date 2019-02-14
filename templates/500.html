@@ -1,0 +1,38 @@
+{% load static static_version %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="yandex-tableau-widget" content="'images/favicons/tableau.png', color=#FCE420" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="theme-color" content="#FCE420">
+
+    <title>Ошибка сервера</title>
+
+    <link href="{% static "site/images/favicons/favicon.svg" %}{% static_version %}" color="#FCE420" rel="mask-icon" />
+    <link href="{% static "site/images/favicons/favicon.ico" %}{% static_version %}" rel="shortcut icon" />
+    <link href="{% static "site/images/favicons/57.png" %}{% static_version %}" rel="apple-touch-icon" />
+    <link href="{% static "site/images/favicons/76.png" %}{% static_version %}" rel="apple-touch-icon" sizes="76x76" />
+    <link href="{% static "site/images/favicons/120.png" %}{% static_version %}" rel="apple-touch-icon" sizes="120x120" />
+    <link href="{% static "site/images/favicons/152.png" %}{% static_version %}" rel="apple-touch-icon" sizes="152x152" />
+    <link href="{% static "site/images/favicons/180.png" %}{% static_version %}" rel="apple-touch-icon" sizes="180x180" />
+    <link href="{% static "site/images/favicons/128.png" %}{% static_version %}" rel="icon" sizes="128x128" />
+    <link href="{% static "site/images/favicons/192.png" %}{% static_version %}" rel="icon" sizes="192x192" />
+
+    <link rel="stylesheet" href="{% static "site/css/short-styles.min.css" %}{% static_version %}">
+</head>
+
+<body>
+    <main class="page-error-500">
+        <h1 class="page-error__title page-error-500__title">Что-то пошло не так</h1>
+        <img src="{% static "site/images/svg/500.svg" %}{% static_version %}" alt="Ошибка 500" class="page-error-500__img">
+        <div class="page-error__subtitle page-error-500__subtitle">Похоже на ошибку сервера, <br>попробуйте повторить позднее</div>
+    </main>
+</body>
+</html>
