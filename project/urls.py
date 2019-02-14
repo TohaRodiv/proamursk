@@ -38,7 +38,7 @@ urlpatterns = [
     path('api/site/reports/', root_views.ReportsListView.as_view(), name='ajax-reports'),
     path('api/site/persons/', root_views.persons, name='ajax-persons'),
     path('api/site/places/', root_views.places, name='ajax-places'),
-    path('api/site/history/', root_views.history, name='ajax-history'),
+    path('api/site/history/', root_views.HistoryListView.as_view(), name='ajax-history'),
     path('api/site/bugreport/', root_views.bugreport, name='ajax-bugreport'),
     path('api/mailing/', include('applications.mailing.urls')),
     path('robots.txt', RobotsTxtView.as_view())

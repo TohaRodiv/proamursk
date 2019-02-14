@@ -1,21 +1,24 @@
-<div class="grid-publication @@class">
+{% load media_filters %}
+{% load static static_version %}
+{% load pytils_dt %}
+{% load site_tags %}
 
-    <a href="@@link" class="grid-publication__cover-wrap">
+<div class="grid-publication {{ css_class }}">
+
+    <a href="{{ item.get_absolute_url }}" class="grid-publication__cover-wrap">
         <div class="grid-publication__bg-gradient"></div>
-        <img src="@@img" alt="" class="grid-publication__cover">
+        <img src="{{ item.cover|get_thumbnail_url_by_name:cover_name  }}" alt="" class="grid-publication__cover">
     </a>
 
     <div class="grid-publication__text-wrap">
         <h2 class="grid-publication__title">
-            <a href="@@link">@@title</a>
+            <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
         </h2>
 
-        <p class="grid-publication__text grid-publication__description">@@description</p>
+        <p class="grid-publication__text grid-publication__description">{{ item.lead }}</p>
 
         <div class="grid-publication__wobbler">
-            @@include('modules/wobbler.html', {
-                "wobbler": "@@wobbler"
-            })
+            <img src="{% static "site/images/svg/wobbler-history.svg" %}{% static_version %}" alt="История" class="wobbler">
         </div>
     </div>
 </div>
