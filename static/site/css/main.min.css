@@ -315,6 +315,30 @@ ul, ol {
 .icon-link:before {
   content: "\e91c"; }
 
+.icon-binoculars:before {
+  content: "\e91d"; }
+
+.icon-phone-plus:before {
+  content: "\e91e"; }
+
+.icon-food:before {
+  content: "\e91f"; }
+
+.icon-bus:before {
+  content: "\e920"; }
+
+.icon-hotel:before {
+  content: "\e921"; }
+
+.icon-calendar-fill:before {
+  content: "\e922"; }
+
+.icon-reportage-fill:before {
+  content: "\e923"; }
+
+.icon-megafon-fill:before {
+  content: "\e924"; }
+
 .icon-clip-thin:before {
   content: "\e916"; }
 
@@ -2978,7 +3002,24 @@ footer {
 .aside-nav__icon {
   width: 36px;
   height: 36px;
-  margin-right: 20px; }
+  margin-right: 20px;
+  line-height: 36px;
+  color: #FFFFFF;
+  background-color: #0073FF;
+  border-radius: 50%;
+  text-align: center; }
+  .aside-nav__icon.icon-hotel {
+    font-size: 21px; }
+  .aside-nav__icon.icon-food {
+    font-size: 16px; }
+  .aside-nav__icon.icon-binoculars {
+    font-size: 14px;
+    line-height: 38px; }
+  .aside-nav__icon.icon-bus {
+    font-size: 17px;
+    line-height: 38px; }
+  .aside-nav__icon.icon-phone-plus {
+    font-size: 17px; }
 
 .nearest-event-widget__title {
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
@@ -3335,7 +3376,22 @@ footer {
   top: 25px;
   right: 110px;
   width: 85px;
-  height: 85px; }
+  height: 85px;
+  color: #0073FF;
+  line-height: 85px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  text-align: center; }
+  .city-guide__cover-icon.icon-hotel {
+    font-size: 48px; }
+  .city-guide__cover-icon.icon-food {
+    font-size: 38px; }
+  .city-guide__cover-icon.icon-binoculars {
+    font-size: 32px; }
+  .city-guide__cover-icon.icon-bus {
+    font-size: 45px; }
+  .city-guide__cover-icon.icon-phone-plus {
+    font-size: 45px; }
 
 .city-guide__img-figcaption {
   height: 100%;
