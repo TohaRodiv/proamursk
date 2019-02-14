@@ -353,10 +353,11 @@ class FilmsDetailSerializer(ModelSerializer):
 
 class SidebarBannerSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    horizontal_cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
 
     class Meta:
         model = SidebarBanner
-        fields = ('id', 'cover', 'title', 'link', 'start_publication_date', 'end_publication_date', 'comment',
+        fields = ('id', 'horizontal_cover', 'cover', 'title', 'link', 'start_publication_date', 'end_publication_date', 'comment',
                   'create_date', 'edit_date', 'is_active')
 
 

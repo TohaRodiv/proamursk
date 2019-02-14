@@ -330,7 +330,10 @@ class FilmSession(BaseModel):
 
 
 class SidebarBanner(BaseModel, IsActiveMixin):
-    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE,
+                              related_name='verticals_banners', verbose_name='Обложка')
+    horizontal_cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE,
+                                         related_name='horizontal_banners', verbose_name='Обложка')
     title = models.CharField('Название', max_length=255)
     link = models.CharField('Ссылка', max_length=255)
     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
