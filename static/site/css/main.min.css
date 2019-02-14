@@ -2443,22 +2443,12 @@ footer {
     margin-top: 60px;
     padding-top: 0; }
     .page-error-404__text-wrap {
-      padding-bottom: 200px; }
+      padding-bottom: 400px; }
     .page-error-404__title {
       margin-bottom: 20px;
       font-size: 56px; }
     .page-error-404__subtitle {
       width: 365px; }
-    .page-error-404__btn {
-      width: 140px;
-      margin-top: 150px; }
-      .page-error-404__btn::before {
-        display: inline-block;
-        margin-right: 20px;
-        -webkit-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-                transform: rotate(90deg);
-        vertical-align: -2px; }
     .page-error-404__img {
       width: 940px;
       position: absolute;
@@ -2487,39 +2477,38 @@ footer {
       max-width: 800px;
       margin-bottom: 60px; }
 
-.maintenance-mode {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 100vh;
-  padding: 15px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  background-image: url(../images/maintenance-mode.jpg);
-  background-color: #000000;
-  background-size: cover;
-  background-position: center center;
-  color: #FFFFFF; }
-  .maintenance-mode__logo {
+.maintenance-mode__header {
+  margin-top: 70px;
+  margin-bottom: 100px; }
+
+.maintenance-mode__main {
+  position: relative;
+  min-height: 700px; }
+
+.maintenance-mode__footer {
+  margin-top: 60px; }
+  .maintenance-mode__footer img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 48px;
-    width: 380px; }
-  .maintenance-mode__title {
-    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
-    font-size: 36px;
-    margin-bottom: 24px; }
-  .maintenance-mode__text-wrap {
-    max-width: 500px;
-    margin: 0 auto;
-    color: #FFFFFF; }
+    width: 100%; }
+
+.maintenance-mode__logo {
+  display: block;
+  width: 147px; }
+
+.maintenance-mode__title {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 56px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+
+.maintenance-mode__text-wrap {
+  max-width: 500px; }
+
+.maintenance-mode__img {
+  width: 800px;
+  position: absolute;
+  top: 0;
+  right: 0; }
 
 .grid-publication {
   position: relative;

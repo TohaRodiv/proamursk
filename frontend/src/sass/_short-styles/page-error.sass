@@ -17,7 +17,7 @@
         padding-top: 0
 
         &__text-wrap
-            padding-bottom: 200px
+            padding-bottom: 400px
 
         &__title
             margin-bottom: 20px
@@ -25,17 +25,6 @@
 
         &__subtitle
             width: 365px
-
-        &__btn
-            width: 140px
-            margin-top: 150px
-
-            &::before
-                display: inline-block
-                margin-right: 20px
-                transform: rotate(90deg)
-                vertical-align: -2px
-
 
         &__img
             width: 940px
@@ -66,31 +55,36 @@
             margin-bottom: 60px
 
 .maintenance-mode
-    display: flex
-    min-height: 100vh
-    padding: 15px
-    flex-direction: column
-    justify-content: center
-    text-align: center
-    background-image: url(../images/maintenance-mode.jpg)
-    background-color: $dark-c
-    background-size: cover
-    background-position: center center
-    color: $light-c
+
+    &__header
+        margin-top: 70px
+        margin-bottom: 100px
+
+    &__main
+        position: relative
+        min-height: 700px
+
+    &__footer
+        margin-top: 60px
+        img
+            display: block
+            width: 100%
 
     &__logo
         display: block
-        margin-left: auto
-        margin-right: auto
-        margin-bottom: 48px
-        width: 380px
+        width: 147px
 
     &__title
+        margin-top: 0
+        margin-bottom: 30px
+        font-size: 56px
         font-family: $bold-f
-        font-size: $huge-fz
-        margin-bottom: 24px
 
     &__text-wrap
         max-width: 500px
-        margin: 0 auto
-        color: $light-c
+
+    &__img
+        width: 800px
+        position: absolute
+        top: 0
+        right: 0
