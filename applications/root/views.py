@@ -1,5 +1,6 @@
 import json
 
+from datetime import date, timedelta
 from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse, Http404, HttpResponse
@@ -35,7 +36,12 @@ def custom_handler404(request, exception):
 class IndexView(View):
 
     def get(self, request):
-        return render(request, 'site/index.html', dict())
+        current_date = date.today()
+        films = Film.objects.filter(is_active=True,
+                                    sessions__session_time__gte=current_date,
+                                    sessions__session_time__lt=current_date + timedelta(days=1)
+                                    ).distinct()
+        return render(request, 'site/index.html', dict(films=films))
 
 
 class NewsListView(InfinityLoaderListView):
