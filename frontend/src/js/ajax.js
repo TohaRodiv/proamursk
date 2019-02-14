@@ -80,7 +80,7 @@ function ajaxInfinityLoader(url, templateName, page) {
             clearInterval(preloaderId);
             if (responseObj.status == true) {
                 if (responseObj.data.last) {
-                    // $('.btn_more').addClass('hidden');
+                    $('.btn_more').addClass('hidden');
                 }
 
                 if (templateName === 'news') {
