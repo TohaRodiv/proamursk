@@ -122,7 +122,6 @@ $('body').on('click', '.btn_more', function () {
     var pageCount = $(this).data('page-count'),
         url, templateName;
 
-    pageCount++;
     $(this).data('page-count', pageCount);
     $(this).addClass('btn_preloader');
 
@@ -160,4 +159,5 @@ $('body').on('click', '.btn_more', function () {
     }
 
     ajaxInfinityLoader(url, templateName, pageCount);
+    pageCount++;
 })
