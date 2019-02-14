@@ -98,13 +98,58 @@ const state = {
                             {
                                 type: 'field',
                                 label: 'Режим работы',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 height: 60,
                                 codename: 'schedule',
                                 widget: 'textarea',
                                 hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Контактная информация',
+                                width: 12,
+                                codename: 'contacts',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Сайт',
+                                width: 8,
+                                codename: 'site',
+                                widget: 'simpleInput',
+                                hint: '',
+                                placeholder: 'http(s)://'
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom50',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Профиль в Instagram',
+                                width: 8,
+                                codename: 'instagram',
+                                widget: 'simpleInput',
+                                hint: '',
+                                placeholder: 'http(s)://'
                             }
                         ]
                     },

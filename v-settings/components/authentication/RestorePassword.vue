@@ -31,7 +31,7 @@
                     <div class="auth-footer">
                         <span>©{{'&nbsp;'}}</span>
                         <a href="http://perfectura.ru/" target="_blank" class="link">Перфектура</a>
-                        <span>, 209</span>
+                        <span>, 2019</span>
                     </div>
                 </div>
             </div>
