@@ -639,7 +639,7 @@
                     self.toolbarElement.appendChild(toolbarLineElement);
                 }
                 formatterElement.appendChild(self.toolbarElement);
-                window.addEventListener('click', function () {
+                window.addEventListener('click', function (event) {
                     if (!event.target.closest('.formatter-popup')) {
                         _removePopUps();
                     }
@@ -661,6 +661,7 @@
                             continue;
                         }
                         if (actionName && actionName != '|') {
+                            let sheet = document.styleSheets[0];
                             var actionNode = _findParentActionElement(actionName, _getCursorNode());
                             button = self.toolbarElement.querySelector('.formatter-toolbar__button_' + _camelCaseToDash(actionName));
                             if (_actionState(actionName)) {
@@ -674,11 +675,18 @@
                                     _addClass(button, 'formatter-toolbar__button_active');
                                     if (button.nextSibling) _addClass(button.nextSibling, 'formatter-toolbar__button_active');
                                     if (actionName == 'fontColor') {
-
-                                        document.styleSheets[0].addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: ' + actionNode.style.color + ' !important;');
+                                        if (sheet.insertRule) {
+                                            sheet.insertRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after { background-color: ' + actionNode.style.color + ' !important; }', sheet.cssRules.length);
+                                        } else {
+                                            sheet.addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: ' + actionNode.style.color + ' !important;');
+                                        }
                                     }
                                     if (actionName == 'backgroundColor') {
-                                        document.styleSheets[0].addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: ' + actionNode.style['backgroundColor'] + ' !important;');
+                                        if (sheet.insertRule) {
+                                            sheet.insertRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after { background-color: ' + actionNode.style['backgroundColor'] + ' !important; }', sheet.cssRules.length);
+                                        } else {
+                                            sheet.addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: ' + actionNode.style['backgroundColor'] + ' !important;');
+                                        }
                                     }
                                 }
                             }
@@ -691,10 +699,18 @@
                                     _removeClass(button, 'formatter-toolbar__button_active');
                                     if (button.nextSibling) _removeClass(button.nextSibling, 'formatter-toolbar__button_active');
                                     if (actionName == 'fontColor') {
-                                        document.styleSheets[0].addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: #000000 !important;');
+                                        if (sheet.insertRule) {
+                                            sheet.insertRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after { background-color: #000000 !important; }', sheet.cssRules.length);
+                                        } else {
+                                            sheet.addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: #000000 !important;');
+                                        }
                                     }
                                     if (actionName == 'backgroundColor') {
-                                        document.styleSheets[0].addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: #ffffff !important;');
+                                        if (sheet.insertRule) {
+                                            sheet.insertRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after { background-color: #ffffff !important; }', sheet.cssRules.length);
+                                        } else {
+                                            sheet.addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: #ffffff !important;');
+                                        }
                                     }
                                 }
 
