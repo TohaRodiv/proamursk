@@ -27,3 +27,7 @@ def last_news(context):
     news = news[:4]
 
     return dict(news=news)
+
+@register.filter()
+def get_model_name(val):
+    return val._meta.model_name

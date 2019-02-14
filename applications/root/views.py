@@ -67,14 +67,12 @@ class EventsListView(View):
                      )
 
 
-class EventsListFutureView(InfinityLoaderListView):
-    queryset = Event.objects.filter(is_active=True,
-                                    start_event_date__gte=timezone.now())
-    template_name = 'site/future-events.html'
-    ajax_template_name = 'site/modules/news-list-block.html'
-    context_list_name = 'events'
-    ajax_context_list_name = 'events'
-    items_per_page = 1
+class EventsListFutureView(View):
+
+    def get(self, request):
+        items = Event.objects.filter(is_active=True,
+                                     start_event_date__gte=timezone.now()).order_by('-start_event_date')
+        return render(request, 'site/future-events.html', {'events': items,})
 
 
 class EventsListPastView(InfinityLoaderListView):
@@ -84,36 +82,49 @@ class EventsListPastView(InfinityLoaderListView):
     template_name = 'site/past-events.html'
     ajax_template_name = 'site/modules/grid-event-block.html'
     context_list_name = 'events'
-    ajax_context_list_name = 'events'
+    ajax_context_list_name = 'announcements'
     items_per_page = 1
 
     def get(self, request):
         items = Event.objects.filter(is_active=True,
-                                     start_event_date__lt=timezone.now()).order_by('-start_event_date')[:8]
-        return render(request, self.template_name, {self.context_list_name: items})
+                                     start_event_date__lt=timezone.now()).order_by('-start_event_date')
+        has_next = items.count() > 8
+        items = items[:8]
+        return render(request, self.template_name, {self.context_list_name: items,
+                                                    'has_next': has_next})
 
 
 class EventsDetailView(DetailView):
     model = Event
-    queryset = Event.objects.filter(is_active=True, start_event_date__gte=timezone.now())
+    queryset = Event.objects.filter(is_active=True)
     context_object_name = 'event'
     template_name = 'site/event-announcement.html'
 
 
-class ReportsListView(ListView):
-    model = Report
-    allow_empty = True
-    queryset = Report.objects.filter(is_active=True, publication_date__lte=timezone.now())
-    paginate_by = 50
-    context_object_name = 'reports'
-    template_name = 'root/reports_list.html'
+class ReportsListView(InfinityLoaderListView):
+    queryset = Report.objects.filter(is_active=True,
+                                     publication_date__lte=timezone.now()).order_by('-publication_date')[8:]
+
+    template_name = 'site/all-reportage.html'
+    ajax_template_name = 'site/modules/grid-reports-block.html'
+    context_list_name = 'reports'
+    ajax_context_list_name = 'reports'
+    items_per_page = 1
+
+    def get(self, request):
+        items = Report.objects.filter(is_active=True,
+                                      publication_date__lte=timezone.now()).order_by('-publication_date')
+        has_next = items.count() > 8
+        items = items[:8]
+        return render(request, self.template_name, {self.context_list_name: items,
+                                                    'has_next': has_next})
 
 
 class ReportsDetailView(DetailView):
     model = Report
     queryset = Report.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'report'
-    template_name = 'root/report_detail.html'
+    template_name = 'site/reportage-details.html'
 
 
 class HistoryListView(ListView):
@@ -259,38 +270,6 @@ def place_review(request):
             return JsonResponse({'status': True,
                                  'message': 'Отзыв отправлен, он появится на сайте после прохождения модерации'})
         return JsonResponse({'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE})
-    else:
-        raise Http404
-
-
-@require_POST
-def reports(request):
-    result = {'status': False, 'message': settings.COMMON_ERROR_MESSAGE}
-    if request.is_ajax():
-        page_number = request.POST.get('page')
-        if page_number:
-            try:
-                page_number = int(page_number)
-            except ValueError:
-                pass
-            else:
-                now = timezone.now()
-                main_page_ids = list(Report.objects.filter(
-                    publication_date__lte=now, is_active=True).values_list('id', flat=True).order_by('-publication_date')[:16])
-                reports_objects = Report.objects.filter(publication_date__lte=now, is_active=True).exclude(
-                    id__in=main_page_ids).order_by('-publication_date')
-                paginator = Paginator(reports_objects, 24)
-                if page_number in paginator.page_range:
-                    page = paginator.page(page_number)
-                    rendered_html = render_to_string('root/ajax_infinity_loader.html', context={'objects': page})
-                    result = {
-                        'status': True,
-                        'data': {'last': not page.has_next()},
-                        'templates':
-                            {'reports': rendered_html.replace('\n', '')}
-                    }
-        return JsonResponse(result)
-
     else:
         raise Http404
 

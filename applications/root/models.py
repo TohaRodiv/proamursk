@@ -59,6 +59,9 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     def get_absolute_url(self):
         return reverse('events-detail', args=[self.id])
 
+    @property
+    def is_past(self):
+        return self.start_event_date < timezone.now()
 
 class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
     SMALL = 'small'
