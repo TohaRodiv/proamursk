@@ -1,4 +1,5 @@
 $base-c: #0073FF
+$base-dark-c: #283348
 
 $light-c: #FFFFFF
 $bg-light: #F5F6F7
@@ -48,14 +49,32 @@ a
     margin-left: auto
     margin-right: auto
     width: 185px
-    padding: 11px 15px
+    padding: 13px 15px 11px
     font-size: $base-fz
     line-height: 1
     font-weight: bold
-    color: $dark-c
+    color: $light-c
     text-align: center
-    border-radius: 5px
+    border-radius: 20px
     background-color: $base-c
+
+.ul,
+.ol
+    // ol
+    margin: 0
+    padding-left: 30px
+
+.li
+    // li
+    margin-top: 20px
+    padding-left: 5px
+
+.li-title
+    // div
+    margin-bottom: 10px
+    color: $dark-c
+    line-height: 1.2
+    font-weight: bold
 
 .separator
     margin: 24px auto
@@ -114,184 +133,13 @@ a
     text-align: center
     letter-spacing: 0.08em
 
-.section-title
-    margin-bottom: 1em
-    font-size: $base-fz
-    font-weight: bold
-
-.order
-    margin-bottom: 30px
-
-    td
-        vertical-align: middle
-
-.order-img-td
-    width: 70px
-    padding: 0 15px 0 0
-
-.order-product-cover
-    // img
-    display: block
-    width: 70px
-    height: 70px
-
-.order-title-td
-    // td
-    width: 220px
-    padding: 8px 0
-    text-align: left
-    font-size: 14px
-
-.order-product-title
-    // span
-    display: block
-    line-height: 1.5
-    font-weight: bold
-    color: $dark-c
-
-.order-product-code
-    // span
-    display: block
-    color: $base-gray
-
-.order-product-description
-    // span
-    display: inline-block
-    font-size: 14px
-    color: $base-gray
-
-.order-amount-td
-    // td
-    padding: 0
-    padding-left: 30px
-    font-size: 14px
-    color: $dark-c
-    text-align: right
-
-.order-price-td
-    // td
-    width: 110px
-    padding: 0
-    font-size: 0
-    text-align: right
-
-.price
-    // span
-    font-size: 18px
-    line-height: 1
-    color: $dark-c
-
-.old-price
-    display: block
-    margin-bottom: 3px
-    font-size: 16px
-    color: $dark-gray
-    text-decoration: line-through
-
-.label
-    margin-bottom: 0
-    font-size: 16px
-    font-weight: bold
-
-.label-text
-    margin-bottom: 24px
-    font-size: 16px
-    line-height: 1.5
-    color: $dark-c
-
-.order-info
-    text-align: right
-
-    .separator
-        width: 320px
-        margin: 15px 0 15px auto
-
-.order-total
-    width: 320px
-    margin-left: auto
-
-    &-row
-        vertical-align: top
-        line-height: 1.3
-
-        &:not(:last-of-type)
-            .order-total-value
-                padding-bottom: 10px
-
-    &-label
-        padding: 0
-        font-size: 16px
-        text-align: left
-
-    &-value
-        padding: 0
-        color: $dark-c
-        font-size: 18px
-        text-align: right
-
-.order-cashback
-    width: 320px
-    margin-left: auto
-    line-height: 1.3
-
-    tr:not(:last-of-type)
-        td
-            padding-bottom: 10px
-
-    &-label
-        text-align: right
-        font-size: 16px
-
-    &-price
-        display: inline-block
-        margin-left: 10px
-        font-size: $big-fz
-
-    &-img
-        display: inline-block
-        margin-right: 5px
-
-        &_card
-            width: 18px
-            vertical-align: -1px
-
-.check__cashback-card-img
-    width: 110px
-
-.check__cashback-text
-    margin-bottom: 0
-    padding-right: 20px
-    font-size: $small-fz
-    line-height: 1.3
-    color: $base-gray
-    text-align: left
-
-    span
-        color: $dark-c
-
-.banner-img
-    display: block
-    width: 600px
-
-.ul,
-.ol
-    // ol
-    margin: 0
-    padding-left: 30px
-
-.li
-    // li
-    margin-top: 20px
-    padding-left: 5px
-
-.li-title
-    // div
-    margin-bottom: 10px
-    color: $dark-c
-    line-height: 1.2
-    font-weight: bold
-
 .footer
+    background-color: $base-dark-c
+
+.footer-td
+    padding: 30px 80px
+
+
     td,
     td a
         color: $base-gray
@@ -332,9 +180,6 @@ a
         padding: 20px
         font-size: 14px
 
-.contact-phone
-    font-weight: bold
-
 .social-wrap
     // td
     padding: 20px
@@ -349,67 +194,3 @@ a
         width: 24px
         margin-left: 12px
         vertical-align: middle
-
-.email-product
-    &-td
-        padding: 0
-
-    &-cover
-        width: 140px
-        padding-right: 8px
-
-    &-code
-        margin-bottom: 3px
-        color: $base-gray
-
-    &-title
-        margin-bottom: 0
-        color: $dark-c
-        text-decoration: none
-        font-weight: bold
-
-    &-model
-        margin-top: 3px
-        margin-bottom: 0
-        color: $base-gray
-
-    &-price
-        margin-top: 15px
-        margin-bottom: 0
-        font-size: $base-fz
-        font-weight: bold
-
-.email-comment
-    &__title
-        margin-bottom: 6px
-        font-size: $big-fz
-        font-weight: bold
-
-    &__buy-date
-        margin-bottom: 4px
-
-    &__car,
-    &__buy-date
-        font-size: $mini-fz
-
-    &__rating
-        font-size: 0
-        text-align: right
-
-    &__star
-        width: 14px
-        margin-left: 5px
-
-    &__label
-        font-size: $mini-fz
-        font-weight: bold
-        margin-bottom: 0
-
-    &__link
-        margin-top: 30px
-
-    &__label-text
-        font-size: $mini-fz
-
-        &:not(:last-of-type)
-            margin-bottom: 15px
