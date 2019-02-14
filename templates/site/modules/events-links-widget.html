@@ -4,19 +4,19 @@
     <ul class="aside-nav__list">
         <li class="aside-nav__item">
             <a href="{% url "events-list-future" %}" class="aside-nav__link {% if request.resolver_match.url_name == "events-list-future" %}active{% endif %}">
-                <img src="{% static "site/images/svg/round-anounce.svg" %}{% static_version %}" alt="" class="aside-nav__icon">
+                <span class="aside-nav__icon icon-megafon-fill"></span>
                 <span class="aside-nav__text">Анонсы ближайших событий</span>
             </a>
         </li>
         <li class="aside-nav__item">
             <a href="{% url "events-list-past" %}" class="aside-nav__link {% if request.resolver_match.url_name == "events-list-past" %}active{% endif %}">
-                <img src="{% static "site/images/svg/round-calendar.svg" %}{% static_version %}" alt="" class="aside-nav__icon">
+                <span class="aside-nav__icon icon-calendar-fill"></span>
                 <span class="aside-nav__text">Прошедшие события</span>
             </a>
         </li>
         <li class="aside-nav__item">
             <a href="{% url "reports-list" %}" class="aside-nav__link {% if request.resolver_match.url_name == "reports-list" %}active{% endif %}">
-                <img src="{% static "site/images/svg/round-reportage.svg" %}{% static_version %}" alt="" class="aside-nav__icon">
+                <span class="aside-nav__icon icon-reportage-fill"></span>
                 <span class="aside-nav__text">Все репортажи</span>
             </a>
         </li>
