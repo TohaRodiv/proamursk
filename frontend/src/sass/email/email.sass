@@ -1,11 +1,7 @@
-$primary-blue: #0080F2
-$primary-yellow: #FCE420
-
-$primary-blue-dark: #006DCE
-$primary-yellow-light: #FFF038
+$base-c: #0073FF
 
 $light-c: #FFFFFF
-$bg-light: #FAFAF2
+$bg-light: #F5F6F7
 
 $dark-c: #000000
 
@@ -14,9 +10,6 @@ $light-gray: #DFDFDF
 $dark-gray: #BEBEBE
 
 $border-gray: #EDEDED
-
-$accent-green: #57A700
-$accent-orange: #E28E01
 
 $micro-fz: 12px
 $small-fz: 14px
@@ -28,7 +21,7 @@ $bigger-fz: 30px
 $huge-fz: 36px
 
 body
-    background-color: $bg-light
+    background-color: #E4E4E4
     color: $dark-c
     font-size: 14px
     line-height: 1.5
@@ -37,6 +30,7 @@ body
 table
     width: 100%
     border-collapse: collapse
+    border-spacing: 0
 
 p
     margin-top: 0
@@ -45,7 +39,7 @@ p
     line-height: 1.5
 
 a
-    color: $primary-blue
+    color: $base-c
     text-decoration: none
     cursor: pointer
 
@@ -61,7 +55,7 @@ a
     color: $dark-c
     text-align: center
     border-radius: 5px
-    background-color: $primary-yellow
+    background-color: $base-c
 
 .separator
     margin: 24px auto
@@ -70,61 +64,55 @@ a
 .p0
     padding: 0
 
-.accent-green
-    td,
-    span
-        color: $accent-green
-
-.accent-orange
-    td,
-    span
-        color: $accent-orange
-
 .wrapper
-    // table
-    width: 600px
+    width: 700px
     margin: 90px auto 90px auto
 
 .header
-    background-color: $primary-yellow
-
-.content
+    position: relative
     background-color: $light-c
 
-.container
-    margin-top: 24px
-    border: 1px solid $border-gray
+.header__td
+    padding: 40px 30px
 
-.header-cover-logo
-    // img
-    display: block
-    width: 600px
+.header
+    &__logo-link
+        display: block
+        position: relative
+        text-decoration: none
+        color: $dark-c
+        z-index: 2
 
-.header-logo
-    // img
-    display: block
-    width: 195px
-    padding: 48px
+    &__logo-subtext
+        margin-top: 6px
+        font-size: 11px
+        line-height: 1
+        letter-spacing: 0.07em
+        color: #242434
 
-.header__contacts
-    padding: 48px
-    text-align: right
+    &__logo-img
+        display: block
+        width: 155px
 
-.header__phone
-    font-size: $big-fz
-    font-weight: bold
-    color: $dark-c
+.header-img
+    width: 640px
+    position: absolute
+    bottom: 20px
+    right: 30px
+    z-index: 1
 
-.header__phone-description
-    margin-bottom: 0
-    font-size: $micro-fz
+.content
+    background-color: $bg-light
 
 .content-td
-    // td
-    padding: 24px 48px 48px
-    text-align: left
-    font-size: 16px
-    line-height: 1.5
+    padding: 30px 30px 40px
+
+.content__title
+    margin-bottom: 20px
+    font-size: 24px
+    font-weight: bold
+    text-align: center
+    letter-spacing: 0.08em
 
 .section-title
     margin-bottom: 1em

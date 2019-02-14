@@ -241,7 +241,7 @@ const email = gulp.series(emailStyles, emailHtml);
 const emailTest = gulp.series(emailStyles, emailHtml, emailTestSend);
 
 function emailWatch() {
-    gulp.watch(['src/sass/email/email.sass', 'src/html/email/email.html'], emailHtml);
+    gulp.watch(['src/sass/email/email.sass', 'src/html/email/email.html'], gulp.series(emailStyles, emailHtml));
 };
 
 
