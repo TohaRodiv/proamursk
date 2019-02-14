@@ -15,6 +15,7 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
         verbose_name = 'Новость'
@@ -47,6 +48,7 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
         verbose_name = 'Анонс события'
@@ -62,6 +64,7 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     @property
     def is_past(self):
         return self.start_event_date < timezone.now()
+
 
 class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
     SMALL = 'small'
@@ -83,6 +86,7 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
     event_date_text = models.CharField('Дата проведения', max_length=255)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
         verbose_name = 'Репортаж о событии'
@@ -142,6 +146,7 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
         verbose_name = 'Статья о людях'
@@ -189,6 +194,7 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
         verbose_name = 'Историческая статья'
@@ -219,6 +225,7 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
         verbose_name = 'Гид по городу'
@@ -255,6 +262,7 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
     instagram = models.URLField('Профиль в Instagram', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
         verbose_name = 'Статья о местах'
@@ -302,6 +310,7 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
     trailer = models.URLField('Ссылка на трейлер в YouTube')
     purchase_link = models.URLField('Ссылка на страницу фильма на сайте кинотеатра "Молодость"')
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
         verbose_name = 'Киноанонс'

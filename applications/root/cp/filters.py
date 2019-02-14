@@ -10,6 +10,7 @@ from django_filters import rest_framework as filters
 class NewsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
 
     class Meta:
         model = News
@@ -23,6 +24,7 @@ class NewsFilter(APIFilterSet):
 class EventsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
 
     class Meta:
@@ -37,6 +39,7 @@ class EventsFilter(APIFilterSet):
 class ReportsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
 
     class Meta:
@@ -51,6 +54,7 @@ class ReportsFilter(APIFilterSet):
 class HistoryFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
     rubrics_id__in = NumberInFilter(field_name='rubric', lookup_expr='in')
 
@@ -66,6 +70,7 @@ class HistoryFilter(APIFilterSet):
 class PersonsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
 
     class Meta:
@@ -80,6 +85,7 @@ class PersonsFilter(APIFilterSet):
 class CityGuidesFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
 
     class Meta:
@@ -94,6 +100,7 @@ class CityGuidesFilter(APIFilterSet):
 class PlacesFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment', 'address'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
     reviews_count__lte = filters.NumberFilter(field_name='reviews_count__lte', method='common_filter')
     reviews_count__gte = filters.NumberFilter(field_name='reviews_count__gte', method='common_filter')
@@ -124,6 +131,7 @@ class SpecialsFilter(APIFilterSet):
 class FilmsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
 
     class Meta:
         model = Film

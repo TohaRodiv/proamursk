@@ -30,7 +30,7 @@ class NewsDetailSerializer(ModelSerializer):
         model = News
         fields = ('id', 'cover', 'title', 'lead', 'content', 'comment', 'publication_date', 'create_date', 'edit_date',
                   'meta_title', 'meta_description', 'meta_keywords', 'og_image', 'is_active', 'cover_author',
-                  'content_author')
+                  'content_author', 'show_two_banners')
 
 
 class ReportsNestedSerializer(ModelSerializer):
@@ -69,7 +69,7 @@ class EventsDetailSerializer(ModelSerializer):
         fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
                   'cover_format', 'cover_format_name', 'comment', 'content', 'create_date',
                   'report', 'edit_date', 'is_active', 'meta_title', 'meta_description',
-                  'meta_keywords', 'og_image', 'cover_author', 'content_author')
+                  'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -111,7 +111,7 @@ class ReportsDetailSerializer(ModelSerializer):
         fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text',
                   'cover_format', 'cover_format_name', 'comment', 'content', 'publication_date', 'event',
                   'create_date', 'edit_date', 'is_active', 'meta_title', 'meta_description',
-                  'meta_keywords', 'og_image', 'cover_author', 'content_author')
+                  'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -168,7 +168,7 @@ class HistoryDetailSerializer(ModelSerializer):
         model = History
         fields = ('id', 'cover', 'cover_format', 'rubric', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author')
+                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -199,7 +199,7 @@ class PersonsDetailSerializer(ModelSerializer):
         model = Person
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author')
+                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -230,7 +230,7 @@ class CityGuidesDetailSerializer(ModelSerializer):
         model = CityGuide
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author')
+                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -266,7 +266,8 @@ class PlacesDetailSerializer(ModelSerializer):
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'address', 'coordinates', 'schedule', 'contacts', 'site',  'instagram', 'comment',
                   'publication_date', 'meta_title', 'meta_description',
-                  'meta_keywords', 'og_image', 'create_date', 'edit_date', 'is_active', 'cover_author', 'content_author')
+                  'meta_keywords', 'og_image', 'create_date', 'edit_date', 'is_active', 'cover_author',
+                  'content_author', 'show_two_banners')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
@@ -330,7 +331,7 @@ class FilmsDetailSerializer(ModelSerializer):
         fields = ('id', 'cover', 'title', 'description', 'release_year', 'country', 'genre', 'director', 'starring',
                   'duration', 'age_restriction', 'is_3d', 'trailer', 'purchase_link', 'comment',
                   'create_date', 'edit_date', 'is_active', 'sessions', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image')
+                  'meta_description', 'meta_keywords', 'og_image', 'show_two_banners')
 
     def validate_sessions(self, data):
         if not data:
