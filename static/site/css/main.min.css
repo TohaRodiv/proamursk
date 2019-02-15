@@ -2191,6 +2191,12 @@ footer {
     font-size: 24px; }
   .last-news__wobbler {
     margin-top: auto; }
+  .last-news__link {
+    font-size: 16px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    color: #0073FF; }
+    .last-news__link:hover, .last-news__link:focus {
+      text-decoration: none; }
   .last-news__icon {
     position: absolute;
     bottom: 0;

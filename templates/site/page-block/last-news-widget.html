@@ -18,8 +18,8 @@
     </ul>
 
     <div class="last-news__wobbler">
-        <img src="{% static "site/images/svg/wobbler-news.svg" %}{% static_version %}" alt="Новости" class="wobbler">
+        <a href="{% url "news-list" %}" class="last-news__link">Все новости</a>
     </div>
 
-    <span class="last-news__icon icon-news"></span>
+    <img src="{% static "site/images/svg/news-cut.svg" %}{% static_version %}" alt="Новости" class="last-news__icon">
 </div>
