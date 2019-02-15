@@ -1,3 +1,21 @@
 .wobbler
-    display: block
+    display: flex
+    align-items: center
     height: 26px
+    padding: 0 15px
+    color: $light-c
+    background-color: $base-c
+    border-radius: 17px
+
+    &__icon
+        margin-right: 7px
+        font-size: 0
+
+        &::before
+            font-size: 14px
+
+    &__text
+        font-family: $bold-f
+        font-size: 12px
+        letter-spacing: 0.04em
+        text-transform: uppercase
