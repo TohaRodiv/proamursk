@@ -21,8 +21,6 @@
 
         <div class="grid-publication__wobbler">
 
-{#            {% include "site/modules/wobbler.html" %}#}
-
             {% with model_name=item|get_model_name %}
                 {% if model_name == "report" %}
                     <img src="{% static "site/images/svg/wobbler-reportage.svg" %}{% static_version %}" alt="Репортаж" class="wobbler">

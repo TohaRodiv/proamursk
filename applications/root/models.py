@@ -303,6 +303,9 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
     def get_absolute_url(self):
         return reverse('places-detail', args=[self.id])
 
+    def get_reviews(self):
+        return self.reviews.filter(is_active=True)
+
 
 class PlaceReview(BaseModel):
     name = models.CharField('ФИО отправителя', max_length=255)

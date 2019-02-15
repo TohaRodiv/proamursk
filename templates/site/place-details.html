@@ -1,0 +1,138 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+{% load media_filters %}
+{% load pytils_dt %}
+{% load site_tags %}
+{% load utils_tags %}
+{% load posteditor_tags %}
+
+{% block title %}
+    {{ place.meta_title|default:place.title }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ place.meta_keywords }}">
+    <meta name="description" content="{{ place.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=place.meta_title|default:place.title og_description=place.meta_description og_image=place.og_image|default:place.cover|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main">
+                    <article class="publication">
+                        <figure class="publication__cover-wrap">
+                            <img src="{{ place.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" class="publication__cover">
+                            <figcaption class="publication__img-figcaption">
+                                <span class="publication__img-author">{{ place.cover_author }}</span>
+                            </figcaption>
+                        </figure>
+
+                        <div class="publication__content">
+                            <div class="publication__rubric"><span class="publication__rubric-icon icon-place"></span>Места</div>
+
+                            <h1 class="publication__title">{{ place.title }}</h1>
+
+                            <p class="publication__lead">{{ place.lead }}</p>
+
+                            {% post_editor_make_content place.content 'default' %}
+
+                            <div class="publication__additional-info-wrap publication__place-info-wrap">
+                                <div class="publication__place-info publication__place-place">
+                                    <span class="icon-geo"></span>
+                                    Адрес: <a href="" target="_blank">{{ place.address }}</a>
+                                </div>
+                                {% if  place.schedule %}
+                                    <div class="publication__place-info">
+                                        <span class="icon-clock"></span>
+                                        Время работы: {{ place.schedule }}
+                                    </div>
+                                {% endif %}
+                                {% if place.contacts %}
+                                    <div class="publication__place-info">
+                                        <span class="icon-phone"></span>
+                                        Тел.: {{ place.contacts }}
+                                    </div>
+                                {% endif %}
+                                {% if place.site %}
+                                    <div class="publication__place-info publication__place-place">
+                                        <span class="icon-web"></span>
+                                        <a href="" target="_blank">{{ place.site }}</a>
+                                    </div>
+                                {% endif %}
+                                {% if place.instagram %}
+                                    <div class="publication__place-info">
+                                        <span class="icon-instagram"></span>
+                                        <a href="">{{ place.instagram }}</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="publication__footer">
+                                <div class="publication__author">{{ report.content_author }}</div>
+
+                                {% include "site/page-block/share-widget.html" %}
+                            </div>
+                        </div>
+                    </article>
+
+                    {% with reviews=place.get_reviews %}
+
+                            <div class="reviews js-infinity-loader-wrap">
+
+                                    <div class="reviews__title-wrap">
+                                        <div class="reviews__title">Отзывы</div>
+                                        <div class="reviews__counter">{{ reviews|length }}</div>
+                                    </div>
+                                {% if reviews %}
+                                    <div class="reviews-list js-infinity-loader-grid">
+                                        {% for review in reviews %}
+                                            <div class="review">
+                                                <div class="review__head">
+                                                    <div class="review__date">{{ review.create_date|ru_strftime:"%d %B %Y" }}</div>
+                                                    <div class="review__name">{{ review.name }}:</div>
+                                                </div>
+                                                <div class="review__text">{{ review.text|linebreaksbr }}</div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+
+                                <div class="reviews__btns-wrap">
+                                    <button class="btn btn_blue reviews__btn show-pop-up" data-pop-up="share-place">Оставить отзыв</button>
+                                    {% if reviews %}
+                                        <button class="btn reviews__more-btn btn_more js-more-reviews" data-page-count="1">Смотреть все отзывы</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                    {% endwith %}
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+                        {% include "site/page-block/aside-subscribe-widget.html" %}
+                    </div>
+{#                    <div class="aside-widget">#}
+{#                        @@include('modules/offer-widget.html', {#}
+{#                            "class": "place",#}
+{#                            "text": "Любой житель Амурска может поделиться своим мнением об&nbsp;этом месте с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",#}
+{#                            "btnText": "Добавить отзыв о месте"#}
+{#                        })#}
+{#                    </div>#}
+                    <div class="aside-widget">
+                        {% include "site/page-block/nearest-event-widget.html" %}
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block additional_content %}
+    {#    @@include("page-block/read-also.html")#}
+{% endblock %}

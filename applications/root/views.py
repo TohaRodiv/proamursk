@@ -199,20 +199,30 @@ class CityGuidesDetailView(DetailView):
     template_name = 'root/city_guides_detail.html'
 
 
-class PlaceListView(ListView):
-    model = Place
-    allow_empty = True
-    queryset = Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
-    paginate_by = 50
-    context_object_name = 'places'
-    template_name = 'root/places_list.html'
+class PlaceListView(InfinityLoaderListView):
+    queryset = Place.objects.filter(is_active=True,
+                                      publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
+
+    template_name = 'site/all-places.html'
+    ajax_template_name = 'site/modules/grid-history-block.html'
+    context_list_name = 'places'
+    ajax_context_list_name = 'places'
+    items_per_page = 1
+
+    def get(self, request):
+        items = Place.objects.filter(is_active=True,
+                                     publication_date__lte=timezone.now()).order_by('-publication_date')
+        has_next = items.count() > 11
+        items = items[:11]
+        return render(request, self.template_name, {self.context_list_name: items,
+                                                    'has_next': has_next})
 
 
 class PlaceDetailView(DetailView):
     model = Place
     queryset = Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'place'
-    template_name = 'site/event-announcement.html'
+    template_name = 'site/place-details.html'
 
 
 class SpecialsListView(ListView):
