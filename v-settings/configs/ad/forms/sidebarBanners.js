@@ -92,14 +92,14 @@ const state = {
                 title: 'ИЗОБРАЖЕНИЯ',
                 blocks: [
                     {
-                        labelPosition: 'left',
+                        labelPosition: 'top',
                         direction: 'row',
                         elements: [
                             {
                                 type: 'field',
-                                inputID: 'wideBannersCoverInput',
-                                dragID: 'wideBannersCoverDrag',
-                                label: 'Баннер',
+                                inputID: 'wideBannersVertCoverInput',
+                                dragID: 'wideBannersVertCoverDrag',
+                                label: 'Вертикальный баннер',
                                 expected_value: 'medium_url',
                                 required: true,
                                 invalid: false,
@@ -115,8 +115,28 @@ const state = {
                                 key_attr: 'id',
                                 hint: ''
                             },
+                            {
+                                type: 'field',
+                                inputID: 'wideBannersHorCoverInput',
+                                dragID: 'wideBannersHorCoverDrag',
+                                label: 'Горизонтальный баннер',
+                                expected_value: 'medium_url',
+                                required: true,
+                                invalid: false,
+                                width: 6,
+                                image: {
+                                    width: 760,
+                                    height: 480,
+                                },
+                                codename: 'horizontal_cover',
+                                widget: 'singleImageLoader',
+                                modClass: 'marginBottom22',
+                                requireSendId: true,
+                                key_attr: 'id',
+                                hint: ''
+                            },
                         ]
-                    },
+                    }
                 ]
             },
         ],

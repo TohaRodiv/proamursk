@@ -193,7 +193,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom50',
+                        modClass: 'marginBottom22',
                         elements: [
                             {
                                 label: 'Описание',
@@ -202,6 +202,19 @@ const state = {
                                 widget: 'formatter',
                                 codename: 'description',
                                 width: 12,
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom50',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
+                                codename: 'show_two_banners',
+                                widget: 'singleCheckbox',
                                 hint: ''
                             }
                         ]
