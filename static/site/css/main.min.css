@@ -845,13 +845,13 @@ textarea {
     display: none; }
 
 .slick-prev {
-  left: 0px; }
+  left: -26px; }
   .slick-prev::before {
     content: "\e900";
     font-family: "proamursk"; }
 
 .slick-next {
-  right: 0px; }
+  right: -26px; }
   .slick-next::before {
     content: "\e902";
     font-family: "proamursk"; }
