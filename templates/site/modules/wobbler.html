@@ -1,69 +1,31 @@
-{% if wobler_type == "news" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-news-stroke"></span>
-        <div class="wobbler__text">Новости</div>
-    </div>
-{% endif %}
+{% load site_tags %}
 
-{% if wobler_type == "announcement" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-megafon-stroke"></span>
-        <div class="wobbler__text">Анонс</div>
-    </div>
-{% endif %}
+{% with model_name=item|get_model_name %}
+    {% if model_name == "news" %}
+        <div class="wobbler">
+            <span class="wobbler__icon icon-news-stroke"></span>
+            <div class="wobbler__text">Новости</div>
+        </div>
+    {% endif %}
 
-{% if wobler_type == "reportage" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-reportage"></span>
-        <div class="wobbler__text">Репортаж</div>
-    </div>
-{% endif %}
-
-{% if wobler_type == "past-event" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-calendar"></span>
-        <div class="wobbler__text">Состоялось</div>
-    </div>
-{% endif %}
-
-{% if wobler_type == "history" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-history"></span>
-        <div class="wobbler__text">История</div>
-    </div>
-{% endif %}
-
-{% if wobler_type == "first-builders" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-history"></span>
-        <div class="wobbler__text">Первостроители</div>
-    </div>
-{% endif %}
-
-{% if wobler_type == "legends" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-history"></span>
-        <div class="wobbler__text">Городские легенды</div>
-    </div>
-{% endif %}
-
-{% if wobler_type == "people" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-people"></span>
-        <div class="wobbler__text">Люди</div>
-    </div>
-{% endif %}
-
-{% if wobler_type == "place" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-geo-stroke"></span>
-        <div class="wobbler__text">Место</div>
-    </div>
-{% endif %}
-
-{% if wobler_type == "special-project" %}
-    <div class="wobbler">
-        <span class="wobbler__icon icon-star-sharp"></span>
-        <div class="wobbler__text">Спецпроекты</div>
-    </div>
-{% endif %}
+    {% if model_name == "history" %}
+        <div class="wobbler">
+            <span class="wobbler__icon icon-history"></span>
+            <div class="wobbler__text">{{ item.rubric.name }}</div>
+        </div>
+    {% endif %}
+    
+    {% if model_name == "person" %}
+        <div class="wobbler">
+            <span class="wobbler__icon icon-people"></span>
+            <div class="wobbler__text">Люди</div>
+        </div>
+    {% endif %}
+    
+    {% if model_name == "place" %}
+        <div class="wobbler">
+            <span class="wobbler__icon icon-geo-stroke"></span>
+            <div class="wobbler__text">Место</div>
+        </div>
+    {% endif %}
+{% endwith %}

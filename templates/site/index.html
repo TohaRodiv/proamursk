@@ -71,45 +71,7 @@
                             {% endif %}
                         {% endwith %}
                     {% endif %}
-
-
                 {% endfor %}
-
-{#                @@include("modules/grid-publication.html", {#}
-{#                    "class": "grid-publication_format-full grid-publication_text-size-big",#}
-{#                    "link": "special-project-details.html",#}
-{#                    "img": "images/publication-big1.jpg",#}
-{#                    "title": "Проект «Дети»",#}
-{#                    "description": "Амурские школьники становятся лауреатами престижных конкурсов, выпускники без труда поступают в лучшие вузы страны. Все дело в качестве образования, которое в нашем городе остается стабильно высоким.",#}
-{#                    "wobbler": "special-project"#}
-{#                })#}
-{#    #}
-{#                @@include("modules/grid-publication.html", {#}
-{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
-{#                    "link": "people-details.html",#}
-{#                    "img": "images/grid-cover-bigger1.jpg",#}
-{#                    "title": "Сильный телом и духом",#}
-{#                    "description": "Олег Пермяков 20 лет выращивает чемпионов на татами",#}
-{#                    "wobbler": "people"#}
-{#                })#}
-{#    #}
-{#                @@include("modules/grid-publication.html", {#}
-{#                    "class": "grid-publication_format-full grid-publication_text-size-base",#}
-{#                    "link": "reportage-details.html",#}
-{#                    "img": "images/grid-cover-3-full1.jpg",#}
-{#                    "title": "Я люблю Амурск спортивный!",#}
-{#                    "description": "Звезды спорта, футбол и слезы радости",#}
-{#                    "wobbler": "reportage"#}
-{#                })#}
-{#    #}
-{#                @@include("modules/grid-publication.html", {#}
-{#                    "class": "grid-publication_format-base grid-publication_cover-format-6col",#}
-{#                    "link": "place-details.html",#}
-{#                    "img": "images/grid-cover-6-base1.jpg",#}
-{#                    "title": "Ботанический сад",#}
-{#                    "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",#}
-{#                    "wobbler": "place"#}
-{#                })#}
             </div>
         </div>
 
@@ -152,68 +114,31 @@
             <div class="todo-layout">
                 {% include "site/page-block/cinema-widget.html" %}
 
+                {% for item in what_to_do %}
+                    {% if forloop.counter == 1 %}
+                        {% with model_name=item|get_model_name css_class='grid-publication_format-full grid-publication_text-size-big' cover_name="8_column_img" %}
+                            {% if model_name == 'event' or model_name == 'report' %}
+                                {% include "site/modules/grid-event.html" %}
+                            {% else %}
+                                {% include "site/modules/grid-publication.html" %}
+                            {% endif %}
+                        {% endwith %}
+                    {% else %}
+                        {% with model_name=item|get_model_name css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" %}
+                            {% if model_name == 'event' or model_name == 'report' %}
+                                {% include "site/modules/grid-event.html" %}
+                            {% else %}
+                                {% include "site/modules/grid-publication.html" %}
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                {% endfor %}
 
-{#                @@include("modules/grid-publication.html", {#}
-{#                    "class": "grid-publication_format-full grid-publication_text-size-big",#}
-{#                    "link": "place-details.html",#}
-{#                    "img": "images/grid-cover-6-full1.jpg",#}
-{#                    "title": "Краеведческий музей",#}
-{#                    "description": "История нашей земли — от Вознесенской культуры до Амурского ГМК",#}
-{#                    "wobbler": "place"#}
-{#                })#}
-{#    #}
-{#                @@include("modules/grid-publication.html", {#}
-{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
-{#                    "link": "place-details.html",#}
-{#                    "img": "images/grid-cover-bigger8.jpg",#}
-{#                    "title": "Амурские теплицы",#}
-{#                    "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",#}
-{#                    "wobbler": "place"#}
-{#                })#}
-{#    #}
-{#                @@include("modules/grid-publication.html", {#}
-{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
-{#                    "link": "place-details.html",#}
-{#                    "img": "images/grid-cover-bigger2.jpg",#}
-{#                    "title": "Музей природы Приамурья",#}
-{#                    "description": "Богатства Приамурья, собранные руками юннатов",#}
-{#                    "wobbler": "place"#}
-{#                })#}
-{#    #}
-{#                @@include("modules/grid-event.html", {#}
-{#                    "class": "grid-publication_format-full grid-publication_text-size-base",#}
-{#                    "link": "film-announcement.html",#}
-{#                    "img": "images/grid-cover-3-full2.jpg",#}
-{#                    "title": "Ночь кино в Амурске!",#}
-{#                    "place": "Кинотеатр «Молодость»",#}
-{#                    "date": "3 февраля, 18.00",#}
-{#                    "wobbler": "announcement",#}
-{#                    "addLink": false#}
-{#                })#}
-{#                @@include("modules/grid-publication.html", {#}
-{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
-{#                    "link": "place-details.html",#}
-{#                    "img": "images/grid-cover-bigger3.jpg",#}
-{#                    "title": "Я люблю Амурск спортивный!",#}
-{#                    "description": "Звезды спорта, футбол и слезы радости",#}
-{#                    "wobbler": "place"#}
-{#                })#}
-{#    #}
-{#                @@include("modules/grid-event.html", {#}
-{#                    "class": "grid-publication_format-base grid-publication_cover-format-bigger",#}
-{#                    "link": "event-announcement.html",#}
-{#                    "img": "images/grid-cover-bigger4.jpg",#}
-{#                    "title": "Фестиваль «Станица»",#}
-{#                    "place": "Дворец культуры",#}
-{#                    "date": "17 февраля, 14:00",#}
-{#                    "wobbler": "announcement",#}
-{#                    "addLink": true#}
-{#                })#}
             </div>
         </div>
     </main>
 {% endblock %}
 
 {% block additional_content %}
-{#    @@include("page-block/read-also.html")#}
+    {% read_also %}
 {% endblock %}

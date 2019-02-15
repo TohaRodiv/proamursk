@@ -23,12 +23,21 @@
 
             {% with model_name=item|get_model_name %}
                 {% if model_name == "report" %}
-                    <img src="{% static "site/images/svg/wobbler-reportage.svg" %}{% static_version %}" alt="Репортаж" class="wobbler">
+                    <div class="wobbler">
+                        <span class="wobbler__icon icon-reportage"></span>
+                        <div class="wobbler__text">Репортаж</div>
+                    </div>
                 {% elif model_name == "event" %}
                     {% if item.is_past %}
-                        <img src="{% static "site/images/svg/wobbler-past-event.svg" %}{% static_version %}" alt="Состоялось" class="wobbler">
+                        <div class="wobbler">
+                            <span class="wobbler__icon icon-calendar"></span>
+                            <div class="wobbler__text">Состоялось</div>
+                        </div>
                     {% else %}
-                        <img src="{% static "site/images/svg/wobbler-announcement.svg" %}{% static_version %}" alt="Анонс" class="wobbler">
+                        <div class="wobbler">
+                            <span class="wobbler__icon icon-megafon-stroke"></span>
+                            <div class="wobbler__text">Анонс</div>
+                        </div>
                     {% endif %}
                 {% endif %}
 

@@ -17,10 +17,8 @@
 
         <p class="grid-publication__text grid-publication__description">{{ item.descriptor }}</p>
 
-        {% include "site/modules/wobbler.html" %}
-
         <div class="grid-publication__wobbler">
-            <img src="{% static "site/images/svg/wobbler-history.svg" %}{% static_version %}" alt="История" class="wobbler">
+            {% include "site/modules/wobbler.html" %}
         </div>
 
     </div>

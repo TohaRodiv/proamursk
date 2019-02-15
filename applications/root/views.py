@@ -54,11 +54,19 @@ class IndexView(View):
         current_date = date.today()
         page = self.get_page(request)
         top_objects = page.top_items.all().order_by('weight')
+        events = Event.objects.filter(is_active=True,
+                                      start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'event']).order_by('start_event_date')[:2]
+        reports = Report.objects.filter(is_active=True,
+                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'report']).order_by('-publication_date')[:2]
+        places = Place.objects.filter(is_active=True, publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'place']).order_by('-publication_date')[:(6-len(events)-len(reports))]
+        what_to_do = list(events) + list(reports) + list(places)
         films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
                                     sessions__session_time__lt=current_date + timedelta(days=1)
                                     ).distinct()
-        return render(request, 'site/index.html', dict(films=films, top_objects=top_objects))
+        return render(request, 'site/index.html', dict(films=films,
+                                                       top_objects=top_objects,
+                                                       what_to_do=what_to_do))
 
 
 class NewsListView(InfinityLoaderListView):
