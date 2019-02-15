@@ -71,7 +71,7 @@ function checkFormField(jqField, onlyCheck) {
     }
 
     if ((jqField.hasClass('required-input')) && (val == '') && (!jqField.hasClass('disabled'))){
-        errorMessage = 'Это поле является обязательным и не может быть пустым';
+        errorMessage = 'Это поле необходимо заполнить';
         regExp = /^[-–—а-яё\s]+$/i;
     }
 

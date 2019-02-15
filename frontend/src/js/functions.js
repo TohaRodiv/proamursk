@@ -18,7 +18,7 @@ $('body').keydown(function (event) {
         var currentURL = window.location,
             selection = getSelectionText();
 
-        showPopUp('error');
+        showPopUp('bugreport');
         $('input[name="url"]').val(currentURL);
         $('.js-error-selection-textarea').val(selection);
     }

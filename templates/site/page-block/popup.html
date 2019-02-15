@@ -86,7 +86,7 @@
                                 <div class="select__option" data-value-to-send="history">Поведать историю</div>
                                 <div class="select__option" data-value-to-send="people">Рассказать о герое</div>
                                 <div class="select__option" data-value-to-send="place">Оставить отзыв о месте</div>
-                                <div class="select__option" data-value-to-send="error">Рассказать об ошибке</div>
+                                <div class="select__option" data-value-to-send="bugreport">Рассказать об ошибке</div>
                             </div>
                         </div>
 
@@ -125,7 +125,7 @@
 
                         <div class="pop-up__btns-wrap">
                             <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
-                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить">
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
                         </div>
                     </form>
 
@@ -185,7 +185,7 @@
 
                         <div class="pop-up__btns-wrap">
                             <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
-                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить">
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
                         </div>
                     </form>
 
@@ -245,7 +245,7 @@
 
                         <div class="pop-up__btns-wrap">
                             <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
-                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить">
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
                         </div>
                     </form>
 
@@ -305,7 +305,7 @@
 
                         <div class="pop-up__btns-wrap">
                             <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
-                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить">
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
                         </div>
                     </form>
 
@@ -365,7 +365,7 @@
 
                         <div class="pop-up__btns-wrap">
                             <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
-                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить">
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
                         </div>
                     </form>
 
@@ -414,7 +414,7 @@
 
                         <div class="pop-up__btns-wrap">
                             <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
-                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить">
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="place-review">
                         </div>
                     </form>
 
@@ -430,7 +430,7 @@
         </div>
     </div>
 
-    <div class="pop-up-wrapper error">
+    <div class="pop-up-wrapper bugreport">
         <div class="back"></div>
         <div class="pop-up-inner-container">
             <button class="pop-up__close pop-up__close_inner icon-close"></button>
@@ -439,7 +439,6 @@
                 <div class="pop-up__title">Сообщение об ошибке</div>
                 <form class="pop-up__form js-pop-up__form">
                     <div class="pop-up-form__inputs-set">
-                        <input type="hidden" name="subject" value="error">
 
                         <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
                             <input type="text" name="url" class="input-line input-line_base required-input fill">
@@ -451,7 +450,7 @@
                     </div>
 
                     <div class="pop-up__btns-wrap">
-                        <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить">
+                        <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="bugreport">
                     </div>
                 </form>
             </div>

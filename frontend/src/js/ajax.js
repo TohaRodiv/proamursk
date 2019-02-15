@@ -59,6 +59,37 @@ function ajaxSubscribe(jqForm) {
     });
 }
 
+function ajaxForms(jqForm, url) {
+    var csrfmiddlewaretoken = getCookie('csrftoken'),
+        dataToSend;
+
+    trimFormFields(jqForm);
+    dataToSend = jqForm.serialize() + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
+
+    // console.log(dataToSend);
+
+    $.ajax({
+        data: dataToSend,
+        url: '/api/site/' + url + '/',
+        method: 'POST',
+
+        success: function (response) {
+            var responseObj = JSON.parse(response);
+
+            // console.log(responseObj);
+
+            if (responseObj.status == true) {
+                updateSubscribeWidget();
+                if (responseObj.message) showNotification(responseObj.message, 'success');
+            }
+            else {
+                if (responseObj.message) showNotification(responseObj.message, 'error');
+            }
+
+        }
+    });
+}
+
 function ajaxInfinityLoader(url, templateName, page) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
         dataToSend;
@@ -160,4 +191,30 @@ $('body').on('click', '.btn_more', function () {
     ajaxInfinityLoader(url, templateName, pageCount);
     pageCount++;
     $(this).data('page-count', pageCount);
+})
+
+$('.js-pop-up__form').submit(function() {
+    var requestToDo = $(this).find('.pop-up-form__submit').data('request');
+
+    validateFormFields($(this));
+
+    if (validateStatus) {
+        $(this).find('.pop-up-form__submit').blur().addClass('btn_preloader');
+
+        if (requestToDo == 'to-editor') {
+            ajaxForms($(this), 'feedback');
+            return false;
+        }
+        else if (requestToDo == 'place-review') {
+            ajaxForms($(this), 'place-review');
+            return false;
+        }
+        else if (requestToDo == 'bugreport') {
+            ajaxForms($(this), 'bugreport');
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
 })
