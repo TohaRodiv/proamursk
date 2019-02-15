@@ -2500,10 +2500,15 @@ footer {
 
 .social-link {
   display: inline-block;
-  text-decoration: none; }
-  .social-link img {
-    display: block;
-    height: 24px; }
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  line-height: 30px;
+  color: #283348;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  text-decoration: none;
+  text-align: center; }
   .social-link:not(:last-of-type) {
     margin-right: 12px; }
 
