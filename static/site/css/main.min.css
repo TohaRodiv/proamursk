@@ -2165,7 +2165,7 @@ footer {
     .publication__additional-info-wrap a {
       color: #0073FF;
       text-decoration: none; }
-      .publication__additional-info-wrap a:hover {
+      .publication__additional-info-wrap a:hover, .publication__additional-info-wrap a:focus {
         text-decoration: underline; }
   .publication__event-info {
     margin-bottom: 20px; }
@@ -2175,6 +2175,11 @@ footer {
     margin-bottom: 15px; }
   .publication__place-info:last-child {
     margin-bottom: 0; }
+  .publication__place-info ul {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-left: 45px;
+    list-style-type: disc; }
   .publication__title {
     margin-bottom: 20px;
     font-size: 36px;
@@ -2791,7 +2796,7 @@ footer {
   margin-bottom: 20px; }
 
 .additional-block {
-  padding: 40px;
+  padding: 40px 0;
   background-color: #283348; }
   .additional-block__title {
     font-size: 24px;
