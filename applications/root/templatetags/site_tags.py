@@ -30,4 +30,8 @@ def last_news(context):
 
 @register.filter()
 def get_model_name(val):
-    return val._meta.model_name
+    try:
+        return val._meta.model_name
+    except:
+        return None
+

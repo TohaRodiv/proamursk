@@ -17,6 +17,7 @@ from applications.tools.utils import make_ajax_response
 from applications.tools.views import InfinityLoaderListView
 from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
+from applications.contentblocks.models import Page
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
 
 try:
@@ -30,15 +31,15 @@ except ImportError:
 
 
 def custom_handler404(request, exception):
-    return render(request, 'site/404.html', status=404)
+    return render(request, '404.html', status=404)
 
 
 class IndexView(View):
 
-    def get_page(self):
+    def get_page(self, request):
         page = None
         try:
-            url_name = resolve(request.path_info).url_name
+            url_name = request.resolver_match.url_name
         except:
             pass
         else:
@@ -46,16 +47,18 @@ class IndexView(View):
                 page = Page.objects.select_related().get(codename=url_name)
             except:
                 pass
-            else:
-                pass
+
+        return page
 
     def get(self, request):
         current_date = date.today()
+        page = self.get_page(request)
+        top_objects = page.top_items.all().order_by('weight')
         films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
                                     sessions__session_time__lt=current_date + timedelta(days=1)
                                     ).distinct()
-        return render(request, 'site/index.html', dict(films=films))
+        return render(request, 'site/index.html', dict(films=films, top_objects=top_objects))
 
 
 class NewsListView(InfinityLoaderListView):

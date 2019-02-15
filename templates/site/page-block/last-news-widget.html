@@ -10,7 +10,7 @@
                     <img src="{{ news_item.cover|get_thumbnail_url_by_name:"news_aside_cover" }}" alt="" class="last-news-item__img">
                     <div class="last-news-item__text-wrap">
                         <h4 class="last-news-item__title">{{ news_item.title }}</h4>
-                        <div class="last-news-item__date">{{ news_item.publiation_date|ru_strftime:"%d %B %Y" }}</div>
+                        <div class="last-news-item__date">{{ news_item.publication_date|ru_strftime:"%d %B %Y" }}</div>
                     </div>
                 </a>
             </li>

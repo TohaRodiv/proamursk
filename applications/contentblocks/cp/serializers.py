@@ -17,7 +17,7 @@ from ..models import Page, ContentBlock
 class TopItemSerializer(ModelSerializer):
     class Meta:
         model = TopItem
-        fields = ('id', 'codename', 'object_id')
+        fields = ('id', 'codename', 'object_id', 'weight')
 
 
 class ContentBlockSerializer(ModelSerializer):
