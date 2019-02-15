@@ -634,23 +634,14 @@ textarea {
   cursor: pointer; }
   .slider-arrow.active {
     display: inline-block; }
-  .slider-arrow_round {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #FFFFFF;
-    font-size: 30px;
-    line-height: 54px;
-    text-align: center; }
-    .slider-arrow_round:hover {
-      background-color: rgba(0, 0, 0, 0.5); }
-  .slider-arrow_simple {
+  .slider-arrow_base {
     width: 15px;
     height: 15px;
     font-size: 15px;
     color: #FFFFFF;
     text-align: center; }
+    .slider-arrow_base:hover {
+      color: #AAB2C2; }
 
 .slide-nav-counter {
   display: none;
@@ -682,7 +673,7 @@ textarea {
   border-radius: 50%;
   cursor: pointer;
   background-color: #A1A3A3; }
-  .slider-circle-item.active {
+  .slider-circle-item.active, .slider-circle-item:hover {
     background-color: #FFFFFF; }
   .slider-circle-item:last-child {
     margin-right: 0; }
@@ -732,7 +723,12 @@ textarea {
     top: 50%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-            transform: translateY(-50%); }
+            transform: translateY(-50%);
+    color: #FFFFFF;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3); }
+    .full-width-slider .slider-arrow:hover {
+      background-color: rgba(0, 0, 0, 0.5); }
   .full-width-slider .slider-arrow-container {
     width: 1300px;
     margin: 0 auto;
@@ -747,6 +743,15 @@ textarea {
   .full-width-slider .slider-arrow-next {
     right: 0;
     padding-left: 5px; }
+
+.slider-arrow_round,
+.slick-arrow {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 30px;
+  line-height: 54px;
+  text-align: center; }
 
 .slick-slider {
   position: relative;
@@ -829,23 +834,24 @@ textarea {
 .slick-arrow {
   position: absolute;
   top: 134px;
-  color: #A1A3A3;
+  color: #AAB2C2;
   font-size: 0; }
-  .slick-arrow:hover {
-    color: #FFFFFF; }
   .slick-arrow::before {
-    font-size: 32px; }
+    font-size: 30px; }
+  .slick-arrow:hover {
+    color: #FFFFFF;
+    background-color: #333E53; }
   .slick-arrow.slick-hidden {
     display: none; }
 
 .slick-prev {
-  left: -60px; }
+  left: 0px; }
   .slick-prev::before {
     content: "\e900";
     font-family: "proamursk"; }
 
 .slick-next {
-  right: -60px; }
+  right: 0px; }
   .slick-next::before {
     content: "\e902";
     font-family: "proamursk"; }
@@ -2956,7 +2962,7 @@ footer {
     margin-right: 20px; }
   .cinema-widget .slider-circles-container {
     position: relative;
-    bottom: -15px;
+    bottom: 10px;
     left: 0;
     -webkit-transform: none;
         -ms-transform: none;
@@ -2966,16 +2972,13 @@ footer {
   .cinema-widget .slider-arrow-container {
     position: relative;
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    color: #FFFFFF; }
+    bottom: 23px; }
+    .cinema-widget .slider-arrow-container .slider-arrow {
+      position: absolute; }
+    .cinema-widget .slider-arrow-container .slider-arrow-prev {
+      left: 0; }
+    .cinema-widget .slider-arrow-container .slider-arrow-next {
+      right: 0; }
 
 .offer-widget {
   position: relative;
