@@ -155,10 +155,13 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 50,
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
-        # 'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'ORDERING_PARAM': 'order_by',
 }
+
+if DEBUG:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] + (
+        'rest_framework.renderers.BrowsableAPIRenderer',)
 
 MEDIALIB_THUMB_SIZE = {
     # Админка

@@ -2,8 +2,24 @@ from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+from applications.contentblocks.models import Page
 from core.models import BaseModel, IsActiveMixin, BaseSeoMixin
+
+
+class TopItem(models.Model):
+    page = models.ForeignKey(Page, verbose_name='Страница', on_delete=models.CASCADE, related_name='top_items')
+    codename = models.CharField('Сущность', max_length=255)
+    object_id = models.PositiveIntegerField()
+
+    class Meta:
+        verbose_name = 'Позиция в топе'
+        verbose_name_plural = 'Топы для страниц'
+        ordering = '-id',
+
+    def __str__(self):
+        return str(self.id)
 
 
 class News(BaseModel, BaseSeoMixin, IsActiveMixin):

@@ -10,7 +10,14 @@ from applications.mediafiles.cp.serializers import ImageNestedSerializer
 from cp_vue.api.serializers import ModelSerializer
 from cp_vue.api.fields import ObjectRelatedField
 from applications.mediafiles.models import MediaFile
+from applications.root.models import TopItem
 from ..models import Page, ContentBlock
+
+
+class TopItemSerializer(ModelSerializer):
+    class Meta:
+        model = TopItem
+        fields = ('id', 'codename', 'object_id')
 
 
 class ContentBlockSerializer(ModelSerializer):
@@ -143,11 +150,19 @@ class StaticPagesDetailSerializer(ModelSerializer):
     og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
                                   required=False, allow_null=True)
 
+    top_items = TopItemSerializer(many=True, required=True)
+
     class Meta:
         model = Page
         fields = ('id', 'name', 'meta_title', 'meta_description', 'meta_keywords',
-                  'og_image', 'create_date', 'edit_date')
+                  'og_image', 'create_date', 'edit_date', 'top_items')
         read_only_fields = ('id', 'name', 'create_date', 'edit_date')
+
+    def validate_top_items(self, data):
+        if len(data) < 4:
+            raise serializers.ValidationError("Необходимо выбрать 4 записи")
+
+        return data
 
     def __init__(self, *args, **kwargs):
         super(StaticPagesDetailSerializer, self).__init__(*args, **kwargs)
@@ -174,6 +189,8 @@ class StaticPagesDetailSerializer(ModelSerializer):
             self.fields[field.codename] = MappedField(**defaults)
 
     def update(self, instance, validated_data):
+        top_items = validated_data.pop('top_items') if 'top_items' in validated_data else []
+
         fields = self.instance.get_available_fields()
         with transaction.atomic():
             for f in fields:
@@ -182,4 +199,6 @@ class StaticPagesDetailSerializer(ModelSerializer):
                     f.save()
 
             instance = super(StaticPagesDetailSerializer, self).update(instance, validated_data)
+            self.update_child_objects(top_items, TopItem, dict(page=instance))
+
         return instance
