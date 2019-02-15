@@ -204,7 +204,7 @@ class PlaceListView(InfinityLoaderListView):
                                       publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
 
     template_name = 'site/all-places.html'
-    ajax_template_name = 'site/modules/grid-history-block.html'
+    ajax_template_name = 'site/modules/grid-places-block.html'
     context_list_name = 'places'
     ajax_context_list_name = 'places'
     items_per_page = 1
@@ -225,13 +225,15 @@ class PlaceDetailView(DetailView):
     template_name = 'site/place-details.html'
 
 
-class SpecialsListView(ListView):
-    model = Special
-    allow_empty = True
-    queryset = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
-    paginate_by = 50
-    context_object_name = 'specials'
-    template_name = 'root/specials_list.html'
+class SpecialsListView(InfinityLoaderListView):
+    queryset = Special.objects.filter(is_active=True,
+                                    publication_date__lte=timezone.now()).order_by('-publication_date')
+
+    template_name = 'site/all-special-projects.html'
+    ajax_template_name = 'site/modules/special-projects-block.html'
+    context_list_name = 'specials'
+    ajax_context_list_name = 'specials'
+    items_per_page = 1
 
 
 class SpecialsDetailView(DetailView):

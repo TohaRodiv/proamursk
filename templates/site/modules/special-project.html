@@ -1,19 +1,22 @@
-<a href="special-project-details.html" class="grid-publication @@class special-project">
+{% load media_filters %}
+{% load static static_version %}
+
+<a href="{% url "specials-detail" item.id %}" class="grid-publication special-project">
 
     <div class="special-project__cover-wrap grid-publication__cover-wrap">
         <div class="grid-publication__bg-gradient"></div>
-        <img src="@@img" alt="" class="special-project__cover grid-publication__cover">
+        <img src="{{ item.cover|get_thumbnail_url_by_name:"specials_list" }}" alt="" class="special-project__cover grid-publication__cover">
     </div>
 
     <div class="special-project__text-wrap grid-publication__text-wrap">
-        <h2 class="special-project__title grid-publication__title">@@title</h2>
+        <h2 class="special-project__title grid-publication__title">{{ item.title }}</h2>
 
-        <p class="special-project__text grid-publication__text special-project__description grid-publication__description">@@description</p>
+        <p class="special-project__text grid-publication__text special-project__description grid-publication__description">
+            {{ item.descriptor }}
+        </p>
 
         <div class="special-project__wobbler grid-publication__wobbler">
-            @@include('modules/wobbler.html', {
-                "wobbler": "special-project"
-            })
+            <img src="{% static "site/images/svg/wobbler-special-projects.svg" %}{% static_version %}" alt="Спецпроекты" class="wobbler">
         </div>
     </div>
 </a>

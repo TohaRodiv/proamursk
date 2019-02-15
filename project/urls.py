@@ -40,6 +40,7 @@ urlpatterns = [
     path('api/site/places/', root_views.PlaceListView.as_view(), name='ajax-places'),
     path('api/site/history/', root_views.HistoryListView.as_view(), name='ajax-history'),
     path('api/site/bugreport/', root_views.bugreport, name='ajax-bugreport'),
+    path('api/site/specials/', root_views.SpecialsListView.as_view(), name='ajax-specials'),
     path('api/mailing/', include('applications.mailing.urls')),
     path('robots.txt', RobotsTxtView.as_view())
 ]
