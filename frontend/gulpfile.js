@@ -47,7 +47,7 @@ const gulp = require('gulp'),
     // email builder configuration
     emailbuilderConfig = {
         emailTest: {
-            to: 'vvidyaeva@gmail.com',
+            to: ['vvidyaeva@gmail.com', 'valyavidyaeva@mail.ru','valyavidyaeva@yandex.ru'],
             from: 'no-reply@perfectura.ru',
             subject: 'Алтан Шина Test Email',
             nodemailer: {
@@ -250,6 +250,11 @@ function emailStyles() {
         .pipe(plumber(settingsPlumber))
         .pipe(sass({
             indentedSyntax: true
+        }))
+        .pipe(autoprefixer({
+            browsers: ['last 4 versions'],
+            grid: 'autoplace',
+            flexbox: true
         }))
         .pipe(concat('email.css'))
         .pipe(autoprefixer())

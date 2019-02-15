@@ -6,12 +6,12 @@
     <div class="container">
         <div class="base-layout">
             {% if events %}
-                    <div class="base-layout__main">
-                        {% with event=events.0 css_class='grid-publication_format-full grid-publication_text-size-big' add_link=False wobler_type="announcement" %}
-                            {% include "site/modules/grid-event.html" %}
-                        {% endwith %}
-                    </div>
-                {% endif %}
+                <div class="base-layout__main">
+                    {% with item=events.0 css_class='grid-publication_format-full grid-publication_text-size-big' cover_name="8_column_img" wobler_type="announcement" %}
+                        {% include "site/modules/grid-event.html" %}
+                    {% endwith %}
+                </div>
+            {% endif %}
 
             <aside class="base-layout__aside">
                 <div class="aside-widget">
@@ -29,19 +29,19 @@
         </div>
 
         <div class="base-3items-grid">
-            {% for event in events|slice:"1:4" %}
+            {% for item in events|slice:"1:4" %}
                 {% if forloop.counter == 1 %}
-                    {% with css_class='grid-publication_format-base grid-publication_cover-format-bigger' add_link=False wobler_type="announcement" %}
+                    {% with css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" wobler_type="announcement" %}
                         {% include "site/modules/grid-event.html" %}
                     {% endwith %}
                 {% endif %}
                 {% if forloop.counter == 2 %}
-                    {% with css_class='grid-publication_format-full grid-publication_text-size-base' add_link=False wobler_type="announcement" %}
+                    {% with css_class='grid-publication_format-full grid-publication_text-size-base' cover_name="3_column_img" add_link=False wobler_type="announcement" %}
                         {% include "site/modules/grid-event.html" %}
                     {% endwith %}
                 {% endif %}
                 {% if forloop.counter == 3 %}
-                    {% with css_class='grid-publication_format-base grid-publication_cover-format-6col' add_link=True wobler_type="announcement" %}
+                    {% with css_class='grid-publication_format-base grid-publication_cover-format-6col' cover_name="6_column_img" wobler_type="announcement" %}
                         {% include "site/modules/grid-event.html" %}
                     {% endwith %}
                 {% endif %}
@@ -50,13 +50,15 @@
 
         <div class="js-infinity-loader-wrap">
             <div class="base-4items-grid js-infinity-loader-grid">
-                {% for event in events|slice:"4:" %}
-                    {% with css_class='grid-publication_format-base grid-publication_cover-format-bigger' add_link=False wobler_type="announcement" %}
+                {% for item in events|slice:"4:" %}
+                    {% with css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" wobler_type="announcement" %}
                         {% include "site/modules/grid-event.html" %}
                     {% endwith %}
                 {% endfor %}
             </div>
-            <button class="btn btn_blue btn_more btn_center js-more-past-events" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+            {% if has_next %}
+                <button class="btn btn_blue btn_more btn_center js-more-past-events" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+            {% endif %}
         </div>
     </div>
 </main>

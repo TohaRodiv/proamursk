@@ -1,40 +1,53 @@
 {% load media_filters %}
+{% load static static_version %}
 {% load pytils_dt %}
+{% load site_tags %}
 
 <div class="grid-publication {{ css_class }}">
 
-    <a href="{% url "events-detail" event.id %}" class="grid-publication__cover-wrap">
+    <a href="{{ item.get_absolute_url }}" class="grid-publication__cover-wrap">
         <div class="grid-publication__bg-gradient"></div>
-        <img src="{{ event.cover|get_thumbnail_url_by_name:"8_column_img" }}" alt="" class="grid-publication__cover">
+        <img src="{{ item.cover|get_thumbnail_url_by_name:cover_name }}" alt="" class="grid-publication__cover">
     </a>
 
     <div class="grid-publication__text-wrap">
         <h2 class="grid-publication__title">
-            <a href="{% url "events-detail" event.id %}">{{ event.title }}</a>
+            <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
         </h2>
 
-        <div class="grid-publication__text">{{ event.place }}</div>
+        <div class="grid-publication__text">{{ item.place }}</div>
 
-        <div class="grid-publication__text grid-publication__date">{{ event.event_date_text }}</div>
+        <div class="grid-publication__text grid-publication__date">{{ item.event_date_text }}</div>
 
         <div class="grid-publication__wobbler">
 
             {% include "site/modules/wobbler.html" %}
 
-            {% if add_link %}
-                {% if wobler_type == "reportage" %}
-                    <a href="reportage-details.html" class="grid-publication__link">
+            {% with model_name=item|get_model_name %}
+                {% if model_name == "report" %}
+                    <img src="{% static "site/images/svg/wobbler-reportage.svg" %}{% static_version %}" alt="Репортаж" class="wobbler">
+                {% elif model_name == "event" %}
+                    {% if item.is_past %}
+                        <img src="{% static "site/images/svg/wobbler-past-event.svg" %}{% static_version %}" alt="Состоялось" class="wobbler">
+                    {% else %}
+                        <img src="{% static "site/images/svg/wobbler-announcement.svg" %}{% static_version %}" alt="Анонс" class="wobbler">
+                    {% endif %}
+                {% endif %}
+
+                {% if model_name == "event" and item.report %}
+                    <a href="{% url "reports-detail" item.report.id %}" class="grid-publication__link">
                         <span class="text">Репортаж</span>
                         <span class="icon icon-arrow-right-dir"></span>
                     </a>
                 {% endif %}
-                {% if wobler_type == "announcement" or wobler_type == "past_event" %}
-                    <a href="event-announcement.html" class="grid-publication__link">
+
+                {% if model_name == "report" and item.event %}
+                    <a href="{% url "events-detail" item.event.id %}" class="grid-publication__link">
                         <span class="text">Событие</span>
                         <span class="icon icon-arrow-right-dir"></span>
                     </a>
                 {% endif %}
-            {% endif %}
+            {% endwith %}
         </div>
     </div>
 </div>

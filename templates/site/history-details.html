@@ -1,0 +1,76 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+{% load media_filters %}
+{% load pytils_dt %}
+{% load site_tags %}
+{% load utils_tags %}
+{% load posteditor_tags %}
+
+{% block title %}
+    {{ history.meta_title|default:history.title }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ history.meta_keywords }}">
+    <meta name="description" content="{{ history.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=history.meta_title|default:history.title og_description=history.meta_description og_image=history.og_image|default:history.cover|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main">
+                    <article class="publication">
+                        <figure class="publication__cover-wrap">
+                            <img src="{{ history.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" class="publication__cover">
+                            <figcaption class="publication__img-figcaption">
+                                <span class="publication__img-author">{{ history.cover_author }}</span>
+                            </figcaption>
+                        </figure>
+
+                        <div class="publication__content">
+                            <div class="publication__rubric"><span class="publication__rubric-icon icon-history"></span>{{ history.rubric.name }}</div>
+
+                            <h1 class="publication__title">{{ history.title }}</h1>
+
+                            <p class="publication__lead">{{ history.lead }}</p>
+
+                            {% post_editor_make_content history.content 'default' %}
+
+                            <div class="publication__footer">
+                                <div class="publication__author">{{ history.content_author }}</div>
+
+                                {% include "site/page-block/share-widget.html" %}
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+                        {% include "site/page-block/aside-subscribe-widget.html" %}
+                    </div>
+{#                    <div class="aside-widget">#}
+{#                        @@include('modules/offer-widget.html', {#}
+{#                            "class": "history",#}
+{#                            "text": "Любой житель Амурска может поделиться интересной историей с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",#}
+{#                            "btnText": "Поделиться историей"#}
+{#                        })#}
+{#                    </div>#}
+                    <div class="aside-widget">
+                        {% include "site/page-block/nearest-event-widget.html" %}
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block additional_content %}
+    {#    @@include("page-block/read-also.html")#}
+{% endblock %}

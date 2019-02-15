@@ -96,12 +96,13 @@
 {#                <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>#}
 {#            </div>#}
 {#        </div>#}
-{#    #}
-{#        <div class="container layout-section">#}
-{#            <h2 class="section__title">ЧЕМ ЗАНЯТЬСЯ В АМУРСКЕ?</h2>#}
-{#            <div class="todo-layout">#}
-{#                @@include("page-block/cinema-widget.html")#}
-{#    #}
+
+        <div class="container layout-section">
+            <h2 class="section__title">ЧЕМ ЗАНЯТЬСЯ В АМУРСКЕ?</h2>
+            <div class="todo-layout">
+                {% include "site/page-block/cinema-widget.html" %}
+
+
 {#                @@include("modules/grid-publication.html", {#}
 {#                    "class": "grid-publication_format-full grid-publication_text-size-big",#}
 {#                    "link": "place-details.html",#}
@@ -158,8 +159,8 @@
 {#                    "wobbler": "announcement",#}
 {#                    "addLink": true#}
 {#                })#}
-{#            </div>#}
-{#        </div>#}
+            </div>
+        </div>
     </main>
 {% endblock %}
 

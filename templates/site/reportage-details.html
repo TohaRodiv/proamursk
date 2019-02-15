@@ -7,16 +7,16 @@
 {% load posteditor_tags %}
 
 {% block title %}
-    {{ event.meta_title|default:event.title }}
+    {{ report.meta_title|default:report.title }}
 {% endblock %}
 
 {% block seo %}
-    <meta name="keywords" content="{{ event.meta_keywords }}">
-    <meta name="description" content="{{ event.meta_description }}">
+    <meta name="keywords" content="{{ report.meta_keywords }}">
+    <meta name="description" content="{{ report.meta_description }}">
 {% endblock %}
 
 {% block og %}
-    {% og_meta_tags og_title=event.meta_title|default:event.title og_description=event.meta_description og_image=event.og_image|default:event.cover|get_thumbnail_url_by_name:"og_image_default" %}
+    {% og_meta_tags og_title=report.meta_title|default:report.title og_description=report.meta_description og_image=report.og_image|default:report.cover|get_thumbnail_url_by_name:"og_image_default" %}
 {% endblock %}
 
 
@@ -27,9 +27,9 @@
                 <div class="base-layout__main">
                     <article class="publication">
                         <figure class="publication__cover-wrap">
-                            <img src="{{ event.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" class="publication__cover">
+                            <img src="{{ report.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" class="publication__cover">
                             <figcaption class="publication__img-figcaption">
-                                <span class="publication__img-author">{{ event.cover_author }}</span>
+                                <span class="publication__img-author">{{ report.cover_author }}</span>
                             </figcaption>
                         </figure>
 
@@ -37,28 +37,28 @@
                             <div class="publication__additional-info-wrap publication__additional-info-wrap_row">
                                 <div class="publication__event-info publication__event-date">
                                     <span class="icon-calendar"></span>
-                                    {{ event.event_date_text }}
+                                    {{ report.publication_date|ru_strftime:"%d %B" }}
                                 </div>
                                 <div class="publication__event-info publication__event-place">
                                     <span class="icon-geo"></span>
-                                    <a href="" target="_blank">{{ event.place }}</a>
+                                    <a href="" target="_blank">{{ report.place }}</a>
                                 </div>
-                                {% if event.report %}
+                                {% if report.event %}
                                     <div class="publication__event-info publication__event-date">
                                         <span class="icon-reportage"></span>
-                                        <a href="{% url "reports-detail" event.report.id %}">Репортаж</a>
+                                        <a href="{% url "events-detail" report.event.id %}">Анонс</a>
                                     </div>
                                 {% endif %}
                             </div>
 
-                            <h1 class="publication__title">{{ event.title }}</h1>
+                            <h1 class="publication__title">{{ report.title }}</h1>
 
-                            <p class="publication__lead">{{ event.lead }}</p>
+                            <p class="publication__lead">{{ report.lead }}</p>
 
-                            {% post_editor_make_content event.content 'default' %}
+                            {% post_editor_make_content report.content 'default' %}
 
                             <div class="publication__footer">
-                                <div class="publication__author">{{ event.content_author }}</div>
+                                <div class="publication__author">{{ report.content_author }}</div>
 
                                 {% include "site/page-block/share-widget.html" %}
                             </div>
