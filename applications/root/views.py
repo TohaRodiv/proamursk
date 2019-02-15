@@ -35,6 +35,20 @@ def custom_handler404(request, exception):
 
 class IndexView(View):
 
+    def get_page(self):
+        page = None
+        try:
+            url_name = resolve(request.path_info).url_name
+        except:
+            pass
+        else:
+            try:
+                page = Page.objects.select_related().get(codename=url_name)
+            except:
+                pass
+            else:
+                pass
+
     def get(self, request):
         current_date = date.today()
         films = Film.objects.filter(is_active=True,

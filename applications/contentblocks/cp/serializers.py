@@ -155,7 +155,7 @@ class StaticPagesDetailSerializer(ModelSerializer):
     class Meta:
         model = Page
         fields = ('id', 'name', 'meta_title', 'meta_description', 'meta_keywords',
-                  'og_image', 'create_date', 'edit_date', 'top_items')
+                  'og_image', 'create_date', 'edit_date', 'top_items', 'codename')
         read_only_fields = ('id', 'name', 'create_date', 'edit_date')
 
     def validate_top_items(self, data):
