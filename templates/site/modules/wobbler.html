@@ -1,29 +1,31 @@
-{% load static static_version %}
+{% load site_tags %}
 
-{% if wobler_type == "special_project" %}
-    <img src="{% static "site/images/svg/wobbler-special-projects.svg" %}{% static_version %}" alt="Спецпроекты" class="wobbler">
-{% endif %}
+{% with model_name=item|get_model_name %}
+    {% if model_name == "news" %}
+        <div class="wobbler">
+            <span class="wobbler__icon icon-news-stroke"></span>
+            <div class="wobbler__text">Новости</div>
+        </div>
+    {% endif %}
 
-
-
-{% if wobler_type == "news" %}
-    <img src="{% static "site/images/svg/wobbler-news.svg" %}{% static_version %}" alt="Новости" class="wobbler">
-{% endif %}
-
-{% if wobler_type == "people" %}
-    <img src="{% static "site/images/svg/wobbler-people.svg" %}{% static_version %}" alt="Люди" class="wobbler">
-{% endif %}
-
-{% if wobler_type == "place" %}
-    <img src="{% static "site/images/svg/wobbler-place.svg" %}{% static_version %}" alt="Место" class="wobbler">
-{% endif %}
-
-{% if wobler_type == "first-_builders" %}
-    <img src="{% static "site/images/svg/wobbler-history-first-builders.svg" %}{% static_version %}" alt="Анонс" class="wobbler">
-{% endif %}
-
-{% if wobler_type == "legends" %}
-    <img src="{% static "site/images/svg/wobbler-history-legends.svg" %}{% static_version %}" alt="Анонс" class="wobbler">
-{% endif %}
-
-
+    {% if model_name == "history" %}
+        <div class="wobbler">
+            <span class="wobbler__icon icon-history"></span>
+            <div class="wobbler__text">{{ item.rubric.name }}</div>
+        </div>
+    {% endif %}
+    
+    {% if model_name == "person" %}
+        <div class="wobbler">
+            <span class="wobbler__icon icon-people"></span>
+            <div class="wobbler__text">Люди</div>
+        </div>
+    {% endif %}
+    
+    {% if model_name == "place" %}
+        <div class="wobbler">
+            <span class="wobbler__icon icon-geo-stroke"></span>
+            <div class="wobbler__text">Место</div>
+        </div>
+    {% endif %}
+{% endwith %}

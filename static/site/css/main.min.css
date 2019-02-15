@@ -5,7 +5,7 @@
   border-color: #DFDFDF; }
 
 .last-news, .news-list-item, .grid-publication, .cinema-widget {
-  border: 1px solid #B1C1D2;
+  border: 1px solid #D7DBE0;
   border-radius: 4px;
   overflow: hidden; }
 
@@ -258,29 +258,47 @@ ul, ol {
 .icon-search:before {
   content: "\e907"; }
 
-.icon-news:before {
+.icon-news-stroke:before {
   content: "\e909"; }
 
-.icon-event:before {
-  content: "\e90b"; }
+.icon-news-fill:before {
+  content: "\e90d"; }
+
+.icon-news-cut:before {
+  content: "\e90e"; }
 
 .icon-history:before {
   content: "\e906"; }
 
+.icon-megafon-fill:before {
+  content: "\e924"; }
+
+.icon-megafon-stroke-lines:before {
+  content: "\e90b"; }
+
+.icon-megafon-stroke:before {
+  content: "\e913"; }
+
+.icon-geo-fill:before {
+  content: "\e928"; }
+
+.icon-geo-stroke:before {
+  content: "\e929"; }
+
 .icon-people:before {
   content: "\e908"; }
 
-.icon-place:before {
-  content: "\e913"; }
+.icon-calendar-fill:before {
+  content: "\e922"; }
 
 .icon-calendar:before {
   content: "\e90c"; }
 
-.icon-geo:before {
-  content: "\e90e"; }
+.icon-reportage-fill:before {
+  content: "\e923"; }
 
 .icon-reportage:before {
-  content: "\e90d"; }
+  content: "\e91a"; }
 
 .icon-web:before {
   content: "\e90f"; }
@@ -288,14 +306,17 @@ ul, ol {
 .icon-instagram:before {
   content: "\e910"; }
 
+.icon-odnoklassniki:before {
+  content: "\e92a"; }
+
 .icon-clock:before {
   content: "\e911"; }
 
-.icon-phone:before {
-  content: "\e912"; }
-
 .icon-clip-bold:before {
   content: "\e915"; }
+
+.icon-clip-thin:before {
+  content: "\e916"; }
 
 .icon-cuisine:before {
   content: "\e917"; }
@@ -303,44 +324,38 @@ ul, ol {
 .icon-coin:before {
   content: "\e918"; }
 
-.icon-ticket:before {
-  content: "\e919"; }
-
-.icon-star:before {
-  content: "\e91b"; }
-
-.icon-bed:before {
-  content: "\e91a"; }
-
 .icon-link:before {
   content: "\e91c"; }
 
-.icon-binoculars:before {
-  content: "\e91d"; }
+.icon-ticket:before {
+  content: "\e919"; }
+
+.icon-star-round:before {
+  content: "\e91b"; }
+
+.icon-star-sharp:before {
+  content: "\e92b"; }
+
+.icon-bed:before {
+  content: "\e927"; }
+
+.icon-hotel:before {
+  content: "\e921"; }
+
+.icon-phone:before {
+  content: "\e912"; }
 
 .icon-phone-plus:before {
   content: "\e91e"; }
+
+.icon-binoculars:before {
+  content: "\e91d"; }
 
 .icon-food:before {
   content: "\e91f"; }
 
 .icon-bus:before {
   content: "\e920"; }
-
-.icon-hotel:before {
-  content: "\e921"; }
-
-.icon-calendar-fill:before {
-  content: "\e922"; }
-
-.icon-reportage-fill:before {
-  content: "\e923"; }
-
-.icon-megafon-fill:before {
-  content: "\e924"; }
-
-.icon-clip-thin:before {
-  content: "\e916"; }
 
 .icon-error:before {
   content: "\e925"; }
@@ -619,23 +634,14 @@ textarea {
   cursor: pointer; }
   .slider-arrow.active {
     display: inline-block; }
-  .slider-arrow_round {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #FFFFFF;
-    font-size: 30px;
-    line-height: 54px;
-    text-align: center; }
-    .slider-arrow_round:hover {
-      background-color: rgba(0, 0, 0, 0.5); }
-  .slider-arrow_simple {
+  .slider-arrow_base {
     width: 15px;
     height: 15px;
     font-size: 15px;
     color: #FFFFFF;
     text-align: center; }
+    .slider-arrow_base:hover {
+      color: #AAB2C2; }
 
 .slide-nav-counter {
   display: none;
@@ -667,7 +673,7 @@ textarea {
   border-radius: 50%;
   cursor: pointer;
   background-color: #A1A3A3; }
-  .slider-circle-item.active {
+  .slider-circle-item.active, .slider-circle-item:hover {
     background-color: #FFFFFF; }
   .slider-circle-item:last-child {
     margin-right: 0; }
@@ -717,7 +723,12 @@ textarea {
     top: 50%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-            transform: translateY(-50%); }
+            transform: translateY(-50%);
+    color: #FFFFFF;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3); }
+    .full-width-slider .slider-arrow:hover {
+      background-color: rgba(0, 0, 0, 0.5); }
   .full-width-slider .slider-arrow-container {
     width: 1300px;
     margin: 0 auto;
@@ -732,6 +743,15 @@ textarea {
   .full-width-slider .slider-arrow-next {
     right: 0;
     padding-left: 5px; }
+
+.slider-arrow_round,
+.slick-arrow {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 30px;
+  line-height: 54px;
+  text-align: center; }
 
 .slick-slider {
   position: relative;
@@ -814,23 +834,24 @@ textarea {
 .slick-arrow {
   position: absolute;
   top: 134px;
-  color: #A1A3A3;
+  color: #AAB2C2;
   font-size: 0; }
-  .slick-arrow:hover {
-    color: #FFFFFF; }
   .slick-arrow::before {
-    font-size: 32px; }
+    font-size: 30px; }
+  .slick-arrow:hover {
+    color: #FFFFFF;
+    background-color: #333E53; }
   .slick-arrow.slick-hidden {
     display: none; }
 
 .slick-prev {
-  left: -60px; }
+  left: -26px; }
   .slick-prev::before {
     content: "\e900";
     font-family: "proamursk"; }
 
 .slick-next {
-  right: -60px; }
+  right: -26px; }
   .slick-next::before {
     content: "\e902";
     font-family: "proamursk"; }
@@ -1310,8 +1331,27 @@ input.btn_preloader {
     opacity: 1; } }
 
 .wobbler {
-  display: block;
-  height: 26px; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 26px;
+  padding: 0 15px;
+  color: #FFFFFF;
+  background-color: #0073FF;
+  border-radius: 17px; }
+  .wobbler__icon {
+    margin-right: 7px;
+    font-size: 0; }
+    .wobbler__icon::before {
+      font-size: 14px; }
+  .wobbler__text {
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase; }
 
 .hint {
   display: none;
@@ -2165,7 +2205,7 @@ footer {
     .publication__additional-info-wrap a {
       color: #0073FF;
       text-decoration: none; }
-      .publication__additional-info-wrap a:hover {
+      .publication__additional-info-wrap a:hover, .publication__additional-info-wrap a:focus {
         text-decoration: underline; }
   .publication__event-info {
     margin-bottom: 20px; }
@@ -2175,6 +2215,11 @@ footer {
     margin-bottom: 15px; }
   .publication__place-info:last-child {
     margin-bottom: 0; }
+  .publication__place-info ul {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-left: 45px;
+    list-style-type: disc; }
   .publication__title {
     margin-bottom: 20px;
     font-size: 36px;
@@ -2224,7 +2269,10 @@ footer {
   .last-news__icon {
     position: absolute;
     bottom: 0;
-    right: 20px; }
+    right: 20px;
+    height: 100px;
+    font-size: 100px;
+    color: rgba(0, 115, 255, 0.1); }
 
 .last-news-list {
   margin: 0;
@@ -2458,10 +2506,15 @@ footer {
 
 .social-link {
   display: inline-block;
-  text-decoration: none; }
-  .social-link img {
-    display: block;
-    height: 24px; }
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  line-height: 30px;
+  color: #283348;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  text-decoration: none;
+  text-align: center; }
   .social-link:not(:last-of-type) {
     margin-right: 12px; }
 
@@ -2791,7 +2844,7 @@ footer {
   margin-bottom: 20px; }
 
 .additional-block {
-  padding: 40px;
+  padding: 40px 0;
   background-color: #283348; }
   .additional-block__title {
     font-size: 24px;
@@ -2909,7 +2962,7 @@ footer {
     margin-right: 20px; }
   .cinema-widget .slider-circles-container {
     position: relative;
-    bottom: -15px;
+    bottom: 10px;
     left: 0;
     -webkit-transform: none;
         -ms-transform: none;
@@ -2919,16 +2972,13 @@ footer {
   .cinema-widget .slider-arrow-container {
     position: relative;
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    color: #FFFFFF; }
+    bottom: 23px; }
+    .cinema-widget .slider-arrow-container .slider-arrow {
+      position: absolute; }
+    .cinema-widget .slider-arrow-container .slider-arrow-prev {
+      left: 0; }
+    .cinema-widget .slider-arrow-container .slider-arrow-next {
+      right: 0; }
 
 .offer-widget {
   position: relative;

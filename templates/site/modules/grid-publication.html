@@ -15,10 +15,11 @@
             <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
         </h2>
 
-        <p class="grid-publication__text grid-publication__description">{{ item.lead }}</p>
+        <p class="grid-publication__text grid-publication__description">{{ item.descriptor }}</p>
 
         <div class="grid-publication__wobbler">
-            <img src="{% static "site/images/svg/wobbler-history.svg" %}{% static_version %}" alt="История" class="wobbler">
+            {% include "site/modules/wobbler.html" %}
         </div>
+
     </div>
 </div>

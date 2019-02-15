@@ -38,25 +38,26 @@ table
 p
     margin-top: 0
     margin-bottom: 1em
-    font-size: 16px
+    font-size: 18px
     line-height: 1.5
 
 a
     color: $base-c
-    text-decoration: none
-    cursor: pointer
+    text-decoration: underline
 
 .btn
     display: block
+    width: 185px
     margin-left: auto
     margin-right: auto
-    width: 185px
     padding: 13px 15px 11px
-    font-size: $base-fz
+    font-size: 16px
     line-height: 1
     font-weight: bold
+    letter-spacing: 0.04em
     color: $light-c
     text-align: center
+    text-decoration: none
     border-radius: 20px
     background-color: $base-c
 
@@ -79,15 +80,19 @@ a
     font-weight: bold
 
 .separator
-    margin: 30px auto
-    border-top: 1px solid $base-c
+    display: block
+    width: 480px
+    margin: 40px auto
 
 .p0
     padding: 0
 
+.letter-body-td
+    padding: 90px 0
+
 .wrapper
     width: 700px
-    margin: 90px auto 90px auto
+    margin: 0 auto
 
 .header
     position: relative
@@ -95,6 +100,9 @@ a
 
 .header__td
     padding: 40px 30px
+    background-repeat: no-repeat
+    background-size: 640px 93px
+    background-position: 30px 20px
 
 .header
     &__logo-link
@@ -104,17 +112,10 @@ a
         color: $dark-c
         z-index: 2
 
-    &__logo-subtext
-        margin-top: 6px
-        font-size: 11px
-        line-height: 1
-        letter-spacing: 0.07em
-        color: #242434
-
     &__logo-img
         display: block
-        width: 155px
-        height: 32px
+        width: 156px
+        height: 52px
 
 .header-img
     width: 640px
@@ -128,7 +129,7 @@ a
     background-color: $bg-light
 
 .content-td
-    padding: 30px 30px 40px
+    padding: 40px 30px 20px
 
 .content__title
     margin-bottom: 20px
@@ -137,6 +138,11 @@ a
     text-align: center
     letter-spacing: 0.08em
 
+.content__text
+    width: 540px
+    margin-left: auto
+    margin-right: auto
+
 .footer
     background-color: $base-dark-c
 
@@ -144,7 +150,7 @@ a
     padding: 40px 80px
 
 .footer-img-td
-    padding-top: 30px
+    padding-top: 20px
 
 .footer-img
     width: 700px
@@ -152,12 +158,12 @@ a
 
 .footer
     &__info-text
+        width: 320px
+        padding-top: 40px
+        padding-left: 80px
+        padding-bottom: 40px
+        font-size: 14px
         color: $light-c
-        text-align: center
-
-        p
-            font-size: 14px
-            margin-bottom: 5px
 
     &__info-link
         color: $light-c
@@ -168,28 +174,27 @@ a
     &__copyright
         color: #7A8BA1
         font-size: 14px
+        text-align: center
 
-        &:first-child
-            padding-left: 80px
+    &__link_left
+        padding-left: 80px
+        padding-bottom: 40px
 
-        &:last-child
-            padding-right: 80px
-            text-align: right
-
-        a
-            color: inherit
-            text-decoration: underline
+    &__link_right
+        padding-right: 80px
+        padding-bottom: 40px
+        text-align: right
 
 .social-wrap
-    padding: 40px 80px 20px
+    padding-top: 40px
+    padding-right: 80px
+    padding-bottom: 40px
     font-size: 0
-    text-align: center
-    border-bottom: 1px solid #ECEEF1
+    text-align: right
 
 .social-link
     display: inline-block
-    margin-right: 15px
-    margin-left: 15px
+    margin-left: 30px
 
     img
         width: 45px
@@ -198,12 +203,33 @@ a
 .publication_full
     width: 640px
 
+    .grid-publication_format-base
+
+        .grid-publication__cover
+            width: 638px
+            max-width: 638px
+            height: 200px
+
 .publication_half
-    width: 310px
+    width: 320px
     vertical-align: top
 
     .grid-publication
-        height: 490px
+        height: 520px
+
+    .grid-publication_format-full
+        .grid-publication__cover
+            width: 308px
+            height: 490px
+
+    .grid-publication_format-base
+
+        .grid-publication__cover
+            width: 308px
+            height: 280px
+
+        .grid-publication__text-only-wrap
+            height: 155px
 
     &:first-child .grid-publication
         margin-right: 10px
@@ -218,7 +244,7 @@ a
     background-color: $light-c
     text-decoration: none
     color: inherit
-    border: 1px solid $border-c
+    border: 1px solid #D7DBE0
     border-radius: 4px
     overflow: hidden
 
@@ -232,8 +258,6 @@ a
         object-fit: cover
 
     &__text-wrap
-        position: relative
-        z-index: 3
 
     &__title
         margin-top: 0
@@ -242,9 +266,6 @@ a
         a
             color: currentColor
             text-decoration: none
-            &:hover,
-            &:focus
-                color: $base-c
 
     &__description
         margin-bottom: 0
@@ -253,9 +274,10 @@ a
         line-height: 1.5
 
     &__wobbler
-        margin-top: 30px
+        margin-top: 20px
 
         .wobbler
+            height: 26px
             vertical-align: middle
 
     &__link
@@ -268,40 +290,14 @@ a
         letter-spacing: 0.08em
         text-decoration: none
 
-        span
-            vertical-align: middle
-            position: relative
-            z-index: 2
-
         .text
-            padding-left: 2px
+            vertical-align: middle
 
-        .icon
-            margin-left: 10px
-            font-size: 10px
-            color: $base-c
-            vertical-align: -2px
-
-        &::before
-            content: ""
-            display: block
-            position: absolute
-            top: 1px
-            right: -7px
-            z-index: 1
+        img
             width: 26px
             height: 26px
-            border-radius: 50%
-            background-color: #EFF2F5
-
-    &__bg-gradient
-        display: none
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        z-index: 2
+            margin-left: 5px
+            vertical-align: middle
 
     &_format-base
         .grid-publication
@@ -322,32 +318,15 @@ a
                 color: $base-c
 
     &_format-full
+        background-repeat: no-repeat
+        background-size: cover
         color: $light-c
 
         .grid-publication
-            &__cover-wrap
-                display: block
-                position: relative
-                height: 100%
-
-                &::after
-                    content: ""
-                    display: block
-                    position: absolute
-                    top: 0
-                    left: 0
-                    width: 100%
-                    height: 100%
-                    background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%)
-
-            &__cover
-                height: 100%
 
             &__text-wrap
-                position: absolute
-                bottom: 20px
-                left: 20px
-                right: 20px
+                margin-top: 350px
+                padding: 20px
 
             &__link
                 color: $light-c
@@ -369,3 +348,25 @@ a
 
             &__text
                 font-size: 20px
+
+.special-project
+    position: relative
+    display: block
+    width: 638px
+    height: 458px
+    text-align: center
+    background-size: cover
+    background-repeat: no-repeat
+
+    &__title
+        font-size: 36px
+        font-weight: bold
+
+    &__text
+        margin: 0
+        font-size: 20px
+
+    &__text-wrap
+        margin-top: 100px
+        padding: 20px 40px
+

@@ -36,7 +36,7 @@
 
                         <div class="publication__content">
                             <div class="publication__additional-info-wrap publication__additional-info-wrap_row">
-                                <div class="publication__rubric"><span class="publication__rubric-icon icon-news"></span>Новости</div>
+                                <div class="publication__rubric"><span class="publication__rubric-icon icon-news-stroke"></span>Новости</div>
 
                                 <div class="publication__date">{{ news.publication_date|ru_strftime:"%H:%M, %d %B %Y" }}00:00, 21 мая 2018</div>
                             </div>
@@ -83,5 +83,5 @@
 {% endblock %}
 
 {% block additional_content %}
-{#    @@include("page-block/read-also.html") #}
+    {% read_also %}
 {% endblock %}

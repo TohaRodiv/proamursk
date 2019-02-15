@@ -17,6 +17,7 @@ from applications.tools.utils import make_ajax_response
 from applications.tools.views import InfinityLoaderListView
 from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
+from applications.contentblocks.models import Page
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
 
 try:
@@ -30,15 +31,15 @@ except ImportError:
 
 
 def custom_handler404(request, exception):
-    return render(request, 'site/404.html', status=404)
+    return render(request, '404.html', status=404)
 
 
 class IndexView(View):
 
-    def get_page(self):
+    def get_page(self, request):
         page = None
         try:
-            url_name = resolve(request.path_info).url_name
+            url_name = request.resolver_match.url_name
         except:
             pass
         else:
@@ -46,16 +47,26 @@ class IndexView(View):
                 page = Page.objects.select_related().get(codename=url_name)
             except:
                 pass
-            else:
-                pass
+
+        return page
 
     def get(self, request):
         current_date = date.today()
+        page = self.get_page(request)
+        top_objects = page.top_items.all().order_by('weight')
+        events = Event.objects.filter(is_active=True,
+                                      start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'event']).order_by('start_event_date')[:2]
+        reports = Report.objects.filter(is_active=True,
+                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'report']).order_by('-publication_date')[:2]
+        places = Place.objects.filter(is_active=True, publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'place']).order_by('-publication_date')[:(6-len(events)-len(reports))]
+        what_to_do = list(events) + list(reports) + list(places)
         films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
                                     sessions__session_time__lt=current_date + timedelta(days=1)
                                     ).distinct()
-        return render(request, 'site/index.html', dict(films=films))
+        return render(request, 'site/index.html', dict(films=films,
+                                                       top_objects=top_objects,
+                                                       what_to_do=what_to_do))
 
 
 class NewsListView(InfinityLoaderListView):
@@ -173,13 +184,23 @@ class HistoryDetailView(DetailView):
     template_name = 'site/history-details.html'
 
 
-class PersonsListView(ListView):
-    model = Person
-    allow_empty = True
-    queryset = Person.objects.filter(is_active=True, publication_date__lte=timezone.now())
-    paginate_by = 50
-    context_object_name = 'persons'
-    template_name = 'root/persons_list.html'
+class PersonsListView(InfinityLoaderListView):
+    queryset = Person.objects.filter(is_active=True,
+                                     publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
+
+    template_name = 'site/all-people.html'
+    ajax_template_name = 'site/modules/grid-persons-block.html'
+    context_list_name = 'persons'
+    ajax_context_list_name = 'articles'
+    items_per_page = 1
+
+    def get(self, request):
+        items = History.objects.filter(is_active=True,
+                                       publication_date__lte=timezone.now()).order_by('-publication_date')
+        has_next = items.count() > 11
+        items = items[:11]
+        return render(request, self.template_name, {self.context_list_name: items,
+                                                    'has_next': has_next})
 
 
 class PersonsDetailView(DetailView):
@@ -196,29 +217,41 @@ class CityGuidesDetailView(DetailView):
     template_name = 'root/city_guides_detail.html'
 
 
-class PlaceListView(ListView):
-    model = Place
-    allow_empty = True
-    queryset = Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
-    paginate_by = 50
-    context_object_name = 'places'
-    template_name = 'root/places_list.html'
+class PlaceListView(InfinityLoaderListView):
+    queryset = Place.objects.filter(is_active=True,
+                                      publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
+
+    template_name = 'site/all-places.html'
+    ajax_template_name = 'site/modules/grid-places-block.html'
+    context_list_name = 'places'
+    ajax_context_list_name = 'places'
+    items_per_page = 1
+
+    def get(self, request):
+        items = Place.objects.filter(is_active=True,
+                                     publication_date__lte=timezone.now()).order_by('-publication_date')
+        has_next = items.count() > 11
+        items = items[:11]
+        return render(request, self.template_name, {self.context_list_name: items,
+                                                    'has_next': has_next})
 
 
 class PlaceDetailView(DetailView):
     model = Place
     queryset = Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'place'
-    template_name = 'site/event-announcement.html'
+    template_name = 'site/place-details.html'
 
 
-class SpecialsListView(ListView):
-    model = Special
-    allow_empty = True
-    queryset = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
-    paginate_by = 50
-    context_object_name = 'specials'
-    template_name = 'root/specials_list.html'
+class SpecialsListView(InfinityLoaderListView):
+    queryset = Special.objects.filter(is_active=True,
+                                    publication_date__lte=timezone.now()).order_by('-publication_date')
+
+    template_name = 'site/all-special-projects.html'
+    ajax_template_name = 'site/modules/special-projects-block.html'
+    context_list_name = 'specials'
+    ajax_context_list_name = 'specials'
+    items_per_page = 1
 
 
 class SpecialsDetailView(DetailView):

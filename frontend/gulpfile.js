@@ -47,7 +47,7 @@ const gulp = require('gulp'),
     // email builder configuration
     emailbuilderConfig = {
         emailTest: {
-            to: ['vvidyaeva@gmail.com', 'valyavidyaeva@mail.ru','valyavidyaeva@yandex.ru'],
+            to: ['vvidyaeva@gmail.com', 'valyavidyaeva@mail.ru','valyavidyaeva@yandex.ru', 'jes.hab.magik@gmail.com'],
             from: 'no-reply@perfectura.ru',
             subject: 'Алтан Шина Test Email',
             nodemailer: {

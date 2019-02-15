@@ -6,17 +6,29 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from applications.contentblocks.models import Page
 from core.models import BaseModel, IsActiveMixin, BaseSeoMixin
+from django.apps import apps
 
 
 class TopItem(models.Model):
     page = models.ForeignKey(Page, verbose_name='Страница', on_delete=models.CASCADE, related_name='top_items')
     codename = models.CharField('Сущность', max_length=255)
     object_id = models.PositiveIntegerField()
+    weight = models.PositiveIntegerField()
 
     class Meta:
         verbose_name = 'Позиция в топе'
         verbose_name_plural = 'Топы для страниц'
         ordering = '-id',
+
+    def get_model(self):
+        return apps.get_model('root', self.codename)
+
+    def get_object(self):
+        obj = None
+        model = self.get_model()
+        if model:
+            obj = model.objects.filter(id=self.object_id).first()
+        return obj
 
     def __str__(self):
         return str(self.id)
@@ -290,6 +302,9 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def get_absolute_url(self):
         return reverse('places-detail', args=[self.id])
+
+    def get_reviews(self):
+        return self.reviews.filter(is_active=True)
 
 
 class PlaceReview(BaseModel):

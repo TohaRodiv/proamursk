@@ -1,41 +1,69 @@
-@@if (wobbler === "special-project") {
-    <img src="images/svg/wobbler-special-projects.svg" alt="Спецпроекты" class="wobbler">
-}
-
-@@if (wobbler === "reportage") {
-    <img src="images/svg/wobbler-reportage.svg" alt="Репортаж" class="wobbler">
-}
-
 @@if (wobbler === "news") {
-    <img src="images/svg/wobbler-news.svg" alt="Новости" class="wobbler">
-}
-
-@@if (wobbler === "history") {
-    <img src="images/svg/wobbler-history.svg" alt="История" class="wobbler">
-}
-
-@@if (wobbler === "people") {
-    <img src="images/svg/wobbler-people.svg" alt="Люди" class="wobbler">
-}
-
-@@if (wobbler === "place") {
-    <img src="images/svg/wobbler-place.svg" alt="Место" class="wobbler">
+    <div class="wobbler">
+        <span class="wobbler__icon icon-news-stroke"></span>
+        <div class="wobbler__text">Новости</div>
+    </div>
 }
 
 @@if (wobbler === "announcement") {
-    <img src="images/svg/wobbler-announcement.svg" alt="Анонс" class="wobbler">
+    <div class="wobbler">
+        <span class="wobbler__icon icon-megafon-stroke"></span>
+        <div class="wobbler__text">Анонс</div>
+    </div>
+}
+
+@@if (wobbler === "reportage") {
+    <div class="wobbler">
+        <span class="wobbler__icon icon-reportage"></span>
+        <div class="wobbler__text">Репортаж</div>
+    </div>
 }
 
 @@if (wobbler === "past-event") {
-    <img src="images/svg/wobbler-past-event.svg" alt="Анонс" class="wobbler">
+    <div class="wobbler">
+        <span class="wobbler__icon icon-calendar"></span>
+        <div class="wobbler__text">Состоялось</div>
+    </div>
+}
+
+@@if (wobbler === "history") {
+    <div class="wobbler">
+        <span class="wobbler__icon icon-history"></span>
+        <div class="wobbler__text">История</div>
+    </div>
 }
 
 @@if (wobbler === "first-builders") {
-    <img src="images/svg/wobbler-history-first-builders.svg" alt="Анонс" class="wobbler">
+    <div class="wobbler">
+        <span class="wobbler__icon icon-history"></span>
+        <div class="wobbler__text">Первостроители</div>
+    </div>
 }
 
 @@if (wobbler === "legends") {
-    <img src="images/svg/wobbler-history-legends.svg" alt="Анонс" class="wobbler">
+    <div class="wobbler">
+        <span class="wobbler__icon icon-history"></span>
+        <div class="wobbler__text">Городские легенды</div>
+    </div>
 }
 
+@@if (wobbler === "people") {
+    <div class="wobbler">
+        <span class="wobbler__icon icon-people"></span>
+        <div class="wobbler__text">Люди</div>
+    </div>
+}
 
+@@if (wobbler === "place") {
+    <div class="wobbler">
+        <span class="wobbler__icon icon-geo-stroke"></span>
+        <div class="wobbler__text">Место</div>
+    </div>
+}
+
+@@if (wobbler === "special-project") {
+    <div class="wobbler">
+        <span class="wobbler__icon icon-star-sharp"></span>
+        <div class="wobbler__text">Спецпроекты</div>
+    </div>
+}

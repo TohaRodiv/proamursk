@@ -1,50 +1,17 @@
-@@include("page-block/head.html")
-@@include("page-block/header.html", {
-    "page": "special-projects"
-})
+{% extends "site/base.html" %}
+{% load static static_version %}
 
-<main class="light-bg">
-    <div class="container">
-        <div class="js-infinity-loader-wrap">
-            <div class="special-projects-list js-infinity-loader-grid">
-                <div class="special-projects-list__item">
-                    @@include("modules/special-project.html", {
-                        "class": "",
-                        "img": "images/special-project-cover1.jpg",
-                        "title": "Легенды Амурска",
-                        "description": "Шаман сказал: «Здесь города не будет». Но ошибся"
-                    })
+{% block content %}
+    <main class="light-bg">
+        <div class="container">
+            <div class="js-infinity-loader-wrap">
+                <div class="special-projects-list js-infinity-loader-grid">
+                    {% include "site/modules/special-projects-block.html" %}
                 </div>
-                <div class="special-projects-list__item">
-                    @@include("modules/special-project.html", {
-                        "class": "",
-                        "img": "images/special-project-cover2.jpg",
-                        "title": "КЕША ХОРОШИЙ МАЛЬЧИК",
-                        "description": "Разбираем на сколько Кеша хороший и мальчик ли?"
-                    })
-                </div>
-                <div class="special-projects-list__item">
-                    @@include("modules/special-project.html", {
-                        "class": "",
-                        "img": "images/special-project-cover3.jpg",
-                        "title": "СПОРТ В АМУРСКЕ",
-                        "description": "Думали его нет, а он есть и еще какой"
-                    })
-                </div>
-                <div class="special-projects-list__item">
-                    @@include("modules/special-project.html", {
-                        "class": "",
-                        "img": "images/special-project-cover1.jpg",
-                        "title": "Легенды Амурска 2",
-                        "description": "Шаман стал аккуратен в высказываниях"
-                    })
-                </div>
+                {% if has_next %}
+                    <button class="btn btn_blue btn_more btn_center js-more-special-projects" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+                {% endif %}
             </div>
-
-            <button class="btn btn_blue btn_more btn_center js-more-special-projects" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
         </div>
-    </div>
-</main>
-
-@@include('page-block/footer.html')
-@@include('page-block/page-end.html')
+    </main>
+{% endblock %}

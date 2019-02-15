@@ -42,7 +42,7 @@
 
     .slider-circles-container
         position: relative
-        bottom: -15px
+        bottom: 10px
         left: 0
         transform: none
         margin-left: auto
@@ -51,7 +51,13 @@
     .slider-arrow-container
         position: relative
         width: 100%
-        display: flex
-        justify-content: space-between
-        align-items: center
-        color: $light-c
+        bottom: 23px
+
+        .slider-arrow
+            position: absolute
+
+        .slider-arrow-prev
+            left: 0
+
+        .slider-arrow-next
+            right: 0

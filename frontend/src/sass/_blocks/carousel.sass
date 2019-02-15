@@ -73,26 +73,29 @@
 .slick-arrow
     position: absolute
     top: 134px
-    color: #A1A3A3
+    color: #AAB2C2
     font-size: 0
+
+    &::before
+        font-size: 30px
 
     &:hover
         color: $light-c
-
-    &::before
-        font-size: 32px
+        background-color: #333E53
 
     &.slick-hidden
         display: none
 
 .slick-prev
-    left: -60px
+    left: -26px
+
     &::before
         content: "\e900"
         font-family: $icon-f
 
 .slick-next
-    right: -60px
+    right: -26px
+
     &::before
         content: "\e902"
         font-family: $icon-f
