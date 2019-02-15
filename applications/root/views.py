@@ -184,13 +184,23 @@ class HistoryDetailView(DetailView):
     template_name = 'site/history-details.html'
 
 
-class PersonsListView(ListView):
-    model = Person
-    allow_empty = True
-    queryset = Person.objects.filter(is_active=True, publication_date__lte=timezone.now())
-    paginate_by = 50
-    context_object_name = 'persons'
-    template_name = 'root/persons_list.html'
+class PersonsListView(InfinityLoaderListView):
+    queryset = Person.objects.filter(is_active=True,
+                                     publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
+
+    template_name = 'site/all-people.html'
+    ajax_template_name = 'site/modules/grid-persons-block.html'
+    context_list_name = 'persons'
+    ajax_context_list_name = 'articles'
+    items_per_page = 1
+
+    def get(self, request):
+        items = History.objects.filter(is_active=True,
+                                       publication_date__lte=timezone.now()).order_by('-publication_date')
+        has_next = items.count() > 11
+        items = items[:11]
+        return render(request, self.template_name, {self.context_list_name: items,
+                                                    'has_next': has_next})
 
 
 class PersonsDetailView(DetailView):
