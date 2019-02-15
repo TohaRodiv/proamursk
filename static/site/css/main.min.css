@@ -258,29 +258,47 @@ ul, ol {
 .icon-search:before {
   content: "\e907"; }
 
-.icon-news:before {
+.icon-news-stroke:before {
   content: "\e909"; }
 
-.icon-event:before {
-  content: "\e90b"; }
+.icon-news-fill:before {
+  content: "\e90d"; }
+
+.icon-news-cut:before {
+  content: "\e90e"; }
 
 .icon-history:before {
   content: "\e906"; }
 
+.icon-megafon-fill:before {
+  content: "\e924"; }
+
+.icon-megafon-stroke-lines:before {
+  content: "\e90b"; }
+
+.icon-megafon-stroke:before {
+  content: "\e913"; }
+
+.icon-geo-fill:before {
+  content: "\e928"; }
+
+.icon-geo-stroke:before {
+  content: "\e929"; }
+
 .icon-people:before {
   content: "\e908"; }
 
-.icon-place:before {
-  content: "\e913"; }
+.icon-calendar-fill:before {
+  content: "\e922"; }
 
 .icon-calendar:before {
   content: "\e90c"; }
 
-.icon-geo:before {
-  content: "\e90e"; }
+.icon-reportage-fill:before {
+  content: "\e923"; }
 
 .icon-reportage:before {
-  content: "\e90d"; }
+  content: "\e91a"; }
 
 .icon-web:before {
   content: "\e90f"; }
@@ -288,14 +306,17 @@ ul, ol {
 .icon-instagram:before {
   content: "\e910"; }
 
+.icon-odnoklassniki:before {
+  content: "\e92a"; }
+
 .icon-clock:before {
   content: "\e911"; }
 
-.icon-phone:before {
-  content: "\e912"; }
-
 .icon-clip-bold:before {
   content: "\e915"; }
+
+.icon-clip-thin:before {
+  content: "\e916"; }
 
 .icon-cuisine:before {
   content: "\e917"; }
@@ -303,44 +324,38 @@ ul, ol {
 .icon-coin:before {
   content: "\e918"; }
 
-.icon-ticket:before {
-  content: "\e919"; }
-
-.icon-star:before {
-  content: "\e91b"; }
-
-.icon-bed:before {
-  content: "\e91a"; }
-
 .icon-link:before {
   content: "\e91c"; }
 
-.icon-binoculars:before {
-  content: "\e91d"; }
+.icon-ticket:before {
+  content: "\e919"; }
+
+.icon-star-round:before {
+  content: "\e91b"; }
+
+.icon-star-sharp:before {
+  content: "\e92b"; }
+
+.icon-bed:before {
+  content: "\e927"; }
+
+.icon-hotel:before {
+  content: "\e921"; }
+
+.icon-phone:before {
+  content: "\e912"; }
 
 .icon-phone-plus:before {
   content: "\e91e"; }
+
+.icon-binoculars:before {
+  content: "\e91d"; }
 
 .icon-food:before {
   content: "\e91f"; }
 
 .icon-bus:before {
   content: "\e920"; }
-
-.icon-hotel:before {
-  content: "\e921"; }
-
-.icon-calendar-fill:before {
-  content: "\e922"; }
-
-.icon-reportage-fill:before {
-  content: "\e923"; }
-
-.icon-megafon-fill:before {
-  content: "\e924"; }
-
-.icon-clip-thin:before {
-  content: "\e916"; }
 
 .icon-error:before {
   content: "\e925"; }
@@ -1310,8 +1325,27 @@ input.btn_preloader {
     opacity: 1; } }
 
 .wobbler {
-  display: block;
-  height: 26px; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 26px;
+  padding: 0 15px;
+  color: #FFFFFF;
+  background-color: #0073FF;
+  border-radius: 17px; }
+  .wobbler__icon {
+    margin-right: 7px;
+    font-size: 0; }
+    .wobbler__icon::before {
+      font-size: 14px; }
+  .wobbler__text {
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase; }
 
 .hint {
   display: none;
@@ -2229,7 +2263,10 @@ footer {
   .last-news__icon {
     position: absolute;
     bottom: 0;
-    right: 20px; }
+    right: 20px;
+    height: 100px;
+    font-size: 100px;
+    color: rgba(0, 115, 255, 0.1); }
 
 .last-news-list {
   margin: 0;
