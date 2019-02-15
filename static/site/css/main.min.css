@@ -365,6 +365,7 @@ ul, ol {
     margin-right: 20px; }
   .base-layout__aside {
     width: 420px;
+    margin-left: auto;
     padding-left: 40px;
     -ms-flex-negative: 0;
         flex-shrink: 0; }

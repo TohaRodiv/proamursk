@@ -27,9 +27,11 @@
                 </div>
 
                 <div class="aside-widget">
-                    <a href="news-details.html" class="sidebar-banner">
-                        <img src="images/aside-banner2.jpg" alt="" class="sidebar-banner__img">
-                    </a>
+                    @@include('modules/offer-widget.html', {
+                        "class": "event",
+                        "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "btnText": "Поделиться событием"
+                    })
                 </div>
             </aside>
         </div>
