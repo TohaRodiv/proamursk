@@ -88,12 +88,27 @@ class NewsDetailView(DetailView):
 class EventsListView(View):
 
     def get(self, request):
+        current_date = date.today()
         events = list(Event.objects.filter(is_active=True,
                                            start_event_date__gte=timezone.now()).order_by('-start_event_date')[:8])
 
+        today_films = Film.objects.filter(is_active=True,
+                                    sessions__session_time__gte=current_date,
+                                    sessions__session_time__lt=current_date + timedelta(days=1)
+                                    ).distinct()
+        tomorrow_films = Film.objects.filter(is_active=True,
+                                          sessions__session_time__gte=current_date + timedelta(days=1),
+                                          sessions__session_time__lt=current_date + timedelta(days=2)
+                                          ).distinct()
+        future_films = Film.objects.filter(is_active=True,
+                                           sessions__session_time__gte=current_date,
+                                           ).distinct()
         return render(request, 'site/all-events.html',
                       dict(
-                          events=events
+                          events=events,
+                          today_films=today_films,
+                          tomorrow_films=tomorrow_films,
+                          future_films=future_films
                       )
                      )
 
@@ -266,7 +281,7 @@ class FilmDetailView(DetailView):
     model = Film
     queryset = Film.objects.filter(is_active=True).prefetch_related('sessions')
     context_object_name = 'film'
-    template_name = 'root/film_detail.html'
+    template_name = 'site/film-announcement.html'
 
 
 @require_POST

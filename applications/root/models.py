@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.urls import reverse
@@ -353,6 +354,42 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def get_absolute_url(self):
         return reverse('films-detail', args=[self.id])
+
+    def get_weekly_session(self):
+        sessions = self.sessions.filter(session_time__gte=date.today(),
+                                        session_time__lte=date.today() + timedelta(days=7))
+        return sessions
+
+    def get_weekdays(self):
+        sessions = self.get_weekly_session()
+        weekdays = []
+        prev_day = None
+        for i in sessions:
+            if not prev_day:
+                weekdays.append(i.session_time)
+            elif i.session_time.day != prev_day.day:
+                weekdays.append(i.session_time)
+
+            prev_day = i.session_time
+
+        return weekdays
+
+    def get_sessions_by_day(self):
+        sessions = self.get_weekly_session()
+        prev_day = None
+        result = []
+        day = []
+        for i in sessions:
+            if prev_day and i.session_time.day != prev_day.day:
+                result.append(day)
+                day = []
+
+            day.append(i)
+            prev_day = i.session_time
+        result.append(day)
+
+        return result
+
 
 
 class FilmSession(BaseModel):
