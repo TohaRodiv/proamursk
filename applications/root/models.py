@@ -22,7 +22,17 @@ class TopItem(models.Model):
         ordering = '-id',
 
     def get_model(self):
-        return apps.get_model('root', self.codename)
+        model_names = {
+            "event-announcements": "event",
+            "reports": "report",
+            "persons": "person",
+            "history": "history",
+            "city-guides": "cityguide",
+            "places": "place",
+            "specials": "special",
+        }
+        model_name = model_names.get(self.codename)
+        return apps.get_model('root', model_name)
 
     def get_object(self):
         obj = None
@@ -389,7 +399,6 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
         result.append(day)
 
         return result
-
 
 
 class FilmSession(BaseModel):
