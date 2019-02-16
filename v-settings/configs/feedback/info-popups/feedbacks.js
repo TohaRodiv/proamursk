@@ -25,7 +25,7 @@ const state = {
                     type: 'simpleRow',
                     title: 'Тема обращения',
                     content: {
-                        codename: 'subject',
+                        codename: 'subject_name',
                     }
                 },
                 {
