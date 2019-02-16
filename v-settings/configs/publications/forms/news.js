@@ -131,8 +131,8 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                label: '',
-                                required: false,
+                                label: 'Содержание новости',
+                                required: true,
                                 invalid: false,
                                 widget: 'formatter',
                                 codename: 'content',
