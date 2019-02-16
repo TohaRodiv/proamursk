@@ -44,22 +44,23 @@ const state = {
                                 invalid: false,
                                 isDraggable: true,
                                 widget: 'childEntity',
-                                // modClass: 'marginBottom50',
                                 codename: 'top_items',
                                 requireSendId: true,
                                 hint: '',
                                 entity_structure: [
                                     {
-                                        type: 'image',
-                                        requiredValue: 'object_id',
+                                        type: 'vertical_list',
+                                        list: [
+                                            {
+                                                requiredValue: 'object_id'
+                                            },
+                                            {
+                                                requiredValue: 'codename',
+                                                isTransparent: true
+                                            }
+                                        ]
                                     },
-                                    {
-                                        type: 'text',
-                                        requiredValue: 'object_id',
-                                        flex: 1
-                                    }
                                 ],
-                                textOptions: true,
                                 popup_structure: [
                                     {
                                         id: 1,
@@ -71,10 +72,11 @@ const state = {
                                                 elements: [
                                                     {
                                                         type: 'field',
-                                                        label: 'Страница',
-                                                        width: 12,
+                                                        label: 'Тип материала',
+                                                        width: 6,
                                                         widget: 'singleSelector',
                                                         codename: 'codename',
+                                                        required: true,
                                                         sortFlag: {
                                                             value: 'codename',
                                                             direction: 'asc'
@@ -127,10 +129,10 @@ const state = {
                                                 direction: 'row',
                                                 elements: [
                                                     {
-                                                        // isBlocked: true,
                                                         type: 'field',
-                                                        label: 'Публикация',
+                                                        label: 'Спецпроект',
                                                         width: 12,
+                                                        required: true,
                                                         widget: 'singleSelector',
                                                         sortFlag: {
                                                             value: 'id',
@@ -144,8 +146,8 @@ const state = {
                                                         ],
                                                         hint: '',
                                                         api_route: 'event-announcements',
-                                                        expected_value: 'id',
-                                                        codename: 'object_id'
+                                                        codename: 'object_id',
+                                                        returnFromAvailableValues: 'id'
                                                     }
                                                 ]
                                             }
