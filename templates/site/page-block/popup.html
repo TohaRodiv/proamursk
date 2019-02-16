@@ -388,11 +388,11 @@
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Добавить отзыв о месте</div>
-                <div class="pop-up__subtitle">Детско-юношеская спортивная школа</div>
+                <div class="pop-up__subtitle">{{ place.title }}</div>
                 <div class="drop-area-wrap">
                     <form class="pop-up__form js-pop-up__form">
                         <div class="pop-up-form__inputs-set">
-                            <input type="hidden" name="place" value="1">
+                            <input type="hidden" name="place" value="{{ place.id }}">
 
                             <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
                                 <input type="text" name="name" class="input-line input-line_base required-input">

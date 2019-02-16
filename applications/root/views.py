@@ -453,7 +453,7 @@ def bugreport(request):
     result = {'status': False, 'message': settings.COMMON_ERROR_MESSAGE}
     if request.is_ajax():
         form = TextErrorForm(request.POST)
-        if form.is_active():
+        if form.is_valid():
             obj = form.save()
             template_context = {
                 'page_url': obj.url,

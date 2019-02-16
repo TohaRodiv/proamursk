@@ -70,13 +70,11 @@
                     <div class="aside-widget">
                         {% include "site/page-block/aside-subscribe-widget.html" %}
                     </div>
-{#                    <div class="aside-widget">#}
-{#                        @@include('modules/offer-widget.html', {#}
-{#                            "class": "event",#}
-{#                            "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",#}
-{#                            "btnText": "Предложить новость"#}
-{#                        })#}
-{#                    </div>#}
+                    <div class="aside-widget">
+                        {% with css_class="event" btn_text="Поделиться событием" offer_text="Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                            {% include "site/modules/offer-widget.html" %}
+                        {% endwith %}
+                    </div>
                     <div class="aside-widget">
                         {% include "site/page-block/nearest-event-widget.html" %}
                     </div>

@@ -14,14 +14,12 @@
                 {% endif %}
 
                 <aside class="base-layout__aside">
-{#                    <div class="aside-widget">#}
-{#                        @@include('modules/offer-widget.html', {#}
-{#                            "class": "people",#}
-{#                            "text": "Любой житель Амурска может поделиться информацией об интересном человеке с&nbsp;редакцией сайта. Для нас очень важно участие амурчан в&nbsp;жизни своего города.",#}
-{#                            "btnText": "Предложить героя"#}
-{#                        })#}
-{#                    </div>#}
-{#    #}
+                    <div class="aside-widget">
+                        {% with css_class="people" btn_text="Предложить героя" offer_text="Любой житель Амурска может поделиться информацией об интересном человеке с&nbsp;редакцией сайта. Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                            {% include "site/modules/offer-widget.html" %}
+                        {% endwith %}
+                    </div>
+
 {#                    <div class="aside-widget">#}
 {#                        <a href="news-details.html" class="sidebar-banner">#}
 {#                            <img src="images/aside-banner2.jpg" alt="" class="sidebar-banner__img">#}

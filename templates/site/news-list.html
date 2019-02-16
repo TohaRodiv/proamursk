@@ -36,11 +36,9 @@
 
                 <aside class="base-layout__aside">
                     <div class="aside-widget">
-{#                        @@include('modules/offer-widget.html', {#}
-{#                            "class": "news",#}
-{#                            "text": "Любой житель Амурска может поделиться интересными новостями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",#}
-{#                            "btnText": "Предложить новость"#}
-{#                        })#}
+                        {% with css_class="news" btn_text="Предложить новость" offer_text="Любой житель Амурска может поделиться интересными новостями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                            {% include "site/modules/offer-widget.html" %}
+                        {% endwith %}
                     </div>
 
                     <div class="aside-widget">
