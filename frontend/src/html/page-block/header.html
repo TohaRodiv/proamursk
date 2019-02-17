@@ -1,0 +1,46 @@
+<header>
+    <div class="container header-container">
+        <a href="index.html" class="header__logo-link">
+            @@if (page === "index") {
+                <img src="images/svg/logo-black.svg" alt="проАмурск" class="header__logo-img">
+            }
+
+            @@if (page === "news") {
+                <img src="images/svg/logo_news.svg" alt="проАмурск" class="header__logo-img">
+            }
+
+            @@if (page === "event") {
+                <img src="images/svg/logo_event.svg" alt="проАмурск" class="header__logo-img">
+            }
+
+            @@if (page === "history") {
+                <img src="images/svg/logo_history.svg" alt="проАмурск" class="header__logo-img">
+            }
+            @@if (page === "place") {
+                <img src="images/svg/logo_place.svg" alt="проАмурск" class="header__logo-img">
+            }
+            @@if (page === "people") {
+                <img src="images/svg/logo_people.svg" alt="проАмурск" class="header__logo-img">
+            }
+            @@if (page === "special-projects") {
+                <img src="images/svg/logo_special-projects.svg" alt="проАмурск" class="header__logo-img">
+            }
+
+            <span class="header__logo-subtext">МЕСТА, СОБЫТИЯ, ЛЮДИ</span>
+        </a>
+
+        <img src="images/svg/header-pattern.svg" alt="" class="header__pattern">
+
+        <div class="header__weather-widget">-24 C°</div>
+
+        <div class="header__nav">
+            @@include('page-block/site-nav.html', {
+                "active": "@@page"
+            })
+        </div>
+
+        <button class="header__search-btn icon-search"></button>
+        <button class="header__close-search-btn js-close-search icon-close hidden"></button>
+    </div>
+</header>
+

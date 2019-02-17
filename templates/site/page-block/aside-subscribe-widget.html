@@ -1,0 +1,13 @@
+{% load static_version admin_static %}
+<div class="aside-subscribe-widget">
+    <img src="{% static "site/images/svg/subscribe.svg" %}{% static_version %}" alt="" class="subscribe-img">
+    <div class="subscribe-title">Еженедельная рассылка о&nbsp;главных событиях города</div>
+
+    <form class="subscribe-form">
+        <div class="input-wrap subscribe-form__input-wrap">
+            <input type="text" name="email" class="subscribe-form__input required-input" placeholder="Ваш E-mail">
+        </div>
+        <input type="submit" class="js-subscribe-form__submit subscribe-form__submit btn btn_white" value="Подписаться">
+    </form>
+    <div class="js-subscribe-form__submited subscribe-form__submited hidden">Мы выслали письмо для подтверждения, проверьте почту. <br>Спасибо</div>
+</div>

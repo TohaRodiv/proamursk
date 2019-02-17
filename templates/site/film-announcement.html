@@ -1,0 +1,140 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+{% load media_filters %}
+{% load pytils_dt %}
+{% load site_tags %}
+{% load utils_tags %}
+{% load posteditor_tags %}
+
+{% block title %}
+    {{ film.meta_title|default:film.title }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ film.meta_keywords }}">
+    <meta name="description" content="{{ film.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=film.meta_title|default:film.title og_description=film.meta_description og_image=film.og_image|default:film.cover|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main">
+                    <article class="publication film">
+                        <div class="film-header">
+                            <img src="{{ film.cover|get_thumbnail_url_by_name:"film_detail" }}" alt="" class="film-cover">
+                            <div class="film-info">
+                                <h1 class="film-title">{{ film.title }}</h1>
+                                <table class="film-info-table">
+                                    <tr>
+                                        <td>Год:</td>
+                                        <td>{{ film.release_year }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Страна:</td>
+                                        <td>{{ film.country }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Жанр:</td>
+                                        <td>{{ film.genre }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Режисёр:</td>
+                                        <td>{{ film.director }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>В главных ролях:</td>
+                                        <td>{{ film.starring }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Продолжительность:</td>
+                                        <td>{{ film.duration }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Возрастное ограничение:</td>
+                                        <td><span class="round-rating">{{ film.age_restriction }}</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="film-timetable tabs-wrap">
+                            <div class="film-timetable__days tab__btns-wrap">
+                                {% for day in film.get_weekdays %}
+                                    <button class="tab__btn js-tab__btn film-timetable__day-btn">
+                                        <div class="day-btn__week-day">{{ day|ru_strftime:"%A"|capfirst }}</div>
+                                        <div class="day-btn__day">{{ day|ru_strftime:"%d" }}</div>
+                                        <div class="day-btn__month">{{ day|ru_strftime:"%B" }}</div>
+                                    </button>
+                                {% endfor %}
+                            </div>
+
+                            <div class="film-timetable__times">
+                                <a href="{{ film.purchase_link }}" target="_blank" class="btn btn_blue film-seance__buy-btn">Купить билет</a>
+
+                                <div class="film-seance__text">
+                                    <div>Время сеанса:</div>
+                                    <div>Стоимость:</div>
+                                </div>
+
+                                <div class="tab__content-wrap">
+                                    {% for day in film.get_sessions_by_day %}
+                                        <div class="tab__content">
+                                            <div class="film-seance-wrap">
+                                                {% for i in day %}
+                                                    <div class="film-seance">
+                                                        <div class="film-seance__time">{{ i.session_time|ru_strftime:"%H:%M" }}</div>
+                                                        <div class="film-seance__price">{{ i.price }} р.</div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div class="film-seance__note">Возможны изменения, расписание учняйте по телефону 8 42142 999-53</div>
+                        </div>
+
+                        <div class="film-description wysiwyg-container">
+                            {{ film.description|safe }}
+                        </div>
+
+                        <div class="film-treiler">
+                            <iframe src="{{ film.trailer|get_player_link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="publication__footer">
+                            {% include "site/page-block/share-widget.html" %}
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+                        {% include "site/page-block/aside-subscribe-widget.html" %}
+                    </div>
+{#                    <div class="aside-widget">#}
+{#                        <a href="event-announcement.html" class="nearest-event-widget__item">#}
+{#                            <img src="images/aside-banner2.jpg" alt="" class="nearest-event-widget__img">#}
+{#                        </a>#}
+{#                    </div>#}
+{#                    <div class="aside-widget">#}
+{#                        <a href="event-announcement.html" class="nearest-event-widget__item">#}
+{#                            <img src="images/aside-banner3.jpg" alt="" class="nearest-event-widget__img">#}
+{#                        </a>#}
+{#                    </div>#}
+                </aside>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block additional_content %}
+    {% read_also %}
+{% endblock %}

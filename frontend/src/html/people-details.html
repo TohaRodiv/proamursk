@@ -1,0 +1,62 @@
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "people"
+})
+
+<main>
+    <div class="container">
+        <div class="base-layout">
+            <div class="base-layout__main">
+                <article class="publication">
+                    <figure class="publication__cover-wrap">
+                        <img src="images/publication-big6.jpg" alt="" class="publication__cover">
+                        <figcaption class="publication__img-figcaption">
+                            <span class="publication__img-author">Источник изображения (автор)</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="publication__content">
+                        <div class="publication__additional-info-wrap publication__additional-info-wrap_row">
+                            <div class="publication__rubric"><span class="publication__rubric-icon icon-people"></span>Люди</div>
+
+                            <div class="publication__date">00:00, 21 мая 2018</div>
+                        </div>
+
+                        <h1 class="publication__title">Сильный телом и духом</h1>
+
+                        <p class="publication__lead">Олега Пермякова в&nbsp;Амурске знает каждый&nbsp;&mdash; вот уже более 20&nbsp;лет он&nbsp;возглавляет районную Федерацию киокусинкай каратэ-до и&nbsp;ведет занятия в&nbsp;клубе &laquo;Киокушин&raquo;. Его ученики регулярно занимают первые места на&nbsp;районных турнирах, первенствах Хабаровского края и&nbsp;ДФО. Он&nbsp;тренирует людей всех возрастов и&nbsp;своим примером доказывает: каратэ&nbsp;&mdash; это не&nbsp;просто спорт. Это особая философия и&nbsp;образ жизни.</p>
+
+                        @@include("page-block/post-editor.html")
+
+                        <div class="publication__footer">
+                            <div class="publication__author">Автор материала</div>
+
+                            @@include('page-block/share-widget.html')
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <aside class="base-layout__aside">
+                <div class="aside-widget">
+                    @@include("page-block/aside-subscribe-widget.html")
+                </div>
+                <div class="aside-widget">
+                    @@include('modules/offer-widget.html', {
+                        "class": "people",
+                        "text": "Любой житель Амурска может поделиться информацией об интересном человеке с&nbsp;редакцией сайта. Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "btnText": "Предложить героя"
+                    })
+                </div>
+                <div class="aside-widget">
+                    @@include("page-block/nearest-event-widget.html")
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+@@include("page-block/read-also.html")
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')

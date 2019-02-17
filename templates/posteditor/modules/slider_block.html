@@ -1,0 +1,23 @@
+{% load i18n %}
+
+{% if slider %}
+    <div class="slider">
+        <div class="slider-container">
+            {% for slide in slider %}
+                <div class="slide" data-description="{{ slide.description }}">
+                    <img src="{{ slide.img }}" alt="{{ slide.description }}">
+                </div>
+            {% endfor %}
+        </div>
+        {% if slider|length > 1 %}
+            <div class="slider-arrow-container nav-wrapper">
+                <button class="slider-arrow slider-arrow-prev slider-arrow_simple icon-arrow-left-thin active"></button>
+                <div class="slide-nav-counter active">
+                    <span></span>&nbsp;/&nbsp;<span></span>
+                </div>
+                <button class="slider-arrow slider-arrow-next slider-arrow_simple icon-arrow-right-thin active"></button>
+            </div>
+        {% endif %}
+    </div>
+    <div class="post-editor__block_caption slider-caption"></div>
+{% endif %}

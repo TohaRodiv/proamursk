@@ -1,0 +1,163 @@
+.footer__subscribe-section
+    display: flex
+    align-items: center
+    width: 880px
+    margin: 0 auto 40px;
+    padding: 25px 30px
+    border-radius: 4px
+    background-color: $base-c
+
+    .subscribe-img
+        margin-right: 35px
+        height: 65px
+
+    .subscribe-title
+        width: 390px
+        font-size: $big-fz
+
+    .subscribe-form
+        position: relative
+        display: flex
+        align-items: center
+        width: 340px
+        margin-right: auto
+        flex-shrink: 0
+
+        &__input
+            width: 340px
+            padding: 11px 120px 10px 15px
+            font-size: 14px
+            line-height: $micro-lh
+            color: $light-c
+            background: rgba($light-c, .4)
+            border: 1px solid transparent
+            border-radius: 20px
+
+            &:focus
+                border: 1px solid transparent
+
+            &:-webkit-autofill
+                -webkit-text-fill-color: $light-c
+                -webkit-box-shadow: 0 0 0px 1000px transparent inset
+                transition: background-color 5000s ease-in-out 0s
+
+                &:hover:not(:focus)
+                    -webkit-box-shadow: 0 0 0px 1000px transparent inset
+
+        &__submit
+            position: absolute
+            right: 0
+            top: 0
+            z-index: 1
+
+        &__submited
+            width: 340px
+            flex-shrink: 0
+
+    .hint_error
+        left: 0
+
+.aside-subscribe-widget
+    height: 500px
+    padding: 40px 50px
+    background-color: $base-c
+    text-align: center
+
+    .subscribe-img
+        display: block
+        height: 80px
+        margin: 0 auto 20px
+
+    .subscribe-title
+        margin-bottom: 40px
+        font-size: 28px
+
+    .subscribe-form
+        width: 240px
+        margin-left: auto
+        margin-right: auto
+
+        &__input
+            width: 100%
+            text-align: center
+            padding: 5px 15px 15px
+            font-size: 14px
+            color: $light-c
+            background-color: transparent
+            border-bottom: 1px solid $light-c
+
+            &:-webkit-autofill
+                -webkit-text-fill-color: $light-c
+                -webkit-box-shadow: 0 0 0px 1000px transparent inset
+                transition: background-color 5000s ease-in-out 0s
+
+                &:hover:not(:focus)
+                    -webkit-box-shadow: 0 0 0px 1000px transparent inset
+
+        &__submit
+            display: block
+            width: 150px
+            margin: 50px auto 0
+
+        &__submited
+            margin-top: 60px
+
+    .hint_error
+        left: 50%
+        transform: translateX(-50%)
+
+.subscribe-title
+    font-family: $bold-f
+    color: $light-c
+
+.subscribe-form
+
+    &__input
+
+        &::-webkit-input-placeholder
+            color: $light-c
+
+        &::-moz-placeholder
+            color: $light-c
+
+        &::-ms-input-placeholder
+            color: $light-c
+
+        &::placeholder
+            color: $light-c
+
+    &__submit
+        font-size: 14px
+
+    &__submited
+        font-size: $mini-fz
+        line-height: 1.5
+        color: $light-c
+
+    .hint_error
+        top: 100%
+        padding: 5px 15px
+        font-size: 12px
+        color: $light-c
+
+.subscribe__social-wrap
+    margin-left: 24px
+    flex-shrink: 0
+
+.social-wrap
+    font-size: 0
+
+.social-link
+    display: inline-block
+    width: 30px
+    height: 30px
+    font-size: $base-fz
+    line-height: 30px
+    color: $base-dark-c
+    background-color: $light-c
+    border-radius: 50%
+    text-decoration: none
+    text-align: center
+
+    &:not(:last-of-type)
+        margin-right: 12px

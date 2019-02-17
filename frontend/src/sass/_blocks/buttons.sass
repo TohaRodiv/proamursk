@@ -1,0 +1,60 @@
+.btn
+    height: 40px
+    padding: 9px 15px 7px
+    font-family: $bold-f
+    font-size: $mini-fz
+    text-decoration: none
+    border-radius: 20px
+
+    &_white
+        color: $base-dark-c
+        background-color: $light-c
+
+    &_white-active
+        color: $dark-c
+        background-color: $light-c
+
+        .btn__counter
+            color: $base-gray
+
+        &.active
+            color: $light-c
+            background-color: $base-c
+
+            .btn__counter
+                color: $light-c
+
+    &_blue
+        color: $light-c
+        background-color: $base-c
+
+    &_yellow
+        color: #FFBA00
+        font-family: $base-f
+        text-decoration: underline
+        background-color: transparent
+
+        &:hover,
+        &.active
+            background-color: #3a4961
+            text-decoration: none
+
+    &_more
+        display: block
+        margin-top: 40px
+
+        span
+            margin-left: 10px
+            font-size: 0
+
+            &::before
+                font-size: 12px
+
+    &_center
+        margin-left: auto
+        margin-right: auto
+
+.btn__counter
+    margin-left: 5px
+    font-size: $base-fz
+    font-family: $base-f

@@ -1,0 +1,458 @@
+<div class="body-cover">
+    <div class="pop-up-wrapper search">
+        <div class="back"></div>
+        <div class="pop-up-inner-container">
+
+            <div class="pop-up-content search-pop-up-content">
+                <form class="search-form">
+                    <input type="text" name="search" class="search-form__input input-big" placeholder="Поиск" autocomplete="off">
+                    <button type="submit" class="search-form__submit icon-search"></button>
+                </form>
+
+                <div class="search__result-block hidden">
+                    <div class="search-result_full">
+                        <ul class="search-result-list">
+                            <li class="search-result-item">
+                                <a href="news-details.html" class="search-item">
+                                    <span class="search-item__category">Новости</span>
+                                    <div class="search-item__title">В Амурске появится роллердром</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="people-details.html" class="search-item">
+                                    <span class="search-item__category">Люди</span>
+                                    <div class="search-item__title">Сильный телом и духом</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="reportage-details.html" class="search-item">
+                                    <span class="search-item__category">Репортаж</span>
+                                    <div class="search-item__title">Я люблю Амурск спортивный!</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="event-announcement.html" class="search-item">
+                                    <span class="search-item__category">Анонс</span>
+                                    <div class="search-item__title">Концерт «Амурск в моем сердце»</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="place-details.html" class="search-item">
+                                    <span class="search-item__category">Место</span>
+                                    <div class="search-item__title">Музей природы Приамурья</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="news-details.html" class="search-item">
+                                    <span class="search-item__category">Новости</span>
+                                    <div class="search-item__title">Встреча с мэром без формальностей</div>
+                                </a>
+                            </li>
+                            <li class="search-result-item">
+                                <a href="reportage-details.html" class="search-item">
+                                    <span class="search-item__category">Репортаж</span>
+                                    <div class="search-item__title">Фестиваль «Станица» в ДК</div>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <a href="search-result.html" class="search__all-result-link">Показать все результаты <span>(13 материалов)</span></a>
+                    </div>
+
+                    <div class="search-result_empty">По вашему запросу ничего не найдено</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-wrapper to-editor">
+        <div class="back"></div>
+        <div class="pop-up-inner-container">
+            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+
+            <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
+                <div class="pop-up__title">Письмо в редакцию</div>
+                <div class="drop-area-wrap">
+                    <form class="pop-up__form js-pop-up__form">
+                        <div class="select input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full" data-select-name="subject">
+                            <input type="text" name="subject" class="select__value select__value_hidden required-input" value="">
+                            <div class="input-line select__value select__value_visible" tabindex="1"></div>
+                            <label class="label-base">Тема сообщения *</label>
+                            <div class="select__arrow icon-triangle-down"></div>
+                            <div class="select__clear icon-close hidden"></div>
+                            <div class="select__options-list hidden">
+                                <div class="select__option" data-value-to-send="news">Поделиться хорошей новостью</div>
+                                <div class="select__option" data-value-to-send="event">Рассказать о событии</div>
+                                <div class="select__option" data-value-to-send="history">Поведать историю</div>
+                                <div class="select__option" data-value-to-send="people">Рассказать о герое</div>
+                                <div class="select__option" data-value-to-send="place">Оставить отзыв о месте</div>
+                                <div class="select__option" data-value-to-send="bugreport">Рассказать об ошибке</div>
+                            </div>
+                        </div>
+
+                        <div class="pop-up-form__inputs-set">
+                            <input type="hidden" name="place" value="1">
+
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <input type="text" name="name" class="input-line input-line_base required-input">
+                                <label class="label-base">Как вас зовут? *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="text" name="email" class="input-line input-line_base required-input">
+                                <label class="label-base">E-mail *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="tel" name="phone" class="input-line input-line_base">
+                                <label class="label-base">Телефон</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                                <label class="label-base">Сообщение *</label>
+                            </div>
+                        </div>
+
+                        <div class="pop-up-form__attachment attachment">
+                            <div class="attachment-btn">
+                                <label class="attachment-label">
+                                    <input type="file" class="hidden attachment-input" accept=".pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg, .png, .zip" name="attachment" multiple>
+                                    <span class="attachment-label__text">Прикрепить файл</span>
+                                    <span class="attachment-label__icon icon-clip-bold"></span>
+                                </label>
+                                <span class="attachment-text">Не более 5 файлов по 2 Мб jpg, png, pdf, doc/docx, xls/xlsx, zip</span>
+                            </div>
+                            <div class="attachment-list"></div>
+                        </div>
+
+                        <div class="pop-up__btns-wrap">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                        </div>
+                    </form>
+
+                    <div class="drop-area-outer">
+                        <div class="drop-area-inner">
+                            <div class="drop-area__icon icon-clip-thin"></div>
+                            <div class="drop-area__title">Прикрепить файл</div>
+                            <div class="drop-area__text">Не более 5 файлов по 2 Мб <br>jpg, png, pdf, docx, xlsx, zip </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-wrapper share-news">
+        <div class="back"></div>
+        <div class="pop-up-inner-container">
+            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+
+            <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
+                <div class="pop-up__title">Поделится хорошей новостью</div>
+                <div class="drop-area-wrap">
+                    <form class="pop-up__form js-pop-up__form">
+                        <div class="pop-up-form__inputs-set">
+                            <input type="hidden" name="place" value="1">
+
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <input type="text" name="name" class="input-line input-line_base required-input">
+                                <label class="label-base">Как вас зовут? *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="text" name="email" class="input-line input-line_base required-input">
+                                <label class="label-base">E-mail *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="tel" name="phone" class="input-line input-line_base">
+                                <label class="label-base">Телефон</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                                <label class="label-base">Сообщение *</label>
+                            </div>
+                        </div>
+
+                        <div class="pop-up-form__attachment attachment">
+                            <div class="attachment-btn">
+                                <label class="attachment-label">
+                                    <input type="file" class="hidden attachment-input" accept=".pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg, .png, .zip" name="attachment" multiple>
+                                    <span class="attachment-label__text">Прикрепить файл</span>
+                                    <span class="attachment-label__icon icon-clip-bold"></span>
+                                </label>
+                                <span class="attachment-text">Не более 5 файлов по 2 Мб jpg, png, pdf, doc/docx, xls/xlsx, zip</span>
+                            </div>
+                            <div class="attachment-list"></div>
+                        </div>
+
+                        <div class="pop-up__btns-wrap">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                        </div>
+                    </form>
+
+                    <div class="drop-area-outer">
+                        <div class="drop-area-inner">
+                            <div class="drop-area__icon icon-clip-thin"></div>
+                            <div class="drop-area__title">Прикрепить файл</div>
+                            <div class="drop-area__text">Не более 5 файлов по 2 Мб <br>jpg, png, pdf, docx, xlsx, zip </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-wrapper share-event">
+        <div class="back"></div>
+        <div class="pop-up-inner-container">
+            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+
+            <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
+                <div class="pop-up__title">Поделится событием</div>
+                <div class="drop-area-wrap">
+                    <form class="pop-up__form js-pop-up__form">
+                        <div class="pop-up-form__inputs-set">
+                            <input type="hidden" name="place" value="1">
+
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <input type="text" name="name" class="input-line input-line_base required-input">
+                                <label class="label-base">Как вас зовут? *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="text" name="email" class="input-line input-line_base required-input">
+                                <label class="label-base">E-mail *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="tel" name="phone" class="input-line input-line_base">
+                                <label class="label-base">Телефон</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                                <label class="label-base">Сообщение *</label>
+                            </div>
+                        </div>
+
+                        <div class="pop-up-form__attachment attachment">
+                            <div class="attachment-btn">
+                                <label class="attachment-label">
+                                    <input type="file" class="hidden attachment-input" accept=".pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg, .png, .zip" name="attachment" multiple>
+                                    <span class="attachment-label__text">Прикрепить файл</span>
+                                    <span class="attachment-label__icon icon-clip-bold"></span>
+                                </label>
+                                <span class="attachment-text">Не более 5 файлов по 2 Мб jpg, png, pdf, doc/docx, xls/xlsx, zip</span>
+                            </div>
+                            <div class="attachment-list"></div>
+                        </div>
+
+                        <div class="pop-up__btns-wrap">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                        </div>
+                    </form>
+
+                    <div class="drop-area-outer">
+                        <div class="drop-area-inner">
+                            <div class="drop-area__icon icon-clip-thin"></div>
+                            <div class="drop-area__title">Прикрепить файл</div>
+                            <div class="drop-area__text">Не более 5 файлов по 2 Мб <br>jpg, png, pdf, docx, xlsx, zip </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-wrapper share-history">
+        <div class="back"></div>
+        <div class="pop-up-inner-container">
+            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+
+            <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
+                <div class="pop-up__title">Поделится своей историей</div>
+                <div class="drop-area-wrap">
+                    <form class="pop-up__form js-pop-up__form">
+                        <div class="pop-up-form__inputs-set">
+                            <input type="hidden" name="place" value="1">
+
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <input type="text" name="name" class="input-line input-line_base required-input">
+                                <label class="label-base">Как вас зовут? *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="text" name="email" class="input-line input-line_base required-input">
+                                <label class="label-base">E-mail *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="tel" name="phone" class="input-line input-line_base">
+                                <label class="label-base">Телефон</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                                <label class="label-base">Сообщение *</label>
+                            </div>
+                        </div>
+
+                        <div class="pop-up-form__attachment attachment">
+                            <div class="attachment-btn">
+                                <label class="attachment-label">
+                                    <input type="file" class="hidden attachment-input" accept=".pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg, .png, .zip" name="attachment" multiple>
+                                    <span class="attachment-label__text">Прикрепить файл</span>
+                                    <span class="attachment-label__icon icon-clip-bold"></span>
+                                </label>
+                                <span class="attachment-text">Не более 5 файлов по 2 Мб jpg, png, pdf, doc/docx, xls/xlsx, zip</span>
+                            </div>
+                            <div class="attachment-list"></div>
+                        </div>
+
+                        <div class="pop-up__btns-wrap">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                        </div>
+                    </form>
+
+                    <div class="drop-area-outer">
+                        <div class="drop-area-inner">
+                            <div class="drop-area__icon icon-clip-thin"></div>
+                            <div class="drop-area__title">Прикрепить файл</div>
+                            <div class="drop-area__text">Не более 5 файлов по 2 Мб <br>jpg, png, pdf, docx, xlsx, zip </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-wrapper share-people">
+        <div class="back"></div>
+        <div class="pop-up-inner-container">
+            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+
+            <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
+                <div class="pop-up__title">Предложить героя</div>
+                <div class="drop-area-wrap">
+                    <form class="pop-up__form js-pop-up__form">
+                        <div class="pop-up-form__inputs-set">
+                            <input type="hidden" name="place" value="1">
+
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <input type="text" name="name" class="input-line input-line_base required-input">
+                                <label class="label-base">Как вас зовут? *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="text" name="email" class="input-line input-line_base required-input">
+                                <label class="label-base">E-mail *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="tel" name="phone" class="input-line input-line_base">
+                                <label class="label-base">Телефон</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                                <label class="label-base">Сообщение *</label>
+                            </div>
+                        </div>
+
+                        <div class="pop-up-form__attachment attachment">
+                            <div class="attachment-btn">
+                                <label class="attachment-label">
+                                    <input type="file" class="hidden attachment-input" accept=".pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg, .png, .zip" name="attachment" multiple>
+                                    <span class="attachment-label__text">Прикрепить файл</span>
+                                    <span class="attachment-label__icon icon-clip-bold"></span>
+                                </label>
+                                <span class="attachment-text">Не более 5 файлов по 2 Мб jpg, png, pdf, doc/docx, xls/xlsx, zip</span>
+                            </div>
+                            <div class="attachment-list"></div>
+                        </div>
+
+                        <div class="pop-up__btns-wrap">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                        </div>
+                    </form>
+
+                    <div class="drop-area-outer">
+                        <div class="drop-area-inner">
+                            <div class="drop-area__icon icon-clip-thin"></div>
+                            <div class="drop-area__title">Прикрепить файл</div>
+                            <div class="drop-area__text">Не более 5 файлов по 2 Мб <br>jpg, png, pdf, docx, xlsx, zip </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-wrapper share-place">
+        <div class="back"></div>
+        <div class="pop-up-inner-container">
+            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+
+            <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
+                <div class="pop-up__title">Добавить отзыв о месте</div>
+                <div class="pop-up__subtitle">Детско-юношеская спортивная школа</div>
+                <div class="drop-area-wrap">
+                    <form class="pop-up__form js-pop-up__form">
+                        <div class="pop-up-form__inputs-set">
+                            <input type="hidden" name="place" value="1">
+
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <input type="text" name="name" class="input-line input-line_base required-input">
+                                <label class="label-base">Как вас зовут? *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="text" name="email" class="input-line input-line_base required-input">
+                                <label class="label-base">E-mail *</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_half">
+                                <input type="tel" name="phone" class="input-line input-line_base">
+                                <label class="label-base">Телефон</label>
+                            </div>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                                <label class="label-base">Сообщение *</label>
+                            </div>
+                        </div>
+
+                        <div class="pop-up__btns-wrap">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="privacy.html">политикой конфиденциальности.</a></div>
+                            <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="place-review">
+                        </div>
+                    </form>
+
+                    <div class="drop-area-outer">
+                        <div class="drop-area-inner">
+                            <div class="drop-area__icon icon-clip-thin"></div>
+                            <div class="drop-area__title">Прикрепить файл</div>
+                            <div class="drop-area__text">Не более 5 файлов по 2 Мб <br>jpg, png, pdf, docx, xlsx, zip </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-wrapper bugreport">
+        <div class="back"></div>
+        <div class="pop-up-inner-container">
+            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+
+            <div class="pop-up-content pop-up-form-content js-drop-area">
+                <div class="pop-up__title">Сообщение об ошибке</div>
+                <form class="pop-up__form js-pop-up__form">
+                    <div class="pop-up-form__inputs-set">
+                        <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                            <input type="text" name="url" class="input-line input-line_base required-input fill">
+                            <label class="label-base">URL-адрес страницы *</label>
+                        </div>
+                        <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
+                            <textarea name="text" class="input-line input-line_base required-input js-error-selection-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="pop-up__btns-wrap">
+                        <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="bugreport">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

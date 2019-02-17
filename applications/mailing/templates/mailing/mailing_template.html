@@ -1,0 +1,13 @@
+{% load mailing_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ subject }}</title>
+</head>
+<body>
+    <div style="max-width: 500px; margin: 0 auto">
+        {% autoescape off %}{{ content | linebreaks |  render }}{% endautoescape %}
+    </div>
+</body>
+</html>

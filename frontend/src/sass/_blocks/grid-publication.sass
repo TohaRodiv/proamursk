@@ -1,0 +1,266 @@
+.grid-publication
+    position: relative
+    display: block
+    background-color: $light-c
+    text-decoration: none
+    color: inherit
+    @extend %border
+
+    &__cover-wrap
+        position: relative
+        
+    &__cover
+        position: relative
+        display: block
+        width: 100%
+        object-fit: cover
+
+    &__text-wrap
+        position: relative
+        z-index: 3
+
+    &__title
+        font-family: $bold-f
+
+        a
+            color: currentColor
+            text-decoration: none
+            &:hover,
+            &:focus
+                color: $base-c
+
+    &__description
+        margin-bottom: 0
+
+    &__text
+        line-height: $base-lh
+
+    &__wobbler
+        display: flex
+        align-items: center
+
+    &__link
+        position: relative
+        margin-left: 20px
+        height: 26px
+        font-size: 12px
+        line-height: 22px
+        font-family: $add-f
+        font-weight: bold
+        letter-spacing: 0.08em
+        text-decoration: none
+        transition: color $transition-time
+
+        &:hover
+            color: $base-c
+
+            &::before
+                width: calc(100% + 14px)
+                border-radius: 26px
+
+        span
+            vertical-align: middle
+            position: relative
+            z-index: 2
+
+        .text
+            padding-left: 2px
+
+        .icon
+            margin-left: 10px
+            font-size: 10px
+            color: $base-c
+            vertical-align: -2px
+
+        &::before
+            content: ""
+            display: block
+            position: absolute
+            top: 1px
+            right: -7px
+            z-index: 1
+            width: 26px
+            height: 26px
+            border-radius: 50%
+            background-color: #EFF2F5
+            transition: width $transition-time, border-radius $transition-time
+
+    &__bg-gradient
+        display: none
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: 2
+
+    &_format-base
+        display: flex
+        flex-direction: column
+
+        .grid-publication
+            &__cover
+                border-bottom: 1px solid $border-c
+
+            &__text-wrap
+                display: flex
+                flex-direction: column
+                flex-grow: 1
+                padding: 20px
+
+            &__title
+                margin-bottom: 5px
+                font-size: $medium-fz
+
+            &__description,
+            &__date
+                margin-bottom: 10px
+
+            &__text
+                font-size: $mini-fz
+
+            &__wobbler
+                margin-top: auto
+
+            &__link
+                color: $base-c
+
+    &_format-full
+        color: $light-c
+
+        .grid-publication
+            &__cover-wrap
+                display: block
+                position: relative
+                height: 100%
+
+                &::after
+                    content: ""
+                    display: block
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%)
+
+            &__cover
+                height: 100%
+
+            &__text-wrap
+                position: absolute
+                bottom: 20px
+                left: 20px
+                right: 20px
+
+            &__wobbler
+                margin-top: 30px
+
+            &__link
+                color: $light-c
+
+                &:hover
+                    color: $base-c
+
+    &_cover-format-base
+        .grid-publication
+            &__cover
+                @supports (object-fit: cover)
+                    height: 207px
+
+    &_cover-format-bigger
+        .grid-publication
+            &__cover
+                @supports (object-fit: cover)
+                    height: 322px
+
+    &_cover-format-6col
+        .grid-publication
+            &__cover
+                @supports (object-fit: cover)
+                    height: 320px
+
+    &_text-size-base
+        .grid-publication
+            &__title
+                margin-bottom: 5px
+                font-size: $medium-fz
+
+            &__text
+                font-size: $mini-fz
+
+    &_text-size-big
+        .grid-publication
+            &__title
+                margin-bottom: 15px
+                font-size: $huge-fz
+
+            &__text
+                font-size: 20px
+
+    &_full-width-slider
+        height: 100%
+        border: none
+
+        &__cover-wrap
+            position: relative
+            height: 100%
+
+        &__cover
+            height: 100%
+
+.grid-publication
+    &:hover,
+    &:focus
+        .grid-publication__bg-gradient
+            display: block
+            background-color: rgba(#4c607b, .1)
+
+.special-project
+    &__cover-wrap
+        display: block
+        height: 100%
+        position: relative
+
+        &::after
+            content: ""
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%)
+
+    &__cover
+        height: 100%
+
+    &__text-wrap
+        position: absolute
+        top: 230px
+        left: 50%
+        bottom: 60px
+        transform: translateX(-50%)
+        display: flex
+        flex-direction: column
+        width: 840px
+        text-align: center
+        color: $light-c
+
+    &__title
+        margin-bottom: 20px
+        font-size: 56px
+        text-transform: uppercase
+
+    &__text
+        margin-bottom: 20px
+        font-size: 20px
+        flex-grow: 1
+
+    &__wobbler
+        .wobbler
+            margin: auto
+
+.special-projects-list__item
+    &:not(:last-child)
+        margin-bottom: 20px

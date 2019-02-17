@@ -1,0 +1,326 @@
+.post-editor
+    position: relative
+
+.post-editor-content [class*="post-editor__section_"]:not(:first-child),
+.post-editor-column [class*="post-editor__block_"]:not(:first-child)
+    margin-top: 40px
+
+.post-editor__section_8
+    width: 100%
+
+    .post-editor__block_text
+        width: 640px
+        margin-right: auto
+        margin-left: auto
+
+    .slider-caption
+        width: 100%
+
+    .post-editor__block_slider .slider
+        height: 520px
+
+    .post-editor__block_video-wrap
+        height: 490px
+
+.post-editor__section_6
+    width: 640px
+    margin-right: auto
+    margin-left: auto
+
+    .slider-caption
+        width: 100%
+
+    .post-editor__block_slider .slider
+        height: 440px
+
+    .post-editor__block_video-wrap
+        height: 360px
+
+.post-editor__section_4-4
+    display: flex
+    justify-content: space-between
+
+    .post-editor-column
+        width: calc(50% - 10px)
+        flex-shrink: 0
+
+    .slider-caption
+        width: 100%
+
+.post-editor__section_3-3
+    display: flex
+    justify-content: space-between
+    width: 640px
+    margin-right: auto
+    margin-left: auto
+
+    .post-editor-column
+        width: calc(50% - 10px)
+        flex-shrink: 0
+
+    .slider-caption
+        width: 100%
+
+
+.post-editor__block_image
+    position: relative
+
+    .post-editor__img-wrap
+        display: block
+        position: relative
+
+        &.hoverable
+
+            &::after
+                content: ' ' attr(href) ' '
+                position: absolute
+                bottom: 20px
+                display: block
+                max-width: 250px
+                height: 22px
+                margin-left: 20px
+                opacity: 0
+                font-size: $mini-fz
+                color: rgba($light-c, 0.9)
+                text-align: left
+                text-overflow: ellipsis
+                overflow: hidden
+                transition: opacity $transition-time
+
+            &:hover
+                &::after
+                    opacity: 1
+
+                .img-shadow
+                    background-color: rgba($dark-c, 0.3)
+
+    img
+        display: block
+
+    &.center
+        img
+            margin-left: auto
+            margin-right: auto
+
+        .post-editor__block_caption
+            text-align: center
+
+    &.left
+        img
+            margin-right: auto
+
+        .post-editor__block_caption
+            text-align: left
+
+    &.right
+        img
+            margin-left: auto
+
+        .post-editor__block_caption
+            text-align: right
+
+.post-editor__block_slider
+
+    img
+        display: block
+
+    .nav-wrapper
+        position: absolute
+        right: 0
+        bottom: -40px
+        font-size: 0
+
+    .slide-nav-counter
+        color: $base-dark-c
+
+    .slider-arrow
+        width: 24px
+        height: 24px
+        font-size: 10px
+        color: $base-dark-c
+
+        &:hover
+            border: 1px solid $border-c
+            border-radius: 50%
+
+    .slider-caption
+        width: 75%
+
+.post-editor__block_quote
+
+    .quote
+        padding-top: 10px
+        padding-bottom: 10px
+        padding-left: 25px
+        border-left: 4px solid $base-c
+
+        &__title
+            font-family: $bold-it-f
+            font-size: 42px
+            color: $base-c
+
+        &__text
+            margin-bottom: 0
+            font-size: 26px
+            line-height: $mini-lh
+            font-family: $add-light-it-f
+
+.post-editor__block_video
+
+    &-wrap
+        position: relative
+
+    iframe
+        position: absolute
+        left: 0
+        height: 100%
+        width: 100%
+
+.post-editor__block_caption
+    margin-top: 20px !important
+    font-size: 15px
+    line-height: $mini-lh
+    letter-spacing: 0.08em
+    color: $base-dark-c
+
+.post-editor__block_separator
+    .line
+        display: flex
+        align-items: center
+        color: #7A8BA1
+
+        &::before,
+        &::after
+            content: ""
+            height: 2px
+            flex-grow: 1
+            background-color: $border-c
+
+        &::before
+            margin-right: 3px
+
+        &::after
+            margin-left: 3px
+
+.post-editor__block_direct-speech
+
+.direct-speech
+    display: flex
+    align-items: flex-start
+
+    &__avatar
+        display: block
+        width: 110px
+        height: 110px
+        margin-right: 15px
+        flex-shrink: 0
+        border-radius: 50%
+        border: 1px solid #4c607b
+
+    &__text-wrap
+        position: relative
+        margin-left: 35px
+        padding: 15px 30px
+        background-color: #f5f6f7
+        border-radius: 4px
+
+        &::before
+            content: ""
+            display: block
+            width: 35px
+            height: 40px
+            position: absolute
+            left: -35px
+            top: 40px
+            background-image: url(../images/svg/direct-speech-triangle.svg)
+            background-repeat: no-repeat
+            background-size: contain
+
+    &__author
+        margin-bottom: 5px
+        font-family: $bold-f
+        font-size: $medium-fz
+        letter-spacing: 0.02em
+        color: $base-c
+
+    &__author-description
+        margin-bottom: 10px
+        font-style: italic
+        font-size: $mini-fz
+
+.img-shadow
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    transition: background-color $transition-time
+
+.indent-wrap
+    display: inherit
+    justify-content: inherit
+    width: 100%
+    flex-grow: 1
+
+    &_mt1
+        margin-top: 1em
+
+    &_mt2
+        margin-top: 2em
+
+    &_mt3
+        margin-top: 3em
+
+    &_mt4
+        margin-top: 4em
+
+    &_mt5
+        margin-top: 5em
+
+
+    &_mb1
+        margin-bottom: 1em
+
+    &_mb2
+        margin-bottom: 2em
+
+    &_mb3
+        margin-bottom: 3em
+
+    &_mb4
+        margin-bottom: 4em
+
+    &_mb5
+        margin-bottom: 5em
+
+    &_pt2
+        padding-top: 2em
+
+
+    &_pt1
+        padding-top: 1em
+
+    &_pt3
+        padding-top: 3em
+
+    &_pt4
+        padding-top: 4em
+
+    &_pt5
+        padding-top: 5em
+
+    &_pb1
+        padding-bottom: 1em
+
+
+    &_pb2
+        padding-bottom: 2em
+
+    &_pb3
+        padding-bottom: 3em
+
+    &_pb4
+        padding-bottom: 4em
+
+    &_pb5
+        padding-bottom: 5em

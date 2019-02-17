@@ -1,0 +1,21 @@
+{% load posteditor_tags %}
+{% load media_filters %}
+
+{% if widget.image %}
+    <div class="post-editor__block_image {% if widget.align %}{{ widget.align }}{% endif %}">
+        <div class="indent-wrap {% if widget.marginTop %}indent-wrap_mt{{ widget.marginTop }}{% endif %} {% if widget.marginBottom %}indent-wrap_mb{{ widget.marginBottom }}{% endif %} {% if widget.paddingTop %}indent-wrap_pt{{ widget.paddingTop }}{% endif %} {% if widget.paddingBottom %}indent-wrap_pb{{ widget.paddingBottom }}{% endif %}">
+            {% if widget.link %}
+                <a href="{{ widget.link }}" {% if request.get_host not in widget.link %}target="_blank"{% endif %} class="post-editor__img-wrap {% if not widget.backgroundFlag %}hoverable{% endif %}">
+            {% endif %}
+                {% get_image_size column.width as image_size %}
+                <img src="{{ images|get_item:widget.image.id|get_thumbnail_url_by_size:image_size }}" alt="" title="">
+            {% if widget.link %}
+                <div class="img-shadow"></div>
+                </a>
+            {% endif %}
+            {% if widget.sign %}
+                <figcaption class="post-editor__block_caption">{{ widget.sign }}</figcaption>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

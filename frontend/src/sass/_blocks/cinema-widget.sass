@@ -1,0 +1,63 @@
+.cinema-widget
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 20px
+    background-color: $base-dark-c
+    @extend %border
+
+    &__title
+        margin-bottom: 20px
+        font-family: $bold-f
+        font-size: $big-fz
+        letter-spacing: 0.02em
+        line-height: 24px
+        color: $light-c
+        text-align: center
+
+    &__film-title
+        margin-top: 20px
+        font-family: $bold-f
+        font-size: $big-fz
+        letter-spacing: 0.02em
+        line-height: 24px
+        color: $light-c
+        text-align: center
+        text-decoration: none
+
+    &__slider
+        height: 390px
+        margin-left: 20px
+        margin-right: 20px
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+
+    &__slide-img
+        display: block
+
+    &__poster-wrap
+        margin-left: 20px
+        margin-right: 20px
+
+    .slider-circles-container
+        position: relative
+        bottom: 10px
+        left: 0
+        transform: none
+        margin-left: auto
+        margin-right: auto
+
+    .slider-arrow-container
+        position: relative
+        width: 100%
+        bottom: 23px
+
+        .slider-arrow
+            position: absolute
+
+        .slider-arrow-prev
+            left: 0
+
+        .slider-arrow-next
+            right: 0

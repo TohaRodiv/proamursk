@@ -1,0 +1,15 @@
+@@include('page-block/head.html')
+@@include("page-block/header.html", {
+    "page": "index"
+})
+
+<main class="container page-error-404">
+    <div class="page-error-404__text-wrap">
+        <h1 class="page-error__title page-error-404__title">Что-то пошло не так</h1>
+        <div class="page-error__subtitle page-error-404__subtitle">Извините, такой страницы не существует</div>
+        <img src="images/svg/404.svg" alt="Ошибка 404" class="page-error-404__img">
+    </div>
+</main>
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')

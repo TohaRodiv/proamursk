@@ -1,0 +1,12 @@
+{% load media_filters %}
+{% load pytils_dt %}
+
+<a href="{{ news_item.get_absolute_url }}" class="news-list-item">
+    <div class="news-list-item__img-wrap" style="background-image: url({{ news_item.cover|get_thumbnail_url_by_name:"news_grid_cover" }});"></div>
+
+    <div class="news-list-item__text-wrap">
+        <h2 class="news-list-item__title">{{ news_item.title }}</h2>
+        <p class="news-list-item__text">{{ news_item.lead }}</p>
+        <div class="news-list-item__date">{{ news_item.publication_date|ru_strftime:"%d %B %Y, %H:%M" }}</div>
+    </div>
+</a>

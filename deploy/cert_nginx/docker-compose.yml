@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+
+  cert_nginx:
+    build: .
+    container_name: cert_nginx
+    restart: always
+    volumes:
+      - /var/www/altan_shina_site/cert:/var/www/altan_shina_site/cert
+      - /var/www/altan_shina_site/static:/var/www/altan_shina_site/static
+      - /var/www/altan_shina_site/uploads:/var/www/altan_shina_site/uploads
+      - /var/www/altan_shina_site/run:/var/run
+      - /var/www/altan_shina_site/log/nginx:/var/log/nginx
+    ports:
+      - "80:80"
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - /var/www/altan_shina_site/cert/:/etc/letsencrypt
+    command: renew

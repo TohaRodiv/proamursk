@@ -1,0 +1,65 @@
+.reviews
+    margin: 40px 110px 20px
+
+    &__title-wrap
+        display: flex
+        align-items: center
+        margin-bottom: 20px
+        padding-bottom: 10px
+        border-bottom: 1px solid #7A8BA1
+
+    &__title
+        margin-right: 20px
+        font-size: 36px
+        font-family: $bold-f
+        color: $dark-c
+
+    &__counter
+        min-width: 48px
+        height: 48px
+        padding-left: 10px
+        padding-right: 10px
+        font-size: 36px
+        line-height: 50px
+        font-family: $bold-f
+        color: $light-c
+        letter-spacing: 0.02em
+        text-align: center
+        background-color: $base-c
+        border-radius: 24px
+
+    &__btns-wrap
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+    &__btn
+        margin-top: 40px
+
+    &__more-btn
+        letter-spacing: 0.02em
+        color: $base-c
+
+.review
+    &:not(:last-child)
+        margin-bottom: 40px
+
+    &__head
+        display: flex
+        align-items: center
+        margin-bottom: 20px
+
+    &__date
+        margin-right: 20px
+        font-size: 14px
+        letter-spacing: 0.08em
+        color: $base-gray
+
+    &__name
+        font-family: $bold-f
+        font-size: 14px
+        letter-spacing: 0.02em
+
+    &__text
+        font-size: 16px
+        line-height: $base-lh

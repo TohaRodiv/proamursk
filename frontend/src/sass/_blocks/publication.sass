@@ -1,0 +1,121 @@
+.publication
+    margin-bottom: 50px
+
+    &__cover-wrap
+        position: relative
+
+        &::after
+            content: ""
+            display: block
+            position: absolute
+            width: 100%
+            height: 100%
+            top: 0
+            left: 0
+            z-index: 2
+            background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(8, 44, 86, 0.02) 77.39%, rgba(9, 44, 85, 0.25) 91.63%, rgba(23, 33, 54, 0.8) 100%)
+            opacity: .6
+
+    &__cover
+        display: block
+        position: relative
+        z-index: 1
+
+    &__img-figcaption
+        position: absolute
+        bottom: 15px
+        left: 30px
+        right: 30px
+        z-index: 3
+        font-size: 0
+        text-align: right
+
+    &__img-author
+        display: inline-block
+        font-size: 14px
+        letter-spacing: 0.08em
+        line-height: 20px
+        color: #dde2e5
+
+    &__content
+        margin-top: 30px
+
+    &__rubric
+        margin-bottom: 20px
+        font-size: 16px
+
+        &-icon
+            margin-right: 10px
+            color: $base-c
+            vertical-align: middle
+
+    &__date
+        margin-bottom: 20px
+        font-size: 14px
+        letter-spacing: 0.08em
+        line-height: 20px
+        color: $base-gray
+
+    &__additional-info-wrap
+        font-size: $mini-fz
+
+        &_row
+            display: flex
+            align-items: center
+
+            & *:not(:last-child)
+                margin-right: 50px
+
+        [class^="icon-"]
+            display: inline-block
+            margin-right: 5px
+            font-size: $base-fz
+            color: $base-c
+            vertical-align: bottom
+
+        a
+            color: $base-c
+            text-decoration: none
+
+            &:hover,
+            &:focus
+                text-decoration: underline
+
+    &__event-info
+        margin-bottom: 20px
+
+    &__place-info-wrap
+        margin-left: 110px
+
+    &__place-info
+        &:not(:last-child)
+            margin-bottom: 15px
+
+        &:last-child
+            margin-bottom: 0
+
+        ul
+            margin-top: 5px
+            margin-bottom: 0
+            padding-left: 45px
+            list-style-type: disc
+
+    &__title
+        margin-bottom: 20px
+        font-size: $huge-fz
+        font-family: $bold-f
+
+    &__lead
+        margin-bottom: 40px
+        font-size: 21px
+        font-family: $add-sb-it-f
+        line-height: $mini-lh
+
+    &__footer
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin-top: 60px
+
+    &__author
+        font-size: $base-fz

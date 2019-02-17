@@ -1,0 +1,53 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+{% load utils_tags media_filters %}
+
+{% block title %}
+    {% if content_page %}
+        {{ content_page.meta_title|default:content_page.name }}
+    {% endif %}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ content_page.meta_keywords }}">
+    <meta name="description" content="{{ content_page.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% if content_page %}
+        {% og_meta_tags og_title=content_page.meta_title|default:content_page.name og_description=content_page.meta_description og_image=content_page.og_image|get_thumbnail_url_by_name:"og_image_default" %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <main class="light-bg">
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main js-infinity-loader-wrap">
+                    {% if news %}
+                        <div class="news-list js-infinity-loader-grid">
+                            {% include "site/modules/news-list-block.html" %}
+                        </div>
+                        {% if news.has_next %}
+                            <button class="btn btn_blue btn_more btn_center js-more-news" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+                        {% with css_class="news" btn_text="Предложить новость" offer_text="Любой житель Амурска может поделиться интересными новостями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                            {% include "site/modules/offer-widget.html" %}
+                        {% endwith %}
+                    </div>
+
+                    <div class="aside-widget">
+                        <a href="news-details.html" class="sidebar-banner">
+                            <img src="{% static "site/images/aside-banner1.jpg" %}{% static_version %}" alt="" class="sidebar-banner__img">
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+{% endblock %}

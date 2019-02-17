@@ -1,0 +1,10 @@
+{% load utils_tags %}
+
+<div class="post-editor__block_video center">
+    <div class="indent-wrap {% if widget.marginTop %}indent-wrap_mt{{ widget.marginTop }}{% endif %} {% if widget.marginBottom %}indent-wrap_mb{{ widget.marginBottom }}{% endif %} {% if widget.paddingTop %}indent-wrap_pt{{ widget.paddingTop }}{% endif %} {% if widget.paddingBottom %}indent-wrap_pb{{ widget.paddingBottom }}{% endif %}">
+        <div class="post-editor__block_video-wrap">
+            <iframe src="{{ widget.link|get_player_link }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="post-editor__block_caption">{{ widget.description  }}</div>
+    </div>
+</div>

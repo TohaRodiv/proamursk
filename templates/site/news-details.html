@@ -1,0 +1,85 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+{% load media_filters %}
+{% load pytils_dt %}
+{% load site_tags %}
+{% load utils_tags %}
+
+{% block title %}
+    {{ news.meta_title|default:news.title }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ news.meta_keywords }}">
+    <meta name="description" content="{{ news.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=news.meta_title|default:news.title og_description=news.meta_description og_image=news.og_image|default:news.cover|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main">
+                    <article class="publication">
+                        <figure class="publication__cover-wrap">
+                            <img src="{{ news.cover|get_thumbnail_url_by_name:"news_cover" }}" alt="" class="publication__cover">
+                            <figcaption class="publication__img-figcaption">
+                                {% if news.cover_author %}
+                                    <span class="publication__img-author">{{ news.cover_author }}</span>
+                                {% endif %}
+                            </figcaption>
+                        </figure>
+
+                        <div class="publication__content">
+                            <div class="publication__additional-info-wrap publication__additional-info-wrap_row">
+                                <div class="publication__rubric"><span class="publication__rubric-icon icon-news-stroke"></span>Новости</div>
+
+                                <div class="publication__date">{{ news.publication_date|ru_strftime:"%H:%M, %d %B %Y" }}</div>
+                            </div>
+
+                            <h1 class="publication__title">{{ news.title }}</h1>
+
+                            <p class="publication__lead">{{ news.lead }}</p>
+
+                            <div class="wysiwyg-container">
+                                {{ news.content|safe }}
+                            </div>
+
+                            <div class="publication__footer">
+                                {% if news.content_author %}
+                                    <div class="publication__author">{{ news.content_author }}</div>
+                                {% endif %}
+
+                                {% include "site/page-block/share-widget.html" %}
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+                        <div class="aside-last-news">
+                            {% last_news %}
+                        </div>
+                    </div>
+                    <div class="aside-widget">
+                        {% include "site/page-block/aside-subscribe-widget.html" %}
+                    </div>
+                    <div class="aside-widget">
+                        {% with css_class="news" btn_text="Предложить новость" offer_text="Любой житель Амурска может поделиться интересными новостями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                            {% include "site/modules/offer-widget.html" %}
+                        {% endwith %}
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block additional_content %}
+    {% read_also %}
+{% endblock %}

@@ -1,0 +1,372 @@
+$base-c: #0073FF
+$base-dark-c: #283348
+
+$light-c: #FFFFFF
+$bg-light: #F5F6F7
+
+$dark-c: #000000
+
+$base-gray: #777777
+$light-gray: #DFDFDF
+$dark-gray: #BEBEBE
+
+$border-gray: #EDEDED
+
+$border-c: #B1C1D2
+
+$micro-fz: 12px
+$small-fz: 14px
+$mini-fz: 16px
+$base-fz: 18px
+$medium-fz: 20px
+$big-fz: 24px
+$bigger-fz: 30px
+$huge-fz: 36px
+
+body
+    background-color: #E4E4E4
+    color: $dark-c
+    font-size: 14px
+    line-height: 1.5
+    font-family: Arial, sans-serif
+
+table
+    width: 100%
+    border-collapse: collapse
+    border-spacing: 0
+
+p
+    margin-top: 0
+    margin-bottom: 1em
+    font-size: 18px
+    line-height: 1.5
+
+a
+    color: $base-c
+    text-decoration: underline
+
+.btn
+    display: block
+    width: 185px
+    margin-left: auto
+    margin-right: auto
+    padding: 13px 15px 11px
+    font-size: 16px
+    line-height: 1
+    font-weight: bold
+    letter-spacing: 0.04em
+    color: $light-c
+    text-align: center
+    text-decoration: none
+    border-radius: 20px
+    background-color: $base-c
+
+.ul,
+.ol
+    // ol
+    margin: 0
+    padding-left: 30px
+
+.li
+    // li
+    margin-top: 20px
+    padding-left: 5px
+
+.li-title
+    // div
+    margin-bottom: 10px
+    color: $dark-c
+    line-height: 1.2
+    font-weight: bold
+
+.separator
+    display: block
+    width: 480px
+    margin: 40px auto
+
+.p0
+    padding: 0
+
+.letter-body-td
+    padding: 90px 0
+
+.wrapper
+    width: 700px
+    margin: 0 auto
+
+.header
+    position: relative
+    background-color: $light-c
+
+.header__td
+    padding: 40px 30px
+    background-repeat: no-repeat
+    background-size: 640px 93px
+    background-position: 30px 20px
+
+.header
+    &__logo-link
+        display: block
+        position: relative
+        text-decoration: none
+        color: $dark-c
+        z-index: 2
+
+    &__logo-img
+        display: block
+        width: 156px
+        height: 52px
+
+.header-img
+    width: 640px
+    height: 95px
+    position: absolute
+    bottom: 20px
+    right: 30px
+    z-index: 1
+
+.content
+    background-color: $bg-light
+
+.content-td
+    padding: 40px 30px 20px
+
+.content__title
+    margin-bottom: 20px
+    font-size: 24px
+    font-weight: bold
+    text-align: center
+    letter-spacing: 0.08em
+
+.content__text
+    width: 540px
+    margin-left: auto
+    margin-right: auto
+
+.footer
+    background-color: $base-dark-c
+
+.footer-td
+    padding: 40px 80px
+
+.footer-img-td
+    padding-top: 20px
+
+.footer-img
+    width: 700px
+    height: 42px
+
+.footer
+    &__info-text
+        width: 320px
+        padding-top: 40px
+        padding-left: 80px
+        padding-bottom: 40px
+        font-size: 14px
+        color: $light-c
+
+    &__info-link
+        color: $light-c
+        font-size: 14px
+        text-align: center
+        text-decoration: underline
+
+    &__copyright
+        color: #7A8BA1
+        font-size: 14px
+        text-align: center
+
+    &__link_left
+        padding-left: 80px
+        padding-bottom: 40px
+
+    &__link_right
+        padding-right: 80px
+        padding-bottom: 40px
+        text-align: right
+
+.social-wrap
+    padding-top: 40px
+    padding-right: 80px
+    padding-bottom: 40px
+    font-size: 0
+    text-align: right
+
+.social-link
+    display: inline-block
+    margin-left: 30px
+
+    img
+        width: 45px
+        height: 45px
+
+.publication_full
+    width: 640px
+
+    .grid-publication_format-base
+
+        .grid-publication__cover
+            width: 638px
+            max-width: 638px
+            height: 200px
+
+.publication_half
+    width: 320px
+    vertical-align: top
+
+    .grid-publication
+        height: 520px
+
+    .grid-publication_format-full
+        .grid-publication__cover
+            width: 308px
+            height: 490px
+
+    .grid-publication_format-base
+
+        .grid-publication__cover
+            width: 308px
+            height: 280px
+
+        .grid-publication__text-only-wrap
+            height: 155px
+
+    &:first-child .grid-publication
+        margin-right: 10px
+
+    &:last-child .grid-publication
+        margin-left: 10px
+
+.grid-publication
+    position: relative
+    display: block
+    margin-bottom: 20px
+    background-color: $light-c
+    text-decoration: none
+    color: inherit
+    border: 1px solid #D7DBE0
+    border-radius: 4px
+    overflow: hidden
+
+    &__cover-wrap
+        position: relative
+
+    &__cover
+        position: relative
+        display: block
+        width: 100%
+        object-fit: cover
+
+    &__text-wrap
+
+    &__title
+        margin-top: 0
+        font-weight: bold
+
+        a
+            color: currentColor
+            text-decoration: none
+
+    &__description
+        margin-bottom: 0
+
+    &__text
+        line-height: 1.5
+
+    &__wobbler
+        margin-top: 20px
+
+        .wobbler
+            height: 26px
+            vertical-align: middle
+
+    &__link
+        position: relative
+        margin-left: 20px
+        height: 26px
+        font-size: 12px
+        line-height: 22px
+        font-weight: bold
+        letter-spacing: 0.08em
+        text-decoration: none
+
+        .text
+            vertical-align: middle
+
+        img
+            width: 26px
+            height: 26px
+            margin-left: 5px
+            vertical-align: middle
+
+    &_format-base
+        .grid-publication
+            &__cover
+                border-bottom: 1px solid $border-c
+
+            &__text-wrap
+                padding: 20px
+
+            &__title
+                margin-bottom: 5px
+                font-size: $medium-fz
+
+            &__text
+                font-size: $mini-fz
+
+            &__link
+                color: $base-c
+
+    &_format-full
+        background-repeat: no-repeat
+        background-size: cover
+        color: $light-c
+
+        .grid-publication
+
+            &__text-wrap
+                margin-top: 350px
+                padding: 20px
+
+            &__link
+                color: $light-c
+
+    &_text-size-base
+        .grid-publication
+            &__title
+                margin-bottom: 5px
+                font-size: $medium-fz
+
+            &__text
+                font-size: $mini-fz
+
+    &_text-size-big
+        .grid-publication
+            &__title
+                margin-bottom: 15px
+                font-size: $huge-fz
+
+            &__text
+                font-size: 20px
+
+.special-project
+    position: relative
+    display: block
+    width: 638px
+    height: 458px
+    text-align: center
+    background-size: cover
+    background-repeat: no-repeat
+
+    &__title
+        font-size: 36px
+        font-weight: bold
+
+    &__text
+        margin: 0
+        font-size: 20px
+
+    &__text-wrap
+        margin-top: 100px
+        padding: 20px 40px
+

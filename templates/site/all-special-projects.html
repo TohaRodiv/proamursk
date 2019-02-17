@@ -1,0 +1,17 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+
+{% block content %}
+    <main class="light-bg">
+        <div class="container">
+            <div class="js-infinity-loader-wrap">
+                <div class="special-projects-list js-infinity-loader-grid">
+                    {% include "site/modules/special-projects-block.html" %}
+                </div>
+                {% if has_next %}
+                    <button class="btn btn_blue btn_more btn_center js-more-special-projects" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

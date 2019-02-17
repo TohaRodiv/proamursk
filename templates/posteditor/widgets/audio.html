@@ -1,0 +1,15 @@
+{% load utils_tags %}
+{% load posteditor_tags %}
+
+{% if element.element_content %}
+    {% get_posteditor_audio element.element_content.id as audio %}
+    <div class="post-editor__block_audio">
+        <div class="audio-container">
+            {% if element.element_content_description %}
+                <p>{{ element.element_content_description }}</p>
+            {% endif %}
+            <audio src="{{ audio.audio_file.url }}" controls></audio>
+        </div>
+    </div>
+    <div class="clear"></div>
+{% endif %}

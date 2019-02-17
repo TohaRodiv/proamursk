@@ -1,0 +1,67 @@
+.additional-block
+    padding: 40px 0
+    background-color: $base-dark-c
+
+    &__title
+        font-size: $big-fz
+        font-family: $bold-f
+        color: $light-c
+        text-transform: uppercase
+
+.movie-posters-widget
+
+    &__title-wrap
+        display: flex
+        align-items: center
+        margin-bottom: 40px
+
+    &__btns
+       margin-left: 50px
+       font-size: 0
+
+    &__btn
+        margin-right: 15px
+
+    .slick-list
+        margin-left: -25px
+        margin-right: -25px
+
+    .slick-active
+        .movie-posters-item__cover
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2)
+
+.movie-posters-item
+    position: relative
+    margin-left: 25px
+    margin-right: 25px
+    text-decoration: none
+
+    &__cover
+        display: block
+        margin-bottom: 15px
+        border-radius: 10px
+
+    &__title
+        font-family: $add-f
+        font-weight: bold
+        font-size: $base-fz
+        letter-spacing: 0.02em
+        color: $light-c
+
+    &__genre
+        font-family: $add-f
+        font-size: $mini-fz
+        letter-spacing: 0.02em
+        color: #7a8ba1
+
+    &__icons-wrap
+        display: flex
+        align-items: center
+        position: absolute
+        top: 10px
+        right: 15px
+
+    &__icon
+        display: block
+        margin-left: 10px
+        color: $light-c

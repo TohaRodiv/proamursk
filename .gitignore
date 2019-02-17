@@ -5,6 +5,7 @@ npm-debug.log
 /cp/node_modules/
 /frontend/node_modules/
 /frontend/email/node_modules/
+/frontend/static/
 /static/maintenance_mode.html
 /webpack/statistics.html
 /uploads/
@@ -23,3 +24,6 @@ npm-debug.log
 *.pyc
 *.python-version
 *.pkl
+
+package-lock.json
+.vscode

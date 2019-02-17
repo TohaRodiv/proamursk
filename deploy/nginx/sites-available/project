@@ -1,0 +1,18 @@
+upstream django {
+    server unix:///var/run/proamursk.sock;
+}
+
+
+server {
+	listen 80;
+	listen [::]:80;
+	server_name proamursk.ru www.proamursk.ru;
+	return 301 https://$server_name$request_uri;
+}
+
+server {
+    server_name proamursk.ru www.proamursk.ru;
+    ssl_certificate /var/www/proamursk/cert/live/proamursk.ru/fullchain.pem;
+	ssl_certificate_key /var/www/proamursk/cert/live/proamursk.ru/privkey.pem;
+    include /etc/include.d/sites_common.conf;
+}

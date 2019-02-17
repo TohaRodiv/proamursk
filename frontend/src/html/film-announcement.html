@@ -1,0 +1,175 @@
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "event"
+})
+
+<main>
+    <div class="container">
+        <div class="base-layout">
+            <div class="base-layout__main">
+                <article class="publication film">
+                    <div class="film-header">
+                        <img src="images/poster2.jpg" alt="" class="film-cover">
+                        <div class="film-info">
+                            <h1 class="film-title">Богемская рапсодия</h1>
+                            <table class="film-info-table">
+                                <tr>
+                                    <td>Год:</td>
+                                    <td>2018</td>
+                                </tr>
+                                <tr>
+                                    <td>Страна:</td>
+                                    <td>Великобритания, США</td>
+                                </tr>
+                                <tr>
+                                    <td>Жанр:</td>
+                                    <td>драма, биография</td>
+                                </tr>
+                                <tr>
+                                    <td>Режисёр:</td>
+                                    <td>Брайан Сингер</td>
+                                </tr>
+                                <tr>
+                                    <td>В главных ролях:</td>
+                                    <td>Рами Малек, Люси Бойнтон, Гвилим Ли, Бен Харди</td>
+                                </tr>
+                                <tr>
+                                    <td>Продолжительность:</td>
+                                    <td>134 мин</td>
+                                </tr>
+                                <tr>
+                                    <td>Возрастное ограничение:</td>
+                                    <td><span class="round-rating">18+</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="film-timetable tabs-wrap">
+                        <div class="film-timetable__days tab__btns-wrap">
+                            <button class="tab__btn js-tab__btn film-timetable__day-btn">
+                                <div class="day-btn__week-day">Понедельник</div>
+                                <div class="day-btn__day">17</div>
+                                <div class="day-btn__month">Сентября</div>
+                            </button>
+                            <button class="tab__btn js-tab__btn film-timetable__day-btn">
+                                <div class="day-btn__week-day">Вторник</div>
+                                <div class="day-btn__day">18</div>
+                                <div class="day-btn__month">Сентября</div>
+                            </button>
+                            <button class="tab__btn js-tab__btn film-timetable__day-btn">
+                                <div class="day-btn__week-day">Среда</div>
+                                <div class="day-btn__day">19</div>
+                                <div class="day-btn__month">Сентября</div>
+                            </button>
+                            <button class="tab__btn js-tab__btn film-timetable__day-btn">
+                                <div class="day-btn__week-day">Четверг</div>
+                                <div class="day-btn__day">20</div>
+                                <div class="day-btn__month">Сентября</div>
+                            </button>
+                            <button class="tab__btn js-tab__btn film-timetable__day-btn">
+                                <div class="day-btn__week-day">Пятница</div>
+                                <div class="day-btn__day">21</div>
+                                <div class="day-btn__month">Сентября</div>
+                            </button>
+                            <button class="tab__btn js-tab__btn film-timetable__day-btn">
+                                <div class="day-btn__week-day">Суббота</div>
+                                <div class="day-btn__day">22</div>
+                                <div class="day-btn__month">Сентября</div>
+                            </button>
+                            <button class="tab__btn js-tab__btn film-timetable__day-btn">
+                                <div class="day-btn__week-day">Воскресенье</div>
+                                <div class="day-btn__day">23</div>
+                                <div class="day-btn__month">Сентября</div>
+                            </button>
+                        </div>
+
+                        <div class="film-timetable__times">
+                            <a href="https://amurskkino.ru/filmy/spasti-leningrad/" target="_blank" class="btn btn_blue film-seance__buy-btn">Купить билет</a>
+
+                            <div class="film-seance__text">
+                                <div>Время сеанса:</div>
+                                <div>Стоимость:</div>
+                            </div>
+
+                            <div class="tab__content-wrap">
+                                <div class="tab__content">
+                                    <div class="film-seance-wrap">
+                                        <div class="film-seance">
+                                            <div class="film-seance__time">12:00</div>
+                                            <div class="film-seance__price">200 р.</div>
+                                        </div>
+                                        <div class="film-seance film-seance_3d">
+                                            <div class="film-seance__time">12:00</div>
+                                            <span class="film-seance__price">250 р.</span>
+                                        </div>
+                                        <div class="film-seance">
+                                            <div class="film-seance__time">18:30</div>
+                                            <div class="film-seance__price">300 р.</div>
+                                        </div>
+                                        <div class="film-seance">
+                                            <div class="film-seance__time">20:40</div>
+                                            <div class="film-seance__price">250 р.</div>
+                                        </div>
+                                        <div class="film-seance film-seance_3d">
+                                            <div class="film-seance__time">22:30</div>
+                                            <span class="film-seance__price">300 р.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @@for (var i = 0; i < 6; i++) {
+                                <div class="tab__content">
+                                    <div class="film-seance-wrap">
+                                        @@for (var i = 0; i < 4; i++) {
+                                        <div class="film-seance">
+                                            <div class="film-seance__time">12:00</div>
+                                            <div class="film-seance__price">200 р.</div>
+                                        </div>
+                                        }
+                                    </div>
+                                </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="film-seance__note">Возможны изменения, расписание учняйте по телефону 8 42142 999-53</div>
+                    </div>
+
+                    <div class="film-description wysiwyg-container">
+                        <p>Чествование группы Queen, их&nbsp;музыки и&nbsp;их&nbsp;выдающегося вокалиста Фредди Меркьюри, который бросил вызов стереотипам и&nbsp;победил условности, чтобы стать одним из&nbsp;самых любимых артистов на&nbsp;планете. Фильм прослеживает головокружительный путь группы к&nbsp;успеху благодаря их&nbsp;культовым песням и&nbsp;революционному звуку, практически распад коллектива, поскольку образ жизни Меркьюри выходит из-под контроля, и&nbsp;их&nbsp;триумфальное воссоединение накануне концерта Live Aid, ставшим одним из&nbsp;величайших выступлений в&nbsp;истории рок-музыки.</p>
+                    </div>
+
+                    <div class="film-treiler">
+                        <iframe src="https://www.youtube.com/embed/6S9c5nnDd_s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="publication__footer">
+                        @@include('page-block/share-widget.html')
+                    </div>
+                </article>
+            </div>
+
+            <aside class="base-layout__aside">
+                <div class="aside-widget">
+                    @@include("page-block/aside-subscribe-widget.html")
+                </div>
+                <div class="aside-widget">
+                    <a href="event-announcement.html" class="nearest-event-widget__item">
+                        <img src="images/aside-banner2.jpg" alt="" class="nearest-event-widget__img">
+                    </a>
+                </div>
+                <div class="aside-widget">
+                    <a href="event-announcement.html" class="nearest-event-widget__item">
+                        <img src="images/aside-banner3.jpg" alt="" class="nearest-event-widget__img">
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+@@include("page-block/read-also.html")
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')

@@ -1,0 +1,163 @@
+{% load static static_version %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="yandex-tableau-widget" content="'images/favicons/tableau-logo.png', color=#FCE420" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="theme-color" content="#FCE420">
+
+    {% block seo %}
+    {% endblock %}
+
+    {{ settings.meta_tags|safe }}
+
+    {% block og %}
+    {% endblock %}
+
+    <title>{% block title %}Про Амурск{% endblock %}</title>
+
+    <link href="{% static "site/images/favicons/favicon.svg" %}{% static_version %}" color="#000000" rel="mask-icon" />
+    <link href="{% static "site/images/favicons/favicon.ico" %}{% static_version %}" rel="shortcut icon" />
+    <link href="{% static "site/images/favicons/57.png" %}{% static_version %}" rel="apple-touch-icon" />
+    <link href="{% static "site/images/favicons/76.png" %}{% static_version %}" rel="apple-touch-icon" sizes="76x76" />
+    <link href="{% static "site/images/favicons/120.png" %}{% static_version %}" rel="apple-touch-icon" sizes="120x120" />
+    <link href="{% static "site/images/favicons/152.png" %}{% static_version %}" rel="apple-touch-icon" sizes="152x152" />
+    <link href="{% static "site/images/favicons/180.png" %}{% static_version %}" rel="apple-touch-icon" sizes="180x180" />
+    <link href="{% static "site/images/favicons/128.png" %}{% static_version %}" rel="icon" sizes="128x128" />
+    <link href="{% static "site/images/favicons/192.png" %}{% static_version %}" rel="icon" sizes="192x192" />
+
+    <link rel="stylesheet" href="{% static "site/css/main.min.css" %}{% static_version %}">
+</head>
+
+<body>
+    <div class="notification-wrapper">
+        <span class="notification__icon notification__icon_success icon-success"></span>
+        <span class="notification__icon notification__icon_error icon-error"></span>
+        <div class="notification__message"></div>
+        <button class="notification__close icon-close"></button>
+    </div>
+
+    <div class="body-overlay hidden"></div>
+
+    {% include "site/page-block/popup.html" %}
+
+    <header>
+        <div class="container header-container">
+            <a href="{% url "index" %}" class="header__logo-link">
+                {% with url_name=request.resolver_match.url_name %}
+                    {% if url_name == 'index' %}
+                        <img src="{% static "site/images/svg/logo-black.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'news-list' or url_name == 'news-detail' %}
+                        <img src="{% static "site/images/svg/logo_news.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'events-index' or url_name == 'events-list-future' or url_name == 'events-list-past' or url_name == 'events-detail' or url_name == 'reports-list' %}
+                        <img src="{% static "site/images/svg/logo_event.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'history-list' or url_name == 'history-detail' %}
+                        <img src="{% static "site/images/svg/logo_history.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'places-list' or url_name == 'places-detail' %}
+                        <img src="{% static "site/images/svg/logo_place.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'persons-list' or url_name == 'persons-detail' %}
+                        <img src="{% static "site/images/svg/logo_people.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+
+                    {% if url_name == 'specials-list' or url_name == 'specials-detail' %}
+                        <img src="{% static "site/images/svg/logo_special-projects.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                    {% endif %}
+                {% endwith %}
+
+                <span class="header__logo-subtext">МЕСТА, СОБЫТИЯ, ЛЮДИ</span>
+            </a>
+
+            <img src="{% static "site/images/svg/header-pattern.svg" %}{% static_version %}" alt="" class="header__pattern">
+
+            <div class="header__weather-widget">-24 C°</div>
+
+            <div class="header__nav">
+                {% include "site/page-block/site-nav.html" %}
+            </div>
+
+            <button class="header__search-btn icon-search"></button>
+            <button class="header__close-search-btn js-close-search icon-close hidden"></button>
+        </div>
+    </header>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block additional_content %}
+
+    {% endblock %}
+
+    <footer>
+        <div class="container">
+            <div class="footer__subscribe-section">
+                <img src="{% static "site/images/svg/subscribe.svg" %}{% static_version %}" alt="" class="subscribe-img">
+                <div class="subscribe-title">Еженедельная рассылка о&nbsp;главных событиях города</div>
+
+                <form class="subscribe-form">
+                    <div class="input-wrap subscribe-form__input-wrap">
+                        <input type="text" name="email" class="subscribe-form__input required-input" placeholder="Ваш E-mail">
+                    </div>
+                    <input type="submit" class="js-subscribe-form__submit subscribe-form__submit btn btn_white" value="Подписаться">
+                </form>
+                <div class="js-subscribe-form__submited subscribe-form__submited hidden">Мы выслали письмо для подтверждения, проверьте почту. Спасибо</div>
+            </div>
+
+            <div class="footer__main">
+                <div class="footer-top">
+                    <a href="index.html" class="footer__logo-link"><img src="{% static "site/images/svg/logo-white.svg" %}" alt="проАмурск" class="footer__logo-img"></a>
+
+                    <div class="footer__nav">
+                        {% include "site/page-block/site-nav.html" %}
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer__copyright-text">Исключительные права на&nbsp;фото- и&nbsp;иные материалы принадлежат авторам. Любое размещение материалов на&nbsp;сторонних ресурсах необходимо согласовывать с&nbsp;правообладателями.</p>
+
+                    <div class="footer__editor-text">Нашли опечатку?<br>Выделите слово и нажмите Ctrl+Enter</div>
+
+                    <div class="footer__social-wrap">
+                        <div class="social-wrap">
+                            <a href="" class="social-link icon-instagram" alt="Инстаграм" target="_blank"></a>
+                            <a href="" class="social-link icon-odnoklassniki" alt="Одноклассники" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__copyright-section">
+                <div class="footer__copyright-subblock">
+                    <div class="footer__company-copyright">© 2019, ПроАмурск </div>
+                    <button class="show-pop-up" data-pop-up="to-editor">Написать в редакцию</button>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                </div>
+
+                <div class="footer__copyrights-wrap">
+                    <a href="http://piligrims.ru/" target="_blank" class="footer__copyright">Нарисовано в студии «Пилигрим»</a>
+                    <a href="http://perfectura.ru/" target="_blank" class="footer__copyright">Сделано в студии «Перфектура»</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static "site/js/main.min.js" %}{% static_version %}"></script>
+
+</body>
+</html>

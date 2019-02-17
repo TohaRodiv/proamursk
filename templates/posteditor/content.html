@@ -1,0 +1,22 @@
+
+{% if content %}
+    <div class="post-editor-content">
+        {% for section in content %}
+            <div class="post-editor__section post-editor__section_{{ section.classSuffix }}">
+                <div class="indent-wrap {% if section.marginTop %}indent-wrap_mt{{ section.marginTop }}{% endif %} {% if section.marginBottom %}indent-wrap_mb{{ section.marginBottom }}{% endif %} {% if section.paddingTop %}indent-wrap_pt{{ section.paddingTop }}{% endif %} {% if section.paddingBottom %}indent-wrap_pb{{ section.paddingBottom }}{% endif %}">
+                    {% for column in section.columns %}
+                        <div class="post-editor-column">
+                            {% for widget in column.widgets %}
+                                {% if widget %}
+                                    {% with template_name=widget.type|add:".html" %}
+                                        {% include "posteditor/widgets/"|add:template_name %}
+                                    {% endwith %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

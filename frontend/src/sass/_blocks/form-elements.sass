@@ -1,0 +1,149 @@
+\::-webkit-input-placeholder
+    color: $base-gray
+    letter-spacing: initial !important
+
+\::-moz-placeholder
+    color: $base-gray
+    letter-spacing: initial !important
+
+\::-ms-input-placeholder
+    color: $base-gray
+    letter-spacing: initial !important
+
+\::placeholder
+    color: $base-gray
+    letter-spacing: initial !important
+
+.disabled,
+*:disabled
+    @extend %disabled
+
+.input-wrap
+    position: relative
+
+.input-big
+    width: 100%
+    padding: 10px 20px 9px
+    font-size: 24px
+    line-height: $micro-lh
+    border-radius: 4px
+    background-color: $light-c
+    border: 1px solid #d7dbe0
+
+.input-line
+    width: 100%
+    padding: 6px 0
+    font-size: $base-fz
+    color: $dark-c
+    letter-spacing: 0.04em
+    border-bottom: 1px solid #D7DBE0
+
+    &:focus
+        border-color: $base-c
+
+    &:-webkit-autofill
+        -webkit-text-fill-color: $dark-c
+        -webkit-box-shadow: 0 0 0px 1000px transparent inset
+        transition: background-color 5000s ease-in-out 0s
+
+        &:hover:not(:focus)
+            -webkit-box-shadow: 0 0 0px 1000px transparent inset
+
+textarea
+    display: block
+    width: 100%
+    height: 120px
+    line-height: $base-lh
+
+.has-error
+    border-color: $error-c !important
+
+.select
+    position: relative
+
+    &:focus
+        outline: none
+
+    &__clear
+        margin-top: -9px
+        padding: 5px
+        right: 35px
+        font-size: 9px
+
+    &__arrow
+        margin-top: -3px
+        right: 10px
+        font-size: 7px
+
+    &__clear,
+    &__arrow
+        position: absolute
+        top: 50%
+        z-index: 1
+        color: #c4c7cc
+        cursor: pointer
+
+        &:hover
+            color: $dark-c
+
+    &__value
+        height: 36px
+        padding-right: 50px
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        cursor: pointer
+        outline: none
+
+        &_hidden
+            display: none !important
+
+            &.has-error
+                 + .select__value_visible:not(.focus)
+                    border-color: $error-c
+
+        &.focus,
+        &:focus
+            border-color: $base-c
+
+            & ~ .select__arrow
+                margin-top: -5px
+                transform: rotate(180deg)
+                color: $dark-c
+
+    &__options-list
+        position: absolute
+        top: 100%
+        z-index: 10
+        width: 100%
+        max-height: 272px
+        overflow: auto
+        background-color: $light-c
+        border-bottom-left-radius: 5px
+        border-bottom-right-radius: 5px
+        border: 1px solid #D7DBE0
+
+    &__option
+        padding: 10px 15px
+        cursor: pointer
+
+        &:hover,
+        &_choosen
+            background-color: #F6F7F8
+
+.label-base
+    position: absolute
+    top: 6px
+    font-size: $base-fz
+    color: $base-gray
+    transition: all .15s
+
+.input-line,
+.select__value
+    &:focus,
+    &.focus,
+    &.fill
+        & ~ .label-base
+            top: -10px
+            font-size: 13px
+            color: #C7C8C8

@@ -1,0 +1,13 @@
+{% load posteditor_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ place.title }}</title>
+</head>
+<body>
+    <h3>{{ place.title }}</h3>
+    <p>{% make_content place.content %}</p>
+</body>
+</html>

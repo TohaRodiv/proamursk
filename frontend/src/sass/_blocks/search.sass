@@ -1,0 +1,106 @@
+.search-result-page
+    &__form
+        width: 640px
+        margin: 60px auto 30px
+
+    &__btns-panel
+        display: flex
+        justify-content: center
+
+    &__btn
+        margin-left: 10px
+        margin-right: 10px
+
+.search-form
+    position: relative
+
+    &__input
+        padding-right: 50px
+
+    &__submit
+        position: absolute
+        top: 0
+        right: 0
+        padding: 17px 15px 13px
+        font-size: $base-fz
+        color: #7A8BA1
+
+.search-pop-up-content
+    width: 640px
+
+.search__result-block
+    position: relative
+
+    &::after
+        content: ""
+        display: block
+        width: 100%
+        height: 1px
+        position: absolute
+        top: 5px
+        left: 0
+        background-color: #D7DBE0
+
+.search-result_full
+    margin-top: -5px
+    padding: 15px 0 10px
+    background-color: $light-c
+    border: 1px solid #D7DBE0
+    border-top: none
+    border-bottom-right-radius: 4px
+    border-bottom-left-radius: 4px
+
+.search-result-list
+    margin: 0
+    padding: 0
+
+.search__all-result-link
+    display: block
+    margin-top: 20px
+    padding: 0 20px
+    font-size: $mini-fz
+    font-family: $bold-f
+    color: $base-c
+    text-decoration: none
+
+    span
+        margin-left: 10px
+        font-family: $base-f
+        font-size: 14px
+        letter-spacing: 0.08em
+        color: $base-gray
+
+.search-item
+    display: block
+    padding: 10px 20px
+    line-height: $base-lh
+    text-decoration: none
+
+    &:hover,
+    &.focus
+        background-color: #F6F7F8
+
+    &__category
+        display: block
+        font-size: 14px
+        letter-spacing: 0.08em
+        color: $base-c
+
+    &__title
+        font-size: $base-fz
+        font-family: $bold-f
+        color: $dark-c
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+
+.search-result_empty
+    margin-top: -5px
+    padding: 48px 20px 20px
+    font-size: $base-fz
+    font-family: $bold-f
+    background-color: $light-c
+    border: 1px solid #D7DBE0
+    border-top: none
+    border-bottom-right-radius: 4px
+    border-bottom-left-radius: 4px

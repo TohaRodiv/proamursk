@@ -1,0 +1,144 @@
+.slider
+    position: relative
+
+.slider-container
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    padding: 0
+    overflow: hidden
+
+.slide
+    visibility: hidden
+    position: absolute
+    top: 0
+    left: 0
+    min-width: 100%
+    height: 100%
+    padding: 0
+
+    &.active
+        animation: fadeIn .5s 1 forwards
+
+    &.was-active
+        animation: fadeOut .5s 1 forwards
+
+.slider-arrow
+    display: none
+    cursor: pointer
+
+    &.active
+        display: inline-block
+
+    &_base
+        width: 15px
+        height: 15px
+        font-size: 15px
+        color: $light-c
+        text-align: center
+
+        &:hover
+            color: #AAB2C2
+
+.slide-nav-counter
+    display: none
+    width: 50px
+    font-size: 15px
+    line-height: $micro-lh
+    text-align: center
+
+    &.active,
+    span
+        display: inline-block
+
+.slider-circles-container
+    position: absolute
+    bottom: 20px
+    left: 50%
+    transform: translateX(-50%)
+    font-size: 0
+    line-height: 0
+
+    &.active
+        display: block
+
+.slider-circle-item
+    display: inline-block
+    width: 9px
+    height: 9px
+    margin-right: 5px
+    border-radius: 50%
+    cursor: pointer
+    background-color: #A1A3A3
+
+    &.active,
+    &:hover
+        background-color: $light-c
+
+    &:last-child
+        margin-right: 0
+
+.post-editor__block_slider .slide
+    cursor: pointer
+
+@keyframes fadeIn
+    0%
+        opacity: 0
+        visibility: hidden
+
+    100%
+        opacity: 1
+        visibility: visible
+
+@keyframes fadeOut
+    0%
+        opacity: 1
+        visibility: visible
+
+    100%
+        opacity: 0
+        visibility: hidden
+
+.full-width-slider
+    width: 100%
+    height: 520px
+    margin-left: auto
+    margin-right: auto
+
+    .slider-arrow
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        color: $light-c
+        text-align: center
+        background-color: rgba($dark-c, 0.3)
+
+        &:hover
+            background-color: rgba($dark-c, 0.5)
+
+    .slider-arrow-container
+        width: 1300px
+        margin: 0 auto
+        position: relative
+        top: 50%
+        transform: translateY(-50%)
+
+    .slider-arrow-prev
+        left: 0
+        padding-right: 5px
+
+    .slider-arrow-next
+        right: 0
+        padding-left: 5px
+
+.slider-arrow_round,
+.slick-arrow
+    width: 52px
+    height: 52px
+    border-radius: 50%
+    font-size: 30px
+    line-height: 54px
+    text-align: center

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="yandex-tableau-widget" content="'images/favicons/tableau-logo.png', color=#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="theme-color" content="#0073FF">
+
+    <title>Про Амурск</title>
+
+    <link href="images/favicons/favicon.svg" color="#0073FF" rel="mask-icon" />
+    <link href="images/favicons/favicon.ico" rel="shortcut icon" />
+    <link href="images/favicons/57.png" rel="apple-touch-icon" />
+    <link href="images/favicons/76.png" rel="apple-touch-icon" sizes="76x76" />
+    <link href="images/favicons/120.png" rel="apple-touch-icon" sizes="120x120" />
+    <link href="images/favicons/152.png" rel="apple-touch-icon" sizes="152x152" />
+    <link href="images/favicons/180.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="images/favicons/128.png" rel="icon" sizes="128x128" />
+    <link href="images/favicons/192.png" rel="icon" sizes="192x192" />
+
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+    <div class="notification-wrapper success">
+        <span class="notification__icon notification__icon_success icon-success"></span>
+        <div class="notification__message">Сообщение отправлено.</div>
+        <button class="notification__close icon-close"></button>
+    </div>
+    <div class="notification-wrapper error">
+        <span class="notification__icon notification__icon_error icon-error"></span>
+        <div class="notification__message">Попробуйте повторить попытку позже</div>
+        <button class="notification__close icon-close"></button>
+    </div>
+
+    @@include('page-block/popup.html')

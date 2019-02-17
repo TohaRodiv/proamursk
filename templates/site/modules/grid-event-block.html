@@ -1,0 +1,5 @@
+{% for item in events %}
+    {% with css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" wobler_type="announcement" %}
+        {% include "site/modules/grid-event.html" %}
+    {% endwith %}
+{% endfor %}

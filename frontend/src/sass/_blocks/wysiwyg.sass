@@ -1,0 +1,92 @@
+.wysiwyg-container
+    line-height: $base-lh
+    color: $dark-c
+
+    .left
+        text-align: left
+
+    .right
+        text-align: right
+
+    .center
+        text-align: center
+
+    [class*="wysiwyg-h"]
+        margin-top: 40px !important
+        margin-bottom: 20px !important
+        font-family: $bold-f !important
+        line-height: $mini-lh !important
+
+        &.wysiwyg-h1
+            font-size: 26px !important
+            text-transform: uppercase
+
+        &.wysiwyg-h2
+            font-size: 22px !important
+
+        &.wysiwyg-h3
+            font-size: 20px !important
+
+        &:first-child
+            margin-top: 0 !important
+
+        &:last-child
+            margin-bottom: 0 !important
+
+    b,
+    strong
+        font-family: $bold-f !important
+        font-weight: bold
+
+    i
+        font-style: italic
+
+    a,
+    a:link,
+    a:visited
+        color: $base-c
+        text-decoration: none
+
+        &:hover
+            text-decoration: underline
+
+    p
+        margin: 0 0 20px 0 !important
+        font-size: $base-fz
+
+        &:last-child
+            margin-bottom: 0 !important
+
+    ul,
+    ol
+        margin: 20px 0 40px 40px !important
+        padding-left: 0 !important
+        font-size: $base-fz !important
+        line-height: $base-lh !important
+
+        li
+            margin-top: 1em !important
+            padding-left: 15px !important
+
+            &:first-child
+                margin-top: 0 !important
+
+        ul,
+        ol
+            margin: 20px 0 40px 40px  !important
+
+    & > ul,
+    & > ol
+        &:first-child
+            margin-top: 0 !important
+
+        &:last-child
+            margin-bottom: 0 !important
+
+    ul
+        li
+            list-style: disc !important
+
+    ol
+        li
+            list-style: decimal !important

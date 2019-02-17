@@ -1,0 +1,89 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+{% load media_filters %}
+{% load pytils_dt %}
+{% load site_tags %}
+{% load utils_tags %}
+{% load posteditor_tags %}
+
+{% block title %}
+    {{ report.meta_title|default:report.title }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ report.meta_keywords }}">
+    <meta name="description" content="{{ report.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=report.meta_title|default:report.title og_description=report.meta_description og_image=report.og_image|default:report.cover|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main">
+                    <article class="publication">
+                        <figure class="publication__cover-wrap">
+                            <img src="{{ report.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" class="publication__cover">
+                            <figcaption class="publication__img-figcaption">
+                                <span class="publication__img-author">{{ report.cover_author }}</span>
+                            </figcaption>
+                        </figure>
+
+                        <div class="publication__content">
+                            <div class="publication__additional-info-wrap publication__additional-info-wrap_row">
+                                <div class="publication__event-info publication__event-date">
+                                    <span class="icon-calendar"></span>
+                                    {{ report.publication_date|ru_strftime:"%d %B" }}
+                                </div>
+                                <div class="publication__event-info publication__event-place">
+                                    <span class="icon-geo-stroke"></span>
+                                    <a href="" target="_blank">{{ report.place }}</a>
+                                </div>
+                                {% if report.event %}
+                                    <div class="publication__event-info publication__event-date">
+                                        <span class="icon-reportage"></span>
+                                        <a href="{% url "events-detail" report.event.id %}">Анонс</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <h1 class="publication__title">{{ report.title }}</h1>
+
+                            <p class="publication__lead">{{ report.lead }}</p>
+
+                            {% post_editor_make_content report.content 'default' %}
+
+                            <div class="publication__footer">
+                                <div class="publication__author">{{ report.content_author }}</div>
+
+                                {% include "site/page-block/share-widget.html" %}
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+                        {% include "site/page-block/aside-subscribe-widget.html" %}
+                    </div>
+                    <div class="aside-widget">
+                        {% with css_class="event" btn_text="Предложить новость" offer_text="Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                            {% include "site/modules/offer-widget.html" %}
+                        {% endwith %}
+                    </div>
+                    <div class="aside-widget">
+                        {% include "site/page-block/nearest-event-widget.html" %}
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block additional_content %}
+    {% read_also %}
+{% endblock %}

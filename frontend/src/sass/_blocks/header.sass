@@ -1,0 +1,65 @@
+header
+    border-bottom: 1px solid #D7DBE0
+    color: $dark-c
+
+.header-container
+    height: 100px
+    display: flex
+    align-items: center
+
+.header
+    &__logo-link
+        margin-bottom: 24px
+        height: 67px
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        position: relative
+        z-index: 2
+        text-decoration: none
+
+    &__logo-subtext
+        margin-top: 6px
+        font-size: 11px
+        line-height: $micro-lh
+        letter-spacing: 0.07em
+        color: #242434
+
+    &__logo-img
+        display: block
+        width: 147px
+
+    &__nav
+        margin-left: auto
+        margin-right: 30px
+
+    &__search-btn
+        display: block
+        width: 43px
+        height: 18px
+        color: $dark-c
+        font-size: $base-fz
+
+    &__close-search-btn
+        position: absolute
+        z-index: 100
+        top: 28px
+        right: 0
+        width: 46px
+        height: 46px
+        font-size: 14px
+
+    &__weather-widget
+        position: absolute
+        top: 40px
+        left: 490px
+        font-size: $mini-fz
+        font-family: $bold-f
+        color: $dark-c
+
+    &__pattern
+        position: absolute
+        width: 540px
+        left: 0
+        bottom: 10px
+        z-index: 1

@@ -1,0 +1,56 @@
+<footer>
+    <div class="container">
+        <div class="footer__subscribe-section">
+            <img src="images/svg/subscribe.svg" alt="" class="subscribe-img">
+            <div class="subscribe-title">Еженедельная рассылка о&nbsp;главных событиях города</div>
+
+            <form class="subscribe-form">
+                <div class="input-wrap subscribe-form__input-wrap">
+                    <input type="text" name="email" class="subscribe-form__input required-input" placeholder="Ваш E-mail">
+                </div>
+                <input type="submit" class="js-subscribe-form__submit subscribe-form__submit btn btn_white" value="Подписаться">
+            </form>
+            <div class="js-subscribe-form__submited subscribe-form__submited hidden">Мы выслали письмо для подтверждения, проверьте почту. Спасибо</div>
+        </div>
+
+        <div class="footer__main">
+            <div class="footer-top">
+                <a href="index.html" class="footer__logo-link"><img src="images/svg/logo-white.svg" alt="проАмурск" class="footer__logo-img"></a>
+
+                <div class="footer__nav">
+                    @@include('page-block/site-nav.html', {
+                        "active": ""
+                    })
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer__copyright-text">Исключительные права на&nbsp;фото- и&nbsp;иные материалы принадлежат авторам. Любое размещение материалов на&nbsp;сторонних ресурсах необходимо согласовывать с&nbsp;правообладателями.</p>
+
+                <div class="footer__editor-text">Нашли опечатку?<br>Выделите слово и нажмите Ctrl+Enter</div>
+
+                <div class="footer__social-wrap">
+                    <div class="social-wrap">
+                        <a href="" class="social-link icon-instagram" alt="Инстаграм" target="_blank"></a>
+                        <a href="" class="social-link icon-odnoklassniki" alt="Одноклассники" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__copyright-section">
+            <div class="footer__copyright-subblock">
+                <div class="footer__company-copyright">© 2019, ПроАмурск </div>
+                <button class="show-pop-up" data-pop-up="to-editor">Написать в редакцию</button>
+                <a href="privacy.html">Политика конфиденциальности</a>
+            </div>
+
+            <div class="footer__copyrights-wrap">
+                <a href="http://piligrims.ru/" target="_blank" class="footer__copyright">Нарисовано в студии «Пилигрим»</a>
+                <a href="http://perfectura.ru/" target="_blank" class="footer__copyright">Сделано в студии «Перфектура»</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.min.js"></script>

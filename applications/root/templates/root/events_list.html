@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>События</title>
+</head>
+<body>
+    <h1>{% if events %}Ближайшие события и репортажи в Амурске{% else %}Список ближайших событий пуст{% endif %}</h1>
+    {% if events %}
+        {% for event_item in events %}
+            <h3>{{ event_item.title }}</h3>
+            <p>{{ event_item.content }}</p>
+            <a href="{{ event_item.get_absolute_url }}">Подробнее о событии >></a>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

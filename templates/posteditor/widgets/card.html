@@ -1,0 +1,30 @@
+{% load posteditor_tags %}
+{% load media_filters %}
+{% load utils_tags %}
+
+<div class="post-editor__block_card" {% if element.element_background_color %}style="background-color: {{ element.element_background_color }};"{% endif %}>
+    {% if element.element_icon.id %}
+        <img src="{{ images|get_item:element.element_icon.id|get_thumbnail_url_by_size:"200,200" }}" class="header-icon">
+    {% elif element.element_title %}
+        <div class="title" {% if element.element_title_color_1 %}style="color: {{ element.element_title_color_1 }};"{% endif %}>{{ element.element_title }}</div>
+    {% endif %}
+
+    {% if element.element_title2 %}
+        <div class="title-mini" {% if element.element_title_color_2 %}style="color: {{ element.element_title_color_2 }};"{% endif %}>{{ element.element_title2 }}</div>
+    {% endif %}
+
+    {% for field_type in element.element_content_format.id|default:"text-image-video"|split_by:"-" %}
+        {% if field_type == 'video' and element.element_video %}
+            <div class="video-container">
+                <iframe src="{{ element.element_video|get_player_link }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        {% elif field_type == 'text' and element.element_text %}
+            <div class="wysiwyg-container">
+                {{ element.element_text|safe }}
+            </div>
+        {% elif field_type == 'image' and element.element_image.id %}
+            <img src="{{ images|get_item:element.element_image.id|get_thumbnail_url_by_size:"660,10000" }}">
+        {% endif %}
+    {% endfor %}
+
+</div>

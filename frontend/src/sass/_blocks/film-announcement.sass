@@ -1,0 +1,169 @@
+.film
+    margin-left: 110px
+
+.film-header
+    display: flex
+    align-items: flex-start
+    margin-bottom: 20px
+
+.film-cover
+    display: block
+    width: 240px
+    margin-right: 40px
+    flex-shrink: 0
+
+.film-info
+    flex-grow: 1
+
+.film-title
+    margin-bottom: 20px
+    font-family: $bold-f
+    font-size: $medium-fz
+    letter-spacing: 0.02em
+    line-height: $micro-lh
+
+.film-info-table
+    td
+        padding: 5px 0
+
+        .round-rating
+            color: #7A8BA1
+
+    tr:nth-child(1) td
+        padding-top: 0
+
+    tr:not(:last-child) td
+        vertical-align: baseline
+
+    tr:last-child td
+        padding-bottom: 0
+
+    td:nth-child(1)
+        width: 160px
+        font-size: 12px
+        line-height: $base-lh
+
+    td:nth-child(2)
+        width: 210px
+        font-size: $mini-fz
+        line-height: $mini-lh
+
+.film-timetable
+    margin-bottom: 40px
+    padding-bottom: 20px
+    border-bottom: 1px solid $border-c
+
+    &__days
+        margin-bottom: 40px
+
+    &__days,
+    &__times
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+    &__day-btn
+        flex-shrink: 0
+        padding: 20px 10px
+        border-radius: 4px
+        line-height: $micro-lh
+
+        &:nth-child(1)
+            width: 113px
+
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6)
+            width: 98px
+
+        &:nth-child(7)
+            width: 110px
+
+        &:not(:last-child)
+            margin-right: 6px
+
+        &:hover
+            color: $base-c
+
+        &.active
+            background-color: $base-c
+            color: $light-c
+
+.film-description
+    margin-bottom: 20px
+
+.film-treiler
+    height: 420px
+    position: relative
+
+    iframe
+        position: absolute
+        left: 0
+        height: 100%
+        width: 100%
+
+.day-btn__week-day
+    margin-bottom: 10px
+    font-size: 15px
+
+.day-btn__day
+    margin-bottom: 10px
+    font-size: 36px
+    font-family: $bold-f
+
+.day-btn__month
+    font-size: 15px
+
+.film-seance-wrap
+    display: flex
+
+.film-seance
+    min-width: 80px
+    margin-left: 20px
+    flex-shrink: 1
+    font-size: $mini-fz
+    font-family: $bold-f
+    text-align: left
+
+    &_3d
+        position: relative
+
+        &::after
+            content: url(../images/svg/3d-icon.svg)
+            display: block
+            width: 26px
+            height: 20px
+            position: absolute
+            top: 0
+            right: 8px
+
+    &__buy-btn
+        margin-right: auto
+        flex-shrink: 0
+
+    &__text
+        margin-left: 20px
+        flex-shrink: 0
+        font-size: 12px
+        text-align: right
+
+        & :nth-child(1)
+            margin-bottom: 5px
+
+    &__note
+        margin-top: 30px
+        font-size: 12px
+
+.round-rating
+    display: block
+    width: 32px
+    height: 32px
+    font-size: 14px
+    line-height: 28px
+    font-family: $add-f
+    font-weight: 600
+    text-align: center
+    border-radius: 50%
+    border: 2px solid currentColor

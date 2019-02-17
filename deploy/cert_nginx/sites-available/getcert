@@ -1,0 +1,16 @@
+
+server {
+	listen 80;
+	listen [::]:80;
+	server_name proamursk.ru www.proamursk.ru;
+	root /var/www/proamursk/cert;
+    index index.html index.htm index.php;
+    access_log /var/log/nginx/proamursk-access.log;
+    error_log /var/log/nginx/proamursk-error.log;
+    charset     utf-8;
+    client_max_body_size 75M;
+
+	location /.well-known/acme-challenge {
+        root /var/www/proamursk/cert/challenges;
+    }
+}

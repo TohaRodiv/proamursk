@@ -1,0 +1,20 @@
+<div class="offer-widget offer-widget_{{ css_class }}">
+    <p class="offer-widget__text">{{ offer_text }}</p>
+    <button class="btn btn_blue offer-widget__btn show-pop-up" data-pop-up="share-{{ css_class }}">{{ btn_text }}</button>
+
+    {% if css_class == "event" %}
+        <span class="offer-widget__icon icon-megafon-stroke-lines"></span>
+    {% endif %}
+    {% if css_class == "history" %}
+        <span class="offer-widget__icon icon-history"></span>
+    {% endif %}
+    {% if css_class == "people" %}
+        <span class="offer-widget__icon icon-people"></span>
+    {% endif %}
+    {% if css_class == "place" %}
+        <span class="offer-widget__icon icon-geo-fill"></span>
+    {% endif %}
+    {% if css_class == "news" %}
+        <span class="offer-widget__icon icon-news-fill"></span>
+    {% endif %}
+</div>

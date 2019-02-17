@@ -1,0 +1,202 @@
+@keyframes zoomIn
+    0%
+        transform: scale(0.9)
+        opacity: 0
+
+    100%
+        transform: scale(1)
+        opacity: 1
+
+.popup-open
+    height: 100vh
+    overflow-y: hidden
+
+.body-cover
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    min-width: 1340px
+    height: 100%
+    z-index: 100
+    overflow: auto
+
+    &.visible
+        display: block
+
+.back
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    min-height: 100vh
+    background-position: center center
+    background-repeat: no-repeat
+    cursor: pointer
+    background-color: rgba(#C3CEDF, .8)
+    backdrop-filter: blur(2px)
+
+.pop-up__close
+    position: absolute
+    z-index: 1
+    cursor: pointer
+
+    &_inner
+        top: 10px
+        right: 10px
+        width: 30px
+        height: 30px
+        font-size: 14px
+        color: $dark-c
+
+        &:hover
+            color: $base-gray
+
+    &_outer
+        top: 28px
+        right: 20px
+        width: 46px
+        height: 46px
+        font-size: 14px
+
+.pop-up-wrapper
+    display: none
+    position: relative
+    min-height: 100%
+
+    &.visible
+        display: flex
+        justify-content: center
+
+        .pop-up-inner-container
+            animation: zoomIn $transition-time ease-out forwards
+
+.pop-up-content
+    position: relative
+    background-color: $light-c
+    border-radius: 4px
+
+.pop-up-inner-container
+    position: relative
+    margin: 180px auto 40px
+    align-self: flex-start
+
+.pop-up
+    &__title
+        font-size: $big-fz
+        font-family: $bold-f
+
+    &__subtitle
+        margin-top: 30px
+        font-size: $base-fz
+
+    &__btns-wrap
+        display: flex
+        align-items: center
+        margin-top: 60px
+
+    &__form
+        margin-top: 40px
+
+        .hint_error
+            padding: 5px 0
+            font-size: 12px
+            color: $error-c
+
+        .input-line
+            position: relative
+            z-index: 2
+            background-color: transparent
+
+        .label-base
+            z-index: 1
+
+.pop-up-form
+    &-content
+        width: 680px
+        padding: 50px 60px
+
+    &__inputs-set
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+
+    &__input-wrap
+        margin-bottom: 40px
+
+        &_full
+            width: 100%
+
+        &_half
+            width: calc(50% - 20px)
+
+    &__attachment
+
+    &__agrement
+        margin-right: 60px
+        font-size: 14px
+        opacity: .8
+
+        a
+            color: $base-c
+            text-decoration: none
+
+            &:hover,
+            &:focus
+                text-decoration: underline
+
+    &__submit
+        display: block
+        width: 155px
+        margin-left: auto
+        flex-shrink: 0
+
+.attachment
+
+    &-btn
+        width: 100%
+        display: flex
+        align-items: center
+
+    &-label
+        display: flex
+        align-items: center
+        margin-right: 30px
+        color: $base-c
+        line-height: $micro-lh
+        cursor: pointer
+
+        &__text
+            font-size: $mini-fz
+            font-family: $bold-f
+
+        &__icon
+            margin-left: 10px
+            color: #D7DBE0
+
+    &-text
+        margin-left: auto
+        font-size: 12px
+
+    &-list
+        margin-top: 10px
+
+        &__item
+            display: flex
+            max-width: 100%
+
+            &:not(:last-child)
+                margin-bottom: 5px
+
+        &__item-name
+            font-size: 14px
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+
+    &-delete-btn
+        margin-left: 10px
+        color: $base-c
+        font-size: 10px

@@ -1,0 +1,25 @@
+{% load static static_version %}
+{% load media_filters %}
+{% load pytils_dt %}
+
+<div class="last-news">
+    <ul class="last-news-list">
+        {% for news_item in news %}
+            <li class="last-news-item">
+                <a href="{{ news_item.get_absolute_url }}" class="last-news-item__link">
+                    <img src="{{ news_item.cover|get_thumbnail_url_by_name:"news_aside_cover" }}" alt="" class="last-news-item__img">
+                    <div class="last-news-item__text-wrap">
+                        <h4 class="last-news-item__title">{{ news_item.title }}</h4>
+                        <div class="last-news-item__date">{{ news_item.publication_date|ru_strftime:"%d %B %Y" }}</div>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="last-news__wobbler">
+        <a href="{% url "news-list" %}" class="last-news__link">Все новости</a>
+    </div>
+
+    <span class="last-news__icon icon-news-cut"></span>
+</div>
