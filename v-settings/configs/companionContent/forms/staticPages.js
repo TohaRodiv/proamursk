@@ -1,3 +1,5 @@
+import vue from 'vue'
+
 const state = {
     formsOptions: {
         'static-pages': [
@@ -90,34 +92,39 @@ const state = {
                                                         hint: '',
                                                         available_values: [
                                                             {
-                                                                value: 'event-announcements',
-                                                                codename: 'event',
+                                                                codename: 'event-announcements',
                                                                 name: 'Анонс события',
                                                                 id: 1
                                                             },
                                                             {
-                                                                value: 'reports',
-                                                                codename: 'report',
+                                                                codename: 'reports',
                                                                 name: 'Репортаж о событии',
                                                                 id: 2
                                                             },
                                                             {
-                                                                value: 'persons',
-                                                                codename: 'person',
-                                                                name: 'Статьи о людях',
+                                                                codename: 'history',
+                                                                name: 'Историческая статья',
                                                                 id: 3
                                                             },
                                                             {
-                                                                value: 'history',
-                                                                codename: 'history',
-                                                                name: 'Историческая статья',
+                                                                codename: 'persons',
+                                                                name: 'Статья о жителе Амурска',
                                                                 id: 4
                                                             },
                                                             {
-                                                                value: 'places',
-                                                                codename: 'place',
-                                                                name: 'Гид по городу',
+                                                                codename: 'places',
+                                                                name: 'Статья о месте',
                                                                 id: 5
+                                                            },
+                                                            {
+                                                                codename: 'city-guides',
+                                                                name: 'Гид по городу',
+                                                                id: 6
+                                                            },
+                                                            {
+                                                                codename: 'specials',
+                                                                name: 'Спецпроект',
+                                                                id: 7
                                                             },
                                                         ]
                                                     }
@@ -130,9 +137,10 @@ const state = {
                                                 elements: [
                                                     {
                                                         type: 'field',
-                                                        label: 'Спецпроект',
+                                                        label: 'Анонс события',
                                                         width: 12,
                                                         required: true,
+                                                        isBlocked: true,
                                                         widget: 'singleSelector',
                                                         sortFlag: {
                                                             value: 'id',
@@ -147,7 +155,8 @@ const state = {
                                                         hint: '',
                                                         api_route: 'event-announcements',
                                                         codename: 'object_id',
-                                                        returnFromAvailableValues: 'id'
+                                                        returnFromAvailableValues: 'id',
+                                                        resetFlag: false
                                                     }
                                                 ]
                                             }
@@ -168,24 +177,31 @@ const state = {
     },
     formsEvents: {
         'static-pages': {
-            onChange: {
+            onChangePopup: {
                 top_items: {
-                    top_items: function (from, widget, formsData) {
-                        // let loader = widget.popup_structure[0].blocks[0].elements[0];
-                        // if (from === 'codename') {
-                        //     if (formsData[''])
-                        //     vue.set(widget, 'api_route', formsData['top_items'][0]['codename'])
-                        //     if (formsData[from] === 'format_3x2') {
-                        //         // vue.set(loader, 'image', {width: 1720, height: 1144});
-                        //         vue.set(widget, 'isBlocked', false);
-                        //     } else if (formsData[from] === 'format_2x1') {
-                        //         // vue.set(loader, 'image', {width: 1720, height: 860});
-                        //         vue.set(widget, 'isBlocked', false);
-                        //     } else if (formsData[from] === null) {
-                        //         vue.set(widget, 'isBlocked', true);
-                        //     }
-                        // }
-                        // console.log('Что-то изменилось')
+                    codename: {
+                        object_id: function (from, widget, data) {
+                            // let firstSelector = widget.popup_structure[0].blocks[0].elements[0]
+                            const dict = {
+                                'event-announcements': 'Анонс события',
+                                reports: 'Репортаж о событии',
+                                persons: 'Статья о жителе Амурска',
+                                history: 'Историческая статья',
+                                places: 'Статья о месте',
+                                'city-guides': 'Гид по городу',
+                                specials: 'Спецпроект'
+                            }
+                            let secondSelector = widget.popup_structure[0].blocks[1].elements[0]
+                            if (data[from]) {
+                                vue.set(secondSelector, 'isBlocked', false)
+                                vue.set(secondSelector, 'api_route', data[from])
+                                vue.set(secondSelector, 'label', dict[data[from]])
+                            } else {
+                                vue.set(secondSelector, 'isBlocked', true)
+                            }
+                            vue.set(data, 'object_id', null)
+                            vue.set(secondSelector, 'resetFlag', true)
+                        }
                     },
                 },
             },
