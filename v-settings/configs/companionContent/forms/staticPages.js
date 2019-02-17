@@ -1,5 +1,15 @@
 import vue from 'vue'
 
+const dict = {
+    'event-announcements': 'Анонс события',
+    reports: 'Репортаж о событии',
+    persons: 'Статья о жителе Амурска',
+    history: 'Историческая статья',
+    places: 'Статья о месте',
+    'city-guides': 'Гид по городу',
+    specials: 'Спецпроект'
+}
+
 const state = {
     formsOptions: {
         'static-pages': [
@@ -35,7 +45,6 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                // isBlocked: true,
                                 label: 'Избранные материалы',
                                 popupLabels: {
                                     new: 'Публикация в топе',
@@ -54,11 +63,16 @@ const state = {
                                         type: 'vertical_list',
                                         list: [
                                             {
-                                                requiredValue: 'object_id'
+                                                requiredValue: {
+                                                    route: 'codename',
+                                                    id: 'object_id',
+                                                    field: 'title'
+                                                }
                                             },
                                             {
                                                 requiredValue: 'codename',
-                                                isTransparent: true
+                                                isTransparent: true,
+                                                value: dict
                                             }
                                         ]
                                     },
@@ -155,8 +169,7 @@ const state = {
                                                         hint: '',
                                                         api_route: 'event-announcements',
                                                         codename: 'object_id',
-                                                        returnFromAvailableValues: 'id',
-                                                        resetFlag: false
+                                                        returnFromAvailableValues: 'id'
                                                     }
                                                 ]
                                             }
@@ -181,26 +194,18 @@ const state = {
                 top_items: {
                     codename: {
                         object_id: function (from, widget, data) {
-                            // let firstSelector = widget.popup_structure[0].blocks[0].elements[0]
-                            const dict = {
-                                'event-announcements': 'Анонс события',
-                                reports: 'Репортаж о событии',
-                                persons: 'Статья о жителе Амурска',
-                                history: 'Историческая статья',
-                                places: 'Статья о месте',
-                                'city-guides': 'Гид по городу',
-                                specials: 'Спецпроект'
-                            }
-                            let secondSelector = widget.popup_structure[0].blocks[1].elements[0]
+                            let selector = widget.popup_structure[0].blocks[1].elements[0]
+                            let list = widget.entity_structure[0].list[0]
                             if (data[from]) {
-                                vue.set(secondSelector, 'isBlocked', false)
-                                vue.set(secondSelector, 'api_route', data[from])
-                                vue.set(secondSelector, 'label', dict[data[from]])
+                                vue.set(selector, 'isBlocked', false)
+                                vue.set(selector, 'api_route', data[from])
+                                vue.set(selector, 'label', dict[data[from]])
                             } else {
-                                vue.set(secondSelector, 'isBlocked', true)
+                                vue.set(selector, 'isBlocked', true)
                             }
+                            // Сброс данных второго селектора
                             vue.set(data, 'object_id', null)
-                            vue.set(secondSelector, 'resetFlag', true)
+                            vue.set(selector, 'resetFlag', true)
                         }
                     },
                 },
