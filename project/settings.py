@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     'pytils',
 ]
 
+if not DEBUG:
+    INSTALLED_APPS = INSTALLED_APPS + ('raven.contrib.django.raven_compat',)
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
