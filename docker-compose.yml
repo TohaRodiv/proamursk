@@ -75,12 +75,12 @@ services:
       - "15672:15672"
 
 
-  altan_shina_celery_worker:
+  proamursk_worker:
     build:
       context: ./
       dockerfile: ./deploy/celery/Dockerfile
     command: celery -A project worker -l info
-    container_name: altan_shina_celery_worker
+    container_name: proamursk_worker
     restart: always
     environment:
       - PYTHONPATH=/var/www/proamursk/proamursk:$PYTHONPATH
