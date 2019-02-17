@@ -64,7 +64,8 @@ MIDDLEWARE = [
     'applications.sitesettings.middleware.AddSettingsInRequest',
     'applications.sitesettings.middleware.CheckDisableSite',
     'applications.banrequest.middleware.BanRequestMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'applications.tools.middleware.SetCsrfTokenCookieMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'

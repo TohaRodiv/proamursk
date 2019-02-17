@@ -53,7 +53,7 @@ class IndexView(View):
     def get(self, request):
         current_date = date.today()
         page = self.get_page(request)
-        top_objects = page.top_items.all().order_by('weight')
+        top_objects = page.top_items.all().order_by('weight') if page else []
         events = Event.objects.filter(is_active=True,
                                       start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'event']).order_by('start_event_date')[:2]
         reports = Report.objects.filter(is_active=True,

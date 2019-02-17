@@ -30,5 +30,5 @@ class CheckDisableSite(MiddlewareMixin):
 
         if not is_admin_link and request.SETTINGS and request.SETTINGS.disable_site and url_name != 'maintenance-mode':
             if not (request.user and request.user.is_staff):
-                content = render_to_string('sitesettings/maintenance-mode.html', {'new_settings': request.SETTINGS}, request=request)
+                content = render_to_string('site/maintenance-mode.html', {'new_settings': request.SETTINGS}, request=request)
                 return HttpResponse(content, status=503)
