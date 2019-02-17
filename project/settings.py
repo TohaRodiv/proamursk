@@ -297,3 +297,65 @@ DEFAULT_FROM_EMAIL = 'Photostog <no-reply@perfectura.ru>'
 SERVER_EMAIL = 'no-reply@perfectura.ru'
 EMAIL_SUBJECT_PREFIX = ''
 
+if not DEBUG:
+    import raven
+
+    RAVEN_CONFIG = {
+        'dsn': 'http://f4846ecf706b4bf0b00f8630e68b0d90:6f5e6839552a411ea5efac537b96cb7d@92.63.98.63:9000/11',
+        # If you are using git, you can also automatically configure the
+        # release based on the git info.
+        # 'release': raven.fetch_git_sha(os.path.dirname(__file__)),
+    }
+
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+        'root': {
+            'level': 'WARNING',
+            'handlers': ['sentry'],
+        },
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s '
+                          '%(process)d %(thread)d %(message)s'
+            },
+        },
+        'handlers': {
+            'null': {
+                'level': 'DEBUG',
+                'class': 'logging.NullHandler',
+            },
+            'sentry': {
+                'level': 'DEBUG',
+                'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+                'tags': {'custom-tag': 'x'},
+            },
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+            }
+        },
+        'loggers': {
+            'django.security.DisallowedHost': {
+                'handlers': ['null'],
+                'level': 'ERROR',
+                'propagate': False,
+            },
+            'django.db.backends': {
+                'level': 'ERROR',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'raven': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'sentry.errors': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+        },
+    }
