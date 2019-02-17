@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+
+  cert_nginx:
+    build: .
+    container_name: cert_nginx
+    restart: always
+    volumes:
+      - /var/www/proamursk/cert:/var/www/proamursk/cert
+      - /var/www/proamursk/static:/var/www/proamursk/static
+      - /var/www/proamursk/uploads:/var/www/proamursk/uploads
+      - /var/www/proamursk/run:/var/run
+      - /var/www/proamursk/log/nginx:/var/log/nginx
+    ports:
+      - "80:80"
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - /var/www/proamursk/cert/:/etc/letsencrypt
+    command: renew

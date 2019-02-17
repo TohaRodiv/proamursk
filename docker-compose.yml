@@ -1,0 +1,102 @@
+version: "2"
+volumes:
+  pg-data:
+    external: true
+
+services:
+
+  postgres:
+    build:
+      context: ./
+      dockerfile: ./deploy/postgres/Dockerfile
+    container_name: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      TZ: Asia/Vladivostok
+      POSTGRES_USER: superadmin
+      POSTGRES_PASSWORD: air3N97r
+      POSTGRES_DB: proamursk_prod
+
+  nginx:
+    build: ./deploy/nginx
+    container_name: nginx
+    restart: always
+    volumes:
+      - /var/www/proamursk/cert:/var/www/proamursk/cert
+      - /var/www/proamursk/static:/var/www/proamursk/static
+      - /var/www/proamursk/uploads:/var/www/proamursk/uploads
+      - /var/www/proamursk/run:/var/run
+      - /var/www/proamursk/log/nginx:/var/log/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - proamursk
+    environment:
+      TZ: Asia/Vladivostok
+
+  proamursk:
+    build:
+      context: ./
+      dockerfile: ./deploy/project/Dockerfile
+    container_name: proamursk
+    restart: always
+    command: uwsgi --ini uwsgi.ini
+    links:
+      - postgres:postgres
+    depends_on:
+      - postgres
+    volumes:
+        - /var/www/proamursk/run:/var/run
+        - /var/www/proamursk/log:/var/log
+        - /tmp/:/tmp/
+        - ./:/var/www/proamursk/proamursk
+        - /var/www/proamursk/static:/var/www/proamursk/static
+        - /var/www/proamursk/uploads:/var/www/proamursk/uploads
+    environment:
+      TZ: Asia/Vladivostok
+
+
+  rabbitmq:
+    image: rabbitmq:3.6.9
+    container_name: rabbitmq
+    restart: always
+    volumes:
+      - /var/www/proamursk/log/rabbitmq:/var/log/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=superadmin
+      - RABBITMQ_DEFAULT_PASS=air3N97r
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+
+  altan_shina_celery_worker:
+    build:
+      context: ./
+      dockerfile: ./deploy/celery/Dockerfile
+    command: celery -A project worker -l info
+    container_name: altan_shina_celery_worker
+    restart: always
+    environment:
+      - PYTHONPATH=/var/www/proamursk/proamursk:$PYTHONPATH
+      - TZ=Asia/Vladivostok
+    volumes:
+      - /var/www/proamursk/proamursk:/var/www/proamursk/proamursk
+      - /var/www/proamursk/static:/var/www/proamursk/static
+      - /var/www/proamursk/uploads:/var/www/proamursk/uploads
+    depends_on:
+      - postgres
+      - proamursk
+      - rabbitmq
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - /var/www/proamursk/cert/:/etc/letsencrypt
+    command: renew

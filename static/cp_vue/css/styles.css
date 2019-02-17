@@ -4837,7 +4837,7 @@ input:placeholder-shown {
   border: 1px solid #eaf3f9;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  z-index: 101;
+  z-index: 10;
   background-color: #fff; }
 
 .forms-tabs-container-popup {
@@ -5499,8 +5499,7 @@ input:placeholder-shown {
 
 .child-entities-buttons {
   position: absolute;
-  right: 0;
-  top: 3px; }
+  right: 0; }
 
 .child-entities-row-item {
   display: flex;
@@ -8075,7 +8074,8 @@ input:placeholder-shown {
 .header-logo-container > a {
   width: 100%;
   height: 100%;
-  display: flex; }
+  display: flex;
+  justify-content: center; }
 
 .auth_logo {
   height: auto;
@@ -8087,7 +8087,7 @@ input:placeholder-shown {
     margin-bottom: 38px; }
 
 .logo-img {
-  width: 200px;
+  width: 170px;
   height: auto;
   margin-left: 0; }
 
@@ -8334,8 +8334,24 @@ input:placeholder-shown {
     background: -ms-linear-gradient(left, rgba(255, 255, 255, 0.26), #fff 100%);
     background: linear-gradient(to right, rgba(255, 255, 255, 0.26), #fff 100%); }
 
-.auth_container {
+.auth-page {
+  width: 100%;
+  height: 100%; }
+
+.auth-wrapper {
+  display: flex;
+  height: 100%; }
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 0; }
+
+.auth-component > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .auth-main-button {
   background-color: #0073FF;
@@ -8367,11 +8383,9 @@ input:placeholder-shown {
 
 .auth-image {
   width: 50%;
-  background-color: #e6e6e6; }
-  .auth-image > img {
-    min-width: 500px;
-    background-size: cover;
-    height: 100%; }
+  background-color: #e6e6e6;
+  background: url(/static/cp_vue/images/fon.jpg) 50% 50% no-repeat;
+  background-size: cover; }
 
 .auth-secondary-button {
   padding: 0;
