@@ -33,10 +33,10 @@
         <img src="{% static "site/images/svg/logo-black.svg" %}{% static_version %}" alt="" class="maintenance-mode__logo">
     </header>
     <main class="maintenance-mode__main">
-        <h1 class="maintenance-mode__title">{{ settings.disable_title }}</h1>
+        <h1 class="maintenance-mode__title">{{ new_settings.disable_title }}</h1>
         <div class="maintenance-mode__text-wrap">
             <div class="wysiwyg-container">
-                {{ settings.disable_text }}
+                {{ new_settings.disable_text }}
             </div>
         </div>
         <img src="{% static "site/images/svg/maintenance-mode.svg" %}{% static_version %}" alt="" class="maintenance-mode__img">
