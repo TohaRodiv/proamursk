@@ -8,7 +8,7 @@ from applications.root import views as root_views
 from applications.sitesettings.views import RobotsTxtView
 
 urlpatterns = [
-    path('admin/', TemplateView.as_view(template_name="cp_vue/index.html")),
+    re_path(r'^admin/', TemplateView.as_view(template_name="cp_vue/index.html")),
     path('api/v1/', include(cp_api.urls)),
     path('',  root_views.IndexView.as_view(), name='index'),
     path('news/',  root_views.NewsListView.as_view(), name='news-list'),
@@ -46,10 +46,10 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+    # import debug_toolbar
+    # urlpatterns = [
+    #     path('__debug__/', include(debug_toolbar.urls)),
+    # ] + urlpatterns
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
