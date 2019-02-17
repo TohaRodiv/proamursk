@@ -15,6 +15,14 @@ INTERNAL_IPS = [
     'localhost'
 ]
 
+ADMINS = (
+    ('admin', 'debug@perfectura.ru'),
+)
+
+MANAGERS = (
+    ('admin', 'debug@perfectura.ru'),
+)
+
 # Application definition
 
 INSTALLED_APPS = [
