@@ -44,6 +44,7 @@
                                     {% if event.coordinates %}
                                         <a href="http://maps.yandex.ru/?mode=search&z=12.9&text={{ event.coordinates }}" target="_blank">{{ event.place }}</a>
                                     {% else %}
+                                        <span>{{ event.place }}</span>
                                     {% endif %}
                                 </div>
                                 {% if event.report %}
