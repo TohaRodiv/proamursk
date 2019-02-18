@@ -44,7 +44,12 @@
                             <div class="publication__additional-info-wrap publication__place-info-wrap">
                                 <div class="publication__place-info publication__place-place">
                                     <span class="icon-geo"></span>
-                                    Адрес: <a href="" target="_blank">{{ place.address }}</a>
+                                    Адрес:
+                                    {% if place.coordinates %}
+                                        <a href="http://maps.yandex.ru/?mode=search&z=12.9&text={{ place.coordinates }}" target="_blank">{{ place.address }}</a>
+                                    {% else %}
+                                        <span>{{ place.address }}</span>
+                                    {% endif %}
                                 </div>
                                 {% if  place.schedule %}
                                     <div class="publication__place-info">
