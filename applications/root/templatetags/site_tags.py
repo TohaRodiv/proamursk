@@ -42,9 +42,12 @@ def get_model_name(val):
 def read_also(context):
     person = context.get('person')
     history_item = context.get('history')
+    top_objects = context.get('top_objects', [])
 
-    persons = Person.objects.filter(is_active=True, publication_date__lte=datetime.now()).order_by('-publication_date')
-    history = History.objects.filter(is_active=True, publication_date__lte=datetime.now()).order_by('-publication_date')
+    persons = Person.objects.filter(is_active=True,
+                                    publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'persons']).order_by('-publication_date')
+    history = History.objects.filter(is_active=True,
+                                     publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'history']).order_by('-publication_date')
 
     request = context.get('request')
     if request:
