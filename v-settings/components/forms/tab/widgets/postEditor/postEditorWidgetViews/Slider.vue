@@ -61,7 +61,7 @@
                         'Content-Type': 'application/json'
                     },
                 };
-                axios.get(`/sliders/${this.widget.slides}/`, config)
+                axios.get(`/sliders/${this.widget.slides.id}/`, config)
                     .then(response =>{
                         this.data = response.data.slides
                     })
