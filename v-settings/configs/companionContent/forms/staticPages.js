@@ -61,6 +61,33 @@ const valuesForEvents = [
     }
 ]
 
+const valuesForPlaces = [
+    {
+        codename: 'places',
+        name: 'Статья о месте',
+        id: 1,
+        isDefault: true
+    }
+]
+
+const valuesForPersons = [
+    {
+        codename: 'persons',
+        name: 'Статья о жителе Амурска',
+        id: 1,
+        isDefault: true
+    }
+]
+
+const valuesForHistory = [
+    {
+        codename: 'history',
+        name: 'Историческая статья',
+        id: 1,
+        isDefault: true
+    }
+]
+
 
 const state = {
     formsOptions: {
@@ -69,6 +96,22 @@ const state = {
                 id: 98,
                 title: 'КОНТЕНТ',
                 blocks: [
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
+                                isBlocked: true,
+                                type: 'field',
+                                label: 'Коднейм',
+                                width: 12,
+                                codename: 'codename',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
                     {
                         labelPosition: 'top',
                         direction: 'row',
@@ -94,7 +137,12 @@ const state = {
                                         type: 'vertical_list',
                                         list: [
                                             {
-                                                requiredValue: 'top_items.item.title'
+                                                requiredValue: 'object_id'
+                                                // requiredValue: {
+                                                //     route: 'codename',
+                                                //     id: 'object_id',
+                                                //     field: 'title'
+                                                // }
                                             },
                                             {
                                                 requiredValue: 'codename',
@@ -145,7 +193,7 @@ const state = {
                                                         label: 'Анонс события',
                                                         width: 12,
                                                         required: true,
-                                                        isBlocked: true,
+                                                        isBlocked: false,
                                                         widget: 'singleSelector',
                                                         sortFlag: {
                                                             value: 'id',
@@ -187,6 +235,7 @@ const state = {
                         object_id: function (from, widget, data) {
                             let selector = widget.popup_structure[0].blocks[1].elements[0]
                             let list = widget.entity_structure[0].list[0]
+                            console.log(data, from)
                             if (data[from]) {
                                 vue.set(selector, 'isBlocked', false)
                                 vue.set(selector, 'api_route', data[from])
@@ -206,30 +255,42 @@ const state = {
                     let firstSelector = widget.popup_structure[0].blocks[0].elements[0]
                     let secondSelector = widget.popup_structure[0].blocks[1].elements[0]
                     if (data['codename'] == 'index') {
+                        vue.set(secondSelector, 'api_route', 'event-announcements')
+                        vue.set(secondSelector, 'label', dict['event-announcements'])
+                        vue.set(secondSelector, 'isBlocked', true)
                         vue.set(firstSelector, 'available_values', valuesForIndex)
                         vue.set(widget, 'show', true)
                     }
                     else if (data['codename'] == 'index-events') {
+                        console.log('Статическая страница событий')
+                        vue.set(secondSelector, 'api_route', 'event-announcements')
+                        vue.set(secondSelector, 'label', dict['event-announcements'])
+                        vue.set(secondSelector, 'isBlocked', true)
                         vue.set(firstSelector, 'available_values', valuesForEvents)
                         vue.set(widget, 'show', true)
                     }
                     else if (data['codename'] == 'history') {
-                        vue.set(firstSelector, 'show', false)
+                        vue.set(firstSelector, 'available_values', valuesForHistory)
                         vue.set(secondSelector, 'api_route', 'history')
+                        vue.set(secondSelector, 'label', dict['history'])
+                        vue.set(secondSelector, 'isBlocked', false)
                         vue.set(widget, 'show', true)
                     }
                     else if (data['codename'] == 'places') {
-                        vue.set(firstSelector, 'show', false)
+                        vue.set(firstSelector, 'available_values', valuesForPlaces)
                         vue.set(secondSelector, 'api_route', 'places')
+                        vue.set(secondSelector, 'label', dict['places'])
+                        vue.set(secondSelector, 'isBlocked', false)
                         vue.set(widget, 'show', true)
                     }
                     else if (data['codename'] == 'persons') {
-                        vue.set(firstSelector, 'show', false)
+                        vue.set(firstSelector, 'available_values', valuesForPersons)
                         vue.set(secondSelector, 'api_route', 'persons')
+                        vue.set(secondSelector, 'label', dict['persons'])
+                        vue.set(secondSelector, 'isBlocked', false)
                         vue.set(widget, 'show', true)
                     }
                     else {
-                        console.log(data)
                         vue.set(widget, 'show', false)
                     }
                 }
