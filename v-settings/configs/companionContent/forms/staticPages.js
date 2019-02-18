@@ -10,6 +10,58 @@ const dict = {
     specials: 'Спецпроект'
 }
 
+const valuesForIndex = [
+    {
+        codename: 'event-announcements',
+        name: 'Анонс события',
+        id: 1
+    },
+    {
+        codename: 'reports',
+        name: 'Репортаж о событии',
+        id: 2
+    },
+    {
+        codename: 'history',
+        name: 'Историческая статья',
+        id: 3
+    },
+    {
+        codename: 'persons',
+        name: 'Статья о жителе Амурска',
+        id: 4
+    },
+    {
+        codename: 'places',
+        name: 'Статья о месте',
+        id: 5
+    },
+    {
+        codename: 'city-guides',
+        name: 'Гид по городу',
+        id: 6
+    },
+    {
+        codename: 'specials',
+        name: 'Спецпроект',
+        id: 7
+    },
+]
+
+const valuesForEvents = [
+    {
+        codename: 'event-announcements',
+        name: 'Анонс события',
+        id: 1
+    },
+    {
+        codename: 'reports',
+        name: 'Репортаж о событии',
+        id: 2
+    }
+]
+
+
 const state = {
     formsOptions: {
         'static-pages': [
@@ -17,27 +69,6 @@ const state = {
                 id: 98,
                 title: 'КОНТЕНТ',
                 blocks: [
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                isBlocked: true,
-                                type: 'field',
-                                label: 'Коднейм',
-                                width: 12,
-                                codename: 'codename',
-                                widget: 'simpleInput',
-                                hint: '',
-                                controlFlag: {
-                                    toBeChecked: 'codename',
-                                    value: 'places',
-                                    flag: 'isPlaces'
-                                }
-                            }
-                        ]
-                    },
                     {
                         labelPosition: 'top',
                         direction: 'row',
@@ -63,11 +94,7 @@ const state = {
                                         type: 'vertical_list',
                                         list: [
                                             {
-                                                requiredValue: {
-                                                    route: 'codename',
-                                                    id: 'object_id',
-                                                    field: 'title'
-                                                }
+                                                requiredValue: 'top_items.item.title'
                                             },
                                             {
                                                 requiredValue: 'codename',
@@ -104,43 +131,7 @@ const state = {
                                                             },
                                                         ],
                                                         hint: '',
-                                                        available_values: [
-                                                            {
-                                                                codename: 'event-announcements',
-                                                                name: 'Анонс события',
-                                                                id: 1
-                                                            },
-                                                            {
-                                                                codename: 'reports',
-                                                                name: 'Репортаж о событии',
-                                                                id: 2
-                                                            },
-                                                            {
-                                                                codename: 'history',
-                                                                name: 'Историческая статья',
-                                                                id: 3
-                                                            },
-                                                            {
-                                                                codename: 'persons',
-                                                                name: 'Статья о жителе Амурска',
-                                                                id: 4
-                                                            },
-                                                            {
-                                                                codename: 'places',
-                                                                name: 'Статья о месте',
-                                                                id: 5
-                                                            },
-                                                            {
-                                                                codename: 'city-guides',
-                                                                name: 'Гид по городу',
-                                                                id: 6
-                                                            },
-                                                            {
-                                                                codename: 'specials',
-                                                                name: 'Спецпроект',
-                                                                id: 7
-                                                            },
-                                                        ]
+                                                        available_values: valuesForIndex
                                                     }
                                                 ]
                                             },
@@ -210,6 +201,39 @@ const state = {
                     },
                 },
             },
+            onMount: {
+                top_items: function (widget, data) {
+                    let firstSelector = widget.popup_structure[0].blocks[0].elements[0]
+                    let secondSelector = widget.popup_structure[0].blocks[1].elements[0]
+                    if (data['codename'] == 'index') {
+                        vue.set(firstSelector, 'available_values', valuesForIndex)
+                        vue.set(widget, 'show', true)
+                    }
+                    else if (data['codename'] == 'index-events') {
+                        vue.set(firstSelector, 'available_values', valuesForEvents)
+                        vue.set(widget, 'show', true)
+                    }
+                    else if (data['codename'] == 'history') {
+                        vue.set(firstSelector, 'show', false)
+                        vue.set(secondSelector, 'api_route', 'history')
+                        vue.set(widget, 'show', true)
+                    }
+                    else if (data['codename'] == 'places') {
+                        vue.set(firstSelector, 'show', false)
+                        vue.set(secondSelector, 'api_route', 'places')
+                        vue.set(widget, 'show', true)
+                    }
+                    else if (data['codename'] == 'persons') {
+                        vue.set(firstSelector, 'show', false)
+                        vue.set(secondSelector, 'api_route', 'persons')
+                        vue.set(widget, 'show', true)
+                    }
+                    else {
+                        console.log(data)
+                        vue.set(widget, 'show', false)
+                    }
+                }
+            }
         },
     },
 };
