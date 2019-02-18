@@ -66,7 +66,7 @@ const valuesForPlaces = [
         codename: 'places',
         name: 'Статья о месте',
         id: 1,
-        isDefault: true
+        // isDefault: true
     }
 ]
 
@@ -75,7 +75,7 @@ const valuesForPersons = [
         codename: 'persons',
         name: 'Статья о жителе Амурска',
         id: 1,
-        isDefault: true
+        // isDefault: true
     }
 ]
 
@@ -84,7 +84,7 @@ const valuesForHistory = [
         codename: 'history',
         name: 'Историческая статья',
         id: 1,
-        isDefault: true
+        // isDefault: true
     }
 ]
 
