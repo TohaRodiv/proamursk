@@ -1385,8 +1385,10 @@ input.btn_preloader {
     margin-left: auto; }
   .post-editor__section_8 .slider-caption {
     width: 100%; }
-  .post-editor__section_8 .post-editor__block_slider .slider {
-    height: 520px; }
+  .post-editor__section_8 .post-editor__block_slider .slider_2-1 {
+    height: 430px; }
+  .post-editor__section_8 .post-editor__block_slider .slider_3-2 {
+    height: 572px; }
   .post-editor__section_8 .post-editor__block_video-wrap {
     height: 490px; }
 
@@ -1396,8 +1398,10 @@ input.btn_preloader {
   margin-left: auto; }
   .post-editor__section_6 .slider-caption {
     width: 100%; }
-  .post-editor__section_6 .post-editor__block_slider .slider {
-    height: 440px; }
+  .post-editor__section_6 .post-editor__block_slider .slider_2-1 {
+    height: 320px; }
+  .post-editor__section_6 .post-editor__block_slider .slider_3-2 {
+    height: 427px; }
   .post-editor__section_6 .post-editor__block_video-wrap {
     height: 360px; }
 

@@ -15,9 +15,11 @@
 
 
                 <aside class="base-layout__aside">
-                    {% with css_class="history" btn_text="Поделиться историей" offer_text="Любой житель Амурска может поделиться интересной историей с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
-                        {% include "site/modules/offer-widget.html" %}
-                    {% endwith %}
+                    <div class="aside-widget">
+                        {% with css_class="history" btn_text="Поделиться историей" offer_text="Любой житель Амурска может поделиться интересной историей с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                            {% include "site/modules/offer-widget.html" %}
+                        {% endwith %}
+                    </div>
 
                     <div class="aside-widget">
                         {% include "site/page-block/sidebar-banner.html" %}
