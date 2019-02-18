@@ -1,5 +1,7 @@
+{% load static static_version %}
+
 <div class="post-editor__block_separator">
     <div class="indent-wrap {% if widget.marginTop %}indent-wrap_mt{{ widget.marginTop }}{% endif %} {% if widget.marginBottom %}indent-wrap_mb{{ widget.marginBottom }}{% endif %} {% if widget.paddingTop %}indent-wrap_pt{{ widget.paddingTop }}{% endif %} {% if widget.paddingBottom %}indent-wrap_pb{{ widget.paddingBottom }}{% endif %}">
-        <div class="line"><img src="images/svg/base-logo-sign.svg" alt=""></div>
+        <div class="line"><img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt=""></div>
     </div>
 </div>
