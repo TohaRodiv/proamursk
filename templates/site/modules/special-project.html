@@ -1,7 +1,7 @@
 {% load media_filters %}
 {% load static static_version %}
 
-<a href="{% url "specials-detail" item.id %}" class="grid-publication special-project">
+<a href="{% url "specials-detail" item.id %}" class="grid-publication {{ class }} special-project">
 
     <div class="special-project__cover-wrap grid-publication__cover-wrap">
         <div class="grid-publication__bg-gradient"></div>
