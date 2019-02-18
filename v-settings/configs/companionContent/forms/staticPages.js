@@ -235,11 +235,16 @@ const state = {
                         object_id: function (from, widget, data) {
                             let selector = widget.popup_structure[0].blocks[1].elements[0]
                             let list = widget.entity_structure[0].list[0]
-                            console.log(data, from)
-                            if (data[from]) {
+                            let correctData = data[from]
+                            // Почему-то cloneDeep в Forms.js подменяет codename,
+                            // поэтому приходится проводить проверку 
+                            if (typeof(correctData) == 'number') {
+                                correctData = valuesForIndex[data[from] - 1]['codename']
+                            }
+                            if (correctData) {
                                 vue.set(selector, 'isBlocked', false)
-                                vue.set(selector, 'api_route', data[from])
-                                vue.set(selector, 'label', dict[data[from]])
+                                vue.set(selector, 'api_route', correctData)
+                                vue.set(selector, 'label', dict[correctData])
                             } else {
                                 vue.set(selector, 'isBlocked', true)
                             }
@@ -262,7 +267,6 @@ const state = {
                         vue.set(widget, 'show', true)
                     }
                     else if (data['codename'] == 'index-events') {
-                        console.log('Статическая страница событий')
                         vue.set(secondSelector, 'api_route', 'event-announcements')
                         vue.set(secondSelector, 'label', dict['event-announcements'])
                         vue.set(secondSelector, 'isBlocked', true)
