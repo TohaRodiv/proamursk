@@ -185,7 +185,8 @@ class StaticPagesDetailSerializer(ModelSerializer):
         read_only_fields = ('id', 'name', 'create_date', 'edit_date')
 
     def validate_top_items(self, data):
-        if self.instance.pk and  self.instance.codename in ['index',]:
+        if self.instance.pk and self.instance.codename in ['index', 'events-index', 'reports-list', 'history-list',
+                                                           'persons-list', 'places-list']:
             if len(data) < 4:
                 raise serializers.ValidationError("Необходимо выбрать 4 записи")
 
