@@ -33,7 +33,7 @@
                         </figure>
 
                         <div class="publication__content">
-                            <div class="publication__rubric"><span class="publication__rubric-icon icon-place"></span>Места</div>
+                            <div class="publication__rubric"><span class="publication__rubric-icon icon-geo-stroke"></span>Места</div>
 
                             <h1 class="publication__title">{{ place.title }}</h1>
 
@@ -43,7 +43,7 @@
 
                             <div class="publication__additional-info-wrap publication__place-info-wrap">
                                 <div class="publication__place-info publication__place-place">
-                                    <span class="icon-geo"></span>
+                                    <span class="icon-geo-stroke"></span>
                                     Адрес:
                                     {% if place.coordinates %}
                                         <a href="http://maps.yandex.ru/?mode=search&z=12.9&text={{ place.coordinates }}" target="_blank">{{ place.address }}</a>

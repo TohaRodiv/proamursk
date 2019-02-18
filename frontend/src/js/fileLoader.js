@@ -44,3 +44,8 @@ function handleFiles(files, filesList) {
         return false;
     }
 }
+
+function clearFileInput() {
+    $('.attachment-input').val('');
+    $('.attachment-list').empty();
+}

@@ -36,6 +36,7 @@ function hidePopUps() {
     $('.pop-up-wrapper form').find('[type="checkbox"], [type="radio"]').prop('checked', false);
     $('.pop-up-wrapper form').find('input, textarea, label').removeClass('has-error');
     clearAllSelect();
+    clearFileInput();
 }
 
 // Показывает туман войны

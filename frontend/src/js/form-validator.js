@@ -33,7 +33,7 @@ function checkFormField(jqField, onlyCheck) {
 
         if (tagName == 'INPUT') {
             if (inputType == 'text') {
-                if (~name.indexOf('name') || ~name.indexOf('subject')) {
+                if (~name.indexOf('name')) {
                     if (jqField.hasClass('required-input')) regExp = /^[-–—а-яё\s]+$/i;
                     else regExp = /(^[-–—а-яё\s]*$)|(^$)/i;
                     errorMessage = 'Можно использовать только буквы русского алфавита или дефис';
