@@ -147,6 +147,8 @@ USE_L10N = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
+STATIC_VERSION = 1
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 if DEBUG:
@@ -232,8 +234,6 @@ MEDIALIB_THUMB_SIZE = {
     '3_column_img': (620, 414, 'crop'),
     '3_column_large_img': (620, 560, 'crop'),
     '3_column_full_img': (620, 920, 'crop'),
-
-
 }
 
 POST_EDITOR = dict(
