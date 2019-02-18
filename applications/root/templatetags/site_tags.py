@@ -40,6 +40,9 @@ def get_model_name(val):
 
 @register.inclusion_tag('site/page-block/read-also.html', takes_context=True)
 def read_also(context):
+    person = context.get('person')
+    history_item = context.get('history')
+
     persons = Person.objects.filter(is_active=True, publication_date__lte=datetime.now()).order_by('-publication_date')
     history = History.objects.filter(is_active=True, publication_date__lte=datetime.now()).order_by('-publication_date')
 
@@ -58,6 +61,12 @@ def read_also(context):
                 top_objects = page.top_items.all().order_by('weight')
                 persons = persons.exclude(id__in=[i.object_id for i in top_objects if i.codename == 'person'])
                 history = history.exclude(id__in=[i.object_id for i in top_objects if i.codename == 'history'])
+
+    if person:
+        persons = persons.exclude(id=person.id)
+
+    if history_item:
+        history = history.exclude(id=history_item.id)
 
     persons = persons[:2]
     history = history[:2]

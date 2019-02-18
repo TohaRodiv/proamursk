@@ -212,8 +212,8 @@ class PersonsListView(InfinityLoaderListView):
     items_per_page = 1
 
     def get(self, request):
-        items = History.objects.filter(is_active=True,
-                                       publication_date__lte=timezone.now()).order_by('-publication_date')
+        items = Person.objects.filter(is_active=True,
+                                      publication_date__lte=timezone.now()).order_by('-publication_date')
         has_next = items.count() > 11
         items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -224,7 +224,7 @@ class PersonsDetailView(DetailView):
     model = Person
     queryset = Person.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'person'
-    template_name = 'root/persons_detail.html'
+    template_name = 'site/people-details.html'
 
 
 class CityGuidesDetailView(DetailView):

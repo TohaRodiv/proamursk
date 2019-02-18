@@ -1,12 +1,14 @@
-<div class="additional-block layout-section read-also">
-    <div class="container">
-        <h2 class="additional-block__title">Читайте также:</h2>
-        <div class="base-4items-grid">
-            {% for item in items %}
-                {% with css_class='grid-publication_format-base grid-publication_cover-format-base' cover_name="3_column_img" %}
-                    {% include "site/modules/grid-publication.html" %}
-                {% endwith %}
-            {% endfor %}
+{% if items %}
+    <div class="additional-block layout-section read-also">
+        <div class="container">
+            <h2 class="additional-block__title">Читайте также:</h2>
+            <div class="base-4items-grid">
+                {% for item in items %}
+                    {% with css_class='grid-publication_format-base grid-publication_cover-format-base' cover_name="3_column_img" %}
+                        {% include "site/modules/grid-publication.html" %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
+{% endif %}
