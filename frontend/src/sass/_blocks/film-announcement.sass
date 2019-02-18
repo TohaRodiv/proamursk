@@ -50,7 +50,7 @@
 
 .film-timetable
     margin-bottom: 40px
-    padding-bottom: 20px
+    padding-bottom: 40px
     border-bottom: 1px solid $border-c
 
     &__days
@@ -60,26 +60,14 @@
     &__times
         display: flex
         align-items: center
-        justify-content: space-between
 
     &__day-btn
+        max-width: 120px
+        flex-grow: 1
         flex-shrink: 0
         padding: 20px 10px
         border-radius: 4px
         line-height: $micro-lh
-
-        &:nth-child(1)
-            width: 113px
-
-        &:nth-child(2),
-        &:nth-child(3),
-        &:nth-child(4),
-        &:nth-child(5),
-        &:nth-child(6)
-            width: 98px
-
-        &:nth-child(7)
-            width: 110px
 
         &:not(:last-child)
             margin-right: 6px

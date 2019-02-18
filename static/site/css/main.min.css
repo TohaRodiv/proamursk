@@ -407,7 +407,7 @@ ul, ol {
   padding: 7px 15px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 1;
+  line-height: 26px;
   text-decoration: none;
   border-radius: 20px; }
   .btn_white {
@@ -426,6 +426,8 @@ ul, ol {
   .btn_blue {
     color: #FFFFFF;
     background-color: #0073FF; }
+    .btn_blue:hover, .btn_blue:focus {
+      background-color: #26A1FF; }
   .btn_yellow {
     color: #FFBA00;
     font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
@@ -972,7 +974,7 @@ textarea {
   background-position: center center;
   background-repeat: no-repeat;
   cursor: pointer;
-  background-color: rgba(195, 206, 223, 0.8);
+  background-color: rgba(127, 141, 164, 0.9);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px); }
 
@@ -1908,7 +1910,7 @@ footer {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 17px 15px 13px;
+    padding: 16px 15px 14px;
     font-size: 18px;
     color: #7A8BA1; }
 
@@ -2356,10 +2358,11 @@ footer {
     display: block;
     margin-bottom: 20px;
     font-size: 22px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     color: #000000;
     text-decoration: none; }
     .news-list-item__title:hover {
-      color: #283348; }
+      color: #0073FF; }
   .news-list-item__text {
     margin-bottom: 40px;
     font-size: 16px; }
@@ -2499,6 +2502,8 @@ footer {
 
 .subscribe-form__submit {
   font-size: 14px; }
+  .subscribe-form__submit:hover, .subscribe-form__submit:focus {
+    background-color: #CCE9FF; }
 
 .subscribe-form__submited {
   font-size: 16px;
@@ -3183,7 +3188,7 @@ footer {
 
 .film-timetable {
   margin-bottom: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   border-bottom: 1px solid #B1C1D2; }
   .film-timetable__days {
     margin-bottom: 40px; }
@@ -3193,22 +3198,17 @@ footer {
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+            align-items: center; }
   .film-timetable__day-btn {
+    max-width: 120px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     -ms-flex-negative: 0;
         flex-shrink: 0;
     padding: 20px 10px;
     border-radius: 4px;
     line-height: 1; }
-    .film-timetable__day-btn:nth-child(1) {
-      width: 113px; }
-    .film-timetable__day-btn:nth-child(2), .film-timetable__day-btn:nth-child(3), .film-timetable__day-btn:nth-child(4), .film-timetable__day-btn:nth-child(5), .film-timetable__day-btn:nth-child(6) {
-      width: 98px; }
-    .film-timetable__day-btn:nth-child(7) {
-      width: 110px; }
     .film-timetable__day-btn:not(:last-child) {
       margin-right: 6px; }
     .film-timetable__day-btn:hover {
