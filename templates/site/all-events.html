@@ -5,9 +5,9 @@
     <main class="light-bg">
         <div class="container">
             <div class="base-layout">
-                {% if events %}
+                {% if top_objects %}
                     <div class="base-layout__main">
-                        {% with item=events.0 css_class='grid-publication_format-full grid-publication_text-size-big' cover_name="8_column_img" %}
+                        {% with item=top_objects.0 css_class='grid-publication_format-full grid-publication_text-size-big' cover_name="8_column_img" %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     </div>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="base-3items-grid">
-                {% for item in events|slice:"1:4" %}
+                {% for item in top_objects|slice:"1:4" %}
                     {% if forloop.counter == 1 %}
                         {% with css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" %}
                             {% include "site/modules/grid-event.html" %}
@@ -47,7 +47,7 @@
             </div>
 
             <div class="base-4items-grid">
-                {% for item in events|slice:"4:" %}
+                {% for item in events %}
                     {% with css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" %}
                         {% include "site/modules/grid-event.html" %}
                     {% endwith %}
