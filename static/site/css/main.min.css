@@ -1100,6 +1100,7 @@ textarea {
     width: calc(50% - 20px); }
 
 .pop-up-form__agrement {
+  width: 345px;
   margin-right: 60px;
   font-size: 14px;
   opacity: .8; }
@@ -1269,7 +1270,7 @@ textarea {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #283348;
+  background: #0073FF;
   visibility: hidden;
   top: 200px;
   margin: 200px auto; }
@@ -1301,7 +1302,7 @@ button.btn_preloader {
     margin-top: -20px;
     margin-left: -20px;
     border-radius: 50%;
-    background: #283348;
+    background: #0073FF;
     -webkit-animation: fadeInPreloader 0.3s 1 linear forwards, preloader 1s infinite ease-in-out;
             animation: fadeInPreloader 0.3s 1 linear forwards, preloader 1s infinite ease-in-out; }
 
@@ -1317,7 +1318,7 @@ input.btn_preloader {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 50%;
-  background: #283348;
+  background: #0073FF;
   -webkit-animation: fadeInPreloader 0.3s 1 linear forwards, preloader 1s infinite ease-in-out;
           animation: fadeInPreloader 0.3s 1 linear forwards, preloader 1s infinite ease-in-out; }
 
@@ -2429,10 +2430,13 @@ footer {
         .footer__subscribe-section .subscribe-form__input:-webkit-autofill:hover:not(:focus) {
           -webkit-box-shadow: 0 0 0px 1000px transparent inset; }
     .footer__subscribe-section .subscribe-form__submit {
+      width: 117px;
       position: absolute;
       right: 0;
       top: 0;
       z-index: 1; }
+      .footer__subscribe-section .subscribe-form__submit.btn_preloader {
+        right: 38px; }
     .footer__subscribe-section .subscribe-form__submited {
       width: 340px;
       -ms-flex-negative: 0;
@@ -2476,6 +2480,8 @@ footer {
       display: block;
       width: 150px;
       margin: 50px auto 0; }
+      .aside-subscribe-widget .subscribe-form__submit.btn_preloader {
+        background-color: #FFFFFF; }
     .aside-subscribe-widget .subscribe-form__submited {
       margin-top: 60px; }
   .aside-subscribe-widget .hint_error {
