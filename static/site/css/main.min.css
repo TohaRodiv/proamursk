@@ -645,7 +645,7 @@ textarea {
 
 .slide-nav-counter {
   display: none;
-  width: 50px;
+  width: 60px;
   font-size: 15px;
   line-height: 1;
   text-align: center; }
@@ -1203,7 +1203,7 @@ textarea {
     .wysiwyg-container ul li,
     .wysiwyg-container ol li {
       margin-top: .5em !important;
-      padding-left: 15px !important; }
+      padding-left: 5px !important; }
       .wysiwyg-container ul li:first-child,
       .wysiwyg-container ol li:first-child {
         margin-top: 0 !important; }
@@ -1485,13 +1485,14 @@ input.btn_preloader {
   font-size: 0; }
 
 .post-editor__block_slider .slide-nav-counter {
-  color: #283348; }
+  color: #242434; }
 
 .post-editor__block_slider .slider-arrow {
   width: 24px;
   height: 24px;
-  font-size: 10px;
-  color: #283348; }
+  font-size: 12px;
+  line-height: 24px;
+  color: #242434; }
   .post-editor__block_slider .slider-arrow:hover {
     border: 1px solid #B1C1D2;
     border-radius: 50%; }
@@ -2627,8 +2628,6 @@ footer {
     .grid-publication__title a {
       color: currentColor;
       text-decoration: none; }
-      .grid-publication__title a:hover, .grid-publication__title a:focus {
-        color: #0073FF; }
   .grid-publication__description {
     margin-bottom: 0; }
   .grid-publication__text {
@@ -2715,6 +2714,8 @@ footer {
     .grid-publication_format-base .grid-publication__title {
       margin-bottom: 5px;
       font-size: 22px; }
+      .grid-publication_format-base .grid-publication__title a:hover, .grid-publication_format-base .grid-publication__title a:focus {
+        color: #0073FF; }
     .grid-publication_format-base .grid-publication__description, .grid-publication_format-base .grid-publication__date {
       margin-bottom: 10px; }
     .grid-publication_format-base .grid-publication__text {
@@ -2787,6 +2788,9 @@ footer {
   display: block;
   background-color: rgba(76, 96, 123, 0.1); }
 
+.read-also .grid-publication {
+  border: 1px solid #43567a; }
+
 .special-project__cover-wrap {
   display: block;
   height: 100%;
@@ -2853,6 +2857,9 @@ footer {
     color: #FFFFFF;
     text-transform: uppercase; }
 
+.read-also .additional-block__title {
+  letter-spacing: 0.1em; }
+
 .movie-posters-widget__title-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2861,6 +2868,8 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 40px; }
+  .movie-posters-widget__title-wrap .additional-block__title {
+    letter-spacing: 0.02em; }
 
 .movie-posters-widget__btns {
   margin-left: 50px;
@@ -3359,9 +3368,13 @@ footer {
   font-size: 16px;
   line-height: 1.5; }
 
+.privacy-page {
+  margin-top: 20px; }
+
 .privacy {
-  margin-left: 110px;
-  margin-right: 110px; }
+  width: 640px;
+  margin-left: auto;
+  margin-right: auto; }
   .privacy__list {
     width: 310px;
     margin: 0 0 0 -40px;

@@ -35,7 +35,8 @@ $('.slider-arrow').on('click', function() {
     }
     else sliderCaption.removeClass('active');
 
-    sliderNavCounter.find('span').eq(0).html(newActiveSlideIndex + 1);
+    var newActiveSlideIndexText = (newActiveSlideIndex + 1) > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
+    sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
 
     sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
     sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
@@ -69,7 +70,8 @@ $('.slider-circles-container').on('click', '.slider-circle-item', function() {
 
         sliderContainer.find('.slide').eq(newActiveSlideIndex).addClass('active');
 
-        sliderNavCounter.find('span').eq(0).html(newActiveSlideIndex + 1);
+        var newActiveSlideIndexText = (newActiveSlideIndex + 1) > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
+        sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
 
         sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
         sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
@@ -86,6 +88,7 @@ function sliderInit() {
     $('.slider').each(function() {
         var sliderContainer = $(this).find('.slider-container').eq(0),
             slidesAmount = sliderContainer.find('.slide').length,
+            slidesAmountText = slidesAmount > 9 ? slidesAmount : '0'+slidesAmount,
             sliderCaption = $(this).siblings('.slider-caption'),
             sliderNav = $(this).find('.slider-arrow'),
             sliderNavCounter = $(this).find('.slide-nav-counter'),
@@ -106,8 +109,8 @@ function sliderInit() {
         if (slidesAmount > 1) {
             sliderNav.addClass('active');
             sliderNavCounter.addClass('active');
-            sliderNavCounter.find('span').eq(0).html('1');
-            sliderNavCounter.find('span').eq(1).html(slidesAmount);
+            sliderNavCounter.find('span').eq(0).html('01');
+            sliderNavCounter.find('span').eq(1).html(slidesAmountText);
             sliderCircles.addClass('active');
 
             if (sliderCircles.length > 0 && sliderCircles.hasClass('active')) {
