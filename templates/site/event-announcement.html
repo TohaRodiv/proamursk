@@ -41,7 +41,10 @@
                                 </div>
                                 <div class="publication__event-info publication__event-place">
                                     <span class="icon-geo-stroke"></span>
-                                    <a href="" target="_blank">{{ event.place }}</a>
+                                    {% if event.coordinates %}
+                                        <a href="http://maps.yandex.ru/?mode=search&z=12.9&text={{ event.coordinates }}" target="_blank">{{ event.place }}</a>
+                                    {% else %}
+                                    {% endif %}
                                 </div>
                                 {% if event.report %}
                                     <div class="publication__event-info publication__event-date">
