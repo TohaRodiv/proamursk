@@ -1,4 +1,5 @@
 {% extends "site/base.html" %}
+{% load static static_version %}
 {% load utils_tags media_filters site_tags %}
 
 {% block title %}
@@ -74,6 +75,10 @@
                 {% endfor %}
             </div>
         </div>
+
+        <a href="" class="layout-section container banner">
+            <img src="{% static "site/images/wide-banner.jpg" %}{% static_version %}" alt="" class="banner__img">
+        </a>
 
         <div class="layout-section slider full-width-slider">
             <div class="slider-container">
