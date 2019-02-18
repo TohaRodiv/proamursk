@@ -2775,7 +2775,8 @@ footer {
     font-size: 20px; }
   .grid-publication_full-width-slider {
     height: 100%;
-    border: none; }
+    border: none;
+    border-radius: 0; }
     .grid-publication_full-width-slider__cover-wrap {
       position: relative;
       height: 100%; }
