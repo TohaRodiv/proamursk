@@ -286,6 +286,12 @@ class FilmDetailView(DetailView):
     template_name = 'site/film-announcement.html'
 
 
+class PolicyView(View):
+
+    def get(self, request):
+        return render(request, "site/privacy.html", dict())
+
+
 @require_POST
 def feedback(request):
     if request.is_ajax():
