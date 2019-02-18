@@ -2353,6 +2353,11 @@ footer {
     letter-spacing: 0.08em;
     color: #7A7A7A; }
 
+.news-details-content {
+  width: 640px;
+  margin-right: auto;
+  margin-left: auto; }
+
 .footer__subscribe-section {
   display: -webkit-box;
   display: -ms-flexbox;
