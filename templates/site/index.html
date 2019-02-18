@@ -76,29 +76,30 @@
             </div>
         </div>
 
-        <a href="" class="layout-section container banner">
-            <img src="{% static "site/images/wide-banner.jpg" %}{% static_version %}" alt="" class="banner__img">
-        </a>
-
-        <div class="layout-section slider full-width-slider">
-            <div class="slider-container">
-                {% for item in specials %}
-                    <div class="slide">
-                        {% with cover_name="specials_index" class="grid-publication_full-width-slider" %}
-                            {% include "site/modules/special-project.html" %}
-                        {% endwith %}
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="slider-circles-container"></div>
-            {%  if specials|length > 1 %}
-                <div class="slider-arrow-container">
-                    <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>
-                    <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>
+        {% if content_blocks.show_banner.content %}
+            <a href="" class="layout-section container banner">
+                <img src="{{ wide_banner.cover|get_thumbnail_url_by_name:"wide_banner" }}" alt="" class="banner__img">
+            </a>
+        {% else %}
+            <div class="layout-section slider full-width-slider">
+                <div class="slider-container">
+                    {% for item in specials %}
+                        <div class="slide">
+                            {% with cover_name="specials_index" class="grid-publication_full-width-slider" %}
+                                {% include "site/modules/special-project.html" %}
+                            {% endwith %}
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endif %}
-        </div>
-
+                <div class="slider-circles-container"></div>
+                {%  if specials|length > 1 %}
+                    <div class="slider-arrow-container">
+                        <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>
+                        <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
         <div class="container layout-section">
             <h2 class="section__title">ЧЕМ ЗАНЯТЬСЯ В АМУРСКЕ?</h2>
             <div class="todo-layout">

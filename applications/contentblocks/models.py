@@ -46,6 +46,7 @@ class ContentBlock(models.Model):
         (u'text', u'Длинный текст'),
         (u'url', u'Ссылка'),
         (u'mediafile', u'Изображение'),
+        (u'bool', u'Бул'),
     )
     codename = models.CharField(u'Кодовое название', max_length=255)
     page = models.ForeignKey(Page, related_name='blocks', verbose_name=u'Страница', on_delete=models.CASCADE)
@@ -53,6 +54,7 @@ class ContentBlock(models.Model):
     content_string = models.CharField(u'Текст', max_length=255, blank=True)
     content_text = models.TextField(u'Параграф', blank=True)
     content_url = models.URLField(u'Ссылка', blank=True)
+    content_bool = models.BooleanField(u'Бул', blank=True, default=False)
     content_mediafile = models.ForeignKey(MediaFile, verbose_name=u'Медиафайл', blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):

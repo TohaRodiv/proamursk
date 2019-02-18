@@ -77,6 +77,7 @@ class PageSettingDetailSerializer(ModelSerializer):
         textarea='text',
         singleImageLoader='mediafile',
         formatter='text',
+        singleCheckbox='bool',
         simpleInput=dict(
             field='string'
         )
@@ -169,6 +170,7 @@ class StaticPagesDetailSerializer(ModelSerializer):
         'string': serializers.CharField,
         'url': serializers.CharField,
         'mediafile': ObjectRelatedField,
+        'bool': serializers.BooleanField,
     }
 
     og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,

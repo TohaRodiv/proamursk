@@ -1,11 +1,12 @@
 import json
 
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse, Http404, HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
+from django.db.models import Q
 from django.template.loader import render_to_string
 from django.urls import resolve
 from django.views.decorators.http import require_POST
@@ -18,7 +19,7 @@ from applications.tools.views import InfinityLoaderListView
 from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
 from applications.contentblocks.models import Page
-from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special
+from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special, WideBanner
 
 try:
     from applications.notifications.tasks import send_notification
@@ -65,10 +66,14 @@ class IndexView(View):
                                     sessions__session_time__lt=current_date + timedelta(days=1)
                                     ).distinct()
         specials = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
+        wide_banner = WideBanner.objects.filter((Q(start_publication_date__isnull=True) | Q(start_publication_date__lte=datetime.now())) &
+                                                (Q(end_publication_date__isnull=True) | Q(end_publication_date__gte=datetime.now())),
+                                                is_active=True).order_by('?').first()
         return render(request, 'site/index.html', dict(films=films,
                                                        specials=specials,
                                                        top_objects=top_objects,
-                                                       what_to_do=what_to_do))
+                                                       what_to_do=what_to_do,
+                                                       wide_banner=wide_banner))
 
 
 class NewsListView(InfinityLoaderListView):

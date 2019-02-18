@@ -14,7 +14,7 @@ register = Library()
 def get_banner(context):
     banners = SidebarBanner.objects.filter((Q(start_publication_date__isnull=True) | Q(start_publication_date__lte=datetime.now())) &
                                            (Q(end_publication_date__isnull=True) | Q(end_publication_date__gte=datetime.now())),
-                                           is_active=True)
+                                           is_active=True).order_by('?')
 
     request = context.get('request')
     show_two_banners = False
