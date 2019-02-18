@@ -85,20 +85,28 @@
         margin-bottom: 20px
 
     &__place-info-wrap
-        margin-left: 110px
-        margin-top: 40px
+        width: 640px
+        margin: 0 auto 40px
 
-    &__place-info
-        &:not(:last-child)
-            margin-bottom: 15px
+        tr
+            &:not(:last-child)
+                td
+                    padding-bottom: 10px
 
-        &:last-child
-            margin-bottom: 0
+        td
+            padding-top: 0
+            padding-left: 0
+            padding-right: 0
+            vertical-align: baseline
+
+            &:first-child
+                width: 210px
+                padding-right: 20px
 
         ul
-            margin-top: 5px
+            margin-top: 0
             margin-bottom: 0
-            padding-left: 45px
+            padding-left: 15px
             list-style-type: disc
 
     &__title

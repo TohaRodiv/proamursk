@@ -42,7 +42,7 @@
                             {% post_editor_make_content place.content 'default' %}
 
                             <div class="publication__additional-info-wrap publication__place-info-wrap">
-                                <div class="publication__place-info publication__place-place">
+                                <div class="publication__place-info">
                                     <span class="icon-geo-stroke"></span>
                                     Адрес:
                                     {% if place.coordinates %}
@@ -64,7 +64,7 @@
                                     </div>
                                 {% endif %}
                                 {% if place.site %}
-                                    <div class="publication__place-info publication__place-place">
+                                    <div class="publication__place-info">
                                         <span class="icon-web"></span>
                                         <a href="" target="_blank">{{ place.site }}</a>
                                     </div>
@@ -72,7 +72,7 @@
                                 {% if place.instagram %}
                                     <div class="publication__place-info">
                                         <span class="icon-instagram"></span>
-                                        <a href="">{{ place.instagram }}</a>
+                                        <a href="">@{{ place.instagram }}</a>
                                     </div>
                                 {% endif %}
                             </div>

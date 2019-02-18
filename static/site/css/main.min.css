@@ -2219,17 +2219,23 @@ footer {
   .publication__event-info {
     margin-bottom: 20px; }
   .publication__place-info-wrap {
-    margin-left: 110px;
-    margin-top: 40px; }
-  .publication__place-info:not(:last-child) {
-    margin-bottom: 15px; }
-  .publication__place-info:last-child {
-    margin-bottom: 0; }
-  .publication__place-info ul {
-    margin-top: 5px;
-    margin-bottom: 0;
-    padding-left: 45px;
-    list-style-type: disc; }
+    width: 640px;
+    margin: 0 auto 40px; }
+    .publication__place-info-wrap tr:not(:last-child) td {
+      padding-bottom: 10px; }
+    .publication__place-info-wrap td {
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+      vertical-align: baseline; }
+      .publication__place-info-wrap td:first-child {
+        width: 210px;
+        padding-right: 20px; }
+    .publication__place-info-wrap ul {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 15px;
+      list-style-type: disc; }
   .publication__title {
     margin-bottom: 20px;
     font-size: 36px;
