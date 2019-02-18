@@ -19,7 +19,7 @@ class TopItem(models.Model):
     class Meta:
         verbose_name = 'Позиция в топе'
         verbose_name_plural = 'Топы для страниц'
-        ordering = '-id',
+        ordering = 'weight',
 
     def get_model(self):
         model_names = {

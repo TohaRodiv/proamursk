@@ -11,13 +11,37 @@ from cp_vue.api.serializers import ModelSerializer
 from cp_vue.api.fields import ObjectRelatedField
 from applications.mediafiles.models import MediaFile
 from applications.root.models import TopItem
+from applications.root.cp.serializers import (EventsListSerializer, ReportsListSerializer, PersonsListSerializer,
+                                              HistoryListSerializer, CityGuidesListSerializer, PlacesListSerializer,
+                                              SpecialsListSerializer)
 from ..models import Page, ContentBlock
 
 
 class TopItemSerializer(ModelSerializer):
+    item = serializers.SerializerMethodField()
+
     class Meta:
         model = TopItem
-        fields = ('id', 'codename', 'object_id', 'weight')
+        fields = ('id', 'codename', 'object_id', 'weight', 'item')
+
+    def get_item(self, instance):
+        obj = instance.get_object()
+        slz = self.get_item_serializer(instance.codename)
+        data = slz(obj).data
+        return data
+
+    def get_item_serializer(self, codename):
+        slz = {
+            "event-announcements": EventsListSerializer,
+            "reports": ReportsListSerializer,
+            "persons": PersonsListSerializer,
+            "history": HistoryListSerializer,
+            "city-guides": CityGuidesListSerializer,
+            "places": PlacesListSerializer,
+            "specials": SpecialsListSerializer
+        }
+
+        return slz.get(codename)
 
 
 class ContentBlockSerializer(ModelSerializer):
