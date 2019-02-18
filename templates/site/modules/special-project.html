@@ -5,7 +5,7 @@
 
     <div class="special-project__cover-wrap grid-publication__cover-wrap">
         <div class="grid-publication__bg-gradient"></div>
-        <img src="{{ item.cover|get_thumbnail_url_by_name:"specials_feed" }}" alt="" class="special-project__cover grid-publication__cover">
+        <img src="{{ item.cover|get_thumbnail_url_by_name:cover_name|default:"specials_feed" }}" alt="" class="special-project__cover grid-publication__cover">
     </div>
 
     <div class="special-project__text-wrap grid-publication__text-wrap">

@@ -75,39 +75,24 @@
             </div>
         </div>
 
-{#        <div class="layout-section slider full-width-slider">#}
-{#            <div class="slider-container">#}
-{#                <div class="slide">#}
-{#                    @@include("modules/special-project.html", {#}
-{#                        "class": "grid-publication_full-width-slider",#}
-{#                        "img": "images/special-project-slider-cover1.jpg",#}
-{#                        "title": "Легенды Амурска",#}
-{#                        "description": "Шаман сказал: «Здесь города не будет». Но ошибся"#}
-{#                    })#}
-{#                </div>#}
-{#                <div class="slide">#}
-{#                    @@include("modules/special-project.html", {#}
-{#                        "class": "grid-publication_full-width-slider",#}
-{#                        "img": "images/special-project-slider-cover2.jpg",#}
-{#                        "title": "Ботанический сад",#}
-{#                        "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя..."#}
-{#                    })#}
-{#                </div>#}
-{#                <div class="slide">#}
-{#                    @@include("modules/special-project.html", {#}
-{#                        "class": "grid-publication_full-width-slider",#}
-{#                        "img": "images/special-project-slider-cover3.jpg",#}
-{#                        "title": "Я люблю Амурск!",#}
-{#                        "description": "Звезды спорта, футбол и слезы радости"#}
-{#                    })#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="slider-circles-container"></div>#}
-{#            <div class="slider-arrow-container">#}
-{#                <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>#}
-{#                <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>#}
-{#            </div>#}
-{#        </div>#}
+        <div class="layout-section slider full-width-slider">
+            <div class="slider-container">
+                {% for item in specials %}
+                    <div class="slide">
+                        {% with cover_name="specials_index" %}
+                            {% include "site/modules/special-project.html" %}
+                        {% endwith %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="slider-circles-container"></div>
+            {%  if specials|length > 1 %}
+                <div class="slider-arrow-container">
+                    <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>
+                    <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>
+                </div>
+            {% endif %}
+        </div>
 
         <div class="container layout-section">
             <h2 class="section__title">ЧЕМ ЗАНЯТЬСЯ В АМУРСКЕ?</h2>

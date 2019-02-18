@@ -18,7 +18,7 @@ from applications.tools.views import InfinityLoaderListView
 from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
 from applications.contentblocks.models import Page
-from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film
+from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special
 
 try:
     from applications.notifications.tasks import send_notification
@@ -64,7 +64,9 @@ class IndexView(View):
                                     sessions__session_time__gte=current_date,
                                     sessions__session_time__lt=current_date + timedelta(days=1)
                                     ).distinct()
+        specials = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
         return render(request, 'site/index.html', dict(films=films,
+                                                       specials=specials,
                                                        top_objects=top_objects,
                                                        what_to_do=what_to_do))
 

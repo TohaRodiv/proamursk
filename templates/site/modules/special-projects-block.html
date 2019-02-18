@@ -1,5 +1,7 @@
 {% for item in specials %}
     <div class="special-projects-list__item">
-        {% include "site/modules/special-project.html" %}
+        {% with cover_name="specials_feed" %}
+            {% include "site/modules/special-project.html" %}
+        {% endwith %}
     </div>
 {% endfor %}
