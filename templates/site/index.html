@@ -86,10 +86,12 @@
                 {% endfor %}
             </div>
             <div class="slider-circles-container"></div>
-            <div class="slider-arrow-container">
-                <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>
-                <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>
-            </div>
+            {%  if specials|length > 1 %}
+                <div class="slider-arrow-container">
+                    <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>
+                    <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>
+                </div>
+            {% endif %}
         </div>
 
         <div class="container layout-section">
