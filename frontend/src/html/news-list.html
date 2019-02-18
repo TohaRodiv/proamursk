@@ -58,9 +58,10 @@
                 </div>
 
                 <div class="aside-widget">
-                    <a href="news-details.html" class="sidebar-banner">
-                        <img src="images/aside-banner1.jpg" alt="" class="sidebar-banner__img">
-                    </a>
+                    @@include("page-block/sidebar-banner.html", {
+                        "link": "news-details.html",
+                        "img": "images/aside-banner1.jpg"
+                    })
                 </div>
             </aside>
         </div>

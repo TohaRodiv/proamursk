@@ -3113,22 +3113,6 @@ footer {
   .aside-nav__icon.icon-phone-plus {
     font-size: 17px; }
 
-.nearest-event-widget__title {
-  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
-  font-size: 24px;
-  margin-bottom: 15px; }
-
-.nearest-event-widget__item {
-  display: block;
-  border-radius: 4px;
-  overflow: hidden; }
-  .nearest-event-widget__item:not(:last-child) {
-    margin-bottom: 20px; }
-
-.nearest-event-widget__img {
-  display: block;
-  width: 100%; }
-
 .film {
   margin-left: 110px; }
 
