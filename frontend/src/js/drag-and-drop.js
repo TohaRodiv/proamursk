@@ -11,7 +11,7 @@ function preventDefaults(event) {
     event.stopPropagation();
 };
 
-['dragenter', 'dragover'].forEach(eventName => {
+['dragenter', 'dragover'].forEach(function(eventName) {
     for (var i = 0; i < dropArea.length; i++) {
         dropArea[i].addEventListener(eventName, function() {
             highlight(this);
@@ -19,7 +19,7 @@ function preventDefaults(event) {
     }
 });
 
-['dragleave', 'drop'].forEach(eventName => {
+['dragleave', 'drop'].forEach(function(eventName) {
     for (var i = 0; i < dropArea.length; i++) {
         dropArea[i].addEventListener(eventName, function() {
             unhighlight(this);
