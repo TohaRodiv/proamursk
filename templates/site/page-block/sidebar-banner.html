@@ -1,5 +1,13 @@
 {% load static static_version %}
 
-<a href="news-details.html" class="banner">
-    <img src="{% static "site/images/aside-banner1.jpg" %}{% static_version %}" alt="" class="banner__img">
-</a>
+{% for banner in banners %}
+    <div class="aside-widget">
+        <a href="{{ banner.link }}" class="banner">
+            {% if show_two_banners %}
+                <img src="{{ banner.horizontal_cover|get_thumbnail_url_by_name:"horizontal_sidebar_banner" }}" alt="" class="banner__img">
+            {% else %}
+                <img src="{{ banner.cover|get_thumbnail_url_by_name:"sidebar_banner" }}" alt="" class="banner__img">
+            {% endif %}
+        </a>
+    </div>
+{% endfor %}

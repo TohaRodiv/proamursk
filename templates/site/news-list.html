@@ -1,6 +1,7 @@
 {% extends "site/base.html" %}
 {% load static static_version %}
 {% load utils_tags media_filters %}
+{% load site_tags %}
 
 {% block title %}
     {% if content_page %}
@@ -41,9 +42,7 @@
                         {% endwith %}
                     </div>
 
-                    <div class="aside-widget">
-                        {% include "site/modules/sidebar-banner.html" %}
-                    </div>
+                    {% get_banner %}
                 </aside>
             </div>
         </div>
