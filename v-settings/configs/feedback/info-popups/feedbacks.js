@@ -54,8 +54,8 @@ const state = {
                     title: 'Прикреплённый файл',
                     content: {
                         type: 'link',
-                        customName: 'attachment.original_name',
-                        codename: 'attachment.file',
+                        customName: 'attachment.name',
+                        codename: 'attachment.url',
                     }
                 },
                 {

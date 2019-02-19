@@ -390,8 +390,8 @@ def feedback(request):
                     )
                 }
                 if instance.attachment:
-                    template_context['attachment_title'] = instance.attachment.original_name
-                    template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.file.url)
+                    template_context['attachment_title'] = instance.attachment.name
+                    template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.url)
                 try:
                     send_notification.delay('feedback', template_context=template_context, recipient_sms=[],
                                             recipient_email=[instance.email])
