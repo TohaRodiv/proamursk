@@ -527,3 +527,16 @@ class CityGuidesDetailSerializer(ModelSerializer):
 
     def get_guide_format_name(self, instance):
         return dict(instance.GUIDE_FORMATS).get(instance.guide_format)
+
+    def create(self, validated_data):
+        items = validated_data.pop('items') if 'items' in validated_data else []
+        instance = super(CityGuidesDetailSerializer, self).create(validated_data)
+        self.create_child_objects(items, CityGuideItem, dict(city_guide=instance))
+        return instance
+
+    def update(self, instance, validated_data):
+        items = validated_data.pop('items') if 'items' in validated_data else []
+        instance = super(CityGuidesDetailSerializer, self).update(instance, validated_data)
+        self.update_child_objects(items, CityGuideItem, dict(city_guide=instance))
+        return instance
+
