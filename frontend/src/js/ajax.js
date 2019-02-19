@@ -61,10 +61,14 @@ function ajaxSubscribe(jqForm) {
 
 function ajaxForms(jqForm, url) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
-        dataToSend;
+        dataToSend = new FormData();
 
     trimFormFields(jqForm);
-    dataToSend = jqForm.serialize() + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
+
+    jqForm.find('input:not([type="submit"]), textarea').each(function () {
+        dataToSend.append(this.name, this.value)
+    });
+    dataToSend.append('csrfmiddlewaretoken=', csrfmiddlewaretoken);
 
     // console.log(dataToSend);
 
@@ -72,6 +76,8 @@ function ajaxForms(jqForm, url) {
         data: dataToSend,
         url: '/api/site/' + url + '/',
         method: 'POST',
+        processData: false,
+        contentType: false,
 
         success: function (response) {
             // console.log(response);
@@ -196,7 +202,8 @@ $('body').on('click', '.btn_more', function () {
     $(this).data('page-count', pageCount);
 })
 
-$('.js-pop-up__form').submit(function() {
+$('.js-pop-up__form').submit(function (event) {
+    event.preventDefault();
     var requestToDo = $(this).find('.pop-up-form__submit').data('request');
 
     validateFormFields($(this));
