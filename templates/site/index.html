@@ -29,7 +29,7 @@
                 {% for top_item in top_objects %}
 
                     {% if forloop.counter == 1 %}
-                        {% with item=top_item.get_object css_class='grid-publication_format-full grid-publication_text-size-big' cover_name="8_column_img" %}
+                        {% with item=top_item.get_object css_class='grid-publication_text-size-big' cover_name="8_column_img" %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -40,7 +40,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 2 %}
-                        {% with item=top_item.get_object css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" %}
+                        {% with item=top_item.get_object css_class=' grid-publication_cover-format-bigger' cover_name="3_column_img" %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -51,7 +51,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 3 %}
-                        {% with item=top_item.get_object css_class='grid-publication_format-full grid-publication_text-size-base' cover_name="3_column_img" %}
+                        {% with item=top_item.get_object css_class='grid-publication_text-size-base' cover_name="3_column_img" %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -62,7 +62,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 4 %}
-                        {% with item=top_item.get_object css_class='grid-publication_format-base grid-publication_cover-format-6col' cover_name="6_column_img" %}
+                        {% with item=top_item.get_object css_class=' grid-publication_cover-format-6col' cover_name="6_column_img" %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -107,7 +107,7 @@
 
                 {% for item in what_to_do %}
                     {% if forloop.counter == 1 %}
-                        {% with model_name=item|get_model_name css_class='grid-publication_format-full grid-publication_text-size-big' cover_name="8_column_img" %}
+                        {% with model_name=item|get_model_name css_class='grid-publication_text-size-big' cover_name="8_column_img" %}
                             {% if model_name == 'event' or model_name == 'report' %}
                                 {% include "site/modules/grid-event.html" %}
                             {% else %}
@@ -115,7 +115,7 @@
                             {% endif %}
                         {% endwith %}
                     {% else %}
-                        {% with model_name=item|get_model_name css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" %}
+                        {% with model_name=item|get_model_name css_class=' grid-publication_cover-format-bigger' cover_name="3_column_img" %}
                             {% if model_name == 'event' or model_name == 'report' %}
                                 {% include "site/modules/grid-event.html" %}
                             {% else %}
