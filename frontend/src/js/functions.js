@@ -45,17 +45,23 @@ $('.variable-height-textarea').on('keyup', function () {
     resizeTextarea($(this), 27, 120);
 });
 
-function resizeTextarea(visibleTextarea, minHeight, maxHeight) {
-    var variableTextareaWrap = visibleTextarea.parent('.variable-height-textarea-wrap'),
-        hiddenTextarea = variableTextareaWrap.find('.variable-height-textarea_hidden'),
-        text = '';
 
-    visibleTextarea.val().replace(/[<>]/g, '_').split('\n').forEach(function (s) {
-        text = text + '<div>' + s.replace(/\s\s/g, ' &nbsp;') + '&nbsp;</div>' + '\n';
-    });
-    hiddenTextarea.html(text);
-    var hiddenTextareaHeight = hiddenTextarea.height();
-    hiddenTextareaHeight = Math.max(minHeight, hiddenTextareaHeight);
-    hiddenTextareaHeight = Math.min(maxHeight, hiddenTextareaHeight);
-    visibleTextarea.height(hiddenTextareaHeight + 'px');
+function resizeTextarea(visibleTextarea, minHeight, maxHeight) {
+    if (visibleTextarea.val() == '') {
+        visibleTextarea.height(minHeight + 'px');
+    }
+    else {
+        var variableTextareaWrap = visibleTextarea.parent('.variable-height-textarea-wrap'),
+            hiddenTextarea = variableTextareaWrap.find('.variable-height-textarea_hidden'),
+            text = '';
+
+        visibleTextarea.val().replace(/[<>]/g, '_').split('\n').forEach(function (s) {
+            text = text + '<div>' + s.replace(/\s\s/g, ' &nbsp;') + '&nbsp;</div>' + '\n';
+        });
+        hiddenTextarea.html(text);
+        var hiddenTextareaHeight = hiddenTextarea.height();
+        hiddenTextareaHeight = Math.max(minHeight, hiddenTextareaHeight);
+        hiddenTextareaHeight = Math.min(maxHeight, hiddenTextareaHeight);
+        visibleTextarea.height(hiddenTextareaHeight + 'px');
+    }
 }
