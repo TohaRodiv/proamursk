@@ -68,10 +68,27 @@
 
         [class^="icon-"]
             display: inline-block
+            width: 18px
+            height: 20px
             margin-right: 5px
-            font-size: $base-fz
+            font-size: 0
+            line-height: 20px
             color: $base-c
-            vertical-align: bottom
+            vertical-align: -2px
+            text-align: center
+
+            &::before
+                font-size: 17px
+
+        .icon-bed
+            vertical-align: 0
+            &::before
+                font-size: 14px
+
+        .icon-star-round
+            vertical-align: -1px
+            &::before
+                font-size: 15px
 
         a
             color: $base-c

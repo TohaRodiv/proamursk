@@ -2216,10 +2216,24 @@ footer {
         margin-right: 50px; }
     .publication__additional-info-wrap [class^="icon-"] {
       display: inline-block;
+      width: 18px;
+      height: 20px;
       margin-right: 5px;
-      font-size: 18px;
+      font-size: 0;
+      line-height: 20px;
       color: #0073FF;
-      vertical-align: bottom; }
+      vertical-align: -2px;
+      text-align: center; }
+      .publication__additional-info-wrap [class^="icon-"]::before {
+        font-size: 17px; }
+    .publication__additional-info-wrap .icon-bed {
+      vertical-align: 0; }
+      .publication__additional-info-wrap .icon-bed::before {
+        font-size: 14px; }
+    .publication__additional-info-wrap .icon-star-round {
+      vertical-align: -1px; }
+      .publication__additional-info-wrap .icon-star-round::before {
+        font-size: 15px; }
     .publication__additional-info-wrap a {
       color: #0073FF;
       text-decoration: none; }
@@ -3314,7 +3328,6 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #7A8BA1; }
   .reviews__title {
@@ -3350,6 +3363,9 @@ footer {
   .reviews__more-btn {
     letter-spacing: 0.02em;
     color: #0073FF; }
+
+.reviews-list {
+  margin-top: 20px; }
 
 .review:not(:last-child) {
   margin-bottom: 40px; }
