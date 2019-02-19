@@ -210,10 +210,10 @@ const state = {
                             {
                                 isBlocked: true,
                                 type: 'field',
-                                label: 'Избранные материалы',
+                                label: 'Места',
                                 popupLabels: {
-                                    new: 'Публикация в топе',
-                                    existing: 'Публикация в топе',
+                                    new: 'Место в гиде по городу',
+                                    existing: 'Место в гиде по городу',
                                 },
                                 dragOrder: 'weight',
                                 required: false,
