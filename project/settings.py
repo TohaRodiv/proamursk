@@ -67,7 +67,7 @@ MIDDLEWARE = [
     'applications.sitesettings.middleware.AddSettingsInRequest',
     'applications.sitesettings.middleware.CheckDisableSite',
     'applications.banrequest.middleware.BanRequestMiddleware',
-    # 'applications.tools.middleware.SetCsrfTokenCookieMiddleware',
+    'applications.tools.middleware.SetCsrfTokenCookieMiddleware',
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
