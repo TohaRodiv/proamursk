@@ -380,8 +380,6 @@ class SlidersItemSerializer(ModelSerializer):
 
 
 class SlidersNestedSerializer(ModelSerializer):
-    slides_count = serializers.SerializerMethodField()
-    format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = Slider
@@ -512,7 +510,7 @@ class CityGuidesDetailSerializer(ModelSerializer):
                                   required=False,
                                   allow_null=True
                                   )
-    items = CityGuideItemSerializer(many=True, required=True)
+    items = CityGuideItemSerializer(many=True, required=False)
     guide_format_name = serializers.SerializerMethodField()
 
     class Meta:
