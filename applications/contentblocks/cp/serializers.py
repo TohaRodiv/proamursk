@@ -104,14 +104,15 @@ class PageSettingDetailSerializer(ModelSerializer):
                                 for item in elements:
                                     widget = item.get('widget')
                                     codename = item.get('codename')
-                                    if widget == 'simpleInput':
-                                        widget_type = item.get('type')
-                                        data_type = self.WIDGET_DATA_TYPES.get(widget, dict()).get(widget_type)
-                                    else:
-                                        data_type = self.WIDGET_DATA_TYPES.get(widget)
+                                    if codename not in [f.name for f in Page._meta.get_fields()]:
+                                        if widget == 'simpleInput':
+                                            widget_type = item.get('type')
+                                            data_type = self.WIDGET_DATA_TYPES.get(widget, dict()).get(widget_type)
+                                        else:
+                                            data_type = self.WIDGET_DATA_TYPES.get(widget)
 
-                                    if data_type and codename:
-                                        blocks_data.append(dict(data_type=data_type, codename=codename))
+                                        if data_type and codename:
+                                            blocks_data.append(dict(data_type=data_type, codename=codename))
 
         return blocks_data
 

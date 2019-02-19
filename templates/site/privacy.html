@@ -10,21 +10,15 @@
             <div class="base-layout privacy-page">
                 <div class="base-layout__main">
                     <article class="publication privacy">
-                        <h1 class="privacy__title">Политика конфиденциальности</h1>
+                        <h1 class="privacy__title">{{ content_blocks.title.content }}</h1>
                         <div class="wysiwyg-container js-privacy-container">
-                            {{ content_blocks.content|safe }}
+                            {{ content_blocks.description.content|safe }}
                         </div>
                     </article>
                 </div>
 
                 <aside class="base-layout__aside">
                     <ol class="privacy__list js-privacy-nav">
-                        <!-- <li class="privacy__list-item"><a href="#privacy1" class="privacy__link">Термины</a></li>
-                        <li class="privacy__list-item"><a href="#privacy2" class="privacy__link">Цель сбора персональных данных</a></li>
-                        <li class="privacy__list-item"><a href="#privacy3" class="privacy__link">Основные принципы</a></li>
-                        <li class="privacy__list-item"><a href="#privacy4" class="privacy__link">Обязательства</a></li>
-                        <li class="privacy__list-item"><a href="#privacy5" class="privacy__link">Срок обработки</a></li>
-                        <li class="privacy__list-item"><a href="#privacy6" class="privacy__link">Отзыв согласия</a></li> -->
                     </ol>
                 </aside>
             </div>
