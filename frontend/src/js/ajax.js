@@ -43,18 +43,18 @@ function ajaxSubscribe(jqForm) {
         method: 'POST',
 
         success: function (response) {
-            var responseObj = JSON.parse(response);
+            // console.log(response);
 
-            // console.log(responseObj);
-
-            if (responseObj.status == true) {
+            if (response.status == true) {
                 updateSubscribeWidget();
-                if (responseObj.message) showNotification(responseObj.message, 'success');
+                if (response.message) showNotification(response.message, 'success');
             }
             else {
-                if (responseObj.message) showNotification(responseObj.message, 'error');
+                if (response.message) showNotification(response.message, 'error');
             }
-
+        },
+        complete: function () {
+            hideBtnPreloader();
         }
     });
 }
@@ -74,18 +74,17 @@ function ajaxForms(jqForm, url) {
         method: 'POST',
 
         success: function (response) {
-            var responseObj = JSON.parse(response);
+            // console.log(response);
 
-            // console.log(responseObj);
-
-            if (responseObj.status == true) {
-                updateSubscribeWidget();
-                if (responseObj.message) showNotification(responseObj.message, 'success');
+            if (response.status == true) {
+                if (response.message) showNotification(response.message, 'success');
             }
             else {
-                if (responseObj.message) showNotification(responseObj.message, 'error');
+                if (response.message) showNotification(response.message, 'error');
             }
-
+        },
+        complete: function () {
+            hideBtnPreloader();
         }
     });
 }
