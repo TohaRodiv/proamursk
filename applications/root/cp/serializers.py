@@ -528,8 +528,8 @@ class CityGuidesDetailSerializer(ModelSerializer):
 
     def validate_guide_format(self, data):
         if data:
-            guides = CityGuideItem.objects.filter(guide_format=data)
-            if self.instance.pk:
+            guides = CityGuide.objects.filter(guide_format=data)
+            if self.instance and self.instance.pk:
                 guides = guides.exclude(id=self.instance.pk)
             if guides.exists():
                 raise serializers.ValidationError("Гид с выбранным форматом уже существует")
