@@ -11,7 +11,7 @@ register = Library()
 
 
 @register.inclusion_tag('site/page-block/sidebar-banner.html', takes_context=True)
-def get_banner(context):
+def get_banner(context, banner_type='vertical'):
     banners = SidebarBanner.objects.filter((Q(start_publication_date__isnull=True) | Q(start_publication_date__lte=datetime.now())) &
                                            (Q(end_publication_date__isnull=True) | Q(end_publication_date__gte=datetime.now())),
                                            is_active=True).order_by('?')
@@ -50,7 +50,7 @@ def get_banner(context):
                 show_two_banners = item.show_two_banners
 
     banners = banners[:2] if show_two_banners else banners[:1]
-    return dict(banners=banners, show_two_banners=show_two_banners)
+    return dict(banners=banners, show_two_banners=show_two_banners, banner_type=banner_type)
 
 
 @register.filter()

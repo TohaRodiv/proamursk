@@ -4,7 +4,7 @@
 {% for banner in banners %}
     <div class="aside-widget">
         <a href="{{ banner.link }}" class="banner">
-            {% if show_two_banners %}
+            {% if show_two_banners or banner_type == 'horizontal' %}
                 <img src="{{ banner.horizontal_cover|get_thumbnail_url_by_name:"horizontal_sidebar_banner" }}" alt="" class="banner__img">
             {% else %}
                 <img src="{{ banner.cover|get_thumbnail_url_by_name:"sidebar_banner" }}" alt="" class="banner__img">
