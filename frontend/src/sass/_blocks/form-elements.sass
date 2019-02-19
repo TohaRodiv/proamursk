@@ -52,7 +52,8 @@
 textarea
     display: block
     width: 100%
-    height: 120px
+    max-height: 120px
+    height: 40px
     line-height: $base-lh
 
 .has-error
@@ -144,6 +145,13 @@ textarea
     &.focus,
     &.fill
         & ~ .label-base
-            top: -10px
+            top: -20px
             font-size: 13px
             color: #C7C8C8
+
+.variable-height-textarea_hidden
+    position: absolute !important
+    z-index: -1
+    word-wrap: break-word
+    line-height: 1.5
+    visibility: hidden
