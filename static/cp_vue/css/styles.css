@@ -5213,6 +5213,10 @@ input:placeholder-shown {
   position: relative;
   display: flex;
   align-items: center; }
+  .child-entity-row:not(:last-child) .simple-child-entity-row-inner {
+    margin-bottom: 22px; }
+  .child-entity-row:not(:last-child) .child-entities-buttons.simple {
+    margin-bottom: 22px; }
 
 .child-entity-head-labels {
   position: relative;
@@ -5233,9 +5237,6 @@ input:placeholder-shown {
   display: flex;
   align-items: center;
   width: calc(100% - 240px); }
-
-.child-entity-row:not(:last-child) .simple-child-entity-row-inner {
-  margin-bottom: 22px; }
 
 .child-entity-row-inner {
   min-height: 55px;
@@ -5498,7 +5499,6 @@ input:placeholder-shown {
   background-color: #e4f0fa; }
 
 .child-entities-buttons {
-  position: absolute;
   right: 0; }
 
 .child-entities-row-item {
