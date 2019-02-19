@@ -49,33 +49,34 @@
     <header>
         <div class="container header-container">
             <a href="{% url "index" %}" class="header__logo-link">
+                <img src="{% static "site/images/svg/logo-header.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
                 {% with url_name=request.resolver_match.url_name %}
                     {% if url_name == 'index' or url_name == 'policy' %}
-                        <img src="{% static "site/images/svg/logo-black.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                        <span class="header__logo-icon icon-logo-sign"></span>
                     {% endif %}
 
                     {% if url_name == 'news-list' or url_name == 'news-detail' %}
-                        <img src="{% static "site/images/svg/logo_news.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                        <span class="header__logo-icon icon-logo-news"></span>
                     {% endif %}
 
                     {% if url_name == 'events-index' or url_name == 'events-list-future' or url_name == 'events-list-past' or url_name == 'events-detail' or url_name == 'reports-list' or url_name == 'films-detail' %}
-                        <img src="{% static "site/images/svg/logo_event.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                        <span class="header__logo-icon icon-logo-event"></span>
                     {% endif %}
 
                     {% if url_name == 'history-list' or url_name == 'history-detail' %}
-                        <img src="{% static "site/images/svg/logo_history.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                        <span class="header__logo-icon icon-logo-history"></span>
                     {% endif %}
 
                     {% if url_name == 'places-list' or url_name == 'places-detail' %}
-                        <img src="{% static "site/images/svg/logo_place.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                        <span class="header__logo-icon icon-geo-stroke"></span>
                     {% endif %}
 
                     {% if url_name == 'persons-list' or url_name == 'persons-detail' %}
-                        <img src="{% static "site/images/svg/logo_people.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
+                        <span class="header__logo-icon icon-logo-people"></span>
                     {% endif %}
 
                     {% if url_name == 'specials-list' or url_name == 'specials-detail' %}
-                        <img src="{% static "site/images/svg/logo_special-projects.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img header__logo-img_special-projects">
+                        <span class="header__logo-icon icon-star-sharp"></span>
                     {% endif %}
                 {% endwith %}
 
