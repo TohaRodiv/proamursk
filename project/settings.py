@@ -147,7 +147,7 @@ USE_L10N = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 2
+STATIC_VERSION = 3
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
