@@ -556,7 +556,8 @@ const state = {
                                                         label: 'Активное место (неактивные места не отображаются на сайте)',
                                                         codename: 'is_active',
                                                         widget: 'singleCheckbox',
-                                                        hint: ''
+                                                        hint: '',
+                                                        marginLeft: true
                                                     }
                                                 ]
                                             },
