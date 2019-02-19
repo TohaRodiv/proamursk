@@ -57,10 +57,10 @@ class IndexView(View):
         page = get_page(request)
         top_objects = page.top_items.all().order_by('weight') if page else []
         events = Event.objects.filter(is_active=True,
-                                      start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'event-announcements']).order_by('start_event_date')[:2]
+                                      start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('start_event_date')[:2]
         reports = Report.objects.filter(is_active=True,
-                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'reports']).order_by('-publication_date')[:2]
-        places = Place.objects.filter(is_active=True, publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'places']).order_by('-publication_date')[:(6-len(events)-len(reports))]
+                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')[:2]
+        places = Place.objects.filter(is_active=True, publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places']).order_by('-publication_date')[:(6-len(events)-len(reports))]
         what_to_do = list(events) + list(reports) + list(places)
         films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
@@ -101,7 +101,7 @@ class EventsListView(View):
         top_objects = page.top_items.all().order_by('weight') if page else []
 
         events = list(Event.objects.filter(is_active=True,
-                                           start_event_date__gte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'event-announcements']).order_by('-start_event_date')[:4])
+                                           start_event_date__gte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('-start_event_date')[:4])
 
         today_films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
@@ -176,14 +176,14 @@ class ReportsListView(InfinityLoaderListView):
             page = None
 
         top_objects = page.top_items.all().order_by('weight') if page else []
-        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.codename == 'reports'])
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports'])
 
     def get(self, request):
         page = get_page(request)
         top_objects = page.top_items.all().order_by('weight') if page else []
 
         items = Report.objects.filter(is_active=True,
-                                      publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'reports']).order_by('-publication_date')
+                                      publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')
         has_next = items.count() > 12
         items = items[:12]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -214,13 +214,13 @@ class HistoryListView(InfinityLoaderListView):
             page = None
 
         top_objects = page.top_items.all().order_by('weight') if page else []
-        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.codename == 'history'])
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history'])
 
     def get(self, request):
         page = get_page(request)
         top_objects = page.top_items.all().order_by('weight') if page else []
         items = History.objects.filter(is_active=True,
-                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'history']).order_by('-publication_date')
+                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
         has_next = items.count() > 12
         items = items[:12]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -251,14 +251,14 @@ class PersonsListView(InfinityLoaderListView):
             page = None
 
         top_objects = page.top_items.all().order_by('weight') if page else []
-        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.codename == 'persons'])
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons'])
 
     def get(self, request):
         page = get_page(request)
         top_objects = page.top_items.all().order_by('weight') if page else []
 
         items = Person.objects.filter(is_active=True,
-                                      publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'persons']).order_by('-publication_date')
+                                      publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('-publication_date')
         has_next = items.count() > 11
         items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -296,7 +296,7 @@ class PlaceListView(InfinityLoaderListView):
             page = None
 
         top_objects = page.top_items.all().order_by('weight') if page else []
-        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.codename == 'places'])
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places'])
 
     def get(self, request):
         items = Place.objects.filter(is_active=True,
