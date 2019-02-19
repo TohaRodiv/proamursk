@@ -268,21 +268,21 @@ const state = {
                         vue.set(firstSelector, 'available_values', valuesForEvents)
                         vue.set(widget, 'show', true)
                     }
-                    else if (data['codename'] == 'history') {
+                    else if (data['codename'] == 'history-list') {
                         vue.set(firstSelector, 'available_values', valuesForHistory)
                         vue.set(secondSelector, 'api_route', 'history')
                         vue.set(secondSelector, 'label', dict['history'])
                         vue.set(secondSelector, 'isBlocked', false)
                         vue.set(widget, 'show', true)
                     }
-                    else if (data['codename'] == 'places') {
+                    else if (data['codename'] == 'places-list') {
                         vue.set(firstSelector, 'available_values', valuesForPlaces)
                         vue.set(secondSelector, 'api_route', 'places')
                         vue.set(secondSelector, 'label', dict['places'])
                         vue.set(secondSelector, 'isBlocked', false)
                         vue.set(widget, 'show', true)
                     }
-                    else if (data['codename'] == 'persons') {
+                    else if (data['codename'] == 'persons-list') {
                         vue.set(firstSelector, 'available_values', valuesForPersons)
                         vue.set(secondSelector, 'api_route', 'persons')
                         vue.set(secondSelector, 'label', dict['persons'])
