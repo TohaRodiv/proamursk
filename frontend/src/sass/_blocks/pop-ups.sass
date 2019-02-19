@@ -73,6 +73,10 @@
         .pop-up-inner-container
             animation: zoomIn $transition-time ease-out forwards
 
+    &.search .pop-up-inner-container
+        margin-top: 180px
+        align-self: flex-start
+
 .pop-up-content
     position: relative
     background-color: $light-c
@@ -80,8 +84,8 @@
 
 .pop-up-inner-container
     position: relative
-    margin: 180px auto 40px
-    align-self: flex-start
+    margin: 40px auto 60px
+    align-self: center
 
 .pop-up
     &__title
