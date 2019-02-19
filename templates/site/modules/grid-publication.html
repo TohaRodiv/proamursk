@@ -3,17 +3,15 @@
 {% load pytils_dt %}
 {% load site_tags %}
 
-<div class="grid-publication {% if item.cover_format == "full" %}grid-publication_format-full grid-publication_cover-format-full{% else %}grid-publication_format-base grid-publication_cover-format-base{% endif %} {{ css_class }}">
+<a href="{{ item.get_absolute_url }}" class="grid-publication {% if item.cover_format == "full" %}grid-publication_format-full grid-publication_cover-format-full{% else %}grid-publication_format-base grid-publication_cover-format-base{% endif %} {{ css_class }}">
 
-    <a href="{{ item.get_absolute_url }}" class="grid-publication__cover-wrap">
+    <div class="grid-publication__cover-wrap">
         <div class="grid-publication__bg-gradient"></div>
         <img src="{{ item.cover|get_thumbnail_url_by_name:cover_name  }}" alt="" class="grid-publication__cover">
-    </a>
+    </div>
 
     <div class="grid-publication__text-wrap">
-        <h2 class="grid-publication__title">
-            <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
-        </h2>
+        <h2 class="grid-publication__title">{{ item.title }}</h2>
 
         <p class="grid-publication__text grid-publication__description">{{ item.descriptor }}</p>
 
@@ -22,4 +20,4 @@
         </div>
 
     </div>
-</div>
+</a>

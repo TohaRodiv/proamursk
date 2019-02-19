@@ -1,36 +1,38 @@
 <div class="grid-publication @@class">
 
-    <a href="@@link" class="grid-publication__cover-wrap">
-        <div class="grid-publication__bg-gradient"></div>
-        <img src="@@img" alt="" class="grid-publication__cover">
-    </a>
-
-    <div class="grid-publication__text-wrap">
-        <h2 class="grid-publication__title">
-            <a href="@@link">@@title</a>
-        </h2>
-
-        <div class="grid-publication__text">@@place</div>
-
-        <div class="grid-publication__text grid-publication__date">@@date</div>
-
-        <div class="grid-publication__wobbler">
-            @@include('modules/wobbler.html', {
-                "wobbler": "@@wobbler"
-            })
-
-            @@if ((wobbler === "announcement" || wobbler === "past-event") && addLink === true) {
-                <a href="reportage-details.html" class="grid-publication__link">
-                    <span class="text">Репортаж</span>
-                    <span class="icon icon-arrow-right-dir"></span>
-                </a>
-            }
-            @@if (wobbler === "reportage" && addLink === true) {
-                <a href="event-announcement.html" class="grid-publication__link">
-                    <span class="text">Событие</span>
-                    <span class="icon icon-arrow-right-dir"></span>
-                </a>
-            }
+    <a href="@@link">
+        <div class="grid-publication__cover-wrap">
+            <div class="grid-publication__bg-gradient"></div>
+            <img src="@@img" alt="" class="grid-publication__cover">
         </div>
-    </div>
+
+        <div class="grid-publication__text-wrap">
+            <h2 class="grid-publication__title">
+            @@title
+            </h2>
+
+            <div class="grid-publication__text">@@place</div>
+
+            <div class="grid-publication__text grid-publication__date">@@date</div>
+
+            <div class="grid-publication__wobbler">
+                @@include('modules/wobbler.html', {
+                    "wobbler": "@@wobbler"
+                })
+
+            </div>
+        </div>
+    </a>
+    @@if ((wobbler === "announcement" || wobbler === "past-event") && addLink === true) {
+        <a href="reportage-details.html" class="grid-publication__link grid-publication__link_reportage">
+            <span class="text">Репортаж</span>
+            <span class="icon icon-arrow-right-dir"></span>
+        </a>
+    }
+    @@if (wobbler === "reportage" && addLink === true) {
+        <a href="event-announcement.html" class="grid-publication__link grid-publication__link_event">
+            <span class="text">Событие</span>
+            <span class="icon icon-arrow-right-dir"></span>
+        </a>
+    }
 </div>

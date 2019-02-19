@@ -5,56 +5,56 @@
 
 <div class="grid-publication {% if item.cover_format == "full" %}grid-publication_format-full{% else %}grid-publication_format-base{% endif %} {{ css_class }}">
 
-    <a href="{{ item.get_absolute_url }}" class="grid-publication__cover-wrap">
-        <div class="grid-publication__bg-gradient"></div>
-        <img src="{{ item.cover|get_thumbnail_url_by_name:cover_name }}" alt="" class="grid-publication__cover">
+    <a href="{{ item.get_absolute_url }}">
+        <div class="grid-publication__cover-wrap">
+            <div class="grid-publication__bg-gradient"></div>
+            <img src="{{ item.cover|get_thumbnail_url_by_name:cover_name }}" alt="" class="grid-publication__cover">
+        </div>
+
+        <div class="grid-publication__text-wrap">
+            <h2 class="grid-publication__title">{{ item.title }}</h2>
+
+            <div class="grid-publication__text">{{ item.place }}</div>
+
+            <div class="grid-publication__text grid-publication__date">{{ item.event_date_text }}</div>
+
+            <div class="grid-publication__wobbler">
+
+                {% with model_name=item|get_model_name %}
+                    {% if model_name == "report" %}
+                        <div class="wobbler">
+                            <span class="wobbler__icon icon-reportage"></span>
+                            <div class="wobbler__text">Репортаж</div>
+                        </div>
+                    {% elif model_name == "event" %}
+                        {% if item.is_past %}
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-calendar"></span>
+                                <div class="wobbler__text">Состоялось</div>
+                            </div>
+                        {% else %}
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-megafon-stroke"></span>
+                                <div class="wobbler__text">Анонс</div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
     </a>
 
-    <div class="grid-publication__text-wrap">
-        <h2 class="grid-publication__title">
-            <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
-        </h2>
+    {% if model_name == "event" and item.report %}
+        <a href="{% url "reports-detail" item.report.id %}" class="grid-publication__link grid-publication__link_reportage">
+            <span class="text">Репортаж</span>
+            <span class="icon icon-arrow-right-dir"></span>
+        </a>
+    {% endif %}
 
-        <div class="grid-publication__text">{{ item.place }}</div>
-
-        <div class="grid-publication__text grid-publication__date">{{ item.event_date_text }}</div>
-
-        <div class="grid-publication__wobbler">
-
-            {% with model_name=item|get_model_name %}
-                {% if model_name == "report" %}
-                    <div class="wobbler">
-                        <span class="wobbler__icon icon-reportage"></span>
-                        <div class="wobbler__text">Репортаж</div>
-                    </div>
-                {% elif model_name == "event" %}
-                    {% if item.is_past %}
-                        <div class="wobbler">
-                            <span class="wobbler__icon icon-calendar"></span>
-                            <div class="wobbler__text">Состоялось</div>
-                        </div>
-                    {% else %}
-                        <div class="wobbler">
-                            <span class="wobbler__icon icon-megafon-stroke"></span>
-                            <div class="wobbler__text">Анонс</div>
-                        </div>
-                    {% endif %}
-                {% endif %}
-
-                {% if model_name == "event" and item.report %}
-                    <a href="{% url "reports-detail" item.report.id %}" class="grid-publication__link">
-                        <span class="text">Репортаж</span>
-                        <span class="icon icon-arrow-right-dir"></span>
-                    </a>
-                {% endif %}
-
-                {% if model_name == "report" and item.event %}
-                    <a href="{% url "events-detail" item.event.id %}" class="grid-publication__link">
-                        <span class="text">Событие</span>
-                        <span class="icon icon-arrow-right-dir"></span>
-                    </a>
-                {% endif %}
-            {% endwith %}
-        </div>
-    </div>
+    {% if model_name == "report" and item.event %}
+        <a href="{% url "events-detail" item.event.id %}" class="grid-publication__link grid-publication__link_event">
+            <span class="text">Событие</span>
+            <span class="icon icon-arrow-right-dir"></span>
+        </a>
+    {% endif %}
 </div>

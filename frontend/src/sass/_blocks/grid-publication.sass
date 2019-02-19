@@ -6,6 +6,10 @@
     color: inherit
     @extend %border
 
+    a
+        text-decoration: none
+        color: inherit
+
     &__cover-wrap
         position: relative
 
@@ -47,6 +51,15 @@
         letter-spacing: 0.08em
         text-decoration: none
         transition: color $transition-time
+        position: absolute
+        bottom: 20px
+        z-index: 4
+
+        &_reportage
+            left: 160px
+
+        &_event
+            left: 145px
 
         &:hover
             color: $base-c
@@ -93,6 +106,11 @@
     &_format-base
         display: flex
         flex-direction: column
+
+        a:not(.grid-publication__link)
+            display: flex
+            flex-direction: column
+            height: 100%
 
         .grid-publication
             &__cover
