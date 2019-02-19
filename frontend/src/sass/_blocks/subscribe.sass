@@ -123,16 +123,29 @@
     &__input
 
         &::-webkit-input-placeholder
-            color: rgba($light-c, .6)
+            color: $light-c
 
         &::-moz-placeholder
-            color: rgba($light-c, .6)
+            color: $light-c
 
         &::-ms-input-placeholder
-            color: rgba($light-c, .6)
+            color: $light-c
 
         &::placeholder
-            color: rgba($light-c, .6)
+            color: $light-c
+
+        &:focus
+            &::-webkit-input-placeholder
+                color: rgba($light-c, .6)
+
+            &::-moz-placeholder
+                color: rgba($light-c, .6)
+
+            &::-ms-input-placeholder
+                color: rgba($light-c, .6)
+
+            &::placeholder
+                color: rgba($light-c, .6)
 
     &__submit
         font-size: 14px
