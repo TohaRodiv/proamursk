@@ -73,7 +73,7 @@ const state = {
                                 required: true,
                                 invalid: false,
                                 height: 56,
-                                width: 8,
+                                width: 12,
                                 codename: 'copyright',
                                 widget: 'textarea',
                                 hint: ''
