@@ -2737,6 +2737,9 @@ footer {
   background-color: #FFFFFF;
   text-decoration: none;
   color: inherit; }
+  .grid-publication a {
+    text-decoration: none;
+    color: inherit; }
   .grid-publication__cover-wrap {
     position: relative; }
   .grid-publication__cover {
@@ -2776,7 +2779,14 @@ footer {
     text-decoration: none;
     -webkit-transition: color 0.3s;
     -o-transition: color 0.3s;
-    transition: color 0.3s; }
+    transition: color 0.3s;
+    position: absolute;
+    bottom: 20px;
+    z-index: 4; }
+    .grid-publication__link_reportage {
+      left: 160px; }
+    .grid-publication__link_event {
+      left: 145px; }
     .grid-publication__link:hover {
       color: #0073FF; }
       .grid-publication__link:hover::before {
@@ -2822,6 +2832,15 @@ footer {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column; }
+    .grid-publication_format-base a:not(.grid-publication__link) {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      height: 100%; }
     .grid-publication_format-base .grid-publication__cover {
       border-bottom: 1px solid #B1C1D2; }
     .grid-publication_format-base .grid-publication__text-wrap {
