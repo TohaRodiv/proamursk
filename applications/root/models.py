@@ -258,8 +258,6 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
-    lead = models.CharField('Лид', max_length=255)
-    content = JSONField()
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
