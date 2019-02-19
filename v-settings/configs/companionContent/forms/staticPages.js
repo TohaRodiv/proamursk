@@ -96,22 +96,22 @@ const state = {
                 id: 98,
                 title: 'КОНТЕНТ',
                 blocks: [
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                isBlocked: true,
-                                type: 'field',
-                                label: 'Коднейм',
-                                width: 12,
-                                codename: 'codename',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
+                    // {
+                    //     labelPosition: 'left',
+                    //     modClass: 'marginBottom22',
+                    //     direction: 'row',
+                    //     elements: [
+                    //         {
+                    //             isBlocked: true,
+                    //             type: 'field',
+                    //             label: 'Коднейм',
+                    //             width: 12,
+                    //             codename: 'codename',
+                    //             widget: 'simpleInput',
+                    //             hint: ''
+                    //         }
+                    //     ]
+                    // },
                     {
                         labelPosition: 'top',
                         direction: 'row',
@@ -145,7 +145,7 @@ const state = {
                                                 // }
                                             },
                                             {
-                                                requiredValue: 'codename',
+                                                requiredValue: 'entity',
                                                 isTransparent: true,
                                                 value: dict
                                             }
@@ -166,10 +166,10 @@ const state = {
                                                         label: 'Тип материала',
                                                         width: 6,
                                                         widget: 'singleSelector',
-                                                        codename: 'codename',
+                                                        codename: 'entity',
                                                         required: true,
                                                         sortFlag: {
-                                                            value: 'codename',
+                                                            value: 'id',
                                                             direction: 'asc'
                                                         },
                                                         view_structure: [
@@ -179,7 +179,8 @@ const state = {
                                                             },
                                                         ],
                                                         hint: '',
-                                                        available_values: valuesForIndex
+                                                        available_values: valuesForIndex,
+                                                        returnFromAvailableValues: 'codename'
                                                     }
                                                 ]
                                             },
@@ -231,25 +232,19 @@ const state = {
         'static-pages': {
             onChangePopup: {
                 top_items: {
-                    codename: {
+                    entity: {
                         object_id: function (from, widget, data) {
                             let selector = widget.popup_structure[0].blocks[1].elements[0]
                             let list = widget.entity_structure[0].list[0]
-                            let correctData = data[from]
-                            // Почему-то cloneDeep в Forms.js подменяет codename,
-                            // поэтому приходится проводить проверку 
-                            if (typeof(correctData) == 'number') {
-                                correctData = valuesForIndex[data[from] - 1]['codename']
-                            }
-                            if (correctData) {
+                            if (data[from]) {
                                 vue.set(selector, 'isBlocked', false)
-                                vue.set(selector, 'api_route', correctData)
-                                vue.set(selector, 'label', dict[correctData])
+                                vue.set(selector, 'api_route', data[from])
+                                vue.set(selector, 'label', dict[data[from]])
                             } else {
                                 vue.set(selector, 'isBlocked', true)
                             }
                             // Сброс данных второго селектора
-                            vue.set(data, 'object_id', null)
+                            // vue.set(data, 'object_id', null)
                             vue.set(selector, 'resetFlag', true)
                         }
                     },
