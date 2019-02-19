@@ -119,12 +119,9 @@
                     <div class="aside-widget">
                         {% include "site/page-block/aside-subscribe-widget.html" %}
                     </div>
-                    <div class="aside-widget">
-                        {% include "site/page-block/sidebar-banner.html" %}
-                    </div>
-                    <div class="aside-widget">
-                        {% include "site/page-block/sidebar-banner.html" %}
-                    </div>
+
+                    {% get_banner %}
+
                 </aside>
             </div>
         </div>
