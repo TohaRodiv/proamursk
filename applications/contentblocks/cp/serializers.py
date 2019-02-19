@@ -22,11 +22,11 @@ class TopItemSerializer(ModelSerializer):
 
     class Meta:
         model = TopItem
-        fields = ('id', 'codename', 'object_id', 'weight', 'item')
+        fields = ('id', 'entity', 'object_id', 'weight', 'item')
 
     def get_item(self, instance):
         obj = instance.get_object()
-        slz = self.get_item_serializer(instance.codename)
+        slz = self.get_item_serializer(instance.entity)
         data = slz(obj).data
         return data
 

@@ -12,7 +12,7 @@ from django.apps import apps
 
 class TopItem(models.Model):
     page = models.ForeignKey(Page, verbose_name='Страница', on_delete=models.CASCADE, related_name='top_items')
-    codename = models.CharField('Сущность', max_length=255)
+    entity = models.CharField('Сущность', max_length=255)
     object_id = models.PositiveIntegerField()
     weight = models.PositiveIntegerField()
 
@@ -31,7 +31,7 @@ class TopItem(models.Model):
             "places": "place",
             "specials": "special",
         }
-        model_name = model_names.get(self.codename)
+        model_name = model_names.get(self.entity)
         return apps.get_model('root', model_name)
 
     def get_object(self):
@@ -258,12 +258,13 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
         (FULL, 'Полноразмерная обложка')
     )
     GUIDE_FORMATS = (
-        ('activities', 'Где остановиться?'),
+        ('hotel', 'Где остановиться?'),
         ('food', 'Где поесть?'),
-        ('hotel', 'Что посмотреть?'),
+        ('activities', 'Что посмотреть?'),
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
+    guide_format = models.CharField('Форматы контента', choices=GUIDE_FORMATS, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
