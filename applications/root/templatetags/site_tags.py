@@ -96,9 +96,9 @@ def read_also(context):
     top_objects = context.get('top_objects', [])
 
     persons = Person.objects.filter(is_active=True,
-                                    publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'persons']).order_by('-publication_date')
+                                    publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('-publication_date')
     history = History.objects.filter(is_active=True,
-                                     publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'history']).order_by('-publication_date')
+                                     publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
 
     request = context.get('request')
     if request:
@@ -113,8 +113,8 @@ def read_also(context):
                 pass
             else:
                 top_objects = page.top_items.all().order_by('weight')
-                persons = persons.exclude(id__in=[i.object_id for i in top_objects if i.codename == 'person'])
-                history = history.exclude(id__in=[i.object_id for i in top_objects if i.codename == 'history'])
+                persons = persons.exclude(id__in=[i.object_id for i in top_objects if i.entity == 'person'])
+                history = history.exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history'])
 
     if person:
         persons = persons.exclude(id=person.id)
