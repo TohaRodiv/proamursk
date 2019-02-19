@@ -362,7 +362,7 @@ def feedback(request):
                     'sender_name': instance.name,
                     'sender_email': instance.email,
                     'sender_phone': instance.email,
-                    'feedback_content': instance.content,
+                    'feedback_content': instance.text,
                     'feedback_cp_link': '{scheme}:{host}/admin/feedbacks/{id}/'.format(
                         scheme=request.scheme, host=request.get_host(), id=instance.id
                     )

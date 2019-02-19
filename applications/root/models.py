@@ -247,12 +247,20 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
         return reverse('history-detail', args=[self.id])
 
 
+# class
+
+
 class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     SMALL = 'small'
     FULL = 'full'
     FORMATS = (
         (SMALL, 'Обычная обложка'),
         (FULL, 'Полноразмерная обложка')
+    )
+    GUIDE_FORMATS = (
+        ('activities', 'Где остановиться?'),
+        ('food', 'Где поесть?'),
+        ('hotel', 'Что посмотреть?'),
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
