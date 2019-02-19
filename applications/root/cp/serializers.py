@@ -526,6 +526,16 @@ class CityGuidesDetailSerializer(ModelSerializer):
     def get_guide_format_name(self, instance):
         return dict(instance.GUIDE_FORMATS).get(instance.guide_format)
 
+    def validate_guide_format(self, data):
+        if data:
+            guides = CityGuideItem.objects.filter(guide_format=data)
+            if self.instance.pk:
+                guides = guides.exclude(id=self.instance.pk)
+            if guides.exists():
+                raise serializers.ValidationError("Гид с выбранным форматом уже существует")
+
+        return data
+
     def create(self, validated_data):
         items = validated_data.pop('items') if 'items' in validated_data else []
         instance = super(CityGuidesDetailSerializer, self).create(validated_data)
