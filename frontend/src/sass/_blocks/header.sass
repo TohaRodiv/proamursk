@@ -1,9 +1,10 @@
 header
     border-bottom: 1px solid #D7DBE0
     color: $dark-c
+    height: 100px
 
 .header-container
-    height: 100px
+    height: 100%
     display: flex
     align-items: center
 
@@ -28,6 +29,53 @@ header
     &__logo-img
         display: block
         width: 147px
+
+    &__logo-icon
+        position: absolute
+        color: $base-c
+        font-size: 0
+
+        &.icon-logo-sign
+            bottom: 39px
+            right: 19px
+            &::before
+                font-size: 8px
+
+        &.icon-logo-news
+            bottom: 40px
+            right: 19px
+            &::before
+                font-size: 19px
+
+        &.icon-logo-event
+            bottom: 37px
+            right: 26px
+            &::before
+                font-size: 21px
+
+        &.icon-logo-history
+            bottom: 37px
+            right: 16px
+            &::before
+                font-size: 18px
+
+        &.icon-geo-stroke
+            bottom: 35px
+            right: 19px
+            &::before
+                font-size: 24px
+
+        &.icon-logo-people
+            bottom: 35px
+            right: 17px
+            &::before
+                font-size: 25px
+
+        &.icon-star-sharp
+            bottom: 37px
+            right: 23px
+            &::before
+                font-size: 22px
 
     &__nav
         margin-left: auto

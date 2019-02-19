@@ -68,7 +68,7 @@
     <div class="pop-up-wrapper to-editor">
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Письмо в редакцию</div>
@@ -85,14 +85,11 @@
                                 <div class="select__option" data-value-to-send="event">Рассказать о событии</div>
                                 <div class="select__option" data-value-to-send="history">Поведать историю</div>
                                 <div class="select__option" data-value-to-send="people">Рассказать о герое</div>
-                                <div class="select__option" data-value-to-send="place">Оставить отзыв о месте</div>
                                 <div class="select__option" data-value-to-send="bugreport">Рассказать об ошибке</div>
                             </div>
                         </div>
 
                         <div class="pop-up-form__inputs-set">
-                            <input type="hidden" name="place" value="1">
-
                             <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
                                 <input type="text" name="name" class="input-line input-line_base required-input">
                                 <label class="label-base">Как вас зовут? *</label>
@@ -105,8 +102,9 @@
                                 <input type="tel" name="phone" class="input-line input-line_base">
                                 <label class="label-base">Телефон</label>
                             </div>
-                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
-                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full variable-height-textarea-wrap">
+                                <div class="textarea-behavior variable-height-textarea_hidden"></div>
+                                <textarea name="text" class="input-line input-line_base required-input variable-height-textarea"></textarea>
                                 <label class="label-base">Сообщение *</label>
                             </div>
                         </div>
@@ -144,15 +142,14 @@
     <div class="pop-up-wrapper share-news">
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Поделится хорошей новостью</div>
                 <div class="drop-area-wrap">
                     <form class="pop-up__form js-pop-up__form">
                         <div class="pop-up-form__inputs-set">
-                            <input type="hidden" name="place" value="1">
-
+                            <input type="hidden" name="subject" value="news">
                             <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
                                 <input type="text" name="name" class="input-line input-line_base required-input">
                                 <label class="label-base">Как вас зовут? *</label>
@@ -165,8 +162,9 @@
                                 <input type="tel" name="phone" class="input-line input-line_base">
                                 <label class="label-base">Телефон</label>
                             </div>
-                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
-                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full variable-height-textarea-wrap">
+                                <div class="textarea-behavior variable-height-textarea_hidden"></div>
+                                <textarea name="text" class="input-line input-line_base required-input variable-height-textarea"></textarea>
                                 <label class="label-base">Сообщение *</label>
                             </div>
                         </div>
@@ -204,15 +202,14 @@
     <div class="pop-up-wrapper share-event">
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Поделится событием</div>
                 <div class="drop-area-wrap">
                     <form class="pop-up__form js-pop-up__form">
                         <div class="pop-up-form__inputs-set">
-                            <input type="hidden" name="place" value="1">
-
+                            <input type="hidden" name="subject" value="event">
                             <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
                                 <input type="text" name="name" class="input-line input-line_base required-input">
                                 <label class="label-base">Как вас зовут? *</label>
@@ -225,8 +222,9 @@
                                 <input type="tel" name="phone" class="input-line input-line_base">
                                 <label class="label-base">Телефон</label>
                             </div>
-                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
-                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full variable-height-textarea-wrap">
+                                <div class="textarea-behavior variable-height-textarea_hidden"></div>
+                                <textarea name="text" class="input-line input-line_base required-input variable-height-textarea"></textarea>
                                 <label class="label-base">Сообщение *</label>
                             </div>
                         </div>
@@ -264,15 +262,14 @@
     <div class="pop-up-wrapper share-history">
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Поделится своей историей</div>
                 <div class="drop-area-wrap">
                     <form class="pop-up__form js-pop-up__form">
                         <div class="pop-up-form__inputs-set">
-                            <input type="hidden" name="place" value="1">
-
+                            <input type="hidden" name="subject" value="history">
                             <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
                                 <input type="text" name="name" class="input-line input-line_base required-input">
                                 <label class="label-base">Как вас зовут? *</label>
@@ -285,8 +282,9 @@
                                 <input type="tel" name="phone" class="input-line input-line_base">
                                 <label class="label-base">Телефон</label>
                             </div>
-                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
-                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full variable-height-textarea-wrap">
+                                <div class="textarea-behavior variable-height-textarea_hidden"></div>
+                                <textarea name="text" class="input-line input-line_base required-input variable-height-textarea"></textarea>
                                 <label class="label-base">Сообщение *</label>
                             </div>
                         </div>
@@ -324,15 +322,14 @@
     <div class="pop-up-wrapper share-people">
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Предложить героя</div>
                 <div class="drop-area-wrap">
                     <form class="pop-up__form js-pop-up__form">
                         <div class="pop-up-form__inputs-set">
-                            <input type="hidden" name="place" value="1">
-
+                            <input type="hidden" name="subject" value="people">
                             <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
                                 <input type="text" name="name" class="input-line input-line_base required-input">
                                 <label class="label-base">Как вас зовут? *</label>
@@ -345,8 +342,9 @@
                                 <input type="tel" name="phone" class="input-line input-line_base">
                                 <label class="label-base">Телефон</label>
                             </div>
-                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
-                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full variable-height-textarea-wrap">
+                                <div class="textarea-behavior variable-height-textarea_hidden"></div>
+                                <textarea name="text" class="input-line input-line_base required-input variable-height-textarea"></textarea>
                                 <label class="label-base">Сообщение *</label>
                             </div>
                         </div>
@@ -384,7 +382,7 @@
     <div class="pop-up-wrapper share-place">
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Добавить отзыв о месте</div>
@@ -406,8 +404,9 @@
                                 <input type="tel" name="phone" class="input-line input-line_base">
                                 <label class="label-base">Телефон</label>
                             </div>
-                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
-                                <textarea name="text" class="input-line input-line_base required-input"></textarea>
+                            <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full variable-height-textarea-wrap">
+                                <div class="textarea-behavior variable-height-textarea_hidden"></div>
+                                <textarea name="text" class="input-line input-line_base required-input variable-height-textarea"></textarea>
                                 <label class="label-base">Сообщение *</label>
                             </div>
                         </div>
@@ -433,18 +432,20 @@
     <div class="pop-up-wrapper bugreport">
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close"></button>
+            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content js-drop-area">
                 <div class="pop-up__title">Сообщение об ошибке</div>
                 <form class="pop-up__form js-pop-up__form">
                     <div class="pop-up-form__inputs-set">
                         <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
-                            <input type="text" name="url" class="input-line input-line_base required-input fill">
+                            <input type="text" name="url" class="input-line input-line_base required-input">
                             <label class="label-base">URL-адрес страницы *</label>
                         </div>
-                        <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
-                            <textarea name="text" class="input-line input-line_base required-input js-error-selection-textarea"></textarea>
+                        <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full variable-height-textarea-wrap">
+                            <div class="textarea-behavior variable-height-textarea_hidden"></div>
+                            <textarea name="text" class="input-line input-line_base required-input variable-height-textarea js-error-selection-textarea"></textarea>
+                            <label class="label-base">Сообщение *</label>
                         </div>
                     </div>
 

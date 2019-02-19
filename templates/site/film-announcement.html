@@ -26,10 +26,10 @@
             <div class="base-layout">
                 <div class="base-layout__main">
                     <article class="publication film">
+                        <h1 class="film-title">{{ film.title }}</h1>
                         <div class="film-header">
                             <img src="{{ film.cover|get_thumbnail_url_by_name:"film_detail" }}" alt="" class="film-cover">
                             <div class="film-info">
-                                <h1 class="film-title">{{ film.title }}</h1>
                                 <table class="film-info-table">
                                     <tr>
                                         <td>Год:</td>
@@ -119,16 +119,9 @@
                     <div class="aside-widget">
                         {% include "site/page-block/aside-subscribe-widget.html" %}
                     </div>
-{#                    <div class="aside-widget">#}
-{#                        <a href="event-announcement.html" class="nearest-event-widget__item">#}
-{#                            <img src="images/aside-banner2.jpg" alt="" class="nearest-event-widget__img">#}
-{#                        </a>#}
-{#                    </div>#}
-{#                    <div class="aside-widget">#}
-{#                        <a href="event-announcement.html" class="nearest-event-widget__item">#}
-{#                            <img src="images/aside-banner3.jpg" alt="" class="nearest-event-widget__img">#}
-{#                        </a>#}
-{#                    </div>#}
+
+                    {% get_banner %}
+
                 </aside>
             </div>
         </div>
@@ -136,5 +129,5 @@
 {% endblock %}
 
 {% block additional_content %}
-    {% read_also %}
+    {% include "site/page-block/movie-posters-widget.html" %}
 {% endblock %}

@@ -47,7 +47,7 @@
         &:hover,
         &:focus
             .last-news-item__title
-                text-decoration: underline
+                color: $base-c
 
     &__img
         display: block
@@ -101,11 +101,12 @@
         display: block
         margin-bottom: 20px
         font-size: $medium-fz
+        font-family: $bold-f
         color: $dark-c
         text-decoration: none
 
         &:hover
-            color: $base-dark-c
+            color: $base-c
 
     &__text
         margin-bottom: 40px
@@ -117,3 +118,8 @@
         font-family: $add-f
         letter-spacing: 0.08em
         color: $base-gray
+
+.news-details-content
+    width: 640px
+    margin-right: auto
+    margin-left: auto

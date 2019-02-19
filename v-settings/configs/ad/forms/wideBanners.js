@@ -36,7 +36,8 @@ const state = {
                                 width: 10,
                                 codename: 'link',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
+                                placeholder: 'http(s)://'
                             }
                         ]
                     },
@@ -105,8 +106,8 @@ const state = {
                                 invalid: false,
                                 width: 12,
                                 image: {
-                                    width: 2596,
-                                    height: 300,
+                                    width: 2600,
+                                    height: 320,
                                 },
                                 codename: 'cover',
                                 widget: 'singleImageLoader',

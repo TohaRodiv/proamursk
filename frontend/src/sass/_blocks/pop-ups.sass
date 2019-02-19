@@ -35,7 +35,7 @@
     background-position: center center
     background-repeat: no-repeat
     cursor: pointer
-    background-color: rgba(#C3CEDF, .8)
+    background-color: rgba(#7F8DA4, .9)
     backdrop-filter: blur(2px)
 
 .pop-up__close
@@ -73,6 +73,10 @@
         .pop-up-inner-container
             animation: zoomIn $transition-time ease-out forwards
 
+    &.search .pop-up-inner-container
+        margin-top: 180px
+        align-self: flex-start
+
 .pop-up-content
     position: relative
     background-color: $light-c
@@ -80,8 +84,8 @@
 
 .pop-up-inner-container
     position: relative
-    margin: 180px auto 40px
-    align-self: flex-start
+    margin: 40px auto 60px
+    align-self: center
 
 .pop-up
     &__title
@@ -124,7 +128,8 @@
         justify-content: space-between
 
     &__input-wrap
-        margin-bottom: 40px
+        &:not(:last-child)
+            margin-bottom: 40px
 
         &_full
             width: 100%
@@ -133,8 +138,10 @@
             width: calc(50% - 20px)
 
     &__attachment
+        margin-top: 40px
 
     &__agrement
+        width: 345px
         margin-right: 60px
         font-size: 14px
         opacity: .8

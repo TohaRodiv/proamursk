@@ -11,13 +11,37 @@ from cp_vue.api.serializers import ModelSerializer
 from cp_vue.api.fields import ObjectRelatedField
 from applications.mediafiles.models import MediaFile
 from applications.root.models import TopItem
+from applications.root.cp.serializers import (EventsListSerializer, ReportsListSerializer, PersonsListSerializer,
+                                              HistoryListSerializer, CityGuidesListSerializer, PlacesListSerializer,
+                                              SpecialsListSerializer)
 from ..models import Page, ContentBlock
 
 
 class TopItemSerializer(ModelSerializer):
+    item = serializers.SerializerMethodField()
+
     class Meta:
         model = TopItem
-        fields = ('id', 'codename', 'object_id', 'weight')
+        fields = ('id', 'entity', 'object_id', 'weight', 'item')
+
+    def get_item(self, instance):
+        obj = instance.get_object()
+        slz = self.get_item_serializer(instance.entity)
+        data = slz(obj).data
+        return data
+
+    def get_item_serializer(self, codename):
+        slz = {
+            "event-announcements": EventsListSerializer,
+            "reports": ReportsListSerializer,
+            "persons": PersonsListSerializer,
+            "history": HistoryListSerializer,
+            "city-guides": CityGuidesListSerializer,
+            "places": PlacesListSerializer,
+            "specials": SpecialsListSerializer
+        }
+
+        return slz.get(codename)
 
 
 class ContentBlockSerializer(ModelSerializer):
@@ -53,6 +77,7 @@ class PageSettingDetailSerializer(ModelSerializer):
         textarea='text',
         singleImageLoader='mediafile',
         formatter='text',
+        singleCheckbox='bool',
         simpleInput=dict(
             field='string'
         )
@@ -79,14 +104,15 @@ class PageSettingDetailSerializer(ModelSerializer):
                                 for item in elements:
                                     widget = item.get('widget')
                                     codename = item.get('codename')
-                                    if widget == 'simpleInput':
-                                        widget_type = item.get('type')
-                                        data_type = self.WIDGET_DATA_TYPES.get(widget, dict()).get(widget_type)
-                                    else:
-                                        data_type = self.WIDGET_DATA_TYPES.get(widget)
+                                    if codename not in [f.name for f in Page._meta.get_fields()]:
+                                        if widget == 'simpleInput':
+                                            widget_type = item.get('type')
+                                            data_type = self.WIDGET_DATA_TYPES.get(widget, dict()).get(widget_type)
+                                        else:
+                                            data_type = self.WIDGET_DATA_TYPES.get(widget)
 
-                                    if data_type and codename:
-                                        blocks_data.append(dict(data_type=data_type, codename=codename))
+                                        if data_type and codename:
+                                            blocks_data.append(dict(data_type=data_type, codename=codename))
 
         return blocks_data
 
@@ -145,12 +171,13 @@ class StaticPagesDetailSerializer(ModelSerializer):
         'string': serializers.CharField,
         'url': serializers.CharField,
         'mediafile': ObjectRelatedField,
+        'bool': serializers.BooleanField,
     }
 
     og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
                                   required=False, allow_null=True)
 
-    top_items = TopItemSerializer(many=True, required=True)
+    top_items = TopItemSerializer(many=True, required=False)
 
     class Meta:
         model = Page
@@ -159,8 +186,10 @@ class StaticPagesDetailSerializer(ModelSerializer):
         read_only_fields = ('id', 'name', 'create_date', 'edit_date')
 
     def validate_top_items(self, data):
-        if len(data) < 4:
-            raise serializers.ValidationError("Необходимо выбрать 4 записи")
+        if self.instance.pk and self.instance.codename in ['index', 'events-index', 'reports-list', 'history-list',
+                                                           'persons-list', 'places-list']:
+            if len(data) < 4:
+                raise serializers.ValidationError("Необходимо выбрать 4 записи")
 
         return data
 

@@ -13,7 +13,7 @@ class SettingsSerializer(ModelSerializer):
 
     class Meta:
         model = Settings
-        fields = ('mailer_lite_api_key', 'instagram', 'odnoklassniki', 'show_banner_on_main_page', 'copyright',
+        fields = ('mailer_lite_api_key', 'instagram', 'odnoklassniki', 'copyright',
                   'yandex_count', 'google_count', 'meta_tags', 'robots', 'disable_site', 'disable_title',
                   'disable_text', 'create_date', 'edit_date')
 

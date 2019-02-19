@@ -1,29 +1,30 @@
 <header>
     <div class="container header-container">
         <a href="index.html" class="header__logo-link">
+            <img src="images/svg/logo-header.svg" alt="проАмурск" class="header__logo-img">
             @@if (page === "index") {
-                <img src="images/svg/logo-black.svg" alt="проАмурск" class="header__logo-img">
+                <span class="header__logo-icon icon-logo-sign"></span>
             }
 
             @@if (page === "news") {
-                <img src="images/svg/logo_news.svg" alt="проАмурск" class="header__logo-img">
+                <span class="header__logo-icon icon-logo-news"></span>
             }
 
             @@if (page === "event") {
-                <img src="images/svg/logo_event.svg" alt="проАмурск" class="header__logo-img">
+                <span class="header__logo-icon icon-logo-event"></span>
             }
 
             @@if (page === "history") {
-                <img src="images/svg/logo_history.svg" alt="проАмурск" class="header__logo-img">
+                <span class="header__logo-icon icon-logo-history"></span>
             }
             @@if (page === "place") {
-                <img src="images/svg/logo_place.svg" alt="проАмурск" class="header__logo-img">
+                <span class="header__logo-icon icon-geo-stroke"></span>
             }
             @@if (page === "people") {
-                <img src="images/svg/logo_people.svg" alt="проАмурск" class="header__logo-img">
+                <span class="header__logo-icon icon-logo-people"></span>
             }
             @@if (page === "special-projects") {
-                <img src="images/svg/logo_special-projects.svg" alt="проАмурск" class="header__logo-img">
+                <span class="header__logo-icon icon-star-sharp"></span>
             }
 
             <span class="header__logo-subtext">МЕСТА, СОБЫТИЯ, ЛЮДИ</span>

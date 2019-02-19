@@ -112,11 +112,11 @@ class CityGuidesCpViewSet(CpViewSet):
     path = 'city-guides'
     model = CityGuide
     queryset = CityGuide.objects.all()
-    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
+    available_actions = dict(delete='Удаление')
     serializer_class = CityGuidesDetailSerializer
     list_serializer_class = CityGuidesListSerializer
     filter_class = CityGuidesFilter
-    ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
+    ordering_fields = ('id', 'title', 'edit_date', 'create_date')
 
 
 class PlacesCpViewSet(CpViewSet):

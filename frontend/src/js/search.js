@@ -1,5 +1,6 @@
 function hideSearch() {
     $('.js-close-search').addClass('hidden');
+    $('.header__search-btn').removeClass('visually-hidden');
     clearSearch();
     hidePopUps();
 }
@@ -38,6 +39,7 @@ $('.search-form').submit(function (event) {
 $('body').on('click', '.header__search-btn', function () {
     showPopUp('search');
     $('.js-close-search').removeClass('hidden');
+    $('.header__search-btn').addClass('visually-hidden');
 });
 
 $('body').on('click', '.js-close-search, .search .back', hideSearch);

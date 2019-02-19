@@ -34,8 +34,10 @@ function hidePopUps() {
     $('.pop-up-wrapper').removeClass('visible');
     $('.pop-up-wrapper form').find('input, textarea').not('[type="hidden"]').not('[type="checkbox"]').not('[type="radio"]').not('[readonly]').not('.disabled').not('[type="submit"]').val('');
     $('.pop-up-wrapper form').find('[type="checkbox"], [type="radio"]').prop('checked', false);
-    $('.pop-up-wrapper form').find('input, textarea, label').removeClass('has-error');
+    $('.pop-up-wrapper form').find('input, textarea, label').removeClass('has-error fill');
+    resizeTextarea($('.variable-height-textarea'), 27, 120);
     clearAllSelect();
+    clearFileInput();
 }
 
 // Показывает туман войны

@@ -8,10 +8,10 @@
         <div class="base-layout">
             <div class="base-layout__main">
                 <article class="publication film">
+                    <h1 class="film-title">Богемская рапсодия</h1>
                     <div class="film-header">
                         <img src="images/poster2.jpg" alt="" class="film-cover">
                         <div class="film-info">
-                            <h1 class="film-title">Богемская рапсодия</h1>
                             <table class="film-info-table">
                                 <tr>
                                     <td>Год:</td>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
 
-                        <div class="film-seance__note">Возможны изменения, расписание учняйте по телефону 8 42142 999-53</div>
+                        <div class="film-seance__note">Возможны изменения, расписание уточняйте по телефону: 8 (42142) 999-53</div>
                     </div>
 
                     <div class="film-description wysiwyg-container">
@@ -155,21 +155,23 @@
                     @@include("page-block/aside-subscribe-widget.html")
                 </div>
                 <div class="aside-widget">
-                    <a href="event-announcement.html" class="nearest-event-widget__item">
-                        <img src="images/aside-banner2.jpg" alt="" class="nearest-event-widget__img">
-                    </a>
+                    @@include("page-block/sidebar-banner.html", {
+                        "link": "news-details.html",
+                        "img": "images/aside-banner2.jpg"
+                    })
                 </div>
                 <div class="aside-widget">
-                    <a href="event-announcement.html" class="nearest-event-widget__item">
-                        <img src="images/aside-banner3.jpg" alt="" class="nearest-event-widget__img">
-                    </a>
+                    @@include("page-block/sidebar-banner.html", {
+                        "link": "news-details.html",
+                        "img": "images/aside-banner3.jpg"
+                    })
                 </div>
             </aside>
         </div>
     </div>
 </main>
 
-@@include("page-block/read-also.html")
+@@include("page-block/movie-posters-widget.html")
 
 @@include('page-block/footer.html')
 @@include('page-block/page-end.html')

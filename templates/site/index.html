@@ -1,4 +1,5 @@
 {% extends "site/base.html" %}
+{% load static static_version %}
 {% load utils_tags media_filters site_tags %}
 
 {% block title %}
@@ -28,7 +29,7 @@
                 {% for top_item in top_objects %}
 
                     {% if forloop.counter == 1 %}
-                        {% with item=top_item.get_object css_class='grid-publication_format-full grid-publication_text-size-big' cover_name="8_column_img" %}
+                        {% with item=top_item.get_object css_class='grid-publication_text-size-big' cover_name="8_column_img" %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -39,7 +40,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 2 %}
-                        {% with item=top_item.get_object css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" %}
+                        {% with item=top_item.get_object cover_name="3_column_img_"|add:top_item.get_object.cover_format %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -50,7 +51,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 3 %}
-                        {% with item=top_item.get_object css_class='grid-publication_format-full grid-publication_text-size-base' cover_name="3_column_img" %}
+                        {% with item=top_item.get_object css_class='grid-publication_text-size-base' cover_name="3_column_img_"|add:top_item.get_object.cover_format %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -61,7 +62,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 4 %}
-                        {% with item=top_item.get_object css_class='grid-publication_format-base grid-publication_cover-format-6col' cover_name="6_column_img" %}
+                        {% with item=top_item.get_object cover_name="6_column_img_"|add:top_item.get_object.cover_format %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -75,25 +76,30 @@
             </div>
         </div>
 
-        <div class="layout-section slider full-width-slider">
-            <div class="slider-container">
-                {% for item in specials %}
-                    <div class="slide">
-                        {% with cover_name="specials_index" class="grid-publication_full-width-slider" %}
-                            {% include "site/modules/special-project.html" %}
-                        {% endwith %}
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="slider-circles-container"></div>
-            {%  if specials|length > 1 %}
-                <div class="slider-arrow-container">
-                    <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>
-                    <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>
+        {% if content_blocks.show_banner.content %}
+            <a href="" class="layout-section container banner">
+                <img src="{{ wide_banner.cover|get_thumbnail_url_by_name:"wide_banner" }}" alt="" class="banner__img">
+            </a>
+        {% else %}
+            <div class="layout-section slider full-width-slider">
+                <div class="slider-container">
+                    {% for item in specials %}
+                        <div class="slide">
+                            {% with cover_name="specials_index" class="grid-publication_full-width-slider" %}
+                                {% include "site/modules/special-project.html" %}
+                            {% endwith %}
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endif %}
-        </div>
-
+                <div class="slider-circles-container"></div>
+                {%  if specials|length > 1 %}
+                    <div class="slider-arrow-container">
+                        <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>
+                        <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
         <div class="container layout-section">
             <h2 class="section__title">ЧЕМ ЗАНЯТЬСЯ В АМУРСКЕ?</h2>
             <div class="todo-layout">
@@ -101,7 +107,7 @@
 
                 {% for item in what_to_do %}
                     {% if forloop.counter == 1 %}
-                        {% with model_name=item|get_model_name css_class='grid-publication_format-full grid-publication_text-size-big' cover_name="8_column_img" %}
+                        {% with model_name=item|get_model_name css_class='grid-publication_text-size-big' cover_name="8_column_img" %}
                             {% if model_name == 'event' or model_name == 'report' %}
                                 {% include "site/modules/grid-event.html" %}
                             {% else %}
@@ -109,7 +115,7 @@
                             {% endif %}
                         {% endwith %}
                     {% else %}
-                        {% with model_name=item|get_model_name css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" %}
+                        {% with model_name=item|get_model_name cover_name="3_column_img_"|add:item.cover_format %}
                             {% if model_name == 'event' or model_name == 'report' %}
                                 {% include "site/modules/grid-event.html" %}
                             {% else %}

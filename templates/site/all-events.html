@@ -1,13 +1,31 @@
 {% extends "site/base.html" %}
-{% load static static_version %}
+{% load static static_version utils_tags %}
+{% load media_filters %}
+
+{% block title %}
+    {% if content_page %}
+        {{ content_page.meta_title|default:content_page.name }}
+    {% endif %}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ content_page.meta_keywords }}">
+    <meta name="description" content="{{ content_page.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% if content_page %}
+        {% og_meta_tags og_title=content_page.meta_title|default:content_page.name og_description=content_page.meta_description og_image=content_page.og_image|get_thumbnail_url_by_name:"og_image_default" %}
+    {% endif %}
+{% endblock %}
 
 {% block content %}
     <main class="light-bg">
         <div class="container">
             <div class="base-layout">
-                {% if events %}
+                {% if top_objects %}
                     <div class="base-layout__main">
-                        {% with item=events.0 css_class='grid-publication_format-full grid-publication_text-size-big' cover_name="8_column_img" %}
+                        {% with item=top_objects.0 css_class='grid-publication_text-size-big' cover_name="8_column_img" %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     </div>
@@ -27,19 +45,19 @@
             </div>
 
             <div class="base-3items-grid">
-                {% for item in events|slice:"1:4" %}
+                {% for item in top_objects|slice:"1:4" %}
                     {% if forloop.counter == 1 %}
-                        {% with css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" %}
+                        {% with cover_name="3_column_img_"|add:item.cover_format %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 2 %}
-                        {% with css_class='grid-publication_format-full grid-publication_text-size-base' cover_name="3_column_img" %}
+                        {% with css_class='grid-publication_text-size-base' cover_name="3_column_img_"|add:item.cover_format %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 3 %}
-                        {% with css_class='grid-publication_format-base grid-publication_cover-format-6col' cover_name="6_column_img" %}
+                        {% with css_class='grid-publication_cover-format-6col' cover_name="6_column_img_"|add:item.cover_format %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     {% endif %}
@@ -47,8 +65,8 @@
             </div>
 
             <div class="base-4items-grid">
-                {% for item in events|slice:"4:" %}
-                    {% with css_class='grid-publication_format-base grid-publication_cover-format-bigger' cover_name="3_column_img" %}
+                {% for item in events %}
+                    {% with cover_name="3_column_img_"|add:item.cover_format %}
                         {% include "site/modules/grid-event.html" %}
                     {% endwith %}
                 {% endfor %}

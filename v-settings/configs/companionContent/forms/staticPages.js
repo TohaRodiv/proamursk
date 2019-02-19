@@ -10,6 +10,82 @@ const dict = {
     specials: 'Спецпроект'
 }
 
+const valuesForIndex = [
+    {
+        codename: 'event-announcements',
+        name: 'Анонс события',
+        id: 1
+    },
+    {
+        codename: 'reports',
+        name: 'Репортаж о событии',
+        id: 2
+    },
+    {
+        codename: 'history',
+        name: 'Историческая статья',
+        id: 3
+    },
+    {
+        codename: 'persons',
+        name: 'Статья о жителе Амурска',
+        id: 4
+    },
+    {
+        codename: 'places',
+        name: 'Статья о месте',
+        id: 5
+    },
+    {
+        codename: 'city-guides',
+        name: 'Гид по городу',
+        id: 6
+    },
+    {
+        codename: 'specials',
+        name: 'Спецпроект',
+        id: 7
+    },
+]
+
+const valuesForEvents = [
+    {
+        codename: 'event-announcements',
+        name: 'Анонс события',
+        id: 1
+    },
+    {
+        codename: 'reports',
+        name: 'Репортаж о событии',
+        id: 2
+    }
+]
+
+const valuesForPlaces = [
+    {
+        codename: 'places',
+        name: 'Статья о месте',
+        id: 1
+    }
+]
+
+const valuesForPersons = [
+    {
+        codename: 'persons',
+        name: 'Статья о жителе Амурска',
+        id: 1
+    }
+]
+
+const valuesForHistory = [
+    {
+        codename: 'history',
+        name: 'Историческая статья',
+        id: 1
+    }
+]
+
+
 const state = {
     formsOptions: {
         'static-pages': [
@@ -17,27 +93,6 @@ const state = {
                 id: 98,
                 title: 'КОНТЕНТ',
                 blocks: [
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                isBlocked: true,
-                                type: 'field',
-                                label: 'Коднейм',
-                                width: 12,
-                                codename: 'codename',
-                                widget: 'simpleInput',
-                                hint: '',
-                                controlFlag: {
-                                    toBeChecked: 'codename',
-                                    value: 'places',
-                                    flag: 'isPlaces'
-                                }
-                            }
-                        ]
-                    },
                     {
                         labelPosition: 'top',
                         direction: 'row',
@@ -63,14 +118,10 @@ const state = {
                                         type: 'vertical_list',
                                         list: [
                                             {
-                                                requiredValue: {
-                                                    route: 'codename',
-                                                    id: 'object_id',
-                                                    field: 'title'
-                                                }
+                                                requiredValue: 'item.title'
                                             },
                                             {
-                                                requiredValue: 'codename',
+                                                requiredValue: 'entity',
                                                 isTransparent: true,
                                                 value: dict
                                             }
@@ -91,10 +142,10 @@ const state = {
                                                         label: 'Тип материала',
                                                         width: 6,
                                                         widget: 'singleSelector',
-                                                        codename: 'codename',
+                                                        codename: 'entity',
                                                         required: true,
                                                         sortFlag: {
-                                                            value: 'codename',
+                                                            value: 'id',
                                                             direction: 'asc'
                                                         },
                                                         view_structure: [
@@ -104,43 +155,8 @@ const state = {
                                                             },
                                                         ],
                                                         hint: '',
-                                                        available_values: [
-                                                            {
-                                                                codename: 'event-announcements',
-                                                                name: 'Анонс события',
-                                                                id: 1
-                                                            },
-                                                            {
-                                                                codename: 'reports',
-                                                                name: 'Репортаж о событии',
-                                                                id: 2
-                                                            },
-                                                            {
-                                                                codename: 'history',
-                                                                name: 'Историческая статья',
-                                                                id: 3
-                                                            },
-                                                            {
-                                                                codename: 'persons',
-                                                                name: 'Статья о жителе Амурска',
-                                                                id: 4
-                                                            },
-                                                            {
-                                                                codename: 'places',
-                                                                name: 'Статья о месте',
-                                                                id: 5
-                                                            },
-                                                            {
-                                                                codename: 'city-guides',
-                                                                name: 'Гид по городу',
-                                                                id: 6
-                                                            },
-                                                            {
-                                                                codename: 'specials',
-                                                                name: 'Спецпроект',
-                                                                id: 7
-                                                            },
-                                                        ]
+                                                        available_values: valuesForIndex,
+                                                        returnFromAvailableValues: 'codename'
                                                     }
                                                 ]
                                             },
@@ -154,7 +170,7 @@ const state = {
                                                         label: 'Анонс события',
                                                         width: 12,
                                                         required: true,
-                                                        isBlocked: true,
+                                                        isBlocked: false,
                                                         widget: 'singleSelector',
                                                         sortFlag: {
                                                             value: 'id',
@@ -168,8 +184,7 @@ const state = {
                                                         ],
                                                         hint: '',
                                                         api_route: 'event-announcements',
-                                                        codename: 'object_id',
-                                                        returnFromAvailableValues: 'id'
+                                                        codename: 'item'
                                                     }
                                                 ]
                                             }
@@ -192,8 +207,8 @@ const state = {
         'static-pages': {
             onChangePopup: {
                 top_items: {
-                    codename: {
-                        object_id: function (from, widget, data) {
+                    entity: {
+                        item: function (from, widget, data) {
                             let selector = widget.popup_structure[0].blocks[1].elements[0]
                             let list = widget.entity_structure[0].list[0]
                             if (data[from]) {
@@ -204,12 +219,60 @@ const state = {
                                 vue.set(selector, 'isBlocked', true)
                             }
                             // Сброс данных второго селектора
-                            vue.set(data, 'object_id', null)
                             vue.set(selector, 'resetFlag', true)
                         }
                     },
+                    item: {
+                        item: function (from, widget, data) {
+                            vue.set(data, 'object_id', data.item.id)
+                        }
+                    }
                 },
             },
+            onMount: {
+                top_items: function (widget, data) {
+                    let firstSelector = widget.popup_structure[0].blocks[0].elements[0]
+                    let secondSelector = widget.popup_structure[0].blocks[1].elements[0]
+                    if (data['codename'] == 'index') {
+                        vue.set(secondSelector, 'api_route', 'event-announcements')
+                        vue.set(secondSelector, 'label', dict['event-announcements'])
+                        vue.set(secondSelector, 'isBlocked', true)
+                        vue.set(firstSelector, 'available_values', valuesForIndex)
+                        vue.set(widget, 'show', true)
+                    }
+                    else if (data['codename'] == 'events-index') {
+                        vue.set(secondSelector, 'api_route', 'event-announcements')
+                        vue.set(secondSelector, 'label', dict['event-announcements'])
+                        vue.set(secondSelector, 'isBlocked', true)
+                        vue.set(firstSelector, 'available_values', valuesForEvents)
+                        vue.set(widget, 'show', true)
+                    }
+                    else if (data['codename'] == 'history-list') {
+                        vue.set(firstSelector, 'available_values', valuesForHistory)
+                        vue.set(secondSelector, 'api_route', 'history')
+                        vue.set(secondSelector, 'label', dict['history'])
+                        vue.set(secondSelector, 'isBlocked', false)
+                        vue.set(widget, 'show', true)
+                    }
+                    else if (data['codename'] == 'places-list') {
+                        vue.set(firstSelector, 'available_values', valuesForPlaces)
+                        vue.set(secondSelector, 'api_route', 'places')
+                        vue.set(secondSelector, 'label', dict['places'])
+                        vue.set(secondSelector, 'isBlocked', false)
+                        vue.set(widget, 'show', true)
+                    }
+                    else if (data['codename'] == 'persons-list') {
+                        vue.set(firstSelector, 'available_values', valuesForPersons)
+                        vue.set(secondSelector, 'api_route', 'persons')
+                        vue.set(secondSelector, 'label', dict['persons'])
+                        vue.set(secondSelector, 'isBlocked', false)
+                        vue.set(widget, 'show', true)
+                    }
+                    else {
+                        vue.set(widget, 'show', false)
+                    }
+                }
+            }
         },
     },
 };

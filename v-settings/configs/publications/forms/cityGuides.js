@@ -1,3 +1,23 @@
+import vue from 'vue'
+
+const valuesForItems = [
+    {
+        codename: 'hotel',
+        name: 'Где остановиться?',
+        id: 1
+    },
+    {
+        codename: 'food',
+        name: 'Где поесть?',
+        id: 2
+    },
+    {
+        codename: 'activities',
+        name: 'Что посмотреть?',
+        id: 3
+    }
+]
+
 
 const state = {
     formsOptions: {
@@ -151,45 +171,402 @@ const state = {
                 ]
             },
             {
-                id: 2,
+                id: 98,
                 title: 'КОНТЕНТ',
                 blocks: [
                     {
-                        labelPosition: 'left',
+                        labelPosition: 'top',
                         modClass: 'marginBottom22',
                         direction: 'row',
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Лид',
-                                required: true,
-                                invalid: false,
+                                label: 'Тип материала',
                                 width: 12,
-                                height: 60,
-                                codename: 'lead',
-                                widget: 'textarea',
-                                modClass: 'marginBottom22',
-                                hint: ''
+                                widget: 'singleSelector',
+                                codename: 'guide_format',
+                                required: true,
+                                sortFlag: {
+                                    value: 'id',
+                                    direction: 'asc'
+                                },
+                                view_structure: [
+                                    {
+                                        value: 'name',
+                                        flex: 1.5,
+                                    },
+                                ],
+                                hint: '',
+                                available_values: valuesForItems,
+                                returnFromAvailableValues: 'codename'
                             }
                         ]
-
                     },
                     {
-                        labelPosition: 'left',
+                        labelPosition: 'top',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        hasWideLabel: true,
                         elements: [
                             {
-                                label: '',
+                                isBlocked: true,
+                                type: 'field',
+                                label: 'Места',
+                                popupLabels: {
+                                    new: 'Место в гиде по городу',
+                                    existing: 'Место в гиде по городу',
+                                },
+                                dragOrder: 'weight',
                                 required: false,
                                 invalid: false,
-                                widget: 'formatter',
-                                codename: 'content',
-                                width: 12,
-                                hint: ''
+                                isDraggable: true,
+                                widget: 'childEntity',
+                                codename: 'items',
+                                requireSendId: true,
+                                hint: '',
+                                entity_structure: [
+                                    {
+                                        type: 'vertical_list',
+                                        list: [
+                                            {
+                                                requiredValue: 'title'
+                                            }
+                                        ]
+                                    },
+                                ],
+                                popup_structure: [
+                                    {
+                                        id: 1,
+                                        blocks: [
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        label: 'Название',
+                                                        width: 12,
+                                                        widget: 'simpleInput',
+                                                        codename: 'title',
+                                                        required: true,
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        label: 'Описание',
+                                                        width: 12,
+                                                        height: 140,
+                                                        widget: 'textarea',
+                                                        codename: 'description',
+                                                        required: true,
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom50',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        label: 'Материал об этом месте',
+                                                        width: 12,
+                                                        widget: 'singleSelector',
+                                                        sortFlag: {
+                                                            value: 'id',
+                                                            direction: 'asc'
+                                                        },
+                                                        view_structure: [
+                                                            {
+                                                                value: 'title',
+                                                                flex: 1.5,
+                                                            },
+                                                        ],
+                                                        hint: '',
+                                                        api_route: 'places',
+                                                        codename: 'place',
+                                                        returnFromAvailableValues: 'id'
+                                                    }
+                                                ]
+                                            },
+
+                                            // Где остановиться?
+                                            // index: 3
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        show: false,
+                                                        type: 'field',
+                                                        label: 'Одноместный номер',
+                                                        width: 6,
+                                                        widget: 'simpleInput',
+                                                        codename: 'single_room_price',
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            // index: 4
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        show: false,
+                                                        type: 'field',
+                                                        label: 'Номер люкс',
+                                                        width: 6,
+                                                        widget: 'simpleInput',
+                                                        codename: 'luxury_room_price',
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            // index: 5
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        show: false,
+                                                        type: 'field',
+                                                        label: 'Питание',
+                                                        width: 6,
+                                                        widget: 'simpleInput',
+                                                        codename: 'nutrition_info',
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+
+                                            // Где поесть?
+                                            // index: 6
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        show: false,
+                                                        type: 'field',
+                                                        label: 'Кухня',
+                                                        width: 6,
+                                                        widget: 'simpleInput',
+                                                        codename: 'kitchen',
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            // index: 7
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        show: false,
+                                                        type: 'field',
+                                                        label: 'Средний чек',
+                                                        width: 6,
+                                                        widget: 'simpleInput',
+                                                        codename: 'avg_value',
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            // index: 8
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        show: false,
+                                                        type: 'field',
+                                                        label: 'Входной билет',
+                                                        width: 6,
+                                                        widget: 'simpleInput',
+                                                        codename: 'enter_price',
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            // index: 9
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        show: false,
+                                                        type: 'field',
+                                                        label: 'Время работы',
+                                                        width: 10,
+                                                        widget: 'simpleInput',
+                                                        codename: 'work_time',
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        label: 'Телефон',
+                                                        width: 4,
+                                                        widget: 'simpleInput',
+                                                        codename: 'phone',
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        label: 'Ссылка на сайт',
+                                                        width: 8,
+                                                        widget: 'simpleInput',
+                                                        codename: 'site',
+                                                        hint: '',
+                                                        placeholder: 'http(s)://'
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        label: 'Профиль в Instagram',
+                                                        width: 8,
+                                                        widget: 'simpleInput',
+                                                        codename: 'instagram',
+                                                        hint: '',
+                                                        placeholder: 'http(s)://'
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        label: 'Адрес, отображаемый на сайте',
+                                                        width: 8,
+                                                        required: true,
+                                                        widget: 'simpleInput',
+                                                        codename: 'address',
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom50',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        label: 'Точка на карте',
+                                                        widget: 'geoinput',
+                                                        codename: 'coordinates',
+                                                        width: 12,
+                                                        hint: ''
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                modClass: 'marginBottom22',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        label: 'Слайдер',
+                                                        width: 12,
+                                                        widget: 'singleSelector',
+                                                        sortFlag: {
+                                                            value: 'id',
+                                                            direction: 'asc'
+                                                        },
+                                                        view_structure: [
+                                                            {
+                                                                value: 'title',
+                                                                flex: 1.5,
+                                                            },
+                                                        ],
+                                                        hint: '',
+                                                        api_route: 'sliders',
+                                                        codename: 'slider',
+                                                        returnFromAvailableValues: 'id'
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                direction: 'row',
+                                                modClass: 'marginBottom50',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        inputID: 'cityGuidesCoverInput',
+                                                        dragID: 'cityGuidesCoverDrag',
+                                                        label: 'Изображение',
+                                                        expected_value: 'medium_url',
+                                                        width: 12,
+                                                        image: {
+                                                            width: 1720,
+                                                            height: 1144,
+                                                        },
+                                                        codename: 'cover',
+                                                        widget: 'singleImageLoader',
+                                                        requireSendId: true,
+                                                        key_attr: 'id',
+                                                        hint: ''
+                                                    },
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                direction: 'row',
+                                                elements: [
+                                                    {
+                                                        label: 'Активное место (неактивные места не отображаются на сайте)',
+                                                        codename: 'is_active',
+                                                        widget: 'singleCheckbox',
+                                                        hint: '',
+                                                        marginLeft: true
+                                                    }
+                                                ]
+                                            },
+                                        ]
+                                    }
+                                ]
                             }
                         ]
-                    },
+                    }
                 ]
             },
             {
@@ -314,6 +691,55 @@ const state = {
             hint: 'Страницы неактивных записей не отображаются на сайте',
         }
     },
+    formsEvents: {
+        'city-guides': {
+            onChange: {
+                guide_format: {
+                    items: function (from, widget, formsData) {
+                        let single_room_price = widget.popup_structure[0].blocks[3].elements[0]
+                        let luxury_room_price = widget.popup_structure[0].blocks[4].elements[0]
+                        let nutrition_info = widget.popup_structure[0].blocks[5].elements[0]
+                        let kitchen = widget.popup_structure[0].blocks[6].elements[0]
+                        let avg_value = widget.popup_structure[0].blocks[7].elements[0]
+                        let enter_price = widget.popup_structure[0].blocks[8].elements[0]
+                        let work_time = widget.popup_structure[0].blocks[9].elements[0]
+                        if (formsData[from] == 'hotel') {
+                            vue.set(widget, 'isBlocked', false)
+                            vue.set(single_room_price, 'show', true)
+                            vue.set(luxury_room_price, 'show', true)
+                            vue.set(nutrition_info, 'show', true)
+                            vue.set(kitchen, 'show', false)
+                            vue.set(avg_value, 'show', false)
+                            vue.set(enter_price, 'show', false)
+                            vue.set(work_time, 'show', false)
+                        } else if (formsData[from] == 'food') {
+                            vue.set(widget, 'isBlocked', false)
+                            vue.set(single_room_price, 'show', false)
+                            vue.set(luxury_room_price, 'show', false)
+                            vue.set(nutrition_info, 'show', false)
+                            vue.set(kitchen, 'show', true)
+                            vue.set(avg_value, 'show', true)
+                            vue.set(enter_price, 'show', true)
+                            vue.set(enter_price, 'width', 6)
+                            vue.set(work_time, 'show', true)
+                        } else if (formsData[from] == 'activities') {
+                            vue.set(widget, 'isBlocked', false)
+                            vue.set(single_room_price, 'show', false)
+                            vue.set(luxury_room_price, 'show', false)
+                            vue.set(nutrition_info, 'show', false)
+                            vue.set(kitchen, 'show', false)
+                            vue.set(avg_value, 'show', false)
+                            vue.set(enter_price, 'show', true)
+                            vue.set(enter_price, 'width', 4)
+                            vue.set(work_time, 'show', true)
+                        } else {
+                            vue.set(widget, 'isBlocked', true)
+                        }
+                    }
+                }
+            }
+        }
+    }
 };
 
 export default {

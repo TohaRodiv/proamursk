@@ -1,11 +1,12 @@
 import json
 
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse, Http404, HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
+from django.db.models import Q
 from django.template.loader import render_to_string
 from django.urls import resolve
 from django.views.decorators.http import require_POST
@@ -18,7 +19,7 @@ from applications.tools.views import InfinityLoaderListView
 from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
 from applications.contentblocks.models import Page
-from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special
+from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special, WideBanner
 
 try:
     from applications.notifications.tasks import send_notification
@@ -34,41 +35,46 @@ def custom_handler404(request, exception):
     return render(request, '404.html', status=404)
 
 
-class IndexView(View):
-
-    def get_page(self, request):
-        page = None
+def get_page(request):
+    page = None
+    try:
+        url_name = request.resolver_match.url_name
+    except:
+        pass
+    else:
         try:
-            url_name = request.resolver_match.url_name
+            page = Page.objects.select_related().get(codename=url_name)
         except:
             pass
-        else:
-            try:
-                page = Page.objects.select_related().get(codename=url_name)
-            except:
-                pass
 
-        return page
+    return page
+
+
+class IndexView(View):
 
     def get(self, request):
         current_date = date.today()
-        page = self.get_page(request)
+        page = get_page(request)
         top_objects = page.top_items.all().order_by('weight') if page else []
         events = Event.objects.filter(is_active=True,
-                                      start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'event']).order_by('start_event_date')[:2]
+                                      start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('start_event_date')[:2]
         reports = Report.objects.filter(is_active=True,
-                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'report']).order_by('-publication_date')[:2]
-        places = Place.objects.filter(is_active=True, publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.codename == 'place']).order_by('-publication_date')[:(6-len(events)-len(reports))]
+                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')[:2]
+        places = Place.objects.filter(is_active=True, publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places']).order_by('-publication_date')[:(6-len(events)-len(reports))]
         what_to_do = list(events) + list(reports) + list(places)
         films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
                                     sessions__session_time__lt=current_date + timedelta(days=1)
                                     ).distinct()
         specials = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
+        wide_banner = WideBanner.objects.filter((Q(start_publication_date__isnull=True) | Q(start_publication_date__lte=datetime.now())) &
+                                                (Q(end_publication_date__isnull=True) | Q(end_publication_date__gte=datetime.now())),
+                                                is_active=True).order_by('?').first()
         return render(request, 'site/index.html', dict(films=films,
                                                        specials=specials,
                                                        top_objects=top_objects,
-                                                       what_to_do=what_to_do))
+                                                       what_to_do=what_to_do,
+                                                       wide_banner=wide_banner))
 
 
 class NewsListView(InfinityLoaderListView):
@@ -91,8 +97,11 @@ class EventsListView(View):
 
     def get(self, request):
         current_date = date.today()
+        page = get_page(request)
+        top_objects = page.top_items.all().order_by('weight') if page else []
+
         events = list(Event.objects.filter(is_active=True,
-                                           start_event_date__gte=timezone.now()).order_by('-start_event_date')[:8])
+                                           start_event_date__gte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('-start_event_date')[:4])
 
         today_films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
@@ -107,6 +116,7 @@ class EventsListView(View):
                                            ).distinct()
         return render(request, 'site/all-events.html',
                       dict(
+                          top_objects=top_objects,
                           events=events,
                           today_films=today_films,
                           tomorrow_films=tomorrow_films,
@@ -120,24 +130,24 @@ class EventsListFutureView(View):
     def get(self, request):
         items = Event.objects.filter(is_active=True,
                                      start_event_date__gte=timezone.now()).order_by('-start_event_date')
-        return render(request, 'site/future-events.html', {'events': items,})
+        return render(request, 'site/future-events.html', {'events': items})
 
 
 class EventsListPastView(InfinityLoaderListView):
     queryset = Event.objects.filter(is_active=True,
-                                    start_event_date__lt=timezone.now()).order_by('-start_event_date')[8:]
+                                    start_event_date__lt=timezone.now()).order_by('-start_event_date')[16:]
 
     template_name = 'site/past-events.html'
     ajax_template_name = 'site/modules/grid-event-block.html'
     context_list_name = 'events'
     ajax_context_list_name = 'announcements'
-    items_per_page = 1
+    items_per_page = 24
 
     def get(self, request):
         items = Event.objects.filter(is_active=True,
                                      start_event_date__lt=timezone.now()).order_by('-start_event_date')
-        has_next = items.count() > 8
-        items = items[:8]
+        has_next = items.count() > 16
+        items = items[:16]
         return render(request, self.template_name, {self.context_list_name: items,
                                                     'has_next': has_next})
 
@@ -151,19 +161,31 @@ class EventsDetailView(DetailView):
 
 class ReportsListView(InfinityLoaderListView):
     queryset = Report.objects.filter(is_active=True,
-                                     publication_date__lte=timezone.now()).order_by('-publication_date')[8:]
+                                     publication_date__lte=timezone.now()).order_by('-publication_date')[12:]
 
     template_name = 'site/all-reportage.html'
     ajax_template_name = 'site/modules/grid-reports-block.html'
     context_list_name = 'reports'
     ajax_context_list_name = 'reports'
-    items_per_page = 1
+    items_per_page = 24
+
+    def get_queryset(self):
+        try:
+            page = Page.objects.select_related().get(codename="reports-list")
+        except:
+            page = None
+
+        top_objects = page.top_items.all().order_by('weight') if page else []
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports'])
 
     def get(self, request):
+        page = get_page(request)
+        top_objects = page.top_items.all().order_by('weight') if page else []
+
         items = Report.objects.filter(is_active=True,
-                                      publication_date__lte=timezone.now()).order_by('-publication_date')
-        has_next = items.count() > 8
-        items = items[:8]
+                                      publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')
+        has_next = items.count() > 12
+        items = items[:12]
         return render(request, self.template_name, {self.context_list_name: items,
                                                     'has_next': has_next})
 
@@ -177,19 +199,30 @@ class ReportsDetailView(DetailView):
 
 class HistoryListView(InfinityLoaderListView):
     queryset = History.objects.filter(is_active=True,
-                                      publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
+                                      publication_date__lte=timezone.now()).order_by('-publication_date')[12:]
 
     template_name = 'site/all-history.html'
     ajax_template_name = 'site/modules/grid-history-block.html'
     context_list_name = 'articles'
     ajax_context_list_name = 'articles'
-    items_per_page = 1
+    items_per_page = 24
+
+    def get_queryset(self):
+        try:
+            page = Page.objects.select_related().get(codename="history-list")
+        except:
+            page = None
+
+        top_objects = page.top_items.all().order_by('weight') if page else []
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history'])
 
     def get(self, request):
+        page = get_page(request)
+        top_objects = page.top_items.all().order_by('weight') if page else []
         items = History.objects.filter(is_active=True,
-                                       publication_date__lte=timezone.now()).order_by('-publication_date')
-        has_next = items.count() > 11
-        items = items[:11]
+                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
+        has_next = items.count() > 12
+        items = items[:12]
         return render(request, self.template_name, {self.context_list_name: items,
                                                     'has_next': has_next})
 
@@ -209,11 +242,23 @@ class PersonsListView(InfinityLoaderListView):
     ajax_template_name = 'site/modules/grid-persons-block.html'
     context_list_name = 'persons'
     ajax_context_list_name = 'articles'
-    items_per_page = 1
+    items_per_page = 24
+
+    def get_queryset(self):
+        try:
+            page = Page.objects.select_related().get(codename="persons-list")
+        except:
+            page = None
+
+        top_objects = page.top_items.all().order_by('weight') if page else []
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons'])
 
     def get(self, request):
-        items = History.objects.filter(is_active=True,
-                                       publication_date__lte=timezone.now()).order_by('-publication_date')
+        page = get_page(request)
+        top_objects = page.top_items.all().order_by('weight') if page else []
+
+        items = Person.objects.filter(is_active=True,
+                                      publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('-publication_date')
         has_next = items.count() > 11
         items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -224,12 +269,12 @@ class PersonsDetailView(DetailView):
     model = Person
     queryset = Person.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'person'
-    template_name = 'root/persons_detail.html'
+    template_name = 'site/people-details.html'
 
 
 class CityGuidesDetailView(DetailView):
     model = CityGuide
-    queryset = CityGuide.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = CityGuide.objects.all()
     context_object_name = 'guide'
     template_name = 'root/city_guides_detail.html'
 
@@ -242,7 +287,16 @@ class PlaceListView(InfinityLoaderListView):
     ajax_template_name = 'site/modules/grid-places-block.html'
     context_list_name = 'places'
     ajax_context_list_name = 'places'
-    items_per_page = 1
+    items_per_page = 24
+
+    def get_queryset(self):
+        try:
+            page = Page.objects.select_related().get(codename="places-list")
+        except:
+            page = None
+
+        top_objects = page.top_items.all().order_by('weight') if page else []
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places'])
 
     def get(self, request):
         items = Place.objects.filter(is_active=True,
@@ -285,6 +339,34 @@ class FilmDetailView(DetailView):
     context_object_name = 'film'
     template_name = 'site/film-announcement.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(FilmDetailView, self).get_context_data(**kwargs)
+        current_date = date.today()
+
+        today_films = Film.objects.filter(is_active=True,
+                                          sessions__session_time__gte=current_date,
+                                          sessions__session_time__lt=current_date + timedelta(days=1)
+                                          ).distinct()
+        tomorrow_films = Film.objects.filter(is_active=True,
+                                             sessions__session_time__gte=current_date + timedelta(days=1),
+                                             sessions__session_time__lt=current_date + timedelta(days=2)
+                                             ).distinct()
+        future_films = Film.objects.filter(is_active=True,
+                                           sessions__session_time__gte=current_date,
+                                           ).distinct()
+
+        context["today_films"] = today_films
+        context["tomorrow_films"] = tomorrow_films
+        context["future_films"] = future_films
+
+        return context
+
+
+class PolicyView(View):
+
+    def get(self, request):
+        return render(request, "site/privacy.html", dict())
+
 
 @require_POST
 def feedback(request):
@@ -302,14 +384,14 @@ def feedback(request):
                     'sender_name': instance.name,
                     'sender_email': instance.email,
                     'sender_phone': instance.email,
-                    'feedback_content': instance.content,
+                    'feedback_content': instance.text,
                     'feedback_cp_link': '{scheme}:{host}/admin/feedbacks/{id}/'.format(
                         scheme=request.scheme, host=request.get_host(), id=instance.id
                     )
                 }
                 if instance.attachment:
-                    template_context['attachment_title'] = instance.attachment.original_name
-                    template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.file.url)
+                    template_context['attachment_title'] = instance.attachment.name
+                    template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.url)
                 try:
                     send_notification.delay('feedback', template_context=template_context, recipient_sms=[],
                                             recipient_email=[instance.email])
@@ -337,7 +419,7 @@ def place_review(request):
                     'sender_name': instance.name,
                     'sender_email': instance.email,
                     'sender_phone': instance.email,
-                    'review_content': instance.content,
+                    'review_content': instance.text,
                     'review_cp_link': '{scheme}:{host}/admin/reviews/{id}/'.format(
                         scheme=request.scheme, host=request.get_host(), id=instance.id
                     )
@@ -350,102 +432,6 @@ def place_review(request):
             return JsonResponse({'status': True,
                                  'message': 'Отзыв отправлен, он появится на сайте после прохождения модерации'})
         return JsonResponse({'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE})
-    else:
-        raise Http404
-
-
-@require_POST
-def persons(request):
-    result = {'status': False, 'message': settings.COMMON_ERROR_MESSAGE}
-    if request.is_ajax():
-        page_number = request.POST.get('page')
-        if page_number:
-            try:
-                page_number = int(page_number)
-            except ValueError:
-                pass
-            else:
-                now = timezone.now()
-                main_page_ids = list(Person.objects.filter(
-                    publication_date__lte=now, is_active=True).values_list('id', flat=True).order_by('-publication_date')[:15])
-                persons_objects = Person.objects.filter(publication_date__lte=now, is_active=True).exclude(
-                    id__in=main_page_ids).order_by('-publication_date')
-                paginator = Paginator(persons_objects, 24)
-                if page_number in paginator.page_range:
-                    page = paginator.page(page_number)
-                    rendered_html = render_to_string('root/ajax_infinity_loader.html', context={'objects': page})
-                    result = {
-                        'status': True,
-                        'data': {'last': not page.has_next()},
-                        'templates':
-                            {'articles': rendered_html.replace('\n', '')}
-                    }
-        return JsonResponse(result)
-
-    else:
-        raise Http404
-
-
-@require_POST
-def places(request):
-    result = {'status': False, 'message': settings.COMMON_ERROR_MESSAGE}
-    if request.is_ajax():
-        page_number = request.POST.get('page')
-        if page_number:
-            try:
-                page_number = int(page_number)
-            except ValueError:
-                pass
-            else:
-                now = timezone.now()
-                main_page_places_ids = list(Place.objects.filter(
-                    publication_date__lte=now, is_active=True).values_list('id', flat=True).order_by('-publication_date')[:15])
-                places_objects = Place.objects.filter(publication_date__lte=now, is_active=True).exclude(
-                    id__in=main_page_places_ids).order_by('-publication_date')
-                paginator = Paginator(places_objects, 24)
-                if page_number in paginator.page_range:
-                    page = paginator.page(page_number)
-                    rendered_html = render_to_string('root/ajax_infinity_loader.html', context={'objects': page})
-                    result = {
-                        'status': True,
-                        'data': {'last': not page.has_next()},
-                        'templates':
-                            {'places': rendered_html.replace('\n', '')}
-                    }
-        return JsonResponse(result)
-
-    else:
-        raise Http404
-
-
-@require_POST
-def history(request):
-    result = {'status': False, 'message': settings.COMMON_ERROR_MESSAGE}
-    if request.is_ajax():
-        page_number = request.POST.get('page')
-        if page_number:
-            try:
-                page_number = int(page_number)
-            except ValueError:
-                pass
-            else:
-                now = timezone.now()
-                main_page_places_ids = list(History.objects.filter(
-                    publication_date__lte=now, is_active=True).values_list('id', flat=True).order_by('-publication_date')[:15])
-                history_objects = History.objects.filter(publication_date__lte=now, is_active=True).exclude(
-                    id__in=main_page_places_ids).order_by('-publication_date')
-                paginator = Paginator(history_objects, 24)
-                if page_number in paginator.page_range:
-                    page = paginator.page(page_number)
-                    rendered_html = render_to_string('root/ajax_infinity_loader.html', context={'objects': page})
-                    result = {
-                        'status': True,
-                        'data': {'last': not page.has_next()},
-                        'templates':
-                            {'articles': rendered_html.replace('\n', '')}
-                    }
-        return JsonResponse(result)
-
     else:
         raise Http404
 

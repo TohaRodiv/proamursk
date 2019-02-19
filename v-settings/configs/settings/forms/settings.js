@@ -40,7 +40,8 @@ const state = {
                                 width: 10,
                                 codename: 'instagram',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
+                                placeholder: 'http(s)://'
                             },
                         ]
                     },
@@ -58,7 +59,8 @@ const state = {
                                 width: 10,
                                 codename: 'odnoklassniki',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
+                                placeholder: 'http(s)://'
                             },
                         ]
                     },
@@ -73,26 +75,13 @@ const state = {
                                 required: true,
                                 invalid: false,
                                 height: 56,
-                                width: 8,
+                                width: 12,
                                 codename: 'copyright',
                                 widget: 'textarea',
                                 hint: ''
                             },
                         ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Показывать на Главной странице баннер-растяжку вместо слайдера со спецпроектами',
-                                required: false,
-                                codename: 'show_banner_on_main_page',
-                                widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    },
+                    }
                 ]
             },
             {

@@ -57,7 +57,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom50',
                         direction: 'row',
                         elements: [
                             {
@@ -66,19 +66,6 @@ const state = {
                                 width: 8,
                                 codename: 'content_author',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom50',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
-                                codename: 'show_two_banners',
-                                widget: 'singleCheckbox',
                                 hint: ''
                             }
                         ]

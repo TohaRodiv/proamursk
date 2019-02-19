@@ -147,6 +147,8 @@ USE_L10N = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
+STATIC_VERSION = 3
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 if DEBUG:
@@ -205,8 +207,9 @@ MEDIALIB_THUMB_SIZE = {
     'film_banner': (460, 690),  # в блоке про кинотеатр на Главной странице
 
     # Слайдеры и баннеры
-    'wide_banner': (2596, 300),  # баннеры-растяжки
-    'sidebar_banner': (748, 858),  # баннеры в сайдбаре
+    'wide_banner': (2600, 320),  # баннеры-растяжки
+    'sidebar_banner': (760, 920),  # баннеры в сайдбаре
+    'horizontal_sidebar_banner': (760, 480),  # баннеры в сайдбаре
     'slide_format_3x2': (1716, 1144),  # слайдер горизонтальный / 3:2 — 1716x1144 px
     'slide_format_2x1': (1716, 858),  # слайдер горизонтальный / 2:1 — 1716x858 px
 
@@ -227,12 +230,11 @@ MEDIALIB_THUMB_SIZE = {
     'pub_cover': (1720, 1000),
 
     '8_column_img': (1720, 1000),
-    '6_column_img': (1280, 640),
-    '3_column_img': (620, 414, 'crop'),
-    '3_column_large_img': (620, 560, 'crop'),
-    '3_column_full_img': (620, 920, 'crop'),
-
-
+    '6_column_img_small': (1280, 640),
+    '6_column_img_full': (1280, 960),
+    '3_column_img_small': (620, 414, 'crop'),
+    '3_column_img_large': (620, 560, 'crop'),
+    '3_column_img_full': (620, 920, 'crop'),
 }
 
 POST_EDITOR = dict(
@@ -293,11 +295,11 @@ if DEBUG:
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'no-reply@perfectura.ru'
+EMAIL_HOST_USER = 'no-reply@proamursk.ru'
 EMAIL_HOST_PASSWORD = 'Bq1ty3h7'
 EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = 'Photostog <no-reply@perfectura.ru>'
-SERVER_EMAIL = 'no-reply@perfectura.ru'
+DEFAULT_FROM_EMAIL = 'проАмурск <no-reply@proamursk.ru>'
+SERVER_EMAIL = 'no-reply@proamursk.ru'
 EMAIL_SUBJECT_PREFIX = ''
 
 if not DEBUG:
