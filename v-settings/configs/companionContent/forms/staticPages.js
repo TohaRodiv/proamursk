@@ -65,8 +65,7 @@ const valuesForPlaces = [
     {
         codename: 'places',
         name: 'Статья о месте',
-        id: 1,
-        // isDefault: true
+        id: 1
     }
 ]
 
@@ -74,8 +73,7 @@ const valuesForPersons = [
     {
         codename: 'persons',
         name: 'Статья о жителе Амурска',
-        id: 1,
-        // isDefault: true
+        id: 1
     }
 ]
 
@@ -83,8 +81,7 @@ const valuesForHistory = [
     {
         codename: 'history',
         name: 'Историческая статья',
-        id: 1,
-        // isDefault: true
+        id: 1
     }
 ]
 
@@ -96,22 +93,6 @@ const state = {
                 id: 98,
                 title: 'КОНТЕНТ',
                 blocks: [
-                    // {
-                    //     labelPosition: 'left',
-                    //     modClass: 'marginBottom22',
-                    //     direction: 'row',
-                    //     elements: [
-                    //         {
-                    //             isBlocked: true,
-                    //             type: 'field',
-                    //             label: 'Коднейм',
-                    //             width: 12,
-                    //             codename: 'codename',
-                    //             widget: 'simpleInput',
-                    //             hint: ''
-                    //         }
-                    //     ]
-                    // },
                     {
                         labelPosition: 'top',
                         direction: 'row',
@@ -137,12 +118,7 @@ const state = {
                                         type: 'vertical_list',
                                         list: [
                                             {
-                                                requiredValue: 'object_id'
-                                                // requiredValue: {
-                                                //     route: 'codename',
-                                                //     id: 'object_id',
-                                                //     field: 'title'
-                                                // }
+                                                requiredValue: 'item.title'
                                             },
                                             {
                                                 requiredValue: 'entity',
@@ -208,8 +184,7 @@ const state = {
                                                         ],
                                                         hint: '',
                                                         api_route: 'event-announcements',
-                                                        codename: 'object_id',
-                                                        returnFromAvailableValues: 'id'
+                                                        codename: 'item'
                                                     }
                                                 ]
                                             }
@@ -233,7 +208,7 @@ const state = {
             onChangePopup: {
                 top_items: {
                     entity: {
-                        object_id: function (from, widget, data) {
+                        item: function (from, widget, data) {
                             let selector = widget.popup_structure[0].blocks[1].elements[0]
                             let list = widget.entity_structure[0].list[0]
                             if (data[from]) {
@@ -244,10 +219,14 @@ const state = {
                                 vue.set(selector, 'isBlocked', true)
                             }
                             // Сброс данных второго селектора
-                            // vue.set(data, 'object_id', null)
                             vue.set(selector, 'resetFlag', true)
                         }
                     },
+                    item: {
+                        item: function (from, widget, data) {
+                            vue.set(data, 'object_id', data.item.id)
+                        }
+                    }
                 },
             },
             onMount: {
