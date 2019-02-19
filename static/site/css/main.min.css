@@ -2833,9 +2833,6 @@ footer {
   @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .grid-publication_cover-format-bigger .grid-publication__cover {
       height: 322px; } }
-  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
-    .grid-publication_cover-format-6col .grid-publication__cover {
-      height: 320px; } }
   .grid-publication_text-size-base .grid-publication__title {
     margin-bottom: 5px;
     font-size: 22px; }

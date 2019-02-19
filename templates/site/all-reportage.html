@@ -57,7 +57,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 3 %}
-                        {% with css_class=' grid-publication_cover-format-6col' cover_name="6_column_img_"|add:item.cover_format wobler_type="reportage" %}
+                        {% with cover_name="6_column_img_"|add:item.cover_format wobler_type="reportage" %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     {% endif %}
