@@ -14,7 +14,7 @@
     {% block seo %}
     {% endblock %}
 
-    {{ settings.meta_tags|safe }}
+    {{ request.SETTINGS.meta_tags|safe }}
 
     {% block og %}
     {% endblock %}
@@ -129,14 +129,14 @@
                 </div>
 
                 <div class="footer-bottom">
-                    <p class="footer__copyright-text">Исключительные права на&nbsp;фото- и&nbsp;иные материалы принадлежат авторам. Любое размещение материалов на&nbsp;сторонних ресурсах необходимо согласовывать с&nbsp;правообладателями.</p>
+                    <p class="footer__copyright-text">{{ request.SETTINGS.copyright }}</p>
 
                     <div class="footer__editor-text">Нашли опечатку?<br>Выделите слово и нажмите Ctrl+Enter</div>
 
                     <div class="footer__social-wrap">
                         <div class="social-wrap">
-                            <a href="" class="social-link icon-instagram" alt="Инстаграм" target="_blank"></a>
-                            <a href="" class="social-link icon-odnoklassniki" alt="Одноклассники" target="_blank"></a>
+                            <a href="{{ request.SETTINGS.instagram }}" class="social-link icon-instagram" alt="Инстаграм" target="_blank"></a>
+                            <a href="{{ request.SETTINGS.odnoklassniki }}" class="social-link icon-odnoklassniki" alt="Одноклассники" target="_blank"></a>
                         </div>
                     </div>
                 </div>
@@ -158,6 +158,9 @@
     </footer>
 
     <script src="{% static "site/js/main.min.js" %}{% static_version %}"></script>
+
+    {{ request.SETTINGS.google_count|safe }}
+    {{ request.SETTINGS.yandex_count|safe }}
 
 </body>
 </html>
