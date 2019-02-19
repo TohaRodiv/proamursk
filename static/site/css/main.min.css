@@ -1735,6 +1735,8 @@ header {
 .header__logo-img {
   display: block;
   width: 147px; }
+  .header__logo-img_special-projects {
+    width: 148px; }
 
 .header__nav {
   margin-left: auto;
