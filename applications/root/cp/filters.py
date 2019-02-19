@@ -84,7 +84,6 @@ class PersonsFilter(APIFilterSet):
 
 class CityGuidesFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
-    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
     show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
 
@@ -93,7 +92,6 @@ class CityGuidesFilter(APIFilterSet):
         fields = {
             'create_date': ['gte', 'lte'],
             'edit_date': ['gte', 'lte'],
-            'publication_date': ['gte', 'lte']
         }
 
 

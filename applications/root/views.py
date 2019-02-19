@@ -274,7 +274,7 @@ class PersonsDetailView(DetailView):
 
 class CityGuidesDetailView(DetailView):
     model = CityGuide
-    queryset = CityGuide.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = CityGuide.objects.all()
     context_object_name = 'guide'
     template_name = 'root/city_guides_detail.html'
 

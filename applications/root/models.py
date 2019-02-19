@@ -306,7 +306,7 @@ class PlaceReview(BaseModel):
         return 'Отзыв №{} о {}'.format(self.pk, self.place.title)
 
 
-class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
+class CityGuide(BaseModel, BaseSeoMixin):
     SMALL = 'small'
     FULL = 'full'
     FORMATS = (
@@ -323,9 +323,6 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     guide_format = models.CharField('Форматы контента', choices=GUIDE_FORMATS, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
-    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
-    content_author = models.CharField('Автор материала', max_length=255, blank=True)
-    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
