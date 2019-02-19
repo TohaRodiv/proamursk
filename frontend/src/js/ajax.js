@@ -41,6 +41,8 @@ function ajaxSubscribe(jqForm) {
         data: dataToSend,
         url: '/api/site/subscribe/',
         method: 'POST',
+        processData: false,
+        contentType: false,
 
         success: function (response) {
             // console.log(response);
@@ -60,25 +62,88 @@ function ajaxSubscribe(jqForm) {
 }
 
 function ajaxForms(jqForm, url) {
-    var csrfmiddlewaretoken = getCookie('csrftoken'),
-        dataToSend = new FormData();
+    var csrfmiddlewaretoken = getCookie('csrftoken');
 
     trimFormFields(jqForm);
 
-    dataToSend.append('attachment', jqForm.find('.attachment-input').prop('files')[0]);
-    jqForm.find('input:not([type="submit"]):not(.attachment-input), textarea').each(function () {
-        dataToSend.append(this.name, this.value)
-    });
-    dataToSend.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+    if (jqForm.find('.attachment-input').length > 0) {
+        var dataToSend = new FormData();
+        dataToSend.append('attachment', jqForm.find('.attachment-input').prop('files')[0]);
+        jqForm.find('input:not([type="submit"]):not(.attachment-input), textarea').each(function () {
+            dataToSend.append(this.name, this.value)
+        });
+        dataToSend.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
 
+    }
+    else {
+        var dataToSend = jqForm.serialize() + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
+    }
     // console.log(dataToSend);
 
     $.ajax({
         data: dataToSend,
         url: '/api/site/' + url + '/',
         method: 'POST',
-        processData: false,
-        contentType: false,
+
+        success: function (response) {
+            // console.log(response);
+
+            if (response.status == true) {
+                hidePopUps();
+                if (response.message) showNotification(response.message, 'success');
+            }
+            else {
+                if (response.message) showNotification(response.message, 'error');
+            }
+        },
+        complete: function () {
+            hideBtnPreloader();
+        }
+    });
+}
+
+function ajaxPlaceReview(jqForm) {
+    var csrfmiddlewaretoken = getCookie('csrftoken'),
+        dataToSend = jqForm.serialize() + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
+
+    trimFormFields(jqForm);
+
+    // console.log(dataToSend);
+
+    $.ajax({
+        data: dataToSend,
+        url: '/api/site/place-review/',
+        method: 'POST',
+
+        success: function (response) {
+            // console.log(response);
+
+            if (response.status == true) {
+                hidePopUps();
+                if (response.message) showNotification(response.message, 'success');
+            }
+            else {
+                if (response.message) showNotification(response.message, 'error');
+            }
+        },
+        complete: function () {
+            hideBtnPreloader();
+        }
+    });
+}
+
+function ajaxBugreport(jqForm) {
+    var csrfmiddlewaretoken = getCookie('csrftoken'),
+        dataToSend = jqForm.serialize() + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
+
+    trimFormFields(jqForm);
+
+    // console.log(dataToSend);
+
+    $.ajax({
+        data: dataToSend,
+        url: '/api/site/bugreport/',
+        method: 'POST',
 
         success: function (response) {
             // console.log(response);
@@ -218,11 +283,11 @@ $('.js-pop-up__form').submit(function (event) {
             return false;
         }
         else if (requestToDo == 'place-review') {
-            ajaxForms($(this), 'place-review');
+            ajaxPlaceReview($(this));
             return false;
         }
         else if (requestToDo == 'bugreport') {
-            ajaxForms($(this), 'bugreport');
+            ajaxBugreport($(this));
             return false;
         }
     }
