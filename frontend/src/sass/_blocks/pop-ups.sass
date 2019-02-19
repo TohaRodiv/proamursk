@@ -128,7 +128,8 @@
         justify-content: space-between
 
     &__input-wrap
-        margin-bottom: 40px
+        &:not(:last-child)
+            margin-bottom: 40px
 
         &_full
             width: 100%
@@ -137,6 +138,7 @@
             width: calc(50% - 20px)
 
     &__attachment
+        margin-top: 40px
 
     &__agrement
         width: 345px

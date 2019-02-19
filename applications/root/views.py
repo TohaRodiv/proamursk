@@ -274,7 +274,7 @@ class PersonsDetailView(DetailView):
 
 class CityGuidesDetailView(DetailView):
     model = CityGuide
-    queryset = CityGuide.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = CityGuide.objects.all()
     context_object_name = 'guide'
     template_name = 'root/city_guides_detail.html'
 
@@ -390,8 +390,8 @@ def feedback(request):
                     )
                 }
                 if instance.attachment:
-                    template_context['attachment_title'] = instance.attachment.original_name
-                    template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.file.url)
+                    template_context['attachment_title'] = instance.attachment.name
+                    template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.url)
                 try:
                     send_notification.delay('feedback', template_context=template_context, recipient_sms=[],
                                             recipient_email=[instance.email])

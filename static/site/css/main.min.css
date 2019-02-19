@@ -526,7 +526,8 @@ ul, ol {
 textarea {
   display: block;
   width: 100%;
-  height: 120px;
+  max-height: 120px;
+  height: 40px;
   line-height: 1.5; }
 
 .has-error {
@@ -604,9 +605,16 @@ textarea {
 .select__value:focus ~ .label-base,
 .select__value.focus ~ .label-base,
 .select__value.fill ~ .label-base {
-  top: -10px;
+  top: -20px;
   font-size: 13px;
   color: #C7C8C8; }
+
+.variable-height-textarea_hidden {
+  position: absolute !important;
+  z-index: -1;
+  word-wrap: break-word;
+  line-height: 1.5;
+  visibility: hidden; }
 
 .dropdown {
   position: relative; }
@@ -1097,12 +1105,17 @@ textarea {
       -ms-flex-pack: justify;
           justify-content: space-between; }
 
-.pop-up-form__input-wrap {
+.pop-up-form__input-wrap:not(:last-child) {
   margin-bottom: 40px; }
-  .pop-up-form__input-wrap_full {
-    width: 100%; }
-  .pop-up-form__input-wrap_half {
-    width: calc(50% - 20px); }
+
+.pop-up-form__input-wrap_full {
+  width: 100%; }
+
+.pop-up-form__input-wrap_half {
+  width: calc(50% - 20px); }
+
+.pop-up-form__attachment {
+  margin-top: 40px; }
 
 .pop-up-form__agrement {
   width: 345px;

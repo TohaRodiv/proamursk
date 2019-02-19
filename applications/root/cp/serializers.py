@@ -8,7 +8,7 @@ from applications.mediafiles.models import MediaFile
 from cp_vue.api.fields import ObjectRelatedField
 from cp_vue.api.serializers import ModelSerializer
 from ..models import (News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner,
-                      WideBanner, PlaceReview, SliderItem, Slider, Feedback, TextError, HistoryRubric)
+                      WideBanner, PlaceReview, SliderItem, Slider, Feedback, TextError, HistoryRubric, CityGuideItem)
 
 
 class NewsListSerializer(ModelSerializer):
@@ -205,35 +205,11 @@ class PersonsDetailSerializer(ModelSerializer):
         return dict(instance.FORMATS).get(instance.cover_format)
 
 
-class CityGuidesListSerializer(ModelSerializer):
-    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    cover_format_name = serializers.SerializerMethodField()
+class PlacesNestedSerializer(ModelSerializer):
 
     class Meta:
-        model = CityGuide
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'comment', 'publication_date',
-                  'create_date', 'edit_date', 'is_active')
-
-    def get_cover_format_name(self, instance):
-        return dict(instance.FORMATS).get(instance.cover_format)
-
-
-class CityGuidesDetailSerializer(ModelSerializer):
-    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    cover_format_name = serializers.SerializerMethodField()
-    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
-                                  required=False,
-                                  allow_null=True
-                                  )
-
-    class Meta:
-        model = CityGuide
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
-                  'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
-
-    def get_cover_format_name(self, instance):
-        return dict(instance.FORMATS).get(instance.cover_format)
+        model = Place
+        fields = ('id', 'title', 'is_active', )
 
 
 class PlacesListSerializer(ModelSerializer):
@@ -403,6 +379,13 @@ class SlidersItemSerializer(ModelSerializer):
         fields = ('id', 'cover', 'description', 'is_active', 'weight')
 
 
+class SlidersNestedSerializer(ModelSerializer):
+
+    class Meta:
+        model = Slider
+        fields = ('id', 'title', 'format', 'is_active')
+
+
 class SlidersListSerializer(ModelSerializer):
     slides_count = serializers.SerializerMethodField()
     format_name = serializers.SerializerMethodField()
@@ -488,3 +471,80 @@ class TextErrorDetailSerializer(ModelSerializer):
     class Meta:
         model = TextError
         fields = ('id', 'url', 'text', 'create_date')
+
+
+class CityGuideItemSerializer(ModelSerializer):
+    place = ObjectRelatedField(queryset=Place.objects.all(), serializer_class=PlacesNestedSerializer)
+    slider = ObjectRelatedField(queryset=Slider.objects.all(), serializer_class=SlidersNestedSerializer)
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+
+    class Meta:
+        model = CityGuideItem
+        fields = ('id', 'title', 'description', 'place', 'single_room_price', 'luxury_room_price', 'nutrition_info',
+                  'kitchen', 'avg_value', 'enter_price', 'work_time', 'phone', 'site', 'instagram', 'address',
+                  'coordinates', 'slider', 'cover', 'create_date', 'edit_date', 'is_active')
+
+
+class CityGuidesListSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    cover_format_name = serializers.SerializerMethodField()
+    guide_format_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CityGuide
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'guide_format', 'guide_format_name', 'title',
+                  'comment', 'create_date', 'edit_date')
+
+    def get_cover_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.cover_format)
+
+    def get_guide_format_name(self, instance):
+        return dict(instance.GUIDE_FORMATS).get(instance.guide_format)
+
+
+class CityGuidesDetailSerializer(ModelSerializer):
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    cover_format_name = serializers.SerializerMethodField()
+
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
+    items = CityGuideItemSerializer(many=True, required=False)
+    guide_format_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CityGuide
+        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'descriptor', 'guide_format',
+                  'guide_format_name', 'comment', 'create_date', 'edit_date', 'meta_title',
+                  'meta_description', 'meta_keywords', 'og_image', 'show_two_banners',
+                  'items')
+
+    def get_cover_format_name(self, instance):
+        return dict(instance.FORMATS).get(instance.cover_format)
+
+    def get_guide_format_name(self, instance):
+        return dict(instance.GUIDE_FORMATS).get(instance.guide_format)
+
+    def validate_guide_format(self, data):
+        if data:
+            guides = CityGuideItem.objects.filter(guide_format=data)
+            if self.instance.pk:
+                guides = guides.exclude(id=self.instance.pk)
+            if guides.exists():
+                raise serializers.ValidationError("Гид с выбранным форматом уже существует")
+
+        return data
+
+    def create(self, validated_data):
+        items = validated_data.pop('items') if 'items' in validated_data else []
+        instance = super(CityGuidesDetailSerializer, self).create(validated_data)
+        self.create_child_objects(items, CityGuideItem, dict(city_guide=instance))
+        return instance
+
+    def update(self, instance, validated_data):
+        items = validated_data.pop('items') if 'items' in validated_data else []
+        instance = super(CityGuidesDetailSerializer, self).update(instance, validated_data)
+        self.update_child_objects(items, CityGuideItem, dict(city_guide=instance))
+        return instance
+

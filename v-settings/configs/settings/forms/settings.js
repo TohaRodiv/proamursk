@@ -79,20 +79,7 @@ const state = {
                                 hint: ''
                             },
                         ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                label: 'Показывать на Главной странице баннер-растяжку вместо слайдера со спецпроектами',
-                                required: false,
-                                codename: 'show_banner_on_main_page',
-                                widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    },
+                    }
                 ]
             },
             {

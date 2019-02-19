@@ -19,10 +19,6 @@ class Settings(BaseModel):
     instagram = models.CharField('Профиль в Instagram', max_length=255, blank=True)
     odnoklassniki = models.CharField('Группа в Одноклассниках', max_length=255, blank=True)
 
-    show_banner_on_main_page = models.BooleanField(
-        default=False, verbose_name='Показывать на Главной странице баннер-растяжку вместо слайдера со спецпроектами'
-    )
-
     copyright = models.TextField('Копирайт', blank=True)
 
     yandex_count = models.TextField('Код счетчика Yandex', blank=True)
