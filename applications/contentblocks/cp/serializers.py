@@ -177,7 +177,7 @@ class StaticPagesDetailSerializer(ModelSerializer):
     og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
                                   required=False, allow_null=True)
 
-    top_items = TopItemSerializer(many=True, required=True)
+    top_items = TopItemSerializer(many=True, required=False)
 
     class Meta:
         model = Page

@@ -330,8 +330,8 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
-        verbose_name = 'Гид по городу'
-        verbose_name_plural = 'Гиды по городу'
+        verbose_name = 'Страница гида по городу'
+        verbose_name_plural = 'Страницы гидов по городу'
         ordering = '-id',
 
     def __str__(self):
@@ -341,26 +341,37 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
         return reverse('city-guides-detail', args=[self.id])
 
 
-# class CityGuideItem(BaseModel, IsActiveMixin):
-#     city_guide = models.ForeignKey(CityGuide, verbose_name='Гид по городу', related_name='items',
-#                                    on_delete=models.CASCADE)
-#     title = models.CharField('Заголовок', max_length=255)
-#     description = models.CharField('Описание', max_length=255)
-#     place = models.ForeignKey(Place, verbose_name='Материал об этом месте', related_name='guides',
-#                               on_delete=models.CASCADE)
-#
-#     single_room_price = models.CharField('Одноместный номер', max_length=255, blank=True)
-#     luxury_room_price = models.CharField('Одноместный номер', max_length=255, blank=True)
-#     nutrition_info = models.CharField('Питание', max_length=255, blank=True)
-#     phone = models.CharField('Телефон', max_length=255, blank=True)
-#
-#     class Meta:
-#         verbose_name = 'Гид по городу'
-#         verbose_name_plural = 'Гиды по городу'
-#         ordering = '-id',
-#
-#     def __str__(self):
-#         return self.title
+class CityGuideItem(BaseModel, IsActiveMixin):
+    city_guide = models.ForeignKey(CityGuide, verbose_name='Гид по городу', related_name='items',
+                                   on_delete=models.CASCADE)
+    title = models.CharField('Заголовок', max_length=255)
+    description = models.CharField('Описание', max_length=255)
+    place = models.ForeignKey(Place, verbose_name='Материал об этом месте', related_name='guides',
+                              on_delete=models.CASCADE)
+
+    single_room_price = models.CharField('Одноместный номер', max_length=255, blank=True)
+    luxury_room_price = models.CharField('Одноместный номер', max_length=255, blank=True)
+    nutrition_info = models.CharField('Питание', max_length=255, blank=True)
+    kitchen = models.CharField('Кухня', max_length=255, blank=True)
+    avg_value = models.CharField('Средний чек', max_length=255, blank=True)
+    enter_price = models.CharField('Входной билет', max_length=255, blank=True)
+    work_time = models.CharField('Время работы', max_length=255, blank=True)
+
+    phone = models.CharField('Телефон', max_length=255, blank=True)
+    site = models.URLField('Сайт', max_length=255, blank=True)
+    instagram = models.URLField('Instagram', max_length=255, blank=True)
+    address = models.CharField('Адрес', max_length=255)
+    coordinates = models.CharField('Координаты', max_length=255, blank=True)
+    slider = models.ForeignKey('Slider', verbose_name='Слайдер', blank=True, null=True, on_delete=models.SET_NULL)
+    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+
+    class Meta:
+        verbose_name = 'Гид по городу'
+        verbose_name_plural = 'Гиды по городу'
+        ordering = '-id',
+
+    def __str__(self):
+        return self.title
 
 
 class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
