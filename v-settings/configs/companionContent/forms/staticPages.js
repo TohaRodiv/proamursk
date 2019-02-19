@@ -261,7 +261,7 @@ const state = {
                         vue.set(firstSelector, 'available_values', valuesForIndex)
                         vue.set(widget, 'show', true)
                     }
-                    else if (data['codename'] == 'index-events') {
+                    else if (data['codename'] == 'events-index') {
                         vue.set(secondSelector, 'api_route', 'event-announcements')
                         vue.set(secondSelector, 'label', dict['event-announcements'])
                         vue.set(secondSelector, 'isBlocked', true)
