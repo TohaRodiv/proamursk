@@ -40,7 +40,8 @@ const state = {
                                 width: 10,
                                 codename: 'instagram',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
+                                placeholder: 'http(s)://'
                             },
                         ]
                     },
@@ -58,7 +59,8 @@ const state = {
                                 width: 10,
                                 codename: 'odnoklassniki',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
+                                placeholder: 'http(s)://'
                             },
                         ]
                     },

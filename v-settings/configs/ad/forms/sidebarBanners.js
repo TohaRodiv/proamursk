@@ -36,7 +36,8 @@ const state = {
                                 width: 10,
                                 codename: 'link',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
+                                placeholder: 'http(s)://'
                             }
                         ]
                     },

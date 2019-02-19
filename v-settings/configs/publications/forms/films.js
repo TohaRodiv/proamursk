@@ -155,7 +155,8 @@ const state = {
                                 width: 12,
                                 codename: 'trailer',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
+                                placeholder: 'http(s)://'
                             }
                         ]
                     },
@@ -172,7 +173,8 @@ const state = {
                                 width: 12,
                                 codename: 'purchase_link',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
+                                placeholder: 'http(s)://'
                             }
                         ]
                     },
