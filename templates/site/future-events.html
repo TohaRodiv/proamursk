@@ -47,7 +47,7 @@
             <div class="base-3items-grid">
                 {% for item in events|slice:"1:4" %}
                     {% if forloop.counter == 1 %}
-                        {% with css_class=' grid-publication_cover-format-bigger' cover_name="3_column_img_"|add:item.cover_format wobler_type="announcement" %}
+                        {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="announcement" %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     {% endif %}
@@ -67,7 +67,7 @@
             <div class="js-infinity-loader-wrap">
                 <div class="base-4items-grid js-infinity-loader-grid">
                     {% for item in events|slice:"4:" %}
-                        {% with css_class=' grid-publication_cover-format-bigger' cover_name="3_column_img_"|add:item.cover_format wobler_type="announcement" %}
+                        {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="announcement" %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     {% endfor %}
