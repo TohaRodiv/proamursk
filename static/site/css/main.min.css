@@ -2223,7 +2223,13 @@ footer {
     margin-bottom: 20px; }
   .publication__place-info-wrap {
     width: 640px;
-    margin: 0 auto 40px; }
+    margin-left: auto;
+    margin-right: auto; }
+    .publication__place-info-wrap_top {
+      margin-bottom: 40px; }
+    .publication__place-info-wrap_bottom {
+      margin-top: 40px;
+      margin-bottom: 40px; }
     .publication__place-info-wrap tr:not(:last-child) td {
       padding-bottom: 10px; }
     .publication__place-info-wrap td {
@@ -2234,11 +2240,6 @@ footer {
       .publication__place-info-wrap td:first-child {
         width: 210px;
         padding-right: 20px; }
-    .publication__place-info-wrap ul {
-      margin-top: 0;
-      margin-bottom: 0;
-      padding-left: 15px;
-      list-style-type: disc; }
   .publication__title {
     margin-bottom: 20px;
     font-size: 36px;

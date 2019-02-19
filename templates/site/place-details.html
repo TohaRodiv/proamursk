@@ -41,41 +41,42 @@
 
                             {% post_editor_make_content place.content 'default' %}
 
-                            <div class="publication__additional-info-wrap publication__place-info-wrap">
-                                <div class="publication__place-info">
-                                    <span class="icon-geo-stroke"></span>
-                                    Адрес:
-                                    {% if place.coordinates %}
-                                        <a href="http://maps.yandex.ru/?mode=search&z=12.9&text={{ place.coordinates }}" target="_blank">{{ place.address }}</a>
-                                    {% else %}
-                                        <span>{{ place.address }}</span>
-                                    {% endif %}
-                                </div>
+                            <table class="publication__additional-info-wrap publication__place-info-wrap publication__place-info-wrap_bottom">
+                                <tr>
+                                    <td><span class="icon-geo-stroke"></span>Адрес:</td>
+                                    <td>
+                                        {% if place.coordinates %}
+                                            <a href="http://maps.yandex.ru/?mode=search&z=12.9&text={{ place.coordinates }}" target="_blank">{{ place.address }}</a>
+                                        {% else %}
+                                            <span>{{ place.address }}</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
                                 {% if  place.schedule %}
-                                    <div class="publication__place-info">
-                                        <span class="icon-clock"></span>
-                                        Время работы: {{ place.schedule }}
-                                    </div>
+                                    <tr>
+                                        <td><span class="icon-clock"></span>Время работы:</td>
+                                        <td>{{ place.schedule }}</td>
+                                    </tr>
                                 {% endif %}
                                 {% if place.contacts %}
-                                    <div class="publication__place-info">
-                                        <span class="icon-phone"></span>
-                                        Тел.: {{ place.contacts }}
-                                    </div>
+                                    <tr>
+                                        <td><span class="icon-phone"></span>Тел.:</td>
+                                        <td>{{ place.contacts }}</td>
+                                    </tr>
                                 {% endif %}
                                 {% if place.site %}
-                                    <div class="publication__place-info">
-                                        <span class="icon-web"></span>
-                                        <a href="" target="_blank">{{ place.site }}</a>
-                                    </div>
+                                    <tr>
+                                        <td><span class="icon-web"></span>Сайт:</td>
+                                        <td><a href="" target="_blank">{{ place.site }}</a></td>
+                                    </tr>
                                 {% endif %}
                                 {% if place.instagram %}
-                                    <div class="publication__place-info">
-                                        <span class="icon-instagram"></span>
-                                        <a href="">@{{ place.instagram }}</a>
-                                    </div>
+                                    <tr>
+                                        <td><span class="icon-instagram"></span>Инстаграм</td>
+                                        <td><a href="">@{{ place.instagram }}</a></td>
+                                    </tr>
                                 {% endif %}
-                            </div>
+                            </table>
 
                             <div class="publication__footer">
                                 <div class="publication__author">{{ report.content_author }}</div>
