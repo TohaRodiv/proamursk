@@ -339,6 +339,28 @@ class FilmDetailView(DetailView):
     context_object_name = 'film'
     template_name = 'site/film-announcement.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(FilmDetailView, self).get_context_data(**kwargs)
+        current_date = date.today()
+
+        today_films = Film.objects.filter(is_active=True,
+                                          sessions__session_time__gte=current_date,
+                                          sessions__session_time__lt=current_date + timedelta(days=1)
+                                          ).distinct()
+        tomorrow_films = Film.objects.filter(is_active=True,
+                                             sessions__session_time__gte=current_date + timedelta(days=1),
+                                             sessions__session_time__lt=current_date + timedelta(days=2)
+                                             ).distinct()
+        future_films = Film.objects.filter(is_active=True,
+                                           sessions__session_time__gte=current_date,
+                                           ).distinct()
+
+        context["today_films"] = today_films
+        context["tomorrow_films"] = tomorrow_films
+        context["future_films"] = future_films
+
+        return context
+
 
 class PolicyView(View):
 

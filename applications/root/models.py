@@ -247,44 +247,6 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
         return reverse('history-detail', args=[self.id])
 
 
-# class
-
-
-class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
-    SMALL = 'small'
-    FULL = 'full'
-    FORMATS = (
-        (SMALL, 'Обычная обложка'),
-        (FULL, 'Полноразмерная обложка')
-    )
-    GUIDE_FORMATS = (
-        ('hotel', 'Где остановиться?'),
-        ('food', 'Где поесть?'),
-        ('activities', 'Что посмотреть?'),
-    )
-    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
-    guide_format = models.CharField('Форматы контента', choices=GUIDE_FORMATS, max_length=45)
-    title = models.CharField('Заголовок', max_length=255)
-    descriptor = models.CharField('Подзаголовок', max_length=255)
-    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
-    content_author = models.CharField('Автор материала', max_length=255, blank=True)
-    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
-    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
-
-    class Meta:
-        verbose_name = 'Гид по городу'
-        verbose_name_plural = 'Гиды по городу'
-        ordering = '-id',
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('city-guides-detail', args=[self.id])
-
-
 class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
     SMALL = 'small'
     FULL = 'full'
@@ -342,6 +304,63 @@ class PlaceReview(BaseModel):
 
     def __str__(self):
         return 'Отзыв №{} о {}'.format(self.pk, self.place.title)
+
+
+class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
+    SMALL = 'small'
+    FULL = 'full'
+    FORMATS = (
+        (SMALL, 'Обычная обложка'),
+        (FULL, 'Полноразмерная обложка')
+    )
+    GUIDE_FORMATS = (
+        ('hotel', 'Где остановиться?'),
+        ('food', 'Где поесть?'),
+        ('activities', 'Что посмотреть?'),
+    )
+    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
+    guide_format = models.CharField('Форматы контента', choices=GUIDE_FORMATS, max_length=45)
+    title = models.CharField('Заголовок', max_length=255)
+    descriptor = models.CharField('Подзаголовок', max_length=255)
+    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
+    content_author = models.CharField('Автор материала', max_length=255, blank=True)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+
+    class Meta:
+        verbose_name = 'Гид по городу'
+        verbose_name_plural = 'Гиды по городу'
+        ordering = '-id',
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('city-guides-detail', args=[self.id])
+
+
+# class CityGuideItem(BaseModel, IsActiveMixin):
+#     city_guide = models.ForeignKey(CityGuide, verbose_name='Гид по городу', related_name='items',
+#                                    on_delete=models.CASCADE)
+#     title = models.CharField('Заголовок', max_length=255)
+#     description = models.CharField('Описание', max_length=255)
+#     place = models.ForeignKey(Place, verbose_name='Материал об этом месте', related_name='guides',
+#                               on_delete=models.CASCADE)
+#
+#     single_room_price = models.CharField('Одноместный номер', max_length=255, blank=True)
+#     luxury_room_price = models.CharField('Одноместный номер', max_length=255, blank=True)
+#     nutrition_info = models.CharField('Питание', max_length=255, blank=True)
+#     phone = models.CharField('Телефон', max_length=255, blank=True)
+#
+#     class Meta:
+#         verbose_name = 'Гид по городу'
+#         verbose_name_plural = 'Гиды по городу'
+#         ordering = '-id',
+#
+#     def __str__(self):
+#         return self.title
 
 
 class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
