@@ -83,6 +83,7 @@ function ajaxForms(jqForm, url) {
             // console.log(response);
 
             if (response.status == true) {
+                hidePopUps();
                 if (response.message) showNotification(response.message, 'success');
             }
             else {
