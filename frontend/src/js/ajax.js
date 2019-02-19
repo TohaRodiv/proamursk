@@ -68,7 +68,7 @@ function ajaxForms(jqForm, url) {
     jqForm.find('input:not([type="submit"]), textarea').each(function () {
         dataToSend.append(this.name, this.value)
     });
-    dataToSend.append('csrfmiddlewaretoken=', csrfmiddlewaretoken);
+    dataToSend.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
 
     // console.log(dataToSend);
 
