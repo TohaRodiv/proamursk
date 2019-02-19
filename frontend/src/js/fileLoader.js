@@ -9,6 +9,16 @@ $('.attachment-input').change(function () {
     handleFiles(filesArr, filesList)
 })
 
+$('body').on('click', '.js-attachment-delete', function () {
+    var item = $(this).parents('.attachment-list__item'),
+        id = item.data('id');
+
+    delete queue[id];
+    item.remove();
+})
+
+var queue = {};
+
 function handleFiles(files, filesList) {
     var deleteBtn = $('<button/>', {
         type: 'button',
@@ -27,11 +37,13 @@ function handleFiles(files, filesList) {
             else {
                 $('<div/>', {
                     class: 'attachment-list__item',
+                    'data-id': currentFile.name,
                     append: $('<span/>', {
                         text: currentFile.name,
-                        class: 'attachment-list__item-name',
+                        class: 'attachment-list__item-name'
                     })
                 }).appendTo(filesList);
+                queue[currentFile.name] = currentFile;
             }
         }
 

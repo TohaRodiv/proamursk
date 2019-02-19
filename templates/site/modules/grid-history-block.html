@@ -1,5 +1,5 @@
 {% for item in articles %}
-    {% with css_class=' grid-publication_cover-format-bigger' cover_name="3_column_img" %}
+    {% with cover_name="3_column_img_"|add:item.cover_format %}
         {% include "site/modules/grid-publication.html" %}
     {% endwith %}
 {% endfor %}

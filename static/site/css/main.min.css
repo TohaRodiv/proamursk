@@ -231,6 +231,21 @@ ul, ol {
   [class^="icon-"]::before, [class^="icon-"]::after, [class*=" icon-"]::before, [class*=" icon-"]::after {
     font-family: "proamursk" !important; }
 
+.icon-logo-event:before {
+  content: "\e92c"; }
+
+.icon-logo-history:before {
+  content: "\e92d"; }
+
+.icon-logo-news:before {
+  content: "\e92e"; }
+
+.icon-logo-people:before {
+  content: "\e92f"; }
+
+.icon-logo-sign:before {
+  content: "\e930"; }
+
 .icon-close:before {
   content: "\e901"; }
 
@@ -1748,8 +1763,46 @@ header {
 .header__logo-img {
   display: block;
   width: 147px; }
-  .header__logo-img_special-projects {
-    width: 148px; }
+
+.header__logo-icon {
+  position: absolute;
+  color: #0073FF;
+  font-size: 0; }
+  .header__logo-icon.icon-logo-sign {
+    bottom: 39px;
+    right: 19px; }
+    .header__logo-icon.icon-logo-sign::before {
+      font-size: 8px; }
+  .header__logo-icon.icon-logo-news {
+    bottom: 40px;
+    right: 19px; }
+    .header__logo-icon.icon-logo-news::before {
+      font-size: 19px; }
+  .header__logo-icon.icon-logo-event {
+    bottom: 37px;
+    right: 26px; }
+    .header__logo-icon.icon-logo-event::before {
+      font-size: 21px; }
+  .header__logo-icon.icon-logo-history {
+    bottom: 37px;
+    right: 16px; }
+    .header__logo-icon.icon-logo-history::before {
+      font-size: 18px; }
+  .header__logo-icon.icon-geo-stroke {
+    bottom: 35px;
+    right: 19px; }
+    .header__logo-icon.icon-geo-stroke::before {
+      font-size: 24px; }
+  .header__logo-icon.icon-logo-people {
+    bottom: 35px;
+    right: 17px; }
+    .header__logo-icon.icon-logo-people::before {
+      font-size: 25px; }
+  .header__logo-icon.icon-star-sharp {
+    bottom: 37px;
+    right: 23px; }
+    .header__logo-icon.icon-star-sharp::before {
+      font-size: 22px; }
 
 .header__nav {
   margin-left: auto;
@@ -2833,9 +2886,6 @@ footer {
   @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .grid-publication_cover-format-bigger .grid-publication__cover {
       height: 322px; } }
-  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
-    .grid-publication_cover-format-6col .grid-publication__cover {
-      height: 320px; } }
   .grid-publication_text-size-base .grid-publication__title {
     margin-bottom: 5px;
     font-size: 22px; }
