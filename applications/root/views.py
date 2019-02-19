@@ -419,7 +419,7 @@ def place_review(request):
                     'sender_name': instance.name,
                     'sender_email': instance.email,
                     'sender_phone': instance.email,
-                    'review_content': instance.content,
+                    'review_content': instance.text,
                     'review_cp_link': '{scheme}:{host}/admin/reviews/{id}/'.format(
                         scheme=request.scheme, host=request.get_host(), id=instance.id
                     )
