@@ -15,6 +15,16 @@ const valuesForItems = [
         codename: 'activities',
         name: 'Что посмотреть?',
         id: 3
+    },
+    {
+        codename: 'transport',
+        name: 'Как перемещаться по городу?',
+        id: 4
+    },
+    {
+        codename: 'phones',
+        name: 'Полезные телефоны',
+        id: 5
     }
 ]
 
@@ -60,23 +70,23 @@ const state = {
                             }
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'mask-datetime',
-                                label: 'Дата и время публикации',
-                                required: true,
-                                invalid: false,
-                                width: 4,
-                                codename: 'publication_date',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
+                    // {
+                    //     labelPosition: 'left',
+                    //     modClass: 'marginBottom22',
+                    //     direction: 'row',
+                    //     elements: [
+                    //         {
+                    //             type: 'mask-datetime',
+                    //             label: 'Дата и время публикации',
+                    //             required: true,
+                    //             invalid: false,
+                    //             width: 4,
+                    //             codename: 'publication_date',
+                    //             widget: 'simpleInput',
+                    //             hint: ''
+                    //         }
+                    //     ]
+                    // },
                     {
                         labelPosition: 'left',
                         direction: 'column',
@@ -107,36 +117,36 @@ const state = {
                             }
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Автор обложки или источник',
-                                width: 8,
-                                codename: 'cover_author',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Автор(ы) материала или источник',
-                                width: 8,
-                                codename: 'content_author',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
+                    // {
+                    //     labelPosition: 'left',
+                    //     modClass: 'marginBottom22',
+                    //     direction: 'row',
+                    //     elements: [
+                    //         {
+                    //             type: 'field',
+                    //             label: 'Автор обложки или источник',
+                    //             width: 8,
+                    //             codename: 'cover_author',
+                    //             widget: 'simpleInput',
+                    //             hint: ''
+                    //         }
+                    //     ]
+                    // },
+                    // {
+                    //     labelPosition: 'left',
+                    //     modClass: 'marginBottom22',
+                    //     direction: 'row',
+                    //     elements: [
+                    //         {
+                    //             type: 'field',
+                    //             label: 'Автор(ы) материала или источник',
+                    //             width: 8,
+                    //             codename: 'content_author',
+                    //             widget: 'simpleInput',
+                    //             hint: ''
+                    //         }
+                    //     ]
+                    // },
                     {
                         labelPosition: 'left',
                         modClass: 'marginBottom50',
@@ -175,13 +185,13 @@ const state = {
                 title: 'КОНТЕНТ',
                 blocks: [
                     {
-                        labelPosition: 'top',
-                        modClass: 'marginBottom22',
+                        labelPosition: 'left',
+                        modClass: 'marginBottom36',
                         direction: 'row',
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Тип материала',
+                                label: 'Формат контента',
                                 width: 12,
                                 widget: 'singleSelector',
                                 codename: 'guide_format',
@@ -685,12 +695,12 @@ const state = {
             }
         ],
     },
-    activeFlag: {
-        'city-guides': {
-            title: 'Активная запись',
-            hint: 'Страницы неактивных записей не отображаются на сайте',
-        }
-    },
+    // activeFlag: {
+    //     'city-guides': {
+    //         title: 'Активная запись',
+    //         hint: 'Страницы неактивных записей не отображаются на сайте',
+    //     }
+    // },
     formsEvents: {
         'city-guides': {
             onChange: {
@@ -712,6 +722,7 @@ const state = {
                             vue.set(avg_value, 'show', false)
                             vue.set(enter_price, 'show', false)
                             vue.set(work_time, 'show', false)
+                            vue.set(widget, 'show', true)
                         } else if (formsData[from] == 'food') {
                             vue.set(widget, 'isBlocked', false)
                             vue.set(single_room_price, 'show', false)
@@ -722,6 +733,7 @@ const state = {
                             vue.set(enter_price, 'show', true)
                             vue.set(enter_price, 'width', 6)
                             vue.set(work_time, 'show', true)
+                            vue.set(widget, 'show', true)
                         } else if (formsData[from] == 'activities') {
                             vue.set(widget, 'isBlocked', false)
                             vue.set(single_room_price, 'show', false)
@@ -732,6 +744,13 @@ const state = {
                             vue.set(enter_price, 'show', true)
                             vue.set(enter_price, 'width', 4)
                             vue.set(work_time, 'show', true)
+                            vue.set(widget, 'show', true)
+                        } else if (formsData[from] == 'transport') {
+                            // vue.set(widget, 'isBlocked', true)
+                            vue.set(widget, 'show', false)
+                        } else if (formsData[from] == 'phone') {
+                            // vue.set(widget, 'isBlocked', true)
+                            vue.set(widget, 'show', false)
                         } else {
                             vue.set(widget, 'isBlocked', true)
                         }

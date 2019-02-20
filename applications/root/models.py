@@ -317,6 +317,8 @@ class CityGuide(BaseModel, BaseSeoMixin):
         ('hotel', 'Где остановиться?'),
         ('food', 'Где поесть?'),
         ('activities', 'Что посмотреть?'),
+        ('transport', 'Как перемещаться по городу?'),
+        ('phones', 'Полезные телефоны'),
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
@@ -360,7 +362,9 @@ class CityGuideItem(BaseModel, IsActiveMixin):
     address = models.CharField('Адрес', max_length=255)
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     slider = models.ForeignKey('Slider', verbose_name='Слайдер', blank=True, null=True, on_delete=models.SET_NULL)
-    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    cover = models.ForeignKey('mediafiles.MediaFile', verbose_name='Обложка',
+                              blank=True, null=True, on_delete=models.SET_NULL)
+    weight = models.PositiveIntegerField()
 
     class Meta:
         verbose_name = 'Гид по городу'

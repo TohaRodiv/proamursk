@@ -1,0 +1,173 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+{% load media_filters %}
+{% load pytils_dt %}
+{% load site_tags %}
+{% load utils_tags %}
+{% load posteditor_tags %}
+
+{% block title %}
+    {{ guide.meta_title|default:guide.title }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ guide.meta_keywords }}">
+    <meta name="description" content="{{ guide.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=guide.meta_title|default:guide.title og_description=guide.meta_description og_image=guide.og_image|default:guide.cover|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main">
+                    <article class="publication">
+                        <figure class="city-guide__cover-wrap">
+                            <img src="{% static "site/images/svg/city-guide-cover.svg" %}{% static_version %}" alt="" class="city-guide__cover">
+                            <span class="city-guide__cover-icon icon-{{ guide.guide_format }}"></span>
+                            <figcaption class="city-guide__img-figcaption">
+                                <img src="{% static "site/images/svg/wobbler-city-guide.svg" %}{% static_version %}" alt="" class="city-guide__cover-wobbler">
+                                <h1 class="city-guide__title">{{ guide.title }}</h1>
+                            </figcaption>
+                        </figure>
+
+                        <div class="publication__content">
+                            {% for item in guide_items %}
+                                <div class="city-guide-item">
+                                    <div class="city-guide-item__text-wrap">
+                                        <h2 class="city-guide-item__subtitle">{{ item.title }}</h2>
+                                        <table class="publication__additional-info-wrap publication__place-info-wrap publication__place-info-wrap_top">
+                                            {% if item.enter_price %}
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-ticket"></span>
+                                                        Входной билет:
+                                                    </td>
+                                                    <td>{{ item.enter_price }}</td>
+                                                </tr>
+                                            {% endif %}
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-geo-stroke"></span>
+                                                    Адрес:
+                                                </td>
+                                                <td>
+                                                    {% if item.coordinates %}
+                                                        <a href="http://maps.yandex.ru/?mode=search&z=12.9&text={{ item.coordinates }}" target="_blank">{{ item.address }}</a>
+                                                    {% else %}
+                                                        <span>{{ item.address }}</span>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                            {% if item.work_time %}
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-clock"></span>
+                                                        Время работы:
+                                                    </td>
+                                                    <td>
+                                                        {{ item.work_time }}
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                            {% if item.phone %}
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-phone"></span>
+                                                        Тел.:
+                                                    </td>
+                                                    <td>
+                                                        {{ item.phone }}
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                            {% if item.site %}
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-web"></span>
+                                                        Сайт:
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{ item.site }}" target="_blank">{{ item.site }}</a>
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                            {% if item.instagram %}
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-instagram"></span>
+                                                        Инстаграм:
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{ item.instagram }}" target="_blank">{{ item.instagram }}</a>
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                            {% if item.place %}
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-link"></span>
+                                                        Статья:
+                                                    </td>
+                                                    <td>
+                                                        <a href="{% url "places-detail" item.place.id %}">{{ item.place.title }}</a>
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                        </table>
+
+                                        <div class="wysiwyg-container">
+                                            {{ item.description|safe }}
+                                        </div>
+                                    </div>
+
+                                    {% if item.slider %}
+                                        <div class="city-guide__slider post-editor__section_8">
+                                            <div class="post-editor__block_slider">
+                                                {% get_posteditor_slider item.slider.id %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                {% if not forloop.last %}
+                                    <div class="city-guide__separator post-editor__block_separator">
+                                        <div class="line"><img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt=""></div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                            <div class="publication__footer">
+                                {% include "site/page-block/share-widget.html" %}
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+                       {% include "site/modules/place-links-widget.html" %}
+                    </div>
+                    <div class="aside-widget">
+                        {% include "site/page-block/aside-subscribe-widget.html" %}
+                    </div>
+                    <div class="aside-widget">
+                        {% with css_class="place" btn_text="Добавить отзыв о месте" offer_text="Любой житель Амурска может поделиться своим мнением об&nbsp;этом месте с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                            {% include "site/modules/offer-widget.html" %}
+                        {% endwith %}
+                    </div>
+
+                    {% get_banner %}
+                </aside>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block additional_content %}
+    {% read_also %}
+{% endblock %}

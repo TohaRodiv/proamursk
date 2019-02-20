@@ -476,13 +476,14 @@ class TextErrorDetailSerializer(ModelSerializer):
 class CityGuideItemSerializer(ModelSerializer):
     place = ObjectRelatedField(queryset=Place.objects.all(), serializer_class=PlacesNestedSerializer)
     slider = ObjectRelatedField(queryset=Slider.objects.all(), serializer_class=SlidersNestedSerializer)
-    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
+    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                               required=False, allow_null=True, allow_empty=True)
 
     class Meta:
         model = CityGuideItem
         fields = ('id', 'title', 'description', 'place', 'single_room_price', 'luxury_room_price', 'nutrition_info',
                   'kitchen', 'avg_value', 'enter_price', 'work_time', 'phone', 'site', 'instagram', 'address',
-                  'coordinates', 'slider', 'cover', 'create_date', 'edit_date', 'is_active')
+                  'coordinates', 'slider', 'cover', 'create_date', 'edit_date', 'is_active', 'weight')
 
 
 class CityGuidesListSerializer(ModelSerializer):
@@ -532,7 +533,7 @@ class CityGuidesDetailSerializer(ModelSerializer):
             if self.instance and self.instance.pk:
                 guides = guides.exclude(id=self.instance.pk)
             if guides.exists():
-                raise serializers.ValidationError("Гид с выбранным форматом уже существует")
+                raise serializers.ValidationError("Гид с выбранным типом уже существует")
 
         return data
 
