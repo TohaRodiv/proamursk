@@ -100,7 +100,7 @@
         <historyPopup @closePopup="showHistoryPopup = false" v-if="showHistoryPopup"> </historyPopup>
 
         <div v-if="showAdditionalPreloaderData">
-            <div class="forms-buttons-container" v-if="!isNaN(+($route.params.id)) && formsCurrentMode !== 'moving'">
+            <div class="forms-buttons-container" v-if="!isNaN(+($route.params.id))">
                 <div class="forms-buttons-container-inner">
                     <button
                             v-if="isDeleteButtonAvailable && (getIsSuperUser || (data.object_permissions && data.object_permissions.delete))"
@@ -114,34 +114,13 @@
                 </div>
             </div>
 
-            <div class="forms-buttons-container" v-if="isNaN(+($route.params.id)) && formsCurrentMode !== 'moving'">
+            <div class="forms-buttons-container" v-if="isNaN(+($route.params.id))">
                 <div class="forms-buttons-container-inner">
-                    <button class="button borderless-button forms-save-and-add-button" v-if="$route.params.id !== 'form' && hasAddRight() && hasAddButton && (getIsSuperUser || (data.object_permissions && data.object_permissions.edit))" @click="saveEntity('add&push')">Сохранить и добавить</button>
-                    <button v-if="getIsSuperUser || (data.object_permissions && data.object_permissions.edit)" class="button forms-save-button" @click="($route.params.id === 'form') ? saveEntity('save') : saveEntity('add')">Сохранить</button>
+                    <button class="button borderless-button forms-save-and-add-button" v-if="$route.params.id !== 'form' && (getIsSuperUser || (hasAddRight() && hasAddButton))" @click="saveEntity('add&push')">Сохранить и добавить</button>
+                    <button v-if="getIsSuperUser || (hasAddRight() && hasAddButton)" class="button forms-save-button" @click="($route.params.id === 'form') ? saveEntity('save') : saveEntity('add')">Сохранить</button>
                 </div>
             </div>
 
-            <div class="forms-buttons-container" v-if="isNaN(+($route.params.id)) && (formsCurrentMode === 'moving')">
-                <div class="forms-buttons-container-inner">
-                    <button v-if="getIsSuperUser || (data.object_permissions && data.object_permissions.edit)" class="button borderless-button forms-save-and-add-button" @click="saveEntity('add')">Сохранить</button>
-                    <button v-if="getIsSuperUser || (data.object_permissions && data.object_permissions.edit)" class="button forms-save-button-forward icon-arrow-2" @click="saveEntity('moveForward')">Далее</button>
-                </div>
-            </div>
-
-            <div class="forms-buttons-container" v-if="!isNaN(+($route.params.id)) && formsCurrentMode === 'moving' && getMovingData.status !== 'complete' && getMovingData.status !== 'canceled' && (($route.params.view === 'moving' || $route.params.view === 'orders') ? (getMovingData.status !== 'added_to_trip' && getMovingData.status !== 'trip_in_process') : true)">
-                <div>
-                    <button v-if="isDeleteButtonAvailable && (getIsSuperUser || (data.object_permissions && data.object_permissions.delete))" class="button borderless-button forms-cancel-button" style="margin-right: auto; border-right: none !important;" @click="showDeletePopup = true">Удалить</button>
-                    <button class="button borderless-button forms-cancel-button" style="margin-right: auto; border-right: none !important; border-left: 1px solid rgba(209, 214, 218, 0.5) !important;" v-if="getMovingData.status !== 'new' && (getIsSuperUser || (data.object_permissions && data.object_permissions.edit))" @click="showCancelPopup = true">Отменить</button>
-                </div>
-                <div style="margin-left: auto; ">
-                    <button v-if="getIsSuperUser || (data.object_permissions && data.object_permissions.edit)" class="button borderless-button forms-save-and-add-button" @click="saveEntity('save')">Сохранить</button>
-                </div>
-                <div style="margin-left: 0" class="forms-buttons-container-inner forms-back-button-container" :class="{'forms-back-button-container-hovered': hoverBackButton}" @click.self="saveEntity('moveBack')" @mouseenter.self="hoverBackButton = true" @mouseleave.self="hoverBackButton = false">
-                    <button v-if="getIsSuperUser || (data.object_permissions && data.object_permissions.edit)" class="button forms-back-button icon-arrow-2" @mouseenter="hoverBackButton = true" @click="saveEntity('moveBack')">Назад</button>
-                    <button class="button forms-save-button" @mouseenter="hoverBackButton = false" @click="saveEntity('moveForward')" v-if="getMovingData.next_status === 'complete' && (getIsSuperUser || (data.object_permissions && data.object_permissions.edit))">Завершить</button>
-                    <button class="button forms-save-button-forward icon-arrow-2" @mouseenter="hoverBackButton = false" @click="saveEntity('moveForward')" v-if="getMovingData.next_status !== 'complete' && (getIsSuperUser || (data.object_permissions && data.object_permissions.edit))">Далее</button>
-                </div>
-            </div>
         </div>
     </div>
 </template>
