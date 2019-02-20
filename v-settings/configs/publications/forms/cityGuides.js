@@ -695,12 +695,12 @@ const state = {
             }
         ],
     },
-    activeFlag: {
-        'city-guides': {
-            title: 'Активная запись',
-            hint: 'Страницы неактивных записей не отображаются на сайте',
-        }
-    },
+    // activeFlag: {
+    //     'city-guides': {
+    //         title: 'Активная запись',
+    //         hint: 'Страницы неактивных записей не отображаются на сайте',
+    //     }
+    // },
     formsEvents: {
         'city-guides': {
             onChange: {
