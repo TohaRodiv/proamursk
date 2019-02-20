@@ -1,0 +1,189 @@
+.sp
+    img
+        display: block
+
+.sp-block
+    margin-top: 40px
+    p
+        margin-bottom: 20px
+
+        &:last-child
+            margin-bottom: 0
+
+.sp-6col
+    width: 640px
+    margin-left: auto
+    margin-right: auto
+
+.sp-6col_3-3
+    display: flex
+
+    .sp-3col
+        width: 310px
+
+        & + .sp-3col
+            margin-left: 20px
+
+.sp-3col__text
+    padding-right: 40px
+
+.sp-8col
+    width: 860px
+    margin-left: auto
+    margin-right: auto
+
+.sp-separator_line
+    height: 1px
+    background-color: #D7DBE0
+
+.sp-separator_sign
+    display: flex
+    align-items: center
+    color: #7A8BA1
+
+    &::before,
+    &::after
+        content: ""
+        height: 2px
+        flex-grow: 1
+        background-color: $border-c
+
+    &::before
+        margin-right: 3px
+
+    &::after
+        margin-left: 3px
+
+.sp-direct-speech
+    width: 800px
+    margin-left: -160px
+
+.sp-fact-wrap
+    display: flex
+    align-items: flex-start
+    justify-content: center
+    margin-bottom: 80px
+
+.sp-fact
+    margin: 0 10px
+    text-align: center
+
+    &__icon
+        width: 86px
+        height: 86px
+        margin: 0 auto 10px
+        border: 2px solid #0073ff
+        border-radius: 50%
+
+    &__title
+        font-size: 21px
+        line-height: $base-lh
+        font-family: $add-sb-it-f
+
+    &__text
+        width: 130px
+        font-size: 15px;
+        letter-spacing: 0.08em;
+        line-height: 20px;
+        color: $base-dark-c
+
+.sp-children__overflow-small-img
+    width: 420px
+    max-width: initial
+
+.sp-placeholder-small
+    width: 172px
+    height: 172px
+    background: #f9fafa
+    border: 1px solid #0073ff
+    border-radius: 50%
+
+.sp-placeholder_1
+    margin-top: 30px
+    margin-left: auto
+
+.sp-children
+    padding-top: 0
+
+    &__header
+        position: relative
+        padding-left: 110px
+        padding-top: 70px
+        padding-bottom: 190px
+
+    &__project-title
+        margin-bottom: 40px
+        font-size: 56px
+        line-height: $mini-lh
+        font-family: $bold-f
+
+    &__project-description
+        width: 550px
+        margin-bottom: 0
+        font-size: 21px
+        line-height: $base-lh
+
+    &__header-img
+        position: absolute
+        top: 0
+        left: 700px
+        height: 540px
+
+.sp-children-section
+    &__cover-wrap
+        position: relative
+        height: 480px
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-bottom: 80px
+        background-size: cover
+
+        &::after
+            content: ""
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 1
+            width: 100%
+            height: 100%
+            background-color: rgba(#4c607b, .3)
+
+    &__title-wrap
+        position: relative
+        z-index: 2
+        text-align: center
+        color: $light-c
+
+    &__section-number
+        width: 82px
+        height: 82px
+        margin: 0 auto 10px
+        font-size: 56px
+        line-height: 82px
+        font-family: $bold-f
+        text-align: center
+        border: 5px solid $light-c
+        border-radius: 50%
+
+    &__title
+        width: 640px
+        font-size: 76px
+        line-height: $micro-lh
+        font-family: $bold-f
+
+    &__subtitle
+        display: flex
+        align-items: center
+        justify-content: center
+        height: 122px
+        margin-bottom: 80px
+        border-radius: 4px
+        background: #f9fafa
+        border: 1px solid #0073ff
+
+    &__description
+        margin-bottom: 60px
+        font-size: 22px
+        font-family: $add-sb-it-f
+        text-align: center
