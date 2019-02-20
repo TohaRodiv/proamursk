@@ -360,7 +360,9 @@ class CityGuideItem(BaseModel, IsActiveMixin):
     address = models.CharField('Адрес', max_length=255)
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     slider = models.ForeignKey('Slider', verbose_name='Слайдер', blank=True, null=True, on_delete=models.SET_NULL)
-    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
+    cover = models.ForeignKey('mediafiles.MediaFile', verbose_name='Обложка',
+                              blank=True, null=True, on_delete=models.SET_NULL)
+    weight = models.PositiveIntegerField()
 
     class Meta:
         verbose_name = 'Гид по городу'

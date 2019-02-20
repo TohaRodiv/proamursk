@@ -125,12 +125,23 @@ class EventsListView(View):
                      )
 
 
-class EventsListFutureView(View):
+class EventsListFutureView(InfinityLoaderListView):
+    queryset = Event.objects.filter(is_active=True,
+                                    start_event_date__gte=timezone.now()).order_by('-start_event_date')[16:]
+
+    template_name = 'site/future-events.html'
+    ajax_template_name = 'site/modules/grid-event-block.html'
+    context_list_name = 'events'
+    ajax_context_list_name = 'announcements'
+    items_per_page = 24
 
     def get(self, request):
         items = Event.objects.filter(is_active=True,
                                      start_event_date__gte=timezone.now()).order_by('-start_event_date')
-        return render(request, 'site/future-events.html', {'events': items})
+        has_next = items.count() > 16
+        items = items[:16]
+        return render(request, self.template_name, {self.context_list_name: items,
+                                                    'has_next': has_next})
 
 
 class EventsListPastView(InfinityLoaderListView):
