@@ -185,7 +185,7 @@ const state = {
                 title: 'КОНТЕНТ',
                 blocks: [
                     {
-                        labelPosition: 'top',
+                        labelPosition: 'left',
                         modClass: 'marginBottom36',
                         direction: 'row',
                         elements: [
