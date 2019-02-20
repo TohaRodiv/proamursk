@@ -191,7 +191,7 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Тип материала',
+                                label: 'Формат контента',
                                 width: 12,
                                 widget: 'singleSelector',
                                 codename: 'guide_format',
@@ -722,6 +722,7 @@ const state = {
                             vue.set(avg_value, 'show', false)
                             vue.set(enter_price, 'show', false)
                             vue.set(work_time, 'show', false)
+                            vue.set(widget, 'show', true)
                         } else if (formsData[from] == 'food') {
                             vue.set(widget, 'isBlocked', false)
                             vue.set(single_room_price, 'show', false)
@@ -732,6 +733,7 @@ const state = {
                             vue.set(enter_price, 'show', true)
                             vue.set(enter_price, 'width', 6)
                             vue.set(work_time, 'show', true)
+                            vue.set(widget, 'show', true)
                         } else if (formsData[from] == 'activities') {
                             vue.set(widget, 'isBlocked', false)
                             vue.set(single_room_price, 'show', false)
@@ -742,10 +744,13 @@ const state = {
                             vue.set(enter_price, 'show', true)
                             vue.set(enter_price, 'width', 4)
                             vue.set(work_time, 'show', true)
+                            vue.set(widget, 'show', true)
                         } else if (formsData[from] == 'transport') {
-                            vue.set(widget, 'isBlocked', true)
+                            // vue.set(widget, 'isBlocked', true)
+                            vue.set(widget, 'show', false)
                         } else if (formsData[from] == 'phone') {
-                            vue.set(widget, 'isBlocked', true)
+                            // vue.set(widget, 'isBlocked', true)
+                            vue.set(widget, 'show', false)
                         } else {
                             vue.set(widget, 'isBlocked', true)
                         }
