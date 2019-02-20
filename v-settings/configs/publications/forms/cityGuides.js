@@ -15,6 +15,16 @@ const valuesForItems = [
         codename: 'activities',
         name: 'Что посмотреть?',
         id: 3
+    },
+    {
+        codename: 'transport',
+        name: 'Как перемещаться по городу?',
+        id: 4
+    },
+    {
+        codename: 'phones',
+        name: 'Полезные телефоны',
+        id: 5
     }
 ]
 
@@ -60,23 +70,23 @@ const state = {
                             }
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'mask-datetime',
-                                label: 'Дата и время публикации',
-                                required: true,
-                                invalid: false,
-                                width: 4,
-                                codename: 'publication_date',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
+                    // {
+                    //     labelPosition: 'left',
+                    //     modClass: 'marginBottom22',
+                    //     direction: 'row',
+                    //     elements: [
+                    //         {
+                    //             type: 'mask-datetime',
+                    //             label: 'Дата и время публикации',
+                    //             required: true,
+                    //             invalid: false,
+                    //             width: 4,
+                    //             codename: 'publication_date',
+                    //             widget: 'simpleInput',
+                    //             hint: ''
+                    //         }
+                    //     ]
+                    // },
                     {
                         labelPosition: 'left',
                         direction: 'column',
@@ -107,36 +117,36 @@ const state = {
                             }
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Автор обложки или источник',
-                                width: 8,
-                                codename: 'cover_author',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom22',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Автор(ы) материала или источник',
-                                width: 8,
-                                codename: 'content_author',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
-                    },
+                    // {
+                    //     labelPosition: 'left',
+                    //     modClass: 'marginBottom22',
+                    //     direction: 'row',
+                    //     elements: [
+                    //         {
+                    //             type: 'field',
+                    //             label: 'Автор обложки или источник',
+                    //             width: 8,
+                    //             codename: 'cover_author',
+                    //             widget: 'simpleInput',
+                    //             hint: ''
+                    //         }
+                    //     ]
+                    // },
+                    // {
+                    //     labelPosition: 'left',
+                    //     modClass: 'marginBottom22',
+                    //     direction: 'row',
+                    //     elements: [
+                    //         {
+                    //             type: 'field',
+                    //             label: 'Автор(ы) материала или источник',
+                    //             width: 8,
+                    //             codename: 'content_author',
+                    //             widget: 'simpleInput',
+                    //             hint: ''
+                    //         }
+                    //     ]
+                    // },
                     {
                         labelPosition: 'left',
                         modClass: 'marginBottom50',
@@ -732,6 +742,10 @@ const state = {
                             vue.set(enter_price, 'show', true)
                             vue.set(enter_price, 'width', 4)
                             vue.set(work_time, 'show', true)
+                        } else if (formsData[from] == 'transport') {
+                            vue.set(widget, 'isBlocked', true)
+                        } else if (formsData[from] == 'phone') {
+                            vue.set(widget, 'isBlocked', true)
                         } else {
                             vue.set(widget, 'isBlocked', true)
                         }
