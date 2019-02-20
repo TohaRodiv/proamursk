@@ -306,7 +306,6 @@ class CityGuidesDetailView(View):
             raise Http404
 
 
-
 class PlaceListView(InfinityLoaderListView):
     queryset = Place.objects.filter(is_active=True,
                                       publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
