@@ -47,10 +47,10 @@ def post_editor_make_content(context, content_json, config='default'):
 
 
 @register.inclusion_tag('posteditor/modules/slider_block.html', takes_context=True)
-def get_posteditor_slider(context, slider):
+def get_posteditor_slider(context, slider_id):
     from applications.root.models import Slider
     try:
-        slider_obj = Slider.objects.get(id=int(slider.get('id')))
+        slider_obj = Slider.objects.get(id=int(slider_id))
     except Exception as e:
         slider_obj = None
 

@@ -317,6 +317,8 @@ class CityGuide(BaseModel, BaseSeoMixin):
         ('hotel', 'Где остановиться?'),
         ('food', 'Где поесть?'),
         ('activities', 'Что посмотреть?'),
+        ('transport', 'Как перемещаться по городу?'),
+        ('phones', 'Полезные телефоны'),
     )
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)

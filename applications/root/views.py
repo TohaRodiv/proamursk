@@ -1,5 +1,6 @@
 import json
 
+from collections import OrderedDict
 from datetime import date, timedelta, datetime
 from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -283,11 +284,27 @@ class PersonsDetailView(DetailView):
     template_name = 'site/people-details.html'
 
 
-class CityGuidesDetailView(DetailView):
-    model = CityGuide
-    queryset = CityGuide.objects.all()
-    context_object_name = 'guide'
-    template_name = 'root/city_guides_detail.html'
+class CityGuidesDetailView(View):
+
+    def get(self, request, pk):
+        try:
+            guide = CityGuide.objects.get(id=pk)
+        except:
+            raise Http404
+
+        template_name = 'site/city-guide-%s.html' % guide.guide_format
+        guides = CityGuide.objects.all()
+        formats = OrderedDict(CityGuide.GUIDE_FORMATS)
+        formats = list(formats.keys())
+        guides = sorted(guides, key=lambda x: formats.index(x.guide_format) if x.guide_format in formats else len(formats))
+        guide_items = guide.items.filter(is_active=True).order_by('weight')
+        try:
+            return render(request, template_name, dict(guide=guide,
+                                                       guide_items=guide_items,
+                                                       guides=guides))
+        except:
+            raise Http404
+
 
 
 class PlaceListView(InfinityLoaderListView):
@@ -314,7 +331,13 @@ class PlaceListView(InfinityLoaderListView):
                                      publication_date__lte=timezone.now()).order_by('-publication_date')
         has_next = items.count() > 11
         items = items[:11]
+        guides = CityGuide.objects.all()
+        formats = OrderedDict(CityGuide.GUIDE_FORMATS)
+        formats = list(formats.keys())
+        guides = sorted(guides,
+                        key=lambda x: formats.index(x.guide_format) if x.guide_format in formats else len(formats))
         return render(request, self.template_name, {self.context_list_name: items,
+                                                    'guides': guides,
                                                     'has_next': has_next})
 
 

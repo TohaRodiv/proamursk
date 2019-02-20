@@ -533,7 +533,7 @@ class CityGuidesDetailSerializer(ModelSerializer):
             if self.instance and self.instance.pk:
                 guides = guides.exclude(id=self.instance.pk)
             if guides.exists():
-                raise serializers.ValidationError("Гид с выбранным форматом уже существует")
+                raise serializers.ValidationError("Гид с выбранным типом уже существует")
 
         return data
 

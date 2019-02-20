@@ -1,0 +1,152 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+{% load media_filters %}
+{% load pytils_dt %}
+{% load site_tags %}
+{% load utils_tags %}
+{% load posteditor_tags %}
+
+{% block title %}
+    {{ guide.meta_title|default:guide.title }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ guide.meta_keywords }}">
+    <meta name="description" content="{{ guide.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=guide.meta_title|default:guide.title og_description=guide.meta_description og_image=guide.og_image|default:guide.cover|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="base-layout">
+                <div class="base-layout__main">
+                    <article class="publication">
+                        <figure class="city-guide__cover-wrap">
+                            <img src="{% static "site/images/svg/city-guide-cover.svg" %}{% static_version %}" alt="" class="city-guide__cover">
+                            <span class="city-guide__cover-icon icon-phone-plus"></span>
+                            <figcaption class="city-guide__img-figcaption">
+                                <img src="{% static "site/images/svg/wobbler-city-guide.svg" %}{% static_version %}" alt="" class="city-guide__cover-wobbler">
+                                <h1 class="city-guide__title">{{ guide.title }}</h1>
+                            </figcaption>
+                        </figure>
+
+                        <div class="publication__content">
+                            <div class="city-guide-item">
+                                <img src="{% static "site/images/city-guide-cover3.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover">
+                                <div class="city-guide-item__text-wrap">
+                                    <h2 class="city-guide-item__title">Экстренные службы</h2>
+                                    <table class="city-guide-table city-guide-table_emergency">
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Единая служба спасения</td>
+                                            <td class="city-guide-table__td"><b>112</b></td>
+                                        </tr>
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Пожарные, служба спасения</td>
+                                            <td class="city-guide-table__td"><b>
+                                                <img src="{% static "site/images/svg/mts.svg" %}{% static_version %}" alt="" class="city-guide-table__img">
+                                                <img src="{% static "site/images/svg/megafon.svg" %}{% static_version %}" alt="" class="city-guide-table__img">010
+                                                <img src="{% static "site/images/svg/beeline.svg" %}{% static_version %}" alt="" class="city-guide-table__img">001
+                                            </b></td>
+                                        </tr>
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Полиция</td>
+                                            <td class="city-guide-table__td"><b>
+                                                <img src="{% static "site/images/svg/mts.svg" %}{% static_version %}" alt="" class="city-guide-table__img">
+                                                <img src="{% static "site/images/svg/megafon.svg" %}{% static_version %}" alt="" class="city-guide-table__img">020
+                                                <img src="{% static "site/images/svg/beeline.svg" %}{% static_version %}" alt="" class="city-guide-table__img">002
+                                            </b></td>
+                                        </tr>
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Скорая помощь</td>
+                                            <td class="city-guide-table__td"><b>
+                                                <img src="{% static "site/images/svg/mts.svg" %}{% static_version %}" alt="" class="city-guide-table__img">
+                                                <img src="{% static "site/images/svg/megafon.svg" %}{% static_version %}" alt="" class="city-guide-table__img">030
+                                                <img src="{% static "site/images/svg/beeline.svg" %}{% static_version %}" alt="" class="city-guide-table__img">003
+                                            </b></td>
+                                        </tr>
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Оперативный дежурный ГОЧС</td>
+                                            <td class="city-guide-table__td"><b><a href="tel:+74214226791" class="city-guide-table__td-phone">8 (4214) 22-67-91</a></b></td>
+                                        </tr>
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Аварийная служба Горгаз</td>
+                                            <td class="city-guide-table__td"><b>04, 104, 004</b></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="city-guide__separator post-editor__block_separator">
+                                <div class="line"><img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt=""></div>
+                            </div>
+
+                            <div class="city-guide-item">
+                                <img src="{% static "site/images/city-guide-cover4.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover">
+                                <div class="city-guide-item__text-wrap">
+                                    <h2 class="city-guide-item__title">Если что-то сломалось</h2>
+                                    <table class="city-guide-table city-guide-table_repairs">
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Диспетчер Горэлектросетей</td>
+                                            <td class="city-guide-table__td">
+                                                <a href="tel:+74214221670" class="city-guide-table__td-phone"><b>8 (4214) 22-16-70</b></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Диспетчер Горводоканала</td>
+                                            <td class="city-guide-table__td">
+                                                <a href="tel:+74214222958" class="city-guide-table__td-phone"><b>8 (4214) 22-29-58</b></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Диспетчер Теплосетей</td>
+                                            <td class="city-guide-table__td">
+                                                <a href="tel:+74214221601" class="city-guide-table__td-phone"><b>8 (4214) 22-16-01</b></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="city-guide-table__tr">
+                                            <td class="city-guide-table__td">Диспетчер УК «Амурлифт»</td>
+                                            <td class="city-guide-table__td"><b>
+                                                <a href="tel:+74214221872" class="city-guide-table__td-phone">8 (4214) 22-18-72</a>,
+                                                <a href="tel:+74114221463" class="city-guide-table__td-phone">22-14-63</a>,
+                                                <a href="tel:+74214228877" class="city-guide-table__td-phone">8 (4214) 22-88-77</a>
+                                            </b></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="publication__footer">
+                                {% include "site/page-block/share-widget.html" %}
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="base-layout__aside">
+                    <div class="aside-widget">
+                       {% include "site/modules/place-links-widget.html" %}
+                    </div>
+                    <div class="aside-widget">
+                        {% include "site/page-block/aside-subscribe-widget.html" %}
+                    </div>
+                    <div class="aside-widget">
+                        {% with css_class="place" btn_text="Добавить отзыв о месте" offer_text="Любой житель Амурска может поделиться своим мнением об&nbsp;этом месте с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                            {% include "site/modules/offer-widget.html" %}
+                        {% endwith %}
+                    </div>
+
+                    {% get_banner %}
+                </aside>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block additional_content %}
+    {% read_also %}
+{% endblock %}
