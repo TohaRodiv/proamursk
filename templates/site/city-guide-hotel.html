@@ -28,7 +28,7 @@
                     <article class="publication">
                         <figure class="city-guide__cover-wrap">
                             <img src="{% static "site/images/svg/city-guide-cover.svg" %}{% static_version %}" alt="" class="city-guide__cover">
-                            <span class="city-guide__cover-icon icon-hotel"></span>
+                            <span class="city-guide__cover-icon icon-{{ guide.guide_format }}"></span>
                             <figcaption class="city-guide__img-figcaption">
                                 <img src="{% static "site/images/svg/wobbler-city-guide.svg" %}{% static_version %}" alt="" class="city-guide__cover-wobbler">
                                 <h1 class="city-guide__title">{{ guide.title }}</h1>
