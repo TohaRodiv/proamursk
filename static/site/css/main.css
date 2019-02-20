@@ -344,16 +344,16 @@ ul, ol {
 .icon-phone:before {
   content: "\e912"; }
 
-.icon-phone-plus:before {
+.icon-phones:before {
   content: "\e91e"; }
 
-.icon-binoculars:before {
+.icon-activities:before {
   content: "\e91d"; }
 
 .icon-food:before {
   content: "\e91f"; }
 
-.icon-bus:before {
+.icon-transport:before {
   content: "\e920"; }
 
 .icon-error:before {
@@ -2869,13 +2869,13 @@ footer {
     font-size: 21px; }
   .aside-nav__icon.icon-food {
     font-size: 16px; }
-  .aside-nav__icon.icon-binoculars {
+  .aside-nav__icon.icon-activities {
     font-size: 14px;
     line-height: 38px; }
-  .aside-nav__icon.icon-bus {
+  .aside-nav__icon.icon-transport {
     font-size: 17px;
     line-height: 38px; }
-  .aside-nav__icon.icon-phone-plus {
+  .aside-nav__icon.icon-phones {
     font-size: 17px; }
 
 .film {
@@ -3191,11 +3191,11 @@ footer {
     font-size: 48px; }
   .city-guide__cover-icon.icon-food {
     font-size: 38px; }
-  .city-guide__cover-icon.icon-binoculars {
+  .city-guide__cover-icon.icon-activities {
     font-size: 32px; }
-  .city-guide__cover-icon.icon-bus {
+  .city-guide__cover-icon.icon-transport {
     font-size: 45px; }
-  .city-guide__cover-icon.icon-phone-plus {
+  .city-guide__cover-icon.icon-phones {
     font-size: 45px; }
 
 .city-guide__img-figcaption {
