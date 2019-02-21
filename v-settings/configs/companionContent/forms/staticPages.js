@@ -92,6 +92,12 @@ const state = {
             {
                 id: 98,
                 title: 'КОНТЕНТ',
+                renderConditions: [
+                    {
+                        codename: 'codename',
+                        values: ['index', 'events-index', 'history-list', 'places-list', 'persons-list']
+                    }
+                ],
                 blocks: [
                     {
                         labelPosition: 'top',
