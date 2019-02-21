@@ -536,7 +536,7 @@ class SearchView(View):
                 'section': section,
                 'items': items,
                 'paginator': items.paginator,
-                'is_last_page': not items.has_next(),
+                'has_next': items.has_next(),
             })
 
         context.update({
