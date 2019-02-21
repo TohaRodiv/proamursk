@@ -70,23 +70,6 @@ const state = {
                             }
                         ]
                     },
-                    // {
-                    //     labelPosition: 'left',
-                    //     modClass: 'marginBottom22',
-                    //     direction: 'row',
-                    //     elements: [
-                    //         {
-                    //             type: 'mask-datetime',
-                    //             label: 'Дата и время публикации',
-                    //             required: true,
-                    //             invalid: false,
-                    //             width: 4,
-                    //             codename: 'publication_date',
-                    //             widget: 'simpleInput',
-                    //             hint: ''
-                    //         }
-                    //     ]
-                    // },
                     {
                         labelPosition: 'left',
                         direction: 'column',
@@ -117,36 +100,6 @@ const state = {
                             }
                         ]
                     },
-                    // {
-                    //     labelPosition: 'left',
-                    //     modClass: 'marginBottom22',
-                    //     direction: 'row',
-                    //     elements: [
-                    //         {
-                    //             type: 'field',
-                    //             label: 'Автор обложки или источник',
-                    //             width: 8,
-                    //             codename: 'cover_author',
-                    //             widget: 'simpleInput',
-                    //             hint: ''
-                    //         }
-                    //     ]
-                    // },
-                    // {
-                    //     labelPosition: 'left',
-                    //     modClass: 'marginBottom22',
-                    //     direction: 'row',
-                    //     elements: [
-                    //         {
-                    //             type: 'field',
-                    //             label: 'Автор(ы) материала или источник',
-                    //             width: 8,
-                    //             codename: 'content_author',
-                    //             widget: 'simpleInput',
-                    //             hint: ''
-                    //         }
-                    //     ]
-                    // },
                     {
                         labelPosition: 'left',
                         modClass: 'marginBottom50',
@@ -218,6 +171,7 @@ const state = {
                         hasWideLabel: true,
                         elements: [
                             {
+                                show: false,
                                 isBlocked: true,
                                 type: 'field',
                                 label: 'Места',
@@ -747,13 +701,11 @@ const state = {
                             vue.set(work_time, 'show', true)
                             vue.set(widget, 'show', true)
                         } else if (formsData[from] == 'transport') {
-                            // vue.set(widget, 'isBlocked', true)
                             vue.set(widget, 'show', false)
                         } else if (formsData[from] == 'phone') {
-                            // vue.set(widget, 'isBlocked', true)
                             vue.set(widget, 'show', false)
                         } else {
-                            vue.set(widget, 'isBlocked', true)
+                            vue.set(widget, 'show', false)
                         }
                     }
                 }

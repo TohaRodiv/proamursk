@@ -17,7 +17,7 @@
             <div class="tab-left-label col4" v-if="block.labelPosition !== 'left' && !block.hasWideLabel && !block.uniqWidget"></div>
             <div
                     class="tab-item"
-                    v-if="block.show !== false"
+                    v-if="element.show !== false"
                     v-show="(element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true"
                     :class="[(block.modClass && ( (block.nullRender) ? (data[block.nullRender] && data[block.nullRender].length !== 0) : true ) ) ? block.modClass : element.modClass , findMyWidth(element, block)]"
                     :style="(block.uniqWidget) ? {width: '100%'} : ((element.nullRightMargin) ? {marginRight: 0, width: '460px'} : '')"
