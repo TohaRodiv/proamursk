@@ -583,7 +583,7 @@ class SearchView(View):
         else:
             context = self.get_context(request)
             response = dict(
-                data={'last': context['is_last_page']},
+                data={'last': not context.get('has_next')},
                 templates=dict(search_result=loader.render_to_string('site/modules/search-result-grid.html',
                                                                      context,
                                                                      request=request),
