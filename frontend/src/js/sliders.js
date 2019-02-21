@@ -2,6 +2,7 @@ var animateSpeed = 500;
 
 $(function () {
     if (sliderDetect()) sliderInit();
+    if (previewSliderDetect()) previewSliderInit();
 })
 
 // Переключение слайдов стрелками
@@ -125,3 +126,34 @@ function sliderInit() {
         }
     });
 }
+
+
+function previewSliderDetect() {
+    return $('.preview-slider').length > 0 ? true : false;
+}
+
+function previewSliderInit() {
+    $('.preview-slider').each(function () {
+        var firstMiniSlide = $(this).find('.preview-slider__mini-btn').eq(0).find('.preview-slider__small-img');
+
+        previewSlider(firstMiniSlide)
+    });
+}
+
+function previewSlider(slide) {
+    var parentSlider = slide.parents('.preview-slider'),
+        slideBtn = slide.parents('.preview-slider__mini-btn')
+        bigSlideSrc = slide.data('big-img'),
+        slideCaptionText = slide.data('caption'),
+        bigSlide = parentSlider.find('.preview-slider__big-img'),
+        slideCaption = parentSlider.find('.preview-slider__caption');
+
+    bigSlide.attr('src', bigSlideSrc);
+    slideCaption.text(slideCaptionText);
+    parentSlider.find('.preview-slider__mini-btn').removeClass('active');
+    slideBtn.addClass('active');
+}
+
+$('.preview-slider__mini-btn').click(function () {
+    previewSlider($(this).find('.preview-slider__small-img'))
+})

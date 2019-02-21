@@ -1,28 +1,71 @@
 .sp
     img
         display: block
+        &:not(.direct-speech__avatar)
+            border-radius: 4px
 
 .sp-block
-    margin-top: 40px
+    &_mt40
+        margin-top: 40px
+
+    &_mt80
+        margin-top: 80px
+
+    &_mt100
+        margin-top: 100px
+
     p
         margin-bottom: 20px
 
         &:last-child
             margin-bottom: 0
 
+.sp-light-section
+    padding: 40px 0 80px
+    background-color: #fbfcfd
+    border: 1px solid #d7dbe0
+
+    &__title
+        margin-bottom: 40px
+        font-family: $bold-f
+        font-size: 24px
+        letter-spacing: 0.02em
+        line-height: 24px
+        text-align: center
+
 .sp-6col
     width: 640px
     margin-left: auto
     margin-right: auto
 
+.sp-4col
+    width: 420px
+    flex-shrink: 0
+    margin-right: 20px
+
 .sp-6col_3-3
     display: flex
+    align-items: flex-start
 
     .sp-3col
         width: 310px
+        flex-shrink: 0
+        flex-grow: 0
 
         & + .sp-3col
             margin-left: 20px
+
+.sp-6col_4-2
+    display: flex
+    align-items: flex-start
+
+.sp-12col_4-4-4
+    display: flex
+    align-items: flex-start
+
+    & :nth-child(2)
+        margin-left: 20px
+        margin-right: 20px
 
 .sp-3col__text
     padding-right: 40px
@@ -31,6 +74,14 @@
     width: 860px
     margin-left: auto
     margin-right: auto
+
+.sp-full_2-2
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+
+    & > *
+        width: calc(50% - 20px)
 
 .sp-separator_line
     height: 1px
@@ -62,48 +113,104 @@
     display: flex
     align-items: flex-start
     justify-content: center
-    margin-bottom: 80px
+
+.sp-grid
+    display: flex
+    flex-wrap: wrap
+    align-items: flex-start
+    margin-right: -60px
+    margin-bottom: -20px
+
+    .sp-grid__item_half
+        width: calc(50% - 60px)
+        flex-shrink: 0
+        margin-right: 60px
+        margin-bottom: 20px
 
 .sp-fact
-    margin: 0 10px
-    text-align: center
+
+    &_center
+        margin: 0 10px
+        text-align: center
+
+        .sp-fact__icon
+            margin-left: auto
+            margin-right: auto
 
     &__icon
-        width: 86px
-        height: 86px
-        margin: 0 auto 10px
+        margin-bottom: 10px
         border: 2px solid #0073ff
         border-radius: 50%
 
-    &__title
-        font-size: 21px
-        line-height: $base-lh
-        font-family: $add-sb-it-f
+        &_big
+            width: 90px
+            height: 90px
+            line-height: 90px
 
-    &__text
+        &_small
+            width: 56px
+            height: 56px
+            line-height: 52px
+            font-size: 50px
+
+        &_error
+            color: #FF1800
+            text-align: center
+            border: 4px solid #FF1800
+
+    &__title
+        line-height: $base-lh
+
+        &_italic
+            font-size: 21px
+            font-family: $add-sb-it-f
+
+        &_bold
+            font-size: $base-fz
+            font-family: $bold-f
+
+    &__subtext
         width: 130px
         font-size: 15px;
         letter-spacing: 0.08em;
         line-height: 20px;
         color: $base-dark-c
 
+    &__text
+        font-size: $base-fz
+        line-height: $base-lh
+
 .sp-children__overflow-small-img
     width: 420px
     max-width: initial
 
-.sp-placeholder-small
-    width: 172px
-    height: 172px
+    &_left
+        margin-left: -110px
+
+.sp-placeholder
+    flex-shrink: 0
     background: #f9fafa
-    border: 1px solid #0073ff
+    border: 1px solid $base-c
     border-radius: 50%
+
+    &_small
+        width: 172px
+        height: 172px
+
+    &_big
+        width: 307px
+        height: 307px
 
 .sp-placeholder_1
     margin-top: 30px
     margin-left: auto
 
+.sp-placeholder_2
+    margin-left: 20px
+
 .sp-children
     padding-top: 0
+    overflow: hidden
 
     &__header
         position: relative
@@ -160,7 +267,7 @@
         height: 82px
         margin: 0 auto 10px
         font-size: 56px
-        line-height: 82px
+        line-height: 75px
         font-family: $bold-f
         text-align: center
         border: 5px solid $light-c
@@ -187,3 +294,216 @@
         font-size: 22px
         font-family: $add-sb-it-f
         text-align: center
+
+.sp-slider-timeline
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    position: relative
+
+    &::after
+        content: ""
+        display: block
+        height: 1px
+        position: absolute
+        top: 15px
+        left: 110px
+        right: 116px
+        z-index: 1
+        background-color: #C3CEDF
+
+.sp-children-section_1__slider-timeline
+    width: 866px
+    margin: 0 auto
+
+.timeline-step
+    position: relative
+    z-index: 2
+    text-align: center
+
+    &:first-child
+        .timeline-step__number-wrap
+            width: calc((100% - 27px) / 2 + 27px + 20px)
+            padding-left: calc((100% - 27px) / 2)
+            margin-left: 0
+
+    &:last-child
+        .timeline-step__number-wrap
+            width: calc((100% - 27px) / 2 + 27px + 20px)
+            padding-right: calc((100% - 27px) / 2)
+            margin-right: 0
+
+    &__number-wrap
+        width: 67px
+        height: 27px
+        margin: 0 auto 10px
+        padding: 0 20px
+        background-color: #fbfcfd
+
+    &__number
+        display: block
+        width: 27px
+        height: 27px
+        font-size: $base-fz
+        line-height: 24px
+        color: #C3CEDF
+        text-align: center
+        border: 1px solid #C3CEDF
+        border-radius: 50%
+
+    &__title
+        font-size: 15px
+        letter-spacing: 0.08em
+
+    &.active
+        .timeline-step__number
+            font-family: $bold-f
+            color: $light-c
+            border-color: $base-c
+            background-color: $base-c
+
+        .timeline-step__title
+            color: $base-c
+
+.sp-step-slider
+    width: 1080px
+    height: 640px
+    margin: 0 auto
+    background: $light-c
+    border: 1px solid #d2d7dd
+    border-radius: 4px
+
+    .slider-arrow
+        display: block
+        width: 48px
+        height: 48px
+        border-radius: 50%
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        z-index: 2
+        font-size: 25px
+        line-height: 50px
+        color: $base-c
+        background-color: #EFF3F9
+
+        &-prev
+            left: 20px
+            padding-right: 2px
+
+        &-next
+            right: 20px
+            padding-left: 5px
+
+    .slider-circles-container
+        bottom: 40px
+
+    .slider-circle-item
+        background-color: $light-c
+        border: 1px solid $base-c
+
+        &.active,
+        &:hover
+            background-color: $base-c
+
+    &__step-number
+        display: block
+        width: 48px
+        height: 48px
+        margin: 0 auto 10px
+        font-size: 28px
+        line-height: 48px
+        font-family: $bold-f
+        color: $light-c
+        text-align: center
+        background-color: $base-c
+        border-radius: 50%
+
+    &__step-title
+        margin-bottom: 20px
+        font-family: $bold-f
+        font-size: 24px
+        letter-spacing: 0.03em
+        line-height: $base-lh
+        text-align: center
+
+    &__text
+        width: 640px
+        margin-left: auto
+        margin-right: auto
+
+    &__fact-wrap
+
+        .sp-fact
+            width: 200px
+            margin-left: 50px
+            margin-right: 50px
+
+.sp-step-slider-1__slide-1
+    padding-top: 50px
+    text-align: center
+
+.sp-step-slider-1__slide-2
+    padding: 160px 120px 70px
+
+.sp-step-slider-1__slide-3
+    padding: 110px 120px
+
+.sp-step-slider-1__slide-4
+    padding: 110px 195px
+
+.sp-step-slider-1__slide-5,
+.sp-step-slider-1__slide-6
+    padding-top: 50px
+
+.sp-step-slider-1__slide-7
+    padding: 50px 110px
+
+.sp-bullet-list
+    margin: 0
+    padding: 0 0 0 18px
+
+    &__title
+        margin-bottom: 20px
+        font-family: $bold-f
+
+    &__item
+        &:not(:last-child)
+            margin-bottom: 20px
+
+.sp-bullet-item
+    position: relative
+
+    &::before
+        content: ""
+        width: 8px
+        height: 8px
+        position: absolute
+        left: -18px
+        top: 8px
+        background-color: $base-c
+        border-radius: 50%
+
+.sp-info-note
+    display: flex
+    align-items: flex-start
+    width: 640px
+    margin-top: 20px
+    margin-left: 18px
+
+    &__sign
+        width: 23px
+        height: 23px
+        margin-right: 15px
+        flex-shrink: 0
+        font-size: 17px
+        line-height: 22px
+        color: #FF1800
+        text-align: center
+        border: 1px solid #FF1800
+        border-radius: 50%
+
+    &__text
+        font-size: 12px
+        line-height: $base-lh
+        color: #283348
