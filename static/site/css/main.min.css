@@ -3637,8 +3637,11 @@ footer {
   letter-spacing: 0.02em;
   color: #FFFFFF; }
 
+.city-guide__image {
+  margin-top: 40px; }
+
 .city-guide__slider {
-  margin-top: 30px; }
+  margin-top: 40px; }
 
 .city-guide__separator {
   margin-top: 60px;
