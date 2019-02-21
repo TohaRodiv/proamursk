@@ -168,7 +168,7 @@ function ajaxInfinityLoader(url, templateName, page, section) {
         dataToSend;
 
     dataToSend = 'page=' + page + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
-    if (category) dataToSend = dataToSend + '&section=' + section;
+    if (section !== '') dataToSend = dataToSend + '&section=' + section;
 
     // console.log(dataToSend);
 
@@ -228,7 +228,7 @@ function ajaxInfinityLoader(url, templateName, page, section) {
 
 $('body').on('click', '.btn_more', function () {
     var pageCount = $(this).data('page-count'),
-        url, templateName;
+        url, templateName, section;
 
     $(this).addClass('btn_preloader');
 
@@ -271,7 +271,7 @@ $('body').on('click', '.btn_more', function () {
     else if ($(this).hasClass('js-more-search-result')) {
         url = 'search-result';
         templateName = 'search-result';
-        var section = $(this).data('section');
+        section = $(this).data('section');
     }
 
     ajaxInfinityLoader(url, templateName, pageCount, section);
