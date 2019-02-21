@@ -26,18 +26,26 @@ function setSearchQueryInURL(q) {
 }
 
 // переход на страницу результатов поиска
-$('.search-form').submit(function (event) {
+$('.instant-search-form').submit(function (event) {
     event.preventDefault();
-    var q = $('.search-form__input').val();
+    var q = $(this).find('.search-form__input').val();
 
     if (!$('.search-item').hasClass('focus')) {
         window.location.replace('/search/?q='+q);
     }
 })
 
+$('.search-form').submit(function (event) {
+    event.preventDefault();
+    var q = $(this).find('.search-form__input').val();
+
+    window.location.replace('/search/?q='+q);
+})
+
 
 $('body').on('click', '.header__search-btn', function () {
     showPopUp('search');
+    $('.instant-search-form .search-form__input').focus();
     $('.js-close-search').removeClass('hidden');
     $('.header__search-btn').addClass('visually-hidden');
 });
@@ -55,7 +63,7 @@ $('body').on('input', '.search-form__input', function () {
 })
 
 // запрос и переключение между результатами поиска с помощью стрелок вверх/вниз
-$('body').on('keyup', '.search-form__input', function (event) {
+$('body').on('keyup', '.instant-search-form__input', function (event) {
     var keyCode = event.keyCode,
         q = $(this).val();
 
@@ -106,6 +114,6 @@ $('body').on('keyup', '.search-form__input', function (event) {
     }
     // отправление поискового запроса
     else {
-        setTimeout(ajaxInstantSearch(q), 500);
+        if (q.length > 2) setTimeout(ajaxInstantSearch(q), 500);
     }
 })
