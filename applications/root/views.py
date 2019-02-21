@@ -370,9 +370,15 @@ class SpecialsDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SpecialsDetailView, self).get_context_data(**kwargs)
 
-        context["template_name"] = ''
-
-        return context
+        obj = context.get('object')
+        try:
+            template_name = 'site/special-project/%s.html' % obj.codename
+            loader.get_template(template_name)
+        except Exception as e:
+            raise Http404
+        else:
+            context["template_name"] = template_name
+            return context
 
 
 class FilmDetailView(DetailView):
