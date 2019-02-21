@@ -230,7 +230,7 @@ $('body').on('click', '.btn_more', function () {
     var pageCount = $(this).data('page-count'),
         url, templateName, section;
 
-    $(this).addClass('btn_preloader');
+    $(this).blur().addClass('btn_preloader');
 
     if ($(this).hasClass('js-more-future-events')) {
         url = 'future-announcements';
@@ -271,7 +271,7 @@ $('body').on('click', '.btn_more', function () {
     else if ($(this).hasClass('js-more-search-result')) {
         url = 'search-result';
         templateName = 'search-result';
-        section = $(this).data('section');
+        section = $('.search-result-page__btn.active').data('section');
     }
 
     ajaxInfinityLoader(url, templateName, pageCount, section);
