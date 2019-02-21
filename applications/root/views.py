@@ -409,7 +409,9 @@ class SearchView(View):
         items = qs.extra(
             select=dict(rank="ts_rank('%s.search_vector', to_tsquery('ru_fts', '%s'))" % (table_name, query)),
             where=["%s.search_vector @@ to_tsquery('ru_fts', '%s')" % (table_name, query)],
+
         )
+        items = items.order_by('-rank')
         return items
 
     def search_news(self, query):
@@ -452,10 +454,10 @@ class SearchView(View):
         items = Special.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
         return self.get_items(items, 'root_special', query)
 
-
-    def get_context(self, request, page=1):
+    def get_context(self, request):
         context = dict()
         items = []
+        page = 1
 
         if request.method == 'GET':
             search_text = request.GET.get('q', '')
@@ -512,7 +514,7 @@ class SearchView(View):
 
             items = result.get(section, dict()).get('qs', [])
 
-            paginator = Paginator(items, 12)
+            paginator = Paginator(items, 1)
 
             try:
                 items = paginator.page(page)
@@ -537,20 +539,47 @@ class SearchView(View):
 
         return context
 
+    def instant_search(self, request):
+        common_context = self.get_context(request)
+        search_result = common_context.get('result', dict())
+
+        items = []
+        all_amount = 0
+        for i in search_result.values():
+            if i.get('count', 0) > 0:
+                qs = i.get('qs', [])
+                all_amount += i.get('count', 0)
+                items += qs[:7]
+
+        items = sorted(items, key=lambda x: x.rank, reverse=True)
+        items = items[:7]
+
+        response = dict(
+            templates=dict(search_result=loader.render_to_string('site/modules/instant-search.html',
+                                                                 dict(items=items, all_amount=all_amount,
+                                                                      search_text=common_context.get('search_text')),
+                                                                 request=request),
+                           )
+        )
+        return HttpResponse(make_ajax_response(True, response))
+
     def get(self, request):
         context = self.get_context(request)
         return render(request, 'site/search-result.html', context)
 
-    def post(self, request):
-        context = self.get_context(request)
-        response = dict(
-            data={'last': context['is_last_page']},
-            templates=dict(goods_grid=loader.render_to_string('site/modules/search-result-grid.html',
-                                                              context,
-                                                              request=request),
-                           )
-        )
-        return HttpResponse(make_ajax_response(True, response))
+    def post(self, request, is_instant_search=False):
+        if is_instant_search:
+            return self.instant_search(request)
+        else:
+            context = self.get_context(request)
+            response = dict(
+                data={'last': context['is_last_page']},
+                templates=dict(search_result=loader.render_to_string('site/modules/search-result-grid.html',
+                                                                     context,
+                                                                     request=request),
+                               )
+            )
+            return HttpResponse(make_ajax_response(True, response))
 
 
 @require_POST

@@ -1,0 +1,18 @@
+{% if all_amount > 0 %}
+    <div class="search-result_full">
+        <ul class="search-result-list">
+            {% for item in items %}
+                <li class="search-result-item">
+                    <a href="{{ item.get_absolute_url }}" class="search-item">
+                        <span class="search-item__category">Новости</span>
+                        <div class="search-item__title">{{ item.title }}</div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url "search" %}?q={{ search_text }}" class="search__all-result-link">Показать все результаты <span>({{ all_amount }} материалов)</span></a>
+    </div>
+{% else %}
+    <div class="search-result_empty">По вашему запросу ничего не найдено</div>
+{% endif %}
