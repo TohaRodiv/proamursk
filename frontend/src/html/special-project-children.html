@@ -349,6 +349,63 @@
 
             </div>
         </div>
+        <table class="publication__additional-info-wrap publication__place-info-wrap publication__place-info-wrap_top">
+            <tr>
+                <td>
+                    <span class="icon-geo-stroke"></span>
+                    Адрес:
+                </td>
+                <td>
+                    <a href="" target="_blank">Комсомольский пр-т, 48а</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="icon-phone"></span>
+                    Тел.:
+                </td>
+                <td>
+                    8 (4214) 22-52-94 (с 8.30 до 12.00) 8 924 934-34-20
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="icon-web"></span>
+                    Сайт:
+                </td>
+                <td>
+                    <a href="" target="_blank">botsad.amursk.ru</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="icon-instagram"></span>
+                    Почта:
+                </td>
+                <td>
+                    <a href="mailto:lingamursk@gmail.com" target="_blank">lingamursk@gmail.com</a>
+                </td>
+            </tr>
+        </table>
+        <div class="sp-map-wrap">
+            <div class="container">
+                <div class="sp-map-points">
+                    <div class="sp-map-points__title">Детские сады Амурска</div>
+                    <div class="sp-map-points__list-wrap">
+                        <ul class="sp-map-points__list">
+                            <li class="sp-map-points__item" data-coord="[50.218630, 136.906322]">МБДОУ Детский сад комбинированного вида № 9</li>
+                            <li class="sp-map-points__item" data-coord="[50.232283, 136.910274]">МБДОУ Детский сад комбинированного вида № 17</li>
+                            <li class="sp-map-points__item" data-coord="[50.225638, 136.905845]">МБДОУ Детский сад комбинированного вида № 14</li>
+                            <li class="sp-map-points__item" data-coord="[50.240303, 136.908504]">МБДОУ Детский сад комбинированного вида № 21</li>
+                            <li class="sp-map-points__item" data-coord="[50.215760, 136.894347]">МБДОУ Детский сад комбинированного вида № 15</li>
+                            <li class="sp-map-points__item" data-coord="[50.239490, 136.908972]">МБДОУ Детский сад комбинированного вида № 49</li>
+                            <li class="sp-map-points__item" data-coord="[50.232346, 136.905136]">МБДОУ Детский сад № 13</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="map" class="sp-map map"></div>
+        </div>
 
     </section>
     </div>
@@ -365,4 +422,51 @@
 @@include("page-block/read-also.html")
 
 @@include('page-block/footer.html')
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+<script>
+
+    $(function () {
+        var desktopMap;
+        ymaps.ready(init);
+
+        function init() {
+            desktopMap = new ymaps.Map("map", {
+                center: [50.231025, 136.886119],
+                zoom: 14,
+                controls: ['zoomControl']
+            });
+
+            desktopMap.behaviors.disable('scrollZoom');
+
+            var coords = [];
+            $('.sp-map-points__item').each(function () {
+                var itemCoords = $(this).data('coord');
+                coords.push(itemCoords)
+            })
+
+            var point = new ymaps.GeoObjectCollection(
+                {
+                    balloonContentBody: "<b>Адрес:</b> ул. Воронежская, 144"
+                },
+                {
+                    preset: 'islands#icon',
+                    iconColor: '#0073FF'
+                }
+            );
+            for (var i = 0; i < coords.length; i++) {
+                point.add(new ymaps.Placemark(coords[i]));
+            }
+            desktopMap.geoObjects.add(point);
+        };
+
+        $('body').on('click', '.sp-map-points__item', function () {
+            desktopMap.panTo($(this).data('coord'), {
+                flying: 1
+            });
+            desktopMap.container.fitToViewport();
+
+        });
+    });
+</script>
 @@include('page-block/page-end.html')
