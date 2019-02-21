@@ -163,12 +163,11 @@ function ajaxBugreport(jqForm) {
     });
 }
 
-function ajaxInfinityLoader(url, templateName, page, section) {
+function ajaxInfinityLoader(url, templateName, page) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
         dataToSend;
 
     dataToSend = 'page=' + page + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
-    if (section !== '') dataToSend = dataToSend + '&section=' + section;
 
     // console.log(dataToSend);
 
@@ -226,55 +225,94 @@ function ajaxInfinityLoader(url, templateName, page, section) {
     });
 }
 
+function ajaxSearchResultInfinityLoader(page, q, section) {
+    var csrfmiddlewaretoken = getCookie('csrftoken'),
+        dataToSend;
+
+    dataToSend = 'page=' + page + '&q=' + q + '&section=' + section + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
+
+    // console.log(dataToSend);
+
+    $.ajax({
+        data: dataToSend,
+        url: '/api/site/search-result/',
+        method: 'POST',
+
+        success: function (response) {
+            var responseObj = JSON.parse(response);
+
+            // console.log(responseObj);
+
+            clearInterval(preloaderId);
+            if (responseObj.status == true) {
+                if (responseObj.data.last) {
+                    $('.btn_more').addClass('hidden');
+                }
+
+                $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.search_result);
+            }
+            else {
+                if (responseObj.message) showNotification(responseObj.message, 'error');
+            }
+        },
+        complete: function () {
+            hideBtnPreloader();
+        }
+    });
+}
+
 $('body').on('click', '.btn_more', function () {
     var pageCount = $(this).data('page-count'),
-        url, templateName, section;
+        url, templateName;
 
     $(this).blur().addClass('btn_preloader');
 
-    if ($(this).hasClass('js-more-future-events')) {
-        url = 'future-announcements';
-        templateName = 'announcements';
+    if ($(this).hasClass('js-more-search-result')) {
+        var section = $('.search-result-page__btn.active').data('section'),
+            q = $('.search-form .search-form__input').val();
+
+        ajaxSearchResultInfinityLoader(pageCount, q, section);
     }
-    else if ($(this).hasClass('js-more-past-events')) {
-        url = 'announcements';
-        templateName = 'announcements';
-    }
-    else if ($(this).hasClass('js-more-reportage')) {
-        url = 'reports';
-        templateName = 'reports';
-    }
-    else if ($(this).hasClass('js-more-history')) {
-        url = 'history';
-        templateName = 'articles';
-    }
-    else if ($(this).hasClass('js-more-places')) {
-        url = 'places';
-        templateName = 'places';
-    }
-    else if ($(this).hasClass('js-more-people')) {
-        url = 'persons';
-        templateName = 'articles';
-    }
-    else if ($(this).hasClass('js-more-special-projects')) {
-        url = 'special-projects';
-        templateName = 'special-projects';
-    }
-    else if ($(this).hasClass('js-more-news')) {
-        url = 'news';
-        templateName = 'news';
-    }
-    else if ($(this).hasClass('js-more-reviews')) {
-        url = 'reviews';
-        templateName = 'reviews';
-    }
-    else if ($(this).hasClass('js-more-search-result')) {
-        url = 'search-result';
-        templateName = 'search-result';
-        section = $('.search-result-page__btn.active').data('section');
+    else {
+        if ($(this).hasClass('js-more-future-events')) {
+            url = 'future-announcements';
+            templateName = 'announcements';
+        }
+        else if ($(this).hasClass('js-more-past-events')) {
+            url = 'announcements';
+            templateName = 'announcements';
+        }
+        else if ($(this).hasClass('js-more-reportage')) {
+            url = 'reports';
+            templateName = 'reports';
+        }
+        else if ($(this).hasClass('js-more-history')) {
+            url = 'history';
+            templateName = 'articles';
+        }
+        else if ($(this).hasClass('js-more-places')) {
+            url = 'places';
+            templateName = 'places';
+        }
+        else if ($(this).hasClass('js-more-people')) {
+            url = 'persons';
+            templateName = 'articles';
+        }
+        else if ($(this).hasClass('js-more-special-projects')) {
+            url = 'special-projects';
+            templateName = 'special-projects';
+        }
+        else if ($(this).hasClass('js-more-news')) {
+            url = 'news';
+            templateName = 'news';
+        }
+        else if ($(this).hasClass('js-more-reviews')) {
+            url = 'reviews';
+            templateName = 'reviews';
+        }
+        ajaxInfinityLoader(url, templateName, pageCount);
     }
 
-    ajaxInfinityLoader(url, templateName, pageCount, section);
     pageCount++;
     $(this).data('page-count', pageCount);
 })
