@@ -54,10 +54,21 @@
     display: flex
     align-items: flex-start
 
+    & > :first-child
+        margin-right: 20px
+
     .sp-4col
         width: 420px
         flex-shrink: 0
-        margin-right: 20px
+
+    .sp-2col
+        width: 200px
+        position: relative
+
+        & > *
+            position: absolute
+            top: 0
+            right: 0
 
 .sp-12col_4-4-4
     display: flex
@@ -86,6 +97,11 @@
     & > *
         width: calc(50% - 20px)
 
+.sp-title
+    margin-bottom: 20px
+    font-size: 24px
+    font-family: $bold-f
+    
 .sp-separator_line
     height: 1px
     background-color: #D7DBE0

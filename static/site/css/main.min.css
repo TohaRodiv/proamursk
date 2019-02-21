@@ -3920,11 +3920,19 @@ footer {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start; }
+  .sp-6col_4-2 > :first-child {
+    margin-right: 20px; }
   .sp-6col_4-2 .sp-4col {
     width: 420px;
     -ms-flex-negative: 0;
-        flex-shrink: 0;
-    margin-right: 20px; }
+        flex-shrink: 0; }
+  .sp-6col_4-2 .sp-2col {
+    width: 200px;
+    position: relative; }
+    .sp-6col_4-2 .sp-2col > * {
+      position: absolute;
+      top: 0;
+      right: 0; }
 
 .sp-12col_4-4-4 {
   display: -webkit-box;
@@ -3959,6 +3967,11 @@ footer {
           justify-content: space-between; }
   .sp-full_2-2 > * {
     width: calc(50% - 20px); }
+
+.sp-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
 
 .sp-separator_line {
   height: 1px;
