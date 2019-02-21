@@ -364,8 +364,15 @@ class SpecialsDetailView(DetailView):
     model = Special
     queryset = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'special'
-    template_name = 'root/specials_detail.html'
+    template_name = 'site/special-project.html'
     slug_field = 'codename'
+
+    def get_context_data(self, **kwargs):
+        context = super(SpecialsDetailView, self).get_context_data(**kwargs)
+
+        context["template_name"] = ''
+
+        return context
 
 
 class FilmDetailView(DetailView):

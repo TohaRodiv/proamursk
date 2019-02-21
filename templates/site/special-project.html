@@ -1,0 +1,29 @@
+{% extends "site/base.html" %}
+{% load static static_version %}
+{% load media_filters %}
+{% load pytils_dt %}
+{% load site_tags %}
+{% load utils_tags %}
+{% load posteditor_tags %}
+
+{% block title %}
+    {{ special.meta_title|default:special.title }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ special.meta_keywords }}">
+    <meta name="description" content="{{ special.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=special.meta_title|default:special.title og_description=special.meta_description og_image=special.og_image|default:special.cover|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
+
+
+{% block content %}
+{#    {% include template_name %}#}
+{% endblock %}
+
+{% block additional_content %}
+    {% read_also %}
+{% endblock %}

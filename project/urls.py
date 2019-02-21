@@ -43,7 +43,8 @@ urlpatterns = [
     path('api/site/history/', root_views.HistoryListView.as_view(), name='ajax-history'),
     path('api/site/bugreport/', root_views.bugreport, name='ajax-bugreport'),
     path('api/site/specials/', root_views.SpecialsListView.as_view(), name='ajax-specials'),
-    path('api/site/instant-search/', root_views.SearchView.as_view(), dict(is_instant_search=True), name='ajax-specials'),
+    path('api/site/search-result/', root_views.SearchView.as_view(), name='ajax-search-result'),
+    path('api/site/instant-search/', root_views.SearchView.as_view(), dict(is_instant_search=True), name='ajax-instant-search'),
     path('api/mailing/', include('applications.mailing.urls')),
     path('robots.txt', RobotsTxtView.as_view())
 ]
