@@ -139,6 +139,7 @@ const state = {
                                         ctag: '}}'
                                     },
                                     universalTags: {
+                                        title: true,
                                         link: true,
                                         email: true,
                                         button: true,
