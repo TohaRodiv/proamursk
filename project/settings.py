@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'applications.mailing',
     'applications.files',
     'applications.tools',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'pytils',
 ]
 

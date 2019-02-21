@@ -3,7 +3,8 @@ from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.postgres.search import SearchVectorField
+from applications.tools.utils import clean_html, get_post_editor_text
 from django.contrib.contenttypes.models import ContentType
 from applications.contentblocks.models import Page
 from core.models import BaseModel, IsActiveMixin, BaseSeoMixin
@@ -55,6 +56,8 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    search_text = models.TextField(blank=True)
+    search_vector = SearchVectorField(blank=True)
 
     class Meta:
         verbose_name = 'Новость'
@@ -66,6 +69,10 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def get_absolute_url(self):
         return reverse('news-detail', args=[self.id])
+
+    def save(self, *args, **kwargs):
+        self.search_text = '%s %s' % (self.title, clean_html(self.content))
+        super(News, self).save(*args, **kwargs)
 
 
 class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -88,6 +95,8 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    search_text = models.TextField(blank=True)
+    search_vector = SearchVectorField(blank=True)
 
     class Meta:
         verbose_name = 'Анонс события'
@@ -103,6 +112,13 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     @property
     def is_past(self):
         return self.start_event_date < timezone.now()
+
+    def save(self, *args, **kwargs):
+        try:
+            self.search_text = '%s %s' % (self.title, get_post_editor_text(self.content))
+        except:
+            pass
+        super(Event, self).save(*args, **kwargs)
 
 
 class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -126,6 +142,8 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    search_text = models.TextField(blank=True)
+    search_vector = SearchVectorField(blank=True)
 
     class Meta:
         verbose_name = 'Репортаж о событии'
@@ -137,6 +155,13 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def get_absolute_url(self):
         return reverse('reports-detail', args=[self.id])
+
+    def save(self, *args, **kwargs):
+        try:
+            self.search_text = '%s %s' % (self.title, get_post_editor_text(self.content))
+        except:
+            pass
+        super(Report, self).save(*args, **kwargs)
 
 
 class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -155,6 +180,8 @@ class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    search_text = models.TextField(blank=True)
+    search_vector = SearchVectorField(blank=True)
 
     class Meta:
         verbose_name = 'Спецпроект'
@@ -186,6 +213,8 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    search_text = models.TextField(blank=True)
+    search_vector = SearchVectorField(blank=True)
 
     class Meta:
         verbose_name = 'Статья о людях'
@@ -197,6 +226,13 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def get_absolute_url(self):
         return reverse('persons-detail', args=[self.id])
+
+    def save(self, *args, **kwargs):
+        try:
+            self.search_text = '%s %s' % (self.title, get_post_editor_text(self.content))
+        except:
+            pass
+        super(Person, self).save(*args, **kwargs)
 
 
 class HistoryRubric(BaseModel):
@@ -234,6 +270,8 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    search_text = models.TextField(blank=True)
+    search_vector = SearchVectorField(blank=True)
 
     class Meta:
         verbose_name = 'Историческая статья'
@@ -245,6 +283,13 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def get_absolute_url(self):
         return reverse('history-detail', args=[self.id])
+
+    def save(self, *args, **kwargs):
+        try:
+            self.search_text = '%s %s' % (self.title, get_post_editor_text(self.content))
+        except:
+            pass
+        super(History, self).save(*args, **kwargs)
 
 
 class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -271,6 +316,8 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    search_text = models.TextField(blank=True)
+    search_vector = SearchVectorField(blank=True)
 
     class Meta:
         verbose_name = 'Статья о местах'
@@ -285,6 +332,13 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
 
     def get_reviews(self):
         return self.reviews.filter(is_active=True)
+
+    def save(self, *args, **kwargs):
+        try:
+            self.search_text = '%s %s' % (self.title, get_post_editor_text(self.content))
+        except:
+            pass
+        super(Place, self).save(*args, **kwargs)
 
 
 class PlaceReview(BaseModel):
@@ -306,7 +360,7 @@ class PlaceReview(BaseModel):
         return 'Отзыв №{} о {}'.format(self.pk, self.place.title)
 
 
-class CityGuide(BaseModel, BaseSeoMixin):
+class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     SMALL = 'small'
     FULL = 'full'
     FORMATS = (
@@ -327,6 +381,8 @@ class CityGuide(BaseModel, BaseSeoMixin):
     descriptor = models.CharField('Подзаголовок', max_length=255)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    search_text = models.TextField(blank=True)
+    search_vector = SearchVectorField(blank=True)
 
     class Meta:
         verbose_name = 'Страница гида по городу'

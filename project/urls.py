@@ -30,6 +30,7 @@ urlpatterns = [
     path('places/<int:pk>/', root_views.PlaceDetailView.as_view(), name='places-detail'),
     path('specials/', root_views.SpecialsListView.as_view(), name='specials-list'),
     path('specials/<str:slug>/', root_views.SpecialsDetailView.as_view(), name='specials-detail'),
+    path('search/', root_views.SearchView.as_view(), name='search'),
     path('films/', RedirectView.as_view(url='/')),
     path('films/<int:pk>/', root_views.FilmDetailView.as_view(), name='films-detail'),
     path('api/site/news/', root_views.NewsListView.as_view(), name='api-news'),

@@ -518,7 +518,7 @@ class CityGuidesDetailSerializer(ModelSerializer):
         model = CityGuide
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'descriptor', 'guide_format',
                   'guide_format_name', 'comment', 'create_date', 'edit_date', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image', 'show_two_banners',
+                  'meta_description', 'meta_keywords', 'og_image', 'show_two_banners', 'is_active',
                   'items')
 
     def get_cover_format_name(self, instance):
@@ -541,11 +541,30 @@ class CityGuidesDetailSerializer(ModelSerializer):
         items = validated_data.pop('items') if 'items' in validated_data else []
         instance = super(CityGuidesDetailSerializer, self).create(validated_data)
         self.create_child_objects(items, CityGuideItem, dict(city_guide=instance))
+        search_text = ''
+        for i in items:
+            search_text += ' '
+            search_text += i.get('title', '')
+            search_text += ' '
+            search_text += i.get('description', '')
+
+        instance.search_text = search_text
+        instance.save()
+
         return instance
 
     def update(self, instance, validated_data):
         items = validated_data.pop('items') if 'items' in validated_data else []
         instance = super(CityGuidesDetailSerializer, self).update(instance, validated_data)
         self.update_child_objects(items, CityGuideItem, dict(city_guide=instance))
+        search_text = ''
+        for i in items:
+            search_text += ' '
+            search_text += i.get('title', '')
+            search_text += ' '
+            search_text += i.get('description', '')
+
+        instance.search_text = search_text
+        instance.save()
         return instance
 
