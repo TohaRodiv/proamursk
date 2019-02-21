@@ -314,9 +314,9 @@ const state = {
                                                 labelPosition: 'left',
                                                 modClass: 'marginBottom22',
                                                 direction: 'row',
+                                                show: false,
                                                 elements: [
                                                     {
-                                                        show: false,
                                                         type: 'field',
                                                         label: 'Одноместный номер',
                                                         width: 6,
@@ -331,9 +331,9 @@ const state = {
                                                 labelPosition: 'left',
                                                 modClass: 'marginBottom22',
                                                 direction: 'row',
+                                                show: false,
                                                 elements: [
                                                     {
-                                                        show: false,
                                                         type: 'field',
                                                         label: 'Номер люкс',
                                                         width: 6,
@@ -348,9 +348,9 @@ const state = {
                                                 labelPosition: 'left',
                                                 modClass: 'marginBottom22',
                                                 direction: 'row',
+                                                show: false,
                                                 elements: [
                                                     {
-                                                        show: false,
                                                         type: 'field',
                                                         label: 'Питание',
                                                         width: 6,
@@ -367,9 +367,9 @@ const state = {
                                                 labelPosition: 'left',
                                                 modClass: 'marginBottom22',
                                                 direction: 'row',
+                                                show: false,
                                                 elements: [
                                                     {
-                                                        show: false,
                                                         type: 'field',
                                                         label: 'Кухня',
                                                         width: 6,
@@ -384,9 +384,9 @@ const state = {
                                                 labelPosition: 'left',
                                                 modClass: 'marginBottom22',
                                                 direction: 'row',
+                                                show: false,
                                                 elements: [
                                                     {
-                                                        show: false,
                                                         type: 'field',
                                                         label: 'Средний чек',
                                                         width: 6,
@@ -401,9 +401,9 @@ const state = {
                                                 labelPosition: 'left',
                                                 modClass: 'marginBottom22',
                                                 direction: 'row',
+                                                show: false,
                                                 elements: [
                                                     {
-                                                        show: false,
                                                         type: 'field',
                                                         label: 'Входной билет',
                                                         width: 6,
@@ -418,9 +418,9 @@ const state = {
                                                 labelPosition: 'left',
                                                 modClass: 'marginBottom22',
                                                 direction: 'row',
+                                                show: false,
                                                 elements: [
                                                     {
-                                                        show: false,
                                                         type: 'field',
                                                         label: 'Время работы',
                                                         width: 10,
@@ -707,13 +707,13 @@ const state = {
             onChange: {
                 guide_format: {
                     items: function (from, widget, formsData) {
-                        let single_room_price = widget.popup_structure[0].blocks[3].elements[0]
-                        let luxury_room_price = widget.popup_structure[0].blocks[4].elements[0]
-                        let nutrition_info = widget.popup_structure[0].blocks[5].elements[0]
-                        let kitchen = widget.popup_structure[0].blocks[6].elements[0]
-                        let avg_value = widget.popup_structure[0].blocks[7].elements[0]
-                        let enter_price = widget.popup_structure[0].blocks[8].elements[0]
-                        let work_time = widget.popup_structure[0].blocks[9].elements[0]
+                        let single_room_price = widget.popup_structure[0].blocks[3]
+                        let luxury_room_price = widget.popup_structure[0].blocks[4]
+                        let nutrition_info = widget.popup_structure[0].blocks[5]
+                        let kitchen = widget.popup_structure[0].blocks[6]
+                        let avg_value = widget.popup_structure[0].blocks[7]
+                        let enter_price = widget.popup_structure[0].blocks[8]
+                        let work_time = widget.popup_structure[0].blocks[9]
                         if (formsData[from] == 'hotel') {
                             vue.set(widget, 'isBlocked', false)
                             vue.set(single_room_price, 'show', true)
@@ -732,7 +732,7 @@ const state = {
                             vue.set(kitchen, 'show', true)
                             vue.set(avg_value, 'show', true)
                             vue.set(enter_price, 'show', true)
-                            vue.set(enter_price, 'width', 6)
+                            vue.set(enter_price.elements[0], 'width', 6)
                             vue.set(work_time, 'show', true)
                             vue.set(widget, 'show', true)
                         } else if (formsData[from] == 'activities') {
@@ -743,7 +743,7 @@ const state = {
                             vue.set(kitchen, 'show', false)
                             vue.set(avg_value, 'show', false)
                             vue.set(enter_price, 'show', true)
-                            vue.set(enter_price, 'width', 4)
+                            vue.set(enter_price.elements[0], 'width', 4)
                             vue.set(work_time, 'show', true)
                             vue.set(widget, 'show', true)
                         } else if (formsData[from] == 'transport') {
