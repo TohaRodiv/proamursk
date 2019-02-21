@@ -163,12 +163,12 @@ function ajaxBugreport(jqForm) {
     });
 }
 
-function ajaxInfinityLoader(url, templateName, page, category) {
+function ajaxInfinityLoader(url, templateName, page, section) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
         dataToSend;
 
     dataToSend = 'page=' + page + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
-    if (category) dataToSend = dataToSend + '&category=' + category;
+    if (category) dataToSend = dataToSend + '&section=' + section;
 
     // console.log(dataToSend);
 
@@ -271,9 +271,10 @@ $('body').on('click', '.btn_more', function () {
     else if ($(this).hasClass('js-more-search-result')) {
         url = 'search-result';
         templateName = 'search-result';
+        var section = $(this).data('section');
     }
 
-    ajaxInfinityLoader(url, templateName, pageCount);
+    ajaxInfinityLoader(url, templateName, pageCount, section);
     pageCount++;
     $(this).data('page-count', pageCount);
 })
