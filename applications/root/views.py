@@ -549,7 +549,10 @@ class SearchView(View):
             if i.get('count', 0) > 0:
                 qs = i.get('qs', [])
                 all_amount += i.get('count', 0)
-                items += qs[:7]
+                cl = list(qs[:7])
+                for c in cl:
+                    setattr(c, 'search_section', i.get('name', ''))
+                items += cl
 
         items = sorted(items, key=lambda x: x.rank, reverse=True)
         items = items[:7]

@@ -4,7 +4,7 @@
             {% for item in items %}
                 <li class="search-result-item">
                     <a href="{{ item.get_absolute_url }}" class="search-item">
-                        <span class="search-item__category">Новости</span>
+                        <span class="search-item__category">{{ item.search_section }}</span>
                         <div class="search-item__title">{{ item.title }}</div>
                     </a>
                 </li>
