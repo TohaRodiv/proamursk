@@ -181,6 +181,8 @@
         margin-bottom: 20px
 
 .sp-fact
+    flex-basis: 200px
+    flex-grow: 0
 
     &_center
         margin: 0 10px
@@ -218,7 +220,7 @@
         color: $base-c
 
     &__title
-        line-height: $base-lh
+        line-height: $mini-lh
 
         &_italic
             font-size: 21px
@@ -229,11 +231,16 @@
             font-family: $bold-f
 
     &__subtext
-        width: 130px
-        font-size: 15px;
-        letter-spacing: 0.08em;
-        line-height: 20px;
+        width: 150px
+        margin-left: auto
+        margin-right: auto
+        font-size: 15px
+        letter-spacing: 0.08em
+        line-height: 20px
         color: $base-dark-c
+
+        &_mt10
+            margin-top: 10px
 
     &__text
         font-size: $base-fz
@@ -313,6 +320,8 @@
         justify-content: center
         margin-bottom: 80px
         background-size: cover
+        background-position: center
+        background-repeat: no-repeat
 
         &::after
             content: ""
@@ -756,3 +765,16 @@
         width: 620px
         margin-left: auto
         margin-right: auto
+
+.sp-place
+    &__title
+        font-family: $bold-f
+        font-size: 24px
+        letter-spacing: 0.02em
+
+    &__info
+    &__subtitle
+    &__decription
+    &__contacts-table
+    &__img
+        width: 420px
