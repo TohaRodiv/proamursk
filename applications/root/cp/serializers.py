@@ -5,6 +5,8 @@ from rest_framework import serializers
 
 from applications.mediafiles.cp.serializers import ImageNestedSerializer
 from applications.mediafiles.models import MediaFile
+from applications.files.cp.serializers import UserFileNestedSerializer
+from applications.files.models import UserFile
 from cp_vue.api.fields import ObjectRelatedField
 from cp_vue.api.serializers import ModelSerializer
 from ..models import (News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner,
@@ -445,18 +447,14 @@ class FeedbackListSerializer(ModelSerializer):
 
 class FeedbackDetailSerializer(ModelSerializer):
     subject_name = serializers.SerializerMethodField()
-    attachment = serializers.SerializerMethodField()
+    attachments = ObjectRelatedField(queryset=UserFile.objects.all(), serializer_class=UserFileNestedSerializer, many=True)
 
     class Meta:
         model = Feedback
-        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone', 'text', 'attachment', 'create_date')
+        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone', 'text', 'attachments', 'create_date')
 
     def get_subject_name(self, instance):
         return dict(instance.SUBJECTS).get(instance.subject)
-
-    def get_attachment(self, instance):
-        return {'name': os.path.basename(instance.attachment.name),
-                'url': instance.attachment.url} if instance.attachment else None
 
 
 class TextErrorListSerializer(ModelSerializer):
