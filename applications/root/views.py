@@ -18,7 +18,8 @@ from django.template import loader
 from applications.tools.utils import make_ajax_response
 from applications.tools.views import InfinityLoaderListView
 from applications.banrequest.views import check
-from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
+from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm, UploadForm
+from applications.files.utils import get_tags_id, get_file_data
 from applications.contentblocks.models import Page
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special, WideBanner
 
@@ -694,3 +695,35 @@ def bugreport(request):
         return JsonResponse(result)
     else:
         raise Http404
+
+
+class UploadFile(View):
+
+    def post(self, request):
+        file_obj = request.FILES['file']
+        ext = file_obj.name.split('.')[-1]
+
+        if file_obj.size == 0 or int(round(float(file_obj.size) / 1024, 0)) > 2048:
+            result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
+            return JsonResponse(result)
+
+        if ext not in ['jpg', 'png', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'zip']:
+            result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
+            return JsonResponse(result)
+
+        tags = request.POST.get('tags', '')
+        tags = tags.split(',')
+        data = get_file_data(file_obj)
+        data['tags'] = get_tags_id(tags)
+        form = UploadForm(data, request.FILES)
+        if form.is_valid():
+            form.save()
+            obj = form.instance
+            result = {
+                'status': True,
+                'data': dict(file_id=obj.id)
+            }
+            return JsonResponse(result)
+        else:
+            result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
+            return JsonResponse(result)

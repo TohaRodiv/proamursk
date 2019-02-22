@@ -9,7 +9,7 @@ from rest_framework import status
 from rest_framework.parsers import MultiPartParser
 from rest_framework.response import Response
 from django.conf.urls import url
-from django.core.exceptions import ObjectDoesNotExist
+
 from django.http import HttpResponseNotAllowed
 from django import forms
 from cp_vue.api.permissions import SapPermissions
@@ -18,6 +18,7 @@ from .serializers import (UserFileNestedSerializer, UserFileListSerializer,
                           UserFileDetailSerializer, FileExtensionSerializer)
 from .filters import UserFileFilter
 from ..models import UserFile, FileTag, FileExtension
+from ..utils import get_file_data, get_tags_id
 
 
 class UploadForm(forms.ModelForm):
@@ -72,41 +73,16 @@ class FileCpViewSet(CpViewSet):
     exclude_permissions = dict(list=['post'])
     parser_classes = (MultiPartParser,)
 
-    def get_tags_id(self, request):
-        tags = request.POST.get('tags', '')
-        tags = tags.split(',')
-        tags_id = []
-        if tags:
-            for tag_name in tags:
-                if tag_name:
-                    try:
-                        tag = FileTag.objects.get(name=tag_name)
-                    except ObjectDoesNotExist:
-                        tag = FileTag.objects.create(name=tag_name)
-                    except:
-                        tag = None
-
-                    if tag:
-                        tags_id.append(tag.id)
-
-        return tags_id
-
-    def get_file_data(self, fl):
-        file_size_kb = int(round(float(fl.size) / 1024, 0))
-        file_name = fl.name
-
-        return {'name': file_name,
-                'file_size': file_size_kb
-                }
-
     def post(self, request, *args, **kwargs):
         file_obj = request.FILES['file']
 
         if file_obj.size == 0:
             return Response(dict(file=[u'Файл пустой']), status=400,)
 
-        data = self.get_file_data(file_obj)
-        data['tags'] = self.get_tags_id(request)
+        tags = request.POST.get('tags', '')
+        tags = tags.split(',')
+        data = get_file_data(file_obj)
+        data['tags'] = get_tags_id(tags)
         form = UploadForm(data, request.FILES)
         if form.is_valid():
             form.save()

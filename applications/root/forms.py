@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.forms.models import ModelForm
 from .models import Feedback, PlaceReview, TextError
+from applications.files.models import UserFile
 
 
 class FeedbackForm(ModelForm):
@@ -19,3 +20,10 @@ class TextErrorForm(ModelForm):
     class Meta:
         model = TextError
         fields = ('url', 'text')
+
+
+class UploadForm(ModelForm):
+
+    class Meta:
+        model = UserFile
+        exclude = ()

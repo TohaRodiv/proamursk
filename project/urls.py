@@ -45,6 +45,7 @@ urlpatterns = [
     path('api/site/specials/', root_views.SpecialsListView.as_view(), name='ajax-specials'),
     path('api/site/search-result/', root_views.SearchView.as_view(), name='ajax-search-result'),
     path('api/site/instant-search/', root_views.SearchView.as_view(), dict(is_instant_search=True), name='ajax-instant-search'),
+    path('api/site/upload-file/', root_views.UploadFile.as_view(), dict(is_instant_search=True), name='ajax-upload-file'),
     path('api/mailing/', include('applications.mailing.urls')),
     path('robots.txt', RobotsTxtView.as_view())
 ]
