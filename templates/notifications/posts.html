@@ -13,11 +13,14 @@
 
                                 <div class="special-project__text-wrap" style="margin-top: 100px; padding: 20px 40px;">
                                     <h2 class="special-project__title" style="font-size: 36px; font-weight: bold;">{{ item.object.title }}</h2>
-                                    
+
                                     {% if model_name == "event" %}
+                                        <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.place }}</div>
+                                        <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; margin-top: 5px; font-size: 16px;">{{ item.object.event_date_text }}</div>
                                     {% else %}
-                                        <p class="special-project__text" style="margin-top: 0; margin-bottom: 1em; line-height: 1.5; font-size: 20px; margin: 0;">{{ item.object.descriptor }}</p>
-                                    {% endif %}    
+                                        <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.descriptor }}</div>
+                                    {% endif %}
+
                                     <div class="grid-publication__wobbler" style="margin-top: 20px;">
                                         {% include "notifications/email/wobbler.html" %}
                                     </div>
@@ -39,8 +42,7 @@
 
                                     {% if model_name == "event" %}
                                         <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.place }}</div>
-
-                                        <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; font-size: 16px;">{{ item.object.event_date_text }}</div>
+                                        <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; margin-top: 5px; font-size: 16px;">{{ item.object.event_date_text }}</div>
                                     {% else %}
                                         <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.descriptor }}</div>
                                     {% endif %}
@@ -65,12 +67,10 @@
 
                                         {% if model_name == "event" %}
                                             <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.place }}</div>
-
-                                            <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; font-size: 16px;">{{ item.object.event_date_text }}</div>
+                                            <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; margin-top: 5px; font-size: 16px;">{{ item.object.event_date_text }}</div>
                                         {% else %}
                                             <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.descriptor }}</div>
                                         {% endif %}
-
                                     </div>
 
                                     <div class="grid-publication__wobbler" style="margin-top: 20px;">
@@ -95,12 +95,10 @@
 
                                         {% if model_name == "event" %}
                                             <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.place }}</div>
-
-                                            <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; font-size: 16px;">{{ item.object.event_date_text }}</div>
+                                            <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; margin-top: 5px; font-size: 16px;">{{ item.object.event_date_text }}</div>
                                         {% else %}
                                             <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.descriptor }}</div>
                                         {% endif %}
-
                                     </div>
 
                                     <div class="grid-publication__wobbler" style="margin-top: 20px;">
