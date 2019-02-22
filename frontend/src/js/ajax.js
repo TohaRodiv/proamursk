@@ -62,14 +62,17 @@ function ajaxSubscribe(jqForm) {
 }
 
 var uploadFileAJAX;
-function ajaxUploadFile(data, attachmentItem, filesList, fileIndex) {
-    var csrfmiddlewaretoken = getCookie('csrftoken');
-    data.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+function ajaxUploadFile(file, attachmentItem) {
+    var csrfmiddlewaretoken = getCookie('csrftoken'),
+        formData = new FormData();
 
-    console.log(data);
+        formData.append('file', file);
+        formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+
+    // console.log(data);
 
     uploadFileAJAX = $.ajax({
-        data: data,
+        data: formData,
         url: '/api/site/upload-file/',
         method: 'POST',
         cache: false,
@@ -79,13 +82,12 @@ function ajaxUploadFile(data, attachmentItem, filesList, fileIndex) {
         success: function (response) {
             // console.log(response);
             if (response.status == true) {
-                attachmentItem.find('.js-abort-attachment-uploading').toggleClass('js-attachment-delete js-abort-attachment-uploading');
+                attachmentItem.find('.js-abort-attachment-uploading').addClass('js-attachment-delete');
+                attachmentItem.find('.js-abort-attachment-uploading').removeClass('js-abort-attachment-uploading');
 
-                attachmentItem.find('.attachment-item__process').remove();
+                attachmentItem.find('.attachment-item__progress').remove();
 
-                uploadFile(filesList, ++fileIndex);
                 filesIdToSend.push(response.data.file_id);
-                console.log(filesIdToSend)
 
                 if (response.message) showNotification(response.message, 'success');
             }
@@ -101,15 +103,14 @@ function ajaxUploadFile(data, attachmentItem, filesList, fileIndex) {
 
 function ajaxForms(jqForm) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
-        dataToSend = new FormData();
+        dataToSend;
 
     trimFormFields(jqForm);
+    dataToSend = jqForm.serialize() + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
 
-    jqForm.find('input:not([type="submit"]):not(.attachment-input), textarea').each(function () {
-        dataToSend.append(this.name, this.value)
-    });
-    dataToSend.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
-
+    if (filesIdToSend.length > 0) {
+        dataToSend = dataToSend + '&attachment=' + filesIdToSend
+    }
     // console.log(dataToSend);
 
     $.ajax({

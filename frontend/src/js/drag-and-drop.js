@@ -28,7 +28,9 @@ function preventDefaults(event) {
 });
 
 function highlight(currentDrop) {
-    currentDrop.classList.add('highlight');
+    if (!currentDrop.classList.contains('disabledDrag')) {
+        currentDrop.classList.add('highlight');
+    }
 }
 
 function unhighlight(currentDrop) {

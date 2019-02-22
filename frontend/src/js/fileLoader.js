@@ -11,8 +11,7 @@ $('.attachment-input').change(function () {
 
 $('body').on('click', '.js-attachment-delete', function () {
     var attachmentItem = $(this).parents('.attachment-item'),
-        attachmentItemList = attachmentItem.parents('.attachment-list'),
-        id = attachmentItem.data('id');
+        attachmentItemList = attachmentItem.parents('.attachment-list');
 
     attachmentItem.remove();
 
@@ -23,8 +22,7 @@ $('body').on('click', '.js-abort-attachment-uploading', function () {
     abortFileUploading();
 
     var attachmentItem = $(this).parents('.attachment-item'),
-        attachmentItemList = attachmentItem.parents('.attachment-list'),
-        id = attachmentItem.data('id');
+        attachmentItemList = attachmentItem.parents('.attachment-list');
 
     attachmentItem.remove();
 
@@ -49,8 +47,8 @@ function handleFiles(files, filesList) {
                 currentAttachment.data('id', currentFile.name);
                 currentAttachment.find('.attachment-item__name').text(currentFile.name);
                 currentAttachment.appendTo(filesList);
-                console.log(currentAttachment)
-                uploadFile(files, 0, currentAttachment)
+
+                ajaxUploadFile(files[i], currentAttachment)
             }
         }
     }
@@ -61,6 +59,7 @@ function handleFiles(files, filesList) {
 
     checkfilesListLength(filesList);
 }
+
 
 function abortFileUploading() {
     uploadFileAJAX.abort();
@@ -79,9 +78,11 @@ function checkfilesListLength(filesList) {
 
     if (filesListLength === 5) {
         filesList.siblings('.attachment-btn').find('.attachment-label').addClass('disabled');
+        filesList.parents('.js-drop-area').addClass('disabledDrag');
     }
     else {
         filesList.siblings('.attachment-btn').find('.attachment-label').removeClass('disabled');
+        filesList.parents('.js-drop-area').removeClass('disabledDrag');
     }
 }
 
@@ -99,40 +100,4 @@ function fileUploadingProgress(attachmentItem) {
     }, false);
 
     return xhr;
-}
-var count = 0;
-
-$('input[type="file"]').on('ajax', function(){
-  var $this = $(this);
-  if (typeof this.files[count] === 'undefined') { return false; }
-
-  $.ajax({
-    'type':'POST',
-    'data': (new FormData()).append('file', this.files[count]),
-    'contentType': false,
-    'processData': false,
-    'xhr': function() {
-       var xhr = $.ajaxSettings.xhr();
-       if(xhr.upload){
-         xhr.upload.addEventListener('progress', progressbar, false);
-       }
-       return xhr;
-     },
-    'success': function(){
-       count++;
-       $this.trigger('ajax');
-    }
-  });
-}).trigger('ajax');
-
-
-function uploadFile(files, index, attachmentItem) {
-    if (files.length > index) {
-        var formData = new FormData(  );
-
-        formData.append('file', files[index]);
-        console.log(formData)
-
-        ajaxUploadFile(formData, attachmentItem, files, index);
-    }
 }

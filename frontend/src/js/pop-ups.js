@@ -38,6 +38,7 @@ function hidePopUps() {
     resizeTextarea($('.variable-height-textarea'), 27, 120);
     clearAllSelect();
     clearFileInput();
+    filesIdToSend.splice(0, filesIdToSend.length);
 }
 
 // Показывает туман войны
