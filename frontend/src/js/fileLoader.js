@@ -9,27 +9,29 @@ $('.attachment-input').change(function () {
     handleFiles(filesArr, filesList)
 })
 
+var filesIdToSend = [];
+
 $('body').on('click', '.js-attachment-delete', function () {
     var attachmentItem = $(this).parents('.attachment-item'),
-        attachmentItemList = attachmentItem.parents('.attachment-list');
+        attachmentItemList = attachmentItem.parents('.attachment-list'),
+        attachmentItemId = attachmentItem.data('id');
 
     attachmentItem.remove();
-
+    filesIdToSend.remove(attachmentItemId);
     checkfilesListLength(attachmentItemList);
 })
 
 $('body').on('click', '.js-abort-attachment-uploading', function () {
-    abortFileUploading();
-
     var attachmentItem = $(this).parents('.attachment-item'),
+        attachmentItemFileName = attachmentItem.find('.attachment-item__name').text(),
         attachmentItemList = attachmentItem.parents('.attachment-list');
 
+    abortFileUploading(attachmentItemFileName);
     attachmentItem.remove();
 
     checkfilesListLength(attachmentItemList);
 })
 
-var filesIdToSend = [];
 function handleFiles(files, filesList) {
     var attachmentItemTemplate = $('.attachment-item_template').clone().removeClass('attachment-item_template hidden'),
     filesListLengthBefore = filesList.find('.attachment-item').length;
@@ -44,7 +46,6 @@ function handleFiles(files, filesList) {
             else {
                 var currentAttachment = attachmentItemTemplate.clone();
 
-                currentAttachment.data('id', currentFile.name);
                 currentAttachment.find('.attachment-item__name').text(currentFile.name);
                 currentAttachment.appendTo(filesList);
 
@@ -60,12 +61,16 @@ function handleFiles(files, filesList) {
     checkfilesListLength(filesList);
 }
 
+function abortFileUploading(fileName) {
+    uploadFileAjaxObj[fileName].abort();
+    delete uploadFileAjaxObj[fileName];
+}
 
-function abortFileUploading() {
-    uploadFileAJAX.abort();
-    clearFileInput();
-    $('.feedback-attachment-status_loaded, .feedback-attachment-status_error, .feedback-attachment-status_process').addClass('hidden');
-    $('.feedback-attachment-status_init').removeClass('hidden');
+function abortAllFileUploading() {
+    for (key in uploadFileAjaxObj) {
+        uploadFileAjaxObj[key].abort();
+        delete uploadFileAjaxObj[key];
+    }
 }
 
 function clearFileInput() {

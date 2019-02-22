@@ -39,6 +39,7 @@ function hidePopUps() {
     clearAllSelect();
     clearFileInput();
     filesIdToSend.splice(0, filesIdToSend.length);
+    abortAllFileUploading();
 }
 
 // Показывает туман войны

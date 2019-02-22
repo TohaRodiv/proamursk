@@ -61,17 +61,17 @@ function ajaxSubscribe(jqForm) {
     });
 }
 
-var uploadFileAJAX;
+var uploadFileAjaxObj = {};
 function ajaxUploadFile(file, attachmentItem) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
         formData = new FormData();
 
-        formData.append('file', file);
-        formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+    formData.append('file', file);
+    formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
 
     // console.log(data);
 
-    uploadFileAJAX = $.ajax({
+    uploadFileAjaxObj[file.name] = $.ajax({
         data: formData,
         url: '/api/site/upload-file/',
         method: 'POST',
@@ -85,9 +85,12 @@ function ajaxUploadFile(file, attachmentItem) {
                 attachmentItem.find('.js-abort-attachment-uploading').addClass('js-attachment-delete');
                 attachmentItem.find('.js-abort-attachment-uploading').removeClass('js-abort-attachment-uploading');
 
+                attachmentItem.data('id', response.data.file_id)
+
                 attachmentItem.find('.attachment-item__progress').remove();
 
                 filesIdToSend.push(response.data.file_id);
+
 
                 if (response.message) showNotification(response.message, 'success');
             }

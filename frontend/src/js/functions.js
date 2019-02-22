@@ -5,13 +5,6 @@ function trimFormFields(jqForm) {
     });
 }
 
-// возможность ввода только цифр
-$('body').on('keypress', '.filter__price-input, .cashback-form__input, .product-counter__input, input[name=pin], .tire-calculator__speed-input', function(event) {
-    if (event.which != 8 && event.which != 0 && (event.which < 48 || event.which > 57)) {
-        return false;
-    }
-})
-
 
 $('body').keydown(function (event) {
     if ((event.metaKey || event.ctrlKey) && event.keyCode == 13) {
