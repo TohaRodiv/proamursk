@@ -295,11 +295,11 @@ if DEBUG:
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'no-reply@perfectura.ru'
+EMAIL_HOST_USER = 'no-reply@proamursk.ru'
 EMAIL_HOST_PASSWORD = 'Bq1ty3h7'
 EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = 'проАмурск <no-reply@perfectura.ru>'
-SERVER_EMAIL = 'no-reply@perfectura.ru'
+DEFAULT_FROM_EMAIL = 'проАмурск <no-reply@proamursk.ru>'
+SERVER_EMAIL = 'no-reply@proamursk.ru'
 EMAIL_SUBJECT_PREFIX = ''
 
 if not DEBUG:
