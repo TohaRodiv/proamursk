@@ -351,9 +351,11 @@
         align-items: center
         justify-content: center
         height: 122px
-        margin-bottom: 80px
+        font-size: 24px
+        font-family: $bold-f
+        text-transform: uppercase
         border-radius: 4px
-        background: #f9fafa
+        background-color: #f9fafa
         border: 1px solid #0073ff
 
     &__description
@@ -361,6 +363,42 @@
         font-size: 22px
         font-family: $add-sb-it-f
         text-align: center
+
+.icon-title-wrap
+.icon-title
+    &__icon
+        margin: 0 auto 20px
+
+    &__text
+        font-family: $bold-f
+        font-size: 18px
+        letter-spacing: 0.02em
+        line-height: 24px
+        text-align: center
+        color: #000
+
+        &_1line
+            max-width: 400px
+
+        &_2line
+            max-width: 280px
+
+    &__text-wrap
+        display: flex
+        align-items: center
+
+        &::before,
+        &::after
+            content: ""
+            height: 1px
+            flex-grow: 1
+            background-color: #D7DBE0
+
+        &::before
+            margin-right: 20px
+
+        &::after
+            margin-left: 20px
 
 .sp-slider-timeline
     display: flex
@@ -378,6 +416,20 @@
         right: 116px
         z-index: 1
         background-color: #C3CEDF
+
+.sp-slider-note
+    width: 1080px
+    margin: 20px auto 0
+    font-size: 15px
+    letter-spacing: 0.08em
+    color: #283348
+
+    a
+        text-decoration: none
+        color: $base-c
+
+        &:hover
+            text-decoration: underline
 
 .sp-children-section_1__slider-timeline
     width: 860px
@@ -699,3 +751,8 @@
 
 .sp-step-slider-2__slide-3
     padding: 50px 120px
+
+    .sp-icon-list
+        width: 620px
+        margin-left: auto
+        margin-right: auto

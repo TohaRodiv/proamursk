@@ -4244,9 +4244,11 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   height: 122px;
-  margin-bottom: 80px;
+  font-size: 24px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
   border-radius: 4px;
-  background: #f9fafa;
+  background-color: #f9fafa;
   border: 1px solid #0073ff; }
 
 .sp-children-section__description {
@@ -4254,6 +4256,40 @@ footer {
   font-size: 22px;
   font-family: "SegoeUI Semibold It", Arial, Helvetica, sans-serif;
   text-align: center; }
+
+.icon-title__icon {
+  margin: 0 auto 20px; }
+
+.icon-title__text {
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  line-height: 24px;
+  text-align: center;
+  color: #000; }
+  .icon-title__text_1line {
+    max-width: 400px; }
+  .icon-title__text_2line {
+    max-width: 280px; }
+
+.icon-title__text-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .icon-title__text-wrap::before, .icon-title__text-wrap::after {
+    content: "";
+    height: 1px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    background-color: #D7DBE0; }
+  .icon-title__text-wrap::before {
+    margin-right: 20px; }
+  .icon-title__text-wrap::after {
+    margin-left: 20px; }
 
 .sp-slider-timeline {
   display: -webkit-box;
@@ -4276,6 +4312,18 @@ footer {
     right: 116px;
     z-index: 1;
     background-color: #C3CEDF; }
+
+.sp-slider-note {
+  width: 1080px;
+  margin: 20px auto 0;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: #283348; }
+  .sp-slider-note a {
+    text-decoration: none;
+    color: #0073FF; }
+    .sp-slider-note a:hover {
+      text-decoration: underline; }
 
 .sp-children-section_1__slider-timeline {
   width: 860px;
@@ -4577,5 +4625,9 @@ footer {
 
 .sp-step-slider-2__slide-3 {
   padding: 50px 120px; }
+  .sp-step-slider-2__slide-3 .sp-icon-list {
+    width: 620px;
+    margin-left: auto;
+    margin-right: auto; }
 
 /*# sourceMappingURL=main.min.css.map */
