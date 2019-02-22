@@ -768,13 +768,59 @@
 
 .sp-place
     &__title
+        margin-bottom: 50px
         font-family: $bold-f
         font-size: 24px
         letter-spacing: 0.02em
 
     &__info
     &__subtitle
+        font-size: 18px
+        line-height: 1.5
+        font-family: $bold-f
+
     &__decription
+        margin-bottom: 50px
+        font-size: 18px
+        line-height: 1.5
+
     &__contacts-table
+        font-size: 16px
+
+        [class^="icon-"]
+            display: inline-block
+            width: 18px
+            height: 20px
+            margin-right: 5px
+            font-size: 0
+            line-height: 20px
+            color: #0073FF
+            vertical-align: -2px
+            text-align: center
+            [class^="icon-"]::before
+            font-size: 17px
+
+        a
+            color: #0073FF
+            text-decoration: none
+            
+            &:hover,
+            &:focus
+                text-decoration: underline
+
+        tr:not(:last-child) td
+            padding-bottom: 10px
+
+        td
+            padding-top: 0
+            padding-left: 0
+            padding-right: 0
+            vertical-align: baseline
+
+            &:first-child
+                width: 120px
+                padding-right: 20px
+
     &__img
         width: 420px
+
