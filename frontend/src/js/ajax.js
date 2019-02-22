@@ -120,9 +120,6 @@ function ajaxForms(jqForm) {
         data: dataToSend,
         url: '/api/site/feedback/',
         method: 'POST',
-        cache: false,
-        processData: false,
-        contentType: false,
 
         success: function (response) {
             // console.log(response);
