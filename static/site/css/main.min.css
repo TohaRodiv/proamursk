@@ -1263,6 +1263,7 @@ textarea {
        text-overflow: ellipsis;
     white-space: nowrap; }
   .attachment-item__progress {
+    width: 33px;
     margin-left: 10px;
     color: #0073FF;
     font-size: 14px; }
