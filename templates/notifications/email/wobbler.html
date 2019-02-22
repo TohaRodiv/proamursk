@@ -8,7 +8,7 @@
 
     {% if model_name == "history" %}
         <img src="{{ domain }}{% static "site/images/email/wobbler-history.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 15px; margin-right: 7px; vertical-align: -1px;">
-        <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: 2px;">{{ item.rubric.name }}</span>
+        <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: 2px;">{{ item.object.rubric.name }}</span>
     {% endif %}
 
     {% if model_name == "person" %}
