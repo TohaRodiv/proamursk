@@ -707,7 +707,7 @@ class UploadFile(View):
             result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
             return JsonResponse(result)
 
-        if ext not in ['jpg', 'png', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'zip']:
+        if ext not in ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'zip']:
             result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
             return JsonResponse(result)
 
