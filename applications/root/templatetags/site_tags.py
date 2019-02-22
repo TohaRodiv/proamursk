@@ -4,7 +4,7 @@ from django.db.models import Q
 from django.template import Library
 from datetime import datetime
 from django.conf import settings
-from applications.root.models import News, Person, History, SidebarBanner, CityGuide, Event, Report, Special, Place
+from applications.root.models import News, Person, History, SidebarBanner, CityGuide, Event, Report, Special, Place, Feedback
 from applications.contentblocks.models import Page
 
 register = Library()
@@ -173,5 +173,17 @@ def posts(context, *args):
                                     items.append([dict(object=obj, format=item_format)])
                             else:
                                 items.append([dict(object=obj, format=item_format)])
-    return dict(items=items)
+    return dict(items=items, domain=context.get('domain'))
 
+
+@register.inclusion_tag('notifications/attachments.html', takes_context=True)
+def attachments(context):
+    items = []
+    try:
+        feedback = Feedback.objects.get(id=context.get('feedback_id'))
+    except:
+        pass
+    else:
+        items = feedback.attachments.all()
+
+    return dict(items=items, domain=context.get('domain'))
