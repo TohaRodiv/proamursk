@@ -78,6 +78,21 @@ function ajaxUploadFile(file, attachmentItem) {
         cache: false,
         processData: false,
         contentType: false,
+        xhr: function() {
+            var xhr = new window.XMLHttpRequest(),
+                progressBar = attachmentItem.find('.attachment-item__progress');
+
+            xhr.upload.addEventListener("progress", function(event){
+                if (event.lengthComputable) {
+                    var percentComplete = event.loaded / event.total;
+                    percentComplete = (percentComplete * 100).toFixed();
+
+                    progressBar.text(percentComplete + '%');
+                }
+            }, false);
+
+            return xhr;
+        },
 
         success: function (response) {
             // console.log(response);
@@ -104,6 +119,7 @@ function ajaxUploadFile(file, attachmentItem) {
     });
 }
 
+var formsAjaxQuery;
 function ajaxForms(jqForm) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
         dataToSend;
@@ -118,7 +134,7 @@ function ajaxForms(jqForm) {
     }
     // console.log(dataToSend);
 
-    $.ajax({
+    formsAjaxQuery = $.ajax({
         data: dataToSend,
         url: '/api/site/feedback/',
         method: 'POST',

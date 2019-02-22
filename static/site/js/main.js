@@ -86,30 +86,83 @@ function ajaxSubscribe(jqForm) {
     });
 }
 
-function ajaxForms(jqForm) {
+var uploadFileAjaxObj = {};
+function ajaxUploadFile(file, attachmentItem) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
-        dataToSend = new FormData();
+        formData = new FormData();
 
-    trimFormFields(jqForm);
+    formData.append('file', file);
+    formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
 
-    for (var id in queue) {
-        dataToSend.append('attachment', queue[id]);
-    }
+    // console.log(data);
 
-    jqForm.find('input:not([type="submit"]):not(.attachment-input), textarea').each(function () {
-        dataToSend.append(this.name, this.value)
-    });
-    dataToSend.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
-
-    // console.log(dataToSend);
-
-    $.ajax({
-        data: dataToSend,
-        url: '/api/site/feedback/',
+    uploadFileAjaxObj[file.name] = $.ajax({
+        data: formData,
+        url: '/api/site/upload-file/',
         method: 'POST',
         cache: false,
         processData: false,
         contentType: false,
+        xhr: function() {
+            var xhr = new window.XMLHttpRequest(),
+                progressBar = attachmentItem.find('.attachment-item__progress');
+
+            xhr.upload.addEventListener("progress", function(event){
+                if (event.lengthComputable) {
+                    var percentComplete = event.loaded / event.total;
+                    percentComplete = (percentComplete * 100).toFixed();
+
+                    progressBar.text(percentComplete + '%');
+                }
+            }, false);
+
+            return xhr;
+        },
+
+        success: function (response) {
+            // console.log(response);
+            if (response.status == true) {
+                attachmentItem.find('.js-abort-attachment-uploading').addClass('js-attachment-delete');
+                attachmentItem.find('.js-abort-attachment-uploading').removeClass('js-abort-attachment-uploading');
+
+                attachmentItem.data('id', response.data.file_id)
+
+                attachmentItem.find('.attachment-item__progress').remove();
+
+                filesIdToSend.push(response.data.file_id);
+
+
+                if (response.message) showNotification(response.message, 'success');
+            }
+            else {
+                if (response.message) showNotification(response.message, 'error');
+            }
+        },
+        complete: function () {
+            hideBtnPreloader();
+        }
+    });
+}
+
+var formsAjaxQuery;
+function ajaxForms(jqForm) {
+    var csrfmiddlewaretoken = getCookie('csrftoken'),
+        dataToSend;
+
+    trimFormFields(jqForm);
+    dataToSend = jqForm.serialize() + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
+
+    if (filesIdToSend.length > 0) {
+        filesIdToSend.forEach(function(id) {
+            dataToSend = dataToSend + '&attachments=' + id
+        });
+    }
+    // console.log(dataToSend);
+
+    formsAjaxQuery = $.ajax({
+        data: dataToSend,
+        url: '/api/site/feedback/',
+        method: 'POST',
 
         success: function (response) {
             // console.log(response);
@@ -236,6 +289,45 @@ function ajaxInfinityLoader(url, templateName, page) {
                 else if (templateName === 'special-projects') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.specialProjects);
                 }
+                else if (templateName === 'search-result') {
+                    $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.search_result);
+                }
+            }
+            else {
+                if (responseObj.message) showNotification(responseObj.message, 'error');
+            }
+        },
+        complete: function () {
+            hideBtnPreloader();
+        }
+    });
+}
+
+function ajaxSearchResultInfinityLoader(page, q, section) {
+    var csrfmiddlewaretoken = getCookie('csrftoken'),
+        dataToSend;
+
+    dataToSend = 'page=' + page + '&q=' + q + '&section=' + section + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
+
+    // console.log(dataToSend);
+
+    $.ajax({
+        data: dataToSend,
+        url: '/api/site/search-result/',
+        method: 'POST',
+
+        success: function (response) {
+            var responseObj = JSON.parse(response);
+
+            // console.log(responseObj);
+
+            clearInterval(preloaderId);
+            if (responseObj.status == true) {
+                if (responseObj.data.last) {
+                    $('.btn_more').addClass('hidden');
+                }
+
+                $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.search_result);
             }
             else {
                 if (responseObj.message) showNotification(responseObj.message, 'error');
@@ -251,46 +343,54 @@ $('body').on('click', '.btn_more', function () {
     var pageCount = $(this).data('page-count'),
         url, templateName;
 
-    $(this).addClass('btn_preloader');
+    $(this).blur().addClass('btn_preloader');
 
-    if ($(this).hasClass('js-more-future-events')) {
-        url = 'future-announcements';
-        templateName = 'announcements';
+    if ($(this).hasClass('js-more-search-result')) {
+        var section = $('.search-result-page__btn.active').data('section'),
+            q = $('.search-form .search-form__input').val();
+
+        ajaxSearchResultInfinityLoader(pageCount, q, section);
     }
-    else if ($(this).hasClass('js-more-past-events')) {
-        url = 'announcements';
-        templateName = 'announcements';
-    }
-    else if ($(this).hasClass('js-more-reportage')) {
-        url = 'reports';
-        templateName = 'reports';
-    }
-    else if ($(this).hasClass('js-more-history')) {
-        url = 'history';
-        templateName = 'articles';
-    }
-    else if ($(this).hasClass('js-more-places')) {
-        url = 'places';
-        templateName = 'places';
-    }
-    else if ($(this).hasClass('js-more-people')) {
-        url = 'persons';
-        templateName = 'articles';
-    }
-    else if ($(this).hasClass('js-more-special-projects')) {
-        url = 'special-projects';
-        templateName = 'special-projects';
-    }
-    else if ($(this).hasClass('js-more-news')) {
-        url = 'news';
-        templateName = 'news';
-    }
-    else if ($(this).hasClass('js-more-reviews')) {
-        url = 'reviews';
-        templateName = 'reviews';
+    else {
+        if ($(this).hasClass('js-more-future-events')) {
+            url = 'future-announcements';
+            templateName = 'announcements';
+        }
+        else if ($(this).hasClass('js-more-past-events')) {
+            url = 'announcements';
+            templateName = 'announcements';
+        }
+        else if ($(this).hasClass('js-more-reportage')) {
+            url = 'reports';
+            templateName = 'reports';
+        }
+        else if ($(this).hasClass('js-more-history')) {
+            url = 'history';
+            templateName = 'articles';
+        }
+        else if ($(this).hasClass('js-more-places')) {
+            url = 'places';
+            templateName = 'places';
+        }
+        else if ($(this).hasClass('js-more-people')) {
+            url = 'persons';
+            templateName = 'articles';
+        }
+        else if ($(this).hasClass('js-more-special-projects')) {
+            url = 'special-projects';
+            templateName = 'special-projects';
+        }
+        else if ($(this).hasClass('js-more-news')) {
+            url = 'news';
+            templateName = 'news';
+        }
+        else if ($(this).hasClass('js-more-reviews')) {
+            url = 'reviews';
+            templateName = 'reviews';
+        }
+        ajaxInfinityLoader(url, templateName, pageCount);
     }
 
-    ajaxInfinityLoader(url, templateName, pageCount);
     pageCount++;
     $(this).data('page-count', pageCount);
 })
@@ -403,7 +503,9 @@ function preventDefaults(event) {
 });
 
 function highlight(currentDrop) {
-    currentDrop.classList.add('highlight');
+    if (!currentDrop.classList.contains('disabledDrag')) {
+        currentDrop.classList.add('highlight');
+    }
 }
 
 function unhighlight(currentDrop) {
@@ -432,25 +534,34 @@ $('.attachment-input').change(function () {
     handleFiles(filesArr, filesList)
 })
 
-$('body').on('click', '.js-attachment-delete', function () {
-    var item = $(this).parents('.attachment-list__item'),
-        id = item.data('id');
+var filesIdToSend = [];
 
-    delete queue[id];
-    item.remove();
+$('body').on('click', '.js-attachment-delete', function () {
+    var attachmentItem = $(this).parents('.attachment-item'),
+        attachmentItemList = attachmentItem.parents('.attachment-list'),
+        attachmentItemId = attachmentItem.data('id');
+
+    attachmentItem.remove();
+    filesIdToSend.remove(attachmentItemId);
+    checkfilesListLength(attachmentItemList);
 })
 
-var queue = {};
+$('body').on('click', '.js-abort-attachment-uploading', function () {
+    var attachmentItem = $(this).parents('.attachment-item'),
+        attachmentItemFileName = attachmentItem.find('.attachment-item__name').text(),
+        attachmentItemList = attachmentItem.parents('.attachment-list');
+
+    abortFileUploading(attachmentItemFileName);
+    attachmentItem.remove();
+
+    checkfilesListLength(attachmentItemList);
+})
 
 function handleFiles(files, filesList) {
-    var deleteBtn = $('<button/>', {
-        type: 'button',
-        class: 'attachment-delete-btn js-attachment-delete icon-close',
-    });
+    var attachmentItemTemplate = $('.attachment-item_template').clone().removeClass('attachment-item_template hidden'),
+    filesListLengthBefore = filesList.find('.attachment-item').length;
 
-    if (files.length < 6) {
-        filesList.empty();
-
+    if (files.length < (6 - filesListLengthBefore)) {
         for (var i = 0; i < files.length; i++) {
             var currentFile = files[i];
             if (currentFile.size > 2097152) {
@@ -458,31 +569,51 @@ function handleFiles(files, filesList) {
                 return false;
             }
             else {
-                $('<div/>', {
-                    class: 'attachment-list__item',
-                    'data-id': currentFile.name,
-                    append: $('<span/>', {
-                        text: currentFile.name,
-                        class: 'attachment-list__item-name'
-                    })
-                }).appendTo(filesList);
-                queue[currentFile.name] = currentFile;
+                var currentAttachment = attachmentItemTemplate.clone();
+
+                currentAttachment.find('.attachment-item__name').text(currentFile.name);
+                currentAttachment.appendTo(filesList);
+
+                ajaxUploadFile(files[i], currentAttachment)
             }
         }
-
-        filesList.find('.attachment-list__item').each(function () {
-            deleteBtn.clone().appendTo($(this))
-        })
     }
     else {
-        showNotification('Можно загрузить не более 5 файлов по 2 Мб', 'error');
+        showNotification('Можно загрузить не более ' + (5 - filesListLengthBefore) + ' файлов по 2 Мб', 'error');
         return false;
+    }
+
+    checkfilesListLength(filesList);
+}
+
+function abortFileUploading(fileName) {
+    uploadFileAjaxObj[fileName].abort();
+    delete uploadFileAjaxObj[fileName];
+}
+
+function abortAllFileUploading() {
+    for (key in uploadFileAjaxObj) {
+        uploadFileAjaxObj[key].abort();
+        delete uploadFileAjaxObj[key];
     }
 }
 
 function clearFileInput() {
     $('.attachment-input').val('');
     $('.attachment-list').empty();
+}
+
+function checkfilesListLength(filesList) {
+    var filesListLength = filesList.find('.attachment-item').length;
+
+    if (filesListLength === 5) {
+        filesList.siblings('.attachment-btn').find('.attachment-label').addClass('disabled');
+        filesList.parents('.js-drop-area').addClass('disabledDrag');
+    }
+    else {
+        filesList.siblings('.attachment-btn').find('.attachment-label').removeClass('disabled');
+        filesList.parents('.js-drop-area').removeClass('disabledDrag');
+    }
 }
 $('body').on('input', 'input, textarea', function() {
     if ($(this).hasClass('has-error')) {
@@ -663,13 +794,6 @@ function trimFormFields(jqForm) {
     });
 }
 
-// возможность ввода только цифр
-$('body').on('keypress', '.filter__price-input, .cashback-form__input, .product-counter__input, input[name=pin], .tire-calculator__speed-input', function(event) {
-    if (event.which != 8 && event.which != 0 && (event.which < 48 || event.which > 57)) {
-        return false;
-    }
-})
-
 
 $('body').keydown(function (event) {
     if ((event.metaKey || event.ctrlKey) && event.keyCode == 13) {
@@ -722,6 +846,15 @@ function resizeTextarea(visibleTextarea, minHeight, maxHeight) {
         hiddenTextareaHeight = Math.min(maxHeight, hiddenTextareaHeight);
         visibleTextarea.height(hiddenTextareaHeight + 'px');
     }
+}
+
+
+Array.prototype.remove = function(value) {
+    var idx = this.indexOf(value);
+    if (idx != -1) {
+        return this.splice(idx, 1);
+    }
+    return false;
 }
 // маска телефона
 $('input[type=tel]').mask('+7 (000) 000 00 00');
@@ -875,6 +1008,9 @@ function hidePopUps() {
     resizeTextarea($('.variable-height-textarea'), 27, 120);
     clearAllSelect();
     clearFileInput();
+    filesIdToSend.splice(0, filesIdToSend.length);
+    abortAllFileUploading();
+    if (formsAjaxQuery) formsAjaxQuery.abort();
 }
 
 // Показывает туман войны
@@ -965,18 +1101,26 @@ function setSearchQueryInURL(q) {
 }
 
 // переход на страницу результатов поиска
-$('.search-form').submit(function (event) {
+$('.instant-search-form').submit(function (event) {
     event.preventDefault();
-    var q = $('.search-form__input').val();
+    var q = $(this).find('.search-form__input').val();
 
     if (!$('.search-item').hasClass('focus')) {
         window.location.replace('/search/?q='+q);
     }
 })
 
+$('.search-form').submit(function (event) {
+    event.preventDefault();
+    var q = $(this).find('.search-form__input').val();
+
+    window.location.replace('/search/?q='+q);
+})
+
 
 $('body').on('click', '.header__search-btn', function () {
     showPopUp('search');
+    $('.instant-search-form .search-form__input').focus();
     $('.js-close-search').removeClass('hidden');
     $('.header__search-btn').addClass('visually-hidden');
 });
@@ -994,7 +1138,7 @@ $('body').on('input', '.search-form__input', function () {
 })
 
 // запрос и переключение между результатами поиска с помощью стрелок вверх/вниз
-$('body').on('keyup', '.search-form__input', function (event) {
+$('body').on('keyup', '.instant-search-form__input', function (event) {
     var keyCode = event.keyCode,
         q = $(this).val();
 
@@ -1045,7 +1189,7 @@ $('body').on('keyup', '.search-form__input', function (event) {
     }
     // отправление поискового запроса
     else {
-        setTimeout(ajaxInstantSearch(q), 500);
+        if (q.length > 2) setTimeout(ajaxInstantSearch(q), 500);
     }
 })
 $('body').on('click', '.select__arrow', function() {
@@ -1164,6 +1308,7 @@ var animateSpeed = 500;
 
 $(function () {
     if (sliderDetect()) sliderInit();
+    if (previewSliderDetect()) previewSliderInit();
 })
 
 // Переключение слайдов стрелками
@@ -1287,6 +1432,37 @@ function sliderInit() {
         }
     });
 }
+
+
+function previewSliderDetect() {
+    return $('.preview-slider').length > 0 ? true : false;
+}
+
+function previewSliderInit() {
+    $('.preview-slider').each(function () {
+        var firstMiniSlide = $(this).find('.preview-slider__mini-btn').eq(0).find('.preview-slider__small-img');
+
+        previewSlider(firstMiniSlide)
+    });
+}
+
+function previewSlider(slide) {
+    var parentSlider = slide.parents('.preview-slider'),
+        slideBtn = slide.parents('.preview-slider__mini-btn')
+        bigSlideSrc = slide.data('big-img'),
+        slideCaptionText = slide.data('caption'),
+        bigSlide = parentSlider.find('.preview-slider__big-img'),
+        slideCaption = parentSlider.find('.preview-slider__caption');
+
+    bigSlide.attr('src', bigSlideSrc);
+    slideCaption.text(slideCaptionText);
+    parentSlider.find('.preview-slider__mini-btn').removeClass('active');
+    slideBtn.addClass('active');
+}
+
+$('.preview-slider__mini-btn').click(function () {
+    previewSlider($(this).find('.preview-slider__small-img'))
+})
 $('.subscribe-form').submit(function(event) {
     event.preventDefault();
     validateFormFields($(this));

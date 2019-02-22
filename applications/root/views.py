@@ -603,8 +603,8 @@ class SearchView(View):
 def feedback(request):
     if request.is_ajax():
         current_url = resolve(request.path_info).url_name
-        # if not check(request, current_url):
-        #     return JsonResponse({'status': False, 'message': settings.BAN_MESSAGE})
+        if not check(request, current_url):
+            return JsonResponse({'status': False, 'message': settings.BAN_MESSAGE})
         form = FeedbackForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -699,6 +699,9 @@ def bugreport(request):
 class UploadFile(View):
 
     def post(self, request):
+        current_url = resolve(request.path_info).url_name
+        if not check(request, current_url):
+            return JsonResponse({'status': False, 'message': settings.BAN_MESSAGE})
         file_obj = request.FILES['file']
         ext = file_obj.name.split('.')[-1]
 

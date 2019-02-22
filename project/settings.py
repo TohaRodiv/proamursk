@@ -147,7 +147,7 @@ USE_L10N = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 4
+STATIC_VERSION = 5
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -272,6 +272,11 @@ BAN_REQUEST = {
         'max': {'count': 30, 'minutes': 60, 'check_url': False},
         'ban_minutes': 300
     },
+    'upload-file': {
+        'min': {'count': 15, 'minutes': 5, 'check_url': False},
+        'max': {'count': 45, 'minutes': 60, 'check_url': False},
+        'ban_minutes': 300
+    },
     'api-password-recovery': {
         'min': {'count': 5, 'minutes': 5, 'check_url': False},
         'max': {'count': 30, 'minutes': 60, 'check_url': False},
@@ -295,11 +300,11 @@ if DEBUG:
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'no-reply@perfectura.ru'
+EMAIL_HOST_USER = 'no-reply@proamursk.ru'
 EMAIL_HOST_PASSWORD = 'Bq1ty3h7'
 EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = 'проАмурск <no-reply@perfectura.ru>'
-SERVER_EMAIL = 'no-reply@perfectura.ru'
+DEFAULT_FROM_EMAIL = 'проАмурск <no-reply@proamursk.ru>'
+SERVER_EMAIL = 'no-reply@proamursk.ru'
 EMAIL_SUBJECT_PREFIX = ''
 
 if not DEBUG:

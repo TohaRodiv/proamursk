@@ -90,19 +90,3 @@ function checkfilesListLength(filesList) {
         filesList.parents('.js-drop-area').removeClass('disabledDrag');
     }
 }
-
-function fileUploadingProgress(attachmentItem) {
-    var xhr = new window.XMLHttpRequest(),
-        progressBar = attachmentItem.find('.attachment-item__progress');
-
-    xhr.upload.addEventListener("progress", function(event){
-        if (event.lengthComputable) {
-            var percentComplete = event.loaded / event.total;
-            percentComplete = (percentComplete * 100).toFixed();
-
-            progressBar.text(percentComplete + '%');
-        }
-    }, false);
-
-    return xhr;
-}

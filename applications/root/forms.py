@@ -6,7 +6,7 @@ from applications.files.models import UserFile
 
 
 class FeedbackForm(ModelForm):
-    attachments = forms.ModelMultipleChoiceField(label='Файлы', queryset=UserFile.objects.all())
+    attachments = forms.ModelMultipleChoiceField(label='Файлы', queryset=UserFile.objects.all(), required=False)
 
     class Meta:
         model = Feedback

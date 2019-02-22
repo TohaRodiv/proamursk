@@ -40,6 +40,7 @@ function hidePopUps() {
     clearFileInput();
     filesIdToSend.splice(0, filesIdToSend.length);
     abortAllFileUploading();
+    if (formsAjaxQuery) formsAjaxQuery.abort();
 }
 
 // Показывает туман войны
