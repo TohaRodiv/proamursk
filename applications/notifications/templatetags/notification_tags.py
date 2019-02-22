@@ -8,7 +8,7 @@ register = template.Library()
 
 
 @register.inclusion_tag('notifications/title.html', takes_context=True)
-def link(context, text=None):
+def title(context, text):
     return {'text': text}
 
 

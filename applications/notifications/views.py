@@ -67,8 +67,8 @@ class NotificationSender(object):
 
         if notification.channel.codename == 'email':
             for k, v in self.template_context.items():
-                if k.startswith('__') or k in self.allowed_variables:
-                    context[k] = v
+                # if k.startswith('__') or k in self.allowed_variables:
+                context[k] = v
             subject = self.render_string(notification.subject, context)
             text = self.render_string(self.linebreaksbr(notification.text), context)
             template = get_template("notifications/email/email.html")
@@ -100,7 +100,7 @@ class NotificationSender(object):
         group_users = User.objects.filter(roles__in=groups, is_staff=True, is_active=True)
 
         users_for_send = list(itertools.chain(users, group_users, other_recipients))
-        is_client_notification = not notification.users.all().exists() and not notification.roles.all().exists() and notification.recipients.all().exists()
+        is_client_notification = not notification.users.all().exists() and not notification.roles.all().exists() and not notification.recipients.all().exists()
 
         recipients = []
         if users_for_send:

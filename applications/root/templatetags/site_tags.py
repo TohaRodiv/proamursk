@@ -181,7 +181,7 @@ def attachments(context):
     items = []
     try:
         feedback = Feedback.objects.get(id=context.get('feedback_id'))
-    except:
+    except Exception as e:
         pass
     else:
         items = feedback.attachments.all()

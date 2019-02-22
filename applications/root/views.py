@@ -603,8 +603,8 @@ class SearchView(View):
 def feedback(request):
     if request.is_ajax():
         current_url = resolve(request.path_info).url_name
-        if not check(request, current_url):
-            return JsonResponse({'status': False, 'message': settings.BAN_MESSAGE})
+        # if not check(request, current_url):
+        #     return JsonResponse({'status': False, 'message': settings.BAN_MESSAGE})
         form = FeedbackForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -618,16 +618,13 @@ def feedback(request):
                     'has_attachments': instance.attachments.all().exists(),
                     'feedback_id': instance.id,
                     'feedback_content': instance.text,
-                    'feedback_cp_link': '{scheme}:{host}/admin/feedbacks/{id}/'.format(
+                    'feedback_cp_link': '{scheme}://{host}/admin/feedbacks/{id}/'.format(
                         scheme=request.scheme, host=request.get_host(), id=instance.id
                     )
                 }
-                # if instance.attachments.all().exists():
-                #     template_context['attachment_title'] = instance.attachment.name
-                #     template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.url)
                 try:
                     send_notification.delay('feedback', template_context=template_context, recipient_sms=[],
-                                            recipient_email=[instance.email])
+                                            recipient_email=[instance.email], template_tags=['site_tags'])
                 except Exception as e:
                     pass
             return JsonResponse({'status': True, 'message': 'Обращение отправлено, скоро мы с вами свяжемся'})
