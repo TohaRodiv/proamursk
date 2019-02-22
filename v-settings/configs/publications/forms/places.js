@@ -277,8 +277,7 @@ const state = {
                         elements: [
                             {
                                 label: '',
-                                required: false,
-                                invalid: false,
+                                required: true,
                                 widget: 'postEditor',
                                 codename: 'content',
                                 hint: ''
