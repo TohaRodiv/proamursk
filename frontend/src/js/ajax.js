@@ -112,7 +112,9 @@ function ajaxForms(jqForm) {
     dataToSend = jqForm.serialize() + '&csrfmiddlewaretoken=' + csrfmiddlewaretoken;
 
     if (filesIdToSend.length > 0) {
-        dataToSend = dataToSend + '&attachment=' + filesIdToSend
+        filesIdToSend.forEach(function(id) {
+            dataToSend = dataToSend + '&attachments=' + id
+        });
     }
     // console.log(dataToSend);
 
