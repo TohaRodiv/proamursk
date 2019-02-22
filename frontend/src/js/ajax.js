@@ -119,6 +119,7 @@ function ajaxUploadFile(file, attachmentItem) {
     });
 }
 
+var formsAjaxQuery;
 function ajaxForms(jqForm) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
         dataToSend;
@@ -133,7 +134,7 @@ function ajaxForms(jqForm) {
     }
     // console.log(dataToSend);
 
-    $.ajax({
+    formsAjaxQuery = $.ajax({
         data: dataToSend,
         url: '/api/site/feedback/',
         method: 'POST',
