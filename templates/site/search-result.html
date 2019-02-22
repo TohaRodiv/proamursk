@@ -1,0 +1,59 @@
+{% extends "site/base.html" %}
+{% load utils_tags %}
+
+{% block content %}
+    <main class="light-bg">
+        <div class="container">
+            <div class="search-result-page__form">
+                <form action="" class="search-form">
+                    <input type="text" class="search-form__input input-big" placeholder="Поиск" value="{{ search_text }}" autocomplete="off">
+                    <button type="submit" class="search-form__submit icon-search"></button>
+                </form>
+            </div>
+        </div>
+
+        {% if search_text|length <= 3 %}
+            <div class="">
+                <div class="container">
+                    <div class="search-result-page_empty">
+                        <div class="empty-block__title">Поисковый запрос должен быть больше двух символов</div>
+                        <div class="empty-block__text">Вы можете искать по&nbsp;названиям товаров и&nbsp;категорий.</div>
+                    </div>
+                </div>
+            </div>
+        {% elif items|length == 0 %}
+            <div class="">
+                <div class="container">
+                    <div class="search-result-page_empty">
+                        <div class="empty-block__title">Ничего не найдено</div>
+                        <div class="empty-block__text">Попробуйте изменить условия поиска&nbsp;&mdash; вы&nbsp;можете искать по&nbsp;названиям товаров и&nbsp;категорий.</div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="tabs-wrap search-result-page" data-search-query="">
+                <div class="container">
+                    <div class="buttons-panel search-result-page__btns-panel">
+                        {% for tab, tab_data in result.items %}
+                            {% if tab_data.count > 0 %}
+                                <a href="{{ request.path_info }}?q={{ search_text }}&section={{ tab }}" class="btn btn_white-active search-result-page__btn {% if section == tab %}active{% endif %}" data-section="{{ tab }}">{{ tab_data.name }}<span class="btn__counter">{{ tab_data.count }}</span></a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="layout-section">
+                        <div class="js-infinity-loader-wrap">
+                            <div class="base-4items-grid js-infinity-loader-grid">
+                                {% include "site/modules/search-result-grid.html" %}
+                            </div>
+                            {% if has_next %}
+                                <button class="btn btn_blue btn_more btn_center js-more-search-result" data-page-count="2">Показать еще <span class="icon-arrow-down-dir"></span></button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+    </main>
+{% endblock %}

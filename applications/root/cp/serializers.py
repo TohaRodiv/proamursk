@@ -5,6 +5,8 @@ from rest_framework import serializers
 
 from applications.mediafiles.cp.serializers import ImageNestedSerializer
 from applications.mediafiles.models import MediaFile
+from applications.files.cp.serializers import UserFileNestedSerializer
+from applications.files.models import UserFile
 from cp_vue.api.fields import ObjectRelatedField
 from cp_vue.api.serializers import ModelSerializer
 from ..models import (News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner,
@@ -429,34 +431,26 @@ class SlidersDetailSerializer(ModelSerializer):
 
 class FeedbackListSerializer(ModelSerializer):
     subject_name = serializers.SerializerMethodField()
-    attachment = serializers.SerializerMethodField()
 
     class Meta:
         model = Feedback
-        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone', 'attachment', 'create_date')
+        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone',  'create_date')
 
     def get_subject_name(self, instance):
         return dict(instance.SUBJECTS).get(instance.subject)
 
-    def get_attachment(self, instance):
-        return {'name': os.path.basename(instance.attachment.name),
-                'url': instance.attachment.url} if instance.attachment else None
 
 
 class FeedbackDetailSerializer(ModelSerializer):
     subject_name = serializers.SerializerMethodField()
-    attachment = serializers.SerializerMethodField()
+    attachments = ObjectRelatedField(queryset=UserFile.objects.all(), serializer_class=UserFileNestedSerializer, many=True)
 
     class Meta:
         model = Feedback
-        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone', 'text', 'attachment', 'create_date')
+        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone', 'text', 'attachments', 'create_date')
 
     def get_subject_name(self, instance):
         return dict(instance.SUBJECTS).get(instance.subject)
-
-    def get_attachment(self, instance):
-        return {'name': os.path.basename(instance.attachment.name),
-                'url': instance.attachment.url} if instance.attachment else None
 
 
 class TextErrorListSerializer(ModelSerializer):
@@ -518,7 +512,7 @@ class CityGuidesDetailSerializer(ModelSerializer):
         model = CityGuide
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'descriptor', 'guide_format',
                   'guide_format_name', 'comment', 'create_date', 'edit_date', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image', 'show_two_banners',
+                  'meta_description', 'meta_keywords', 'og_image', 'show_two_banners', 'is_active',
                   'items')
 
     def get_cover_format_name(self, instance):
@@ -541,11 +535,30 @@ class CityGuidesDetailSerializer(ModelSerializer):
         items = validated_data.pop('items') if 'items' in validated_data else []
         instance = super(CityGuidesDetailSerializer, self).create(validated_data)
         self.create_child_objects(items, CityGuideItem, dict(city_guide=instance))
+        search_text = ''
+        for i in items:
+            search_text += ' '
+            search_text += i.get('title', '')
+            search_text += ' '
+            search_text += i.get('description', '')
+
+        instance.search_text = search_text
+        instance.save()
+
         return instance
 
     def update(self, instance, validated_data):
         items = validated_data.pop('items') if 'items' in validated_data else []
         instance = super(CityGuidesDetailSerializer, self).update(instance, validated_data)
         self.update_child_objects(items, CityGuideItem, dict(city_guide=instance))
+        search_text = ''
+        for i in items:
+            search_text += ' '
+            search_text += i.get('title', '')
+            search_text += ' '
+            search_text += i.get('description', '')
+
+        instance.search_text = search_text
+        instance.save()
         return instance
 

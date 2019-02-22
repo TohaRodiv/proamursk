@@ -19,6 +19,7 @@ from ..models import Page, ContentBlock
 
 class TopItemSerializer(ModelSerializer):
     item = serializers.SerializerMethodField()
+    entity = serializers.CharField(required=False, allow_blank=True)
 
     class Meta:
         model = TopItem
@@ -219,6 +220,17 @@ class StaticPagesDetailSerializer(ModelSerializer):
 
     def update(self, instance, validated_data):
         top_items = validated_data.pop('top_items') if 'top_items' in validated_data else []
+
+        if self.instance.pk and self.instance.codename in ['reports-list', 'history-list', 'persons-list', 'places-list']:
+            for i in top_items:
+                if self.instance.codename == 'reports-list':
+                    i['entity'] = 'reports'
+                elif self.instance.codename == 'history-list':
+                    i['entity'] = 'history'
+                elif self.instance.codename == 'persons-list':
+                    i['entity'] = 'persons'
+                elif self.instance.codename == 'places-list':
+                    i['entity'] = 'places'
 
         fields = self.instance.get_available_fields()
         with transaction.atomic():

@@ -173,7 +173,7 @@
                 <geoinput
                         v-if="element.widget === 'geoinput'"
                         :isBlocked="isBlocked(element)"
-                        :coordinates="data[element.codename]"
+                        :passedCoord="data[element.codename]"
                         :labelPosition="block.labelPosition"
                         :options="element">
                 </geoinput>
@@ -207,10 +207,8 @@
 <script>
     import source from '../../../../cp_vue/frontend/vue/components/workzone/forms/Tab.vue'
     import formatter from './widgets/Formatter.vue'
-    import geoinput from './widgets/GeoInput.vue'
 
     source.components.formatter = formatter;
-    source.components.geoinput = geoinput;
 
     export default source
 </script>

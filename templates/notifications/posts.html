@@ -1,0 +1,115 @@
+{% load media_filters %}
+{% load site_tags %}
+
+<table style="width: 100%; border-collapse: collapse; border-spacing: 0;">
+
+    {% for row in items %}
+        <tr>
+            {% for item in row %}
+                {% with model_name=item.object|get_model_name %}
+                    {% if item.format == "wf" %}
+                        <td class="p0 publication_full" colspan="2" style="padding: 0; width: 640px;">
+                            <a href="{{ item.object.get_absolute_url }}" class="grid-publication grid-publication_format-full special-project" style="border: 1px solid #D7DBE0; text-align: center; text-decoration: none; position: relative; display: block; margin-bottom: 20px; background-color: #FFFFFF; color: #FFFFFF; border-radius: 4px; overflow: hidden; background-repeat: no-repeat; background-size: cover; width: 638px; height: 458px; background-image: url({{ domain }}{{ item.object.cover|get_thumbnail_url_by_name:"" }});">
+
+                                <div class="special-project__text-wrap" style="margin-top: 100px; padding: 20px 40px;">
+                                    <h2 class="special-project__title" style="font-size: 36px; font-weight: bold;">{{ item.object.title }}</h2>
+
+                                    {% if model_name == "event" %}
+                                        <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.place }}</div>
+                                        <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; margin-top: 5px; font-size: 16px;">{{ item.object.event_date_text }}</div>
+                                    {% else %}
+                                        <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.descriptor }}</div>
+                                    {% endif %}
+
+                                    <div class="grid-publication__wobbler" style="margin-top: 20px;">
+                                        {% include "notifications/email/wobbler.html" %}
+                                    </div>
+                                </div>
+                            </a>
+                        </td>
+                    {% elif item.format == "ws" %}
+                        <td class="p0 publication_full" colspan="2" style="padding: 0; width: 640px;">
+                            <div class="grid-publication grid-publication_format-base" style="position: relative; display: block; margin-bottom: 20px; background-color: #FFFFFF; text-decoration: none; color: inherit; border: 1px solid #D7DBE0; border-radius: 4px; overflow: hidden;">
+
+                                <a href="{{ item.object.get_absolute_url }}" class="grid-publication__cover-wrap" style="color: #0073FF; text-decoration: underline; position: relative;">
+                                    <img src="{{ domain }}{{ item.object.cover|get_thumbnail_url_by_name:"" }}" alt="" class="grid-publication__cover" style="position: relative; display: block; -o-object-fit: cover; object-fit: cover; border-bottom: 1px solid #B1C1D2; width: 638px; max-width: 638px; height: 200px;">
+                                </a>
+
+                                <div class="grid-publication__text-wrap" style="padding: 20px;">
+                                    <h2 class="grid-publication__title" style="margin-top: 0; font-weight: bold; margin-bottom: 5px; font-size: 20px;">
+                                        <a href="{{ item.object.get_absolute_url }}" style="color: currentColor; text-decoration: none;">{{ item.object.title }}</a>
+                                    </h2>
+
+                                    {% if model_name == "event" %}
+                                        <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.place }}</div>
+                                        <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; margin-top: 5px; font-size: 16px;">{{ item.object.event_date_text }}</div>
+                                    {% else %}
+                                        <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.descriptor }}</div>
+                                    {% endif %}
+
+                                    <div class="grid-publication__wobbler" style="margin-top: 20px;">
+                                        {% include "notifications/email/wobbler.html" %}
+
+                                        <a href="{{ item.object.get_absolute_url }}" class="grid-publication__link" style="text-decoration: none; position: relative; margin-left: 20px; height: 26px; font-size: 12px; line-height: 22px; font-weight: bold; letter-spacing: 0.08em; color: #0073FF;">
+                                            <span class="text" style="vertical-align: middle;">Событие</span>
+                                            {% include "notifications/email/wobbler.html" %}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    {% elif item.format == "hf" %}
+                        <td class="p0 publication_half" style="padding: 0; width: 320px; vertical-align: top;">
+                            <a href="{{ item.object.get_absolute_url }}" class="grid-publication grid-publication_format-full grid-publication_text-size-base" style="margin-bottom: 20px; background-size: cover; text-decoration: none; background-repeat: no-repeat; overflow: hidden; position: relative; display: block; color: #FFFFFF; background-color: #FFFFFF; border: 1px solid #D7DBE0; border-radius: 4px; height: 520px; margin-right: 10px; background-image: url({{ domain }}{{ item.object.cover|get_thumbnail_url_by_name:"" }});">
+                                <div class="grid-publication__text-wrap" style="margin-top: 350px; padding: 20px;">
+                                    <div class="grid-publication__text-only-wrap">
+                                        <h2 class="grid-publication__title" style="margin-top: 0; font-weight: bold; margin-bottom: 5px; font-size: 20px;">{{ item.object.title }}</h2>
+
+                                        {% if model_name == "event" %}
+                                            <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.place }}</div>
+                                            <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; margin-top: 5px; font-size: 16px;">{{ item.object.event_date_text }}</div>
+                                        {% else %}
+                                            <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.descriptor }}</div>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="grid-publication__wobbler" style="margin-top: 20px;">
+                                        {% include "notifications/email/wobbler.html" %}
+                                    </div>
+                                </div>
+                            </a>
+                        </td>
+                    {% elif item.format == "hs" %}
+                        <td class="p0 publication_half" style="padding: 0; width: 320px; vertical-align: top;">
+                            <div class="grid-publication grid-publication_format-base grid-publication_cover-format-base" style="background-color: #FFFFFF; overflow: hidden; position: relative; display: block; margin-bottom: 20px; border-radius: 4px; text-decoration: none; color: inherit; border: 1px solid #D7DBE0; height: 520px; margin-left: 10px;">
+
+                                <a href="{{ item.object.get_absolute_url }}" class="grid-publication__cover-wrap" style="color: #0073FF; text-decoration: underline; position: relative;">
+                                    <img src="{{ domain }}{{ item.object.cover|get_thumbnail_url_by_name:"" }}" alt="" class="grid-publication__cover" style="position: relative; display: block; -o-object-fit: cover; object-fit: cover; border-bottom: 1px solid #B1C1D2; width: 308px; height: 280px;">
+                                </a>
+
+                                <div class="grid-publication__text-wrap" style="padding: 20px;">
+                                    <div class="grid-publication__text-only-wrap" style="height: 155px;">
+                                        <h2 class="grid-publication__title" style="margin-top: 0; font-weight: bold; margin-bottom: 5px; font-size: 20px;">
+                                            <a href="{{ item.object.get_absolute_url }}" style="color: currentColor; text-decoration: none;">{{ item.object.title }}</a>
+                                        </h2>
+
+                                        {% if model_name == "event" %}
+                                            <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.place }}</div>
+                                            <div class="grid-publication__text grid-publication__date" style="line-height: 1.5; margin-top: 5px; font-size: 16px;">{{ item.object.event_date_text }}</div>
+                                        {% else %}
+                                            <div class="grid-publication__text" style="line-height: 1.5; font-size: 16px;">{{ item.object.descriptor }}</div>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="grid-publication__wobbler" style="margin-top: 20px;">
+                                        {% include "notifications/email/wobbler.html" %}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>

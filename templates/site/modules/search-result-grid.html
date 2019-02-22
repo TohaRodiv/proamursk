@@ -1,0 +1,17 @@
+{% for item in items %}
+    {% if section == 'events' %}
+        {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="announcement" %}
+            {% include "site/modules/grid-event.html" %}
+        {% endwith %}
+    {% elif section == 'reports' %}
+        {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="reportage" %}
+            {% include "site/modules/grid-event.html" %}
+        {% endwith %}
+    {% else %}
+        {% with cover_format=item.cover_format|default:"small" %}
+        {% with cover_name="3_column_img_"|add:cover_format %}
+            {% include "site/modules/grid-publication.html" %}
+        {% endwith %}
+        {% endwith %}
+    {% endif %}
+{% endfor %}

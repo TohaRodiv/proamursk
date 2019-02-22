@@ -1,44 +1,82 @@
+{% load site_tags %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-    </head>
-    <body style="min-width: 640px; font-family: 'Helvetica', 'Arial', serif; color: #000000; font-size: 18px; font-weight: normal; line-height: 1.5; background-color: #ffffff; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
-        
-        <table class="wrapper" style="border-collapse: collapse; width: 500px; margin: 50px auto 50px auto;">
-            <tr>
-                <td>
-                    
-                    <table class="header" style="width: 100%; border-collapse: collapse; background-color: #ffffff;">
-                        <tr>
-                            <td>
-                                <a class="header-logo-placeholder" href="{{ domain }}" title="Фотостог" style="color: #000000; cursor: pointer; text-decoration: none; display: block; width: 148px; height: 38px; border: 1px solid black;"></a>
-                            </td>
-                        </tr>
-                    </table>
 
-                    <table class="content" style="width: 100%; border-collapse: collapse; background-color: #ffffff;">
-                        <tr>
-                            <td class="content-td" style="padding: 50px 0 80px 0; text-align: left;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
 
-                                {{ text }}
+</head>
 
-                            </td>
-                        </tr>
-                    </table>
+<body style="background-color: #E4E4E4; color: #000000; font-size: 14px; line-height: 1.5; font-family: Arial, sans-serif;">
+    <table class="letter-body" style="width: 100%; border-collapse: collapse; border-spacing: 0;">
+        <tr>
+            <td class="letter-body-td" style="padding: 90px 0;">
+                <table class="wrapper" style="border-collapse: collapse; border-spacing: 0; width: 700px; margin: 0 auto;">
+                    <tr>
+                        <td class="wrapper-td">
+                            <table class="header" style="width: 100%; border-collapse: collapse; border-spacing: 0; position: relative; background-color: #FFFFFF;">
+                                <tr>
+                                    <td class="header__td" style="padding: 40px 30px; background-repeat: no-repeat; background-size: 640px 93px; background-position: 30px 20px; background-image: url(https://i.ibb.co/JjdLCYb/header-pattern.jpg);">
+                                        <a href="{{ domain }}" class="header__logo-link" style="color: #000000; text-decoration: none; display: block; position: relative; z-index: 2;">
+                                            <img src="https://i.ibb.co/9hWsXsr/logo.jpg" alt="проАмурск" class="header__logo-img" style="display: block; width: 156px; height: 52px;">
+                                            <!-- <img src="../images/email/logo.jpg" alt="проАмурск" class="header__logo-img"> -->
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
 
-                    <table class="footer" style="width: 100%; border-collapse: collapse; text-align: center; background-color: #ffffff;">
-                        <tr>
-                            <td class="copyright-td" style="font-size: 14px;">
-                                &copy; {% now "Y" %}, <a class="footer-link" href="{{ domain }}" title="Фотостог" style="color: #000000; cursor: pointer; text-decoration: none;">Фотостог</a>
-                            </td>
-                        </tr>
-                    </table>
 
-                </td>
-            </tr>
-        </table>
+                            <table class="content" style="width: 100%; border-collapse: collapse; border-spacing: 0; background-color: #F5F6F7;">
+                                <tr>
+                                    <td class="content-td" style="padding: 40px 30px 20px;">
 
-    </body>
+                                        {{ text }}
+
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table class="footer" style="width: 100%; border-collapse: collapse; border-spacing: 0; background-color: #283348;">
+                                <tr>
+                                    <td class="footer__info-text" style="width: 320px; padding-top: 40px; padding-left: 80px; padding-bottom: 40px; font-size: 14px; color: #FFFFFF;">Вы получили это письмо, потому что подписаны на еженедельную рассылку сайта proamursk.ru</td>
+                                    <td class="social-wrap" style="padding-top: 40px; padding-right: 80px; padding-bottom: 40px; font-size: 0; text-align: right;">
+                                        <a href="" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
+                                            <img src="https://i.ibb.co/b3TXpYs/instagram.png" alt="Инстаграм" style="width: 45px; height: 45px;">
+                                            <!-- <img src="../images/email/instagram.png" alt="Инстаграм"> -->
+                                        </a>
+                                        <a href="" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
+                                            <img src="https://i.ibb.co/9N7jLtM/odnoklassniki.png" alt="Одноклассники" style="width: 45px; height: 45px;">
+                                            <!-- <img src="../images/email/odnoklassniki.png" alt="Одноклассники"> -->
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="footer__link_left" style="padding-left: 80px; padding-bottom: 40px;">
+                                        <a href="" class="footer__info-link" style="color: #FFFFFF; text-decoration: underline; font-size: 14px; text-align: center;">Отписаться от рассылки</a>
+                                    </td>
+                                    <td class="footer__link_right" style="padding-right: 80px; padding-bottom: 40px; text-align: right;">
+                                        <a href="{{ domain }}/policy/" target="_blank" class="footer__info-link" style="color: #FFFFFF; text-decoration: underline; font-size: 14px; text-align: center;">Политика конфиденциальности</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="footer__copyright" colspan="2" style="color: #7A8BA1; font-size: 14px; text-align: center;">© {% now "Y" %}, ПроАмурск </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="p0 footer-img-td" colspan="2" style="padding: 0; padding-top: 20px;">
+                                        <img src="https://i.ibb.co/b2b60mf/footer-pattern.png" alt="footer-pattern" class="footer-img" style="width: 700px; height: 42px;">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
 </html>

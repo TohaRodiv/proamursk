@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'applications.mailing',
     'applications.files',
     'applications.tools',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'pytils',
 ]
 
@@ -147,7 +147,7 @@ USE_L10N = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 4
+STATIC_VERSION = 5
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -270,6 +270,11 @@ BAN_REQUEST = {
     'place-review': {
         'min': {'count': 5, 'minutes': 5, 'check_url': False},
         'max': {'count': 30, 'minutes': 60, 'check_url': False},
+        'ban_minutes': 300
+    },
+    'upload-file': {
+        'min': {'count': 15, 'minutes': 5, 'check_url': False},
+        'max': {'count': 45, 'minutes': 60, 'check_url': False},
         'ban_minutes': 300
     },
     'api-password-recovery': {

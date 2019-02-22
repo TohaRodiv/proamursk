@@ -86,6 +86,7 @@ class CityGuidesFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
     show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
+    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
 
     class Meta:
         model = CityGuide

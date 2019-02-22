@@ -120,7 +120,8 @@ const state = {
                                 width: 12,
                                 codename: 'coordinates',
                                 widget: 'geoinput',
-                                hint: ''
+                                hint: '',
+                                defaultCoordinates: '50.2368500, 136.8813600'
                             }
                         ]
                     },

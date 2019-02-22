@@ -4,8 +4,8 @@
         <div class="pop-up-inner-container">
 
             <div class="pop-up-content search-pop-up-content">
-                <form class="search-form">
-                    <input type="text" name="search" class="search-form__input input-big" placeholder="Поиск" autocomplete="off">
+                <form class="instant-search-form">
+                    <input type="text" name="search" class="search-form__input instant-search-form__input input-big" placeholder="Поиск" autocomplete="off">
                     <button type="submit" class="search-form__submit icon-search"></button>
                 </form>
 
@@ -84,8 +84,7 @@
                                 <div class="select__option" data-value-to-send="news">Поделиться хорошей новостью</div>
                                 <div class="select__option" data-value-to-send="event">Рассказать о событии</div>
                                 <div class="select__option" data-value-to-send="history">Поведать историю</div>
-                                <div class="select__option" data-value-to-send="people">Рассказать о герое</div>
-                                <div class="select__option" data-value-to-send="bugreport">Рассказать об ошибке</div>
+                                <div class="select__option" data-value-to-send="person">Рассказать о герое</div>
                             </div>
                         </div>
 
@@ -117,6 +116,11 @@
                                     <span class="attachment-label__icon icon-clip-bold"></span>
                                 </label>
                                 <span class="attachment-text">Не более 5 файлов по 2 Мб jpg, png, pdf, doc/docx, xls/xlsx, zip</span>
+                            </div>
+                            <div class="attachment-item attachment-item_template hidden" data-id>
+                                <span class="attachment-item__name"></span>
+                                <span class="attachment-item__progress">0%</span>
+                                <button type="button" class="attachment-item__delete-btn js-abort-attachment-uploading js-attachment-delete icon-close"></button>
                             </div>
                             <div class="attachment-list"></div>
                         </div>
@@ -329,7 +333,7 @@
                 <div class="drop-area-wrap">
                     <form class="pop-up__form js-pop-up__form">
                         <div class="pop-up-form__inputs-set">
-                            <input type="hidden" name="subject" value="people">
+                            <input type="hidden" name="subject" value="person">
                             <div class="input-wrap pop-up-form__input-wrap pop-up-form__input-wrap_full">
                                 <input type="text" name="name" class="input-line input-line_base required-input">
                                 <label class="label-base">Как вас зовут? *</label>

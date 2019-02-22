@@ -84,6 +84,27 @@ a
     width: 480px
     margin: 40px auto
 
+.wobbler
+    display: inline-block
+    height: 16px
+    padding: 5px 12px
+    color: $light-c
+    background-color: $base-c
+    border-radius: 17px
+    vertical-align: middle
+
+    &__icon
+        height: 16px
+        margin-right: 7px
+
+    &__text
+        display: inline-block
+        font-size: 12px
+        line-height: 1
+        letter-spacing: 0.12em
+        text-transform: uppercase
+        vertical-align: text-top
+
 .title
     font-weight: bold
     font-size: 24px
@@ -150,6 +171,14 @@ a
     margin-left: auto
     margin-right: auto
     font-size: $base-fz
+
+    ul
+        margin-top: 10px
+        margin-bottom: 15px
+        padding-left: 40px
+
+        li
+            margin-bottom: 5px
 
 .footer
     background-color: $base-dark-c
@@ -223,7 +252,7 @@ a
     vertical-align: top
 
     .grid-publication
-        height: 520px
+        height: 540px
 
     .grid-publication_format-full
         .grid-publication__cover
@@ -237,7 +266,7 @@ a
             height: 280px
 
         .grid-publication__text-only-wrap
-            height: 155px
+            height: 175px
 
     &:first-child .grid-publication
         margin-right: 10px
@@ -265,8 +294,6 @@ a
         width: 100%
         object-fit: cover
 
-    &__text-wrap
-
     &__title
         margin-top: 0
         font-weight: bold
@@ -281,16 +308,15 @@ a
     &__text
         line-height: 1.5
 
+    &__date
+        margin-top: 5px
+
     &__wobbler
         margin-top: 20px
 
-        .wobbler
-            height: 26px
-            vertical-align: middle
-
     &__link
         position: relative
-        margin-left: 20px
+        margin-left: 11px
         height: 26px
         font-size: 12px
         line-height: 22px
@@ -333,7 +359,7 @@ a
         .grid-publication
 
             &__text-wrap
-                margin-top: 350px
+                margin-top: 368px
                 padding: 20px
 
             &__link

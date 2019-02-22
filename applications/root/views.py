@@ -18,7 +18,8 @@ from django.template import loader
 from applications.tools.utils import make_ajax_response
 from applications.tools.views import InfinityLoaderListView
 from applications.banrequest.views import check
-from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm
+from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm, UploadForm
+from applications.files.utils import get_tags_id, get_file_data
 from applications.contentblocks.models import Page
 from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special, WideBanner
 
@@ -79,7 +80,8 @@ class IndexView(View):
 
 
 class NewsListView(InfinityLoaderListView):
-    queryset = News.objects.filter(is_active=True, publication_date__lte=timezone.now()).order_by('-publication_date')
+    queryset = News.objects.select_related('cover').filter(is_active=True,
+                                                           publication_date__lte=timezone.now()).order_by('-publication_date')
     template_name = 'site/news-list.html'
     ajax_template_name = 'site/modules/news-list-block.html'
     context_list_name = 'news'
@@ -89,7 +91,7 @@ class NewsListView(InfinityLoaderListView):
 
 class NewsDetailView(DetailView):
     model = News
-    queryset = News.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = News.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'news'
     template_name = 'site/news-details.html'
 
@@ -101,8 +103,9 @@ class EventsListView(View):
         page = get_page(request)
         top_objects = page.top_items.all().order_by('weight') if page else []
 
-        events = list(Event.objects.filter(is_active=True,
-                                           start_event_date__gte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('-start_event_date')[:4])
+        events = list(Event.objects.select_related('cover').filter(
+            is_active=True,
+            start_event_date__gte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('-start_event_date')[:4])
 
         today_films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
@@ -172,7 +175,7 @@ class EventsDetailView(DetailView):
 
 
 class ReportsListView(InfinityLoaderListView):
-    queryset = Report.objects.filter(is_active=True,
+    queryset = Report.objects.select_related('cover').filter(is_active=True,
                                      publication_date__lte=timezone.now()).order_by('-publication_date')[12:]
 
     template_name = 'site/all-reportage.html'
@@ -210,7 +213,7 @@ class ReportsDetailView(DetailView):
 
 
 class HistoryListView(InfinityLoaderListView):
-    queryset = History.objects.filter(is_active=True,
+    queryset = History.objects.select_related('cover').filter(is_active=True,
                                       publication_date__lte=timezone.now()).order_by('-publication_date')[12:]
 
     template_name = 'site/all-history.html'
@@ -288,12 +291,12 @@ class CityGuidesDetailView(View):
 
     def get(self, request, pk):
         try:
-            guide = CityGuide.objects.get(id=pk)
+            guide = CityGuide.objects.get(id=pk, is_active=True)
         except:
             raise Http404
 
         template_name = 'site/city-guide-%s.html' % guide.guide_format
-        guides = CityGuide.objects.all()
+        guides = CityGuide.objects.filter(is_active=True)
         formats = OrderedDict(CityGuide.GUIDE_FORMATS)
         formats = list(formats.keys())
         guides = sorted(guides, key=lambda x: formats.index(x.guide_format) if x.guide_format in formats else len(formats))
@@ -330,7 +333,7 @@ class PlaceListView(InfinityLoaderListView):
                                      publication_date__lte=timezone.now()).order_by('-publication_date')
         has_next = items.count() > 11
         items = items[:11]
-        guides = CityGuide.objects.all()
+        guides = CityGuide.objects.filter(is_active=True)
         formats = OrderedDict(CityGuide.GUIDE_FORMATS)
         formats = list(formats.keys())
         guides = sorted(guides,
@@ -362,8 +365,21 @@ class SpecialsDetailView(DetailView):
     model = Special
     queryset = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'special'
-    template_name = 'root/specials_detail.html'
+    template_name = 'site/special-project.html'
     slug_field = 'codename'
+
+    def get_context_data(self, **kwargs):
+        context = super(SpecialsDetailView, self).get_context_data(**kwargs)
+
+        obj = context.get('object')
+        try:
+            template_name = 'site/special-project/%s.html' % obj.codename
+            loader.get_template(template_name)
+        except Exception as e:
+            raise Http404
+        else:
+            context["template_name"] = template_name
+            return context
 
 
 class FilmDetailView(DetailView):
@@ -401,6 +417,188 @@ class PolicyView(View):
         return render(request, "site/privacy.html", dict())
 
 
+class SearchView(View):
+
+    def get_items(self, qs, table_name, query):
+        items = qs.extra(
+            select=dict(rank="ts_rank('%s.search_vector', to_tsquery('ru_fts', '%s'))" % (table_name, query)),
+            where=["%s.search_vector @@ to_tsquery('ru_fts', '%s')" % (table_name, query)],
+
+        )
+        items = items.order_by('-rank')
+        return items
+
+    def search_news(self, query):
+        items = News.objects.select_related('cover').filter(is_active=True,
+                                                            publication_date__lte=timezone.now())
+        return self.get_items(items, 'root_news', query)
+
+
+    def search_events(self, query):
+        items = Event.objects.select_related('cover').filter(is_active=True)
+        return self.get_items(items, 'root_event', query)
+
+
+    def search_reports(self, query):
+        items = Report.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        return self.get_items(items, 'root_report', query)
+
+
+    def search_history(self, query):
+        items = History.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        return self.get_items(items, 'root_history', query)
+
+
+    def search_place(self, query):
+        items = Place.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        return self.get_items(items, 'root_place', query)
+
+
+    def search_guides(self, query):
+        items = CityGuide.objects.filter(is_active=True)
+        return self.get_items(items, 'root_cityguide', query)
+
+
+    def search_persons(self, query):
+        items = Person.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        return self.get_items(items, 'root_person', query)
+
+
+    def search_specials(self, query):
+        items = Special.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        return self.get_items(items, 'root_special', query)
+
+    def get_context(self, request):
+        context = dict()
+        items = []
+        page = 1
+
+        if request.method == 'GET':
+            search_text = request.GET.get('q', '')
+            section = request.GET.get('section')
+
+        elif request.method == 'POST':
+            search_text = request.POST.get('q', '')
+            section = request.POST.get('section')
+            page = request.POST.get('page', None)
+            try:
+                page = int(page)
+            except:
+                page = 0
+        else:
+            raise Http404
+
+        if len(search_text) > 2:
+
+            query = u' & '.join(['%s:*' % s for s in search_text.split(' ') if s])
+
+            news = self.search_news(query)
+            news_count = news.count()
+            events = self.search_events(query)
+            events_count = events.count()
+            reports = self.search_reports(query)
+            reports_count = reports.count()
+            history = self.search_history(query)
+            history_count = history.count()
+            place = self.search_place(query)
+            place_count = place.count()
+            guides = self.search_guides(query)
+            guides_count = guides.count()
+            persons = self.search_persons(query)
+            persons_count = persons.count()
+            specials = self.search_specials(query)
+            specials_count = specials.count()
+
+            result = OrderedDict(
+                news=dict(qs=news, count=news_count, name='Новости'),
+                events=dict(qs=events, count=events_count, name='События'),
+                reports=dict(qs=reports, count=reports_count, name='Репортажи'),
+                history=dict(qs=history, count=history_count, name='История'),
+                place=dict(qs=place, count=place_count, name='Места'),
+                guides=dict(qs=guides, count=guides_count, name='Гид по городу'),
+                persons=dict(qs=persons, count=persons_count, name='Люди'),
+                specials=dict(qs=specials, count=specials_count, name='Спецпроекты'),
+            )
+
+            if not section:
+                for k, v in result.items():
+                    if v.get('count', 0) > 0:
+                        section = k
+                        break
+
+            items = result.get(section, dict()).get('qs', [])
+
+            paginator = Paginator(items, 1)
+
+            try:
+                items = paginator.page(page)
+            except PageNotAnInteger:
+                items = paginator.page(1)
+            except EmptyPage:
+                items = paginator.page(1)
+
+            context.update({
+                'search_text': search_text,
+                'result': result,
+                'section': section,
+                'items': items,
+                'paginator': items.paginator,
+                'has_next': items.has_next(),
+            })
+
+        context.update({
+            'search_text': search_text,
+            'items': items,
+        })
+
+        return context
+
+    def instant_search(self, request):
+        common_context = self.get_context(request)
+        search_result = common_context.get('result', dict())
+
+        items = []
+        all_amount = 0
+        for i in search_result.values():
+            if i.get('count', 0) > 0:
+                qs = i.get('qs', [])
+                all_amount += i.get('count', 0)
+                cl = list(qs[:7])
+                for c in cl:
+                    setattr(c, 'search_section', i.get('name', ''))
+                items += cl
+
+        items = sorted(items, key=lambda x: x.rank, reverse=True)
+        items = items[:7]
+
+        response = dict(
+            templates=dict(search_result=loader.render_to_string('site/modules/instant-search.html',
+                                                                 dict(items=items, all_amount=all_amount,
+                                                                      search_text=common_context.get('search_text')),
+                                                                 request=request),
+                           )
+        )
+        return HttpResponse(make_ajax_response(True, response))
+
+    def get(self, request):
+        context = self.get_context(request)
+        return render(request, 'site/search-result.html', context)
+
+    def post(self, request, is_instant_search=False):
+        if is_instant_search:
+            return self.instant_search(request)
+        else:
+            context = self.get_context(request)
+            response = dict(
+                data={'last': not context.get('has_next')},
+                templates=dict(search_result=loader.render_to_string('site/modules/search-result-grid.html',
+                                                                     context,
+                                                                     request=request),
+                               )
+            )
+            return HttpResponse(make_ajax_response(True, response))
+
+
 @require_POST
 def feedback(request):
     if request.is_ajax():
@@ -417,17 +615,16 @@ def feedback(request):
                     'sender_name': instance.name,
                     'sender_email': instance.email,
                     'sender_phone': instance.email,
+                    'has_attachments': instance.attachments.all().exists(),
+                    'feedback_id': instance.id,
                     'feedback_content': instance.text,
-                    'feedback_cp_link': '{scheme}:{host}/admin/feedbacks/{id}/'.format(
+                    'feedback_cp_link': '{scheme}://{host}/admin/feedbacks/{id}/'.format(
                         scheme=request.scheme, host=request.get_host(), id=instance.id
                     )
                 }
-                if instance.attachment:
-                    template_context['attachment_title'] = instance.attachment.name
-                    template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.url)
                 try:
                     send_notification.delay('feedback', template_context=template_context, recipient_sms=[],
-                                            recipient_email=[instance.email])
+                                            recipient_email=[instance.email], template_tags=['site_tags'])
                 except Exception as e:
                     pass
             return JsonResponse({'status': True, 'message': 'Обращение отправлено, скоро мы с вами свяжемся'})
@@ -497,3 +694,37 @@ def bugreport(request):
         return JsonResponse(result)
     else:
         raise Http404
+
+
+class UploadFile(View):
+
+    def post(self, request):
+        current_url = resolve(request.path_info).url_name
+        if not check(request, current_url):
+            return JsonResponse({'status': False, 'message': settings.BAN_MESSAGE})
+        file_obj = request.FILES['file']
+        ext = file_obj.name.split('.')[-1]
+
+        if file_obj.size == 0 or int(round(float(file_obj.size) / 1024, 0)) > 2048:
+            result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
+            return JsonResponse(result)
+
+        if ext not in ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'zip']:
+            result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
+            return JsonResponse(result)
+
+        tags = ['Обращение']
+        data = get_file_data(file_obj)
+        data['tags'] = get_tags_id(tags)
+        form = UploadForm(data, request.FILES)
+        if form.is_valid():
+            form.save()
+            obj = form.instance
+            result = {
+                'status': True,
+                'data': dict(file_id=obj.id)
+            }
+            return JsonResponse(result)
+        else:
+            result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
+            return JsonResponse(result)

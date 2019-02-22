@@ -4,6 +4,7 @@ import os
 import json
 import re
 import time
+from django.utils.html import strip_tags
 from urllib.parse import urlparse, parse_qs
 from django.utils import translation
 from django.conf import settings
@@ -158,3 +159,35 @@ def format_card_number(number):
 
 def filter_number(string):
     return ''.join([c for c in string if c.isdigit()]) if string else ''
+
+
+def clean_html(text):
+    text = strip_tags(text)
+    text = re.sub(r"&\w+;", " ", text)
+    return text
+
+
+def get_post_editor_text(content):
+    result = ''
+
+    for section in content:
+        for column in section['columns']:
+            for element in column['widgets']:
+                if element:
+                    element_type = element.get('type')
+                    if element_type == 'text':
+                        result += ' '
+                        result += clean_html(element.get('text', ''))
+                    elif element_type == 'quote':
+                        result += ' '
+                        result += clean_html(element.get('text', ''))
+                    elif element_type == 'direct-speech':
+                        result += ' '
+                        result += clean_html(element.get('fio', ''))
+                        result += ' '
+                        result += clean_html(element.get('job', ''))
+                        result += ' '
+                        result += clean_html(element.get('text', ''))
+
+    return result
+

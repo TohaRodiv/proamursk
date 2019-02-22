@@ -38,6 +38,9 @@ function hidePopUps() {
     resizeTextarea($('.variable-height-textarea'), 27, 120);
     clearAllSelect();
     clearFileInput();
+    filesIdToSend.splice(0, filesIdToSend.length);
+    abortAllFileUploading();
+    if (formsAjaxQuery) formsAjaxQuery.abort();
 }
 
 // Показывает туман войны

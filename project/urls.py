@@ -30,6 +30,7 @@ urlpatterns = [
     path('places/<int:pk>/', root_views.PlaceDetailView.as_view(), name='places-detail'),
     path('specials/', root_views.SpecialsListView.as_view(), name='specials-list'),
     path('specials/<str:slug>/', root_views.SpecialsDetailView.as_view(), name='specials-detail'),
+    path('search/', root_views.SearchView.as_view(), name='search'),
     path('films/', RedirectView.as_view(url='/')),
     path('films/<int:pk>/', root_views.FilmDetailView.as_view(), name='films-detail'),
     path('api/site/news/', root_views.NewsListView.as_view(), name='api-news'),
@@ -42,6 +43,9 @@ urlpatterns = [
     path('api/site/history/', root_views.HistoryListView.as_view(), name='ajax-history'),
     path('api/site/bugreport/', root_views.bugreport, name='ajax-bugreport'),
     path('api/site/specials/', root_views.SpecialsListView.as_view(), name='ajax-specials'),
+    path('api/site/search-result/', root_views.SearchView.as_view(), name='ajax-search-result'),
+    path('api/site/instant-search/', root_views.SearchView.as_view(), dict(is_instant_search=True), name='ajax-instant-search'),
+    path('api/site/upload-file/', root_views.UploadFile.as_view(), name='ajax-upload-file'),
     path('api/mailing/', include('applications.mailing.urls')),
     path('robots.txt', RobotsTxtView.as_view())
 ]

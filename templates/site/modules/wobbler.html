@@ -14,18 +14,23 @@
             <div class="wobbler__text">{{ item.rubric.name }}</div>
         </div>
     {% endif %}
-    
+
     {% if model_name == "person" %}
         <div class="wobbler">
             <span class="wobbler__icon icon-people"></span>
             <div class="wobbler__text">Люди</div>
         </div>
     {% endif %}
-    
+
     {% if model_name == "place" %}
         <div class="wobbler">
             <span class="wobbler__icon icon-geo-stroke"></span>
             <div class="wobbler__text">Место</div>
         </div>
+    {% endif %}
+
+    {% if model_name == "special" %}
+        <span class="wobbler__icon icon-star-sharp"></span>
+        <span class="wobbler__text">Спецпроект</span>
     {% endif %}
 {% endwith %}

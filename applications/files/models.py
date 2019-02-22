@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 import os
 import uuid
-from django.db import models
+from django.db import models, transaction
 from django.core.exceptions import ObjectDoesNotExist
 
 
@@ -84,13 +84,8 @@ class UserFile(models.Model):
         return file_size.replace('.', ',')
 
     def save(self, *args, **kwargs):
-        extension = None
-        try:
-            extension = FileExtension.objects.get(name=self.get_ext())
-        except ObjectDoesNotExist:
-            extension = FileExtension.objects.create(name=self.get_ext())
-        except:
-            pass
+
+        extension, created = FileExtension.objects.get_or_create(name=self.get_ext())
 
         self.extension = extension
         super(UserFile, self).save(*args, **kwargs)

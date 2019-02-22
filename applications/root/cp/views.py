@@ -112,7 +112,7 @@ class CityGuidesCpViewSet(CpViewSet):
     path = 'city-guides'
     model = CityGuide
     queryset = CityGuide.objects.all()
-    available_actions = dict(delete='Удаление')
+    available_actions = dict(activate='Активация и Деактивация', delete='Удаление')
     serializer_class = CityGuidesDetailSerializer
     list_serializer_class = CityGuidesListSerializer
     filter_class = CityGuidesFilter

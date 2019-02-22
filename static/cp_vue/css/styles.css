@@ -5113,7 +5113,7 @@ input:placeholder-shown {
   white-space: nowrap; }
 
 .tab-required-star-left {
-  z-index: 19; }
+  z-index: 9; }
   .tab-required-star-left:before {
     content: '*';
     font-size: 16px;
@@ -6859,6 +6859,26 @@ input:placeholder-shown {
   height: 100%;
   z-index: 100;
   background-color: transparent; }
+
+.post-editor-empty-error {
+  border: 1px dashed #ffb9c4; }
+
+.post-editor-error-empty-container {
+  position: absolute;
+  display: flex;
+  top: calc(100% + 5px); }
+
+.post-editor-error-message {
+  margin-left: 5px;
+  min-width: 180px;
+  max-width: 330px;
+  padding: 9px 10px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.3;
+  background-color: #fc8b9e;
+  z-index: 10; }
 
 .refund-popup-info-container {
   display: flex;
