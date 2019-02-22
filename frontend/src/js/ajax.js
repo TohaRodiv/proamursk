@@ -61,15 +61,49 @@ function ajaxSubscribe(jqForm) {
     });
 }
 
+var uploadFileAJAX;
+function ajaxUploadFile(data, attachmentItem, filesList, fileIndex) {
+    var csrfmiddlewaretoken = getCookie('csrftoken');
+    data.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+
+    console.log(data);
+
+    uploadFileAJAX = $.ajax({
+        data: data,
+        url: '/api/site/upload-file/',
+        method: 'POST',
+        cache: false,
+        processData: false,
+        contentType: false,
+
+        success: function (response) {
+            // console.log(response);
+            if (response.status == true) {
+                attachmentItem.find('.js-abort-attachment-uploading').toggleClass('js-attachment-delete js-abort-attachment-uploading');
+
+                attachmentItem.find('.attachment-item__process').remove();
+
+                uploadFile(filesList, ++fileIndex);
+                filesIdToSend.push(response.data.file_id);
+                console.log(filesIdToSend)
+
+                if (response.message) showNotification(response.message, 'success');
+            }
+            else {
+                if (response.message) showNotification(response.message, 'error');
+            }
+        },
+        complete: function () {
+            hideBtnPreloader();
+        }
+    });
+}
+
 function ajaxForms(jqForm) {
     var csrfmiddlewaretoken = getCookie('csrftoken'),
         dataToSend = new FormData();
 
     trimFormFields(jqForm);
-
-    for (var id in queue) {
-        dataToSend.append('attachment', queue[id]);
-    }
 
     jqForm.find('input:not([type="submit"]):not(.attachment-input), textarea').each(function () {
         dataToSend.append(this.name, this.value)
