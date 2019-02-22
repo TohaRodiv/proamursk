@@ -1,3 +1,5 @@
- {% for item in items %}
-    <a href="{{ domain }}{{ item.file.url }}">{{ item.name }}</a>}
- {% endfor %}
+<ul style="margin-top: 10px; margin-bottom: 20px; padding-left: 40px;">
+    {% for item in items %}
+        <li style="margin-bottom: 5px;"><a href="{{ domain }}{{ item.file.url }}" style="color: #0073FF; text-decoration: underline;">{{ item.name }}</a></li>
+    % endfor %}
+</ul>

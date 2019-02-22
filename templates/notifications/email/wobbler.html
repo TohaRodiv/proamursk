@@ -1,35 +1,44 @@
 {% load site_tags static static_version utils_tags %}
 
-
-{% if model_name == "news" %}
-    <img src="{{ domain }}{% static "site/images/email/wobbler-news.png" %}{% static_version %}" alt="Новости" class="wobbler" style="height: 26px; vertical-align: middle;">
-{% endif %}
-
-{% if model_name == "history" %}
-    <img src="{{ domain }}{% static "site/images/email/wobbler-history.png" %}{% static_version %}" alt="{{ item.rubric.name }}" class="wobbler" style="height: 26px; vertical-align: middle;">
-{% endif %}
-
-{% if model_name == "person" %}
-    <img src="{{ domain }}{% static "site/images/email/wobbler-people.png" %}{% static_version %}" alt="Люди" class="wobbler" style="height: 26px; vertical-align: middle;">
-{% endif %}
-
-{% if model_name == "place" %}
-    <img src="{{ domain }}{% static "site/images/email/wobbler-place.png" %}{% static_version %}" alt="Место" class="wobbler" style="height: 26px; vertical-align: middle;">
-{% endif %}
-
-{% if model_name == "event" %}
-    {% if item.object.is_past %}
-        <img src="{{ domain }}{% static "site/images/email/wobbler-announcement.png" %}{% static_version %}" alt="Анонс" class="wobbler" style="height: 26px; vertical-align: middle;">
-    {% else %}
-        <img src="{{ domain }}{% static "site/images/email/wobbler-past-event.png" %}{% static_version %}" alt="Состоялось" class="wobbler" style="height: 26px; vertical-align: middle;">
+<div class="wobbler" style="display: inline-block; height: 16px; padding: 5px 12px; color: #FFFFFF; background-color: #0073FF; border-radius: 17px; vertical-align: middle;">
+    {% if model_name == "news" %}
+        <img src="{{ domain }}{% static "site/images/email/wobbler-news.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 16px; margin-right: 7px;">
+        <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Новости</span>
     {% endif %}
-{% endif %}
 
-{% if model_name == "report" %}
-    <img src="{{ domain }}{% static "site/images/email/wobbler-reportage.png" %}{% static_version %}" alt="Репортаж" class="wobbler" style="height: 26px; vertical-align: middle;">
-{% endif %}
+    {% if model_name == "history" %}
+        <img src="{{ domain }}{% static "site/images/email/wobbler-history.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 15px; margin-right: 7px; vertical-align: -1px;">
+        <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: 2px;">{{ item.rubric.name }}</span>
+    {% endif %}
 
-{% if model_name == "special" %}
-    <img src="{{ domain }}{% static "site/images/email/wobbler-special-projects.png" %}{% static_version %}" alt="Спецпроект" class="wobbler" style="height: 26px; vertical-align: middle;">
-{% endif %}
+    {% if model_name == "person" %}
+        <img src="{{ domain }}{% static "site/images/email/wobbler-people.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 16px; margin-right: 7px;">
+        <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Люди</span>
+    {% endif %}
+
+    {% if model_name == "place" %}
+        <img src="{{ domain }}{% static "site/images/email/wobbler-place.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 16px; margin-right: 7px;">
+        <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Место</span>
+    {% endif %}
+
+    {% if model_name == "event" %}
+        {% if item.object.is_past %}
+            <img src="{{ domain }}{% static "site/images/email/wobbler-announcement.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 15px; margin-right: 7px;">
+            <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Анонс</span>
+        {% else %}
+            <img src="{{ domain }}{% static "site/images/email/wobbler-past-event.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 16px; margin-right: 7px;">
+            <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Состоялось</span>
+        {% endif %}
+    {% endif %}
+
+    {% if model_name == "report" %}
+        <img src="{{ domain }}{% static "site/images/email/wobbler-reportage.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 16px; margin-right: 7px;">
+        <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Репортаж</span>
+    {% endif %}
+
+    {% if model_name == "special" %}
+        <img src="{{ domain }}{% static "site/images/email/wobbler-special-projects.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 16px; margin-right: 5px;">
+        <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Спецпроект</span>
+    {% endif %}
+</div>
 
