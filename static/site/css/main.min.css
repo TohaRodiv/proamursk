@@ -3929,7 +3929,7 @@ footer {
   .sp-6col_4-2 .sp-2col {
     width: 200px;
     position: relative; }
-    .sp-6col_4-2 .sp-2col > * {
+    .sp-6col_4-2 .sp-2col > .sp-placeholder {
       position: absolute;
       top: 0;
       right: 0; }
@@ -3946,6 +3946,38 @@ footer {
     margin-right: 20px; }
   .sp-12col_4-4-4 img {
     width: 420px; }
+
+.sp-full_4-4-4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .sp-full_4-4-4__item {
+    -ms-flex-negative: 0;
+        flex-shrink: 0; }
+    .sp-full_4-4-4__item:nth-child(1) figcaption {
+      width: 280px;
+      margin-left: auto; }
+    .sp-full_4-4-4__item:nth-child(2) {
+      margin-left: 20px;
+      margin-right: 20px; }
+      .sp-full_4-4-4__item:nth-child(2) figcaption {
+        width: 480px; }
+    .sp-full_4-4-4__item:nth-child(3) figcaption {
+      width: 280px; }
+  .sp-full_4-4-4 figcaption {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0.08em;
+    color: #283348; }
+  .sp-full_4-4-4 img {
+    height: 460px; }
 
 .sp-3col__text {
   padding-right: 40px; }
@@ -4055,6 +4087,12 @@ footer {
     text-align: center;
     border: 4px solid #FF1800; }
 
+.sp-fact__number {
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+  font-size: 42px;
+  line-height: 1;
+  color: #0073FF; }
+
 .sp-fact__title {
   line-height: 1.5; }
   .sp-fact__title_italic {
@@ -4081,6 +4119,10 @@ footer {
   .sp-children__overflow-small-img_left {
     margin-left: -110px; }
 
+.sp-children__overflow-big-img {
+  width: 640px;
+  max-width: initial; }
+
 .sp-placeholder {
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -4100,6 +4142,11 @@ footer {
 
 .sp-placeholder_2 {
   margin-left: 20px; }
+
+.sp-placeholder_3 {
+  position: absolute;
+  right: 110px;
+  bottom: 70px; }
 
 .sp-children {
   padding-top: 0;
@@ -4216,7 +4263,11 @@ footer {
     background-color: #C3CEDF; }
 
 .sp-children-section_1__slider-timeline {
-  width: 866px;
+  width: 860px;
+  margin: 0 auto; }
+
+.sp-children-section_2__slider-timeline {
+  width: 610px;
   margin: 0 auto; }
 
 .timeline-step {
@@ -4362,6 +4413,25 @@ footer {
     background-color: #0073FF;
     border-radius: 50%; }
 
+.sp-icon-list {
+  padding: 0;
+  margin: 40px 0 0 0; }
+
+.sp-icon-list__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+  .sp-icon-list__item:not(:last-child) {
+    margin-bottom: 20px; }
+
+.sp-icon-item__icon {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 30px; }
+
 .sp-info-note {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4387,7 +4457,8 @@ footer {
   .sp-info-note__text {
     font-size: 12px;
     line-height: 1.5;
-    color: #283348; }
+    color: #283348;
+    text-align: left; }
 
 .sp-map-wrap {
   position: relative;
@@ -4455,5 +4526,41 @@ footer {
 
 .sp-children-section_1 .sp-children-section__title {
   width: 640px; }
+
+.sp-children-section_2__fact-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+  .sp-children-section_2__fact-wrap .sp-fact-wrap {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-left: -10px;
+    margin-right: -10px; }
+
+.sp-step-slider-2__slide-1 {
+  padding-top: 50px;
+  text-align: center; }
+  .sp-step-slider-2__slide-1 .sp-info-note {
+    margin-left: 180px; }
+
+.sp-step-slider-2__slide-2 {
+  padding: 50px 120px; }
+  .sp-step-slider-2__slide-2 .sp-bullet-list {
+    width: 420px;
+    margin-left: 30px; }
+  .sp-step-slider-2__slide-2 .sp-info-note {
+    width: 400px;
+    margin-top: 130px;
+    margin-left: 30px; }
+
+.sp-step-slider-2__slide-3 {
+  padding: 50px 120px; }
 
 /*# sourceMappingURL=main.min.css.map */

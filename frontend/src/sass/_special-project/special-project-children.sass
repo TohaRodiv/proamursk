@@ -65,7 +65,7 @@
         width: 200px
         position: relative
 
-        & > *
+        & > .sp-placeholder
             position: absolute
             top: 0
             right: 0
@@ -80,6 +80,40 @@
 
     img
         width: 420px
+
+.sp-full_4-4-4
+    display: flex
+    align-items: flex-start
+    justify-content: center
+
+    &__item
+        flex-shrink: 0
+
+        &:nth-child(1)
+            figcaption
+                width: 280px
+                margin-left: auto
+
+        &:nth-child(2)
+            margin-left: 20px
+            margin-right: 20px
+
+            figcaption
+                width: 480px
+
+        &:nth-child(3)
+            figcaption
+                width: 280px
+
+    figcaption
+        margin-top: 20px
+        font-size: 15px
+        line-height: 20px
+        letter-spacing: 0.08em
+        color: #283348
+
+    img
+        height: 460px
 
 .sp-3col__text
     padding-right: 40px
@@ -101,7 +135,7 @@
     margin-bottom: 20px
     font-size: 24px
     font-family: $bold-f
-    
+
 .sp-separator_line
     height: 1px
     background-color: #D7DBE0
@@ -177,6 +211,12 @@
             text-align: center
             border: 4px solid #FF1800
 
+    &__number
+        font-family: $bold-f
+        font-size: 42px
+        line-height: $micro-lh
+        color: $base-c
+
     &__title
         line-height: $base-lh
 
@@ -206,6 +246,10 @@
     &_left
         margin-left: -110px
 
+.sp-children__overflow-big-img
+    width: 640px
+    max-width: initial
+
 .sp-placeholder
     flex-shrink: 0
     background: #f9fafa
@@ -226,6 +270,11 @@
 
 .sp-placeholder_2
     margin-left: 20px
+
+.sp-placeholder_3
+    position: absolute
+    right: 110px
+    bottom: 70px
 
 .sp-children
     padding-top: 0
@@ -331,7 +380,11 @@
         background-color: #C3CEDF
 
 .sp-children-section_1__slider-timeline
-    width: 866px
+    width: 860px
+    margin: 0 auto
+
+.sp-children-section_2__slider-timeline
+    width: 610px
     margin: 0 auto
 
 .timeline-step
@@ -502,6 +555,24 @@
         background-color: $base-c
         border-radius: 50%
 
+.sp-icon-list
+    padding: 0
+    margin: 40px 0 0 0
+
+.sp-icon-list__item
+    display: flex
+    align-items: flex-start
+
+    &:not(:last-child)
+        margin-bottom: 20px
+
+.sp-icon-item
+    &__icon
+        flex-shrink: 0
+        margin-right: 30px
+
+    &__text
+
 .sp-info-note
     display: flex
     align-items: flex-start
@@ -525,6 +596,7 @@
         font-size: 12px
         line-height: $base-lh
         color: #283348
+        text-align: left
 
 .sp-map-wrap
     position: relative
@@ -596,5 +668,34 @@
     .sp-children-section__title
         width: 640px
 
-.sp-children-section_2
-    .sp-children-section__title
+.sp-children-section_2__fact-wrap
+    display: flex
+    align-items: flex-end
+
+    .sp-fact-wrap
+        flex-grow: 1
+        justify-content: space-between
+        margin-left: -10px
+        margin-right: -10px
+
+.sp-step-slider-2__slide-1
+    padding-top: 50px
+    text-align: center
+
+    .sp-info-note
+        margin-left: 180px
+
+.sp-step-slider-2__slide-2
+    padding: 50px 120px
+
+    .sp-bullet-list
+        width: 420px
+        margin-left: 30px
+
+    .sp-info-note
+        width: 400px
+        margin-top: 130px
+        margin-left: 30px
+
+.sp-step-slider-2__slide-3
+    padding: 50px 120px
