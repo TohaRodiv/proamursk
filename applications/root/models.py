@@ -597,7 +597,7 @@ class Feedback(models.Model):
     email = models.EmailField('E-mail')
     phone = models.CharField('Телефон', max_length=20, blank=True)
     text = models.TextField('Текст обращения')
-    attachment = models.FileField('Вложение', upload_to='attachments', max_length=1000, blank=True)
+    attachments = models.ManyToManyField('files.UserFile', verbose_name='Файлы')
     is_agree = models.BooleanField('Согласие с правилами обработки данных', default=False)
     create_date = models.DateTimeField('Дата создания', auto_now_add=True)
 

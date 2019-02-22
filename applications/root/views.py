@@ -620,9 +620,9 @@ def feedback(request):
                         scheme=request.scheme, host=request.get_host(), id=instance.id
                     )
                 }
-                if instance.attachment:
-                    template_context['attachment_title'] = instance.attachment.name
-                    template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.url)
+                # if instance.attachments.all().exists():
+                #     template_context['attachment_title'] = instance.attachment.name
+                #     template_context['attachment_link'] = request.build_absolute_uri(instance.attachment.url)
                 try:
                     send_notification.delay('feedback', template_context=template_context, recipient_sms=[],
                                             recipient_email=[instance.email])
@@ -711,8 +711,7 @@ class UploadFile(View):
             result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
             return JsonResponse(result)
 
-        tags = request.POST.get('tags', '')
-        tags = tags.split(',')
+        tags = ['Обращение']
         data = get_file_data(file_obj)
         data['tags'] = get_tags_id(tags)
         form = UploadForm(data, request.FILES)
