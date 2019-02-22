@@ -1,0 +1,35 @@
+{% load site_tags static static_version utils_tags %}
+
+
+{% if model_name == "news" %}
+    <img src="{{ domain }}{% static "site/images/email/wobbler-news.png" %}{% static_version %}" alt="Новости" class="wobbler" style="height: 26px; vertical-align: middle;">
+{% endif %}
+
+{% if model_name == "history" %}
+    <img src="{{ domain }}{% static "site/images/email/wobbler-history.png" %}{% static_version %}" alt="{{ item.rubric.name }}" class="wobbler" style="height: 26px; vertical-align: middle;">
+{% endif %}
+
+{% if model_name == "person" %}
+    <img src="{{ domain }}{% static "site/images/email/wobbler-people.png" %}{% static_version %}" alt="Люди" class="wobbler" style="height: 26px; vertical-align: middle;">
+{% endif %}
+
+{% if model_name == "place" %}
+    <img src="{{ domain }}{% static "site/images/email/wobbler-place.png" %}{% static_version %}" alt="Место" class="wobbler" style="height: 26px; vertical-align: middle;">
+{% endif %}
+
+{% if model_name == "event" %}
+    {% if item.object.is_past %}
+        <img src="{{ domain }}{% static "site/images/email/wobbler-announcement.png" %}{% static_version %}" alt="Анонс" class="wobbler" style="height: 26px; vertical-align: middle;">
+    {% else %}
+        <img src="{{ domain }}{% static "site/images/email/wobbler-past-event.png" %}{% static_version %}" alt="Состоялось" class="wobbler" style="height: 26px; vertical-align: middle;">
+    {% endif %}
+{% endif %}
+
+{% if model_name == "report" %}
+    <img src="{{ domain }}{% static "site/images/email/wobbler-reportage.png" %}{% static_version %}" alt="Репортаж" class="wobbler" style="height: 26px; vertical-align: middle;">
+{% endif %}
+
+{% if model_name == "special" %}
+    <img src="{{ domain }}{% static "site/images/email/wobbler-special-projects.png" %}{% static_version %}" alt="Спецпроект" class="wobbler" style="height: 26px; vertical-align: middle;">
+{% endif %}
+

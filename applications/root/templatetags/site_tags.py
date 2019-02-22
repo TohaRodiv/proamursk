@@ -4,7 +4,7 @@ from django.db.models import Q
 from django.template import Library
 from datetime import datetime
 from django.conf import settings
-from applications.root.models import News, Person, History, SidebarBanner
+from applications.root.models import News, Person, History, SidebarBanner, CityGuide, Event, Report, Special, Place
 from applications.contentblocks.models import Page
 
 register = Library()
@@ -126,4 +126,52 @@ def read_also(context):
     history = history[:2]
 
     return dict(items=list(persons) + list(history))
+
+
+@register.inclusion_tag('notifications/posts.html', takes_context=True)
+def posts(context, *args):
+
+    models = dict(
+        new=News,
+        event=Event,
+        report=Report,
+        history=History,
+        person=Person,
+        place=Place,
+        guide=CityGuide,
+        special=Special,
+    )
+
+    items = []
+
+    for arg in args:
+        item_data = [i.strip() for i in arg.split(',')]
+        if len(item_data) == 3:
+            model = models.get(item_data[0])
+            if model:
+                try:
+                    id = int(item_data[1])
+                except:
+                    pass
+                else:
+                    qs = model.objects.filter(id=id, is_active=True)
+                    if item_data[0] not in ['event', 'guide']:
+                        qs = qs.filter(publication_date__lte=datetime.now())
+
+                    obj = qs.first()
+                    if obj:
+                        item_format = item_data[2]
+                        if item_format in ['wf', 'ws']:
+                            items.append([dict(object=obj, format=item_format)])
+                        else:
+                            last_item = items[-1]
+                            if len(last_item) == 1:
+                                last_item_obj = last_item[0]
+                                if last_item_obj['format'] not in ['wf', 'ws']:
+                                    last_item.append(dict(object=obj, format=item_format))
+                                else:
+                                    items.append([dict(object=obj, format=item_format)])
+                            else:
+                                items.append([dict(object=obj, format=item_format)])
+    return dict(items=items)
 
