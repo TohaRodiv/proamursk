@@ -272,7 +272,7 @@ BAN_REQUEST = {
         'max': {'count': 30, 'minutes': 60, 'check_url': False},
         'ban_minutes': 300
     },
-    'upload-file': {
+    'ajax-upload-file': {
         'min': {'count': 15, 'minutes': 5, 'check_url': False},
         'max': {'count': 45, 'minutes': 60, 'check_url': False},
         'ban_minutes': 300
