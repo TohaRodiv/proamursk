@@ -13,7 +13,8 @@ from django.urls import resolve
 from django.views.decorators.http import require_POST
 from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
-
+from django.contrib.sitemaps import Sitemap
+from django.urls import reverse
 from django.template import loader
 from applications.tools.utils import make_ajax_response
 from applications.tools.views import InfinityLoaderListView
@@ -728,3 +729,95 @@ class UploadFile(View):
         else:
             result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
             return JsonResponse(result)
+
+
+class BaseSitemap(Sitemap):
+
+    def items(self):
+        return ['index', 'policy', 'news-list', 'events-index', 'events-list-future', 'events-list-past', 'reports-list',
+                'history-list', 'persons-list', 'places-list', 'specials-list', 'search',]
+
+    def location(self, item):
+        return reverse(item)
+
+
+class NewsSitemap(Sitemap):
+
+    def items(self):
+        return News.objects.select_related('cover').filter(is_active=True,
+                                                           publication_date__lte=timezone.now()).order_by('-publication_date')
+
+    def lastmod(self, obj):
+        return obj.edit_date
+
+
+class EventsSitemap(Sitemap):
+
+    def items(self):
+        return Event.objects.filter(is_active=True)
+
+    def lastmod(self, obj):
+        return obj.edit_date
+
+
+class ReportsSitemap(Sitemap):
+
+    def items(self):
+        return Report.objects.filter(is_active=True, publication_date__lte=timezone.now())
+
+    def lastmod(self, obj):
+        return obj.edit_date
+
+
+class HistorySitemap(Sitemap):
+
+    def items(self):
+        return History.objects.filter(is_active=True, publication_date__lte=timezone.now())
+
+    def lastmod(self, obj):
+        return obj.edit_date
+
+
+class PersonsSitemap(Sitemap):
+
+    def items(self):
+        return Person.objects.filter(is_active=True, publication_date__lte=timezone.now())
+
+    def lastmod(self, obj):
+        return obj.edit_date
+
+
+class CityGuidesSitemap(Sitemap):
+
+    def items(self):
+        return CityGuide.objects.filter(is_active=True)
+
+    def lastmod(self, obj):
+        return obj.edit_date
+
+
+class PlacesSitemap(Sitemap):
+
+    def items(self):
+        return Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
+
+    def lastmod(self, obj):
+        return obj.edit_date
+
+
+class SpecialsSitemap(Sitemap):
+
+    def items(self):
+        return Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
+
+    def lastmod(self, obj):
+        return obj.edit_date
+
+
+class FilmsSitemap(Sitemap):
+
+    def items(self):
+        return Film.objects.filter(is_active=True)
+
+    def lastmod(self, obj):
+        return obj.edit_date

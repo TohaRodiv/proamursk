@@ -2,12 +2,31 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include, re_path
 from django.views.generic import RedirectView, TemplateView
-
+from django.contrib.sitemaps.views import sitemap
 from cp_vue.api.core import cp_api
 from applications.root import views as root_views
 from applications.sitesettings.views import RobotsTxtView
 
+
+sitemaps = {
+    'base': root_views.BaseSitemap,
+    'news': root_views.NewsSitemap,
+    'events': root_views.EventsSitemap,
+    'reports': root_views.ReportsSitemap,
+    'history': root_views.HistorySitemap,
+    'persons': root_views.PersonsSitemap,
+    'city_guides': root_views.CityGuidesSitemap,
+    'specials': root_views.SpecialsSitemap,
+    'films': root_views.FilmsSitemap,
+}
+
+
 urlpatterns = [
+    re_path(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}),
+]
+
+
+urlpatterns += [
     re_path(r'^admin/', TemplateView.as_view(template_name="cp_vue/index.html")),
     path('api/v1/', include(cp_api.urls)),
     path('',  root_views.IndexView.as_view(), name='index'),
