@@ -7448,6 +7448,24 @@ input:placeholder-shown {
 .info-popup-info-nested-list-content {
   width: 100%; }
 
+.info-popup-list {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px; }
+
+.info-popup-list-container {
+  max-width: 340px; }
+
+.info-popup-list-title {
+  color: rgba(35, 41, 46, 0.5); }
+
+.info-popup-list-items {
+  max-width: 340px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5; }
+
 @keyframes smoothPopup {
   0% {
     -webkit-transform: scale(0.9);

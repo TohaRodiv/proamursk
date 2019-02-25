@@ -1,6 +1,10 @@
+.sp-children
+    margin-bottom: -40px
+
 .sp
     img
         display: block
+
         &:not(.direct-speech__avatar)
             border-radius: 4px
 
@@ -194,7 +198,7 @@
 
     &__icon
         margin-bottom: 10px
-        border: 2px solid #0073ff
+        border: 2px solid $base-c
         border-radius: 50%
 
         &_big
@@ -365,7 +369,7 @@
         text-transform: uppercase
         border-radius: 4px
         background-color: #f9fafa
-        border: 1px solid #0073ff
+        border: 1px solid $base-c
 
     &__description
         margin-bottom: 60px
@@ -677,6 +681,12 @@
     border-radius: 4px
     background-color: $light-c
     border: 1px solid #d2d7dd
+    overflow: scroll
+
+    &__list-item
+        &:not(:last-child)
+            margin-bottom: 30px
+            border-bottom: 1px solid #D7DBE0
 
     &__title
         margin-bottom: 40px
@@ -685,9 +695,28 @@
         font-family: $bold-f
         letter-spacing: 0.02em
 
+        &_icon
+            position: relative
+            display: flex
+            align-items: center
+            margin-bottom: 20px
+            font-size: 21px
+
+            &::before
+                content: ""
+                display: block
+                width: 36px
+                height: 36px
+                margin-right: 15px
+                background-color: $base-c
+                border-radius: 50%
+
+            & + .sp-map-points__list-wrap
+                margin-left: 51px
+
     &__list-wrap
         position: relative
-        height: 345px
+        max-height: 315px
 
         &::before
             content: ""
@@ -768,13 +797,58 @@
 
 .sp-place
     &__title
+        margin-bottom: 50px
         font-family: $bold-f
         font-size: 24px
         letter-spacing: 0.02em
 
-    &__info
     &__subtitle
+        font-size: 18px
+        line-height: $base-lh
+        font-family: $bold-f
+
     &__decription
+        margin-bottom: 50px
+        font-size: 18px
+        line-height: $base-lh
+
     &__contacts-table
+        font-size: 16px
+
+        [class^="icon-"]
+            display: inline-block
+            width: 18px
+            height: 20px
+            margin-right: 5px
+            font-size: 0
+            line-height: 20px
+            color: $base-c
+            vertical-align: -2px
+            text-align: center
+            [class^="icon-"]::before
+            font-size: 17px
+
+        a
+            color: $base-c
+            text-decoration: none
+
+            &:hover,
+            &:focus
+                text-decoration: underline
+
+        tr:not(:last-child) td
+            padding-bottom: 10px
+
+        td
+            padding-top: 0
+            padding-left: 0
+            padding-right: 0
+            vertical-align: baseline
+
+            &:first-child
+                width: 120px
+                padding-right: 20px
+
     &__img
         width: 420px
+

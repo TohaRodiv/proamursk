@@ -50,13 +50,16 @@ const state = {
                     }
                 },
                 {
-                    type: 'simpleRow',
-                    title: 'Прикреплённый файл',
-                    content: {
-                        type: 'link',
-                        customName: 'attachment.name',
-                        codename: 'attachment.url',
-                    }
+                    type: 'list',
+                    title: 'Прикреплённые файлы',
+                    codename: 'attachments',
+                    structure: [
+                        {
+                            type: 'link',
+                            codename: 'url',
+                            customName: 'name'
+                        }
+                    ],
                 },
                 {
                     type: 'hr',

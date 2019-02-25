@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
+    'django.contrib.sitemaps',
     'rest_framework',
     'django_filters',
     'corsheaders',
@@ -147,7 +148,7 @@ USE_L10N = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 5
+STATIC_VERSION = 6
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -210,8 +211,8 @@ MEDIALIB_THUMB_SIZE = {
     'wide_banner': (2600, 320),  # баннеры-растяжки
     'sidebar_banner': (760, 920),  # баннеры в сайдбаре
     'horizontal_sidebar_banner': (760, 480),  # баннеры в сайдбаре
-    'slide_format_3x2': (1716, 1144),  # слайдер горизонтальный / 3:2 — 1716x1144 px
-    'slide_format_2x1': (1716, 858),  # слайдер горизонтальный / 2:1 — 1716x858 px
+    'slide_format_3x2': (1720, 1144),  # слайдер горизонтальный / 3:2 — 1716x1144 px
+    'slide_format_2x1': (1720, 860),  # слайдер горизонтальный / 2:1 — 1716x858 px
 
     'og_image_default': (1200, 630, 'crop'),
     'og_image_crop600': (600, 600, 'crop'),
@@ -306,6 +307,11 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'проАмурск <no-reply@proamursk.ru>'
 SERVER_EMAIL = 'no-reply@proamursk.ru'
 EMAIL_SUBJECT_PREFIX = ''
+
+
+YA_WEATHER_API_KYE = '28704a8b-6266-4abf-9929-046f8b598b46'
+YA_WEATHER_LAT = '50.226797'
+YA_WEATHER_LON = '136.910607'
 
 if not DEBUG:
     import raven
