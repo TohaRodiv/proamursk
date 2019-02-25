@@ -18,6 +18,7 @@ sitemaps = {
     'city_guides': root_views.CityGuidesSitemap,
     'specials': root_views.SpecialsSitemap,
     'films': root_views.FilmsSitemap,
+    'places': root_views.PlacesSitemap,
 }
 
 
