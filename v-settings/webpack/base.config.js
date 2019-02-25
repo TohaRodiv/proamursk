@@ -15,6 +15,15 @@ if (process.env.NODE_ENV === 'development') {
                     test: /\.js$/,
                     use: {
                         loader: 'babel-loader',
+                        options: {
+                            'presets': [
+                                'es2015',
+                                'stage-0',
+                                'stage-2'
+                            ],
+                            comments: false,
+                            'babelrc': false
+                        },
                     },
                     exclude: /node_modules/
                 },
