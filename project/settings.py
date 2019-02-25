@@ -230,9 +230,9 @@ MEDIALIB_THUMB_SIZE = {
 
     'pub_cover': (1720, 1000),
 
-    '8_column_img': (1720, 1000),
-    '6_column_img_small': (1280, 640),
-    '6_column_img_full': (1280, 960),
+    '8_column_img': (1720, 1000,),
+    '6_column_img_small': (1280, 640, 'crop'),
+    '6_column_img_full': (1280, 960, 'crop'),
     '3_column_img_small': (620, 414, 'crop'),
     '3_column_img_large': (620, 560, 'crop'),
     '3_column_img_full': (620, 920, 'crop'),
