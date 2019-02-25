@@ -16,8 +16,10 @@ def post_editor_make_content(context, content_json, config='default'):
         post_images = []
 
         for section in content_json:
-            for column in section['columns']:
-                for element in column['widgets']:
+            columns = section.get('columns', [])
+            for column in columns:
+                widgets = column.get('widgets', [])
+                for element in widgets:
                     if element:
                         element_images = []
                         element_type = element.get('type')

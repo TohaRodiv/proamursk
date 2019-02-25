@@ -4,7 +4,7 @@
             <h2 class="additional-block__title">Читайте также:</h2>
             <div class="base-4items-grid">
                 {% for item in items %}
-                    {% with cover_name="3_column_img_"|add:item.cover_format %}
+                    {% with css_class="grid-publication_text-size-base" cover_name="3_column_img_"|add:item.cover_format %}
                         {% include "site/modules/grid-publication.html" %}
                     {% endwith %}
                 {% endfor %}

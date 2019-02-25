@@ -40,7 +40,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 2 %}
-                        {% with item=top_item.get_object cover_name="3_column_img_"|add:top_item.get_object.cover_format %}
+                        {% with item=top_item.get_object css_class='grid-publication_text-size-base' cover_name="3_column_img_"|add:top_item.get_object.cover_format %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -107,7 +107,7 @@
 
                 {% for item in what_to_do %}
                     {% if forloop.counter == 1 %}
-                        {% with model_name=item|get_model_name css_class='grid-publication_text-size-big' cover_name="8_column_img" %}
+                        {% with model_name=item|get_model_name cover_name="8_column_img" %}
                             {% if model_name == 'event' or model_name == 'report' %}
                                 {% include "site/modules/grid-event.html" %}
                             {% else %}

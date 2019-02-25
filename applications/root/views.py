@@ -735,7 +735,7 @@ class BaseSitemap(Sitemap):
 
     def items(self):
         return ['index', 'policy', 'news-list', 'events-index', 'events-list-future', 'events-list-past', 'reports-list',
-                'history-list', 'persons-list', 'places-list', 'specials-list', 'search',]
+                'history-list', 'persons-list', 'places-list', 'specials-list',]
 
     def location(self, item):
         return reverse(item)

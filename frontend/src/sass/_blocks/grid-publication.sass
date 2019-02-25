@@ -24,6 +24,7 @@
         z-index: 3
 
     &__title
+        font-size: $medium-fz
         font-family: $bold-f
 
         a
@@ -34,6 +35,7 @@
         margin-bottom: 0
 
     &__text
+        font-size: $mini-fz
         line-height: $base-lh
 
     &__wobbler
@@ -124,7 +126,7 @@
 
             &__title
                 margin-bottom: 5px
-                font-size: $medium-fz
+
                 a
                     &:hover,
                     &:focus
@@ -133,9 +135,6 @@
             &__description,
             &__date
                 margin-bottom: 10px
-
-            &__text
-                font-size: $mini-fz
 
             &__wobbler
                 margin-top: auto
@@ -180,26 +179,7 @@
                 &:hover
                     color: $base-c
 
-    &_cover-format-base
-        .grid-publication
-            &__cover
-                @supports (object-fit: cover)
-                    height: 207px
 
-    &_cover-format-bigger
-        .grid-publication
-            &__cover
-                @supports (object-fit: cover)
-                    height: 322px
-
-    &_text-size-base
-        .grid-publication
-            &__title
-                margin-bottom: 5px
-                font-size: $medium-fz
-
-            &__text
-                font-size: $mini-fz
 
     &_text-size-big
         .grid-publication

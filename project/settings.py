@@ -148,7 +148,7 @@ USE_L10N = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 6
+STATIC_VERSION = 7
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -186,41 +186,24 @@ MEDIALIB_THUMB_SIZE = {
     'sap_min_crop': (140, 140, 'crop'),
     'sap_medium_crop': (350, 350, 'crop'),
 
-    # Публикации
-    'pub_main': (1716, 858),  # 8 колонок, 2:1
-    'pub_6cols': (1276, 638),  # 6 колонок, 2:1
-    'pub_3cols_fullsize': (616, 920, 'crop'),  # 3 колонки, полноразмерная обложка
-    'pub_3cols_full': (616, 638, 'crop'),  # 3 колонки, увеличенная
-    'pub_3cols_small': (616, 410, 'crop'),  # 3 колонки, 3:2, стандартная
-    'pub_4cols_full': (836, 920, 'crop'),  # 4 колонки, увеличенная
-    'pub_4cols_small': (836, 638, 'crop'),  # 4 колонки, стандартная
-
-    'presearch': (240, 160, 'crop'),  # в пресерче (результатах мгновенного поиска), 3:2
-    'news_sidebar': (176, 176, 'crop'),  # в ленте последних новостей в сайдбаре
-    'city_guides_sidebar': (748, 340, 'crop'),  # гиды по городу в сайдбаре
-    'specials': (3840, 1400),  # на собственных страницах спецпроектов
-    'specials_index': (3840, 1040, 'crop'),  # в слайдере спецпроектов на Главной странице и в ленте всех спецпроектов
-    'specials_feed': (2600, 1040, 'crop'),  # в слайдере спецпроектов на Главной странице и в ленте всех спецпроектов
+    'specials_index': (3840, 1040),
+    'specials_feed': (2600, 1040, 'crop'),
 
     # Киноанонсы
-    'film_detail': (480, 720),  # на собственных страницах киноанонсов
-    'films_list': (440, 660),  # внутри ленты с афишей кинотеатра
-    'film_banner': (460, 690),  # в блоке про кинотеатр на Главной странице
+    'film_detail': (480, 720),
+    'films_list': (440, 660),
+    'film_banner': (460, 690),
 
     # Слайдеры и баннеры
-    'wide_banner': (2600, 320),  # баннеры-растяжки
-    'sidebar_banner': (760, 920),  # баннеры в сайдбаре
-    'horizontal_sidebar_banner': (760, 480),  # баннеры в сайдбаре
-    'slide_format_3x2': (1720, 1144),  # слайдер горизонтальный / 3:2 — 1716x1144 px
-    'slide_format_2x1': (1720, 860),  # слайдер горизонтальный / 2:1 — 1716x858 px
+    'wide_banner': (2600, 320),
+    'sidebar_banner': (760, 920),
+    'horizontal_sidebar_banner': (760, 480),
+    'slide_format_3x2': (1720, 1144),
+    'slide_format_2x1': (1720, 860),
 
     'og_image_default': (1200, 630, 'crop'),
     'og_image_crop600': (600, 600, 'crop'),
     'og_image_crop1230': (1230, 1230, 'crop'),
-
-    # E-mail рассылки
-    'mailing_article': (1000, 500),  # Все публикации, кроме спецпроектов и киноанонсов
-    'mailing_special': (1000, 1000, 'crop'),  # Спецпроекты
 
     'poste_ditor_direct_photo': (220, 220, 'crop'),
 
@@ -228,13 +211,17 @@ MEDIALIB_THUMB_SIZE = {
     'news_aside_cover': (220, 160, 'crop'),
     'news_cover': (1720, 1000),
 
+    'email_ws': (1280, 560, 'crop'),
+    'email_wf': (1280, 920, 'crop'),
+    'email_hs': (620, 560, 'crop'),
+    'email_hf': (620, 920, 'crop'),
+
     'pub_cover': (1720, 1000),
 
-    '8_column_img': (1720, 1000),
-    '6_column_img_small': (1280, 640),
-    '6_column_img_full': (1280, 960),
-    '3_column_img_small': (620, 414, 'crop'),
-    '3_column_img_large': (620, 560, 'crop'),
+    '8_column_img': (1720, 1000,),
+    '6_column_img_small': (1280, 560, 'crop'),
+    '6_column_img_full': (1280, 960, 'crop'),
+    '3_column_img_small': (620, 560, 'crop'),
     '3_column_img_full': (620, 920, 'crop'),
 }
 
