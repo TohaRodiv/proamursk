@@ -671,27 +671,41 @@
     height: 640px
 
 .sp-map-points
-    position: absolute
-    top: 80px
-    left: 110px
-    z-index: 3
-    width: 420px
-    height: 480px
-    padding: 25px 40px 40px
-    border-radius: 4px
-    background-color: $light-c
-    border: 1px solid #d2d7dd
-    overflow: scroll
+
+    &-outer
+        position: absolute
+        top: 80px
+        left: 110px
+        z-index: 3
+        width: 420px
+        height: 480px
+        border-radius: 4px
+        background-color: $light-c
+        border: 1px solid #d2d7dd
+
+    &-inner
+        margin: 30px 0
+        padding: 0 25px
+        height: calc(100% - 60px)
+
+        &_all-scroll
+            overflow: scroll
 
     &__list-item
+
+        &_single
+            display: flex
+            flex-direction: column
+            height: 100%
+
         &:not(:last-child)
             margin-bottom: 30px
             border-bottom: 1px solid #D7DBE0
 
     &__title
-        margin-bottom: 40px
+        margin-bottom: 30px
         font-size: 28px
-        line-height: $micro-lh
+        line-height: 1.2
         font-family: $bold-f
         letter-spacing: 0.02em
 
@@ -716,7 +730,13 @@
 
     &__list-wrap
         position: relative
-        max-height: 315px
+        flex-grow: 0
+
+        &_1line-title
+            height: 360px
+
+        &_2line-title
+            height: 330px
 
         &::before
             content: ""
@@ -735,21 +755,21 @@
             background: linear-gradient(rgba(255, 255, 255, 0) 0%, #fff 100%)
 
     &__list
-        height: 100%
         margin: 0
-        margin-right: -30px
         padding: 0
+        margin-right: -25px
         padding-right: 70px
         overflow: scroll
+        height: 100%
 
     &__item
         font-size: 16px
         line-height: $base-lh
         letter-spacing: 0.02em
         padding-bottom: 15px
+        padding-top: 15px
 
         &:not(:first-child)
-            padding-top: 15px
 
         &:not(:last-child)
             border-bottom: 1px solid #D7DBE0
