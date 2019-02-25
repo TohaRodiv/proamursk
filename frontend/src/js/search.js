@@ -39,7 +39,7 @@ $('.search-form').submit(function (event) {
     event.preventDefault();
     var q = $(this).find('.search-form__input').val();
 
-    window.location.replace('/search/?q='+q);
+    if (q.length > 2) window.location.replace('/search/?q='+q);
 })
 
 

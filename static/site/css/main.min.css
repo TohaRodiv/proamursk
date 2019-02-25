@@ -451,10 +451,10 @@ ul, ol {
     background-color: #FFFFFF; }
     .btn_white-active .btn__counter {
       color: #7A7A7A; }
-    .btn_white-active.active {
+    .btn_white-active.active, .btn_white-active:hover {
       color: #FFFFFF;
       background-color: #0073FF; }
-      .btn_white-active.active .btn__counter {
+      .btn_white-active.active .btn__counter, .btn_white-active:hover .btn__counter {
         color: #FFFFFF; }
   .btn_blue {
     color: #FFFFFF;
@@ -2074,8 +2074,13 @@ footer {
           justify-content: center; }
 
 .search-result-page__btn {
-  margin-left: 10px;
-  margin-right: 10px; }
+  margin-left: 5px;
+  margin-right: 5px; }
+
+.search-result-page_empty {
+  font-size: 16px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+  text-align: center; }
 
 .search-form {
   position: relative; }

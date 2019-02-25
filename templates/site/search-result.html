@@ -12,22 +12,10 @@
             </div>
         </div>
 
-        {% if search_text|length <= 3 %}
+        {% if items|length == 0 %}
             <div class="">
                 <div class="container">
-                    <div class="search-result-page_empty">
-                        <div class="empty-block__title">Поисковый запрос должен быть больше двух символов</div>
-                        <div class="empty-block__text">Вы можете искать по&nbsp;названиям товаров и&nbsp;категорий.</div>
-                    </div>
-                </div>
-            </div>
-        {% elif items|length == 0 %}
-            <div class="">
-                <div class="container">
-                    <div class="search-result-page_empty">
-                        <div class="empty-block__title">Ничего не найдено</div>
-                        <div class="empty-block__text">Попробуйте изменить условия поиска&nbsp;&mdash; вы&nbsp;можете искать по&nbsp;названиям товаров и&nbsp;категорий.</div>
-                    </div>
+                    <div class="search-result-page_empty">По вашему запросу нечего не найдено</div>
                 </div>
             </div>
         {% else %}
