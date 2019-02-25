@@ -8,7 +8,7 @@
                 @mouseenter="focusEmptyContainer = true"
                 @mouseleave="focusEmptyContainer = false"
             >
-                <img src="/cp_vue/frontend/src/images/post-editor-placeholder.svg" class="post-editor-empty-icon" alt="">
+                <img src="../../../../../src/images/post-editor-placeholder.svg" class="post-editor-empty-icon" alt="">
                 <div>Пустая публикация. Чтобы добавить контент, создайте первую секцию</div>
                 <button class="button post-editor-button" @click="addSectionPopup = true">
                     <div class="icon-plus post-editor-button-icon"></div>
