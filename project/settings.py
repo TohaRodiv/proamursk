@@ -211,7 +211,6 @@ MEDIALIB_THUMB_SIZE = {
     'news_aside_cover': (220, 160, 'crop'),
     'news_cover': (1720, 1000),
 
-
     'pub_cover': (1720, 1000),
 
     '8_column_img': (1720, 1000,),
