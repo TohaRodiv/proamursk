@@ -186,20 +186,20 @@ MEDIALIB_THUMB_SIZE = {
     'sap_min_crop': (140, 140, 'crop'),
     'sap_medium_crop': (350, 350, 'crop'),
 
-    'specials_index': (3840, 1040),  # в слайдере спецпроектов на Главной странице и в ленте всех спецпроектов
-    'specials_feed': (2600, 1040, 'crop'),  # в слайдере спецпроектов на Главной странице и в ленте всех спецпроектов
+    'specials_index': (3840, 1040),
+    'specials_feed': (2600, 1040, 'crop'),
 
     # Киноанонсы
-    'film_detail': (480, 720),  # на собственных страницах киноанонсов
-    'films_list': (440, 660),  # внутри ленты с афишей кинотеатра
-    'film_banner': (460, 690),  # в блоке про кинотеатр на Главной странице
+    'film_detail': (480, 720),
+    'films_list': (440, 660),
+    'film_banner': (460, 690),
 
     # Слайдеры и баннеры
-    'wide_banner': (2600, 320),  # баннеры-растяжки
-    'sidebar_banner': (760, 920),  # баннеры в сайдбаре
-    'horizontal_sidebar_banner': (760, 480),  # баннеры в сайдбаре
-    'slide_format_3x2': (1720, 1144),  # слайдер горизонтальный / 3:2 — 1716x1144 px
-    'slide_format_2x1': (1720, 860),  # слайдер горизонтальный / 2:1 — 1716x858 px
+    'wide_banner': (2600, 320),
+    'sidebar_banner': (760, 920),
+    'horizontal_sidebar_banner': (760, 480),
+    'slide_format_3x2': (1720, 1144),
+    'slide_format_2x1': (1720, 860),
 
     'og_image_default': (1200, 630, 'crop'),
     'og_image_crop600': (600, 600, 'crop'),
@@ -211,18 +211,17 @@ MEDIALIB_THUMB_SIZE = {
     'news_aside_cover': (220, 160, 'crop'),
     'news_cover': (1720, 1000),
 
-    'email_wf': (1280, 920, 'crop'),
     'email_ws': (1280, 560, 'crop'),
-    'email_hf': (620, 920, 'crop'),
+    'email_wf': (1280, 920, 'crop'),
     'email_hs': (620, 560, 'crop'),
+    'email_hf': (620, 920, 'crop'),
 
     'pub_cover': (1720, 1000),
 
     '8_column_img': (1720, 1000,),
-    '6_column_img_small': (1280, 640, 'crop'),
+    '6_column_img_small': (1280, 560, 'crop'),
     '6_column_img_full': (1280, 960, 'crop'),
-    '3_column_img_small': (620, 414, 'crop'),
-    '3_column_img_large': (620, 560, 'crop'),
+    '3_column_img_small': (620, 560, 'crop'),
     '3_column_img_full': (620, 920, 'crop'),
 }
 
