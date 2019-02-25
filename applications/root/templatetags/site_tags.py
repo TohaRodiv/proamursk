@@ -211,8 +211,6 @@ def get_yandex_weather():
     return response
 
 
-
-
 @register.simple_tag(takes_context=True)
 def get_weather(context):
     request = context.get('request')
@@ -220,7 +218,7 @@ def get_weather(context):
 
     if request and hasattr(request, 'SETTINGS') and request.SETTINGS:
         site_settings = request.SETTINGS
-        if not site_settings.weather_data or (site_settings.weather_data and (datetime.now() - site_settings.weather_last_update).seconds / 60 > 60):
+        if not site_settings.weather_data or (site_settings.weather_data and (datetime.now() - site_settings.weather_last_update).seconds / 60 > 180):
             site_settings.weather_last_update = datetime.now()
             site_settings.weather_data = get_yandex_weather()
             site_settings.save()

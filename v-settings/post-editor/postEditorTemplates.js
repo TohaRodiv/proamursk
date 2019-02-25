@@ -20,7 +20,7 @@ const state = {
             widgets: [
                 {
                     type: 'text',
-                    available: [6, 4, 3],
+                    available: [8, 6, 4, 3],
                 },
                 {
                     type: 'image',
