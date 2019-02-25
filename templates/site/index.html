@@ -107,7 +107,7 @@
 
                 {% for item in what_to_do %}
                     {% if forloop.counter == 1 %}
-                        {% with model_name=item|get_model_name css_class='grid-publication_text-size-big' cover_name="8_column_img" %}
+                        {% with model_name=item|get_model_name cover_name="8_column_img" %}
                             {% if model_name == 'event' or model_name == 'report' %}
                                 {% include "site/modules/grid-event.html" %}
                             {% else %}

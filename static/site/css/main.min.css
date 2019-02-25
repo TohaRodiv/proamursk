@@ -2260,6 +2260,11 @@ footer {
     -ms-grid-row: 1;
     -ms-grid-row-span: 1;
     grid-row: 1/2; }
+    .todo-layout > :nth-child(2).grid-publication_format-full .grid-publication__title {
+      margin-bottom: 15px;
+      font-size: 36px; }
+    .todo-layout > :nth-child(2).grid-publication_format-full .grid-publication__text {
+      font-size: 20px; }
   .todo-layout > :nth-child(3) {
     -ms-grid-column: 3;
     -ms-grid-column-span: 1;
