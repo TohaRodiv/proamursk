@@ -2838,6 +2838,7 @@ footer {
     position: relative;
     z-index: 3; }
   .grid-publication__title {
+    font-size: 22px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
     .grid-publication__title a {
       color: currentColor;
@@ -2845,6 +2846,7 @@ footer {
   .grid-publication__description {
     margin-bottom: 0; }
   .grid-publication__text {
+    font-size: 16px;
     line-height: 1.5; }
   .grid-publication__wobbler {
     display: -webkit-box;
@@ -2942,14 +2944,11 @@ footer {
               flex-grow: 1;
       padding: 20px; }
     .grid-publication_format-base .grid-publication__title {
-      margin-bottom: 5px;
-      font-size: 22px; }
+      margin-bottom: 5px; }
       .grid-publication_format-base .grid-publication__title a:hover, .grid-publication_format-base .grid-publication__title a:focus {
         color: #0073FF; }
     .grid-publication_format-base .grid-publication__description, .grid-publication_format-base .grid-publication__date {
       margin-bottom: 10px; }
-    .grid-publication_format-base .grid-publication__text {
-      font-size: 16px; }
     .grid-publication_format-base .grid-publication__wobbler {
       margin-top: auto; }
     .grid-publication_format-base .grid-publication__link {
@@ -2985,12 +2984,6 @@ footer {
       color: #FFFFFF; }
       .grid-publication_format-full .grid-publication__link:hover {
         color: #0073FF; }
-  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
-    .grid-publication_cover-format-base .grid-publication__cover {
-      height: 207px; } }
-  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
-    .grid-publication_cover-format-bigger .grid-publication__cover {
-      height: 322px; } }
   .grid-publication_text-size-base .grid-publication__title {
     margin-bottom: 5px;
     font-size: 22px; }
