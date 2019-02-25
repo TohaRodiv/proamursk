@@ -40,7 +40,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 2 %}
-                        {% with item=top_item.get_object cover_name="3_column_img_"|add:top_item.get_object.cover_format %}
+                        {% with item=top_item.get_object css_class='grid-publication_text-size-base' cover_name="3_column_img_"|add:top_item.get_object.cover_format %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}

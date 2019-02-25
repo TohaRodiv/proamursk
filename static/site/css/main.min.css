@@ -2239,6 +2239,11 @@ footer {
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
     grid-row: 2/3; }
+    .index-manage-grid > :nth-child(5).grid-publication_format-full .grid-publication__title {
+      margin-bottom: 15px;
+      font-size: 36px; }
+    .index-manage-grid > :nth-child(5).grid-publication_format-full .grid-publication__text {
+      font-size: 20px; }
 
 .todo-layout {
   display: -ms-grid;
