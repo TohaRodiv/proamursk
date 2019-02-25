@@ -308,6 +308,11 @@ DEFAULT_FROM_EMAIL = 'проАмурск <no-reply@proamursk.ru>'
 SERVER_EMAIL = 'no-reply@proamursk.ru'
 EMAIL_SUBJECT_PREFIX = ''
 
+
+YA_WEATHER_API_KYE = '28704a8b-6266-4abf-9929-046f8b598b46'
+YA_WEATHER_LAT = '50.226797'
+YA_WEATHER_LON = '136.910607'
+
 if not DEBUG:
     import raven
 

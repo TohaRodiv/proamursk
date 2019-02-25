@@ -26,6 +26,9 @@ class Settings(BaseModel):
     meta_tags = models.TextField('Дополнительные Мета-теги', blank=True)
     robots = models.TextField('Содержимое файла robots.txt', blank=True)
 
+    weather_data = models.TextField(blank=True)
+    weather_last_update = models.DateTimeField(blank=True, null=True)
+
     disable_site = models.BooleanField('Включить режим разработки', default=False)
     disable_title = models.CharField('Заголовок', max_length=255, blank=True)
     disable_text = models.TextField('Текст сообщения', blank=True)

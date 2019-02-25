@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import json
+import requests
 from django.db.models import Q
 from django.template import Library
 from datetime import datetime
@@ -187,3 +189,47 @@ def attachments(context):
         items = feedback.attachments.all()
 
     return dict(items=items, domain=context.get('domain'))
+
+
+def get_yandex_weather():
+    api_key = settings.YA_WEATHER_API_KYE
+    lat = settings.YA_WEATHER_LAT
+    lon = settings.YA_WEATHER_LON
+    headers = {'X-Yandex-API-Key': api_key}
+    params = {'lat': lat, 'lon': lon, 'lang': 'ru_RU'}
+    try:
+        response = requests.get('https://api.weather.yandex.ru/v1/informers/',
+                                params=params,
+                                headers=headers,
+                                timeout=5)
+    except:
+        response = None
+    else:
+        response = response.text
+
+    return response
+
+
+
+
+@register.simple_tag(takes_context=True)
+def get_weather(context):
+    request = context.get('request')
+    temp = ''
+
+    if request and hasattr(request, 'SETTINGS') and request.SETTINGS:
+        site_settings = request.SETTINGS
+        if not site_settings.weather_data or (site_settings.weather_data and (datetime.now() - site_settings.weather_last_update).seconds / 60 > 60):
+            site_settings.weather_last_update = datetime.now()
+            site_settings.weather_data = get_yandex_weather()
+            site_settings.save()
+
+        try:
+            data = json.loads(site_settings.weather_data)
+        except:
+            pass
+        else:
+            temp = data.get('fact', dict()).get('temp', '')
+
+    return temp
+
