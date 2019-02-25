@@ -364,12 +364,14 @@
         align-items: center
         justify-content: center
         height: 122px
-        font-size: 24px
+        font-size: 26px
         font-family: $bold-f
+        letter-spacing: 0.02em
         text-transform: uppercase
         border-radius: 4px
         background-color: #f9fafa
         border: 1px solid $base-c
+
 
     &__description
         margin-bottom: 60px
@@ -713,7 +715,7 @@
             position: relative
             display: flex
             align-items: center
-            margin-bottom: 20px
+            margin-bottom: 0
             font-size: 21px
 
             &::before
@@ -763,16 +765,29 @@
         height: 100%
 
     &__item
+        padding-top: 5px
+        padding-bottom: 5px
         font-size: 16px
         line-height: $base-lh
         letter-spacing: 0.02em
-        padding-bottom: 15px
-        padding-top: 15px
 
-        &:not(:first-child)
+        &:first-child
+            padding-top: 15px
+            
+        &:last-child
+            padding-bottom: 15px
 
         &:not(:last-child)
             border-bottom: 1px solid #D7DBE0
+
+    &__item-btn
+        padding: 8px 20px
+        border-radius: 20px
+        text-align: left
+
+        &:hover,
+        &.active
+            background: #eff2f5
 
 .sp-children-section_1
     .sp-children-section__title

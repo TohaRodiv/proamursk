@@ -4254,8 +4254,9 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   height: 122px;
-  font-size: 24px;
+  font-size: 26px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   border-radius: 4px;
   background-color: #f9fafa;
@@ -4586,7 +4587,7 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     font-size: 21px; }
     .sp-map-points__title_icon::before {
       content: "";
@@ -4638,13 +4639,24 @@ footer {
   height: 100%; }
 
 .sp-map-points__item {
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-size: 16px;
   line-height: 1.5;
-  letter-spacing: 0.02em;
-  padding-bottom: 15px;
-  padding-top: 15px; }
+  letter-spacing: 0.02em; }
+  .sp-map-points__item:first-child {
+    padding-top: 15px; }
+  .sp-map-points__item:last-child {
+    padding-bottom: 15px; }
   .sp-map-points__item:not(:last-child) {
     border-bottom: 1px solid #D7DBE0; }
+
+.sp-map-points__item-btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-align: left; }
+  .sp-map-points__item-btn:hover, .sp-map-points__item-btn.active {
+    background: #eff2f5; }
 
 .sp-children-section_1 .sp-children-section__title {
   width: 640px; }

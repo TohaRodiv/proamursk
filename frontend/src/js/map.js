@@ -291,12 +291,12 @@ $(function () {
 
 
 
-        $('body').on('click', '.sp-map-points__item', function () {
+        $('body').on('click', '.sp-map-points__item-btn', function () {
             var currentMapWrap = $(this).parents('.sp-map-wrap'),
                 currentMap = currentMapWrap.find('.sp-map');
             currentMapId = currentMap.attr('id');
 
-            currentMapWrap.find('.sp-map-points__item').removeClass('active');
+            currentMapWrap.find('.sp-map-points__item-btn').removeClass('active');
             $(this).addClass('active');
 
             if (currentMapId === 'sp-children-section_1__map') {
