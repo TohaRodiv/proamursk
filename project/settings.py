@@ -186,7 +186,6 @@ MEDIALIB_THUMB_SIZE = {
     'sap_min_crop': (140, 140, 'crop'),
     'sap_medium_crop': (350, 350, 'crop'),
 
-
     'specials_index': (3840, 1040),  # в слайдере спецпроектов на Главной странице и в ленте всех спецпроектов
     'specials_feed': (2600, 1040, 'crop'),  # в слайдере спецпроектов на Главной странице и в ленте всех спецпроектов
 
@@ -205,10 +204,6 @@ MEDIALIB_THUMB_SIZE = {
     'og_image_default': (1200, 630, 'crop'),
     'og_image_crop600': (600, 600, 'crop'),
     'og_image_crop1230': (1230, 1230, 'crop'),
-
-    # E-mail рассылки
-    'mailing_article': (1000, 500),  # Все публикации, кроме спецпроектов и киноанонсов
-    'mailing_special': (1000, 1000, 'crop'),  # Спецпроекты
 
     'poste_ditor_direct_photo': (220, 220, 'crop'),
 
