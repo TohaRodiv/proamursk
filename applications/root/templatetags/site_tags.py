@@ -203,9 +203,10 @@ def get_yandex_weather():
                                 headers=headers,
                                 timeout=5)
     except:
-        response = None
+        response = ''
     else:
-        response = response.text
+        if response.status_code == 200:
+            response = response.text
 
     return response
 
