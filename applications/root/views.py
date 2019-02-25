@@ -87,7 +87,7 @@ class NewsListView(InfinityLoaderListView):
     ajax_template_name = 'site/modules/news-list-block.html'
     context_list_name = 'news'
     ajax_context_list_name = 'news'
-    items_per_page = 1
+    items_per_page = 10
 
 
 class NewsDetailView(DetailView):
@@ -215,7 +215,7 @@ class ReportsDetailView(DetailView):
 
 class HistoryListView(InfinityLoaderListView):
     queryset = History.objects.select_related('cover').filter(is_active=True,
-                                      publication_date__lte=timezone.now()).order_by('-publication_date')[12:]
+                                      publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
 
     template_name = 'site/all-history.html'
     ajax_template_name = 'site/modules/grid-history-block.html'
@@ -237,8 +237,8 @@ class HistoryListView(InfinityLoaderListView):
         top_objects = page.top_items.all().order_by('weight') if page else []
         items = History.objects.filter(is_active=True,
                                        publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
-        has_next = items.count() > 12
-        items = items[:12]
+        has_next = items.count() > 11
+        items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
                                                     'has_next': has_next})
 
@@ -359,7 +359,7 @@ class SpecialsListView(InfinityLoaderListView):
     ajax_template_name = 'site/modules/special-projects-block.html'
     context_list_name = 'specials'
     ajax_context_list_name = 'specials'
-    items_per_page = 1
+    items_per_page = 5
 
 
 class SpecialsDetailView(DetailView):
@@ -529,7 +529,7 @@ class SearchView(View):
 
             items = result.get(section, dict()).get('qs', [])
 
-            paginator = Paginator(items, 1)
+            paginator = Paginator(items, 12)
 
             try:
                 items = paginator.page(page)
