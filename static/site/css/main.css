@@ -2642,7 +2642,7 @@ footer {
       height: 100%; }
     .grid-publication_format-full .grid-publication__text-wrap {
       position: absolute;
-      bottom: 20px;
+      top: 280px;
       left: 20px;
       right: 20px; }
     .grid-publication_format-full .grid-publication__wobbler {
