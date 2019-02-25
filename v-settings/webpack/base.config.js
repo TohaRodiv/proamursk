@@ -104,6 +104,7 @@ else if (process.env.NODE_ENV === 'production') {
                                 'stage-0',
                                 'stage-2'
                             ],
+                            comments: false,
                             'babelrc': false
                         }
                     },
