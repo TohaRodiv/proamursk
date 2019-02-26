@@ -488,7 +488,7 @@ class CityGuidesListSerializer(ModelSerializer):
     class Meta:
         model = CityGuide
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'guide_format', 'guide_format_name', 'title',
-                  'comment', 'create_date', 'edit_date')
+                  'comment', 'is_active', 'create_date', 'edit_date')
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
