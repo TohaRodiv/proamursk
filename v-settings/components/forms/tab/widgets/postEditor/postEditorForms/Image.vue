@@ -36,6 +36,24 @@
                             :options="linkConfig">
                     </simpleInput>
                 </div>
+                <div style="display: flex; margin-top: 22px;">
+                    <simpleInput
+                            style="width: 340px; margin-right: 20px;"
+                            :labelPosition="'top'"
+                            :type="'childEntity'"
+                            :passedData="(passedData.title) ? passedData.title : undefined"
+                            @callback="title = $event.name"
+                            :options="titleConfig">
+                    </simpleInput>
+                    <simpleInput
+                            style="width: 340px;"
+                            :labelPosition="'top'"
+                            :type="'childEntity'"
+                            :passedData="(passedData.alt) ? passedData.alt : undefined"
+                            @callback="alt = $event.name"
+                            :options="altConfig">
+                    </simpleInput>
+                </div>
                 <singleCheckbox
                         style="margin-top: 22px;"
                         :type="'childEntity'"
@@ -202,8 +220,6 @@
                 signConfig: {
                     type: 'field',
                     label: 'Подпись',
-                    required: false,
-                    invalid: false,
                     width: 4,
                     codename: 'name',
                     widget: 'simpleInput',
@@ -212,11 +228,25 @@
                 linkConfig: {
                     type: 'field',
                     label: 'Ссылка',
-                    required: false,
-                    invalid: false,
-                    placeholder: 'http://',
+                    placeholder: 'http(s)://',
                     width: 4,
                     codename: 'name',
+                    widget: 'simpleInput',
+                    hint: '',
+                },
+                titleConfig: {
+                    type: 'field',
+                    label: 'Значение атрибута title',
+                    width: 4,
+                    codename: 'title',
+                    widget: 'simpleInput',
+                    hint: '',
+                },
+                altConfig: {
+                    type: 'field',
+                    label: 'Значение атрибута alt',
+                    width: 4,
+                    codename: 'alt',
                     widget: 'simpleInput',
                     hint: '',
                 },
