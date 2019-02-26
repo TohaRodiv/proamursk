@@ -334,7 +334,10 @@ class CityGuidesDetailView(View):
             raise Http404
 
         template_name = 'site/city-guide-%s.html' % guide.guide_format
-        guides = CityGuide.objects.filter(is_active=True)
+        if self.request.user and self.request.user.is_staff:
+            guides = CityGuide.objects.all()
+        else:
+            guides = CityGuide.objects.filter(is_active=True)
         formats = OrderedDict(CityGuide.GUIDE_FORMATS)
         formats = list(formats.keys())
         guides = sorted(guides, key=lambda x: formats.index(x.guide_format) if x.guide_format in formats else len(formats))
