@@ -4309,7 +4309,8 @@ footer {
 .sp-step-slider {
   width: 1080px;
   height: 640px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   background: #FFFFFF;
   border: 1px solid #d2d7dd;
   border-radius: 4px; }

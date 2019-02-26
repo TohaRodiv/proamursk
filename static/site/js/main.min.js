@@ -1662,6 +1662,8 @@ $('.slider-arrow').on('click', function() {
 
     sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
     sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
+
+    setSliderTimeline($(this), newActiveSlideIndex+1);
 })
 
 // Переключение слайдов по клику на слайд
@@ -1697,6 +1699,8 @@ $('.slider-circles-container').on('click', '.slider-circle-item', function() {
 
         sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
         sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
+
+        setSliderTimeline($(this), newActiveSlideIndex+1);
     }
 })
 
@@ -1778,6 +1782,21 @@ function previewSlider(slide) {
 $('.preview-slider__mini-btn').click(function () {
     previewSlider($(this).find('.preview-slider__small-img'))
 })
+
+function setSliderTimeline(sliderChild, newActiveSlideIndex) {
+    var slider = sliderChild.parents('.slider'),
+        sliderTimeline = slider.siblings('.sp-slider-timeline');
+
+    sliderTimeline.find('.timeline-step').each(function () {
+        var currentStepSlide = $(this).data('timeline-slide');
+        if (currentStepSlide <= newActiveSlideIndex) {
+            $(this).addClass('active');
+        }
+        else {
+            $(this).removeClass('active');
+        }
+    })
+}
 $('.subscribe-form').submit(function(event) {
     event.preventDefault();
     validateFormFields($(this));
