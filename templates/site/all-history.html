@@ -25,7 +25,7 @@
             <div class="base-layout">
                 {% if top_objects %}
                     <div class="base-layout__main">
-                        {% with item=top_objects.0 css_class='grid-publication_text-size-big' cover_name="8_column_img"  %}
+                        {% with item=top_objects.0.get_object css_class='grid-publication_8-col' cover_name="8_column_img"  %}
                             {% include "site/modules/grid-publication.html" %}
                         {% endwith %}
                     </div>
@@ -44,34 +44,36 @@
             </div>
 
             <div class="base-3items-grid">
-                {% for item in top_objects|slice:"1:4" %}
-                    {% if forloop.counter == 1 %}
-                        {% with cover_name="3_column_img_"|add:item.cover_format %}
-                            {% include "site/modules/grid-publication.html" %}
-                        {% endwith %}
-                    {% endif %}
-                    {% if forloop.counter == 2 %}
-                        {% with css_class='grid-publication_text-size-base' cover_name="3_column_img_"|add:item.cover_format %}
-                            {% include "site/modules/grid-publication.html" %}
-                        {% endwith %}
-                    {% endif %}
-                    {% if forloop.counter == 3 %}
-                        {% with cover_name="6_column_img_"|add:item.cover_format %}
-                            {% include "site/modules/grid-publication.html" %}
-                        {% endwith %}
-                    {% endif %}
+                {% for top_item in top_objects|slice:"1:4" %}
+                    {% with item=top_item.get_object %}
+                        {% if forloop.counter == 1 %}
+                            {% with cover_name="3_column_img_"|add:item.cover_format %}
+                                {% include "site/modules/grid-publication.html" %}
+                            {% endwith %}
+                        {% endif %}
+                        {% if forloop.counter == 2 %}
+                            {% with cover_name="3_column_img_"|add:item.cover_format %}
+                                {% include "site/modules/grid-publication.html" %}
+                            {% endwith %}
+                        {% endif %}
+                        {% if forloop.counter == 3 %}
+                            {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format %}
+                                {% include "site/modules/grid-publication.html" %}
+                            {% endwith %}
+                        {% endif %}
+                    {% endwith %}
                 {% endfor %}
             </div>
 
             <div class="base-3items-grid-inverse">
                 {% for item in articles|slice:":4" %}
                     {% if forloop.counter == 1 %}
-                        {% with cover_name="6_column_img_"|add:item.cover_format %}
+                        {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format %}
                             {% include "site/modules/grid-publication.html" %}
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 2 %}
-                        {% with css_class='grid-publication_text-size-base' cover_name="3_column_img_"|add:item.cover_format %}
+                        {% with cover_name="3_column_img_"|add:item.cover_format %}
                             {% include "site/modules/grid-publication.html" %}
                         {% endwith %}
                     {% endif %}

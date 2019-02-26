@@ -25,7 +25,7 @@
         <div class="base-layout">
             {% if events %}
                 <div class="base-layout__main">
-                    {% with item=events.0 css_class='grid-publication_text-size-big' cover_name="8_column_img" wobler_type="announcement" %}
+                    {% with item=events.0 css_class='grid-publication_8-col' cover_name="8_column_img" wobler_type="announcement" %}
                         {% include "site/modules/grid-event.html" %}
                     {% endwith %}
                 </div>
@@ -52,12 +52,12 @@
                     {% endwith %}
                 {% endif %}
                 {% if forloop.counter == 2 %}
-                    {% with css_class='grid-publication_text-size-base' cover_name="3_column_img_"|add:item.cover_format add_link=False wobler_type="announcement" %}
+                    {% with cover_name="3_column_img_"|add:item.cover_format add_link=False wobler_type="announcement" %}
                         {% include "site/modules/grid-event.html" %}
                     {% endwith %}
                 {% endif %}
                 {% if forloop.counter == 3 %}
-                    {% with css_class='grid-publication_cover-format-6col' cover_name="6_column_img_"|add:item.cover_format wobler_type="announcement" %}
+                    {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format wobler_type="announcement" %}
                         {% include "site/modules/grid-event.html" %}
                     {% endwith %}
                 {% endif %}

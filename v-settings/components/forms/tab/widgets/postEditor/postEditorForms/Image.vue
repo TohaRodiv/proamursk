@@ -32,8 +32,26 @@
                             :labelPosition="'top'"
                             :type="'childEntity'"
                             :passedData="(passedData.link) ? passedData.link : undefined"
-                            @callback="link = $event.name"
+                            @callback="link = $event.link"
                             :options="linkConfig">
+                    </simpleInput>
+                </div>
+                <div style="display: flex; margin-top: 22px;">
+                    <simpleInput
+                            style="width: 340px; margin-right: 20px;"
+                            :labelPosition="'top'"
+                            :type="'childEntity'"
+                            :passedData="(passedData.title) ? passedData.title : undefined"
+                            @callback="title = $event.title"
+                            :options="titleConfig">
+                    </simpleInput>
+                    <simpleInput
+                            style="width: 340px;"
+                            :labelPosition="'top'"
+                            :type="'childEntity'"
+                            :passedData="(passedData.alt) ? passedData.alt : undefined"
+                            @callback="alt = $event.alt"
+                            :options="altConfig">
                     </simpleInput>
                 </div>
                 <singleCheckbox
@@ -202,8 +220,6 @@
                 signConfig: {
                     type: 'field',
                     label: 'Подпись',
-                    required: false,
-                    invalid: false,
                     width: 4,
                     codename: 'name',
                     widget: 'simpleInput',
@@ -212,11 +228,25 @@
                 linkConfig: {
                     type: 'field',
                     label: 'Ссылка',
-                    required: false,
-                    invalid: false,
-                    placeholder: 'http://',
+                    placeholder: 'http(s)://',
                     width: 4,
-                    codename: 'name',
+                    codename: 'link',
+                    widget: 'simpleInput',
+                    hint: '',
+                },
+                titleConfig: {
+                    type: 'field',
+                    label: 'Значение атрибута title',
+                    width: 4,
+                    codename: 'title',
+                    widget: 'simpleInput',
+                    hint: '',
+                },
+                altConfig: {
+                    type: 'field',
+                    label: 'Значение атрибута alt',
+                    width: 4,
+                    codename: 'alt',
                     widget: 'simpleInput',
                     hint: '',
                 },
@@ -234,6 +264,8 @@
                 link: '',
                 align: '',
                 backgroundFlag: false,
+                title: '',
+                alt: '',
 
                 indents: {
                     marginTop: '',
@@ -271,6 +303,8 @@
                 payload.sign = this.sign;
                 payload.link = this.link;
                 payload.align = this.align;
+                payload.title = this.title;
+                payload.alt = this.alt;
                 payload.backgroundFlag = this.backgroundFlag;
                 Object.assign(payload, this.indents);
                 this.$emit('changed', payload);

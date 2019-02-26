@@ -96,6 +96,12 @@ class NewsDetailView(DetailView):
     context_object_name = 'news'
     template_name = 'site/news-details.html'
 
+    def get_queryset(self):
+        qs = super(NewsDetailView, self).get_queryset()
+        if self.request.user and self.request.user.is_staff:
+            qs = self.model.objects.select_related('cover').all()
+        return qs
+
 
 class EventsListView(View):
 
@@ -170,9 +176,15 @@ class EventsListPastView(InfinityLoaderListView):
 
 class EventsDetailView(DetailView):
     model = Event
-    queryset = Event.objects.filter(is_active=True)
+    queryset = Event.objects.select_related('cover').filter(is_active=True)
     context_object_name = 'event'
     template_name = 'site/event-announcement.html'
+
+    def get_queryset(self):
+        qs = super(EventsDetailView, self).get_queryset()
+        if self.request.user and self.request.user.is_staff:
+            qs = self.model.objects.select_related('cover').all()
+        return qs
 
 
 class ReportsListView(InfinityLoaderListView):
@@ -203,6 +215,7 @@ class ReportsListView(InfinityLoaderListView):
         has_next = items.count() > 12
         items = items[:12]
         return render(request, self.template_name, {self.context_list_name: items,
+                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -211,6 +224,12 @@ class ReportsDetailView(DetailView):
     queryset = Report.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'report'
     template_name = 'site/reportage-details.html'
+
+    def get_queryset(self):
+        qs = super(ReportsDetailView, self).get_queryset()
+        if self.request.user and self.request.user.is_staff:
+            qs = self.model.objects.select_related('cover').all()
+        return qs
 
 
 class HistoryListView(InfinityLoaderListView):
@@ -240,6 +259,7 @@ class HistoryListView(InfinityLoaderListView):
         has_next = items.count() > 11
         items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
+                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -248,6 +268,13 @@ class HistoryDetailView(DetailView):
     queryset = History.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'history'
     template_name = 'site/history-details.html'
+
+    def get_queryset(self):
+        qs = super(HistoryDetailView, self).get_queryset()
+        if self.request.user and self.request.user.is_staff:
+            qs = self.model.objects.select_related('cover').all()
+        return qs
+
 
 
 class PersonsListView(InfinityLoaderListView):
@@ -278,6 +305,7 @@ class PersonsListView(InfinityLoaderListView):
         has_next = items.count() > 11
         items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
+                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -287,17 +315,29 @@ class PersonsDetailView(DetailView):
     context_object_name = 'person'
     template_name = 'site/people-details.html'
 
+    def get_queryset(self):
+        qs = super(PersonsDetailView, self).get_queryset()
+        if self.request.user and self.request.user.is_staff:
+            qs = self.model.objects.select_related('cover').all()
+        return qs
+
 
 class CityGuidesDetailView(View):
 
     def get(self, request, pk):
         try:
-            guide = CityGuide.objects.get(id=pk, is_active=True)
+            if self.request.user and self.request.user.is_staff:
+                guide = CityGuide.objects.get(id=pk)
+            else:
+                guide = CityGuide.objects.get(id=pk, is_active=True)
         except:
             raise Http404
 
         template_name = 'site/city-guide-%s.html' % guide.guide_format
-        guides = CityGuide.objects.filter(is_active=True)
+        if self.request.user and self.request.user.is_staff:
+            guides = CityGuide.objects.all()
+        else:
+            guides = CityGuide.objects.filter(is_active=True)
         formats = OrderedDict(CityGuide.GUIDE_FORMATS)
         formats = list(formats.keys())
         guides = sorted(guides, key=lambda x: formats.index(x.guide_format) if x.guide_format in formats else len(formats))
@@ -350,6 +390,12 @@ class PlaceDetailView(DetailView):
     context_object_name = 'place'
     template_name = 'site/place-details.html'
 
+    def get_queryset(self):
+        qs = super(PlaceDetailView, self).get_queryset()
+        if self.request.user and self.request.user.is_staff:
+            qs = self.model.objects.select_related('cover').all()
+        return qs
+
 
 class SpecialsListView(InfinityLoaderListView):
     queryset = Special.objects.filter(is_active=True,
@@ -368,6 +414,12 @@ class SpecialsDetailView(DetailView):
     context_object_name = 'special'
     template_name = 'site/special-project.html'
     slug_field = 'codename'
+
+    def get_queryset(self):
+        qs = super(SpecialsDetailView, self).get_queryset()
+        if self.request.user and self.request.user.is_staff:
+            qs = self.model.objects.select_related('cover').all()
+        return qs
 
     def get_context_data(self, **kwargs):
         context = super(SpecialsDetailView, self).get_context_data(**kwargs)
@@ -388,6 +440,12 @@ class FilmDetailView(DetailView):
     queryset = Film.objects.filter(is_active=True).prefetch_related('sessions')
     context_object_name = 'film'
     template_name = 'site/film-announcement.html'
+
+    def get_queryset(self):
+        qs = super(FilmDetailView, self).get_queryset()
+        if self.request.user and self.request.user.is_staff:
+            qs = self.model.objects.select_related('cover').all()
+        return qs
 
     def get_context_data(self, **kwargs):
         context = super(FilmDetailView, self).get_context_data(**kwargs)
@@ -821,3 +879,4 @@ class FilmsSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.edit_date
+
