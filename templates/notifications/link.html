@@ -1,1 +1,3 @@
-<a href="{{ url }}" style="color: #000000; text-decoration: underline; cursor: pointer;">{% if text %}{{ text }}{% else %}{{ url }}{% endif %}</a>
+{% load site_tags static static_version utils_tags %}
+
+<a href="{{ url }}" style="color: #0073FF; text-decoration: underline;">{% if text %}{{ text }}{% else %}{{ url }}{% endif %}</a>
