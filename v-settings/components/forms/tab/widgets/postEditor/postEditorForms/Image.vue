@@ -32,7 +32,7 @@
                             :labelPosition="'top'"
                             :type="'childEntity'"
                             :passedData="(passedData.link) ? passedData.link : undefined"
-                            @callback="link = $event.name"
+                            @callback="link = $event.link"
                             :options="linkConfig">
                     </simpleInput>
                 </div>
@@ -42,7 +42,7 @@
                             :labelPosition="'top'"
                             :type="'childEntity'"
                             :passedData="(passedData.title) ? passedData.title : undefined"
-                            @callback="title = $event.name"
+                            @callback="title = $event.title"
                             :options="titleConfig">
                     </simpleInput>
                     <simpleInput
@@ -50,7 +50,7 @@
                             :labelPosition="'top'"
                             :type="'childEntity'"
                             :passedData="(passedData.alt) ? passedData.alt : undefined"
-                            @callback="alt = $event.name"
+                            @callback="alt = $event.alt"
                             :options="altConfig">
                     </simpleInput>
                 </div>
@@ -230,7 +230,7 @@
                     label: 'Ссылка',
                     placeholder: 'http(s)://',
                     width: 4,
-                    codename: 'name',
+                    codename: 'link',
                     widget: 'simpleInput',
                     hint: '',
                 },
@@ -264,6 +264,8 @@
                 link: '',
                 align: '',
                 backgroundFlag: false,
+                title: '',
+                alt: '',
 
                 indents: {
                     marginTop: '',
@@ -301,6 +303,8 @@
                 payload.sign = this.sign;
                 payload.link = this.link;
                 payload.align = this.align;
+                payload.title = this.title;
+                payload.alt = this.alt;
                 payload.backgroundFlag = this.backgroundFlag;
                 Object.assign(payload, this.indents);
                 this.$emit('changed', payload);
