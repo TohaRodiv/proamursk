@@ -2717,6 +2717,9 @@ footer {
       max-width: 800px;
       margin-bottom: 60px; }
 
+.maintenance-mode__container {
+  padding: 0 20px; }
+
 .maintenance-mode__header {
   margin-top: 70px;
   margin-bottom: 170px; }
