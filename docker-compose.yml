@@ -20,6 +20,8 @@ services:
       POSTGRES_USER: superadmin
       POSTGRES_PASSWORD: air3N97r
       POSTGRES_DB: proamursk_prod
+    depends_on:
+      - rabbitmq
 
   nginx:
     build: ./deploy/nginx
