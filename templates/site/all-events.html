@@ -25,12 +25,11 @@
             <div class="base-layout">
                 {% if top_objects %}
                     <div class="base-layout__main">
-                        {% with item=top_objects.0 css_class='grid-publication_text-size-big' cover_name="8_column_img" %}
+                        {% with item=top_objects.0 css_class='grid-publication_8-col' cover_name="8_column_img" %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     </div>
                 {% endif %}
-
                 <aside class="base-layout__aside">
                     <div class="aside-widget">
                         {% include "site/modules/events-links-widget.html" %}

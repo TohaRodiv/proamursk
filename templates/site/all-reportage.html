@@ -24,7 +24,7 @@
         <div class="container">
             <div class="base-layout">
                 <div class="base-layout__main">
-                    {% with item=top_objects.0 css_class='grid-publication_text-size-big' cover_name="8_column_img" wobler_type="reportage" %}
+                    {% with item=top_objects.0 css_class='grid-publication_8-col' cover_name="8_column_img" wobler_type="reportage" %}
                         {% if item %}
                             {% include "site/modules/grid-event.html" %}
                         {% endif %}
@@ -57,7 +57,7 @@
                         {% endwith %}
                     {% endif %}
                     {% if forloop.counter == 3 %}
-                        {% with cover_name="6_column_img_"|add:item.cover_format wobler_type="reportage" %}
+                        {% with css_class='grid-publication_cover-format-6col' cover_name="6_column_img_"|add:item.cover_format wobler_type="reportage" %}
                             {% include "site/modules/grid-event.html" %}
                         {% endwith %}
                     {% endif %}

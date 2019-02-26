@@ -1,6 +1,8 @@
 .grid-publication
     position: relative
     display: block
+    display: flex
+    flex-direction: column
     min-height: 460px
     background-color: $light-c
     text-decoration: none
@@ -11,6 +13,12 @@
         text-decoration: none
         color: inherit
 
+    & > a:not(.grid-publication__link)
+        display: flex
+        flex-direction: column
+        height: 100%
+        flex-grow: 1
+
     &__cover-wrap
         position: relative
 
@@ -19,12 +27,18 @@
         display: block
         width: 100%
         object-fit: cover
+        object-position: center
 
     &__text-wrap
         position: relative
         z-index: 3
+        display: flex
+        flex-direction: column
+        flex-grow: 1
+        padding: 20px
 
     &__title
+        margin-bottom: 5px
         font-size: $medium-fz
         font-family: $bold-f
 
@@ -32,8 +46,9 @@
             color: currentColor
             text-decoration: none
 
-    &__description
-        margin-bottom: 0
+    &__description,
+    &__date
+        margin-bottom: 20px
 
     &__text
         font-size: $mini-fz
@@ -42,6 +57,7 @@
     &__wobbler
         display: flex
         align-items: center
+        margin-top: auto
 
     &__link
         position: relative
@@ -106,39 +122,35 @@
         height: 100%
         z-index: 2
 
-    &_format-base
-        display: flex
-        flex-direction: column
+    &_6-col
+        width: 640px
 
-        a:not(.grid-publication__link)
-            display: flex
-            flex-direction: column
-            height: 100%
+    &_8-col
+        width: 860px
+        min-height: 500px
+
+    &_6-col,
+    &_8-col
+
+        &.grid-publication_format-full
+
+            .grid-publication__title
+                font-size: 36px
+
+            .grid-publication__text
+                font-size: 20px
+
+    &_format-base
 
         .grid-publication
             &__cover
                 border-bottom: 1px solid $border-c
 
-            &__text-wrap
-                display: flex
-                flex-direction: column
-                flex-grow: 1
-                padding: 20px
-
             &__title
-                margin-bottom: 5px
-
                 a
                     &:hover,
                     &:focus
                         color: $base-c
-
-            &__description,
-            &__date
-                margin-bottom: 10px
-
-            &__wobbler
-                margin-top: auto
 
             &__link
                 color: $base-c
@@ -148,8 +160,8 @@
 
         .grid-publication
             &__cover-wrap
+                position: absolute
                 display: block
-                position: relative
                 height: 100%
 
                 &::after
@@ -166,13 +178,7 @@
                 height: 100%
 
             &__text-wrap
-                position: absolute
-                top: 300px
-                left: 20px
-                right: 20px
-
-            &__wobbler
-                margin-top: 30px
+                margin-top: 280px
 
             &__link
                 color: $light-c
@@ -180,28 +186,11 @@
                 &:hover
                     color: $base-c
 
-
-
-    &_text-size-big
-        .grid-publication
-            &__title
-                margin-bottom: 15px
-                font-size: $huge-fz
-
-            &__text
-                font-size: 20px
-
     &_full-width-slider
         height: 100%
         border: none
         border-radius: 0
 
-        &__cover-wrap
-            position: relative
-            height: 100%
-
-        &__cover
-            height: 100%
 
 .grid-publication
     &:hover,
