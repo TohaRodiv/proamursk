@@ -603,6 +603,7 @@ textarea {
 
 .label-base {
   position: absolute;
+  left: 0;
   top: 6px;
   font-size: 18px;
   color: #7A7A7A;
@@ -1495,9 +1496,6 @@ input.btn_preloader {
 
 .hint {
   display: none;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
   max-width: 100%;
   position: absolute;
   white-space: normal; }
@@ -1507,6 +1505,9 @@ input.btn_preloader {
     position: absolute;
     z-index: 3; }
   .hint__text {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
     line-height: 1.5; }
 
 .post-editor {
@@ -2593,7 +2594,7 @@ footer {
       width: 340px;
       padding: 11px 120px 10px 15px;
       font-size: 14px;
-      line-height: 1;
+      line-height: 17px;
       color: #FFFFFF;
       background: rgba(255, 255, 255, 0.4);
       border: 1px solid transparent;
@@ -2645,6 +2646,7 @@ footer {
       text-align: center;
       padding: 5px 15px 10px;
       font-size: 14px;
+      line-height: 18px;
       color: #FFFFFF;
       background-color: transparent;
       border-bottom: 1px solid #FFFFFF; }
