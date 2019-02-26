@@ -184,7 +184,7 @@ class StaticPagesDetailSerializer(ModelSerializer):
         model = Page
         fields = ('id', 'name', 'meta_title', 'meta_description', 'meta_keywords',
                   'og_image', 'create_date', 'edit_date', 'top_items', 'codename')
-        read_only_fields = ('id', 'name', 'create_date', 'edit_date')
+        read_only_fields = ('id', 'name', 'codename', 'create_date', 'edit_date')
 
     def validate_top_items(self, data):
         if self.instance.pk and self.instance.codename in ['index', 'events-index', 'reports-list', 'history-list',

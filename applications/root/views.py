@@ -203,6 +203,7 @@ class ReportsListView(InfinityLoaderListView):
         has_next = items.count() > 12
         items = items[:12]
         return render(request, self.template_name, {self.context_list_name: items,
+                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -240,6 +241,7 @@ class HistoryListView(InfinityLoaderListView):
         has_next = items.count() > 11
         items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
+                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -278,6 +280,7 @@ class PersonsListView(InfinityLoaderListView):
         has_next = items.count() > 11
         items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
+                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -821,3 +824,4 @@ class FilmsSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.edit_date
+
