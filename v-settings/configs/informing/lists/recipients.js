@@ -31,7 +31,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 200,
+                width: 250,
                 codename: 'name',
                 sort: {
                     order_by: 'name'
@@ -66,7 +66,7 @@ const state = {
                 type: 'text',
                 is_sortable: false,
                 align_text: 'left',
-                width: 150,
+                width: 250,
                 codename: 'email',
                 sort: {
                     order_by: 'email'

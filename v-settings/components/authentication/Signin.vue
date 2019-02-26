@@ -1,18 +1,20 @@
 <template>
     <div>
-        <div class="auth_title signin-title">
-            Вход
-        </div>
-        <div @mouseenter="focus = 'username'" @mouseleave="focus = ''">
-            <input
-                    v-model="username"
-                    type="text"
-                    @click="errors.username = ''"
-                    :class="{'input-on-error': errors.username}"
-                    class="input auth-input auth_input_size"
-                    placeholder="Логин">
-            <div class="input-error-message" v-if="errors.username && focus === 'username'">
-                {{errors.username}}
+        <div class="auth-title-container">
+            <div class="auth_title signin-title">
+                Вход
+            </div>
+            <div @mouseenter="focus = 'username'" @mouseleave="focus = ''">
+                <input
+                        v-model="username"
+                        type="text"
+                        @click="errors.username = ''"
+                        :class="{'input-on-error': errors.username}"
+                        class="input auth-input auth_input_size"
+                        placeholder="Логин">
+                <div class="input-error-message" v-if="errors.username && focus === 'username'">
+                    {{errors.username}}
+                </div>
             </div>
         </div>
         <div @mouseenter="focus = 'password'" @mouseleave="focus = ''">

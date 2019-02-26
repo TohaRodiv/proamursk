@@ -70,7 +70,7 @@ const gulp = require('gulp'),
 //   DEVELOPMENT TASKS
 // ---------------------
 
-const dev = gulp.parallel(devSass, devJS, devImages, devFonts, devHtml, devShortStaticStyles, frontendShortHtml, templatesShortHtml);
+const dev = gulp.parallel(devSass, devJS, devImages, devFonts, devHtml, devShortStaticStyles, frontendShortHtml);
 
 
 function watch() {
@@ -80,7 +80,7 @@ function watch() {
     gulp.watch(['src/images/**/*.*'], devImages);
     gulp.watch(['src/fonts/**/*.*'], devFonts);
     gulp.watch(['src/html/**/*.html'], devHtml);
-    gulp.watch(['src/html/404.html', 'src/html/500.html'], gulp.parallel(frontendShortHtml, templatesShortHtml));
+    gulp.watch(['src/html/404.html', 'src/html/500.html'], gulp.parallel(frontendShortHtml));
 };
 
 
@@ -158,7 +158,7 @@ exports.devHtml = devHtml;
 //   PRODUCTION TASKS
 // --------------------
 
-const prod = gulp.parallel(prodSass, prodJS, prodImages, prodImagesSVG, prodFonts, prodShortStaticStyles, templatesShortHtml);
+const prod = gulp.parallel(prodSass, prodJS, prodImages, prodImagesSVG, prodFonts, prodShortStaticStyles);
 
 
 function prodSass() {
@@ -313,7 +313,7 @@ function prodShortStaticStyles() {
         }))
         .pipe(concat('short-styles.css'))
         .pipe(autoprefixer())
-        .pipe(gulp.dest('../../static/site/css/'))
+        .pipe(gulp.dest('./../static/site/css/'))
         .pipe(cleanCSS())
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('.'))
@@ -343,7 +343,7 @@ function templatesShortHtml() {
         prefix: '@@',
         basepath: 'src/html/'
     }))
-    .pipe(gulp.dest('../../templates/'));
+    .pipe(gulp.dest('./../templates/'));
 };
 
 exports.devShortStaticStyles = devShortStaticStyles;

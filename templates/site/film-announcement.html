@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block og %}
-    {% og_meta_tags og_title=film.meta_title|default:film.title og_description=film.meta_description og_image=film.og_image|default:film.cover|get_thumbnail_url_by_name:"og_image_default" %}
+    {% og_meta_tags og_title=film.meta_title|default:film.title og_description=film.meta_description og_image=film.og_image|default:film.cover|get_thumbnail_url_by_name:"og_image_default" og_image_width=film.og_image_width og_image_height=film.og_image_height %}
 {% endblock %}
 
 

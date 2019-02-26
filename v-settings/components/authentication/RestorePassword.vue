@@ -1,13 +1,15 @@
 <template>
     <div>
-        <div class="auth_title restore-password-title">
-            Восстановление пароля
+        <div class="auth-title-container">
+            <div class="auth_title restore-password-title">
+                Восстановление пароля
+            </div>
+            <p class="restore-password--text">
+                Инструкции по восстановлению <br>
+                пароля будут отправлены на<br>
+                указанный email
+            </p>
         </div>
-        <p class="restore-password--text">
-            Инструкции по восстановлению <br>
-            пароля будут отправлены на<br>
-            указанный email
-        </p>
         <div @mouseenter="focus = true" @mouseleave="focus = false">
             <input type="email" v-model="email" :class="{'input-on-error': hasError}" class="input auth-email-input auth_input_size" @click="hasError = false" placeholder="Email">
             <div class="input-error-message" v-if="hasError && focus">
