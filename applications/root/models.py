@@ -494,6 +494,14 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
 
         return result
 
+    @property
+    def og_image_width(self):
+        return 1200 if self.og_image else 480
+
+    @property
+    def og_image_height(self):
+        return 630 if self.og_image else 720
+
 
 class FilmSession(BaseModel):
     film = models.ForeignKey(Film, models.CASCADE, verbose_name='Фильм', related_name='sessions')
