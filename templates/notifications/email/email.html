@@ -1,4 +1,4 @@
-{% load site_tags %}
+{% load site_tags static static_version %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -17,9 +17,9 @@
                         <td class="wrapper-td">
                             <table class="header" style="width: 100%; border-collapse: collapse; border-spacing: 0; position: relative; background-color: #FFFFFF;">
                                 <tr>
-                                    <td class="header__td" style="padding: 40px 30px; background-repeat: no-repeat; background-size: 640px 93px; background-position: 30px 20px; background-image: url({{ domain }}/images/email/header-pattern.jpg);">
+                                    <td class="header__td" style="padding: 40px 30px; background-repeat: no-repeat; background-size: 640px 93px; background-position: 30px 20px; background-image: url({{ domain }}{% static "site/images/email/header-pattern.jpg" %}{% static_version %});">
                                         <a href="{{ domain }}" class="header__logo-link" style="color: #000000; text-decoration: none; display: block; position: relative; z-index: 2;">
-                                            <img src="{{ domain }}/images/email/logo.jpg" alt="проАмурск" class="header__logo-img" style="display: block; width: 156px; height: 52px;">
+                                            <img src="{{ domain }}{% static "site/images/email/logo.jpg" %}{% static_version %}" alt="проАмурск" class="header__logo-img" style="display: block; width: 156px; height: 52px;">
                                         </a>
                                     </td>
                                 </tr>
@@ -42,10 +42,10 @@
                                     <td class="footer__info-text" style="width: 320px; padding-top: 40px; padding-left: 80px; padding-bottom: 40px; font-size: 14px; color: #FFFFFF;">Вы получили это письмо, потому что подписаны на еженедельную рассылку сайта proamursk.ru</td>
                                     <td class="social-wrap" style="padding-top: 40px; padding-right: 80px; padding-bottom: 40px; font-size: 0; text-align: right;">
                                         <a href="" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
-                                            <img src="{{ domain }}/images/email/instagram.png" alt="Инстаграм" style="width: 45px; height: 45px;">
+                                            <img src="{{ domain }}{% static "site/images/email/instagram.png" %}{% static_version %}" alt="Инстаграм" style="width: 45px; height: 45px;">
                                         </a>
                                         <a href="" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
-                                            <img src="{{ domain }}/images/email/odnoklassniki.png" alt="Одноклассники" style="width: 45px; height: 45px;">
+                                            <img src="{{ domain }}{% static "site/images/email/odnoklassniki.png" %}{% static_version %}" alt="Одноклассники" style="width: 45px; height: 45px;">
                                         </a>
                                     </td>
                                 </tr>
@@ -65,7 +65,7 @@
 
                                 <tr>
                                     <td class="p0 footer-img-td" colspan="2" style="padding: 0; padding-top: 20px;">
-                                        <img src="{{ domain }}/images/email/footer-pattern.png" alt="footer-pattern" class="footer-img" style="width: 700px; height: 42px;">
+                                        <img src="{{ domain }}{% static "site/images/email/footer-pattern.png" %}{% static_version %}" alt="footer-pattern" class="footer-img" style="width: 700px; height: 42px;">
                                     </td>
                                 </tr>
                             </table>
