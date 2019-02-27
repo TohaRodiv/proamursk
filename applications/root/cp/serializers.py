@@ -431,10 +431,12 @@ class SlidersDetailSerializer(ModelSerializer):
 
 class FeedbackListSerializer(ModelSerializer):
     subject_name = serializers.SerializerMethodField()
+    attachments = ObjectRelatedField(queryset=UserFile.objects.all(), serializer_class=UserFileNestedSerializer,
+                                     many=True)
 
     class Meta:
         model = Feedback
-        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone',  'create_date')
+        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone', 'attachments', 'create_date')
 
     def get_subject_name(self, instance):
         return dict(instance.SUBJECTS).get(instance.subject)
