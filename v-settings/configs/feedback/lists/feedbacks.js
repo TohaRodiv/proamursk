@@ -6,7 +6,7 @@ const state = {
                 type: 'int',
                 is_sortable: true,
                 align_text: 'left',
-                width: 100,
+                width: 60,
                 fixed: true,
                 codename: 'id',
                 sort: {
@@ -29,7 +29,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 200,
+                width: 240,
                 codename: 'name',
                 sort: {
                     order_by: 'name'
@@ -40,7 +40,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 250,
+                width: 240,
                 codename: 'email',
                 sort: {
                     order_by: 'email'
@@ -51,7 +51,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 250,
+                width: 140,
                 codename: 'phone',
                 sort: {
                     order_by: 'phone'
@@ -62,7 +62,7 @@ const state = {
                 type: 'icon-score',
                 is_sortable: false,
                 align_text: 'center',
-                width: 100,
+                width: 200,
                 codename: 'attachments',
                 sort: 'none'
             },
