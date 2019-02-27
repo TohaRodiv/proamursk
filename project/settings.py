@@ -8,6 +8,8 @@ SECRET_KEY = 'mv*#bsq_%91s(*zxmbg8n5_+ua4a_=!9621p0ocomd_r392&-d'
 
 DEBUG = True
 
+ROOT_LINK = 'http://proamursk.ru'
+
 ALLOWED_HOSTS = ['*']
 
 INTERNAL_IPS = [

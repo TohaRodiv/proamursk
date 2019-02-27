@@ -3,11 +3,16 @@ from copy import deepcopy
 
 from rest_framework import status
 from rest_framework.response import Response
-
+from django.template import Context, Template
+from django.template.loader import get_template
+from django.utils.safestring import mark_safe
+from django.utils.text import normalize_newlines
+from django.conf.urls import url
+from django.conf import settings
 from cp_vue.api.core import cp_api
 from cp_vue.api.views import CpViewSet
 from .filters import SubscribersFilter, CampaignsFilter
-from .serializers import SubscribersSerializer, CampaignDetailSerializer, CampaignListSerializer
+from .serializers import SubscribersSerializer, CampaignDetailSerializer, CampaignListSerializer, PreviewSerializer
 from ..models import Subscriber, Campaign
 try:
     from ..tasks import update_subscribers, create_subscriber
@@ -26,44 +31,25 @@ class SubscriberCpViewSet(CpViewSet):
     detail_http_method_names = ['get', 'put', 'patch', 'head', 'options', 'trace']
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        self.write_log('add', request.user, serializer.instance)
-        create_subscriber.delay(serializer.instance.id)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        response = super(SubscriberCpViewSet, self).create(request, *args, **kwargs)
+        if response.status_code == 201:
+            serializer = self.get_serializer(data=request.data)
+            create_subscriber.delay(serializer.instance.id)
+        return response
 
     def activate_action(self, qs, data):
-        action = data.get('action')
-        errors = []
-        subscriber_ids = [subscriber.id for subscriber in qs]
-        if action == 'activate':
-            qs.update(is_active=True)
+        response = super(SubscriberCpViewSet, self).activate_action(qs, data)
+        if response.status_code == 200:
+            subscriber_ids = [subscriber.id for subscriber in qs]
             update_subscribers.delay(subscriber_ids)
-        elif action == 'deactivate':
-            qs.update(is_active=False)
-            update_subscribers.delay(subscriber_ids)
-        if not errors:
-            return Response(status=200)
-        else:
-            return Response(status=400, data=dict())
+        return response
 
     def update(self, request, *args, **kwargs):
-        partial = kwargs.pop('partial', False)
-        instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data, partial=partial)
-        serializer.is_valid(raise_exception=True)
-        self.perform_update(serializer)
-        self.write_log('change', request.user, serializer.instance)
-        if getattr(instance, '_prefetched_objects_cache', None):
-            # If 'prefetch_related' has been applied to a queryset, we need to
-            # forcibly invalidate the prefetch cache on the instance.
-            instance._prefetched_objects_cache = {}
-        data = serializer.data
-        update_subscribers.delay([instance.id])
-        data['object_permissions'] = self.get_object_permissions(request, instance)
-        return Response(data)
+        response = super(SubscriberCpViewSet, self).update(request, *args, **kwargs)
+        if response.status_code == 200:
+            instance = self.get_object()
+            update_subscribers.delay([instance.id])
+        return response
 
 
 class CampaignsCpViewSet(CpViewSet):
@@ -75,6 +61,46 @@ class CampaignsCpViewSet(CpViewSet):
     list_serializer_class = CampaignListSerializer
     filter_class = CampaignsFilter
     ordering_fields = ('id', 'name', 'edit_date', 'create_date')
+
+    def post(self, request, *args, **kwargs):
+        view_name = request._request.resolver_match.view_name
+        if view_name.split('__')[-1] == 'preview':
+            return self.preview(request)
+
+        return super(CampaignsCpViewSet, self).post(request, *args, **kwargs)
+
+    def preview(self, request):
+        serializer = PreviewSerializer(data=request.data)
+        if serializer.is_valid():
+            text = self.render_string(self.linebreaksbr(serializer.data.get('template', '')), dict())
+            template = get_template("notifications/email/email.html")
+            context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
+            return Response(dict(template=template.render(context)))
+        else:
+            Response(status=400)
+
+    def render_string(self, string, context):
+        load_string = r'{% load site_tags notification_tags %}'
+        string = load_string + string
+        template = Template(string)
+        context = Context(context)
+        return template.render(context)
+
+    def linebreaksbr(self, value):
+        value = normalize_newlines(value)
+        return mark_safe(value.replace('\n', '<br />\n'))
+
+    @classmethod
+    def get_urls(self):
+        path = self.path if self.path else self.model._meta.model_name
+        urlpatterns = [
+            url(r'^%s/preview/$' % path,
+                self.as_view(http_method_names=['post', 'head', 'options', 'trace']),
+                name='api__%s__preview' % path),
+        ]
+        urlpatterns += super(CampaignsCpViewSet, self).get_urls()
+
+        return urlpatterns
 
 
 cp_api.register(SubscriberCpViewSet)
