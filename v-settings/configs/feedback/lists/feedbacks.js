@@ -58,20 +58,17 @@ const state = {
                 }
             },
             {
-                name: 'Прикреплённый файл',
-                type: 'link',
-                is_sortable: true,
-                align_text: 'left',
-                width: 250,
-                codename: 'attachment',
-                customName: 'original_name',
-                sort: {
-                    order_by: 'attachment'
-                }
+                name: 'Прикреплённые файлы',
+                type: 'icon-score',
+                is_sortable: false,
+                align_text: 'center',
+                width: 100,
+                codename: 'attachments',
+                sort: 'none'
             },
             {
-                name: ' Дата создания',
-                type: 'dateTime',
+                name: 'Дата создания',
+                type: 'date',
                 is_sortable: true,
                 align_text: 'left',
                 width: 180,
