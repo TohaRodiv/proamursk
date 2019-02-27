@@ -39,6 +39,14 @@ $('.variable-height-textarea').on('keyup', function () {
 });
 
 
+$('body').on('paste cut', '.variable-height-textarea', function () {
+    var $this = $(this);
+
+    setTimeout(function () {
+        resizeTextarea($this, 27, 120);
+    },0);
+});
+
 function resizeTextarea(visibleTextarea, minHeight, maxHeight) {
     if (visibleTextarea.val() == '') {
         visibleTextarea.height(minHeight + 'px');

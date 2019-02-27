@@ -230,7 +230,7 @@ class SlidersCpViewSet(CpViewSet):
 class FeedbackCpViewSet(CpViewSet):
     path = 'feedbacks'
     model = Feedback
-    queryset = Feedback.objects.all()
+    queryset = Feedback.objects.all().prefetch_related('attachments')
     available_actions = dict()
     serializer_class = FeedbackDetailSerializer
     list_serializer_class = FeedbackListSerializer

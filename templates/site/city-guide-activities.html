@@ -78,7 +78,7 @@
                                                 <tr>
                                                     <td>
                                                         <span class="icon-phone"></span>
-                                                        Тел.:
+                                                        Телефон:
                                                     </td>
                                                     <td>
                                                         {{ item.phone }}
@@ -164,12 +164,6 @@
                     <div class="aside-widget">
                         {% include "site/page-block/aside-subscribe-widget.html" %}
                     </div>
-                    <div class="aside-widget">
-                        {% with css_class="place" btn_text="Добавить отзыв о месте" offer_text="Любой житель Амурска может поделиться своим мнением об&nbsp;этом месте с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
-                            {% include "site/modules/offer-widget.html" %}
-                        {% endwith %}
-                    </div>
-
                     {% get_banner %}
                 </aside>
             </div>

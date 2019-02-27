@@ -6,7 +6,7 @@ const state = {
                 type: 'int',
                 is_sortable: true,
                 align_text: 'left',
-                width: 100,
+                width: 60,
                 fixed: true,
                 codename: 'id',
                 sort: {
@@ -29,7 +29,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 200,
+                width: 240,
                 codename: 'name',
                 sort: {
                     order_by: 'name'
@@ -40,7 +40,7 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 250,
+                width: 240,
                 codename: 'email',
                 sort: {
                     order_by: 'email'
@@ -51,27 +51,24 @@ const state = {
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
-                width: 250,
+                width: 140,
                 codename: 'phone',
                 sort: {
                     order_by: 'phone'
                 }
             },
             {
-                name: 'Прикреплённый файл',
-                type: 'link',
-                is_sortable: true,
-                align_text: 'left',
-                width: 250,
-                codename: 'attachment',
-                customName: 'original_name',
-                sort: {
-                    order_by: 'attachment'
-                }
+                name: 'Прикреплённые файлы',
+                type: 'icon-score',
+                is_sortable: false,
+                align_text: 'center',
+                width: 200,
+                codename: 'attachments',
+                sort: 'none'
             },
             {
-                name: ' Дата создания',
-                type: 'dateTime',
+                name: 'Дата создания',
+                type: 'date',
                 is_sortable: true,
                 align_text: 'left',
                 width: 180,

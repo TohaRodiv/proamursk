@@ -431,15 +431,21 @@ class SlidersDetailSerializer(ModelSerializer):
 
 class FeedbackListSerializer(ModelSerializer):
     subject_name = serializers.SerializerMethodField()
+    attachments = serializers.SerializerMethodField()
 
     class Meta:
         model = Feedback
-        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone',  'create_date')
+        fields = ('id', 'subject', 'subject_name', 'name', 'email', 'phone', 'attachments', 'create_date')
 
     def get_subject_name(self, instance):
         return dict(instance.SUBJECTS).get(instance.subject)
 
+    def get_attachments(self, instance):
+        result = []
+        if instance and instance.id:
+            result = [a.name for a in instance.attachments.all()]
 
+        return result
 
 class FeedbackDetailSerializer(ModelSerializer):
     subject_name = serializers.SerializerMethodField()
