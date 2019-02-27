@@ -72,7 +72,7 @@ class NotificationSender(object):
             subject = self.render_string(notification.subject, context)
             text = self.render_string(self.linebreaksbr(notification.text), context)
             template = get_template("notifications/email/email.html")
-            context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK')else '')
+            context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
             result = EmailMessage(subject, template.render(context), settings.DEFAULT_FROM_EMAIL, recipients)
             # if 'attachments' in self.params and isinstance(self.params['attachments'], (list, tuple)):
             #     for a in self.params['attachments']:

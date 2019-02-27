@@ -1,3 +1,4 @@
+{% load pytils_numeral %}
 {% if all_amount > 0 %}
     <div class="search-result_full">
         <ul class="search-result-list">
@@ -11,7 +12,7 @@
             {% endfor %}
         </ul>
 
-        <a href="{% url "search" %}?q={{ search_text }}" class="search__all-result-link">Показать все результаты <span>({{ all_amount }} материалов)</span></a>
+        <a href="{% url "search" %}?q={{ search_text }}" class="search__all-result-link">Показать все результаты <span>({{ all_amount }} {{ all_amount|choose_plural:"материал,материала,материалов" }})</span></a>
     </div>
 {% else %}
     <div class="search-result_empty">По вашему запросу ничего не найдено</div>

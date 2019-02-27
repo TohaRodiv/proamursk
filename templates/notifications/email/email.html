@@ -1,4 +1,4 @@
-{% load site_tags static static_version %}
+{% load site_tags static static_version settings_tags %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -41,10 +41,11 @@
                                 <tr>
                                     <td class="footer__info-text" style="width: 320px; padding-top: 40px; padding-left: 80px; padding-bottom: 40px; font-size: 14px; color: #FFFFFF;">Вы получили это письмо, потому что подписаны на еженедельную рассылку сайта proamursk.ru</td>
                                     <td class="social-wrap" style="padding-top: 40px; padding-right: 80px; padding-bottom: 40px; font-size: 0; text-align: right;">
-                                        <a href="" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
+                                        {% get_settings as settings %}
+                                        <a href="{{ settings.instagram }}" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
                                             <img src="{{ domain }}{% static "site/images/email/instagram.png" %}{% static_version %}" alt="Инстаграм" style="width: 45px; height: 45px;">
                                         </a>
-                                        <a href="" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
+                                        <a href="{{ settings.odnoklassniki }}" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
                                             <img src="{{ domain }}{% static "site/images/email/odnoklassniki.png" %}{% static_version %}" alt="Одноклассники" style="width: 45px; height: 45px;">
                                         </a>
                                     </td>
@@ -55,7 +56,7 @@
 {#                                        <a href="" class="footer__info-link" style="color: #FFFFFF; text-decoration: underline; font-size: 14px; text-align: center;">Отписаться от рассылки</a>#}
                                     </td>
                                     <td class="footer__link_right" style="padding-right: 80px; padding-bottom: 40px; text-align: right;">
-                                        <a href="{{ domain }}/policy/" target="_blank" class="footer__info-link" style="color: #FFFFFF; text-decoration: underline; font-size: 14px; text-align: center;">Политика конфиденциальности</a>
+                                        <a href="{{ domain }}{% url "policy" %}" target="_blank" class="footer__info-link" style="color: #FFFFFF; text-decoration: underline; font-size: 14px; text-align: center;">Политика конфиденциальности</a>
                                     </td>
                                 </tr>
 
