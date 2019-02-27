@@ -8,7 +8,7 @@ SECRET_KEY = 'mv*#bsq_%91s(*zxmbg8n5_+ua4a_=!9621p0ocomd_r392&-d'
 
 DEBUG = False
 
-ROOT_LINK = 'http://proamursk.ru'
+ROOT_LINK = 'https://proamursk.ru'
 
 ALLOWED_HOSTS = ['*']
 
@@ -148,7 +148,7 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 10
+STATIC_VERSION = 11
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 

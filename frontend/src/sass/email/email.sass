@@ -45,11 +45,12 @@ a
     color: $base-c
     text-decoration: underline
 
+.btn-wrap
+    margin-bottom: 0
+    text-align: center
+
 .btn
-    display: block
-    width: 185px
-    margin-left: auto
-    margin-right: auto
+    display: inline-block
     padding: 13px 15px 11px
     font-size: 16px
     line-height: 1
@@ -61,16 +62,13 @@ a
     border-radius: 20px
     background-color: $base-c
 
-.ul,
-.ol
-    // ol
+ul,
+ol
     margin: 0
-    padding-left: 30px
+    padding-left: 40px
 
-.li
-    // li
-    margin-top: 20px
-    padding-left: 5px
+li
+    margin-bottom: 5px
 
 .li-title
     // div
@@ -82,7 +80,7 @@ a
 .separator
     display: block
     width: 480px
-    margin: 40px auto
+    margin: 0 auto
 
 .wobbler
     display: inline-block
@@ -106,6 +104,7 @@ a
         vertical-align: text-top
 
 .title
+    margin-bottom: 0
     font-weight: bold
     font-size: 24px
     letter-spacing: 0.08em
@@ -171,14 +170,6 @@ a
     margin-left: auto
     margin-right: auto
     font-size: $base-fz
-
-    ul
-        margin-top: 10px
-        margin-bottom: 15px
-        padding-left: 40px
-
-        li
-            margin-bottom: 5px
 
 .footer
     background-color: $base-dark-c

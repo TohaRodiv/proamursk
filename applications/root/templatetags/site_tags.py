@@ -175,7 +175,7 @@ def posts(context, *args):
                                     items.append([dict(object=obj, format=item_format)])
                             else:
                                 items.append([dict(object=obj, format=item_format)])
-    return dict(items=items, domain=context.get('domain'))
+    return dict(items=items, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
 
 
 @register.inclusion_tag('notifications/attachments.html', takes_context=True)

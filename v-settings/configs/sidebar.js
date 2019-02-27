@@ -122,7 +122,7 @@ const state = {
                     hasAddButton: false
                 },
                 {
-                    name: 'Сообщение об ошибках',
+                    name: 'Сообщения об ошибках',
                     view: 'text-errors',
                     hasAddButton: false
                 },

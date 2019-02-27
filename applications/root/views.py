@@ -673,7 +673,7 @@ def feedback(request):
                     'subject': dict(instance.SUBJECTS).get(instance.subject),
                     'sender_name': instance.name,
                     'sender_email': instance.email,
-                    'sender_phone': instance.email,
+                    'sender_phone': instance.phone,
                     'has_attachments': instance.attachments.all().exists(),
                     'feedback_id': instance.id,
                     'feedback_content': instance.text,
@@ -707,7 +707,7 @@ def place_review(request):
                     'place': instance.place.title,
                     'sender_name': instance.name,
                     'sender_email': instance.email,
-                    'sender_phone': instance.email,
+                    'sender_phone': instance.phone,
                     'review_content': instance.text,
                     'review_cp_link': '{scheme}:{host}/admin/reviews/{id}/'.format(
                         scheme=request.scheme, host=request.get_host(), id=instance.id
@@ -735,6 +735,9 @@ def bugreport(request):
             template_context = {
                 'page_url': obj.url,
                 'text': obj.text,
+                'message_cp_link': '{scheme}:{host}/admin/text-errors/{id}/'.format(
+                        scheme=request.scheme, host=request.get_host(), id=obj.id
+                    ),
             }
 
             try:

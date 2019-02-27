@@ -190,7 +190,7 @@ class PasswordRecoverySerializer(serializers.ModelSerializer):
                 'user_name': user.first_name,
                 'user_surname': user.last_name,
                 'user_email': user.email,
-                'password_recovery_link': '{scheme}://{hostname}/api/v1/auth/password-change/{token1}/{token2}/'.format(
+                'password_recovery_link': '{scheme}://{hostname}/admin/password-change/{token1}/{token2}/'.format(
                     scheme=request.scheme, hostname=request.get_host(),
                     token1=urlsafe_base64_encode(force_bytes(user.pk)).decode(),
                     token2=token_generator.make_token(user)
