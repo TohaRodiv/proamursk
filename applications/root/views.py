@@ -735,6 +735,9 @@ def bugreport(request):
             template_context = {
                 'page_url': obj.url,
                 'text': obj.text,
+                'message_cp_link': '{scheme}:{host}/admin/text-errors/?info={id}'.format(
+                        scheme=request.scheme, host=request.get_host(), id=obj.id
+                    ),
             }
 
             try:
