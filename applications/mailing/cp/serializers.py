@@ -1,4 +1,5 @@
 # -*-coding: utf-8 -*-
+from rest_framework.serializers import Serializer, CharField
 from cp_vue.api.serializers import ModelSerializer
 from ..models import Subscriber, Campaign
 
@@ -20,4 +21,8 @@ class CampaignDetailSerializer(ModelSerializer):
     class Meta:
         model = Campaign
         fields = ('id', 'name', 'content', 'comment', 'create_date', 'edit_date')
+
+
+class PreviewSerializer(Serializer):
+    template = CharField()
 

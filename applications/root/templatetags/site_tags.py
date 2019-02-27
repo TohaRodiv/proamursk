@@ -166,7 +166,7 @@ def posts(context, *args):
                         if item_format in ['wf', 'ws']:
                             items.append([dict(object=obj, format=item_format)])
                         else:
-                            last_item = items[-1]
+                            last_item = items[-1] if items else []
                             if len(last_item) == 1:
                                 last_item_obj = last_item[0]
                                 if last_item_obj['format'] not in ['wf', 'ws']:

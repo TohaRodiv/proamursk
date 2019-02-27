@@ -40,7 +40,7 @@ const state = {
                 },
                 {
                     type: 'quote',
-                    available: [8],
+                    available: [8, 6],
                 },
                 {
                     type: 'direct-speech',
