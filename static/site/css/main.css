@@ -1435,6 +1435,8 @@ input.btn_preloader {
     height: 572px; }
   .post-editor__section_8 .post-editor__block_video-wrap {
     height: 490px; }
+  .post-editor__section_8 .post-editor__block_direct-speech {
+    margin-left: 110px; }
 
 .post-editor__section_6 {
   width: 640px;
