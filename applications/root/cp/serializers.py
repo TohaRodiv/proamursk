@@ -440,7 +440,6 @@ class FeedbackListSerializer(ModelSerializer):
         return dict(instance.SUBJECTS).get(instance.subject)
 
 
-
 class FeedbackDetailSerializer(ModelSerializer):
     subject_name = serializers.SerializerMethodField()
     attachments = ObjectRelatedField(queryset=UserFile.objects.all(), serializer_class=UserFileNestedSerializer, many=True)
