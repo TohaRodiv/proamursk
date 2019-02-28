@@ -29,6 +29,23 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
+                                type: 'field',
+                                label: 'Подзаголовок',
+                                required: true,
+                                invalid: false,
+                                width: 12,
+                                codename: 'descriptor',
+                                widget: 'simpleInput',
+                                hint: ''
+                            }
+                        ]
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom22',
+                        direction: 'row',
+                        elements: [
+                            {
                                 type: 'mask-datetime',
                                 label: 'Дата и время публикации',
                                 required: true,

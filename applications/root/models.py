@@ -49,6 +49,7 @@ class TopItem(models.Model):
 class News(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     title = models.CharField('Заголовок', max_length=255)
+    descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.CharField('Лид', max_length=255)
     content = models.TextField()
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)

@@ -30,7 +30,8 @@ class NewsDetailSerializer(ModelSerializer):
 
     class Meta:
         model = News
-        fields = ('id', 'cover', 'title', 'lead', 'content', 'comment', 'publication_date', 'create_date', 'edit_date',
+        fields = ('id', 'cover', 'title', 'descriptor', 'lead', 'content', 'comment', 'publication_date',
+                  'create_date', 'edit_date',
                   'meta_title', 'meta_description', 'meta_keywords', 'og_image', 'is_active', 'cover_author',
                   'content_author', 'show_two_banners')
 
@@ -446,6 +447,7 @@ class FeedbackListSerializer(ModelSerializer):
             result = [a.name for a in instance.attachments.all()]
 
         return result
+
 
 class FeedbackDetailSerializer(ModelSerializer):
     subject_name = serializers.SerializerMethodField()
