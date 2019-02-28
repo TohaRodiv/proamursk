@@ -14,7 +14,9 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16)
     opacity: 0
     overflow: hidden
-    animation: notificationFadeOut $transition-time ease-in-out 1 forwards
+
+    &:not(.notification-wrapper_no-animation)
+        animation: notificationFadeOut $transition-time ease-in-out 1 forwards
 
     &.visible
         animation: notificationFadeIn $transition-time ease-in-out 1 forwards
