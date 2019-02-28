@@ -57,9 +57,9 @@
                         </td>
                     {% elif item.format == "hf" %}
                         <td class="p0 publication_half" style="padding: 0; width: 320px; vertical-align: top;">
-                            <a href="{{ domain }}{{ item.object.get_absolute_url }}" class="grid-publication grid-publication_format-full grid-publication_text-size-base" style="margin-bottom: 20px; background-size: cover; text-decoration: none; background-repeat: no-repeat; overflow: hidden; position: relative; display: block; color: #FFFFFF; background-color: #FFFFFF; border: 1px solid #D7DBE0; border-radius: 4px; height: 520px; margin-right: 10px; background-image: url({{ domain }}{{ item.object.cover|get_thumbnail_url_by_name:"email_hf" }});">
-                                <div class="grid-publication__text-wrap" style="margin-top: 350px; padding: 20px;">
-                                    <div class="grid-publication__text-only-wrap">
+                            <a href="{{ domain }}{{ item.object.get_absolute_url }}" class="grid-publication grid-publication_format-full grid-publication_text-size-base" style="margin-bottom: 20px; background-size: cover; text-decoration: none; background-repeat: no-repeat; overflow: hidden; position: relative; display: block; color: #FFFFFF; background-color: #FFFFFF; border: 1px solid #D7DBE0; border-radius: 4px; height: 540px; margin-right: 10px; background-image: url({{ domain }}{{ item.object.cover|get_thumbnail_url_by_name:"email_hf" }});">
+                                <div class="grid-publication__text-wrap" style="height: 221px; margin-top: 280px; padding: 20px;">
+                                    <div class="grid-publication__text-only-wrap" style="height: 175px;">
                                         <h2 class="grid-publication__title" style="margin-top: 0; font-weight: bold; margin-bottom: 5px; font-size: 20px;">{{ item.object.title }}</h2>
 
                                         {% if model_name == "event" %}
@@ -78,14 +78,14 @@
                         </td>
                     {% elif item.format == "hs" %}
                         <td class="p0 publication_half" style="padding: 0; width: 320px; vertical-align: top;">
-                            <div class="grid-publication grid-publication_format-base grid-publication_cover-format-base" style="background-color: #FFFFFF; overflow: hidden; position: relative; display: block; margin-bottom: 20px; border-radius: 4px; text-decoration: none; color: inherit; border: 1px solid #D7DBE0; height: 520px; margin-left: 10px;">
+                            <div class="grid-publication grid-publication_format-base grid-publication_cover-format-base" style="background-color: #FFFFFF; overflow: hidden; position: relative; display: block; margin-bottom: 20px; border-radius: 4px; text-decoration: none; color: inherit; border: 1px solid #D7DBE0; height: 540px; margin-left: 10px;">
 
                                 <a href="{{ domain }}{{ item.object.get_absolute_url }}" class="grid-publication__cover-wrap" style="color: #0073FF; text-decoration: underline; position: relative;">
                                     <img src="{{ domain }}{{ item.object.cover|get_thumbnail_url_by_name:"email_hs" }}" alt="" class="grid-publication__cover" style="position: relative; display: block; -o-object-fit: cover; object-fit: cover; border-bottom: 1px solid #B1C1D2; width: 308px; height: 280px;">
                                 </a>
 
                                 <div class="grid-publication__text-wrap" style="padding: 20px;">
-                                    <div class="grid-publication__text-only-wrap" style="height: 155px;">
+                                    <div class="grid-publication__text-only-wrap" style="height: 175px;">
                                         <h2 class="grid-publication__title" style="margin-top: 0; font-weight: bold; margin-bottom: 5px; font-size: 20px;">
                                             <a href="{{ domain }}{{ item.object.get_absolute_url }}" style="color: currentColor; text-decoration: none;">{{ item.object.title }}</a>
                                         </h2>
