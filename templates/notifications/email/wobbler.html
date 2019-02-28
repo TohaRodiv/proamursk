@@ -21,6 +21,11 @@
         <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Место</span>
     {% endif %}
 
+    {% if model_name == "cityguide" %}
+        <img src="{{ domain }}{% static "site/images/email/wobbler-place.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 16px; margin-right: 7px;">
+        <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Гид по городу</span>
+    {% endif %}
+
     {% if model_name == "event" %}
         {% if item.object.is_past %}
             <img src="{{ domain }}{% static "site/images/email/wobbler-announcement.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 15px; margin-right: 7px;">
@@ -42,3 +47,16 @@
     {% endif %}
 </div>
 
+{% if model_name == "event" and item.report %}
+    <a href="{{ domain }}{{ item.object.get_absolute_url }}" class="grid-publication__link" style="text-decoration: none; position: relative; margin-left: 11px; height: 26px; font-size: 12px; line-height: 22px; font-weight: bold; letter-spacing: 0.08em; color: #0073FF;">
+        <span class="text" style="vertical-align: middle;">Репортаж</span>
+        <img src="{{ domain }}{% static "site/images/email/arrow-right.jpg" %}{% static_version %}" alt="" style="width: 26px; height: 26px; margin-left: 5px; vertical-align: middle;">
+    </a>
+{% endif %}
+
+{% if model_name == "report" and item.event %}
+    <a href="{{ domain }}{{ item.object.get_absolute_url }}" class="grid-publication__link" style="text-decoration: none; position: relative; margin-left: 11px; height: 26px; font-size: 12px; line-height: 22px; font-weight: bold; letter-spacing: 0.08em; color: #0073FF;">
+        <span class="text" style="vertical-align: middle;">Событие</span>
+        <img src="{{ domain }}{% static "site/images/email/arrow-right.jpg" %}{% static_version %}" alt="" style="width: 26px; height: 26px; margin-left: 5px; vertical-align: middle;">
+    </a>
+{% endif %}

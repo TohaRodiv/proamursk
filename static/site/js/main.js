@@ -1263,7 +1263,7 @@ function showNotification(message, type) {
     if (message && type) {
         $('.notification-wrapper .notification__message').html(message);
 
-        $('.notification-wrapper').removeClass('success error').addClass(type).addClass('visible');
+        $('.notification-wrapper').removeClass('success error notification-wrapper_no-animation').addClass(type).addClass('visible');
         clearTimeout(notificationTimeout);
         notificationTimeout = setTimeout(hideNotification, notificationHideDelay);
     }
