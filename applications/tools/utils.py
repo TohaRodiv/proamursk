@@ -171,8 +171,10 @@ def get_post_editor_text(content):
     result = ''
 
     for section in content:
-        for column in section['columns']:
-            for element in column['widgets']:
+        columns = section.get('columns', [])
+        for column in columns:
+            widgets = column.get('widgets', [])
+            for element in widgets:
                 if element:
                     element_type = element.get('type')
                     if element_type == 'text':

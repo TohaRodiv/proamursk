@@ -117,7 +117,7 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     def save(self, *args, **kwargs):
         try:
             self.search_text = '%s %s' % (self.title, get_post_editor_text(self.content))
-        except:
+        except Exception as e:
             pass
         super(Event, self).save(*args, **kwargs)
 
