@@ -2649,6 +2649,10 @@ footer {
     font-size: 36px; }
   .grid-publication_6-col.grid-publication_format-full .grid-publication__text, .grid-publication_8-col.grid-publication_format-full .grid-publication__text {
     font-size: 20px; }
+  .grid-publication_6-col.grid-publication_format-full .grid-publication__description,
+  .grid-publication_6-col.grid-publication_format-full .grid-publication__date, .grid-publication_8-col.grid-publication_format-full .grid-publication__description,
+  .grid-publication_8-col.grid-publication_format-full .grid-publication__date {
+    margin-bottom: 40px; }
   .grid-publication_format-base .grid-publication__cover {
     border-bottom: 1px solid #B1C1D2; }
   .grid-publication_format-base .grid-publication__title a:hover, .grid-publication_format-base .grid-publication__title a:focus {
@@ -2673,7 +2677,7 @@ footer {
     .grid-publication_format-full .grid-publication__cover {
       height: 100%; }
     .grid-publication_format-full .grid-publication__text-wrap {
-      margin-top: 280px; }
+      margin-top: 260px; }
     .grid-publication_format-full .grid-publication__link {
       color: #FFFFFF; }
       .grid-publication_format-full .grid-publication__link:hover {
