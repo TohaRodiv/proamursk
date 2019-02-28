@@ -12,7 +12,7 @@
     overflow: hidden
 
 .slide
-    visibility: hidden
+    display: none
     position: absolute
     top: 0
     left: 0
@@ -21,10 +21,7 @@
     padding: 0
 
     &.active
-        animation: fadeIn .5s 1 forwards
-
-    &.was-active
-        animation: fadeOut .5s 1 forwards
+        display: block
 
 .slider-arrow
     display: none
@@ -83,24 +80,6 @@
 
 .post-editor__block_slider .slide
     cursor: pointer
-
-@keyframes fadeIn
-    0%
-        opacity: 0
-        visibility: hidden
-
-    100%
-        opacity: 1
-        visibility: visible
-
-@keyframes fadeOut
-    0%
-        opacity: 1
-        visibility: visible
-
-    100%
-        opacity: 0
-        visibility: hidden
 
 .full-width-slider
     width: 100%
