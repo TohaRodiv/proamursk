@@ -17,12 +17,13 @@
                                     <div class="special-project__text-only-wrap" style="height: 190px;">
                                         <h2 class="special-project__title" style="margin-top: 0; margin-bottom: 5px; font-size: 36px; font-weight: bold;">{{ item.object.title }}</h2>
 
-                                    {% if model_name == "event" or model_name == "report" %}
-                                        <div class="grid-publication__text" style="margin-top: 0; margin-bottom: 0; line-height: 1.5; font-size: 20px">{{ item.object.place }}</div>
-                                        <div class="grid-publication__text grid-publication__date" style="margin-top: 5px; margin-bottom: 0; line-height: 1.5; font-size: 20px;">{{ item.object.event_date_text }}</div>
-                                    {% else %}
-                                        <div class="grid-publication__text" style="margin-top: 0; margin-bottom: 0; line-height: 1.5; font-size: 20px;">{{ item.object.descriptor }}</div>
-                                    {% endif %}
+                                        {% if model_name == "event" or model_name == "report" %}
+                                            <div class="grid-publication__text" style="margin-top: 0; margin-bottom: 0; line-height: 1.5; font-size: 20px">{{ item.object.place }}</div>
+                                            <div class="grid-publication__text grid-publication__date" style="margin-top: 5px; margin-bottom: 0; line-height: 1.5; font-size: 20px;">{{ item.object.event_date_text }}</div>
+                                        {% else %}
+                                            <div class="grid-publication__text" style="margin-top: 0; margin-bottom: 0; line-height: 1.5; font-size: 20px;">{{ item.object.descriptor }}</div>
+                                        {% endif %}
+                                    </div>
 
                                     <div class="grid-publication__wobbler" style="margin-top: 20px;">
                                         {% include "notifications/email/wobbler.html" %}
