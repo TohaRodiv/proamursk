@@ -929,9 +929,10 @@ textarea {
   border-radius: 4px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
   opacity: 0;
-  overflow: hidden;
-  -webkit-animation: notificationFadeOut 0.3s ease-in-out 1 forwards;
-          animation: notificationFadeOut 0.3s ease-in-out 1 forwards; }
+  overflow: hidden; }
+  .notification-wrapper:not(.notification-wrapper_no-animation) {
+    -webkit-animation: notificationFadeOut 0.3s ease-in-out 1 forwards;
+            animation: notificationFadeOut 0.3s ease-in-out 1 forwards; }
   .notification-wrapper.visible {
     -webkit-animation: notificationFadeIn 0.3s ease-in-out 1 forwards;
             animation: notificationFadeIn 0.3s ease-in-out 1 forwards; }
