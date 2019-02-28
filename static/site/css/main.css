@@ -624,7 +624,7 @@ textarea {
   overflow: hidden; }
 
 .slide {
-  visibility: hidden;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -632,11 +632,7 @@ textarea {
   height: 100%;
   padding: 0; }
   .slide.active {
-    -webkit-animation: fadeIn .5s 1 forwards;
-            animation: fadeIn .5s 1 forwards; }
-  .slide.was-active {
-    -webkit-animation: fadeOut .5s 1 forwards;
-            animation: fadeOut .5s 1 forwards; }
+    display: block; }
 
 .slider-arrow {
   display: none;
@@ -688,38 +684,6 @@ textarea {
 
 .post-editor__block_slider .slide {
   cursor: pointer; }
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    visibility: hidden; }
-  100% {
-    opacity: 1;
-    visibility: visible; } }
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    visibility: hidden; }
-  100% {
-    opacity: 1;
-    visibility: visible; } }
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible; }
-  100% {
-    opacity: 0;
-    visibility: hidden; } }
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible; }
-  100% {
-    opacity: 0;
-    visibility: hidden; } }
 
 .full-width-slider {
   width: 100%;
