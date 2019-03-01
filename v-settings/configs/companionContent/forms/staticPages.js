@@ -174,7 +174,7 @@ const state = {
                                                         ],
                                                         hint: '',
                                                         available_values: valuesForIndex,
-                                                        returnFromAvailableValues: 'codename'
+                                                        returnFromAvailableValues: 'id'
                                                     }
                                                 ]
                                             },

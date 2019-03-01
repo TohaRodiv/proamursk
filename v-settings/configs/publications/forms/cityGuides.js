@@ -156,7 +156,7 @@ const state = {
                                 ],
                                 hint: '',
                                 available_values: valuesForItems,
-                                returnFromAvailableValues: 'codename'
+                                returnFromAvailableValues: 'id'
                             }
                         ]
                     },

@@ -156,7 +156,7 @@ const state = {
                                                                 name: 'Шаблонный тег'
                                                             },
                                                         ],
-                                                        returnFromAvailableValues: 'codename',
+                                                        returnFromAvailableValues: 'id',
                                                         hint: ''
                                                     },
                                                 ]
