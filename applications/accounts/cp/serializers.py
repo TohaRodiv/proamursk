@@ -48,11 +48,12 @@ class UserListSerializer(ModelSerializer):
 
 class UserNestedSerializer(ModelSerializer):
     avatar = serializers.SerializerMethodField()
+    full_name = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'patronymic', 'is_active', 'is_staff',
-                  'is_superuser', 'avatar')
+        fields = ('id', 'username', 'email', 'full_name', 'first_name', 'last_name', 'patronymic', 'is_active',
+                  'is_staff', 'is_superuser', 'avatar')
 
     def get_roles(self, instance):
         return ''
@@ -61,6 +62,9 @@ class UserNestedSerializer(ModelSerializer):
         return {
             'min_crop_url': instance.avatar.get_thumbnail_url_by_name('sap_min_crop')
         } if instance.avatar else {}
+
+    def get_full_name(self, instance):
+        return instance.get_full_name()
 
 
 class UserDetailSerializer(ModelSerializer):
