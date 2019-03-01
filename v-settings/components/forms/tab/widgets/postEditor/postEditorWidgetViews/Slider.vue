@@ -42,7 +42,14 @@
                         vue.delete(this.widget, 'cachedData');
                     }, this.randomMSec);
                 }
+            },
+            'widget.slides': {
+                handler: function (newValue) {
+                    this.getSliderData();
+                },
+                deep: true
             }
+
         },
 
         mounted(){
@@ -60,11 +67,11 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                }
+                };
                 // Добавил проверку, потому что иногда
                 // селектор возвращает весь объект,
                 // а не только id
-                let id
+                let id;
                 if (this.widget.slides.id) {
                     id = this.widget.slides.id
                 } else {
