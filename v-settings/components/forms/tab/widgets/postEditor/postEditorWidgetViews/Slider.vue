@@ -68,16 +68,7 @@
                         'Content-Type': 'application/json'
                     },
                 };
-                // Добавил проверку, потому что иногда
-                // селектор возвращает весь объект,
-                // а не только id
-                let id;
-                if (this.widget.slides.id) {
-                    id = this.widget.slides.id
-                } else {
-                    id = this.widget.slides
-                }
-                axios.get(`/sliders/${id}/`, config)
+                axios.get(`/sliders/${this.widget.slides.id}/`, config)
                     .then(response =>{
                         this.data = response.data.slides
                     })
