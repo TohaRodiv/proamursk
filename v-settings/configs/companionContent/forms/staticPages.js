@@ -12,87 +12,74 @@ const dict = {
 
 const valuesForIndex = [
     {
-        codename: 'event-announcements',
-        name: 'Анонс события',
-        id: 1
+        id: 'event-announcements',
+        name: 'Анонс события'
     },
     {
-        codename: 'reports',
-        name: 'Репортаж о событии',
-        id: 2
+        id: 'reports',
+        name: 'Репортаж о событии'
     },
     {
-        codename: 'history',
-        name: 'Историческая статья',
-        id: 3
+        id: 'history',
+        name: 'Историческая статья'
     },
     {
-        codename: 'persons',
-        name: 'Статья о жителе Амурска',
-        id: 4
+        id: 'persons',
+        name: 'Статья о жителе Амурска'
     },
     {
-        codename: 'places',
-        name: 'Статья о месте',
-        id: 5
+        id: 'places',
+        name: 'Статья о месте'
     },
     {
-        codename: 'city-guides',
-        name: 'Гид по городу',
-        id: 6
+        id: 'city-guides',
+        name: 'Гид по городу'
     },
     {
-        codename: 'specials',
-        name: 'Спецпроект',
-        id: 7
+        id: 'specials',
+        name: 'Спецпроект'
     },
 ]
 
 const valuesForEvents = [
     {
-        codename: 'event-announcements',
-        name: 'Анонс события',
-        id: 1
+        id: 'event-announcements',
+        name: 'Анонс события'
     },
     {
-        codename: 'reports',
-        name: 'Репортаж о событии',
-        id: 2
-    }
+        id: 'reports',
+        name: 'Репортаж о событии'
+    },
 ]
 
 const valuesForPlaces = [
     {
-        codename: 'places',
+        id: 'places',
         name: 'Статья о месте',
-        id: 1,
         isDefault: true
     }
 ]
 
 const valuesForPersons = [
     {
-        codename: 'persons',
+        id: 'persons',
         name: 'Статья о жителе Амурска',
-        id: 1,
         isDefault: true
     }
 ]
 
 const valuesForHistory = [
     {
-        codename: 'history',
+        id: 'history',
         name: 'Историческая статья',
-        id: 1,
         isDefault: true
     }
 ]
 
 const valuesForReports = [
     {
-        codename: 'reports',
+        id: 'reports',
         name: 'Репортаж о событии',
-        id: 1,
         isDefault: true
     }
 ]

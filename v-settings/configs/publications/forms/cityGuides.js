@@ -2,29 +2,24 @@ import vue from 'vue'
 
 const valuesForItems = [
     {
-        codename: 'hotel',
-        name: 'Где остановиться?',
-        id: 1
+        id: 'hotel',
+        name: 'Где остановиться?'
     },
     {
-        codename: 'food',
-        name: 'Где поесть?',
-        id: 2
+        id: 'food',
+        name: 'Где поесть?'
     },
     {
-        codename: 'activities',
-        name: 'Что посмотреть?',
-        id: 3
+        id: 'activities',
+        name: 'Что посмотреть?'
     },
     {
-        codename: 'transport',
-        name: 'Как перемещаться по городу?',
-        id: 4
+        id: 'transport',
+        name: 'Как перемещаться по городу?'
     },
     {
-        codename: 'phones',
-        name: 'Полезные телефоны',
-        id: 5
+        id: 'phones',
+        name: 'Полезные телефоны'
     }
 ]
 

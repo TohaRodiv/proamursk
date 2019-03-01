@@ -39,12 +39,10 @@ const state = {
                                 available_values: [
                                     {
                                         name: 'Горизонтальный / 3:2',
-                                        codename: 'format_3x2',
                                         id: 'format_3x2'
                                     },
                                     {
                                         name: 'Горизонтальный / 2:1',
-                                        codename: 'format_2x1',
                                         id: 'format_2x1'
                                     }
                                 ],

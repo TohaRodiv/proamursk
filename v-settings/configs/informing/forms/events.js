@@ -148,14 +148,12 @@ const state = {
                                                         ],
                                                         available_values: [
                                                             {
-                                                                id: 1,
-                                                                name: 'Переменная',
-                                                                codename: 'var',
+                                                                id: 'var',
+                                                                name: 'Переменная'
                                                             },
                                                             {
-                                                                id: 2,
-                                                                name: 'Шаблонный тег',
-                                                                codename: 'tag',
+                                                                id: 'tag',
+                                                                name: 'Шаблонный тег'
                                                             },
                                                         ],
                                                         returnFromAvailableValues: 'codename',
@@ -190,19 +188,16 @@ const state = {
                                                         ],
                                                         available_values: [
                                                             {
-                                                                id: 1,
-                                                                name: 'Текст',
-                                                                codename: 'text',
+                                                                id: 'text',
+                                                                name: 'Текст'
                                                             },
                                                             {
-                                                                id: 2,
-                                                                name: 'Ссылка',
-                                                                codename: 'link',
+                                                                id: 'link',
+                                                                name: 'Ссылка'
                                                             },
                                                             {
-                                                                id: 3,
-                                                                name: 'Email',
-                                                                codename: 'email',
+                                                                id: 'email',
+                                                                name: 'Email'
                                                             },
                                                         ],
                                                         hint: ''

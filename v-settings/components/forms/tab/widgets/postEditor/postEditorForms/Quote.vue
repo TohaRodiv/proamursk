@@ -120,27 +120,22 @@
                     available_values: [
                         {
                             name: '1',
-                            codename: 1,
                             id: 1,
                         },
                         {
                             name: '2',
-                            codename: 2,
                             id: 2,
                         },
                         {
                             name: '3',
-                            codename: 3,
                             id: 3,
                         },
                         {
                             name: '4',
-                            codename: 4,
                             id: 4,
                         },
                         {
                             name: '5',
-                            codename: 5,
                             id: 5,
                         },
                     ],
