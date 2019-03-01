@@ -119,6 +119,12 @@ class ReportsDetailSerializer(ModelSerializer):
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
 
+    def validate_event(self, data):
+        if data and  Report.objects.filter(event=data).exists():
+            raise serializers.ValidationError('Репортаж для выбранного события уже существует')
+
+        return data
+
 
 class HistoryRubricNestedSerializer(ModelSerializer):
 
