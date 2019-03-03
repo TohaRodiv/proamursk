@@ -207,10 +207,10 @@
 <script>
     import source from '../../../../cp_vue/frontend/vue/components/workzone/forms/Tab.vue'
     import formatter from './widgets/Formatter.vue'
-    import postEditor from './widgets/postEditor/postEditor.vue'
+    import postEditor from './widgets/postEditor/PostEditor.vue'
 
     source.components.formatter = formatter
-    source.components.postEditor = postEditor;
+    source.components.postEditor = postEditor
 
     export default source
 </script>
