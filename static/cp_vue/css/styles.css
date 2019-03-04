@@ -3587,7 +3587,6 @@ input:placeholder-shown {
   width: 100vw;
   height: 100vh;
   padding: 40px 0;
-  margin-bottom: 50px;
   background-color: transparent;
   will-change: background-color;
   transition: background-color linear .2s;
