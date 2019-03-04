@@ -11,7 +11,7 @@
                             :labelPosition="'top'"
                             :passedData="(passedData.slides) ? passedData.slides : ''"
                             :options="slidesConfig"
-                            @FullDataCallback="$event.callback ? slides = $event.callback : ''"
+                            @FullDataCallback="checker($event)"
                     ></selector>
                     <div class="popup-post-editor-forms-indents-container">
                         <selector
@@ -105,27 +105,22 @@
                     available_values: [
                         {
                             name: '1',
-                            codename: 1,
                             id: 1,
                         },
                         {
                             name: '2',
-                            codename: 2,
                             id: 2,
                         },
                         {
                             name: '3',
-                            codename: 3,
                             id: 3,
                         },
                         {
                             name: '4',
-                            codename: 4,
                             id: 4,
                         },
                         {
                             name: '5',
-                            codename: 5,
                             id: 5,
                         },
                     ],
@@ -183,6 +178,11 @@
                 else if (from === 'marginBottom') this.indents.marginBottom = value.callback;
                 else if (from === 'paddingTop') this.indents.paddingTop = value.callback;
                 else if (from === 'paddingBottom') this.indents.paddingBottom = value.callback;
+            },
+
+            checker(e){
+              console.log(e);
+              return e.callback ? this.slides = e.callback : ''
             },
 
             closePopup(){

@@ -163,7 +163,7 @@ const state = {
                                 required: true,
                                 invalid: false,
                                 width: 12,
-                                height: 60,
+                                height: 80,
                                 codename: 'text',
                                 widget: 'textarea',
                                 hint_meta_fields: {                                                                     /*По всем вопросам смотри алтан-шину: notificationTemplates*/
@@ -292,7 +292,7 @@ const state = {
                                 label: 'Комментарий',
                                 required: false,
                                 invalid: false,
-                                height: 70,
+                                height: 80,
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',

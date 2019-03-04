@@ -67,13 +67,13 @@
                                 {% if place.site %}
                                     <tr>
                                         <td><span class="icon-web"></span>Сайт:</td>
-                                        <td><a href="" target="_blank">{{ place.site }}</a></td>
+                                        <td><a href="{{ place.site }}" target="_blank">{{ place.site }}</a></td>
                                     </tr>
                                 {% endif %}
                                 {% if place.instagram %}
                                     <tr>
                                         <td><span class="icon-instagram"></span>Инстаграм</td>
-                                        <td><a href="">@{{ place.instagram }}</a></td>
+                                        <td><a href="https://instagram.com/{{ place.instagram }}">@{{ place.instagram }}</a></td>
                                     </tr>
                                 {% endif %}
                             </table>

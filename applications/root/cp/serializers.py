@@ -119,6 +119,12 @@ class ReportsDetailSerializer(ModelSerializer):
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
 
+    def validate_event(self, data):
+        if data and  Report.objects.filter(event=data).exists():
+            raise serializers.ValidationError('Репортаж для выбранного события уже существует')
+
+        return data
+
 
 class HistoryRubricNestedSerializer(ModelSerializer):
 
@@ -477,7 +483,8 @@ class TextErrorDetailSerializer(ModelSerializer):
 
 class CityGuideItemSerializer(ModelSerializer):
     place = ObjectRelatedField(queryset=Place.objects.all(), serializer_class=PlacesNestedSerializer)
-    slider = ObjectRelatedField(queryset=Slider.objects.all(), serializer_class=SlidersNestedSerializer)
+    slider = ObjectRelatedField(queryset=Slider.objects.all(), serializer_class=SlidersNestedSerializer,
+                                required=False, allow_null=True, allow_empty=True)
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
                                required=False, allow_null=True, allow_empty=True)
 

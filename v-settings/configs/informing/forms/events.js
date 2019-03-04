@@ -148,17 +148,15 @@ const state = {
                                                         ],
                                                         available_values: [
                                                             {
-                                                                id: 1,
-                                                                name: 'Переменная',
-                                                                codename: 'var',
+                                                                id: 'var',
+                                                                name: 'Переменная'
                                                             },
                                                             {
-                                                                id: 2,
-                                                                name: 'Шаблонный тег',
-                                                                codename: 'tag',
+                                                                id: 'tag',
+                                                                name: 'Шаблонный тег'
                                                             },
                                                         ],
-                                                        returnFromAvailableValues: 'codename',
+                                                        returnFromAvailableValues: 'id',
                                                         hint: ''
                                                     },
                                                 ]
@@ -190,19 +188,16 @@ const state = {
                                                         ],
                                                         available_values: [
                                                             {
-                                                                id: 1,
-                                                                name: 'Текст',
-                                                                codename: 'text',
+                                                                id: 'text',
+                                                                name: 'Текст'
                                                             },
                                                             {
-                                                                id: 2,
-                                                                name: 'Ссылка',
-                                                                codename: 'link',
+                                                                id: 'link',
+                                                                name: 'Ссылка'
                                                             },
                                                             {
-                                                                id: 3,
-                                                                name: 'Email',
-                                                                codename: 'email',
+                                                                id: 'email',
+                                                                name: 'Email'
                                                             },
                                                         ],
                                                         hint: ''
@@ -232,7 +227,7 @@ const state = {
                                 label: 'Комментарий',
                                 required: false,
                                 invalid: false,
-                                height: 60,
+                                height: 80,
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',
