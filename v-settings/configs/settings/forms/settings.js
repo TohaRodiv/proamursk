@@ -74,7 +74,7 @@ const state = {
                                 label: 'Копирайт в подвале',
                                 required: true,
                                 invalid: false,
-                                height: 56,
+                                height: 80,
                                 width: 12,
                                 codename: 'copyright',
                                 widget: 'textarea',

@@ -227,7 +227,7 @@ const state = {
                                 label: 'Комментарий',
                                 required: false,
                                 invalid: false,
-                                height: 60,
+                                height: 80,
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',

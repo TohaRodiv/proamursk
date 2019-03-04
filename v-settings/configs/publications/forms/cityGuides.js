@@ -119,7 +119,7 @@ const state = {
                                 required: false,
                                 invalid: false,
                                 width: 12,
-                                height: 60,
+                                height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
                                 hint: ''
