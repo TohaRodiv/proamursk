@@ -6405,6 +6405,10 @@ input:placeholder-shown {
   color: #333;
   font-size: 14px;
   line-height: 1.5; }
+  .post-editor-text-widget > p:first-child {
+    margin-block-start: 0; }
+  .post-editor-text-widget > p:last-child {
+    margin-block-end: 0; }
   .post-editor-text-widget .wysiwyg-h1,
   .post-editor-text-widget .wysiwyg-h2,
   .post-editor-text-widget .wysiwyg-h3 {
