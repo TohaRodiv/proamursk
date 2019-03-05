@@ -157,7 +157,8 @@ const state = {
                                                         required: false,
                                                         codename: 'is_active',
                                                         widget: 'singleCheckbox',
-                                                        hint: ''
+                                                        hint: '',
+                                                        default: true
                                                     }
                                                 ]
                                             },
