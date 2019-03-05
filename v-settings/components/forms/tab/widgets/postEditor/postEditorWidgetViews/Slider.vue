@@ -76,7 +76,7 @@
                         if (error.response.status === 500) {
                             this.$store.commit('setErrorMessage', {
                                 type: 'failed',
-                                message: 'Внутреняя ошибка сервера, попробуйте попытку позже'
+                                message: 'Внутренняя ошибка сервера, попробуйте попытку позже'
                             });
                         }
                         else if (error.response.status === 504) {
