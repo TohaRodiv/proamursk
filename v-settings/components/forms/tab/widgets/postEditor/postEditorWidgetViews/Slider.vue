@@ -74,20 +74,32 @@
                     })
                     .catch(error => {
                         if (error.response.status === 500) {
-                            this.$store.commit('setErrorMessage', 'Внутреняя ошибка сервера, попробуйте попытку позже');
+                            this.$store.commit('setErrorMessage', {
+                                type: 'failed',
+                                message: 'Внутренняя ошибка сервера, попробуйте попытку позже'
+                            });
                         }
                         else if (error.response.status === 504) {
-                            this.$store.commit('setErrorMessage', 'Сервер не отвечает, попробуйте повторить попытку позже');
+                            this.$store.commit('setErrorMessage', {
+                                type: 'failed',
+                                message: 'Сервер не отвечает, попробуйте повторить попытку позже'
+                            });
                         }
                         else if (error.response.status === 403) {
                             if (error.response.headers['user-id']) {
-                                this.$store.commit('setErrorMessage', `Нет прав на /api/sliders/${this.widget.slides}/`);
+                                this.$store.commit('setErrorMessage', {
+                                    type: 'failed',
+                                    message: `Нет прав на /api/sliders/${this.widget.slides.id}/`
+                                });
                             } else {
                                 this.$router.push({name: 'auth'});
                             }
                         }
                         else if (error.response.status === 404) {
-                            this.$store.commit('setErrorMessage', `Адрес /api/sliders/${this.widget.slides}/ не существует`);
+                            this.$store.commit('setErrorMessage', {
+                                type: 'failed',
+                                message: `Адрес /api/sliders/${this.widget.slides.id}/ не существует`
+                            });
                         }
                     });
             },
