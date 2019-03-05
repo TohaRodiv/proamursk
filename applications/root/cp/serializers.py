@@ -120,8 +120,13 @@ class ReportsDetailSerializer(ModelSerializer):
         return dict(instance.FORMATS).get(instance.cover_format)
 
     def validate_event(self, data):
-        if data and  Report.objects.filter(event=data).exists():
-            raise serializers.ValidationError('Репортаж для выбранного события уже существует')
+        if data:
+            qs = Report.objects.filter(event=data)
+            if self.instance and self.instance.id:
+                qs = qs.exclude(id=self.instance.id)
+
+            if qs.exists():
+                raise serializers.ValidationError('Репортаж для выбранного события уже существует')
 
         return data
 
