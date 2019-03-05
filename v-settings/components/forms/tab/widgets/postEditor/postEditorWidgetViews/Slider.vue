@@ -81,13 +81,13 @@
                         }
                         else if (error.response.status === 403) {
                             if (error.response.headers['user-id']) {
-                                this.$store.commit('setErrorMessage', `Нет прав на /api/sliders/${this.widget.slides}/`);
+                                this.$store.commit('setErrorMessage', `Нет прав на /api/sliders/${this.widget.slides.id}/`);
                             } else {
                                 this.$router.push({name: 'auth'});
                             }
                         }
                         else if (error.response.status === 404) {
-                            this.$store.commit('setErrorMessage', `Адрес /api/sliders/${this.widget.slides}/ не существует`);
+                            this.$store.commit('setErrorMessage', `Адрес /api/sliders/${this.widget.slides.id}/ не существует`);
                         }
                     });
             },
