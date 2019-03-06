@@ -1,7 +1,7 @@
 <template>
     <div class="post-editor-render-wrapper"
          ref="widgetWrapper"
-         :class="{'post-editor-render-wrapper-on-drag': thisWidgetOnDrag}"
+         :class="postEditorRenderWrapperClass"
          :style="calculateMargin() + (thisWidgetOnDrag ? 'boxShadow: 0 2px 8px 0 rgba(35, 41, 46, 0.15);' : '') + (hovered ? `border: 1px dashed #d1d6da;` : '')"
          @mouseenter="!widgetsDragActivated ? hovered = true : hovered = false"
          @mouseleave="hovered = false">
@@ -109,7 +109,15 @@
         computed: {
             ...mapState({
                 widgetBuffer: state => state.postEditorMain.postEditorWidgetBuffer,
-            })
+            }),
+
+            postEditorRenderWrapperClass: function() {
+                return {
+                    'post-editor-render-wrapper-on-drag': this.thisWidgetOnDrag,
+                    'text': this.widget.type == 'text'
+                }
+            }
+                
         },
 
         methods: {
