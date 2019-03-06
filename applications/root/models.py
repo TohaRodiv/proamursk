@@ -579,7 +579,7 @@ class Slider(BaseModel, IsActiveMixin):
 class SliderItem(models.Model):
     slider = models.ForeignKey(Slider, on_delete=models.CASCADE, verbose_name='Слайдер', related_name='slides')
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    description = models.CharField('Описание', max_length=255, blank=True)
+    description = models.TextField('Описание', blank=True)
     is_active = models.BooleanField(default=True, verbose_name='Состояние')
     weight = models.PositiveIntegerField('Вес', default=0)
 
