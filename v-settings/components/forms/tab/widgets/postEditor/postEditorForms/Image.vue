@@ -18,24 +18,22 @@
                         @callback="align = $event"
                         :options="alignConfig">
                 </radioButtonGroup>
-                <div style="display: flex; margin-top: 22px;">
-                    <simpleInput
-                            style="width: 340px; margin-right: 20px;"
-                            :labelPosition="'top'"
-                            :type="'childEntity'"
-                            :passedData="(passedData.sign) ? passedData.sign : undefined"
-                            @callback="sign = $event.name"
-                            :options="signConfig">
-                    </simpleInput>
-                    <simpleInput
-                            style="width: 340px;"
-                            :labelPosition="'top'"
-                            :type="'childEntity'"
-                            :passedData="(passedData.link) ? passedData.link : undefined"
-                            @callback="link = $event.link"
-                            :options="linkConfig">
-                    </simpleInput>
-                </div>
+                <textareaComp
+                        style="margin-top: 22px"
+                        :labelPosition="'top'"
+                        :type="'childEntity'"
+                        :passedData="(passedData.sign) ? passedData.sign : undefined"
+                        @callback="sign = $event.name"
+                        :options="signConfig">
+                </textareaComp>
+                <simpleInput
+                        style="margin-top: 22px;"
+                        :labelPosition="'top'"
+                        :type="'childEntity'"
+                        :passedData="(passedData.link) ? passedData.link : undefined"
+                        @callback="link = $event.link"
+                        :options="linkConfig">
+                </simpleInput>
                 <div style="display: flex; margin-top: 22px;">
                     <simpleInput
                             style="width: 340px; margin-right: 20px;"
@@ -114,6 +112,7 @@
 <script>
     import cloneDeep from 'lodash/cloneDeep'
     import simpleInput from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/SimpleInput.vue'
+    import textareaComp from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/Textarea.vue'
     import selector from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
     import radioButtonGroup from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/RadioButtons.vue'
     import singleCheckbox from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/SingleCheckbox.vue'
@@ -215,16 +214,15 @@
                 signConfig: {
                     type: 'field',
                     label: 'Подпись',
-                    width: 4,
                     codename: 'name',
-                    widget: 'simpleInput',
+                    widget: 'textarea',
                     hint: '',
+                    height: 80
                 },
                 linkConfig: {
                     type: 'field',
                     label: 'Ссылка',
                     placeholder: 'http(s)://',
-                    width: 4,
                     codename: 'link',
                     widget: 'simpleInput',
                     hint: '',
@@ -335,6 +333,7 @@
             radioButtonGroup,
             simpleInput,
             singleCheckbox,
+            textareaComp
         }
     }
 </script>
