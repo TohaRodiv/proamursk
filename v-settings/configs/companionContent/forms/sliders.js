@@ -142,8 +142,9 @@ const state = {
                                                         required: false,
                                                         invalid: false,
                                                         width: 12,
+                                                        height: 80,
                                                         codename: 'description',
-                                                        widget: 'simpleInput',
+                                                        widget: 'textaria',
                                                         hint: ''
                                                     },
                                                 ]
