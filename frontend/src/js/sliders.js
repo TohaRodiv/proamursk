@@ -1,4 +1,4 @@
-var animateSpeed = 500;
+var animateSpeed = 300;
 
 $(function () {
     if (sliderDetect()) sliderInit();
@@ -21,12 +21,11 @@ $('.slider-arrow').on('click', function() {
     if ($(this).hasClass('slider-arrow-next')) newActiveSlideIndex = (currentActiveSlideIndex < slidesAmount - 1) ? currentActiveSlideIndex + 1 : 0;
     else if ($(this).hasClass('slider-arrow-prev')) newActiveSlideIndex = (currentActiveSlideIndex > 0) ? currentActiveSlideIndex - 1 : slidesAmount - 1;
 
-
-    sliderContainer.find('.slide.active').fadeOut(animateSpeed, function() {
+    sliderContainer.find('.slide.active').stop().fadeTo(animateSpeed, 0, function() {
         $(this).removeClass('active');
     });
 
-    sliderContainer.find('.slide').eq(newActiveSlideIndex).fadeIn(animateSpeed, function() {
+    sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeTo(animateSpeed, 1, function() {
         $(this).addClass('active');
     });
 
@@ -68,12 +67,13 @@ $('.slider-circles-container').on('click', '.slider-circle-item', function() {
         newActiveSlideIndex = sliderCircleItems.index($(this));
 
     if (currentActiveSlideIndex != newActiveSlideIndex) {
-        sliderContainer.find('.slide.active').addClass('was-active');
-        setTimeout(function() {
-            sliderContainer.find('.was-active').removeClass('was-active active');
-        }, animateSpeed);
+        sliderContainer.find('.slide.active').stop().fadeTo(animateSpeed, 0, function() {
+            $(this).removeClass('active');
+        });
 
-        sliderContainer.find('.slide').eq(newActiveSlideIndex).addClass('active');
+        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeTo(animateSpeed, 1, function() {
+            $(this).addClass('active');
+        });
 
         var newActiveSlideIndexText = (newActiveSlideIndex + 1) > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
         sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
