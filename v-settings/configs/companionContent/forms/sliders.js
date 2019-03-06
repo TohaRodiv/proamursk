@@ -144,7 +144,7 @@ const state = {
                                                         width: 12,
                                                         height: 80,
                                                         codename: 'description',
-                                                        widget: 'textaria',
+                                                        widget: 'textarea',
                                                         hint: ''
                                                     },
                                                 ]
