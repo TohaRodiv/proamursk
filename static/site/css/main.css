@@ -2619,7 +2619,7 @@ footer {
     margin-bottom: 40px; }
   .grid-publication_format-base .grid-publication__cover {
     border-bottom: 1px solid #B1C1D2; }
-  .grid-publication_format-base .grid-publication__title a:hover, .grid-publication_format-base .grid-publication__title a:focus {
+  .grid-publication_format-base .grid-publication__title:hover, .grid-publication_format-base .grid-publication__title:focus {
     color: #0073FF; }
   .grid-publication_format-base .grid-publication__link {
     color: #0073FF; }
