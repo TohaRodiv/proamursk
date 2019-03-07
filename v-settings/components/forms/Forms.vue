@@ -116,8 +116,8 @@
 
             <div class="forms-buttons-container" v-if="isNaN(+($route.params.id))">
                 <div class="forms-buttons-container-inner">
-                    <button class="button borderless-button forms-save-and-add-button" v-if="$route.params.id !== 'form' && (getIsSuperUser || (hasAddRight() && hasAddButton))" @click="saveEntity('add&push')">Сохранить и добавить</button>
-                    <button v-if="getIsSuperUser || (hasAddRight() && hasAddButton)" class="button forms-save-button" @click="($route.params.id === 'form') ? saveEntity('save') : saveEntity('add')">Сохранить</button>
+                    <button class="button borderless-button forms-save-and-add-button" v-if="$route.params.id !== 'form' && (getIsSuperUser || hasAddRight())" @click="saveEntity('add&push')">Сохранить и добавить</button>
+                    <button v-if="getIsSuperUser || hasAddRight()" class="button forms-save-button" @click="($route.params.id === 'form') ? saveEntity('save') : saveEntity('add')">Сохранить</button>
                 </div>
             </div>
 
