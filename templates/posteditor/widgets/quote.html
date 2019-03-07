@@ -1,7 +1,7 @@
 <div class="post-editor__block_quote">
     <div class="indent-wrap {% if widget.marginTop %}indent-wrap_mt{{ widget.marginTop }}{% endif %} {% if widget.marginBottom %}indent-wrap_mb{{ widget.marginBottom }}{% endif %} {% if widget.paddingTop %}indent-wrap_pt{{ widget.paddingTop }}{% endif %} {% if widget.paddingBottom %}indent-wrap_pb{{ widget.paddingBottom }}{% endif %}">
         <div class="quote">
-            <div class="quote__title"></div>
+            <div class="quote__title">{{ widget.title }}</div>
             <p class="quote__text">{{ widget.text }}</p>
         </div>
     </div>
