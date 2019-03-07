@@ -1705,12 +1705,27 @@
                     }
                 }
             }
+
             var availableTagsString = availableTags.join('|');
-            var styleTag = new RegExp('<style(.+?)>(.+?)<\/style>', 'ig');
-            var re = new RegExp('(?:<(?!\/?(p|br|' + availableTagsString + ')(?:\\s|\/*>)))(?:.+?)>', 'ig');
+            var notavailableTagsRE = new RegExp('(?:<(?!\/?(p|br|' + availableTagsString + ')(?:\\s|\/*>)))(?:.+?)>', 'ig');
+
+            var styleTag = new RegExp('<style[^>]*>(?:(?!<\/style>)[^])*<\/style>', 'ig');
+            var scriptTag = new RegExp('<script[^>]*>(?:(?!<\/script>)[^])*<\/script>', 'igm');
+            
+            var conditionalCommentRE = new RegExp('<!-*\\[.*?\\]>*?[^!]*!-*\\[.*?\\]-*>', 'igm');
+            var htmlCommentRE = new RegExp('<!--[^-\2]*?-->', 'igm');
+            
             html = html.replace(new RegExp('\n', 'ig'), '');
+            html = html.replace(new RegExp('<br>', 'ig'), '');
+
+            html = html.replace(htmlCommentRE, '');   
+
+            html = html.replace(scriptTag, '');
             html = html.replace(styleTag, '');
-            html = html.replace(re, '');
+
+            html = html.replace(conditionalCommentRE, '');
+            
+            html = html.replace(notavailableTagsRE, '');
             return _removeEmptyTags(html)
         }
 
@@ -1825,7 +1840,7 @@
                 }
             }
             var availableStylesString = availableStyles.join('|');
-            var styleRe1 = new RegExp(';\\s*(?!(' + availableStylesString + '))(?:[a-z\\-]+?):\\s*[^;]+', 'ig');
+            var styleRe1 = new RegExp(';*\\s*(?!(' + availableStylesString + '))(?:[a-z\\-]+?):\\s*[^;]+', 'ig');
             var styleRe2 = new RegExp('"(?!(' + availableStylesString + '))(?:[a-z\\-]+?):\\s*[^;]+;', 'ig');
             var styleRe3 = new RegExp("'(?!(" + availableStylesString + "))(?:[a-z\\-]+?):\\s*[^;]+;", 'ig');
             // проверка на приходящие свойства, должны быть в формате ключ-значение, учитывая что в значении могут быть "", которые могут закрыть атрибут style
@@ -1834,14 +1849,16 @@
 
 
             var defaultIframeTextColor;
-            if (document.getElementsByTagName('iframe').length === 1)
+            if (document.getElementsByTagName('iframe').length === 1) {
                 defaultIframeTextColor = getComputedStyle(document.getElementsByTagName('iframe')[0].contentWindow.document.body).color;
-            else
+            }
+            else {
                 for (let i = 0; i < document.getElementsByTagName('iframe').length; i++) {
                     var className = document.getElementsByTagName('iframe')[i].className;
                     if (className.indexOf('formatter-content') !== -1)
                         defaultIframeTextColor = getComputedStyle(document.getElementsByTagName('iframe')[i].contentWindow.document.body).color;
                 }
+            }
 
             // // экранирование скобок для подстановки в регулярное выражение
             defaultIframeTextColor = defaultIframeTextColor.replace(/\(/ig, '\\(');
@@ -1849,7 +1866,7 @@
 
             var defaultTextColorRe = new RegExp("color:\\s*" + defaultIframeTextColor + ";", 'ig');
 
-            html = html.replace(/\s*style="[a-zA-Z0-9\-,.':;&\(\)\s\!#]*"/ig, function (str) {
+            html = html.replace(/\s*style="[a-zA-Zа-яА-Я0-9\-,._':;&\(\)\s\!#]*"/ig, function (str) {
                 str = str.replace(/&[a-z0-9#]*;/ig, ''); //убирает символы юникода, например &quot; кавычки в правиле font-family
                 str = str.replace(styleRe4, '$&');
                 str = str.replace(styleRe1, '');
@@ -1866,6 +1883,7 @@
 
             html = html.replace(styleRe5, '');
             html = html.replace(/\s*style=""/ig, '');
+            html = html.replace(/\s*style=">/ig, '>');
             return html
         }
 
