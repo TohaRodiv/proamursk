@@ -199,6 +199,14 @@
                         :passedData="data[element.codename]"
                         :options="element">
                 </postEditor>
+
+                <textareaPreviewLetter
+                        v-if="element.widget === 'textareaPreviewLetter'"
+                        :labelPosition="block.labelPosition"
+                        :isBlocked="isBlocked(element)"
+                        :passedData="data[element.codename]"
+                        :options="element">
+                ></textareaPreviewLetter>
             </div>
         </div>
     </div>
