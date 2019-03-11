@@ -367,7 +367,10 @@ class PlaceListView(InfinityLoaderListView):
             page = None
 
         top_objects = page.top_items.all().order_by('weight') if page else []
-        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places'])
+        qs = self.queryset.all()
+        if top_objects:
+            qs = qs.exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places'])
+        return qs
 
     def get(self, request):
         items = Place.objects.filter(is_active=True,
