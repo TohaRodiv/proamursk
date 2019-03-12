@@ -276,7 +276,6 @@ class HistoryDetailView(DetailView):
         return qs
 
 
-
 class PersonsListView(InfinityLoaderListView):
     queryset = Person.objects.filter(is_active=True,
                                      publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
@@ -373,8 +372,14 @@ class PlaceListView(InfinityLoaderListView):
         return qs
 
     def get(self, request):
+        page = get_page(request)
+        top_objects = page.top_items.all().order_by('weight') if page else []
+
         items = Place.objects.filter(is_active=True,
                                      publication_date__lte=timezone.now()).order_by('-publication_date')
+
+        if top_objects:
+            items = items.exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places'])
         has_next = items.count() > 11
         items = items[:11]
         guides = CityGuide.objects.filter(is_active=True)
@@ -384,6 +389,7 @@ class PlaceListView(InfinityLoaderListView):
                         key=lambda x: formats.index(x.guide_format) if x.guide_format in formats else len(formats))
         return render(request, self.template_name, {self.context_list_name: items,
                                                     'guides': guides,
+                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
