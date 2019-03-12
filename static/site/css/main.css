@@ -690,6 +690,11 @@ textarea {
   height: 520px;
   margin-left: auto;
   margin-right: auto; }
+  .full-width-slider:hover .grid-publication__bg-gradient, .full-width-slider:focus .grid-publication__bg-gradient {
+    display: block;
+    background-color: rgba(76, 96, 123, 0.1); }
+  .full-width-slider .slider-circles-container {
+    z-index: 3; }
   .full-width-slider .slider-arrow {
     position: absolute;
     top: 50%;
@@ -705,6 +710,7 @@ textarea {
     margin: 0 auto;
     position: relative;
     top: 50%;
+    z-index: 3;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%); }
   .full-width-slider .slider-arrow-prev {
