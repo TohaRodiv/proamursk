@@ -148,6 +148,7 @@
                             flex: 1.5
                         },
                     ],
+                    returnFromAvailableValues: 'id'
                 },
 
                 text: '',

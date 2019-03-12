@@ -164,6 +164,7 @@
                             flex: 1.5
                         },
                     ],
+                    returnFromAvailableValues: 'id'
                 },
                 formatterOptions: {
                     label: 'Текст',
