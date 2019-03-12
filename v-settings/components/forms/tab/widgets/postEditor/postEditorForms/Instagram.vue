@@ -154,6 +154,7 @@
                             id: 5,
                         },
                     ],
+                    returnFromAvailableValues: 'id',
                     sortFlag: {
                         value: 'name'
                     },

@@ -165,6 +165,7 @@
                             flex: 1.5
                         },
                     ],
+                    returnFromAvailableValues: 'id'
                 },
                 loaderConfig: {
                     type: 'field',
