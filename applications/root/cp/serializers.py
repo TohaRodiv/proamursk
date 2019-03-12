@@ -487,7 +487,8 @@ class TextErrorDetailSerializer(ModelSerializer):
 
 
 class CityGuideItemSerializer(ModelSerializer):
-    place = ObjectRelatedField(queryset=Place.objects.all(), serializer_class=PlacesNestedSerializer)
+    place = ObjectRelatedField(queryset=Place.objects.all(), serializer_class=PlacesNestedSerializer,
+                               required=False, allow_null=True, allow_empty=True)
     slider = ObjectRelatedField(queryset=Slider.objects.all(), serializer_class=SlidersNestedSerializer,
                                 required=False, allow_null=True, allow_empty=True)
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,

@@ -403,7 +403,7 @@ class CityGuideItem(BaseModel, IsActiveMixin):
     title = models.CharField('Заголовок', max_length=255)
     description = models.TextField('Описание')
     place = models.ForeignKey(Place, verbose_name='Материал об этом месте', related_name='guides',
-                              on_delete=models.CASCADE)
+                              blank=True, null=True, on_delete=models.SET_NULL)
 
     single_room_price = models.CharField('Одноместный номер', max_length=255, blank=True)
     luxury_room_price = models.CharField('Одноместный номер', max_length=255, blank=True)
