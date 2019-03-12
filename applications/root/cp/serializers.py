@@ -487,7 +487,8 @@ class TextErrorDetailSerializer(ModelSerializer):
 
 
 class CityGuideItemSerializer(ModelSerializer):
-    place = ObjectRelatedField(queryset=Place.objects.all(), serializer_class=PlacesNestedSerializer)
+    place = ObjectRelatedField(queryset=Place.objects.all(), serializer_class=PlacesNestedSerializer,
+                               required=False, allow_null=True, allow_empty=True)
     slider = ObjectRelatedField(queryset=Slider.objects.all(), serializer_class=SlidersNestedSerializer,
                                 required=False, allow_null=True, allow_empty=True)
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
@@ -497,7 +498,7 @@ class CityGuideItemSerializer(ModelSerializer):
         model = CityGuideItem
         fields = ('id', 'title', 'description', 'place', 'single_room_price', 'luxury_room_price', 'nutrition_info',
                   'kitchen', 'avg_value', 'enter_price', 'work_time', 'phone', 'site', 'instagram', 'address',
-                  'coordinates', 'slider', 'cover', 'create_date', 'edit_date', 'is_active', 'weight')
+                  'coordinates', 'slider', 'cover', 'create_date', 'edit_date', 'is_active', 'weight', 'cover_description')
 
 
 class CityGuidesListSerializer(ModelSerializer):
