@@ -138,13 +138,16 @@ class EventsListView(View):
 
 class EventsListFutureView(InfinityLoaderListView):
     queryset = Event.objects.filter(is_active=True,
-                                    start_event_date__gte=timezone.now()).order_by('-start_event_date')[16:]
+                                    start_event_date__gte=timezone.now()).order_by('-start_event_date')
 
     template_name = 'site/future-events.html'
     ajax_template_name = 'site/modules/grid-event-block.html'
     context_list_name = 'events'
     ajax_context_list_name = 'announcements'
     items_per_page = 24
+
+    def get_queryset(self):
+        return self.queryset.all()[16:]
 
     def get(self, request):
         items = Event.objects.filter(is_active=True,
@@ -189,7 +192,7 @@ class EventsDetailView(DetailView):
 
 class ReportsListView(InfinityLoaderListView):
     queryset = Report.objects.select_related('cover').filter(is_active=True,
-                                     publication_date__lte=timezone.now()).order_by('-publication_date')[12:]
+                                     publication_date__lte=timezone.now()).order_by('-publication_date')
 
     template_name = 'site/all-reportage.html'
     ajax_template_name = 'site/modules/grid-reports-block.html'
@@ -204,7 +207,7 @@ class ReportsListView(InfinityLoaderListView):
             page = None
 
         top_objects = page.top_items.all().order_by('weight') if page else []
-        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports'])
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports'])[12:]
 
     def get(self, request):
         page = get_page(request)
@@ -234,7 +237,7 @@ class ReportsDetailView(DetailView):
 
 class HistoryListView(InfinityLoaderListView):
     queryset = History.objects.select_related('cover').filter(is_active=True,
-                                      publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
+                                      publication_date__lte=timezone.now()).order_by('-publication_date')
 
     template_name = 'site/all-history.html'
     ajax_template_name = 'site/modules/grid-history-block.html'
@@ -249,7 +252,7 @@ class HistoryListView(InfinityLoaderListView):
             page = None
 
         top_objects = page.top_items.all().order_by('weight') if page else []
-        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history'])
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history'])[11:]
 
     def get(self, request):
         page = get_page(request)
@@ -278,7 +281,7 @@ class HistoryDetailView(DetailView):
 
 class PersonsListView(InfinityLoaderListView):
     queryset = Person.objects.filter(is_active=True,
-                                     publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
+                                     publication_date__lte=timezone.now()).order_by('-publication_date')
 
     template_name = 'site/all-people.html'
     ajax_template_name = 'site/modules/grid-persons-block.html'
@@ -293,7 +296,7 @@ class PersonsListView(InfinityLoaderListView):
             page = None
 
         top_objects = page.top_items.all().order_by('weight') if page else []
-        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons'])
+        return self.queryset.all().exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons'])[11:]
 
     def get(self, request):
         page = get_page(request)
@@ -351,7 +354,7 @@ class CityGuidesDetailView(View):
 
 class PlaceListView(InfinityLoaderListView):
     queryset = Place.objects.filter(is_active=True,
-                                      publication_date__lte=timezone.now()).order_by('-publication_date')[11:]
+                                      publication_date__lte=timezone.now()).order_by('-publication_date')
 
     template_name = 'site/all-places.html'
     ajax_template_name = 'site/modules/grid-places-block.html'
@@ -369,7 +372,7 @@ class PlaceListView(InfinityLoaderListView):
         qs = self.queryset.all()
         if top_objects:
             qs = qs.exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places'])
-        return qs
+        return qs[11:]
 
     def get(self, request):
         page = get_page(request)

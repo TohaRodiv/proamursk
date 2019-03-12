@@ -24,7 +24,7 @@
         <div class="container">
             <div class="base-layout">
                 <div class="base-layout__main">
-                    {% with item=top_objects.0.get_object css_class='grid-publication_8-col' cover_name="8_column_img" wobler_type="reportage" %}
+                    {% with item=top_objects.0.get_object css_class='grid-publication_8-col grid-publication_format-full' cover_name="8_column_img" wobler_type="reportage" %}
                         {% if item %}
                             {% include "site/modules/grid-event.html" %}
                         {% endif %}
