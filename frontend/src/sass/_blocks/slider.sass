@@ -87,6 +87,15 @@
     margin-left: auto
     margin-right: auto
 
+    &:hover,
+    &:focus
+        .grid-publication__bg-gradient
+            display: block
+            background-color: rgba(#4c607b, .1)
+
+    .slider-circles-container
+        z-index: 3
+
     .slider-arrow
         position: absolute
         top: 50%
@@ -103,6 +112,7 @@
         margin: 0 auto
         position: relative
         top: 50%
+        z-index: 3
         transform: translateY(-50%)
 
     .slider-arrow-prev
