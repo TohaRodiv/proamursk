@@ -136,7 +136,9 @@
                                     {% if item.cover %}
                                         <figure class="city-guide__image post-editor__block_image center">
                                             <img src="{{ item.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" title="">
-    {#                                        <figcaption class="post-editor__block_caption"></figcaption>#}
+                                            {% if item.cover_description %}
+                                                <figcaption class="post-editor__block_caption">{{ item.cover_description }}</figcaption>
+                                            {% endif %}
                                         </figure>
                                     {% endif %}
                                 </div>

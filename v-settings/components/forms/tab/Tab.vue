@@ -205,7 +205,7 @@
                         :labelPosition="block.labelPosition"
                         :isBlocked="isBlocked(element)"
                         :passedData="data[element.codename]"
-                        :options="element">
+                        :options="element"
                 ></textareaPreviewLetter>
             </div>
         </div>

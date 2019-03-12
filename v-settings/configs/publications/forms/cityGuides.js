@@ -487,7 +487,7 @@ const state = {
                                             {
                                                 labelPosition: 'left',
                                                 direction: 'row',
-                                                modClass: 'marginBottom50',
+                                                modClass: 'marginBottom22',
                                                 elements: [
                                                     {
                                                         type: 'field',
@@ -506,6 +506,22 @@ const state = {
                                                         key_attr: 'id',
                                                         hint: ''
                                                     },
+                                                ]
+                                            },
+                                            {
+                                                labelPosition: 'left',
+                                                direction: 'row',
+                                                modClass: 'marginBottom50',
+                                                elements: [
+                                                    {
+                                                        type: 'field',
+                                                        label: 'Подпись к изображению',
+                                                        width: 12,
+                                                        height: 80,
+                                                        codename: 'cover_description',
+                                                        widget: 'textarea',
+                                                        hint: ''
+                                                    }
                                                 ]
                                             },
                                             {
