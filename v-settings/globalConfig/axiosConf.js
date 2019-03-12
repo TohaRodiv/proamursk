@@ -6,7 +6,7 @@ axios.defaults.withCredentials = true;   /*Позволяет получать �
 
 axios.defaults.headers = {
     'Accept': 'application/json',
-    'X-CSRFTOKEN': 'hM8ptflkbQyfqkTObRJswyWsFaCGhslY88fadfCm2qH1NLtNHpv2LZDj4UIuAIHZ'
+    // 'X-CSRFTOKEN': 'hM8ptflkbQyfqkTObRJswyWsFaCGhslY88fadfCm2qH1NLtNHpv2LZDj4UIuAIHZ'
 };
 
 if (process.env.NODE_ENV === 'production') axios.defaults.baseURL = '/api/v1/';
