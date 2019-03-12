@@ -518,7 +518,7 @@ const state = {
                                                         label: 'Подпись к изображению',
                                                         width: 12,
                                                         height: 80,
-                                                        codename: 'caption',
+                                                        codename: 'cover_description',
                                                         widget: 'textarea',
                                                         hint: ''
                                                     }
