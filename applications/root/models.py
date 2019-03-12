@@ -421,6 +421,7 @@ class CityGuideItem(BaseModel, IsActiveMixin):
     slider = models.ForeignKey('Slider', verbose_name='Слайдер', blank=True, null=True, on_delete=models.SET_NULL)
     cover = models.ForeignKey('mediafiles.MediaFile', verbose_name='Обложка',
                               blank=True, null=True, on_delete=models.SET_NULL)
+    cover_description = models.TextField('Подпись к изображению', blank=True)
     weight = models.PositiveIntegerField()
 
     class Meta:
