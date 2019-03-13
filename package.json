@@ -20,6 +20,7 @@
     "moment": "^2.18.1",
     "normalize.sass": "^3.0.3-2",
     "randexp": "^0.4.9",
+    "v-clipboard": "^2.2.1",
     "vue": "^2.5.9",
     "vue-clickaway": "^2.1.0",
     "vue-cookies": "^1.5.4",
