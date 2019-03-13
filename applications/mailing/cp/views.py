@@ -96,9 +96,13 @@ class CampaignsCpViewSet(CpViewSet):
                 context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
                 content = template.render(context)
                 subject = 'Тестовое письмо с рассылкой'
+            except Exception as e:
+                return Response(dict(message='Ошибка при создании шаблона'), status=400)
+
+            try:
                 send_mail(subject, content, settings.DEFAULT_FROM_EMAIL, [email], html_message=True)
             except Exception as e:
-                return Response(status=400)
+                return Response(dict(message='Ошибка при отправки письма'), status=400)
             else:
                 return Response(status=200)
         else:
