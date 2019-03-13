@@ -7,12 +7,14 @@ from django.template import Context, Template
 from django.template.loader import get_template
 from django.utils.safestring import mark_safe
 from django.utils.text import normalize_newlines
+from django.core.mail import send_mail
 from django.conf.urls import url
 from django.conf import settings
 from cp_vue.api.core import cp_api
 from cp_vue.api.views import CpViewSet
 from .filters import SubscribersFilter, CampaignsFilter
-from .serializers import SubscribersSerializer, CampaignDetailSerializer, CampaignListSerializer, PreviewSerializer
+from .serializers import (SubscribersSerializer, CampaignDetailSerializer, CampaignListSerializer, PreviewSerializer,
+                          SendEmailSerializer)
 from ..models import Subscriber, Campaign
 try:
     from ..tasks import update_subscribers, create_subscriber
@@ -72,10 +74,31 @@ class CampaignsCpViewSet(CpViewSet):
     def preview(self, request):
         serializer = PreviewSerializer(data=request.data)
         if serializer.is_valid():
-            text = self.render_string(self.linebreaksbr(serializer.data.get('template', '')), dict())
-            template = get_template("notifications/email/email.html")
-            context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
-            return Response(dict(template=template.render(context)))
+            try:
+                text = self.render_string(self.linebreaksbr(serializer.data.get('template', '')), dict())
+                template = get_template("notifications/email/email.html")
+                context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
+                return Response(dict(template=template.render(context)))
+            except Exception as e:
+                Response(status=400)
+        else:
+            Response(status=400)
+
+    def send(self, request):
+        serializer = SendEmailSerializer(data=request.data)
+        if serializer.is_valid():
+            try:
+                text = self.render_string(self.linebreaksbr(serializer.data.get('template', '')), dict())
+                email = serializer.data.get('email')
+                template = get_template("notifications/email/email.html")
+                context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
+                content = template.render(context)
+                subject = 'Тестовое письмо с рассылкой'
+                send_mail(subject, content, settings.DEFAULT_FROM_EMAIL, [email])
+            except Exception as e:
+                return Response(status=400)
+            else:
+                return Response(status=200)
         else:
             Response(status=400)
 
@@ -97,6 +120,9 @@ class CampaignsCpViewSet(CpViewSet):
             url(r'^%s/preview/$' % path,
                 self.as_view(http_method_names=['post', 'head', 'options', 'trace']),
                 name='api__%s__preview' % path),
+            url(r'^%s/send/$' % path,
+                self.as_view(http_method_names=['post', 'head', 'options', 'trace']),
+                name='api__%s__send' % path),
         ]
         urlpatterns += super(CampaignsCpViewSet, self).get_urls()
 

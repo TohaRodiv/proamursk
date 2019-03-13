@@ -26,3 +26,8 @@ class CampaignDetailSerializer(ModelSerializer):
 class PreviewSerializer(Serializer):
     template = CharField()
 
+
+class SendEmailSerializer(Serializer):
+    template = CharField()
+    email = CharField()
+
