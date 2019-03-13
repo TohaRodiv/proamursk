@@ -25,7 +25,7 @@
             <div class="base-layout">
                 {% if top_objects %}
                     <div class="base-layout__main">
-                        {% with item=top_objects.0.get_object css_class='grid-publication_8-col grid-publication_format-full' cover_name="8_column_img"  %}
+                        {% with item=top_objects.0.get_object css_class='grid-publication_8-col' first_item=True cover_name="8_column_img"  %}
                             {% include "site/modules/grid-publication.html" %}
                         {% endwith %}
                     </div>
