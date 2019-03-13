@@ -7,7 +7,8 @@ from django.template import Context, Template
 from django.template.loader import get_template
 from django.utils.safestring import mark_safe
 from django.utils.text import normalize_newlines
-from django.core.mail import send_mail
+from django.core import mail
+from django.core.mail import EmailMessage
 from django.conf.urls import url
 from django.conf import settings
 from cp_vue.api.core import cp_api
@@ -100,7 +101,10 @@ class CampaignsCpViewSet(CpViewSet):
                 return Response(dict(message='Ошибка при создании шаблона'), status=400)
 
             try:
-                send_mail(subject, content, settings.DEFAULT_FROM_EMAIL, [email], html_message=True)
+                msg = EmailMessage(subject, content, settings.DEFAULT_FROM_EMAIL, [email])
+                msg.content_subtype = 'html'
+                connection = mail.get_connection()
+                connection.send_messages(msg)
             except Exception as e:
                 return Response(dict(message='Ошибка при отправки письма'), status=400)
             else:
