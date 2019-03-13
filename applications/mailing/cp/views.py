@@ -96,7 +96,7 @@ class CampaignsCpViewSet(CpViewSet):
                 context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
                 content = template.render(context)
                 subject = 'Тестовое письмо с рассылкой'
-                send_mail(subject, content, settings.DEFAULT_FROM_EMAIL, [email])
+                send_mail(subject, content, settings.DEFAULT_FROM_EMAIL, [email], html_message=True)
             except Exception as e:
                 return Response(status=400)
             else:
