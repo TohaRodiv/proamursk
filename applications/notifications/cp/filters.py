@@ -9,6 +9,7 @@ from django_filters import rest_framework as filters
 class ActionFilter(APIFilterSet):
     q = SearchFilter(search_fields=['name', 'codename', 'comment'])
     instant_search = filters.CharFilter(field_name="name", lookup_expr="icontains")
+    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
 
     class Meta:
         model = Action
@@ -22,6 +23,7 @@ class RecipientFilter(APIFilterSet):
     q = SearchFilter(search_fields=['name', 'phone', 'email', 'comment'])
     instant_search = filters.CharFilter(field_name="name", lookup_expr="icontains")
     channel_id__in = NumberInFilter(field_name='channel', lookup_expr='in')
+    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
 
     class Meta:
         model = Recipient
