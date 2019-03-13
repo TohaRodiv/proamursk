@@ -96,7 +96,7 @@ class CampaignsCpViewSet(CpViewSet):
                 template = get_template("notifications/email/email.html")
                 context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
                 content = template.render(context)
-                subject = 'Тестовое письмо с рассылкой'
+                subject = 'Тест рассылки'
             except Exception as e:
                 return Response(dict(message='Ошибка при создании шаблона'), status=400)
 
@@ -104,7 +104,7 @@ class CampaignsCpViewSet(CpViewSet):
                 msg = EmailMessage(subject, content, settings.DEFAULT_FROM_EMAIL, [email])
                 msg.content_subtype = 'html'
                 connection = mail.get_connection()
-                connection.send_messages(msg)
+                connection.send_messages([msg])
             except Exception as e:
                 return Response(dict(message='Ошибка при отправки письма'), status=400)
             else:
