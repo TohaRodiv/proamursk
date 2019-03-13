@@ -68,6 +68,8 @@ class CampaignsCpViewSet(CpViewSet):
         view_name = request._request.resolver_match.view_name
         if view_name.split('__')[-1] == 'preview':
             return self.preview(request)
+        elif view_name.split('__')[-1] == 'send':
+            return self.send(request)
 
         return super(CampaignsCpViewSet, self).post(request, *args, **kwargs)
 
