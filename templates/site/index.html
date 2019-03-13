@@ -29,7 +29,7 @@
                 {% for top_item in top_objects %}
 
                     {% if forloop.counter == 1 %}
-                        {% with item=top_item.get_object css_class='grid-publication_8-col' cover_name="8_column_img" %}
+                        {% with item=top_item.get_object css_class='grid-publication_8-col grid-publication_format-full' cover_name="8_column_img" %}
                             {% if item %}
                                 {% if top_item.codename == 'event' or top_item.codename == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
