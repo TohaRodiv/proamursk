@@ -1,69 +1,80 @@
 <template>
-    <div class="post-editor-render-wrapper"
-         ref="widgetWrapper"
-         :class="postEditorRenderWrapperClass"
-         :style="calculateMargin() + (thisWidgetOnDrag ? 'boxShadow: 0 2px 8px 0 rgba(35, 41, 46, 0.15);' : '') + (hovered ? `border: 1px dashed #d1d6da;` : '')"
-         @mouseenter="!widgetsDragActivated ? hovered = true : hovered = false"
-         @mouseleave="hovered = false">
-        <div class="post-editor-render-margin-top-em" v-if="widget.marginTop">{{hovered ? widget.marginTop + ' em' : ''}}</div>
-        <div class="post-editor-render-info" v-if="hovered || thisWidgetOnDrag">
-            <div class="post-editor-render-info-name ellipsis" :title="getWidgetType()">
-                <div>{{getWidgetType()}}</div>
-            </div>
-            <div class="post-editor-render-info-buttons">
-                <button class="button icon-moving" style="font-size: 14px" @mousedown="$emit('dragWidget')"></button>
-                <button class="button icon-edit" style="font-size: 14px" @click="$emit('editWidget')"></button>
-                <button class="button icon-copy" style="font-size: 14px" @click="$emit('copyWidget')"></button>
-                <button class="button icon-close" style="font-size: 11px" @click="$emit('deleteWidget')"></button>
-            </div>
+    <div>
+        <div class="post-editor-render-margin-top-em" v-if="widget.marginTop" :style="{ height: widget.marginTop + 'em' }">
+            <p>{{hovered ? widget.marginTop + ' em' : ''}}</p>
         </div>
-        <div class="post-editor-render-content" :style="calculatePadding()">
-            <div class="post-editor-render-padding-top-em" v-if="widget.paddingTop">{{hovered ? widget.paddingTop + ' em' : ''}}</div>
-            <widgetLoader :widget="widget" :isDragOn="widgetsDragActivated"></widgetLoader>
-            <div class="post-editor-render-padding-bottom-em" v-if="widget.paddingBottom">{{hovered ? widget.paddingBottom + ' em' : ''}}</div>
-            <div class="post-editor-iframe-bug-preventer" v-if="widgetsDragActivated"></div>
-        </div>
-        <div class="post-editor-render-block-buttons-container" :style="hovered ? {zIndex: 10} : ''">
-            <div
-                    class="post-editor-column-empty"
-                    v-if="hovered && !thisWidgetOnDrag">
-                <div>
-                    <div
-                            class="button edit-entity-round-button icon-plus post-editor-big-icon-add"
-                            @mouseenter="mouseOverButton = uniqKey + 'add'"
-                            @mouseleave="mouseOverButton = ''"
-                            style="margin-right: 0;"
-                            @click="$emit('addBlock')">
-                    </div>
-                    <div class="hint-wrapper" @mouseenter="hovered = false" v-if="mouseOverButton === uniqKey + 'add'">
-                        <div class="hint-inner-wrapper">
-                            <div class="arrow-wrapper">
-                                <div class="hint-arrow"></div>
+        <div class="post-editor-render-wrapper"
+            ref="widgetWrapper"
+            :class="postEditorRenderWrapperClass"
+            :style="(thisWidgetOnDrag ? 'boxShadow: 0 2px 8px 0 rgba(35, 41, 46, 0.15);' : '') + (hovered ? `border: 1px dashed #d1d6da;` : '')"
+            @mouseenter="!widgetsDragActivated ? hovered = true : hovered = false"
+            @mouseleave="hovered = false">
+            <div class="post-editor-render-info" v-if="hovered || thisWidgetOnDrag">
+                <div class="post-editor-render-info-name ellipsis" :title="getWidgetType()">
+                    <div>{{getWidgetType()}}</div>
+                </div>
+                <div class="post-editor-render-info-buttons">
+                    <button class="button icon-moving" style="font-size: 14px" @mousedown="$emit('dragWidget')"></button>
+                    <button class="button icon-edit" style="font-size: 14px" @click="$emit('editWidget')"></button>
+                    <button class="button icon-copy" style="font-size: 14px" @click="$emit('copyWidget')"></button>
+                    <button class="button icon-close" style="font-size: 11px" @click="$emit('deleteWidget')"></button>
+                </div>
+            </div>
+            <div class="post-editor-render-padding-top-em" v-if="widget.paddingTop" :style="{ height: widget.paddingTop + 'em' }">
+                    <p>{{hovered ? widget.paddingTop + ' em' : ''}}</p>
+            </div>
+            <div class="post-editor-render-content">
+                <widgetLoader :widget="widget" :isDragOn="widgetsDragActivated"></widgetLoader>
+                
+                <div class="post-editor-iframe-bug-preventer" v-if="widgetsDragActivated"></div>
+            </div>
+            <div class="post-editor-render-padding-bottom-em" v-if="widget.paddingBottom" :style="{ height: widget.paddingBottom + 'em' }">
+                <p>{{hovered ? widget.paddingBottom + ' em' : ''}}</p>
+            </div>
+            <div class="post-editor-render-block-buttons-container" :style="hovered ? {zIndex: 10} : ''">
+                <div
+                        class="post-editor-column-empty"
+                        v-if="hovered && !thisWidgetOnDrag">
+                    <div>
+                        <div
+                                class="button edit-entity-round-button icon-plus post-editor-big-icon-add"
+                                @mouseenter="mouseOverButton = uniqKey + 'add'"
+                                @mouseleave="mouseOverButton = ''"
+                                style="margin-right: 0;"
+                                @click="$emit('addBlock')">
+                        </div>
+                        <div class="hint-wrapper" @mouseenter="hovered = false" v-if="mouseOverButton === uniqKey + 'add'">
+                            <div class="hint-inner-wrapper">
+                                <div class="arrow-wrapper">
+                                    <div class="hint-arrow"></div>
+                                </div>
+                                <div class="hint-message" style="padding: 6px 13px 9px 13px; color: #fff">Добавить блок</div>
                             </div>
-                            <div class="hint-message" style="padding: 6px 13px 9px 13px; color: #fff">Добавить блок</div>
+                        </div>
+                    </div>
+                    <div v-if="canBePasted">
+                        <div
+                                class="button edit-entity-round-button icon-paste post-editor-big-icon-paste"
+                                @click="$emit('pasteWidget')"
+                                @mouseenter="mouseOverButton= uniqKey + 'paste'"
+                                @mouseleave="mouseOverButton = ''"
+                                style="margin-right: 0;">
+                        </div>
+                        <div class="hint-wrapper" @mouseenter="hovered = false" v-if="mouseOverButton === uniqKey + 'paste'">
+                            <div class="hint-inner-wrapper">
+                                <div class="arrow-wrapper">
+                                    <div class="hint-arrow"></div>
+                                </div>
+                                <div class="hint-message" style="padding: 6px 13px 9px 13px; color: #fff">Вставить блок</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div v-if="canBePasted">
-                    <div
-                            class="button edit-entity-round-button icon-paste post-editor-big-icon-paste"
-                            @click="$emit('pasteWidget')"
-                            @mouseenter="mouseOverButton= uniqKey + 'paste'"
-                            @mouseleave="mouseOverButton = ''"
-                            style="margin-right: 0;">
-                    </div>
-                    <div class="hint-wrapper" @mouseenter="hovered = false" v-if="mouseOverButton === uniqKey + 'paste'">
-                        <div class="hint-inner-wrapper">
-                            <div class="arrow-wrapper">
-                                <div class="hint-arrow"></div>
-                            </div>
-                            <div class="hint-message" style="padding: 6px 13px 9px 13px; color: #fff">Вставить блок</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="post-editor-render-margin-bottom-em" v-if="widget.marginBottom">{{hovered ? widget.marginBottom + ' em' : ''}}</div>
+        <div class="post-editor-render-margin-bottom-em" v-if="widget.marginBottom" :style="{ height: widget.marginBottom + 'em' }">
+            <p>{{hovered ? widget.marginBottom + ' em' : ''}}</p>
+        </div>
     </div>
 </template>
 

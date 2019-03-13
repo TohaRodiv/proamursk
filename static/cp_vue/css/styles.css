@@ -6497,6 +6497,8 @@ input:placeholder-shown {
 .post-editor-image-widget-container {
   position: relative;
   width: 100%; }
+  .post-editor-image-widget-container img {
+    border-radius: 5px; }
 
 .post-editor-image-widget-sign {
   margin-top: 2px;
@@ -6515,7 +6517,8 @@ input:placeholder-shown {
   z-index: 9;
   transition: background-color linear .2s; }
   .post-editor-image-widget-blacked:hover {
-    background-color: rgba(0, 0, 0, 0.3); }
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px; }
 
 .post-editor-image-widget-link {
   position: absolute;
@@ -6664,7 +6667,7 @@ input:placeholder-shown {
     background-color: #fff; }
 
 .post-editor-render-info-name {
-  padding: 2px 5px;
+  padding: 2px;
   color: #d1d6da;
   font-size: 12px;
   font-weight: 300;
@@ -6702,31 +6705,46 @@ input:placeholder-shown {
       color: #ff3455; }
 
 .post-editor-render-margin-top-em, .post-editor-render-margin-bottom-em, .post-editor-render-padding-top-em, .post-editor-render-padding-bottom-em {
-  position: absolute;
-  height: 30px;
   width: 100%;
   font-size: 14px;
   font-weight: 300;
-  color: rgba(35, 41, 46, 0.5); }
+  color: rgba(35, 41, 46, 0.5);
+  display: flex;
+  justify-content: flex-start; }
+  .post-editor-render-margin-top-em p, .post-editor-render-margin-bottom-em p, .post-editor-render-padding-top-em p, .post-editor-render-padding-bottom-em p {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 0; }
 
 .post-editor-render-margin-top-em {
   position: relative;
   height: 1em;
-  transform: translateY(-42px); }
+  padding-left: 12px;
+  align-items: flex-end;
+  margin-bottom: 8px; }
 
 .post-editor-render-margin-bottom-em {
   position: relative;
   height: 1em;
-  transform: translateY(41px); }
+  padding-left: 12px;
+  align-items: flex-start;
+  margin-top: 8px; }
 
 .post-editor-render-padding-top-em, .post-editor-render-padding-bottom-em {
   height: 25px; }
 
 .post-editor-render-padding-top-em {
-  top: -22px; }
+  position: relative;
+  height: 1em;
+  align-items: flex-end;
+  margin-bottom: 8px; }
 
 .post-editor-render-padding-bottom-em {
-  bottom: -27px; }
+  position: relative;
+  height: 1em;
+  align-items: flex-start;
+  margin-top: 8px; }
 
 .post-editor-render-content {
   position: relative; }
