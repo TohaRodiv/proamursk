@@ -23,6 +23,7 @@ class NewsFilter(APIFilterSet):
 
 class EventsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
+    instant_search = filters.CharFilter(field_name="title", lookup_expr="icontains")
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
     show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
@@ -38,6 +39,7 @@ class EventsFilter(APIFilterSet):
 
 class ReportsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
+    instant_search = filters.CharFilter(field_name="title", lookup_expr="icontains")
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
     show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
@@ -69,6 +71,7 @@ class HistoryFilter(APIFilterSet):
 
 class PersonsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
+    instant_search = filters.CharFilter(field_name="title", lookup_expr="icontains")
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
     show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
@@ -98,6 +101,7 @@ class CityGuidesFilter(APIFilterSet):
 
 class PlacesFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment', 'address'])
+    instant_search = filters.CharFilter(field_name="title", lookup_expr="icontains")
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
     show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
     cover_formats__in = CharInFilter(field_name='cover_format', lookup_expr='in')
@@ -129,6 +133,7 @@ class SpecialsFilter(APIFilterSet):
 
 class FilmsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
+    instant_search = filters.CharFilter(field_name="title", lookup_expr="icontains")
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
     show_two_banners = filters.BooleanFilter(field_name='show_two_banners', method='common_filter')
 
@@ -142,6 +147,7 @@ class FilmsFilter(APIFilterSet):
 
 class PlaceReviewsFilter(APIFilterSet):
     q = SearchFilter(search_fields=['name', 'email', 'phone', 'comment'])
+    instant_search = filters.CharFilter(field_name="name", lookup_expr="icontains")
     is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
     places__in = NumberInFilter(field_name='place', lookup_expr='in')
 
@@ -155,6 +161,7 @@ class PlaceReviewsFilter(APIFilterSet):
 
 class SlidersFilter(APIFilterSet):
     q = SearchFilter(search_fields=['title', 'comment'])
+    instant_search = filters.CharFilter(field_name="title", lookup_expr="icontains")
     formats__in = CharInFilter(field_name='format', lookup_expr='in')
     slides_count__lte = filters.NumberFilter(field_name='slides_count__lte', method='common_filter')
     slides_count__gte = filters.NumberFilter(field_name='slides_count__gte', method='common_filter')
