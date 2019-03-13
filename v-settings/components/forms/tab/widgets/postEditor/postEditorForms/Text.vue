@@ -1,5 +1,5 @@
 <template>
-    <div class="popup-wrapper" :class="{'popup-wrapper-transition': showTransition}" @click.self="closePopup">
+    <div class="popup-wrapper" :class="{'popup-wrapper-transition': showTransition}">
         <div class="popup-container" style="max-width: 780px;" v-show="showTransition">
             <div class="popup-close-icon icon-close" @click="closePopup"></div>
             <div class="popup-post-editor-forms-label">Текст</div>
