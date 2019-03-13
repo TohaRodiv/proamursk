@@ -56,7 +56,7 @@ const state = {
                                 type: 'field',
                                 label: 'Содержание письма',
                                 width: 12,
-                                widthPopup: '800px',
+                                widthPopup: '900px',
                                 codename: 'content',
                                 widget: 'textareaPreviewLetter',
                                 hint: hint
