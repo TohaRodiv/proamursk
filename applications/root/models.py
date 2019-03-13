@@ -206,8 +206,8 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
     cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
-    descriptor = models.CharField('Подзаголовок', max_length=255)
-    lead = models.CharField('Лид', max_length=255)
+    descriptor = models.TextField('Подзаголовок')
+    lead = models.TextField('Лид')
     content = JSONField()
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
@@ -249,7 +249,7 @@ class HistoryRubric(BaseModel):
         return self.name
 
     def get_absolute_url(self):
-        return ''  # reverse('persons-detail', args=[self.id])
+        return reverse('persons-detail', args=[self.id])
 
 
 class History(BaseModel, BaseSeoMixin, IsActiveMixin):
