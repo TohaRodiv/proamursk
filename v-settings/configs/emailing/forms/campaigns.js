@@ -4,24 +4,6 @@ const hint = `<span style="font-weight: 600;">Тег для публикаций
         <span>{% posts “тип публикации, id публикации, формат” … %} — Публикации</span>
     </li>
 </ul>
-<span style="font-weight: 600;">Универсальные теги:</span>
-<ul>
-    <li>
-        <span>{% title "Текст" %} - Заголовок</span>
-    </li>
-    <li>
-        <span>{% link "Ссылка" "Текст" %} — Ссылка;</span>
-    </li>
-    <li>
-        <span>{% email "Адрес" "Текст" %} — Email;</span>
-    </li>
-    <li>
-        <span>{% button "Ссылка" "Заголовок" %} — Кнопка;</span>
-    </li>
-    <li>
-        <span>{% separator  %} — Сепаратор.</span>
-    </li>
-</ul>
 <span style="font-weight: 600;">Типы публикаций:</span>
 <ul>
     <li>
@@ -62,6 +44,24 @@ const hint = `<span style="font-weight: 600;">Тег для публикаций
     </li>
     <li>
         <span>hs — В половину ширины (half) с обычной (standart) обложкой</span>
+    </li>
+</ul>
+<span style="font-weight: 600;">Универсальные теги:</span>
+<ul>
+    <li>
+        <span>{% title "Текст" %} - Заголовок</span>
+    </li>
+    <li>
+        <span>{% link "Ссылка" "Текст" %} — Ссылка;</span>
+    </li>
+    <li>
+        <span>{% email "Адрес" "Текст" %} — Email;</span>
+    </li>
+    <li>
+        <span>{% button "Ссылка" "Заголовок" %} — Кнопка;</span>
+    </li>
+    <li>
+        <span>{% separator  %} — Сепаратор.</span>
     </li>
 </ul>`
 
