@@ -80,7 +80,9 @@ class CampaignsCpViewSet(CpViewSet):
             try:
                 text = self.render_string(self.linebreaksbr(serializer.data.get('template', '')), dict())
                 template = get_template("notifications/email/email.html")
-                context = dict(text=text, domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
+                context = dict(text=text,
+                               unsubscribe=True,
+                               domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
                 return Response(dict(template=template.render(context)))
             except Exception as e:
                 Response(status=400)
