@@ -1,7 +1,7 @@
 const hint = `<span style="font-weight: 600;">Тег для публикаций:</span>
 <ul>
     <li>
-        <span>{% posts “тип публикации, id публикации, формат” … %}</span>
+        <span>{% posts “тип публикации, id публикации, формат” … %} — Публикации</span>
     </li>
 </ul>
 <span style="font-weight: 600;">Универсальные теги:</span>
@@ -55,6 +55,7 @@ const state = {
                             {
                                 type: 'field',
                                 label: 'Содержание письма',
+                                required: true,
                                 width: 12,
                                 widthPopup: '900px',
                                 codename: 'content',
