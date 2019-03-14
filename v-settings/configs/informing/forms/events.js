@@ -200,7 +200,8 @@ const state = {
                                                                 name: 'Email'
                                                             },
                                                         ],
-                                                        hint: ''
+                                                        hint: '',
+                                                        returnFromAvailableValues: 'id'
                                                     },
                                                 ]
                                             },
