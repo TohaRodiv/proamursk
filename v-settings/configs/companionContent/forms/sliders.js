@@ -86,6 +86,7 @@ const state = {
                                 modClass: 'marginBottom50',
                                 codename: 'slides',
                                 requireSendId: true,
+                                disableClickaway: true,
                                 hint: '',
                                 entity_structure: [
                                     {

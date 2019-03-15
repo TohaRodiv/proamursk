@@ -130,7 +130,7 @@ const state = {
                                                         invalid: false,
                                                         controlFlag: [  /*Данный виджет способен управлять этими флагами*/
                                                             {
-                                                                toBeChecked: 'codename',   /*На какое значение в массиве выбранных сущностей смотреть*/
+                                                                toBeChecked: 'id',   /*На какое значение в массиве выбранных сущностей смотреть*/
                                                                 value: 'var',            /*Каким должно быть значение*/
                                                                 flag: 'isVar'                /*Какой флаг тригеррит*/
                                                             },
@@ -200,7 +200,8 @@ const state = {
                                                                 name: 'Email'
                                                             },
                                                         ],
-                                                        hint: ''
+                                                        hint: '',
+                                                        returnFromAvailableValues: 'id'
                                                     },
                                                 ]
                                             },

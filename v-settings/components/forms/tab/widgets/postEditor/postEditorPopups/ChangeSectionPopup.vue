@@ -1,5 +1,5 @@
 <template>
-    <div class="popup-wrapper" :class="{'popup-wrapper-transition': showTransition}" @click.self="closePopup">
+    <div class="popup-wrapper" :class="{'popup-wrapper-transition': showTransition}">
         <div class="popup-container" style="max-width: 700px;" v-show="showTransition">
             <div class="popup-close-icon icon-close" @click="closePopup"></div>
             <div class="popup-post-editor-section-label">Редактирование секции</div>
@@ -42,7 +42,7 @@
                             @callback="callbax('paddingBottom', $event)"
                     ></selector>
                 </div>
-                <div class="popup-post-editor-edit-container" v-if="config && config.hasHorizontalMargin">
+                <!-- <div class="popup-post-editor-edit-container" v-if="config && config.hasHorizontalMargin">
                     <selector
                             :isBlocked="false"
                             :type="'childEntity'"
@@ -51,7 +51,7 @@
                             :options="initialiseConfig('Отступ между колонками, px')"
                             @callback="callbax('betweenBlocksMargin', $event)"
                     ></selector>
-                </div>
+                </div> -->
             </div>
             <div class="popup-buttons-wrapper">
                 <div class="popup-buttons-post-editor-container">

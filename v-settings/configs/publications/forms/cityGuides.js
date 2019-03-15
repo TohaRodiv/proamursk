@@ -182,6 +182,7 @@ const state = {
                                 codename: 'items',
                                 requireSendId: true,
                                 hint: '',
+                                disableClickaway: true,
                                 entity_structure: [
                                     {
                                         type: 'vertical_list',
