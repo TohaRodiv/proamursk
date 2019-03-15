@@ -512,6 +512,24 @@
 .icon-moving.after:after {
   content: "\E937"; }
 
+.icon-send:before {
+  content: "\E939"; }
+
+.icon-send.after:before {
+  content: none; }
+
+.icon-send.after:after {
+  content: "\E939"; }
+
+.icon-copy-thin:before {
+  content: "\E938"; }
+
+.icon-copy-thin.after:before {
+  content: none; }
+
+.icon-copy-thin.after:after {
+  content: "\E938"; }
+
 .col1 {
   width: calc(40px); }
   .col1:not(:last-child) {
@@ -2478,6 +2496,11 @@ input[type="search"]::-webkit-search-results-decoration {
   line-height: 1.3;
   background-color: #fc8b9e;
   z-index: 10; }
+
+.popup-preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .from-to-input-container {
   display: flex;
