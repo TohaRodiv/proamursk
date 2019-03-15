@@ -1,5 +1,4 @@
 from celery.task import task
-from django.utils import translation
 from .views import NotificationSender
 
 

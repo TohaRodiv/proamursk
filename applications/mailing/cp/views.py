@@ -18,7 +18,7 @@ from .serializers import (SubscribersSerializer, CampaignDetailSerializer, Campa
                           SendEmailSerializer)
 from ..models import Subscriber, Campaign
 try:
-    from ..tasks import update_subscribers, create_subscriber
+    from ..tasks import update_subscribers, create_subscriber, send_email
 except:
     pass
 
@@ -104,15 +104,8 @@ class CampaignsCpViewSet(CpViewSet):
             except Exception as e:
                 return Response(dict(message='Ошибка при создании шаблона'), status=400)
 
-            try:
-                msg = EmailMessage(subject, content, settings.DEFAULT_FROM_EMAIL, [email])
-                msg.content_subtype = 'html'
-                connection = mail.get_connection()
-                connection.send_messages([msg])
-            except Exception as e:
-                return Response(dict(message='Ошибка при отправки письма'), status=400)
-            else:
-                return Response(status=200)
+            send_email.delay(subject, content, [email])
+            return Response(status=200)
         else:
             Response(status=400)
 
