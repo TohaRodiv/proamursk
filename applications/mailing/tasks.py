@@ -3,7 +3,9 @@ import json
 import requests
 from celery.task import task
 from django.utils import timezone
-
+from django.conf import settings
+from django.core import mail
+from django.core.mail import EmailMessage
 from applications.mailing.models import Subscriber
 from applications.sitesettings.models import Settings
 
@@ -55,4 +57,12 @@ def update_subscribers(subscriber_ids):
             if response.status_code == 200:
                 subscriber.sync_date = timezone.now()
                 subscriber.save()
+
+
+@task(max_retries=3)
+def send_email(subject, template, emails):
+    msg = EmailMessage(subject, template, settings.DEFAULT_FROM_EMAIL, emails)
+    msg.content_subtype = 'html'
+    connection = mail.get_connection()
+    connection.send_messages([msg])
 

@@ -1674,7 +1674,7 @@
             html = _cleanStyle(html);
             html = _cleanClass(html);
             html = _removeBlockWithoutStyles(html);
-            // html = _wrapToParagraph(html);
+            html = _wrapToParagraph(html);
             return html
         }
 
@@ -1835,7 +1835,7 @@
                     styleObject = self.actions[action]['style'];
                     for (var styleName in styleObject) {
                         var styleValue = styleObject[styleName];
-                        style = _camelCaseToDash(styleName) +': '+ styleValue;
+                        style = _camelCaseToDash(styleName) +':\s*'+ styleValue;
                         if (availableStyles.indexOf(style) < 0) availableStyles.push(style)
                     }
                 }
@@ -1872,18 +1872,22 @@
                 str = str.replace(/&[a-z0-9#]*;/ig, ''); //убирает символы юникода, например &quot; кавычки в правиле font-family
                 str = str.replace('&quot;', '');
                 str = str.replace(styleRe4, '$&');
-
+                str = str.replace(new RegExp('\n', 'ig'), ' ');
+                
                 // удалет недопустимые стили формата "style: propertie;"
-                str = str.replace(/\s*(?:[a-z\-]+?):\s*[^(;|"|')]+/ig, function(str) {
-                    var re = new RegExp('^('+availableStylesString +')', 'ig');
-                    
-                    if (str.search(re) == -1) {
-                        var re2 = new RegExp(str+';*', 'ig')
+                str = str.replace(/(?:[a-z-]+?):\s*([^;|"]*?)*;{0,1}/ig, function(str) {
+                    var re = new RegExp('^(\s*'+availableStylesString +')', 'ig');
+
+                    if (str.search(re) == -1) {                     
+                        var re2 = new RegExp('\s*' + str + ';*', 'ig')
                         str = str.replace(re2, '');
+                    }
+                    else {
+                        str = str;
                     }
                     return str
                 })
-
+                
                 str = str.replace(styleRe2, '"');
                 str = str.replace(styleRe3, "'");
                 str = str.replace(colorRe, '');  // проверяет валидность формата цвета hex или rgb(a)
@@ -1896,7 +1900,7 @@
             var styleRe5 = new RegExp('<(span|b|i|)[\\s\\n\\w=";]*(text-align:\\s*(center|left|right|justify|initial)*);">', 'ig');
 
             html = html.replace(styleRe5, '');
-            html = html.replace(/\s*style=";*"/ig, '');
+            html = html.replace(/\s*style=";*\s*"/ig, '');
             html = html.replace(/\s*style=""/ig, '');
             html = html.replace(/\s*style=">/ig, '>');
             return html
