@@ -4,29 +4,29 @@
             <div class="auth_title signin-title">
                 Новый пароль
             </div>
-            <div @mouseenter="focus = 'new_password1'" @mouseleave="focus = ''">
+            <div style="position: relative" @mouseenter="focus = 'new_password1'" @mouseleave="focus = ''">
                 <input
                         type="password"
                         v-model="new_password1"
                         class="input auth-input auth_input_size password-input"
                         :class="{'input-on-error': errors.new_password1}"
-                        @click="errors.new_password1 = false"
+                        @click="errors.new_password1 = ''"
                         placeholder="Новый пароль">
                 <div class="input-error-message" v-if="errors.new_password1 && focus === 'new_password1'">
-                    {{errors.new_password1}}
+                    {{ errors.new_password1 }}
                 </div>
             </div>
         </div>
-        <div @mouseenter="focus = 'new_password2'" @mouseleave="focus = ''">
+        <div style="position: relative" @mouseenter="focus = 'new_password2'" @mouseleave="focus = ''">
             <input
                     type="password"
                     v-model="new_password2"
                     class="input auth-input auth_input_size password-input"
                     :class="{'input-on-error': errors.new_password2}"
-                    @click="errors.new_password2 = false"
+                    @click="errors.new_password2 = ''"
                     placeholder="Новый пароль ещё раз">
             <div class="input-error-message" v-if="errors.new_password2 && focus === 'new_password2'">
-                {{errors.new_password2}}
+                {{ errors.new_password2 }}
             </div>
         </div>
         <button class="button button-common auth-main-button auth-main-button-size" @click="check">Сохранить</button>
