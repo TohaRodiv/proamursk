@@ -10,10 +10,10 @@
                 указанный email
             </p>
         </div>
-        <div @mouseenter="focus = true" @mouseleave="focus = false">
+        <div style="position: relative" @mouseenter="focus = true" @mouseleave="focus = false">
             <input type="email" v-model="email" :class="{'input-on-error': hasError}" class="input auth-email-input auth_input_size" @click="hasError = false" placeholder="Email">
             <div class="input-error-message" v-if="hasError && focus">
-                {{hasError}}
+                {{ hasError }}
             </div>
         </div>
         <button class="button button-common auth-main-button auth-main-button-size" @click="check">Отправить</button>
