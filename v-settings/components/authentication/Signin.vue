@@ -4,29 +4,29 @@
             <div class="auth_title signin-title">
                 Вход
             </div>
-            <div @mouseenter="focus = 'username'" @mouseleave="focus = ''">
+            <div style="position: relative" @mouseenter="focus = 'username'" @mouseleave="focus = ''">
                 <input
                         v-model="username"
                         type="text"
-                        @click="errors.username = ''"
+                        @click="errors.username = '', errors.password = ''"
                         :class="{'input-on-error': errors.username}"
                         class="input auth-input auth_input_size"
                         placeholder="Логин">
                 <div class="input-error-message" v-if="errors.username && focus === 'username'">
-                    {{errors.username}}
+                    {{ errors.username }}
                 </div>
             </div>
         </div>
-        <div @mouseenter="focus = 'password'" @mouseleave="focus = ''">
+        <div style="position: relative" @mouseenter="focus = 'password'" @mouseleave="focus = ''">
             <input
                     v-model="password"
                     type="password"
-                    @click="errors.password = ''"
+                    @click="errors.username = '', errors.password = ''"
                     :class="{'input-on-error': errors.password}"
                     class="input auth-input auth_input_size password-input"
                     placeholder="Пароль">
             <div class="input-error-message" v-if="errors.password && focus === 'password'">
-                {{errors.username}}
+                {{ errors.password }}
             </div>
         </div>
         <button class="button button-common auth-main-button auth-main-button-size" @click="checkBeforeLogin">
