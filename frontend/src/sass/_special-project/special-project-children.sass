@@ -5,12 +5,102 @@
     img
         display: block
 
-        &:not(.direct-speech__avatar)
+        &:not(.direct-speech__avatar):not(.sp-children-header__img)
             border-radius: 4px
 
+.sp-children__icon_kindergarden
+    height: 80px
+
+.sp-children__icon_children-in-kindergarden
+    height: 67px
+    margin-top: 13px
+
+.sp-children__icon_rocking-horse,
+.sp-children__icon_constructror
+    height: 57px
+
+.sp-children__icon_globe
+    height: 70px
+
+.sp-children__icon_boy-cubes
+    width: 290px
+    height: 200px
+    margin-top: 37px
+
+.sp-children__icon_fitball
+    width: 215px
+    height: 270px
+    margin-top: 25px
+
+.sp-children__icon_uprobrz,
+.sp-children__icon_mfc,
+.sp-children__icon_gosuslugi
+    height: 85px
+
+.sp-children__icon_slider-wait
+    width: 250px
+
+.sp-children__icon_slider-body-check
+    width: 185px
+
+.sp-children__icon_school,
+.sp-children__icon_schoolchild,
+.sp-children__icon_medal
+    height: 75px
+
+.sp-children__icon_techworker
+    width: 320px
+
+.sp-children__icon_science
+    width: 195px
+
+.sp-children__icon_nerd
+    width: 240px
+    position: relative
+    top: -20px
+
+.sp-children__icon_winner
+    width: 215px
+    margin-top: 25px
+    margin-left: 55px
+
+.sp-children__icon_documents
+    width: 245px
+    position: absolute
+    right: 160px
+    top: 200px
+
+.sp-children__icon_wait-call
+    width: 320px
+    position: absolute
+    top: 210px
+    right: 140px
+
+.sp-children__gto-medal
+    width: 78px
+    height: 80px
+
+.sp-children-gto-wrap
+
+    .sp-fact_center
+        &:first-child
+            margin-left: 0
+
+        &:last-child
+            margin-right: 0
+
+.sp-children-gto-text
+    margin-left: 20px
+
 .sp-block
+    &_mt30
+        margin-top: 30px
+
     &_mt40
         margin-top: 40px
+
+    &_mt60
+        margin-top: 60px
 
     &_mt80
         margin-top: 80px
@@ -127,6 +217,44 @@
     margin-left: auto
     margin-right: auto
 
+.sp-flex-container
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+
+.sp-grid__item_third
+    width: calc((100% - 90px) / 3)
+
+.sp-round-number
+    width: 48px
+    height: 48px
+    margin-bottom: 15px
+    font-size: $huge-fz
+    line-height: 48px
+    color: $base-c
+    text-align: center
+    border: 2px solid $base-c
+    border-radius: 50%
+
+.sp-base-subtitle
+    margin-bottom: 60px
+    font-family: $bold-f
+    font-size: 24px
+    letter-spacing: 0.03em
+    line-height: $base-lh
+    text-align: center
+
+.sp-dropdown-section
+    width: 1080px
+    margin-left: auto
+    margin-right: auto
+    padding: 50px 155px
+    background: $light-c
+    border: 1px solid #d2d7dd
+    border-radius: 4px
+
+    &__pretext
+
 .sp-full_2-2
     display: flex
     align-items: flex-start
@@ -197,10 +325,19 @@
             margin-left: auto
             margin-right: auto
 
+    &_in-column
+        .sp-fact__icon
+            margin-bottom: 20px
+
+        &:not(:last-child)
+            margin-bottom: 40px
+
     &__icon
         margin-bottom: 10px
-        border: 2px solid $base-c
-        border-radius: 50%
+
+        img
+            margin-left: auto
+            margin-right: auto
 
         &_big
             width: 90px
@@ -229,6 +366,7 @@
 
         &_italic
             font-size: 21px
+            line-height: 1.8
             font-family: $add-sb-it-f
 
         &_bold
@@ -236,7 +374,6 @@
             font-family: $bold-f
 
     &__subtext
-        width: 150px
         margin-left: auto
         margin-right: auto
         font-size: 15px
@@ -244,12 +381,30 @@
         line-height: 20px
         color: $base-dark-c
 
+        &_limited
+            width: 150px
+
         &_mt10
             margin-top: 10px
 
     &__text
         font-size: $base-fz
         line-height: $base-lh
+
+    a
+        color: $base-c
+        text-decoration: none
+
+        span
+            position: relative
+            margin-left: 5px
+            font-size: 10px
+            left: 0
+            transition: left .2s
+
+        &:hover
+            span
+                left: 5px
 
 .sp-children__overflow-small-img
     width: 420px
@@ -283,50 +438,79 @@
 .sp-placeholder_2
     margin-left: 20px
 
-.sp-placeholder_3
-    position: absolute
-    right: 110px
-    bottom: 70px
+.sp-children-header
+    position: relative
+    margin-bottom: 90px
+
+    &__container
+        display: flex
+        flex-direction: column
+        align-items: center
+        text-align: center
+
+    &__img
+        margin-bottom: 40px
+
+    &__pattern
+        position: absolute
+
+        &_left
+            width: 550px
+            left: -295px
+            top: 150px
+
+        &_right
+            width: 570px
+            right: -270px
+            top: 200px
 
 .sp-children
     padding-top: 0
     overflow: hidden
 
-    &__header
-        position: relative
-        padding-left: 110px
-        padding-top: 70px
-        padding-bottom: 190px
-
-    &__project-title
-        margin-bottom: 40px
-        font-size: 56px
+    &__title
+        margin-bottom: 10px
+        font-size: 76px
         line-height: $mini-lh
         font-family: $bold-f
 
-    &__project-description
+    &__subtitle
+        margin-bottom: 45px
+        width: 420px
+        font-size: $big-fz
+        line-height: $mini-lh
+        font-family: $base-f
+        font-weight: normal
+
+    &__description
         width: 550px
         margin-bottom: 0
-        font-size: 21px
+        font-size: $base-fz
         line-height: $base-lh
+        text-align: left
 
-    &__header-img
-        position: absolute
-        top: 0
-        left: 700px
-        height: 540px
+    &__wobbler
+        margin-bottom: 30px
+
+    &__arrow-down
+        width: 55px
+        height: 55px
+        margin-bottom: 90px
 
 .sp-children-section
     &__cover-wrap
         position: relative
-        height: 480px
+        height: 550px
         display: flex
-        align-items: center
         justify-content: center
+        margin-left: -40px
+        margin-right: -40px
         margin-bottom: 80px
         background-size: cover
         background-position: center
         background-repeat: no-repeat
+        border-radius: 0 0 50% 50% / 0 0 60px 60px
+        overflow: hidden
 
         &::after
             content: ""
@@ -336,29 +520,19 @@
             z-index: 1
             width: 100%
             height: 100%
-            background-color: rgba(#4c607b, .3)
+            background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.5) 100%)
 
     &__title-wrap
         position: relative
         z-index: 2
+        margin-top: 340px
         text-align: center
-        color: $light-c
-
-    &__section-number
-        width: 82px
-        height: 82px
-        margin: 0 auto 10px
-        font-size: 56px
-        line-height: 75px
-        font-family: $bold-f
-        text-align: center
-        border: 5px solid $light-c
-        border-radius: 50%
 
     &__title
         font-size: 76px
         line-height: $micro-lh
         font-family: $bold-f
+        color: $light-c
 
     &__subtitle
         display: flex
@@ -372,7 +546,6 @@
         border-radius: 4px
         background-color: #f9fafa
         border: 1px solid $base-c
-
 
     &__description
         margin-bottom: 60px
@@ -391,7 +564,7 @@
         letter-spacing: 0.02em
         line-height: 24px
         text-align: center
-        color: #000
+        color: $dark-c
 
         &_1line
             max-width: 400px
@@ -596,16 +769,56 @@
 .sp-step-slider-1__slide-6
     padding-top: 50px
 
+.sp-step-slider-1__slide-5
+    .sp-step-slider-1__content
+        display: flex
+        align-items: flex-end
+        justify-content: center
+        margin-top: 60px
+
+    .sp-step-slider-1__text
+        width: 260px
+        margin-right: 75px
+        margin-bottom: 0
+        font-size: $mini-fz
+
+.sp-step-slider-1__slide-6
+    .sp-step-slider-1__content
+        display: flex
+        align-items: flex-end
+        justify-content: center
+        margin-top: 60px
+
+    .sp-step-slider-1__text
+        width: 360px
+        margin-right: 75px
+        margin-bottom: 0
+        font-size: $mini-fz
+
 .sp-step-slider-1__slide-7
     padding: 50px 110px
+
+    .sp-step-slider-1__subtitle
+        margin-bottom: 20px
+        font-family: $bold-f
+        text-align: center
+
+.sp-bullet-list-wrap
+    &:not(:last-child)
+        margin-bottom: 60px
 
 .sp-bullet-list
     margin: 0
     padding: 0 0 0 18px
 
     &__title
-        margin-bottom: 20px
         font-family: $bold-f
+        font-size: 18px
+        letter-spacing: 0.02em
+        line-height: 24px
+        text-align: center
+        text-transform: uppercase
+        color: $dark-c
 
     &__item
         &:not(:last-child)
@@ -645,27 +858,57 @@
 .sp-info-note
     display: flex
     align-items: flex-start
-    width: 640px
-    margin-top: 20px
-    margin-left: 18px
 
     &__sign
-        width: 23px
-        height: 23px
-        margin-right: 15px
         flex-shrink: 0
-        font-size: 17px
-        line-height: 22px
         color: #FF1800
         text-align: center
-        border: 1px solid #FF1800
         border-radius: 50%
 
     &__text
-        font-size: 12px
         line-height: $base-lh
-        color: #283348
         text-align: left
+
+    &_small
+        width: 640px
+        margin-top: 40px
+        margin-left: 18px
+
+        .sp-info-note
+            &__sign
+                width: 23px
+                height: 23px
+                margin-right: 15px
+                font-size: 17px
+                line-height: 22px
+                border: 1px solid #FF1800
+
+            &__text
+                font-size: 12px
+                color: #283348
+
+    &_big
+
+        .sp-info-note
+            &__sign
+                width: 43px
+                height: 43px
+                margin-right: 20px
+                font-size: 34px
+                line-height: 40px
+                border: 2px solid #FF1800
+
+            &__text
+                font-size: $base-fz
+                color: $dark-c
+
+    &_middle
+
+        .sp-info-note
+            &__text
+                width: 660px
+                font-size: 15px
+                color: #283348
 
 .sp-map-wrap
     position: relative
@@ -845,16 +1088,20 @@
 
     .sp-info-note
         width: 400px
-        margin-top: 130px
+        margin-top: 50px
         margin-left: 30px
 
 .sp-step-slider-2__slide-3
     padding: 50px 120px
 
-    .sp-icon-list
-        width: 620px
-        margin-left: auto
-        margin-right: auto
+    .sp-step-slider-2__content
+        width: 460px
+        margin-top: 80px
+
+    .sp-info-note
+        width: 460px
+        margin-top: 50px
+        margin-left: 0
 
 .sp-place
     &__title

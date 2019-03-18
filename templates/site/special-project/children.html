@@ -1,17 +1,36 @@
 {% load static static_version %}
 <main class="sp sp-children">
-    <div class="container">
-        <div class="sp-children__header">
-            <img src="{% static "site/images/special-projects/children/sp-children-header-img.jpg" %}{% static_version %}" alt="" class="sp-children__header-img">
-            <h1 class="sp-children__project-title">Проект &laquo;Дети&raquo;</h1>
-            <p class="sp-children__project-description">Амурские школьники регулярно становятся лауреатами краевых, всероссийских и&nbsp;международных конкурсов, а&nbsp;выпускники поступают в&nbsp;лучшие вузы Дальнего Востока, Санкт-Петербурга и&nbsp;Москвы. Все дело в&nbsp;качестве образования, которое в&nbsp;нашем городе остается стабильно высоким. О&nbsp;том, как воспитывают и&nbsp;развивают детей в&nbsp;Амурске&nbsp;&mdash; в&nbsp;нашем первом спецпроекте.</p>
+    <div class="sp-children-header">
+        <img src="{% static "site/images/special-projects/children/sp-children-header-img.jpg" %}{% static_version %}" alt="" class="sp-children-header__img">
+
+        <div class="container sp-children-header__container">
+            <img src="{% static "site/images/special-projects/children/svg/pattern-left.svg" %}{% static_version %}" alt="" class="sp-children-header__pattern sp-children-header__pattern_left">
+            <img src="{% static "site/images/special-projects/children/svg/pattern-right.svg" %}{% static_version %}" alt="" class="sp-children-header__pattern sp-children-header__pattern_right">
+
+            <h1 class="sp-children__title">ЛУЧШЕЕ&nbsp;&mdash; ДЕТЯМ</h1>
+
+            <div class="sp-children__wobbler">
+                <div class="wobbler">
+                    <span class="wobbler__icon icon-star-sharp"></span>
+                    <span class="wobbler__text">Спецпроект</span>
+                </div>
+            </div>
+
+            <h2 class="sp-children__subtitle">Как воспитывают, учат и&nbsp;развивают детей в&nbsp;Амурске</h2>
+
+            <img src="{% static "site/images/special-projects/children/svg/round-arrow-down.svg" %}{% static_version %}" alt="" class="sp-children__arrow-down">
+
+            <div class="sp-children__description">
+                <p>Амурские школьники регулярно становятся призерами краевых и&nbsp;всероссийских конкурсов, а&nbsp;выпускники поступают в&nbsp;вузы Дальнего Востока, Санкт-Петербурга и&nbsp;Москвы.</p>
+                <p>Все дело в&nbsp;качестве образования, которое в&nbsp;нашем городе остается стабильно высоким. О&nbsp;том, как воспитывают и&nbsp;развивают детей в&nbsp;Амурске&nbsp;&mdash; в&nbsp;нашем первом спецпроекте.</p>
+            </div>
         </div>
     </div>
+
 
     <section class="sp-children-section sp-children-section_1">
         <div class="sp-children-section__cover-wrap" style="background-image: url({% static "site/images/special-projects/children/section1-cover.jpg" %}{% static_version %})">
             <div class="sp-children-section__title-wrap">
-                <div class="sp-children-section__section-number">1</div>
                 <h2 class="sp-children-section__title">Все начинается в&nbsp;детском саду</h2>
             </div>
         </div>
@@ -22,34 +41,39 @@
 
                 <div class="sp-fact-wrap">
                     <div class="sp-fact sp-fact_center">
-                        <div class="sp-fact__icon sp-fact__icon_big"></div>
+                        <div class="sp-fact__icon">
+                            <img src={% static "site/images/special-projects/children/svg/kindergarden.svg" %}{% static_version %}" alt="" class="sp-children__icon_kindergarden">
+                        </div>
                         <div class="sp-fact__title sp-fact__title_italic">8</div>
-                        <div class="sp-fact__subtext">детских садов в&nbsp;Амурске</div>
+                        <div class="sp-fact__subtext sp-fact__subtext_limited">детских садов в&nbsp;Амурске</div>
                     </div>
                     <div class="sp-fact sp-fact_center">
-                        <div class="sp-fact__icon sp-fact__icon_big"></div>
-                        <div class="sp-fact__title sp-fact__title_italic">1602</div>
-                        <div class="sp-fact__subtext">ребенка ходят в&nbsp;детский сад</div>
+                        <div class="sp-fact__icon">
+                            <img src={% static "site/images/special-projects/children/svg/children-in-kindergarden.svg" %}{% static_version %}" alt="" class="sp-children__icon_children-in-kindergarden">
+                        </div>
+                        <div class="sp-fact__title sp-fact__title_italic">> 1600</div>
+                        <div class="sp-fact__subtext sp-fact__subtext_limited">детей ходят в&nbsp;детский сад</div>
                     </div>
                 </div>
 
-                <div class="sp-block sp-block_mt80">
+                <div class="sp-block sp-block_mt40">
                     <div class="sp-separator_line"></div>
                 </div>
 
                 <div class="sp-block sp-block_mt40">
-                    <p>В&nbsp;детском саду &#8470;&nbsp;9&nbsp;двенадцать групп, в&nbsp;которых учится около 280&nbsp;детей. Работают три группы раннего возраста для детей от&nbsp;1,5 до&nbsp;3&nbsp;лет и&nbsp;9&nbsp;групп дошкольного возраста с&nbsp;3&nbsp;до&nbsp;7&nbsp;лет. Также есть две группы компенсирующей направленности для детей с&nbsp;тяжелым нарушением речи. <br>Педагоги проводят с&nbsp;детьми обучающие игры, направленные на&nbsp;познавательное, сенсорное, интеллектуальное и&nbsp;речевое развитие. Ведется начальное обучение грамоте, развитие фонематического слуха.</p>
+                    <p>В&nbsp;детском саду &#8470;&nbsp;9&nbsp;двенадцать групп, в&nbsp;которых учится около 280&nbsp;детей. Работают три группы раннего возраста для детей от&nbsp;1,5 до&nbsp;3&nbsp;лет и&nbsp;9&nbsp;групп дошкольного возраста с&nbsp;3&nbsp;до&nbsp;7&nbsp;лет. Также есть две группы компенсирующей направленности для детей с&nbsp;тяжелым нарушением речи. <br>
+                    Педагоги проводят с&nbsp;детьми обучающие игры, направленные на&nbsp;познавательное, сенсорное, интеллектуальное и&nbsp;речевое развитие. Ведется начальное обучение грамоте, развитие фонематического слуха.</p>
                 </div>
 
                 <div class="sp-block sp-block_mt40">
                     <div class="sp-direct-speech">
                         <div class="direct-speech">
-                            <img src="{% static "site/images/special-projects/children/sp-children-person-fomina.jpg" %}{% static_version %}" alt="" class="direct-speech__avatar">
+                            <img src={% static "site/images/special-projects/children/sp-children-person-fomina.jpg" %}{% static_version %}" alt="" class="direct-speech__avatar">
                             <div class="direct-speech__text-wrap">
                                 <div class="direct-speech__author">Юлия Фомина</div>
                                 <div class="direct-speech__author-description">и.о. заведующего детским садом № 9:</div>
                                 <div class="direct-speech__text wysiwyg-container">
-                                    <p><i>Одна из&nbsp;функций садика&nbsp;&mdash; всестороннее развитие. Его цель научить ребенка думать не&nbsp;по&nbsp;шаблону, а&nbsp;самостоятельно рассуждать и&nbsp;делать выводы. При этом все занятия проводятся в&nbsp;игровой форме, понятной дошкольнику. Таким образом, создаются предпосылки для учебных навыков, и&nbsp;когда ребенок становится школьником, у&nbsp;него уже развиты внимание, восприятие, есть начальные представления о&nbsp;грамоте, счете.</i></p>
+                                    <p><i>Одна из&nbsp;функций садика&nbsp;&mdash; всестороннее развитие. Его цель научить ребенка думать не&nbsp;по&nbsp;шаблону, а&nbsp;самостоятельно рассуждать и&nbsp;делать выводы. При этом все занятия проводятся в&nbsp;игровой форме, понятной дошкольнику. Таким образом, создаются предпосылки для формирования учебных навыков&nbsp;&mdash; &laquo;умения учиться&raquo;, и&nbsp;когда ребенок становится школьником, у&nbsp;него уже развиты внимание, восприятие, есть начальные представления о&nbsp;грамоте, счете.</i></p>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +81,26 @@
                 </div>
 
                 <div class="sp-block sp-block_mt40">
-                    <p>Каждый день насыщен играми и&nbsp;занятиями. Дети в&nbsp;саду не&nbsp;смотрят мультики&nbsp;&mdash; хотя в&nbsp;группах есть экраны, они используются только в&nbsp;образовательных целях, например для показа видео и&nbsp;презентаций к&nbsp;занятиям. <br>Детский сад &#8470;&nbsp;9&nbsp;является апробационной площадкой для формирования географических представлений у&nbsp;детей старшего дошкольного возраста при изучении Дальнего Востока. Дети ходят на&nbsp;экскурсии в&nbsp;Краеведческий музей, в&nbsp;Ботанический сад, в&nbsp;Детскую библиотеку. Там они узнают о&nbsp;географии и&nbsp;природе своего края, о&nbsp;культуре и&nbsp;обычаях его коренных народов.</p>
+                    <div class="sp-fact sp-fact_in-column">
+                        <div class="sp-fact__icon">
+                            <img src={% static "site/images/special-projects/children/svg/rocking-horse.svg" %}{% static_version %}" alt="" class="sp-children__icon_rocking-horse">
+                        </div>
+                        <div class="sp-fact__text">Каждый день насыщен играми и&nbsp;занятиями. Дети в&nbsp;саду не&nbsp;смотрят мультики&nbsp;&mdash; хотя в&nbsp;группах есть экраны, они используются только в&nbsp;образовательных целях, например для показа видео и&nbsp;презентаций к&nbsp;занятиям.</div>
+                    </div>
+
+                    <div class="sp-fact sp-fact_in-column">
+                        <div class="sp-fact__icon">
+                            <img src={% static "site/images/special-projects/children/svg/globe.svg" %}{% static_version %}" alt="" class="sp-children__icon_globe">
+                        </div>
+                        <div class="sp-fact__text">Детский сад &#8470;&nbsp;9&nbsp;является апробационной площадкой для формирования географических представлений у&nbsp;детей старшего дошкольного возраста при изучении Дальнего Востока. Дети ходят на&nbsp;экскурсии в&nbsp;Краеведческий музей, в&nbsp;Ботанический сад, в&nbsp;Детскую библиотеку. Там они узнают о&nbsp;географии и&nbsp;природе своего края, о&nbsp;культуре и&nbsp;обычаях его коренных народов.</div>
+                    </div>
+
+                    <div class="sp-fact sp-fact_in-column">
+                        <div class="sp-fact__icon">
+                            <img src={% static "site/images/special-projects/children/svg/constructror.svg" %}{% static_version %}" alt="" class="sp-children__icon_constructror">
+                        </div>
+                        <div class="sp-fact__text">В&nbsp;саду есть дополнительные платные кружки и&nbsp;секции. Например, секция фитбол-гимнастики, кружки &laquo;Легоград&raquo; и&nbsp;&laquo;Тикоград&raquo;, в&nbsp;которых дети учатся создавать модели из&nbsp;конструкторов Lego и&nbsp;Тико.</div>
+                    </div>
                 </div>
             </div>
 
@@ -69,13 +112,13 @@
                     </div>
                     <div class="preview-slider__small-img-wrap">
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" data-caption="Для развития начальных математических представлений используются цветные блоки Дьенеша, палочки Кюизенера и&nbsp;другие пособия.">
+                            <img src={% static "site/images/special-projects/children/sp-children-picture1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img={% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" data-caption="Для развития начальных математических представлений используются цветные блоки Дьенеша, палочки Кюизенера и&nbsp;другие пособия.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" data-caption="">
+                            <img src={% static "site/images/special-projects/children/sp-children-picture2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img={% static "site/images/special-projects/children/sp-children-picture2.jpg" %}{% static_version %}" data-caption="Для детей от&nbsp;1,5 до&nbsp;двух лет работает предметно-игровая развивающая среда Воскобовича &laquo;Фиолетовый лес&raquo;. С&nbsp;помощью воспитателя дети разыгрывают сказки, учатся различать цвета и&nbsp;узнают новую информацию об&nbsp;окружающем мире.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" data-caption="">
+                            <img src={% static "site/images/special-projects/children/sp-children-picture41-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img={% static "site/images/special-projects/children/sp-children-picture41.jpg" %}{% static_version %}" data-caption="Занятие ведет Ольга Серегина&nbsp;&mdash; учитель-логопед высшей категории. В&nbsp;2017 году детский сад стал &#8470;&nbsp;9&nbsp;победителем Всероссийского конкурса на&nbsp;лучшую модель дошкольного образования в&nbsp;номинации &laquo;Логопедические игровые тренинги как средство речевого развития дошкольников&raquo;.">
                         </button>
                     </div>
                 </div>
@@ -84,14 +127,14 @@
             <div class="sp-block sp-block_mt80 sp-6col sp-6col_3-3">
                 <div class="sp-3col">
                     <div class="sp-3col__text">
-                        <p>В&nbsp;2016 году при поддержке АО&nbsp;&laquo;Полиметалл&raquo; в&nbsp;саду появилась лекотека &laquo;Добрая радуга&raquo;&nbsp;&mdash; игровое образовательное пространство для детей с&nbsp;ограниченными возможностями здоровья. </p>
-                        <p>Занятия в&nbsp;лекотеке помогают снять нервное напряжение, развивают речь, навыки общения и&nbsp;мелкую моторику, помогают социализироваться</p>
-                        <div class="sp-placeholder sp-placeholder_small sp-placeholder_1"></div>
+                        <p>В&nbsp;2016 году в&nbsp;саду появилась лекотека &quot;Добрая радуга&quot;&mdash; игровое образовательное пространство для детей с&nbsp;ограниченными возможностями здоровья. </p>
+                        <p>Занятия в&nbsp;лекотеке помогают снять нервное напряжение, развивают речь, навыки общения и&nbsp;мелкую моторику, помогают социализироваться.</p>
                     </div>
+                    <img src={% static "site/images/special-projects/children/svg/boy-cubes.svg" %}{% static_version %}" alt="" class="sp-children__icon_boy-cubes">
                 </div>
 
                 <div class="sp-3col">
-                    <img src="{% static "site/images/special-projects/children/sp-children-picture4.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-small-img">
+                    <img src={% static "site/images/special-projects/children/sp-children-picture4.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-small-img">
                 </div>
             </div>
 
@@ -103,16 +146,16 @@
                     </div>
                     <div class="preview-slider__small-img-wrap">
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture8-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture8.jpg" %}{% static_version %}" data-caption="Из&nbsp;таких мягких блоков ребенок может самостоятельно построить дом или волшебный замок. Формирование чувства безопасности и&nbsp;уверенности в&nbsp;себе&nbsp;&mdash; важнейшие эффекты лекотеки.">
+                            <img src={% static "site/images/special-projects/children/sp-children-picture8-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img={% static "site/images/special-projects/children/sp-children-picture8.jpg" %}{% static_version %}" data-caption="Дети в&nbsp;игровой форме знакомятся с&nbsp;цифрами, изучают простые арифметические действия.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture7-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture8.jpg" %}{% static_version %}" data-caption="">
+                            <img src={% static "site/images/special-projects/children/sp-children-picture7-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img={% static "site/images/special-projects/children/sp-children-picture7.jpg" %}{% static_version %}" data-caption="На&nbsp;таких стеклянных мольбертах можно рисовать вдвоем, дополняя рисунки друг друга. Сотворчество помогает закрытым стеснительным детям наладить общение.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture8.jpg" %}{% static_version %}" data-caption="">
+                            <img src={% static "site/images/special-projects/children/sp-children-picture6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img={% static "site/images/special-projects/children/sp-children-picture6.jpg" %}{% static_version %}" data-caption="Рисование песком&nbsp;&mdash; увлекательный и&nbsp;познавательный процесс, который очень нравится детям.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture8.jpg" %}{% static_version %}" data-caption="">
+                            <img src={% static "site/images/special-projects/children/sp-children-picture5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img={% static "site/images/special-projects/children/sp-children-picture5.jpg" %}{% static_version %}" data-caption="Из&nbsp;таких мягких блоков ребенок может самостоятельно построить дом или волшебный замок. Формирование чувства безопасности и&nbsp;уверенности в&nbsp;себе&nbsp;&mdash; важнейшие эффекты лекотеки.">
                         </button>
                     </div>
                 </div>
@@ -125,34 +168,29 @@
                         <p>В&nbsp;саду действует программа внедрения ГТО для детей.&nbsp;13&nbsp;воспитанников выпуска 2018 года уже получили знаки отличия.</p>
                         <p>Кроме обязательных занятий физкультурой, многие воспитанники посещают секцию фитбол-гимнастики. Занятия на&nbsp;фитболах формируют хорошую осанку, помогают избежать плоскостопия.</p>
                     </div>
-                    <div class="sp-placeholder sp-placeholder_big"></div>
-                </div>
-
-                <div class="sp-block sp-block_mt40">
-                    <p>В&nbsp;саду действует программа внедрения ГТО для детей.&nbsp;13&nbsp;воспитанников выпуска 2018 года уже получили знаки отличия.</p>
-                    <p>Кроме обязательных занятий физкультурой, многие воспитанники посещают секцию фитбол-гимнастики. Занятия на&nbsp;фитболах формируют хорошую осанку, помогают избежать плоскостопия.</p>
+                    <img src={% static "site/images/special-projects/children/svg/fitball.svg" %}{% static_version %}" alt="" class="sp-children__icon_fitball">
                 </div>
             </div>
 
             <div class="sp-block sp-block_mt80 sp-6col sp-6col_3-3">
                 <div class="sp-3col">
-                    <img src="{% static "site/images/special-projects/children/sp-children-picture9.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-small-img sp-children__overflow-small-img_left">
+                    <img src={% static "site/images/special-projects/children/sp-children-picture9.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-small-img sp-children__overflow-small-img_left">
                 </div>
 
                 <div class="sp-3col">
-                    <img src="{% static "site/images/special-projects/children/sp-children-picture10.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-small-img">
+                    <img src={% static "site/images/special-projects/children/sp-children-picture10.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-small-img">
                 </div>
             </div>
 
-            <div class="sp-6col sp-block sp-block_mt40">
+            <div class="sp-6col sp-block sp-block_mt80">
                 <p>На&nbsp;прогулке воспитатели организуют подвижные игры, наблюдение за&nbsp;природой, насекомыми и&nbsp;птицами. В&nbsp;теплое время года дети выполняют простые задания&nbsp;&mdash; например, полить растения, собрать опавшие листья&nbsp;&mdash; которые приучают их&nbsp;к&nbsp;труду. А&nbsp;еще на&nbsp;площадке есть маленький огород, где ребята учатся ухаживать за&nbsp;растениями.</p>
             </div>
 
-            <div class="sp-block sp-block_mt80">
+            <div class="sp-block sp-block_mt40">
                 <div class="sp-12col_4-4-4">
-                    <img src="{% static "site/images/special-projects/children/sp-children-picture11.jpg" %}{% static_version %}" alt="">
-                    <img src="{% static "site/images/special-projects/children/sp-children-picture12.jpg" %}{% static_version %}" alt="">
-                    <img src="{% static "site/images/special-projects/children/sp-children-picture13.jpg" %}{% static_version %}" alt="">
+                    <img src={% static "site/images/special-projects/children/sp-children-picture11.jpg" %}{% static_version %}" alt="">
+                    <img src={% static "site/images/special-projects/children/sp-children-picture12.jpg" %}{% static_version %}" alt="">
+                    <img src={% static "site/images/special-projects/children/sp-children-picture13.jpg" %}{% static_version %}" alt="">
                 </div>
             </div>
 
@@ -165,7 +203,7 @@
                 <div class="sp-block sp-block_mt40">
                     <div class="sp-direct-speech">
                         <div class="direct-speech">
-                            <img src="{% static "site/images/special-projects/children/sp-children-person-fomina.jpg" %}{% static_version %}" alt="" class="direct-speech__avatar">
+                            <img src={% static "site/images/special-projects/children/sp-children-person-fomina.jpg" %}{% static_version %}" alt="" class="direct-speech__avatar">
                             <div class="direct-speech__text-wrap">
                                 <div class="direct-speech__author">Юлия Фомина</div>
                                 <div class="direct-speech__author-description">и.о. заведующего детским садом № 9:</div>
@@ -191,19 +229,19 @@
                             </div>
                             <div class="timeline-step__title">Встаньте в очередь</div>
                         </div>
-                        <div class="timeline-step" data-timeline-slide="5">
+                        <div class="timeline-step" data-timeline-slide="2">
                             <div class="timeline-step__number-wrap">
                                 <div class="timeline-step__number">2</div>
                             </div>
                             <div class="timeline-step__title">Ждите</div>
                         </div>
-                        <div class="timeline-step" data-timeline-slide="6">
+                        <div class="timeline-step" data-timeline-slide="3">
                             <div class="timeline-step__number-wrap">
                                 <div class="timeline-step__number">3</div>
                             </div>
                             <div class="timeline-step__title">Пройдите медосмотр</div>
                         </div>
-                        <div class="timeline-step" data-timeline-slide="7">
+                        <div class="timeline-step" data-timeline-slide="4">
                             <div class="timeline-step__number-wrap">
                                 <div class="timeline-step__number">4</div>
                             </div>
@@ -218,80 +256,28 @@
                                 <div class="sp-step-slider__step-title">Встаньте в очередь</div>
                                 <div class="sp-step-slider__text">
                                     <p>Чтобы получить место в&nbsp;муниципальном садике, нужно заранее встать в&nbsp;очередь (получить путевку).</p>
-                                    <p>Сделать это можно тремя способами:</p>
                                 </div>
+                                <div class="sp-block_mt80"><b>Сделать это можно тремя способами:</b></div>
                                 <div class="sp-block_mt40">
                                     <div class="sp-step-slider__fact-wrap sp-fact-wrap">
                                         <div class="sp-fact sp-fact_center">
-                                            <div class="sp-fact__icon sp-fact__icon_big"></div>
-                                            <div class="sp-fact__title sp-fact__title_bold">В Управлении образования Амурского района</div>
+                                            <div class="sp-fact__icon sp-fact__icon_big">
+                                                <img src={% static "site/images/special-projects/children/svg/uprobrz.svg" %}{% static_version %}" alt="" class="sp-children__icon_uprobrz">
+                                            </div>
+                                            <div class="sp-fact__title"><a href="" target="_blank">В Управлении образования Амурского района <span class="icon-round-arrow-right-dir"></span></a></div>
                                         </div>
                                         <div class="sp-fact sp-fact_center">
-                                            <div class="sp-fact__icon sp-fact__icon_big"></div>
-                                            <div class="sp-fact__title sp-fact__title_bold">В МФЦ</div>
+                                            <div class="sp-fact__icon sp-fact__icon_big">
+                                                <img src={% static "site/images/special-projects/children/svg/mfc.svg" %}{% static_version %}" alt="" class="sp-children__icon_mfc">
+                                            </div>
+                                            <div class="sp-fact__title"><a href="" target="_blank">В МФЦ <span class="icon-round-arrow-right-dir"></span></a></div>
                                         </div>
                                         <div class="sp-fact sp-fact_center">
-                                            <div class="sp-fact__icon sp-fact__icon_big"></div>
-                                            <div class="sp-fact__title sp-fact__title_bold">Онлайн на сайте Госуслуг</div>
+                                            <div class="sp-fact__icon sp-fact__icon_big">
+                                                <img src={% static "site/images/special-projects/children/svg/gosuslugi.svg" %}{% static_version %}" alt="" class="sp-children__icon_gosuslugi">
+                                            </div>
+                                            <div class="sp-fact__title"><a href="" target="_blank">Онлайн на сайте Госуслуг <span class="icon-round-arrow-right-dir"></span></a></div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="slide sp-step-slider-1__slide-2">
-                                <div class="sp-grid">
-                                    <div class="sp-fact sp-grid__item_half">
-                                        <div class="sp-fact__icon sp-fact__icon_small"></div>
-                                        <div class="sp-fact__text">Количество мест в&nbsp;садах ограничено, поэтому записываться лучше заранее&mdash; в&nbsp;идеале сразу после получения свидетельства о&nbsp;рождении ребенка.</div>
-                                    </div>
-                                    <div class="sp-fact sp-grid__item_half">
-                                        <div class="sp-fact__icon sp-fact__icon_small"></div>
-                                        <div class="sp-fact__text">Чтобы увеличить шансы на&nbsp;поступление в&nbsp;срок, лучше занять очередь в&nbsp;нескольких (до&nbsp;трех) детских садах по&nbsp;месту жительства ребенка.</div>
-                                    </div>
-                                    <div class="sp-fact sp-grid__item_half">
-                                        <div class="sp-fact__icon sp-fact__icon_small"></div>
-                                        <div class="sp-fact__text">При подаче заявления укажите желаемый год зачисления, наличие права на&nbsp;льготное зачисление и&nbsp;специфику группы (общая, оздоровительная, компенсирующая).</div>
-                                    </div>
-                                    <div class="sp-fact sp-grid__item_half">
-                                        <div class="sp-fact__icon sp-fact__icon_small sp-fact__icon_error">!</div>
-                                        <div class="sp-fact__text">Некоторые категории граждан имеют льготы&nbsp;&mdash; право на&nbsp;внеочередное, первооочередное и&nbsp;преимущественное поступление. Далее мы&nbsp;расскажем о&nbsp;них подробнее.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="slide sp-step-slider-1__slide-3">
-                                <div class="sp-step-slider__step-title">Внеочередное право поступления предоставляется:</div>
-                                <div class="sp-grid">
-                                    <div class="sp-fact sp-grid__item_half">
-                                        <div class="sp-bullet-item">детям-сиротам, детям, оставшимся без родителей, детям, взятым под опеку или в&nbsp;приемную семью, а&nbsp;также усыновленным;</div>
-                                    </div>
-                                    <div class="sp-fact sp-grid__item_half">
-                                        <div class="sp-bullet-item">детям из&nbsp;неблагополучных семей, состоящих на&nbsp;учете в&nbsp;комиссии по&nbsp;делам несовершеннолетних и&nbsp;защите их&nbsp;прав;</div>
-                                    </div>
-                                    <div class="sp-fact sp-grid__item_half">
-                                        <div class="sp-bullet-item">детям, чьи родители&nbsp;&mdash; сироты или остались без попечения родителей (или одного родителя) в&nbsp;возрасте до&nbsp;18&nbsp;лет, а&nbsp;на&nbsp;данный момент их&nbsp;возраст находится в&nbsp;промежутке 18-23&nbsp;лет;</div>
-                                    </div>
-                                    <div class="sp-fact sp-grid__item_half">
-                                        <div class="sp-bullet-item">детям судей, а&nbsp;также, прокуроров и&nbsp;следователей Следственного комитета при Прокуратуре&nbsp;РФ.</div>
-                                    </div>
-                                    <div class="sp-fact sp-grid__item_half">
-                                        <div class="sp-bullet-item">детям, чьи родители подверглись воздействию радиации после аварии на&nbsp;Чернобыльской АЭС;</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="slide sp-step-slider-1__slide-4">
-                                <div class="sp-step-slider__step-title">Преимущественное право поступления (перед детьми, которые не&nbsp;имеют льгот) предоставляется:</div>
-                                <div class="sp-6col_3-3">
-                                    <div class="sp-3col">
-                                        <ul class="sp-bullet-list">
-                                            <li class="sp-bullet-list__item sp-bullet-item">детям одиноких матерей;</li>
-                                            <li class="sp-bullet-list__item sp-bullet-item">детям работников дошкольных образовательных учреждений;</li>
-                                            <li class="sp-bullet-list__item sp-bullet-item">детям, чьи родные братья или сестры уже посещают данное дошкольное учреждение.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="sp-3col">
-                                        <div class="sp-placeholder sp-placeholder_big sp-placeholder_2"></div>
                                     </div>
                                 </div>
                             </div>
@@ -299,25 +285,26 @@
                             <div class="slide sp-step-slider-1__slide-5">
                                 <div class="sp-step-slider__step-number">2</div>
                                 <div class="sp-step-slider__step-title">Ждите</div>
-                                <div class="sp-step-slider__text">
-                                    <p>Желательно периодически проверять свою позицию в&nbsp;очереди&nbsp;&mdash; хотя&nbsp;бы раз в&nbsp;год. На&nbsp;сайте Госуслуг это можно сделать онлайн. Когда очередь подойдет, вам позвонят из&nbsp;садика.</p>
+                                <div class="sp-step-slider-1__content">
+                                    <p class="sp-step-slider-1__text">Желательно периодически проверять свою позицию в&nbsp;очереди&nbsp;&mdash; хотя&nbsp;бы раз в&nbsp;год. На&nbsp;сайте Госуслуг это можно сделать онлайн. Когда очередь подойдет, вам позвонят из&nbsp;садика.</p>
+                                    <img src={% static "site/images/special-projects/children/svg/slider-wait.svg" %}{% static_version %}" alt="" class="sp-children__icon_slider-wait">
                                 </div>
                             </div>
 
                             <div class="slide sp-step-slider-1__slide-6">
                                 <div class="sp-step-slider__step-number">3</div>
                                 <div class="sp-step-slider__step-title">Пройдите медосмотр</div>
-                                <div class="sp-step-slider__text">
-                                    <p>Это можно сделать бесплатно в&nbsp;муниципальной поликлинике. Заключения специалистов годны 6&nbsp;месяцев, а&nbsp;вот срок годности анализов&nbsp;&mdash; всего месяц, так что их&nbsp;имеет смысл сдать непосредственно перед зачислением. Направления на&nbsp;прием специалистов выдаст медсестра в&nbsp;вашем детском саду.</p>
+                                <div class="sp-step-slider-1__content">
+                                    <p class="sp-step-slider-1__text">Это можно сделать бесплатно в&nbsp;муниципальной поликлинике. Заключения специалистов годны 6&nbsp;месяцев, а&nbsp;вот срок годности анализов&nbsp;&mdash; всего месяц, так что их&nbsp;имеет смысл сдать непосредственно перед зачислением. Направления на&nbsp;прием специалистов выдаст медсестра в&nbsp;вашем детском саду.</p>
+                                    <img src={% static "site/images/special-projects/children/svg/slider-body-check.svg" %}{% static_version %}" alt="" class="sp-children__icon_slider-body-check">
                                 </div>
                             </div>
 
                             <div class="slide sp-step-slider-1__slide-7">
                                 <div class="sp-step-slider__step-number">4</div>
                                 <div class="sp-step-slider__step-title">Подайте заявление</div>
-                                <p>С&nbsp;этого момента в&nbsp;течение календарного года можно идти с&nbsp;документами в&nbsp;выбранный садик.</p>
 
-                                <div class="sp-bullet-list__title">Что взять с собой:</div>
+                                <div class="sp-block_mt40 sp-step-slider-1__subtitle"><b>Что взять с собой:</b></div>
                                 <div class="sp-full_2-2">
                                     <ul class="sp-bullet-list">
                                         <li class="sp-bullet-list__item sp-bullet-item">Заявление на&nbsp;прием в&nbsp;дошкольную организацию (готовую форму можно взять в&nbsp;детском саду);</li>
@@ -329,13 +316,12 @@
                                         <li class="sp-bullet-list__item sp-bullet-item">Свидетельство о&nbsp;регистрации ребенка по&nbsp;месту жительства или по&nbsp;месту пребывания на&nbsp;закрепленной за&nbsp;детским садом территории или документ, содержащий сведения о&nbsp;регистрации ребенка по&nbsp;месту жительства или по&nbsp;месту пребывания.</li>
                                     </ul>
                                 </div>
-                                <div class="sp-info-note">
+                                <div class="sp-info-note sp-info-note_small">
                                     <div class="sp-info-note__sign">!</div>
                                     <div class="sp-info-note__text">Если у&nbsp;детей иностранное гражданство или нет гражданства, потребуется документ, подтверждающий родство заявителя и&nbsp;его право на&nbsp;пребывание в&nbsp;РФ. Иностранные граждане и&nbsp;лица без гражданства все документы представляют на&nbsp;русском языке или вместе с&nbsp;заверенным переводом на&nbsp;русский язык.</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="slider-circles-container"></div>
                         <div class="slider-arrow-container">
                             <button class="slider-arrow slider-arrow-prev icon-arrow-left active"></button>
                             <button class="slider-arrow slider-arrow-next icon-arrow-right active"></button>
@@ -343,10 +329,87 @@
                     </div>
                 </div>
 
+                <div class="sp-block sp-block_mt80">
+                    <div class="sp-base-subtitle">Важно знать:</div>
+                    <div class="sp-8col sp-flex-container">
+                        <div class="sp-grid__item_third">
+                            <div class="sp-round-number">1</div>
+                            <div class="sp-fact__text">Количество мест в&nbsp;садах ограничено, поэтому записываться лучше заранее &mdash; в&nbsp;идеале сразу после получения свидетельства о&nbsp;рождении ребенка.</div>
+                        </div>
+                        <div class="sp-grid__item_third">
+                            <div class="sp-round-number">2</div>
+                            <div class="sp-fact__text">При подаче заявления укажите желаемый год зачисления, наличие права на&nbsp;льготное зачисление и&nbsp;специфику группы (общая, оздоровительная, компенсирующая).</div>
+                        </div>
+                        <div class="sp-grid__item_third">
+                            <div class="sp-round-number">3</div>
+                            <div class="sp-fact__text">Чтобы увеличить шансы на&nbsp;поступление в&nbsp;срок, лучше занять очередь в&nbsp;нескольких (до&nbsp;трех) детских садах по&nbsp;месту жительства ребенка.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sp-block sp-block_mt40">
+                    <div class="sp-dropdown-section dropdown-section">
+                        <div class="sp-dropdown-section__pretext">
+                            <div class="sp-info-note sp-info-note_big">
+                                <div class="sp-info-note__sign">!</div>
+                                <div class="sp-info-note__text">Некоторые категории граждан имеют льготы&nbsp;&mdash; право на&nbsp;внеочередное, первооочередное и&nbsp;преимущественное поступление.</div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn_blue btn_more btn_center js-dropdown-section_show">Подробнее <span class="icon-arrow-down-dir"></span></button>
+
+                        <div class="sp-block sp-block_mt40 sp-dropdown-section__dropdown-content hidden">
+                            <div class="sp-bullet-list-wrap">
+                                <div class="sp-bullet-list__title">Внеочередное право <br>поступления предоставляется:</div>
+                                <div class="sp-full_2-2 sp-block sp-block_mt40">
+                                    <ul class="sp-bullet-list">
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям-сиротам, детям, оставшимся без родителей, детям, взятым под опеку или в&nbsp;приемную семью, а&nbsp;также усыновленным;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям, чьи родители&nbsp;&mdash; сироты или остались без попечения родителей (или одного родителя) в&nbsp;возрасте до&nbsp;18&nbsp;лет, а&nbsp;на&nbsp;данный момент их&nbsp;возраст находится в&nbsp;промежутке 18-23&nbsp;лет;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям, чьи родители подверглись воздействию радиации после аварии на&nbsp;Чернобыльской АЭС;</li>
+                                    </ul>
+                                    <ul class="sp-bullet-list">
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям из&nbsp;неблагополучных семей, состоящих на&nbsp;учете в&nbsp;комиссии по&nbsp;делам несовершеннолетних и&nbsp;защите их&nbsp;прав;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям судей, а&nbsp;также, прокуроров и&nbsp;следователей Следственного комитета при Прокуратуре&nbsp;РФ.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="sp-bullet-list-wrap">
+                                <div class="sp-bullet-list__title">ПЕРВООЧЕРЕДНОЕ ПРАВО ПОСТУПЛЕНИЯ <br>ПРЕДОСТАВЛЯЕТСЯ:</div>
+                                <div class="sp-full_2-2 sp-block sp-block_mt40">
+                                    <ul class="sp-bullet-list">
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям из&nbsp;многодетных семей;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям сотрудников полиции;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям-инвалидам и&nbsp;детям, родители (или один родитель) которых являются инвалидами;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям-инвалидам и&nbsp;детям, родители (или один родитель) которых являются инвалидами;</li>
+                                    </ul>
+                                    <ul class="sp-bullet-list">
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям родителей-полицейских, которые погибли в ходе служебной деятельности или в течение года после увольнения со службы умерли из-за травм, полученных в период прохождения службы. Также детям, чьи родители получили на службе травмы или телесные повреждения, несовместимые с дальнейшей службой.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="sp-bullet-list-wrap">
+                                <div class="sp-bullet-list__title">Преимущественное право поступления <br>(перед детьми, которые не&nbsp;имеют льгот) предоставляется:</div>
+                                <div class="sp-full_2-2 sp-block sp-block_mt40">
+                                    <ul class="sp-bullet-list">
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям одиноких матерей;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям работников дошкольных образовательных учреждений;</li>
+                                    </ul>
+                                    <ul class="sp-bullet-list">
+                                        <li class="sp-bullet-list__item sp-bullet-item">детям, чьи родные братья или сестры уже посещают данное дошкольное учреждение.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <button class="btn btn_blue btn_less btn_center js-dropdown-section_hide">Свернуть <span class="icon-arrow-down-dir"></span></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="sp-block_mt100 sp-map-wrap sp-children-section_1__map-wrap">
+        <div class="sp-map-wrap sp-children-section_1__map-wrap">
             <div class="container">
                 <div class="sp-map-points-outer">
                     <div class="sp-map-points-inner">
@@ -371,31 +434,37 @@
         </div>
     </section>
 
+
     <section class="sp-children-section sp-children-section_2">
         <div class="sp-children-section__cover-wrap" style="background-image: url({% static "site/images/special-projects/children/section2-cover.jpg" %}{% static_version %})">
             <div class="sp-children-section__title-wrap">
-                <div class="sp-children-section__section-number">2</div>
                 <h2 class="sp-children-section__title">Школа&nbsp;&mdash; второй дом</h2>
             </div>
         </div>
 
         <div class="container">
             <div class="sp-6col">
-                <div class="sp-children-section__description">В&nbsp;Амурских школах работают прекрасные, неравнодушные педагоги, которые много вкладывают в&nbsp;детей. Отсюда&nbsp;&mdash; многочисленные победы в&nbsp;городских и&nbsp;краевых олимпиадах, высокие баллы ЕГЭ, и, главное, успешные выпускники.</div>
+                <div class="sp-children-section__description">В&nbsp;Амурских школах работают грамотные и&nbsp;неравнодушные педагоги, которые много вкладывают в&nbsp;детей. Большое внимание уделяется внеклассным занятиям и&nbsp;спортивной подготовке школьников.</div>
 
                 <div class="sp-fact-wrap">
                     <div class="sp-fact sp-fact_center">
-                        <div class="sp-fact__icon sp-fact__icon_big"></div>
+                        <div class="sp-fact__icon">
+                            <img src={% static "site/images/special-projects/children/svg/school.svg" %}{% static_version %}" alt="" class="sp-children__icon_school">
+                        </div>
                         <div class="sp-fact__title sp-fact__title_italic">6 школ</div>
                         <div class="sp-fact__subtext">общеобразовательного типа работают в&nbsp;Амурске</div>
                     </div>
                     <div class="sp-fact sp-fact_center">
-                        <div class="sp-fact__icon sp-fact__icon_big"></div>
-                        <div class="sp-fact__title sp-fact__title_italic">>4000 детей</div>
+                        <div class="sp-fact__icon">
+                            <img src={% static "site/images/special-projects/children/svg/schoolchild.svg" %}{% static_version %}" alt="" class="sp-children__icon_schoolchild">
+                        </div>
+                        <div class="sp-fact__title sp-fact__title_italic">> 4000 детей</div>
                         <div class="sp-fact__subtext">от&nbsp;7&nbsp;до&nbsp;18&nbsp;лет учатся в&nbsp;них</div>
                     </div>
                     <div class="sp-fact sp-fact_center">
-                        <div class="sp-fact__icon sp-fact__icon_big"></div>
+                        <div class="sp-fact__icon">
+                            <img src={% static "site/images/special-projects/children/svg/medal.svg" %}{% static_version %}" alt="" class="sp-children__icon_medal">
+                        </div>
                         <div class="sp-fact__title sp-fact__title_italic">21 медалиста</div>
                         <div class="sp-fact__subtext">выпустили Амурские школы в&nbsp;2018 году</div>
                     </div>
@@ -406,36 +475,44 @@
                 </div>
 
                 <div class="sp-block sp-block_mt40">
-                    <div class="sp-6col_4-2">
-                        <div class="sp-4col">
-                            <p>В&nbsp;школе &#8470;&nbsp;6&nbsp;двадцать пять классов, в&nbsp;которых обучаются 640&nbsp;детей. Система образования выстроена таким образом, чтобы обеспечить ученикам всестороннее развитие, помочь им&nbsp;выбрать свой путь в&nbsp;жизни и&nbsp;составить представление о&nbsp;будущей профессии.</p>
-                            <p>Для 5&ndash;6-х классов разработана программа ранней профориентации, в&nbsp;основном направленная на&nbsp;инженерные и&nbsp;технические профессии. На&nbsp;летних каникулах дети посещают занятия в&nbsp;Амурском политехническом техникуме. Там они знакомятся с&nbsp;работой лаборанта, электросварщика, водителя, автомеханика, электромонтера, повара. Помимо лекций есть и&nbsp;практические занятия. Ребятам очень нравится эта программа и&nbsp;по&nbsp;ее&nbsp;итогам многие выбирают для себя рабочие профессии.</p>
-                        </div>
-                        <div class="sp-placeholder sp-placeholder_big"></div>
-                    </div>
+                    <p>В&nbsp;школе &#8470;&nbsp;6&nbsp;двадцать пять классов, в&nbsp;которых обучаются 640&nbsp;детей. Система образования выстроена таким образом, чтобы обеспечить ученикам всестороннее развитие, помочь им&nbsp;выбрать свой путь в&nbsp;жизни и&nbsp;составить представление о&nbsp;будущей профессии.</p>
                 </div>
 
-                <div class="sp-block sp-block_mt80">
+                <div class="sp-6col_4-2 sp-block sp-block_mt60">
+                    <div class="sp-4col">
+                        <p>Для 5&ndash;6-х классов разработана программа ранней профориентации, в&nbsp;основном направленная на&nbsp;инженерные и&nbsp;технические профессии. На&nbsp;летних каникулах дети посещают занятия в&nbsp;Амурском политехническом техникуме. Там они знакомятся с&nbsp;работой лаборанта, электросварщика, водителя, автомеханика, электромонтера, повара. Помимо лекций есть и&nbsp;практические занятия. Ребятам очень нравится эта программа и&nbsp;по&nbsp;ее&nbsp;итогам многие выбирают для себя рабочие профессии.</p>
+                    </div>
+                    <img src={% static "site/images/special-projects/children/svg/techworker.svg" %}{% static_version %}" alt="" class="sp-children__icon_techworker">
+                </div>
+
+                <div class="sp-block sp-block_mt60">
                     <div class="sp-6col_4-2">
                         <div class="sp-2col">
-                            <div class="sp-placeholder sp-placeholder_big"></div>
+                            <img src={% static "site/images/special-projects/children/svg/science.svg" %}{% static_version %}" alt="" class="sp-children__icon_science">
                         </div>
                         <div class="sp-4col">
                             <p>Для учеников 8&ndash;9-х классов также работает программа дуального обучения, когда дети четыре дня учатся в&nbsp;школе и&nbsp;два дня ходят на&nbsp;практические занятия в&nbsp;техникум. Таким образом, по&nbsp;итогам 9-го класса такие подростки уже имеют начальные профессиональные навыки.</p>
-                            <p>Для десятых классов есть два профильных направления&nbsp;&mdash; социально-гуманитарное и&nbsp;экономическое. Социально-гуманитарные классы направлены на&nbsp;обучение будущих педагогов и&nbsp;готовят детей к&nbsp;поступлению в&nbsp;педагогические вузы. В&nbsp;экономических ведется углубленное изучение географии, экономики, математики. <br>Во&nbsp;всех классах, начиная с&nbsp;пятого, углубленно изучаются математика и&nbsp;русский язык.</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="sp-6col_4-2 sp-block sp-block_mt60">
+                    <div class="sp-4col">
+                        <p>Для десятых классов есть два профильных направления&nbsp;&mdash; социально-гуманитарное и&nbsp;экономическое. Социально-гуманитарные классы направлены на&nbsp;обучение будущих педагогов и&nbsp;готовят детей к&nbsp;поступлению в&nbsp;педагогические вузы. В&nbsp;экономических ведется углубленное изучение географии, экономики, математики.</p>
+                        <p>Во&nbsp;всех классах, начиная с&nbsp;пятого, углубленно изучаются математика и&nbsp;русский язык.</p>
+                    </div>
+                    <img src={% static "site/images/special-projects/children/svg/nerd.svg" %}{% static_version %}" alt="" class="sp-children__icon_nerd">
                 </div>
 
                 <div class="sp-block sp-block_mt40">
                     <div class="sp-direct-speech">
                         <div class="direct-speech">
-                            <img src="{% static "site/images/special-projects/children/sp-children-person-shevchenko.jpg" %}{% static_version %}" alt="" class="direct-speech__avatar">
+                            <img src={% static "site/images/special-projects/children/sp-children-person-shevchenko.jpg" %}{% static_version %}" alt="" class="direct-speech__avatar">
                             <div class="direct-speech__text-wrap">
                                 <div class="direct-speech__author">Нина Афанасьевна Шевченко </div>
                                 <div class="direct-speech__author-description">директор МБОУ СОШ № 6:</div>
                                 <div class="direct-speech__text wysiwyg-container">
-                                    <p><i>Вместе с&nbsp;политехническим техникумом, наша школа участвует в&nbsp;программе подготовки специалистов для Амурского металлургического завода АО&nbsp;&laquo;Полиметалл&raquo;. Мы&nbsp;ставим своей целью не&nbsp;только дать образование, но&nbsp;и&nbsp;подготовить ребят к&nbsp;дальнейшей жизни, помочь выбрать профессию по&nbsp;душе.</i></p>
+                                    <p><i>Вместе с&nbsp;политехническим техникумом, наша школа участвует в&nbsp;программе подготовки специалистов. Мы&nbsp;ставим своей целью не&nbsp;только дать образование, но&nbsp;и&nbsp;подготовить ребят к&nbsp;дальнейшей жизни, помочь выбрать профессию по&nbsp;душе.</i></p>
                                 </div>
                             </div>
                         </div>
@@ -448,7 +525,7 @@
 
                 <div class="sp-block sp-block_mt40">
                     <h4 class="sp-title">Материально-техническая база</h4>
-                    <p>В&nbsp;школе отличная материально-техническая база. В&nbsp;классах хороший ремонт, современное оборудование.</p>
+                    <p>В&nbsp;школе есть все необходимое для занятий. В&nbsp;классах хороший ремонт, современное оборудование.</p>
                 </div>
             </div>
 
@@ -460,19 +537,19 @@
                     </div>
                     <div class="preview-slider__small-img-wrap">
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" data-caption="В&nbsp;2016 году компания &laquo;Полиметалл&raquo; подарила школе мобильный лабораторный комплекс, с&nbsp;помощью которого дети могут самостоятельно проводить опыты по&nbsp;физике, химии, биологии и&nbsp;экологии. Например, измерить уровень загрязнения воздуха или кислотность почвы.">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture14-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture14.jpg" %}{% static_version %}" data-caption="В&nbsp;2016 году в&nbsp;школе появился мобильный лабораторный комплекс, с&nbsp;помощью которого дети могут самостоятельно проводить опыты по&nbsp;физике, химии, биологии и&nbsp;экологии. Например, измерить уровень загрязнения воздуха или кислотность почвы.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" data-caption="">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture15-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture15.jpg" %}{% static_version %}" data-caption="Набор включает все необходимые инструменты, реагенты, лабораторный стол-шкаф на&nbsp;двух человек, микроскоп и&nbsp;ноутбук. С&nbsp;помощью такого мобильного комплекса ученик может самостоятельно провести более 100 разных лабораторных работ.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" data-caption="">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture16-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture16.jpg" %}{% static_version %}" data-caption="Класс для занятий кулинарией. Готовить на&nbsp;такой кухне&nbsp;&mdash; одно удовольствие.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" data-caption="">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture17-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture17.jpg" %}{% static_version %}" data-caption="Кроме привычного обучения плотницкому и&nbsp;слесарному делу, мальчики на&nbsp;уроках труда изучают графические программы.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" data-caption="">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture18-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture18.jpg" %}{% static_version %}" data-caption="Школьная столовая выиграла муниципальный конкурс на&nbsp;лучшую организацию питания обучающихся в&nbsp;2018/2019 учебном году.">
                         </button>
                     </div>
                 </div>
@@ -484,7 +561,7 @@
                 </div>
 
                 <div class="sp-block sp-block_mt40">
-                    <h4 class="sp-title">Начальная военная подготовка</h4>
+                    <h4 class="sp-title">Школьный спецназ</h4>
                     <p>В&nbsp;школе действует программа начальной военной подготовки и&nbsp;патриотического воспитания. Под руководством преподавателя ОБЖ Вячеслава работает военно-патриотическое объединение &laquo;Спецназ&raquo;.</p>
                 </div>
 
@@ -509,16 +586,16 @@
         <div class="sp-block sp-block_mt80">
             <div class="sp-full_4-4-4 container">
                 <figure class="sp-full_4-4-4__item">
-                    <img src="{% static "site/images/special-projects/children/sp-children-picture14.jpg" %}{% static_version %}" alt="">
-                    <figcaption>Кабинет начальной военной подготовки в&nbsp;школе &#8470;&nbsp;6&nbsp;признан лучшим в&nbsp;районе.</figcaption>
+                    <img src="{% static "site/images/special-projects/children/sp-children-picture19.jpg" %}{% static_version %}" alt="">
+                    <figcaption>О&nbsp;качестве подготовки говорят награды, которые &laquo;Спецназ&raquo; ежегодно выигрывает на&nbsp;районной военно-спортивной игре &laquo;Патриот&raquo;</figcaption>
                 </figure>
                 <figure class="sp-full_4-4-4__item">
-                    <img src="{% static "site/images/special-projects/children/sp-children-picture15.jpg" %}{% static_version %}" alt="">
+                    <img src="{% static "site/images/special-projects/children/sp-children-picture20.jpg" %}{% static_version %}" alt="">
                     <figcaption>Юных &laquo;спецназовцев&raquo; хорошо знают в&nbsp;Амурске&nbsp;&mdash; они постоянно участвуют в&nbsp;почетных караулах &laquo;Вахта памяти&raquo; и&nbsp;мероприятиях, посвященных Дню Победы.</figcaption>
                 </figure>
                 <figure class="sp-full_4-4-4__item">
-                    <img src="{% static "site/images/special-projects/children/sp-children-picture16.jpg" %}{% static_version %}" alt="">
-                    <figcaption>О&nbsp;качестве подготовки говорят награды, которые &laquo;Спецназ&raquo; ежегодно выигрывает на&nbsp;районной военно-спортивной игре &laquo;Патриот&raquo;</figcaption>
+                    <img src="{% static "site/images/special-projects/children/sp-children-picture21.jpg" %}{% static_version %}" alt="">
+                    <figcaption>Кабинет начальной военной подготовки в&nbsp;школе &#8470;&nbsp;6&nbsp;признан лучшим в&nbsp;районе.</figcaption>
                 </figure>
             </div>
         </div>
@@ -531,7 +608,7 @@
                     </div>
 
                     <div class="sp-block sp-block_mt40">
-                        <h4 class="sp-title">Спортивная подготовка</h4>
+                        <h4 class="sp-title">Жизнь в движении</h4>
                         <p>Физкультура&nbsp;&mdash; важный предмет в&nbsp;школе &#8470;&nbsp;6. Ученики регулярно сдают нормы ГТО, участвуют в&nbsp;городских и&nbsp;районных соревнованиях, эстафетах и&nbsp;туристических слетах. И&nbsp;неизменно занимают призовые места.</p>
                     </div>
                 </div>
@@ -545,39 +622,45 @@
                     </div>
                     <div class="preview-slider__small-img-wrap">
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture17-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture17.jpg" %}{% static_version %}" data-caption="Занятия физкультурой в&nbsp;спортивном зале&nbsp;&mdash; ученики тренируют челночный бег на&nbsp;время.">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture22-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture22.jpg" %}{% static_version %}" data-caption="Занятия физкультурой в&nbsp;спортивном зале&nbsp;&mdash; ученики тренируют челночный бег на&nbsp;время.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture18-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture17.jpg" %}{% static_version %}" data-caption="">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture23-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture23.jpg" %}{% static_version %}" data-caption="Младшеклассникам нравятся уроки физкультуры, потому что это&nbsp;&mdash; возможность поиграть.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture19-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture17.jpg" %}{% static_version %}" data-caption="">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture24-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture24.jpg" %}{% static_version %}" data-caption="На&nbsp;переменах дети не&nbsp;сидят в&nbsp;классах, а&nbsp;играют в&nbsp;подвижные игры.">
                         </button>
                     </div>
                 </div>
             </div>
 
             <div class="sp-6col">
-                <div class="sp-block sp-block_mt80 sp-6col_4-2 sp-children-section_2__fact-wrap">
-                    <div class="sp-2col">Ученики школы &#8470;&nbsp;6 в&nbsp;2018 году получили значков ГТО</div>
-
+                <div class="sp-block sp-block_mt40 sp-6col_4-2 sp-children-section_2__fact-wrap sp-children-gto-wrap">
                     <div class="sp-fact-wrap sp-4col">
                         <div class="sp-fact sp-fact_center">
-                            <div class="sp-fact__icon sp-fact__icon_big"></div>
+                            <div class="sp-fact__icon">
+                                <img src="{% static "site/images/special-projects/children/gto-gold.jpg" %}{% static_version %}" alt="" class="sp-children__gto-medal">
+                            </div>
                             <div class="sp-fact__number">11</div>
                             <div class="sp-fact__title sp-fact__title_italic">золотых</div>
                         </div>
                         <div class="sp-fact sp-fact_center">
-                            <div class="sp-fact__icon sp-fact__icon_big"></div>
+                            <div class="sp-fact__icon">
+                                <img src="{% static "site/images/special-projects/children/gto-silver.jpg" %}{% static_version %}" alt="" class="sp-children__gto-medal">
+                            </div>
                             <div class="sp-fact__number">5</div>
                             <div class="sp-fact__title sp-fact__title_italic">серебряных</div>
                         </div>
                         <div class="sp-fact sp-fact_center">
-                            <div class="sp-fact__icon sp-fact__icon_big"></div>
+                            <div class="sp-fact__icon">
+                                <img src="{% static "site/images/special-projects/children/gto-bronze.jpg" %}{% static_version %}" alt="" class="sp-children__gto-medal">
+                            </div>
                             <div class="sp-fact__number">10</div>
                             <div class="sp-fact__title sp-fact__title_italic">бронзовых</div>
                         </div>
                     </div>
+
+                    <div class="sp-2col sp-children-gto-text">Значков ГТО получили ученики школы &#8470;&nbsp;6&nbsp;в 2018 году</div>
                 </div>
 
                 <div class="sp-block sp-block_mt80">
@@ -608,12 +691,12 @@
                     <div class="sp-3col">
                         <div class="sp-3col__text">
                             <p>Организацию большей части досуговых мероприятий и&nbsp;праздников обеспечивает Библиотечно-информационный центр. Он&nbsp;появился в&nbsp;школе &#8470;&nbsp;6&nbsp;в 2012&nbsp;году, одним из&nbsp;первых в&nbsp;Хабаровском крае, и&nbsp;за&nbsp;шесть лет работы успел дважды победить в&nbsp;краевом конкурсе учреждений дополнительного образования.</p>
-                            <div class="sp-placeholder sp-placeholder_small sp-placeholder_1"></div>
                         </div>
+                        <img src="{% static "site/images/special-projects/children/svg/winner.svg" %}{% static_version %}" alt="" class="sp-children__icon_winner">
                     </div>
 
                     <div class="sp-3col">
-                        <img src="{% static "site/images/special-projects/children/sp-children-picture20.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-big-img">
+                        <img src="{% static "site/images/special-projects/children/sp-children-picture25.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-big-img">
                     </div>
                 </div>
 
@@ -623,9 +706,10 @@
                             <img src="{% static "site/images/special-projects/children/sp-children-person-shilinceva.jpg" %}{% static_version %}" alt="" class="direct-speech__avatar">
                             <div class="direct-speech__text-wrap">
                                 <div class="direct-speech__author">Лилия Шилинцева</div>
-                                <div class="direct-speech__author-description">педагог информационного центра МБОУ СОШ &#8470;&nbsp;6:</div>
+                                <div class="direct-speech__author-description">педагог-библиотекарь информационного центра МБОУ СОШ &#8470;&nbsp;6:</div>
                                 <div class="direct-speech__text wysiwyg-container">
-                                    <p><i>&mdash;&nbsp;Во&nbsp;всех мероприятиях преподаватели участвуют наравне с&nbsp;учениками. Это помогает создать дружескую атмосферу. Мы&nbsp;делимся своими опытом и&nbsp;умениями, а&nbsp;дети&nbsp;&mdash; своими. Мы&nbsp;так&nbsp;же поем, читаем стихи, шьем костюмы. Любое произведение, обыгранное в&nbsp;виде литературного бала, воспринимается намного живее, чем текст, прочитанный на&nbsp;уроке. Например &laquo;Мастер и&nbsp;Маргарита&raquo;&nbsp;&mdash; довольно сложный для восприятия роман, но&nbsp;у&nbsp;наших детей он&nbsp;вызвал огромный интерес.</i></p>
+                                    <p><i>&mdash;&nbsp;Мероприятия информационно-библиотечного центра объединяют учителей и&nbsp;учеников. Содружество, сотворчество дает хороший результат. Каждый проявляет свой талант.</i></p>
+                                    <p><i>Любое произведение, обыгранное на&nbsp;литературном балу, читательской конференции, воспринимается намного живее, чем текст прочитанный на&nbsp;уроке. Создание образов литературных героев, подготовка костюмов, декораций, музыкальных номеров создают теплую дружескую атмосферу на&nbsp;мероприятиях, способствуют развитию кругозора, привитию читательского вкуса и&nbsp;раскрытию творческих способностей учеников.</i></p>
                                 </div>
                             </div>
                         </div>
@@ -641,16 +725,16 @@
                     </div>
                     <div class="preview-slider__small-img-wrap">
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture22-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture21.jpg" %}{% static_version %}" data-caption="Каждый год в&nbsp;школе организуются литературные балы. Школьники сами разрабатывают для них программу, шьют костюмы, учат танцы, соответствующие выбранной эпохе.">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture30-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture30.jpg" %}{% static_version %}" data-caption="Каждый год в&nbsp;школе организуются литературные балы. Школьники сами разрабатывают для них программу, шьют костюмы, учат танцы, соответствующие выбранной эпохе.">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture23-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture21.jpg" %}{% static_version %}" data-caption="">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture29-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture29.jpg" %}{% static_version %}" data-caption="Педагоги стараются сделать школьный досуг не&nbsp;только развлекательным, но&nbsp;и&nbsp;интеллектуальным. Большим успехом у&nbsp;школьников пользуется &laquo;Интеллектуальное кафе 777&raquo;&nbsp;&mdash; игра-викторина по&nbsp;типу &laquo;Что? Где? Когда?&raquo;">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture24-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture21.jpg" %}{% static_version %}" data-caption="">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture27-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture27.jpg" %}{% static_version %}" data-caption="Косплей тоже может быть полезен в&nbsp;учебе. Фотоконкурс &laquo;Я&nbsp;и&nbsp;литературный герой&raquo;">
                         </button>
                         <button class="preview-slider__mini-btn">
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture25-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture21.jpg" %}{% static_version %}" data-caption="">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture26-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img" data-big-img="{% static "site/images/special-projects/children/sp-children-picture26.jpg" %}{% static_version %}" data-caption="Из&nbsp;школьного театрального кружка вышло немало актеров и&nbsp;радиоведущих. Например, выпускник школы Илья Антоненко (на&nbsp;фото слева) исполнил роль княжича Федора в&nbsp;&laquo;Легенде о&nbsp;Коловрате&raquo;.">
                         </button>
                     </div>
                 </div>
@@ -867,10 +951,10 @@
         </div>
     </section>
 
+
     <section class="sp-children-section sp-children-section_3">
         <div class="sp-children-section__cover-wrap" style="background-image: url({% static "site/images/special-projects/children/section3-cover.jpg" %}{% static_version %})">
             <div class="sp-children-section__title-wrap">
-                <div class="sp-children-section__section-number">3</div>
                 <h2 class="sp-children-section__title">В&nbsp;свободное время</h2>
             </div>
         </div>
@@ -1452,11 +1536,13 @@
         </div>
     </section>
 
+
     <div class="container">
         <div class="sp-8col sp-block_mt80 sp-children-share-widget">
             {% include "site/page-block/share-widget.html" %}
         </div>
     </div>
+
 
     <div class="sp-block_mt100 sp-map-wrap sp-children-section_3__map-wrap">
         <div class="container">
