@@ -21,11 +21,11 @@ $('.slider-arrow').on('click', function() {
     if ($(this).hasClass('slider-arrow-next')) newActiveSlideIndex = (currentActiveSlideIndex < slidesAmount - 1) ? currentActiveSlideIndex + 1 : 0;
     else if ($(this).hasClass('slider-arrow-prev')) newActiveSlideIndex = (currentActiveSlideIndex > 0) ? currentActiveSlideIndex - 1 : slidesAmount - 1;
 
-    sliderContainer.find('.slide.active').stop().fadeTo(animateSpeed, 0, function() {
+    sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
         $(this).removeClass('active');
     });
 
-    sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeTo(animateSpeed, 1, function() {
+    sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
         $(this).addClass('active');
     });
 
@@ -67,11 +67,11 @@ $('.slider-circles-container').on('click', '.slider-circle-item', function() {
         newActiveSlideIndex = sliderCircleItems.index($(this));
 
     if (currentActiveSlideIndex != newActiveSlideIndex) {
-        sliderContainer.find('.slide.active').stop().fadeTo(animateSpeed, 0, function() {
+        sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
             $(this).removeClass('active');
         });
 
-        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeTo(animateSpeed, 1, function() {
+        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
             $(this).addClass('active');
         });
 
