@@ -76,6 +76,11 @@
     top: 210px
     right: 140px
 
+.sp-children__icon_litercy,
+.sp-children__icon_arithmetic,
+.sp-children__icon_world
+    width: 105px
+
 .sp-children__gto-medal
     width: 78px
     height: 80px
@@ -158,11 +163,6 @@
     .sp-2col
         width: 200px
         position: relative
-
-        & > .sp-placeholder
-            position: absolute
-            top: 0
-            right: 0
 
 .sp-12col_4-4-4
     display: flex
@@ -417,27 +417,6 @@
     width: 640px
     max-width: initial
 
-.sp-placeholder
-    flex-shrink: 0
-    background: #f9fafa
-    border: 1px solid $base-c
-    border-radius: 50%
-
-    &_small
-        width: 172px
-        height: 172px
-
-    &_big
-        width: 307px
-        height: 307px
-
-.sp-placeholder_1
-    margin-top: 30px
-    margin-left: auto
-
-.sp-placeholder_2
-    margin-left: 20px
-
 .sp-children-header
     position: relative
     margin-bottom: 90px
@@ -554,11 +533,15 @@
         text-align: center
 
 .icon-title-wrap
+
 .icon-title
     &__icon
+        width: 105px
         margin: 0 auto 20px
 
     &__text
+        margin-left: auto
+        margin-right: auto
         font-family: $bold-f
         font-size: 18px
         letter-spacing: 0.02em
@@ -572,22 +555,6 @@
         &_2line
             max-width: 280px
 
-    &__text-wrap
-        display: flex
-        align-items: center
-
-        &::before,
-        &::after
-            content: ""
-            height: 1px
-            flex-grow: 1
-            background-color: #D7DBE0
-
-        &::before
-            margin-right: 20px
-
-        &::after
-            margin-left: 20px
 
 .sp-slider-timeline
     display: flex
