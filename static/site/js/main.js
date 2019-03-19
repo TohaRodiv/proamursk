@@ -262,7 +262,7 @@ function ajaxInfinityLoader(url, templateName, page) {
             clearInterval(preloaderId);
             if (responseObj.status == true) {
                 if (responseObj.data.last) {
-                    $('.btn_more js-btn_more').addClass('hidden');
+                    $('.btn_more').addClass('hidden');
                 }
 
                 if (templateName === 'news') {
@@ -324,7 +324,7 @@ function ajaxSearchResultInfinityLoader(page, q, section) {
             clearInterval(preloaderId);
             if (responseObj.status == true) {
                 if (responseObj.data.last) {
-                    $('.btn_more js-btn_more').addClass('hidden');
+                    $('.btn_more').addClass('hidden');
                 }
 
                 $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.search_result);
@@ -339,7 +339,7 @@ function ajaxSearchResultInfinityLoader(page, q, section) {
     });
 }
 
-$('body').on('click', '.btn_more js-btn_more', function () {
+$('body').on('click', '.js-btn_more', function () {
     var pageCount = $(this).data('page-count'),
         url, templateName;
 
@@ -516,6 +516,22 @@ function handleDrop(event) {
     var filesList = $(event.target).parents('.pop-up-form-content').find('.attachment-list');
     handleFiles(files, filesList)
 }
+$('.js-dropdown-section_show').click(function () {
+    var currentDropdownBlock = $(this).parents('.dropdown-section'),
+        currentDropdownBlockContent = currentDropdownBlock.find('.sp-dropdown-section__dropdown-content');
+
+    currentDropdownBlockContent.removeClass('hidden');
+    $(this).addClass('hidden');
+})
+
+$('.js-dropdown-section_hide').click(function () {
+    var currentDropdownBlock = $(this).parents('.dropdown-section'),
+        currentDropdownBlockShowBtn = currentDropdownBlock.find('.js-dropdown-section_show'),
+        currentDropdownBlockContent = currentDropdownBlock.find('.sp-dropdown-section__dropdown-content');
+
+    currentDropdownBlockContent.addClass('hidden');
+    currentDropdownBlockShowBtn.removeClass('hidden');
+})
 $('.attachment-input').on('click', function() {
     $('.attachment-input').val('');
 });
@@ -937,12 +953,14 @@ $(function () {
                     iconColor: '#0073FF'
                 }
             );
+            var map1pointPlacemarks = [];
             for (var i = 0; i < map1Places.length; i++) {
-                map1point.add(new ymaps.Placemark(map1Places[i].coords,
+                map1pointPlacemarks.push(new ymaps.Placemark(map1Places[i].coords,
                     {
-                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map1Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map1Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map1Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map1Places[i].site + "/a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map1Places[i].mail + "</a></td></tr></tbody></table></div>"
+                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map1Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map1Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map1Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map1Places[i].site + "</a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map1Places[i].mail + "</a></td></tr></tbody></table></div>"
                     }
                 ));
+                map1point.add(map1pointPlacemarks[i]);
             }
             map1.geoObjects.add(map1point);
 
@@ -1021,12 +1039,14 @@ $(function () {
                     iconColor: '#0073FF'
                 }
             );
+            var map2pointPlacemarks = [];
             for (var i = 0; i < map2Places.length; i++) {
-                map2point.add(new ymaps.Placemark(map2Places[i].coords,
+                map2pointPlacemarks.push(new ymaps.Placemark(map2Places[i].coords,
                     {
-                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map2Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map2Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map2Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map2Places[i].site + "/a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map2Places[i].mail + "</a></td></tr></tbody></table></div>"
+                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map2Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map2Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map2Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map2Places[i].site + "</a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map2Places[i].mail + "</a></td></tr></tbody></table></div>"
                     }
                 ));
+                map2point.add(map2pointPlacemarks[i]);
             }
             map2.geoObjects.add(map2point);
 
@@ -1137,46 +1157,73 @@ $(function () {
                     iconColor: '#0073FF'
                 }
             );
+            var map3pointPlacemarks = [];
             for (var i = 0; i < map3Places.length; i++) {
-                map3point.add(new ymaps.Placemark(map3Places[i].coords,
+                map3pointPlacemarks.push(new ymaps.Placemark(map3Places[i].coords,
                     {
-                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map3Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map3Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map3Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map3Places[i].site + "/a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map3Places[i].mail + "</a></td></tr></tbody></table></div>"
+                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map3Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map3Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map3Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map3Places[i].site + "</a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map3Places[i].mail + "</a></td></tr></tbody></table></div>"
                     }
                 ));
+                map3point.add(map3pointPlacemarks[i]);
             }
             map3.geoObjects.add(map3point);
+
+
+            $('body').on('click', '.sp-map-points__item-btn', function () {
+                var currentMapWrap = $(this).parents('.sp-map-wrap'),
+                    currentMap = currentMapWrap.find('.sp-map'),
+                    currentMapId = currentMap.attr('id');
+
+                currentMapWrap.find('.sp-map-points__item-btn').removeClass('active');
+                $(this).addClass('active');
+
+                if (currentMapId === 'sp-children-section_1__map') {
+                    var coord = $(this).data('coord');
+                    var index = $('.sp-children-section_1__map-wrap').find('.sp-map-points__item-btn').index($(this));
+
+                    map1.panTo(coord, {
+                        flying: 1
+                    });
+                    for (var i = 0; i < map1Places.length; i++) {
+                        if (coord[0] === map1Places[i].coords[0] && coord[1] === map1Places[i].coords[1] && i === index) {
+                            map1pointPlacemarks[i].balloon.open();
+                            break;
+                        };
+                    }
+                    map1.container.fitToViewport();
+                }
+                else if (currentMapId === 'sp-children-section_2__map') {
+                    var coord = $(this).data('coord');
+                    var index = $('.sp-children-section_2__map-wrap').find('.sp-map-points__item-btn').index($(this));
+
+                    map2.panTo(coord, {
+                        flying: 1
+                    });
+                    for (var i = 0; i < map2Places.length; i++) {
+                        if (coord[0] === map2Places[i].coords[0] && coord[1] === map2Places[i].coords[1] && i === index) {
+                            map2pointPlacemarks[i].balloon.open();
+                            break;
+                        };
+                    }
+                    map2.container.fitToViewport();
+                }
+                else if (currentMapId === 'sp-children-section_3__map') {
+                    var coord = $(this).data('coord');
+                    var index = $('.sp-children-section_3__map-wrap').find('.sp-map-points__item-btn').index($(this));
+
+                    map3.panTo(coord, {
+                        flying: 1
+                    });
+                    for (var i = 0; i < map3Places.length; i++) {
+                        if (coord[0] === map3Places[i].coords[0] && coord[1] === map3Places[i].coords[1] && i === index) {
+                            map3pointPlacemarks[i].balloon.open();
+                            break;
+                        };
+                    }
+                    map3.container.fitToViewport();
+                }
+            });
         };
-
-
-
-
-        $('body').on('click', '.sp-map-points__item-btn', function () {
-            var currentMapWrap = $(this).parents('.sp-map-wrap'),
-                currentMap = currentMapWrap.find('.sp-map');
-            currentMapId = currentMap.attr('id');
-
-            currentMapWrap.find('.sp-map-points__item-btn').removeClass('active');
-            $(this).addClass('active');
-
-            if (currentMapId === 'sp-children-section_1__map') {
-                map1.panTo($(this).data('coord'), {
-                    flying: 1
-                });
-                map1.container.fitToViewport();
-            }
-            else if (currentMapId === 'sp-children-section_2__map') {
-                map2.panTo($(this).data('coord'), {
-                    flying: 1
-                });
-                map2.container.fitToViewport();
-            }
-            else if (currentMapId === 'sp-children-section_3__map') {
-                map3.panTo($(this).data('coord'), {
-                    flying: 1
-                });
-                map3.container.fitToViewport();
-            }
-        });
     }
 });
 // маска телефона
@@ -1631,7 +1678,6 @@ var animateSpeed = 300;
 
 $(function () {
     if (sliderDetect()) sliderInit();
-    if (previewSliderDetect()) previewSliderInit();
 })
 
 // Переключение слайдов стрелками
@@ -1650,11 +1696,11 @@ $('.slider-arrow').on('click', function() {
     if ($(this).hasClass('slider-arrow-next')) newActiveSlideIndex = (currentActiveSlideIndex < slidesAmount - 1) ? currentActiveSlideIndex + 1 : 0;
     else if ($(this).hasClass('slider-arrow-prev')) newActiveSlideIndex = (currentActiveSlideIndex > 0) ? currentActiveSlideIndex - 1 : slidesAmount - 1;
 
-    sliderContainer.find('.slide.active').stop().fadeTo(animateSpeed, 0, function() {
+    sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
         $(this).removeClass('active');
     });
 
-    sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeTo(animateSpeed, 1, function() {
+    sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
         $(this).addClass('active');
     });
 
@@ -1672,7 +1718,12 @@ $('.slider-arrow').on('click', function() {
     sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
     sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
 
-    setSliderTimeline($(this), newActiveSlideIndex+1);
+    setSliderTimeline(slider, newActiveSlideIndex + 1);
+
+    if (slider.find('.preview-slider__small-img-wrap').length > 0) {
+        slider.find('.preview-slider__small-img-wrap .preview-slider__mini-btn').removeClass('active');
+        slider.find('.preview-slider__small-img-wrap .preview-slider__mini-btn').eq(newActiveSlideIndex).addClass('active');
+    }
 })
 
 // Переключение слайдов по клику на слайд
@@ -1696,11 +1747,11 @@ $('.slider-circles-container').on('click', '.slider-circle-item', function() {
         newActiveSlideIndex = sliderCircleItems.index($(this));
 
     if (currentActiveSlideIndex != newActiveSlideIndex) {
-        sliderContainer.find('.slide.active').stop().fadeTo(animateSpeed, 0, function() {
+        sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
             $(this).removeClass('active');
         });
 
-        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeTo(animateSpeed, 1, function() {
+        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
             $(this).addClass('active');
         });
 
@@ -1710,7 +1761,7 @@ $('.slider-circles-container').on('click', '.slider-circle-item', function() {
         sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
         sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
 
-        setSliderTimeline($(this), newActiveSlideIndex+1);
+        setSliderTimeline(slider, newActiveSlideIndex+1);
     }
 })
 
@@ -1759,43 +1810,76 @@ function sliderInit() {
         else  {
             sliderCircles.remove();
         }
+
+        if ($(this).find('.preview-slider__small-img-wrap').length > 0) {
+            $(this).find('.preview-slider__small-img-wrap .preview-slider__mini-btn').eq(0).addClass('active');
+        }
     });
 }
 
 
-function previewSliderDetect() {
-    return $('.preview-slider').length > 0 ? true : false;
-}
+$('.timeline-step').click(function () {
+    var timeline = $(this).parents('.sp-slider-timeline'),
+        slider = timeline.siblings('.slider'),
+        sliderContainer = slider.find('.slider-container').eq(0),
+        sliderNavCounter = slider.find('.slide-nav-counter'),
+        sliderCircles = slider.find('.slider-circles-container'),
+        sliderCircleItems = sliderCircles.find('.slider-circle-item'),
+        currentActiveSlideIndex = sliderContainer.find('.slide').index(sliderContainer.find('.slide.active')),
+        newActiveSlideIndex = $(this).data('timeline-slide')-1;
 
-function previewSliderInit() {
-    $('.preview-slider').each(function () {
-        var firstMiniSlide = $(this).find('.preview-slider__mini-btn').eq(0).find('.preview-slider__small-img');
+    if (currentActiveSlideIndex != newActiveSlideIndex) {
+        sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
+            $(this).removeClass('active');
+        });
 
-        previewSlider(firstMiniSlide)
-    });
-}
+        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
+            $(this).addClass('active');
+        });
 
-function previewSlider(slide) {
-    var parentSlider = slide.parents('.preview-slider'),
-        slideBtn = slide.parents('.preview-slider__mini-btn')
-        bigSlideSrc = slide.data('big-img'),
-        slideCaptionText = slide.data('caption'),
-        bigSlide = parentSlider.find('.preview-slider__big-img'),
-        slideCaption = parentSlider.find('.preview-slider__caption');
+        var newActiveSlideIndexText = (newActiveSlideIndex + 1) > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
+        sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
 
-    bigSlide.attr('src', bigSlideSrc);
-    slideCaption.text(slideCaptionText);
-    parentSlider.find('.preview-slider__mini-btn').removeClass('active');
-    slideBtn.addClass('active');
-}
+        sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
+        sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
 
-$('.preview-slider__mini-btn').click(function () {
-    previewSlider($(this).find('.preview-slider__small-img'))
+        setSliderTimeline(slider, newActiveSlideIndex+1);
+    }
 })
 
-function setSliderTimeline(sliderChild, newActiveSlideIndex) {
-    var slider = sliderChild.parents('.slider'),
-        sliderTimeline = slider.siblings('.sp-slider-timeline');
+$('.preview-slider__mini-btn').click(function () {
+    var sliderPreviewWrap = $(this).parents('.preview-slider__small-img-wrap');
+    sliderPreviewWrap.find('.preview-slider__mini-btn').removeClass('active');
+    $(this).addClass('active');
+
+    var slider = $(this).parents('.slider'),
+        sliderContainer = slider.find('.slider-container').eq(0),
+        sliderNavCounter = slider.find('.slide-nav-counter'),
+        sliderCircles = slider.find('.slider-circles-container'),
+        sliderCircleItems = sliderCircles.find('.slider-circle-item'),
+        currentActiveSlideIndex = sliderContainer.find('.slide').index(sliderContainer.find('.slide.active')),
+        newActiveSlideIndex = sliderPreviewWrap.find('.preview-slider__mini-btn').index($(this));
+
+    if (currentActiveSlideIndex != newActiveSlideIndex) {
+        sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
+            $(this).removeClass('active');
+        });
+
+        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
+            $(this).addClass('active');
+        });
+
+        var newActiveSlideIndexText = (newActiveSlideIndex + 1) > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
+        sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+
+        sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
+        sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
+    }
+})
+
+
+function setSliderTimeline(slider, newActiveSlideIndex) {
+    var sliderTimeline = slider.siblings('.sp-slider-timeline');
 
     sliderTimeline.find('.timeline-step').each(function () {
         var currentStepSlide = $(this).data('timeline-slide');
