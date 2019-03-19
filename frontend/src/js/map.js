@@ -78,12 +78,14 @@ $(function () {
                     iconColor: '#0073FF'
                 }
             );
+            var map1pointPlacemarks = [];
             for (var i = 0; i < map1Places.length; i++) {
-                map1point.add(new ymaps.Placemark(map1Places[i].coords,
+                map1pointPlacemarks.push(new ymaps.Placemark(map1Places[i].coords,
                     {
-                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map1Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map1Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map1Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map1Places[i].site + "/a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map1Places[i].mail + "</a></td></tr></tbody></table></div>"
+                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map1Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map1Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map1Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map1Places[i].site + "</a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map1Places[i].mail + "</a></td></tr></tbody></table></div>"
                     }
                 ));
+                map1point.add(map1pointPlacemarks[i]);
             }
             map1.geoObjects.add(map1point);
 
@@ -162,12 +164,14 @@ $(function () {
                     iconColor: '#0073FF'
                 }
             );
+            var map2pointPlacemarks = [];
             for (var i = 0; i < map2Places.length; i++) {
-                map2point.add(new ymaps.Placemark(map2Places[i].coords,
+                map2pointPlacemarks.push(new ymaps.Placemark(map2Places[i].coords,
                     {
-                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map2Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map2Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map2Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map2Places[i].site + "/a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map2Places[i].mail + "</a></td></tr></tbody></table></div>"
+                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map2Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map2Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map2Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map2Places[i].site + "</a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map2Places[i].mail + "</a></td></tr></tbody></table></div>"
                     }
                 ));
+                map2point.add(map2pointPlacemarks[i]);
             }
             map2.geoObjects.add(map2point);
 
@@ -278,45 +282,72 @@ $(function () {
                     iconColor: '#0073FF'
                 }
             );
+            var map3pointPlacemarks = [];
             for (var i = 0; i < map3Places.length; i++) {
-                map3point.add(new ymaps.Placemark(map3Places[i].coords,
+                map3pointPlacemarks.push(new ymaps.Placemark(map3Places[i].coords,
                     {
-                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map3Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map3Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map3Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map3Places[i].site + "/a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map3Places[i].mail + "</a></td></tr></tbody></table></div>"
+                        balloonContent: "<div class='balloon'><div class='balloon__title'>" + map3Places[i].title + "</div><table class='sp-place__contacts-table balloon__content'><tbody><tr><td><span class='icon-geo-stroke'></span>Адрес:</td><td>" + map3Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span>Телефон:</td><td>" + map3Places[i].phone + "</td></tr><tr><td><span class='icon-web'></span>Сайт:</td><td><a href='http://unaturalist.ucoz.com' target='_blank'>" + map3Places[i].site + "</a></td></tr><tr><td><span class='icon-instagram'></span>Почта:</td><td><a href='mailto:naturalist27@yandex.ru' target='_blank'>" + map3Places[i].mail + "</a></td></tr></tbody></table></div>"
                     }
                 ));
+                map3point.add(map3pointPlacemarks[i]);
             }
             map3.geoObjects.add(map3point);
+
+
+            $('body').on('click', '.sp-map-points__item-btn', function () {
+                var currentMapWrap = $(this).parents('.sp-map-wrap'),
+                    currentMap = currentMapWrap.find('.sp-map'),
+                    currentMapId = currentMap.attr('id');
+
+                currentMapWrap.find('.sp-map-points__item-btn').removeClass('active');
+                $(this).addClass('active');
+
+                if (currentMapId === 'sp-children-section_1__map') {
+                    var coord = $(this).data('coord');
+                    var index = $('.sp-children-section_1__map-wrap').find('.sp-map-points__item-btn').index($(this));
+
+                    map1.panTo(coord, {
+                        flying: 1
+                    });
+                    for (var i = 0; i < map1Places.length; i++) {
+                        if (coord[0] === map1Places[i].coords[0] && coord[1] === map1Places[i].coords[1] && i === index) {
+                            map1pointPlacemarks[i].balloon.open();
+                            break;
+                        };
+                    }
+                    map1.container.fitToViewport();
+                }
+                else if (currentMapId === 'sp-children-section_2__map') {
+                    var coord = $(this).data('coord');
+                    var index = $('.sp-children-section_2__map-wrap').find('.sp-map-points__item-btn').index($(this));
+
+                    map2.panTo(coord, {
+                        flying: 1
+                    });
+                    for (var i = 0; i < map2Places.length; i++) {
+                        if (coord[0] === map2Places[i].coords[0] && coord[1] === map2Places[i].coords[1] && i === index) {
+                            map2pointPlacemarks[i].balloon.open();
+                            break;
+                        };
+                    }
+                    map2.container.fitToViewport();
+                }
+                else if (currentMapId === 'sp-children-section_3__map') {
+                    var coord = $(this).data('coord');
+                    var index = $('.sp-children-section_3__map-wrap').find('.sp-map-points__item-btn').index($(this));
+
+                    map3.panTo(coord, {
+                        flying: 1
+                    });
+                    for (var i = 0; i < map3Places.length; i++) {
+                        if (coord[0] === map3Places[i].coords[0] && coord[1] === map3Places[i].coords[1] && i === index) {
+                            map3pointPlacemarks[i].balloon.open();
+                            break;
+                        };
+                    }
+                    map3.container.fitToViewport();
+                }
+            });
         };
-
-
-
-
-        $('body').on('click', '.sp-map-points__item-btn', function () {
-            var currentMapWrap = $(this).parents('.sp-map-wrap'),
-                currentMap = currentMapWrap.find('.sp-map');
-            currentMapId = currentMap.attr('id');
-
-            currentMapWrap.find('.sp-map-points__item-btn').removeClass('active');
-            $(this).addClass('active');
-
-            if (currentMapId === 'sp-children-section_1__map') {
-                map1.panTo($(this).data('coord'), {
-                    flying: 1
-                });
-                map1.container.fitToViewport();
-            }
-            else if (currentMapId === 'sp-children-section_2__map') {
-                map2.panTo($(this).data('coord'), {
-                    flying: 1
-                });
-                map2.container.fitToViewport();
-            }
-            else if (currentMapId === 'sp-children-section_3__map') {
-                map3.panTo($(this).data('coord'), {
-                    flying: 1
-                });
-                map3.container.fitToViewport();
-            }
-        });
     }
 });
