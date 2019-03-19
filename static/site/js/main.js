@@ -262,7 +262,7 @@ function ajaxInfinityLoader(url, templateName, page) {
             clearInterval(preloaderId);
             if (responseObj.status == true) {
                 if (responseObj.data.last) {
-                    $('.btn_more').addClass('hidden');
+                    $('.btn_more js-btn_more').addClass('hidden');
                 }
 
                 if (templateName === 'news') {
@@ -324,7 +324,7 @@ function ajaxSearchResultInfinityLoader(page, q, section) {
             clearInterval(preloaderId);
             if (responseObj.status == true) {
                 if (responseObj.data.last) {
-                    $('.btn_more').addClass('hidden');
+                    $('.btn_more js-btn_more').addClass('hidden');
                 }
 
                 $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.search_result);
@@ -339,7 +339,7 @@ function ajaxSearchResultInfinityLoader(page, q, section) {
     });
 }
 
-$('body').on('click', '.btn_more', function () {
+$('body').on('click', '.btn_more js-btn_more', function () {
     var pageCount = $(this).data('page-count'),
         url, templateName;
 
