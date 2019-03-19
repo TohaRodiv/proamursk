@@ -207,7 +207,7 @@
         font-size: 15px
         line-height: 20px
         letter-spacing: 0.08em
-        color: #283348
+        color: $base-dark-c
 
     img
         height: 460px
@@ -376,6 +376,7 @@
             font-family: $bold-f
 
     &__subtext
+        margin-top: 5px
         margin-left: auto
         margin-right: auto
         font-size: 15px
@@ -454,6 +455,7 @@
         font-size: 76px
         line-height: $mini-lh
         font-family: $bold-f
+        color: $base-dark-c
 
     &__subtitle
         margin-bottom: 45px
@@ -595,7 +597,7 @@
     margin: 20px auto 0
     font-size: 15px
     letter-spacing: 0.08em
-    color: #283348
+    color: $base-dark-c
 
     a
         text-decoration: none
@@ -696,6 +698,7 @@
         height: 100%
         font-size: 35px
         color: $light-c
+        border-radius: 4px
 
     .slider-arrow-prev
         left: 0
@@ -850,6 +853,7 @@
         color: $dark-c
 
     &__item
+        line-height: $base-lh
         &:not(:last-child)
             margin-bottom: 20px
 
@@ -914,7 +918,7 @@
 
             &__text
                 font-size: 12px
-                color: #283348
+                color: $base-dark-c
 
     &_big
 
@@ -937,7 +941,7 @@
             &__text
                 width: 660px
                 font-size: 15px
-                color: #283348
+                color: $base-dark-c
 
 .sp-map-wrap
     position: relative
@@ -987,7 +991,7 @@
 
         &_all-scroll
             overflow: scroll
-            padding: 30px 30px 0
+            padding: 30px
 
     &__list-item
 
@@ -1074,10 +1078,10 @@
                 background: linear-gradient(rgba(255, 255, 255, 0) 0%, #fff 100%)
 
     &__list
-        margin: 0
-        padding: 0
-        overflow: scroll
         height: 100%
+        margin: 0 -30px
+        padding: 0 30px
+        overflow: scroll
 
         &_offset
             .sp-map-points__item
