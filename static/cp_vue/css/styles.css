@@ -1941,12 +1941,11 @@
 .vue-slider-dot {
   border: 1px solid rgba(35, 41, 46, 0.2);
   box-shadow: none !important;
-  transition: border linear .2s !important; }
+  transition: border linear .2s !important;
+  border-radius: 6px; }
 
-.vue-slider-active div .vue-slider-dot {
-  border: 1px solid #23292e; }
-  .vue-slider-active div .vue-slider-dot:hover {
-    border: 1px solid #2686ed; }
+.vue-slider-active div .vue-slider-dot:hover {
+  border: 1px solid #2686ed; }
 
 .auth_input_size {
   width: 190px; }
@@ -2054,7 +2053,6 @@
 
 .checkbox-container {
   display: flex;
-  align-items: center;
   margin-bottom: 10px; }
   .checkbox-container:last-child {
     margin-bottom: 0; }
@@ -8292,7 +8290,7 @@ input:placeholder-shown {
 .auth_logo {
   height: auto;
   width: 300px;
-  border-bottom: 1px solid #4C607B; }
+  border-bottom: 1px solid #F2F2F2; }
   .auth_logo img {
     height: 50px;
     width: 250px;
