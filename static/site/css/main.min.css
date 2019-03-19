@@ -4966,7 +4966,7 @@ footer {
     padding-right: 0;
     vertical-align: baseline; }
     .sp-place__contacts-table td:first-child {
-      width: 125px;
+      min-width: 125px;
       padding-right: 20px; }
 
 .sp-place__img {
