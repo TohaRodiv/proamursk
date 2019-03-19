@@ -43,7 +43,7 @@ $('.slider-arrow').on('click', function() {
     sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
     sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
 
-    setSliderTimeline($(this), newActiveSlideIndex+1);
+    setSliderTimeline(slider, newActiveSlideIndex+1);
 })
 
 // Переключение слайдов по клику на слайд
@@ -81,7 +81,7 @@ $('.slider-circles-container').on('click', '.slider-circle-item', function() {
         sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
         sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
 
-        setSliderTimeline($(this), newActiveSlideIndex+1);
+        setSliderTimeline(slider, newActiveSlideIndex+1);
     }
 })
 
@@ -164,9 +164,39 @@ $('.preview-slider__mini-btn').click(function () {
     previewSlider($(this).find('.preview-slider__small-img'))
 })
 
-function setSliderTimeline(sliderChild, newActiveSlideIndex) {
-    var slider = sliderChild.parents('.slider'),
-        sliderTimeline = slider.siblings('.sp-slider-timeline');
+
+$('.timeline-step').click(function () {
+    var timeline = $(this).parents('.sp-slider-timeline'),
+        slider = timeline.siblings('.slider'),
+        sliderContainer = slider.find('.slider-container').eq(0),
+        sliderNavCounter = slider.find('.slide-nav-counter'),
+        sliderCircles = slider.find('.slider-circles-container'),
+        sliderCircleItems = sliderCircles.find('.slider-circle-item'),
+        currentActiveSlideIndex = sliderContainer.find('.slide').index(sliderContainer.find('.slide.active')),
+        newActiveSlideIndex = $(this).data('timeline-slide')-1;
+
+    if (currentActiveSlideIndex != newActiveSlideIndex) {
+        sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
+            $(this).removeClass('active');
+        });
+
+        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
+            $(this).addClass('active');
+        });
+
+        var newActiveSlideIndexText = (newActiveSlideIndex + 1) > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
+        sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+
+        sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
+        sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
+
+        setSliderTimeline(slider, newActiveSlideIndex+1);
+    }
+})
+
+
+function setSliderTimeline(slider, newActiveSlideIndex) {
+    var sliderTimeline = slider.siblings('.sp-slider-timeline');
 
     sliderTimeline.find('.timeline-step').each(function () {
         var currentStepSlide = $(this).data('timeline-slide');

@@ -4467,6 +4467,11 @@ footer {
     width: calc((100% - 27px) / 2 + 27px + 20px);
     padding-right: calc((100% - 27px) / 2);
     margin-right: 0; }
+  .timeline-step:hover .timeline-step__number {
+    color: #0073FF;
+    border-color: #0073FF; }
+  .timeline-step:hover .timeline-step__title {
+    color: #0073FF; }
   .timeline-step__number-wrap {
     width: 67px;
     height: 27px;
