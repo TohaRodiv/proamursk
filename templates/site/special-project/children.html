@@ -415,7 +415,7 @@
                     <div class="sp-map-points-inner">
                         <div class="sp-map-points__list-item sp-map-points__list-item_single">
                             <div class="sp-map-points__title">Детские сады Амурска</div>
-                            <div class="sp-map-points__list-wrap sp-map-points__list-wrap_1line-title">
+                            <div class="sp-map-points__list-wrap sp-map-points__list-wrap_gradient sp-map-points__list-wrap_1line-title">
                                 <ul class="sp-map-points__list">
                                     <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.218630, 136.906322]">МБДОУ Детский сад комбинированного вида № 9</button></li>
                                     <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.225638, 136.905845]">МБДОУ Детский сад комбинированного вида № 14</button></li>
@@ -945,7 +945,7 @@
             <div class="container">
                 <div class="sp-map-points-outer">
                     <div class="sp-map-points-inner">
-                        <div class="sp-map-points__list-item sp-map-points__list-item_single">
+                        <div class="sp-map-points__list-item sp-map-points__list-wrap_gradient sp-map-points__list-item_single">
                             <div class="sp-map-points__title">Общеобразовательные школы Амурска</div>
                             <div class="sp-map-points__list-wrap sp-map-points__list-wrap_2line-title">
                                 <ul class="sp-map-points__list">
@@ -980,12 +980,16 @@
 
                 <div class="sp-fact-wrap">
                     <div class="sp-fact sp-fact_center">
-                        <div class="sp-fact__icon sp-fact__icon_big"></div>
+                        <div class="sp-fact__icon">
+                            <img src="{% static "site/images/special-projects/children/svg/80percent.svg" %}{% static_version %}" alt="" class="sp-children__icon_80percent">
+                        </div>
                         <div class="sp-fact__title sp-fact__title_italic">80% школьников</div>
                         <div class="sp-fact__subtext sp-fact__subtext_mt10">В&nbsp;Амурске и&nbsp;Амурском районе посещают внешкольные учреждения</div>
                     </div>
                     <div class="sp-fact sp-fact_center">
-                        <div class="sp-fact__icon sp-fact__icon_big"></div>
+                        <div class="sp-fact__icon">
+                            <img src="{% static "site/images/special-projects/children/svg/sections.svg" %}{% static_version %}" alt="" class="sp-children__icon_sections">
+                        </div>
                         <div class="sp-fact__title sp-fact__title_italic">11 муниципальных учреждений</div>
                         <div class="sp-fact__subtext sp-fact__subtext_mt10">дополнительного образования работают в&nbsp;Амурске.</div>
                     </div>
@@ -997,6 +1001,7 @@
             </div>
 
             <div class="sp-8col sp-block sp-block_mt40">
+                <div class="icon-separator"><img src="{% static "site/images/special-projects/children/svg/sport.svg" %}{% static_version %}" alt="" class="icon-separator__icon"></div>
                 <h3 class="sp-children-section__subtitle">СПОРТ</h3>
 
                 <div class="sp-block sp-block_mt80">
@@ -1042,12 +1047,12 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture26.jpg" %}{% static_version %}" alt="" class="sp-place__img">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture33.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
 
-                <div class="sp-separator_sign sp-block_mt40">
+                <div class="sp-separator_sign sp-block_mt80">
                     <img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="">
                 </div>
 
@@ -1091,13 +1096,13 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture27.jpg" %}{% static_version %}" alt="" class="sp-place__img">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture32.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
 
-                <div class="sp-separator_sign sp-block_mt40">
-                    <img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}"  alt="">
+                <div class="sp-separator_sign sp-block_mt80">
+                    <img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="">
                 </div>
 
                 <div class="sp-block sp-block_mt80">
@@ -1133,7 +1138,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture28.jpg" %}{% static_version %}" alt="" class="sp-place__img">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture31.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
@@ -1141,7 +1146,8 @@
 
 
             <div class="sp-8col sp-block sp-block_mt100">
-                <h3 class="sp-children-section__subtitle">искусство</h3>
+                <div class="icon-separator"><img src="{% static "site/images/special-projects/children/svg/art.svg" %}{% static_version %}" alt="" class="icon-separator__icon"></div>
+                <h3 class="sp-children-section__subtitle">ИСКУССТВО</h3>
 
                 <div class="sp-block sp-block_mt80">
                     <div class="sp-place">
@@ -1185,12 +1191,12 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture29.jpg" %}{% static_version %}" alt="" class="sp-place__img">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture42.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
 
-                <div class="sp-separator_sign sp-block_mt40">
+                <div class="sp-separator_sign sp-block_mt80">
                     <img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="">
                 </div>
 
@@ -1236,12 +1242,12 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture30.jpg" %}{% static_version %}" alt="" class="sp-place__img">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture45.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
 
-                <div class="sp-separator_sign sp-block_mt40">
+                <div class="sp-separator_sign sp-block_mt80">
                     <img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="">
                 </div>
 
@@ -1287,12 +1293,12 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture31.jpg" %}{% static_version %}" alt="" class="sp-place__img">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture44.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
 
-                <div class="sp-separator_sign sp-block_mt40">
+                <div class="sp-separator_sign sp-block_mt80">
                     <img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="">
                 </div>
 
@@ -1338,12 +1344,12 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture32.jpg" %}{% static_version %}" alt="" class="sp-place__img">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture37.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
 
-                <div class="sp-separator_sign sp-block_mt40">
+                <div class="sp-separator_sign sp-block_mt80">
                     <img src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="">
                 </div>
 
@@ -1389,7 +1395,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture33.jpg" %}{% static_version %}" alt="" class="sp-place__img">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture38.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
@@ -1397,6 +1403,7 @@
 
 
             <div class="sp-8col sp-block sp-block_mt100">
+                <div class="icon-separator"><img src="{% static "site/images/special-projects/children/svg/languages.svg" %}{% static_version %}" alt="" class="icon-separator__icon"></div>
                 <h3 class="sp-children-section__subtitle">ИНОСТРАННЫЕ ЯЗЫКИ</h3>
 
                 <div class="sp-block sp-block_mt80">
@@ -1441,7 +1448,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <img src="{% static "site/images/special-projects/children/sp-children-picture34.jpg" %}{% static_version %}" alt="" class="sp-place__img">
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture39.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
@@ -1449,6 +1456,7 @@
 
 
             <div class="sp-8col sp-block sp-block_mt100">
+                <div class="icon-separator"><img src="{% static "site/images/special-projects/children/svg/compass.svg" %}{% static_version %}" alt="" class="icon-separator__icon"></div>
                 <h3 class="sp-children-section__subtitle">ЭКОЛОГИЯ И ТУРИЗМ</h3>
 
                 <div class="sp-block sp-block_mt80">
@@ -1544,6 +1552,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <img src="{% static "site/images/special-projects/children/sp-children-picture43.jpg" %}{% static_version %}" alt="" class="sp-place__img">
                         </div>
                     </div>
                 </div>
@@ -1564,9 +1573,9 @@
             <div class="sp-map-points-outer sp-map-points-outer_all-scroll">
                 <div class="sp-map-points-inner sp-map-points-inner_all-scroll">
                     <div class="sp-map-points__list-item">
-                        <div class="sp-map-points__title sp-map-points__title_icon">СПОРТ:</div>
+                        <div class="sp-map-points__title sp-map-points__title_icon sp-map-points__title_icon-sport">СПОРТ:</div>
                         <div class="sp-map-points__list-wrap">
-                            <ul class="sp-map-points__list">
+                            <ul class="sp-map-points__list sp-map-points__list_offset">
                                 <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.216722, 136.902162]">Детский оздоровительно-образовательный центр «Юность»</button></li>
                                 <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.216722, 136.902162]">Детско-юношеская спортивная школа</button></li>
                                 <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.244854, 136.918943]">Клуб «Киокушин»</button></li>
@@ -1574,9 +1583,9 @@
                         </div>
                     </div>
                     <div class="sp-map-points__list-item">
-                        <div class="sp-map-points__title sp-map-points__title_icon">ИСКУССТВО:</div>
+                        <div class="sp-map-points__title sp-map-points__title_icon sp-map-points__title_icon-art">ИСКУССТВО:</div>
                         <div class="sp-map-points__list-wrap">
-                            <ul class="sp-map-points__list">
+                            <ul class="sp-map-points__list sp-map-points__list_offset">
                                 <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.244992, 136.920668]">Детская художественная школа</button></li>
                                 <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.244992, 136.920668]">Детская школа искусств</button></li>
                                 <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.237543, 136.907058]">Детская музыкальная школа</button></li>
@@ -1586,17 +1595,17 @@
                         </div>
                     </div>
                     <div class="sp-map-points__list-item">
-                        <div class="sp-map-points__title sp-map-points__title_icon">ИНОСТРАННЫЕ ЯЗЫКИ:</div>
+                        <div class="sp-map-points__title sp-map-points__title_icon sp-map-points__title_icon-languages">ИНОСТРАННЫЕ ЯЗЫКИ:</div>
                         <div class="sp-map-points__list-wrap">
-                            <ul class="sp-map-points__list">
+                            <ul class="sp-map-points__list sp-map-points__list_offset">
                                 <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.221229, 136.906088]">Лингвистическая школа</button></li>
                             </ul>
                         </div>
                     </div>
                     <div class="sp-map-points__list-item">
-                        <div class="sp-map-points__title sp-map-points__title_icon">ЭКОЛОГИЯ И ТУРИЗМ:</div>
+                        <div class="sp-map-points__title sp-map-points__title_icon sp-map-points__title_icon-compass">ЭКОЛОГИЯ И ТУРИЗМ:</div>
                         <div class="sp-map-points__list-wrap">
-                            <ul class="sp-map-points__list">
+                            <ul class="sp-map-points__list sp-map-points__list_offset">
                                 <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.222307, 136.907229]">Детский эколого-биологический центр «Натуралист»</button></li>
                                 <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.242141, 136.909034]">Центр детского и юношеского туризма и экскурсий</button></li>
                             </ul>
