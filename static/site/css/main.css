@@ -4165,6 +4165,7 @@ footer {
 .sp-step-slider-1__slide-7 {
   padding: 50px 110px; }
   .sp-step-slider-1__slide-7 .sp-step-slider-1__subtitle {
+    margin-top: 20px;
     margin-bottom: 20px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     text-align: center; }
@@ -4227,7 +4228,7 @@ footer {
     text-align: left; }
   .sp-info-note_small {
     width: 640px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 18px; }
     .sp-info-note_small .sp-info-note__sign {
       width: 23px;
@@ -4237,7 +4238,7 @@ footer {
       line-height: 22px;
       border: 1px solid #FF1800; }
     .sp-info-note_small .sp-info-note__text {
-      font-size: 12px;
+      font-size: 14px;
       color: #283348; }
   .sp-info-note_big .sp-info-note__sign {
     width: 43px;
@@ -4250,9 +4251,7 @@ footer {
     font-size: 18px;
     color: #000000; }
   .sp-info-note_middle .sp-info-note__text {
-    width: 660px;
-    font-size: 15px;
-    color: #283348; }
+    width: 660px; }
 
 .sp-map-wrap {
   position: relative;

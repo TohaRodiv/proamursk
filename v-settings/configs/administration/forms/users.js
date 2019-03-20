@@ -135,37 +135,7 @@ const state = {
                                 hint: ''
                             }
                         ]
-                    },
-
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginTop22',
-                        cancelRenderIFSuperuser: true,
-                        elements: [
-                            {
-                                label: 'Пользователь имеет доступ к ПУ (необходимо выбрать хотя бы одну роль)',
-                                controlFlag: [
-                                    {
-                                        toBeChecked: 'codename',
-                                        value: true,
-                                        flag: 'i_am_staff'
-                                    },
-                                ],
-                                blockControl: [
-                                    {
-                                        flag: 'is_editable',
-                                        toBeChecked: 'codename',
-                                        value: false
-                                    }
-                                ],
-                                required: false,
-                                codename: 'is_staff',
-                                widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    },
+                    }
                 ]
             },
             {

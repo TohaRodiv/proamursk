@@ -18,6 +18,7 @@ const state = {
             },
             {
                 name: 'Дата операции',
+                isMain: true,
                 type: 'date',
                 is_sortable: true,
                 align_text: 'left',

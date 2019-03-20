@@ -33,6 +33,7 @@ const state = {
                 align_text: 'left',
                 width: 250,
                 codename: 'name',
+                isMain: true,
                 sort: {
                     order_by: 'name'
                 }
