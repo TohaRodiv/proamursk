@@ -32,6 +32,7 @@ const state = {
                 is_sortable: true,
                 align_text: 'left',
                 width: 250,
+                isMain: true,
                 codename: 'name',
                 sort: {
                     order_by: 'name'

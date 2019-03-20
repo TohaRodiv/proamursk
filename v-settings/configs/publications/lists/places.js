@@ -53,7 +53,6 @@ const state = {
                 align_text: 'left',
                 width: 300,
                 codename: 'address',
-                isMain: true,
                 sort: {
                     order_by: 'address'
                 }
