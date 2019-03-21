@@ -787,7 +787,7 @@ class UploadFile(View):
             result = {'status': False, 'message': settings.COMMON_FORM_ERROR_MESSAGE}
             return JsonResponse(result)
 
-        tags = ['Обращение']
+        tags = ['Обратная связь / Обращения в редакцию']
         data = get_file_data(file_obj)
         data['tags'] = get_tags_id(tags)
         form = UploadForm(data, request.FILES)
