@@ -375,8 +375,6 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
         ('transport', 'Как перемещаться по городу?'),
         ('phones', 'Полезные телефоны'),
     )
-    cover = models.ForeignKey('mediafiles.MediaFile', on_delete=models.CASCADE, verbose_name='Обложка')
-    cover_format = models.CharField('Формат обложки', choices=FORMATS, default=SMALL, max_length=45)
     guide_format = models.CharField('Форматы контента', choices=GUIDE_FORMATS, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.TextField('Подзаголовок')

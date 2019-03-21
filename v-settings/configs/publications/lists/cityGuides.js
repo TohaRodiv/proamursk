@@ -47,15 +47,6 @@ const state = {
                 }
             },
             {
-                name: 'Формат обложки',
-                type: 'text',
-                is_sortable: false,
-                align_text: 'left',
-                width: 200,
-                codename: 'cover_format_name',
-                sort: 'none'
-            },
-            {
                 name: 'Ссылка',
                 type: 'link',
                 is_sortable: false,
@@ -73,17 +64,6 @@ const state = {
                 codename: 'comment',
                 sort: 'none'
             },
-            // {
-            //     name: 'Дата публикации',
-            //     type: 'date',
-            //     is_sortable: true,
-            //     align_text: 'left',
-            //     width: 180,
-            //     codename: 'publication_date',
-            //     sort: {
-            //         order_by: 'publication_date'
-            //     }
-            // },
             {
                 name: 'Дата создания',
                 type: 'date',
@@ -117,33 +97,6 @@ const state = {
     },
     filterConfig: {
         'city-guides': [
-            {
-                filterTitle: 'Форматы обложек',
-                queryName: 'cover_formats__in',
-                viewValue: 'name',
-                input_type: 'CheckboxList',
-                callbackValue: 'name',
-                values: [
-                    {
-                        codename: 'small',
-                        name: 'Обычная обложка',
-                    },
-                    {
-                        codename: 'full',
-                        name: 'Полноразмерная обложка',
-                    },
-                ]
-            },
-            // {
-            //     filterTitle: 'Дата публикации',
-            //     minMaxCodename: 'publication_date',
-            //     queryName: {
-            //         min: 'publication_date__gte',
-            //         max: 'publication_date__lte'
-            //     },
-            //     input_type: 'toFromDate',
-            //     type: 'date_time'
-            // },
             {
                 filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',

@@ -502,25 +502,18 @@ class CityGuideItemSerializer(ModelSerializer):
 
 
 class CityGuidesListSerializer(ModelSerializer):
-    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    cover_format_name = serializers.SerializerMethodField()
     guide_format_name = serializers.SerializerMethodField()
 
     class Meta:
         model = CityGuide
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'guide_format', 'guide_format_name', 'title',
+        fields = ('id', 'guide_format', 'guide_format_name', 'title',
                   'comment', 'is_active', 'create_date', 'edit_date')
-
-    def get_cover_format_name(self, instance):
-        return dict(instance.FORMATS).get(instance.cover_format)
 
     def get_guide_format_name(self, instance):
         return dict(instance.GUIDE_FORMATS).get(instance.guide_format)
 
 
 class CityGuidesDetailSerializer(ModelSerializer):
-    cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
-    cover_format_name = serializers.SerializerMethodField()
 
     og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
                                   required=False,
@@ -531,13 +524,10 @@ class CityGuidesDetailSerializer(ModelSerializer):
 
     class Meta:
         model = CityGuide
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'descriptor', 'guide_format',
+        fields = ('id', 'title', 'descriptor', 'guide_format',
                   'guide_format_name', 'comment', 'create_date', 'edit_date', 'meta_title',
                   'meta_description', 'meta_keywords', 'og_image', 'show_two_banners', 'is_active',
                   'items')
-
-    def get_cover_format_name(self, instance):
-        return dict(instance.FORMATS).get(instance.cover_format)
 
     def get_guide_format_name(self, instance):
         return dict(instance.GUIDE_FORMATS).get(instance.guide_format)

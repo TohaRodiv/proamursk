@@ -67,36 +67,6 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        direction: 'column',
-                        modClass: 'marginBottom22',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Формат обложки<br>(представление в сетке)',
-                                codename: 'cover_format',
-                                has_borders: true,
-                                required: true,
-                                invalid: false,
-                                widget: 'radioButtons',
-                                hint: '',
-                                width: 6,
-                                values: [
-                                    {
-                                        label: 'Обычная обложка',
-                                        flag: true,
-                                        codename: 'small'
-                                    },
-                                    {
-                                        label: 'Полноразмерная обложка',
-                                        flag: false,
-                                        codename: 'full'
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
                         modClass: 'marginBottom50',
                         direction: 'row',
                         elements: [
@@ -544,37 +514,6 @@ const state = {
                             }
                         ]
                     }
-                ]
-            },
-            {
-                id: 3,
-                title: 'ИЗОБРАЖЕНИЯ',
-                blocks: [
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                inputID: 'cityGuidesCoverInput',
-                                dragID: 'cityGuidesCoverDrag',
-                                label: 'Обложка',
-                                expected_value: 'medium_url',
-                                required: true,
-                                invalid: false,
-                                width: 12,
-                                image: {
-                                    width: 1720,
-                                    height: 1000,
-                                },
-                                codename: 'cover',
-                                widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: ''
-                            },
-                        ]
-                    },
                 ]
             },
             {

@@ -65,7 +65,7 @@
         height: 26px
         font-size: 12px
         line-height: 22px
-        font-family: $add-f
+        font-family: $base-f
         font-weight: bold
         letter-spacing: 0.08em
         text-decoration: none
@@ -87,18 +87,18 @@
                 width: calc(100% + 14px)
 
         span
-            vertical-align: middle
             position: relative
             z-index: 2
 
         .text
             padding-left: 2px
+            vertical-align: -3px
 
         .icon
             margin-left: 10px
             font-size: 10px
             color: $base-c
-            vertical-align: -2px
+            vertical-align: -4px
 
         &::before
             content: ""
@@ -189,18 +189,36 @@
                 &:hover
                     color: $base-c
 
+    &_format-city-guide
+        background-color: $base-dark-c
+        color: $light-c
+
+        .grid-publication__cover-wrap
+            height: 280px
+
+        .grid-publication__cover
+            width: 260px
+            height: 220px
+            margin: 50px auto 0
+
     &_full-width-slider
         height: 100%
         border: none
         border-radius: 0
 
 
-.grid-publication
+.grid-publication:not(.grid-publication_format-city-guide)
     &:hover,
     &:focus
         .grid-publication__bg-gradient
             display: block
             background-color: rgba(#4c607b, .1)
+
+.grid-publication_format-city-guide
+    &:hover,
+    &:focus
+        .grid-publication__title
+            color: $base-c
 
 .read-also .grid-publication
     border: 1px solid  lighten(#283349, 15%)

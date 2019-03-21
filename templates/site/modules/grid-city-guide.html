@@ -1,0 +1,32 @@
+{% load media_filters %}
+{% load static static_version %}
+{% load pytils_dt %}
+{% load site_tags %}
+
+<a href="{{ item.get_absolute_url }}" class="grid-publication grid-publication_format-city-guide">
+
+    <div class="grid-publication__cover-wrap">
+        <div class="grid-publication__bg-gradient"></div>
+        {% if item.guide_format == 'hotel' %}
+            <img src="{% static "site/images/svg/city-guide-cover-hotel.svg" %}{% static_version %}" alt="" class="grid-publication__cover">
+        {% elif item.guide_format == 'food' %}
+            <img src="{% static "site/images/svg/city-guide-cover-food.svg" %}{% static_version %}" alt=""   class="grid-publication__cover">
+        {% elif item.guide_format == 'activities' %}
+            <img src="{% static "site/images/svg/city-guide-cover-activities.svg" %}{% static_version %}" alt="" class="grid-publication__cover">
+        {% elif item.guide_format == 'transport' %}
+            <img src="{% static "site/images/svg/city-guide-cover-transport.svg" %}{% static_version %}" alt="" class="grid-publication__cover">
+        {% elif item.guide_format == 'phones' %}
+            <img src="{% static "site/images/svg/city-guide-cover-phones.svg" %}{% static_version %}" alt="" class="grid-publication__cover">
+        {% endif %}
+    </div>
+
+    <div class="grid-publication__text-wrap">
+        <h2 class="grid-publication__title">{{ item.title }}</h2>
+
+        <p class="grid-publication__text grid-publication__description">{{ item.descriptor }}</p>
+
+        <div class="grid-publication__wobbler">
+            {% include "site/modules/wobbler.html" %}
+        </div>
+    </div>
+</a>
