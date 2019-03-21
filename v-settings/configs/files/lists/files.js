@@ -1,5 +1,3 @@
-
-
 const state = {
     columnsConfig: {
         files: [
@@ -66,7 +64,7 @@ const state = {
                 is_sortable: true,
                 codename: 'tags',
                 align_text: 'left',
-                width: 210,
+                width: 420,
                 sort: {
                     order_by: 'tags'
                 }
@@ -127,7 +125,7 @@ const state = {
                 filterTitle: 'Медиатеги',
                 queryName: 'tags_id__in',
                 viewValue: 'name',
-                input_type: 'tags',
+                input_type: 'tagSelector',
                 api_route: 'files-tags',
                 sortFlag: {
                     value: 'name',
