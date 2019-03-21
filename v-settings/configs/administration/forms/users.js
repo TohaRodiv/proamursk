@@ -62,9 +62,7 @@ const state = {
                             {
                                 type: 'shortTag',
                                 label: 'Роли пользователя в ПУ',
-                                required: false,
-                                invalid: false,
-                                requiredIfFlag: 'i_am_staff',
+                                required: true,
                                 width: 8,
                                 codename: 'roles',
                                 callbackType: 'idArray',
@@ -80,7 +78,22 @@ const state = {
                                         flex: .85,
                                     },
                                 ],
-                                hint: ''
+                                hint: '',
+                                mounted: (component) => {
+                                    if (component.isSuperUser.flag) {
+                                        component.changeField({ 
+                                            codename: 'roles',
+                                            key: 'required',
+                                            value: false
+                                        });
+                                    } else {
+                                        component.changeField({ 
+                                            codename: 'roles',
+                                            key: 'required',
+                                            value: true
+                                        });
+                                    }
+                                }
                             },
                         ]
                     },
