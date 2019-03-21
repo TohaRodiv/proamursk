@@ -547,37 +547,6 @@ const state = {
                 ]
             },
             {
-                id: 3,
-                title: 'ИЗОБРАЖЕНИЯ',
-                blocks: [
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                inputID: 'cityGuidesCoverInput',
-                                dragID: 'cityGuidesCoverDrag',
-                                label: 'Обложка',
-                                expected_value: 'medium_url',
-                                required: true,
-                                invalid: false,
-                                width: 12,
-                                image: {
-                                    width: 1720,
-                                    height: 1000,
-                                },
-                                codename: 'cover',
-                                widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: ''
-                            },
-                        ]
-                    },
-                ]
-            },
-            {
                 id: 4,
                 title: 'SEO и OG',
                 invalid: false,
