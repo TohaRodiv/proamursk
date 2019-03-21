@@ -2954,14 +2954,26 @@ footer {
       color: #FFFFFF; }
       .grid-publication_format-full .grid-publication__link:hover {
         color: #0073FF; }
+  .grid-publication_format-city-guide {
+    background-color: #283348;
+    color: #FFFFFF; }
+    .grid-publication_format-city-guide .grid-publication__cover-wrap {
+      height: 280px; }
+    .grid-publication_format-city-guide .grid-publication__cover {
+      width: 260px;
+      height: 220px;
+      margin: 50px auto 0; }
   .grid-publication_full-width-slider {
     height: 100%;
     border: none;
     border-radius: 0; }
 
-.grid-publication:hover .grid-publication__bg-gradient, .grid-publication:focus .grid-publication__bg-gradient {
+.grid-publication:not(.grid-publication_format-city-guide):hover .grid-publication__bg-gradient, .grid-publication:not(.grid-publication_format-city-guide):focus .grid-publication__bg-gradient {
   display: block;
   background-color: rgba(76, 96, 123, 0.1); }
+
+.grid-publication_format-city-guide:hover .grid-publication__title, .grid-publication_format-city-guide:focus .grid-publication__title {
+  color: #0073FF; }
 
 .read-also .grid-publication {
   border: 1px solid #43567a; }
