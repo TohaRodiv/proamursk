@@ -12,16 +12,6 @@ const state = {
                 sort: 'none'
             },
             {
-                name: '',
-                type: 'image',
-                is_sortable: false,
-                align_text: 'center',
-                width: 60,
-                fixed: true,
-                codename: 'cover.min_crop_url',
-                sort: 'none'
-            },
-            {
                 name: '#',
                 type: 'int',
                 is_sortable: true,
