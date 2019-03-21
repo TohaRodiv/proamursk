@@ -2596,16 +2596,16 @@ footer {
       .grid-publication__link:hover::before {
         width: calc(100% + 14px); }
     .grid-publication__link span {
-      vertical-align: middle;
       position: relative;
       z-index: 2; }
     .grid-publication__link .text {
-      padding-left: 2px; }
+      padding-left: 2px;
+      vertical-align: -3px; }
     .grid-publication__link .icon {
       margin-left: 10px;
       font-size: 10px;
       color: #0073FF;
-      vertical-align: -2px; }
+      vertical-align: -4px; }
     .grid-publication__link::before {
       content: "";
       display: block;
@@ -3101,7 +3101,7 @@ footer {
   width: 32px;
   height: 32px;
   font-size: 14px;
-  line-height: 28px;
+  line-height: 30px;
   font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
   font-weight: 600;
   text-align: center;
