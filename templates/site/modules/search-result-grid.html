@@ -7,6 +7,10 @@
         {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="reportage" %}
             {% include "site/modules/grid-event.html" %}
         {% endwith %}
+    {% elif section == 'guides' %}
+        {% with wobler_type="cityguide" guide_format="guide_format" %}
+            {% include "site/modules/grid-city-guide.html" %}
+        {% endwith %}
     {% else %}
         {% with cover_format=item.cover_format|default:"small" %}
         {% with cover_name="3_column_img_"|add:cover_format %}
