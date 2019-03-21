@@ -93,7 +93,7 @@ const state = {
                 type: 'tag',
                 codename: 'tags',
                 align_text: 'left',
-                width: 210,
+                width: 420,
                 sort: {
                     order_by: 'file_size'
                 }
@@ -171,7 +171,7 @@ const state = {
                 filterTitle: 'Медиатеги',
                 queryName: 'tags_id__in',
                 viewValue: 'name',
-                input_type: 'tags',
+                input_type: 'tagSelector',
                 api_route: 'mediafiles-tags',
                 sortFlag: {
                     value: 'name',
