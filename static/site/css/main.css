@@ -1576,7 +1576,7 @@ input.btn_preloader {
   .post-editor__block_quote .quote__title {
     font-size: 42px;
     line-height: 1.2;
-    font-family: "Proxima Nova Bold It", Arial, Helvetica, sans-serif;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     color: #0073FF; }
   .post-editor__block_quote .quote__text {
     margin-bottom: 0;
@@ -2579,7 +2579,7 @@ footer {
     height: 26px;
     font-size: 12px;
     line-height: 22px;
-    font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+    font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
     font-weight: bold;
     letter-spacing: 0.08em;
     text-decoration: none;
@@ -2781,13 +2781,13 @@ footer {
     margin-bottom: 15px;
     border-radius: 10px; }
   .movie-posters-item__title {
-    font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+    font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 18px;
     letter-spacing: 0.02em;
     color: #FFFFFF; }
   .movie-posters-item__genre {
-    font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+    font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
     font-size: 16px;
     letter-spacing: 0.02em;
     color: #7a8ba1; }
@@ -3102,7 +3102,7 @@ footer {
   height: 32px;
   font-size: 14px;
   line-height: 28px;
-  font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+  font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
   font-weight: 600;
   text-align: center;
   border-radius: 50%;
