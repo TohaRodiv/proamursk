@@ -1574,8 +1574,9 @@ input.btn_preloader {
   padding-left: 25px;
   border-left: 4px solid #0073FF; }
   .post-editor__block_quote .quote__title {
-    font-family: "Proxima Nova Bold It", Arial, Helvetica, sans-serif;
     font-size: 42px;
+    line-height: 1.2;
+    font-family: "Proxima Nova Bold It", Arial, Helvetica, sans-serif;
     color: #0073FF; }
   .post-editor__block_quote .quote__text {
     margin-bottom: 0;
@@ -2274,7 +2275,6 @@ footer {
   .news-list-item__date {
     margin-top: auto;
     font-size: 14px;
-    font-family: "SegoeUI", Arial, Helvetica, sans-serif;
     letter-spacing: 0.08em;
     color: #7A7A7A; }
 
@@ -2668,14 +2668,26 @@ footer {
       color: #FFFFFF; }
       .grid-publication_format-full .grid-publication__link:hover {
         color: #0073FF; }
+  .grid-publication_format-city-guide {
+    background-color: #283348;
+    color: #FFFFFF; }
+    .grid-publication_format-city-guide .grid-publication__cover-wrap {
+      height: 280px; }
+    .grid-publication_format-city-guide .grid-publication__cover {
+      width: 260px;
+      height: 220px;
+      margin: 50px auto 0; }
   .grid-publication_full-width-slider {
     height: 100%;
     border: none;
     border-radius: 0; }
 
-.grid-publication:hover .grid-publication__bg-gradient, .grid-publication:focus .grid-publication__bg-gradient {
+.grid-publication:not(.grid-publication_format-city-guide):hover .grid-publication__bg-gradient, .grid-publication:not(.grid-publication_format-city-guide):focus .grid-publication__bg-gradient {
   display: block;
   background-color: rgba(76, 96, 123, 0.1); }
+
+.grid-publication_format-city-guide:hover .grid-publication__title, .grid-publication_format-city-guide:focus .grid-publication__title {
+  color: #0073FF; }
 
 .read-also .grid-publication {
   border: 1px solid #43567a; }
