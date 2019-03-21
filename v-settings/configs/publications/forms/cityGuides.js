@@ -67,36 +67,6 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        direction: 'column',
-                        modClass: 'marginBottom22',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Формат обложки<br>(представление в сетке)',
-                                codename: 'cover_format',
-                                has_borders: true,
-                                required: true,
-                                invalid: false,
-                                widget: 'radioButtons',
-                                hint: '',
-                                width: 6,
-                                values: [
-                                    {
-                                        label: 'Обычная обложка',
-                                        flag: true,
-                                        codename: 'small'
-                                    },
-                                    {
-                                        label: 'Полноразмерная обложка',
-                                        flag: false,
-                                        codename: 'full'
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
                         modClass: 'marginBottom50',
                         direction: 'row',
                         elements: [
