@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block og %}
-    {% og_meta_tags og_title=guide.meta_title|default:guide.title og_description=guide.meta_description og_image=guide.og_image|default:guide.cover|get_thumbnail_url_by_name:"og_image_default" %}
+    {% og_meta_tags og_title=guide.meta_title|default:guide.title og_description=guide.meta_description og_image=guide.og_image|get_thumbnail_url_by_name:"og_image_default" %}
 {% endblock %}
 
 

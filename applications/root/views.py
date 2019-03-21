@@ -332,7 +332,7 @@ class CityGuidesDetailView(View):
                 guide = CityGuide.objects.get(id=pk)
             else:
                 guide = CityGuide.objects.get(id=pk, is_active=True)
-        except:
+        except Exception as e:
             raise Http404
 
         template_name = 'site/city-guide-%s.html' % guide.guide_format
@@ -348,7 +348,7 @@ class CityGuidesDetailView(View):
             return render(request, template_name, dict(guide=guide,
                                                        guide_items=guide_items,
                                                        guides=guides))
-        except:
+        except Exception as e:
             raise Http404
 
 
