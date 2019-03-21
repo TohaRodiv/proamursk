@@ -93,7 +93,7 @@ const state = {
                 type: 'tag',
                 codename: 'tags',
                 align_text: 'left',
-                width: 420,
+                width: 340,
                 sort: {
                     order_by: 'file_size'
                 }
@@ -132,7 +132,7 @@ const state = {
             {
                 filterTitle: 'Форматы изображений',
                 queryName: 'extension_id__in',
-                input_type: 'tagSelector',
+                input_type: 'tags',
                 api_route: 'mediafiles-extensions',
                 sortFlag: {
                     value: 'name',

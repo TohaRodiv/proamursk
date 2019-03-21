@@ -64,7 +64,7 @@ const state = {
                 is_sortable: true,
                 codename: 'tags',
                 align_text: 'left',
-                width: 420,
+                width: 340,
                 sort: {
                     order_by: 'tags'
                 }
