@@ -98,9 +98,9 @@ def read_also(context):
     top_objects = context.get('top_objects', [])
 
     persons = Person.objects.filter(is_active=True,
-                                    publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('-publication_date')
+                                    publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('?')
     history = History.objects.filter(is_active=True,
-                                     publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
+                                     publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('?')
 
     request = context.get('request')
     if request:
@@ -127,7 +127,7 @@ def read_also(context):
     persons = persons[:2]
     history = history[:2]
 
-    return dict(items=list(persons) + list(history))
+    return dict(items=sorted(list(persons) + list(history), key=lambda x: x.publication_date, reverse=True))
 
 
 @register.inclusion_tag('notifications/posts.html', takes_context=True)
