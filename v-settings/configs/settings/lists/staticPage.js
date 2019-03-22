@@ -1,5 +1,3 @@
-
-
 const state = {
     columnsConfig: {
         'static-page-settings': [

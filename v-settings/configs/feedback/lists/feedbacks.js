@@ -6,7 +6,7 @@ const state = {
                 type: 'int',
                 is_sortable: true,
                 align_text: 'left',
-                width: 60,
+                width: 100,
                 fixed: true,
                 codename: 'id',
                 sort: {
