@@ -112,7 +112,17 @@ class EventsListView(View):
 
         events = list(Event.objects.select_related('cover').filter(
             is_active=True,
-            start_event_date__gte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('-start_event_date')[:4])
+            start_event_date__gte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('-start_event_date')[:2])
+
+        reports = Report.objects.select_related('cover').filter(is_active=True,
+                                                                publication_date__lte=timezone.now()).order_by('-publication_date')
+        reports = reports.exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports'])
+        if len(events) < 2:
+            reports = list(reports[:3])
+        else:
+            reports = list(reports[:2])
+
+        events += reports
 
         today_films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
