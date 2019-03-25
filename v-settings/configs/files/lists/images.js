@@ -18,7 +18,7 @@ const state = {
                 type: 'image',
                 is_sortable: false,
                 align_text: 'left',
-                width: 120,
+                width: 100,
                 fixed: true,
                 codename: 'min_crop_url',
                 sort: 'none'
