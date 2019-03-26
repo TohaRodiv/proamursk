@@ -137,8 +137,12 @@
 
                     <div class="footer__social-wrap">
                         <div class="social-wrap">
-                            <a href="{{ request.SETTINGS.instagram }}" class="social-link icon-instagram" alt="Инстаграм" target="_blank"></a>
-                            <a href="{{ request.SETTINGS.odnoklassniki }}" class="social-link icon-odnoklassniki" alt="Одноклассники" target="_blank"></a>
+                            {% if request.SETTINGS.instagram %}
+                                <a href="{{ request.SETTINGS.instagram }}" class="social-link icon-instagram" alt="Инстаграм" target="_blank"></a>
+                            {% endif %}
+                            {% if request.SETTINGS.odnoklassniki %}
+                                <a href="{{ request.SETTINGS.odnoklassniki }}" class="social-link icon-odnoklassniki" alt="Одноклассники" target="_blank"></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
