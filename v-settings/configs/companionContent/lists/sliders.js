@@ -15,7 +15,7 @@ const state = {
                 name: '#',
                 type: 'int',
                 is_sortable: true,
-                align_text: 'center',
+                align_text: 'left',
                 width: 100,
                 fixed: true,
                 codename: 'id',

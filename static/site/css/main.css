@@ -121,11 +121,8 @@ figure, figcaption {
 
 p {
   margin-top: 0;
+  margin-bottom: 0;
   line-height: 1.5; }
-  p + p:last-of-type {
-    margin-bottom: 0; }
-  p:not(:last-of-type), p:not(:last-child) {
-    margin-bottom: 20px; }
 
 ul, ol {
   list-style: none; }
@@ -2179,7 +2176,7 @@ footer {
     margin-top: 40px; }
   .publication__author {
     width: 640px;
-    margin: 0 auto 20px;
+    margin: 0 auto 40px;
     font-size: 18px; }
 
 .last-news {

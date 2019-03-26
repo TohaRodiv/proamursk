@@ -34,8 +34,6 @@ const state = {
                             {
                                 type: 'field',
                                 label: 'Профиль в Instagram',
-                                required: true,
-                                invalid: false,
                                 height: 56,
                                 width: 10,
                                 codename: 'instagram',
@@ -53,8 +51,6 @@ const state = {
                             {
                                 type: 'field',
                                 label: 'Профиль в Одноклассниках',
-                                required: true,
-                                invalid: false,
                                 height: 56,
                                 width: 10,
                                 codename: 'odnoklassniki',

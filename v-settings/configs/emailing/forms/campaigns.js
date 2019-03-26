@@ -25,9 +25,6 @@ const hint = `<span style="font-weight: 600;">Тег для публикаций
         <span>place — Статья о месте</span>
     </li>
     <li>
-        <span>guide — Гид по городу</span>
-    </li>
-    <li>
         <span>special — Спецпроект</span>
     </li>
 </ul>

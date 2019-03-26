@@ -16,7 +16,7 @@ const state = {
                 type: 'fileGrid',
                 is_sortable: false,
                 align_text: 'left',
-                width: 120,
+                width: 100,
                 fixed: true,
                 codename: 'extension',
                 sort: 'none'
