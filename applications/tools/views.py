@@ -33,7 +33,8 @@ class InfinityLoaderListView(View):
 
     def get(self, request):
         items = self.get_items_page()
-        return render(request, self.template_name, {self.context_list_name: items})
+        return render(request, self.template_name, {self.context_list_name: items,
+                                                    'has_next': items.has_next()})
 
     def post(self, request):
         if request.is_ajax():

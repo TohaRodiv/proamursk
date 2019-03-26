@@ -4444,6 +4444,9 @@ input:placeholder-shown {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
+.list-context-menu-icon-container {
+  width: 30px; }
+
 .list-context-menu-container {
   display: flex;
   justify-content: center;
@@ -4961,7 +4964,8 @@ input:placeholder-shown {
   position: relative;
   height: 100%;
   width: calc(100% - 20px);
-  margin-right: 20px; }
+  margin-right: 20px;
+  overflow-x: auto; }
 
 .forms-wrapper {
   position: relative;
@@ -5359,7 +5363,8 @@ input:placeholder-shown {
   transition: transform .2s; }
 
 .tabs-wrapper {
-  width: 1020px;
+  min-width: 1040px;
+  width: 100%;
   overflow: auto; }
   .tabs-wrapper::-webkit-scrollbar {
     display: none; }
