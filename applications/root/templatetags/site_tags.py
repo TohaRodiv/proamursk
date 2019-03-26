@@ -140,7 +140,6 @@ def posts(context, *args):
         history=History,
         person=Person,
         place=Place,
-        guide=CityGuide,
         special=Special,
     )
 
