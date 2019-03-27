@@ -18,7 +18,7 @@ class InfinityLoaderListView(View):
     items_per_page = 10
 
     def get_queryset(self):
-        return self.queryset.all()
+        return self.queryset.all().order_by(*self.queryset.query.order_by)
 
     def get_items_page(self, page=1):
         paginator = Paginator(self.get_queryset(), self.items_per_page)
