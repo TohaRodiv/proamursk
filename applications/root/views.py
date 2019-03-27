@@ -62,14 +62,14 @@ class IndexView(View):
         events = Event.objects.filter(is_active=True,
                                       start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('start_event_date')[:2]
         reports = Report.objects.filter(is_active=True,
-                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')[:2]
-        places = Place.objects.filter(is_active=True, publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places']).order_by('-publication_date')[:(6-len(events)-len(reports))]
+                                       publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')[:2]
+        places = Place.objects.filter(is_active=True, publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places']).order_by('-publication_date')[:(6-len(events)-len(reports))]
         what_to_do = list(events) + list(reports) + list(places)
         films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
                                     sessions__session_time__lt=current_date + timedelta(days=1)
                                     ).distinct()
-        specials = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
+        specials = Special.objects.filter(is_active=True, publication_date__lte=datetime.now())
         wide_banner = WideBanner.objects.filter((Q(start_publication_date__isnull=True) | Q(start_publication_date__lte=datetime.now())) &
                                                 (Q(end_publication_date__isnull=True) | Q(end_publication_date__gte=datetime.now())),
                                                 is_active=True).order_by('?').first()
@@ -82,7 +82,7 @@ class IndexView(View):
 
 class NewsListView(InfinityLoaderListView):
     queryset = News.objects.select_related('cover').filter(is_active=True,
-                                                           publication_date__lte=timezone.now()).order_by('-publication_date')
+                                                           publication_date__lte=datetime.now()).order_by('-publication_date')
     template_name = 'site/news-list.html'
     ajax_template_name = 'site/modules/news-list-block.html'
     context_list_name = 'news'
@@ -92,7 +92,7 @@ class NewsListView(InfinityLoaderListView):
 
 class NewsDetailView(DetailView):
     model = News
-    queryset = News.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = News.objects.select_related('cover').filter(is_active=True, publication_date__lte=datetime.now())
     context_object_name = 'news'
     template_name = 'site/news-details.html'
 
@@ -112,10 +112,10 @@ class EventsListView(View):
 
         events = list(Event.objects.select_related('cover').filter(
             is_active=True,
-            start_event_date__gte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('-start_event_date')[:2])
+            start_event_date__gte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('-start_event_date')[:2])
 
         reports = Report.objects.select_related('cover').filter(is_active=True,
-                                                                publication_date__lte=timezone.now()).order_by('-publication_date')
+                                                                publication_date__lte=datetime.now()).order_by('-publication_date')
         reports = reports.exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports'])
         if len(events) < 2:
             reports = list(reports[:3])
@@ -148,7 +148,7 @@ class EventsListView(View):
 
 class EventsListFutureView(InfinityLoaderListView):
     queryset = Event.objects.filter(is_active=True,
-                                    start_event_date__gte=timezone.now()).order_by('-start_event_date')
+                                    start_event_date__gte=datetime.now()).order_by('-start_event_date')
 
     template_name = 'site/future-events.html'
     ajax_template_name = 'site/modules/grid-event-block.html'
@@ -161,7 +161,7 @@ class EventsListFutureView(InfinityLoaderListView):
 
     def get(self, request):
         items = Event.objects.filter(is_active=True,
-                                     start_event_date__gte=timezone.now()).order_by('-start_event_date')
+                                     start_event_date__gte=datetime.now()).order_by('-start_event_date')
         has_next = items.count() > 16
         items = items[:16]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -170,7 +170,7 @@ class EventsListFutureView(InfinityLoaderListView):
 
 class EventsListPastView(InfinityLoaderListView):
     queryset = Event.objects.filter(is_active=True,
-                                    start_event_date__lt=timezone.now()).order_by('-start_event_date')[16:]
+                                    start_event_date__lt=datetime.now()).order_by('-start_event_date')[16:]
 
     template_name = 'site/past-events.html'
     ajax_template_name = 'site/modules/grid-event-block.html'
@@ -180,7 +180,7 @@ class EventsListPastView(InfinityLoaderListView):
 
     def get(self, request):
         items = Event.objects.filter(is_active=True,
-                                     start_event_date__lt=timezone.now()).order_by('-start_event_date')
+                                     start_event_date__lt=datetime.now()).order_by('-start_event_date')
         has_next = items.count() > 16
         items = items[:16]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -202,7 +202,7 @@ class EventsDetailView(DetailView):
 
 class ReportsListView(InfinityLoaderListView):
     queryset = Report.objects.select_related('cover').filter(is_active=True,
-                                     publication_date__lte=timezone.now()).order_by('-publication_date')
+                                     publication_date__lte=datetime.now()).order_by('-publication_date')
 
     template_name = 'site/all-reportage.html'
     ajax_template_name = 'site/modules/grid-reports-block.html'
@@ -224,7 +224,7 @@ class ReportsListView(InfinityLoaderListView):
         top_objects = page.top_items.all().order_by('weight') if page else []
 
         items = Report.objects.filter(is_active=True,
-                                      publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')
+                                      publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')
         has_next = items.count() > 12
         items = items[:12]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -234,7 +234,7 @@ class ReportsListView(InfinityLoaderListView):
 
 class ReportsDetailView(DetailView):
     model = Report
-    queryset = Report.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = Report.objects.filter(is_active=True, publication_date__lte=datetime.now())
     context_object_name = 'report'
     template_name = 'site/reportage-details.html'
 
@@ -247,7 +247,7 @@ class ReportsDetailView(DetailView):
 
 class HistoryListView(InfinityLoaderListView):
     queryset = History.objects.select_related('cover').filter(is_active=True,
-                                      publication_date__lte=timezone.now()).order_by('-publication_date')
+                                      publication_date__lte=datetime.now()).order_by('-publication_date')
 
     template_name = 'site/all-history.html'
     ajax_template_name = 'site/modules/grid-history-block.html'
@@ -268,7 +268,7 @@ class HistoryListView(InfinityLoaderListView):
         page = get_page(request)
         top_objects = page.top_items.all().order_by('weight') if page else []
         items = History.objects.filter(is_active=True,
-                                       publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
+                                       publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
         has_next = items.count() > 11
         items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -278,7 +278,7 @@ class HistoryListView(InfinityLoaderListView):
 
 class HistoryDetailView(DetailView):
     model = History
-    queryset = History.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = History.objects.filter(is_active=True, publication_date__lte=datetime.now())
     context_object_name = 'history'
     template_name = 'site/history-details.html'
 
@@ -291,7 +291,7 @@ class HistoryDetailView(DetailView):
 
 class PersonsListView(InfinityLoaderListView):
     queryset = Person.objects.filter(is_active=True,
-                                     publication_date__lte=timezone.now()).order_by('-publication_date')
+                                     publication_date__lte=datetime.now()).order_by('-publication_date')
 
     template_name = 'site/all-people.html'
     ajax_template_name = 'site/modules/grid-persons-block.html'
@@ -313,7 +313,7 @@ class PersonsListView(InfinityLoaderListView):
         top_objects = page.top_items.all().order_by('weight') if page else []
 
         items = Person.objects.filter(is_active=True,
-                                      publication_date__lte=timezone.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('-publication_date')
+                                      publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('-publication_date')
         has_next = items.count() > 11
         items = items[:11]
         return render(request, self.template_name, {self.context_list_name: items,
@@ -323,7 +323,7 @@ class PersonsListView(InfinityLoaderListView):
 
 class PersonsDetailView(DetailView):
     model = Person
-    queryset = Person.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = Person.objects.filter(is_active=True, publication_date__lte=datetime.now())
     context_object_name = 'person'
     template_name = 'site/people-details.html'
 
@@ -364,7 +364,7 @@ class CityGuidesDetailView(View):
 
 class PlaceListView(InfinityLoaderListView):
     queryset = Place.objects.filter(is_active=True,
-                                      publication_date__lte=timezone.now()).order_by('-publication_date')
+                                      publication_date__lte=datetime.now()).order_by('-publication_date')
 
     template_name = 'site/all-places.html'
     ajax_template_name = 'site/modules/grid-places-block.html'
@@ -389,7 +389,7 @@ class PlaceListView(InfinityLoaderListView):
         top_objects = page.top_items.all().order_by('weight') if page else []
 
         items = Place.objects.filter(is_active=True,
-                                     publication_date__lte=timezone.now()).order_by('-publication_date')
+                                     publication_date__lte=datetime.now()).order_by('-publication_date')
 
         if top_objects:
             items = items.exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places'])
@@ -408,7 +408,7 @@ class PlaceListView(InfinityLoaderListView):
 
 class PlaceDetailView(DetailView):
     model = Place
-    queryset = Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = Place.objects.filter(is_active=True, publication_date__lte=datetime.now())
     context_object_name = 'place'
     template_name = 'site/place-details.html'
 
@@ -421,7 +421,7 @@ class PlaceDetailView(DetailView):
 
 class SpecialsListView(InfinityLoaderListView):
     queryset = Special.objects.filter(is_active=True,
-                                    publication_date__lte=timezone.now()).order_by('-publication_date')
+                                    publication_date__lte=datetime.now()).order_by('-publication_date')
 
     template_name = 'site/all-special-projects.html'
     ajax_template_name = 'site/modules/special-projects-block.html'
@@ -432,7 +432,7 @@ class SpecialsListView(InfinityLoaderListView):
 
 class SpecialsDetailView(DetailView):
     model = Special
-    queryset = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
+    queryset = Special.objects.filter(is_active=True, publication_date__lte=datetime.now())
     context_object_name = 'special'
     template_name = 'site/special-project.html'
     slug_field = 'codename'
@@ -511,7 +511,7 @@ class SearchView(View):
 
     def search_news(self, query):
         items = News.objects.select_related('cover').filter(is_active=True,
-                                                            publication_date__lte=timezone.now())
+                                                            publication_date__lte=datetime.now())
         return self.get_items(items, 'root_news', query)
 
 
@@ -521,17 +521,17 @@ class SearchView(View):
 
 
     def search_reports(self, query):
-        items = Report.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        items = Report.objects.select_related('cover').filter(is_active=True, publication_date__lte=datetime.now())
         return self.get_items(items, 'root_report', query)
 
 
     def search_history(self, query):
-        items = History.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        items = History.objects.select_related('cover').filter(is_active=True, publication_date__lte=datetime.now())
         return self.get_items(items, 'root_history', query)
 
 
     def search_place(self, query):
-        items = Place.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        items = Place.objects.select_related('cover').filter(is_active=True, publication_date__lte=datetime.now())
         return self.get_items(items, 'root_place', query)
 
 
@@ -541,12 +541,12 @@ class SearchView(View):
 
 
     def search_persons(self, query):
-        items = Person.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        items = Person.objects.select_related('cover').filter(is_active=True, publication_date__lte=datetime.now())
         return self.get_items(items, 'root_person', query)
 
 
     def search_specials(self, query):
-        items = Special.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
+        items = Special.objects.select_related('cover').filter(is_active=True, publication_date__lte=datetime.now())
         return self.get_items(items, 'root_special', query)
 
     def get_context(self, request):
@@ -828,7 +828,7 @@ class NewsSitemap(Sitemap):
 
     def items(self):
         return News.objects.select_related('cover').filter(is_active=True,
-                                                           publication_date__lte=timezone.now()).order_by('-publication_date')
+                                                           publication_date__lte=datetime.now()).order_by('-publication_date')
 
     def lastmod(self, obj):
         return obj.edit_date
@@ -846,7 +846,7 @@ class EventsSitemap(Sitemap):
 class ReportsSitemap(Sitemap):
 
     def items(self):
-        return Report.objects.filter(is_active=True, publication_date__lte=timezone.now())
+        return Report.objects.filter(is_active=True, publication_date__lte=datetime.now())
 
     def lastmod(self, obj):
         return obj.edit_date
@@ -855,7 +855,7 @@ class ReportsSitemap(Sitemap):
 class HistorySitemap(Sitemap):
 
     def items(self):
-        return History.objects.filter(is_active=True, publication_date__lte=timezone.now())
+        return History.objects.filter(is_active=True, publication_date__lte=datetime.now())
 
     def lastmod(self, obj):
         return obj.edit_date
@@ -864,7 +864,7 @@ class HistorySitemap(Sitemap):
 class PersonsSitemap(Sitemap):
 
     def items(self):
-        return Person.objects.filter(is_active=True, publication_date__lte=timezone.now())
+        return Person.objects.filter(is_active=True, publication_date__lte=datetime.now())
 
     def lastmod(self, obj):
         return obj.edit_date
@@ -882,7 +882,7 @@ class CityGuidesSitemap(Sitemap):
 class PlacesSitemap(Sitemap):
 
     def items(self):
-        return Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
+        return Place.objects.filter(is_active=True, publication_date__lte=datetime.now())
 
     def lastmod(self, obj):
         return obj.edit_date
@@ -891,7 +891,7 @@ class PlacesSitemap(Sitemap):
 class SpecialsSitemap(Sitemap):
 
     def items(self):
-        return Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
+        return Special.objects.filter(is_active=True, publication_date__lte=datetime.now())
 
     def lastmod(self, obj):
         return obj.edit_date
