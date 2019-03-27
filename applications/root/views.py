@@ -89,6 +89,15 @@ class NewsListView(InfinityLoaderListView):
     ajax_context_list_name = 'news'
     items_per_page = 10
 
+    def get_queryset(self):
+        qs = self.queryset.order_by('-publication_date')
+        return qs
+
+    def get(self, request):
+        items = self.get_items_page()
+        return render(request, self.template_name, {self.context_list_name: items,
+                                                    'has_next': items.has_next()})
+
 
 class NewsDetailView(DetailView):
     model = News
