@@ -1,52 +1,52 @@
 const hint = `<span style="font-weight: 600;">Тег для публикаций:</span>
 <ul>
     <li>
-        <span>{% posts “тип публикации, id публикации, формат” … %} — Публикации</span>
+        <span>{% posts “тип публикации, id публикации, формат” … %} — Публикации.</span>
     </li>
 </ul>
 <span style="font-weight: 600;">Типы публикаций:</span>
 <ul>
     <li>
-        <span>new — Новость</span>
+        <span>new — Новость;</span>
     </li>
     <li>
-        <span>event — Анонс события</span>
+        <span>event — Анонс события;</span>
     </li>
     <li>
-        <span>report — Репортаж о прошедшем событии</span>
+        <span>report — Репортаж о прошедшем событии;</span>
     </li>
     <li>
-        <span>history — Историческая статья</span>
+        <span>history — Историческая статья;</span>
     </li>
     <li>
-        <span>person — Статья о жителе Амурска</span>
+        <span>person — Статья о жителе Амурска;</span>
     </li>
     <li>
-        <span>place — Статья о месте</span>
+        <span>place — Статья о месте;</span>
     </li>
     <li>
-        <span>special — Спецпроект</span>
+        <span>special — Спецпроект.</span>
     </li>
 </ul>
 <span style="font-weight: 600;">Форматы публикаций:</span>
 <ul>
     <li>
-        <span>wf — Широкая (wide) с полноразмерной (full) обложкой</span>
+        <span>wf — Широкая (wide) с полноразмерной (full) обложкой;</span>
     </li>
     <li>
-        <span>ws — Широкая (wide) с обычной (standart) обложкой</span>
+        <span>ws — Широкая (wide) с обычной (standart) обложкой;</span>
     </li>
     <li>
-        <span>hf — В половину ширины (half) с полноразмерной (full) обложкой</span>
+        <span>hf — В половину ширины (half) с полноразмерной (full) обложкой;</span>
     </li>
     <li>
-        <span>hs — В половину ширины (half) с обычной (standart) обложкой</span>
+        <span>hs — В половину ширины (half) с обычной (standart) обложкой.</span>
     </li>
 </ul>
 <span style="font-weight: 600;">Универсальные теги:</span>
 <ul>
     <li>
-        <span>{% title "Текст" %} - Заголовок</span>
+        <span>{% title "Текст" %} — Заголовок;</span>
     </li>
     <li>
         <span>{% link "Ссылка" "Текст" %} — Ссылка;</span>
