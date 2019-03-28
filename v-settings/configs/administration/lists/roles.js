@@ -43,10 +43,10 @@ const state = {
                 align_text: 'left',
                 width: 165,
                 fixed: true,
-                codename: 'users_count',
+                codename: 'users_amount',
                 isMain: false,
                 sort: {
-                    order_by: 'users_count'
+                    order_by: 'users_amount'
                 }
             },
             {
