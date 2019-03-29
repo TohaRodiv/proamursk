@@ -34,11 +34,13 @@ class SubscriberCpViewSet(CpViewSet):
     detail_http_method_names = ['get', 'put', 'patch', 'head', 'options', 'trace']
 
     def create(self, request, *args, **kwargs):
-        response = super(SubscriberCpViewSet, self).create(request, *args, **kwargs)
-        if response.status_code == 201:
-            serializer = self.get_serializer(data=request.data)
-            create_subscriber.delay(serializer.instance.id)
-        return response
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        self.write_log('add', request.user, serializer.instance)
+        create_subscriber.delay(serializer.instance.id)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def activate_action(self, qs, data):
         response = super(SubscriberCpViewSet, self).activate_action(qs, data)
