@@ -8,7 +8,7 @@ const state = {
                 type: 'flag',
                 is_sortable: false,
                 align_text: 'left',
-                width: 100,
+                width: 120,
                 fixed: true,
                 codename: 'checkbox',
                 sort: 'none',
