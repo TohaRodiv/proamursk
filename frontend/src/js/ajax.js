@@ -41,8 +41,6 @@ function ajaxSubscribe(jqForm) {
         data: dataToSend,
         url: '/api/mailing/subscribe/',
         method: 'POST',
-        processData: false,
-        contentType: false,
 
         success: function (response) {
             // console.log(response);
