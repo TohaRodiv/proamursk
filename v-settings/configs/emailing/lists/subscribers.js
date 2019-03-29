@@ -44,7 +44,6 @@ const state = {
                 align_text: 'left',
                 width: 200,
                 codename: 'mailerlite_id',
-                isMain: true,
                 sort: {
                     order_by: 'title'
                 }
