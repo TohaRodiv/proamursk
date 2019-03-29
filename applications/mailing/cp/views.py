@@ -49,20 +49,6 @@ class SubscriberCpViewSet(CpViewSet):
             update_subscribers.delay(subscriber_ids)
         return response
 
-    def update(self, request, *args, **kwargs):
-        partial = kwargs.pop('partial', False)
-        instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data, partial=partial)
-        serializer.is_valid(raise_exception=True)
-        self.perform_update(serializer)
-        self.write_log('change', request.user, serializer.instance)
-        if getattr(instance, '_prefetched_objects_cache', None):
-            instance._prefetched_objects_cache = {}
-        update_subscribers.delay([serializer.instance.id])
-        data = serializer.data
-        data['object_permissions'] = self.get_object_permissions(request, instance)
-        return Response(data)
-
 
 class CampaignsCpViewSet(CpViewSet):
     path = 'campaigns'
