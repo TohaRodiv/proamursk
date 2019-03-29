@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="forms-wrapper">
+            <div class="forms-wrapper" :style="computedFormsWrapperWidth">
                 <!--Левый бордер ниже необходим, так как контейнер форм на всю длину страницы (чтобы подсказки заходили на сайдбар), и не могут отрисовать правый бордер-->
                 <div class="forms-left-border"></div>
                 <div class="tabs-wrapper">
