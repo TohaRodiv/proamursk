@@ -52,7 +52,7 @@ def update_subscribers(subscriber_ids):
                 payload = json.dumps({'email': subscriber.email, 'type': 'active'})
             else:
                 payload = json.dumps({'email': subscriber.email, 'type': 'unsubscribed'})
-            url = '{base}/subscribers/{email}'.format(base=BASE_URL, email=subscriber.email)
+            url = '{base}/subscribers/{id}'.format(base=BASE_URL, id=subscriber.mailerlite_id)
             response = requests.put(url, data=payload, headers=HEADERS)
             if response.status_code == 200:
                 subscriber.sync_date = timezone.now()
