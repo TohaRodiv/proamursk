@@ -6,10 +6,11 @@ const state = {
                 type: 'flag',
                 is_sortable: false,
                 align_text: 'left',
-                width: 80,
+                width: 100,
                 fixed: true,
                 codename: 'checkbox',
-                sort: 'none'
+                sort: 'none',
+                menu: true
             },
             {
                 name: '',

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview, Slider, \
-    Feedback, SidebarBanner, WideBanner, TextError
+    Feedback, SidebarBanner, WideBanner, TextError, HistoryRubric
 from cp_vue.api.filters import NumberInFilter, CharInFilter, SearchFilter
 from cp_vue.api.filterset import APIFilterSet
 from django_filters import rest_framework as filters
@@ -50,6 +50,18 @@ class ReportsFilter(APIFilterSet):
             'create_date': ['gte', 'lte'],
             'edit_date': ['gte', 'lte'],
             'publication_date': ['gte', 'lte'],
+        }
+
+
+class HistoryRubricFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['name', 'comment'])
+    instant_search = filters.CharFilter(field_name="name", lookup_expr="icontains")
+
+    class Meta:
+        model = HistoryRubric
+        fields = {
+            'create_date': ['gte', 'lte'],
+            'edit_date': ['gte', 'lte'],
         }
 
 

@@ -28,7 +28,7 @@ from .serializers import (NewsListSerializer, NewsDetailSerializer, EventsListSe
 
 from .filters import (NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter,
                       PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter, FeedbackFilter,
-                      SidebarBannersFilter, WideBannersFilter, TextErrorFilter)
+                      SidebarBannersFilter, WideBannersFilter, TextErrorFilter, HistoryRubricFilter)
 
 from ..models import (News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner,
                       PlaceReview, Slider, Feedback, TextError, HistoryRubric)
@@ -83,6 +83,7 @@ class HistoryRubricCpViewSet(CpViewSet):
     available_actions = dict(delete='Удаление')
     serializer_class = HistoryRubricDetailSerializer
     list_serializer_class = HistoryRubricListSerializer
+    filter_class = HistoryRubricFilter
     ordering_fields = ('id', 'name', 'edit_date', 'create_date')
 
 
