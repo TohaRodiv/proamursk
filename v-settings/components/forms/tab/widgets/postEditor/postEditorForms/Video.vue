@@ -90,7 +90,7 @@
                     label: 'Ссылка на видео Youtube или Vimeo',
                     required: true,
                     invalid: false,
-                    placeholder: 'http://',
+                    placeholder: 'http(s)://',
                     width: 8,
                     codename: 'name',
                     widget: 'simpleInput',
