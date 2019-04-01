@@ -36,21 +36,27 @@
 
         computed: {
             computedIsShortYoutube() {
+                
                 const link = this.code;
+
                 if (link.indexOf('youtu.be') != -1) {
                     return true;
                 }
+
                 return false;
             },
 
             computedIsYoutube() {
                 const link = this.code;
+
                 if (link.indexOf('youtube.com') != -1) {
                     return true;
                 }
+
                 if (this.computedIsShortYoutube) {
                     return true;
                 }
+
                 return false;
             },
 
