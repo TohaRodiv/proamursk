@@ -3169,6 +3169,9 @@ footer {
 .privacy-page {
   margin-top: 20px; }
 
+.privacy-page__aside {
+  align-self: stretch; }
+
 .privacy {
   width: 640px;
   margin-left: auto;
@@ -3178,6 +3181,9 @@ footer {
     font-size: 36px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
   .privacy__list {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
     width: 310px;
     margin: 0 0 0 -40px;
     padding: 40px 30px 50px 50px;
