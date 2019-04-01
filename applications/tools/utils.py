@@ -28,9 +28,16 @@ def get_player_link(value):
     if url.hostname == 'vimeo.com' or url.hostname == 'www.vimeo.com':
         video_id = url.path.split('/')[-1]
         link = '//player.vimeo.com/video/%s?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' % video_id
-    elif url.hostname == 'youtube.com' or url.hostname == 'www.youtube.com':
-        video_id = parse_qs(url.query).get('v')
-        video_id = video_id[0] if isinstance(video_id, list) else None
+    elif url.hostname in ['youtube.com', 'www.youtube.com', 'www.youtu.be' , 'youtu.be']:
+        if url.hostname in ['www.youtu.be' , 'youtu.be']:
+            try:
+                video_id = url.path.split('/')[1]
+            except:
+                video_id = None
+        else:
+            video_id = parse_qs(url.query).get('v')
+            video_id = video_id[0] if isinstance(video_id, list) else None
+
         link = '//www.youtube.com/embed/%s?rel=0&amp;showinfo=0' % video_id
     else:
         link = ''
