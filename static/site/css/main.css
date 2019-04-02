@@ -1622,23 +1622,24 @@ input.btn_preloader {
     flex-shrink: 0;
     border-radius: 50%;
     border: 1px solid #C3CEDF; }
+    .direct-speech__avatar + .direct-speech__text-wrap {
+      margin-left: 35px; }
+      .direct-speech__avatar + .direct-speech__text-wrap::before {
+        content: "";
+        display: block;
+        width: 35px;
+        height: 40px;
+        position: absolute;
+        left: -35px;
+        top: 40px;
+        background-image: url(../images/svg/direct-speech-triangle.svg);
+        background-repeat: no-repeat;
+        background-size: contain; }
   .direct-speech__text-wrap {
     position: relative;
-    margin-left: 35px;
     padding: 15px 25px;
     background-color: #f5f6f7;
     border-radius: 4px; }
-    .direct-speech__text-wrap::before {
-      content: "";
-      display: block;
-      width: 35px;
-      height: 40px;
-      position: absolute;
-      left: -35px;
-      top: 40px;
-      background-image: url(../images/svg/direct-speech-triangle.svg);
-      background-repeat: no-repeat;
-      background-size: contain; }
   .direct-speech__author {
     margin-bottom: 5px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
@@ -3265,6 +3266,9 @@ footer {
 .city-guide__cover-wobbler {
   width: 160px;
   margin-bottom: 20px; }
+  .city-guide__cover-wobbler .wobbler {
+    color: #0073FF;
+    background-color: #FFFFFF; }
 
 .city-guide__cover-icon {
   position: absolute;
