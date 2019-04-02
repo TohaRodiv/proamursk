@@ -228,24 +228,26 @@
         border-radius: 50%
         border: 1px solid #C3CEDF
 
+        & + .direct-speech__text-wrap
+            margin-left: 35px
+
+            &::before
+                content: ""
+                display: block
+                width: 35px
+                height: 40px
+                position: absolute
+                left: -35px
+                top: 40px
+                background-image: url(../images/svg/direct-speech-triangle.svg)
+                background-repeat: no-repeat
+                background-size: contain
+
     &__text-wrap
         position: relative
-        margin-left: 35px
         padding: 15px 25px
         background-color: #f5f6f7
         border-radius: 4px
-
-        &::before
-            content: ""
-            display: block
-            width: 35px
-            height: 40px
-            position: absolute
-            left: -35px
-            top: 40px
-            background-image: url(../images/svg/direct-speech-triangle.svg)
-            background-repeat: no-repeat
-            background-size: contain
 
     &__author
         margin-bottom: 5px
