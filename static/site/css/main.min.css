@@ -3645,6 +3645,9 @@ footer {
 .city-guide__cover-wobbler {
   width: 160px;
   margin-bottom: 20px; }
+  .city-guide__cover-wobbler .wobbler {
+    color: #0073FF;
+    background-color: #FFFFFF; }
 
 .city-guide__cover-icon {
   position: absolute;
