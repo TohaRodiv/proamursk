@@ -5394,7 +5394,8 @@ input:placeholder-shown {
 .tab-element {
   display: flex;
   align-items: center;
-  width: 100%; }
+  width: 100%;
+  position: relative; }
 
 .tab-element-top-label {
   flex-direction: column;
@@ -6456,6 +6457,8 @@ input:placeholder-shown {
   display: flex;
   flex-direction: column;
   width: 940px; }
+  .rw-wrapper .hint-wrapper {
+    margin-right: 0; }
 
 .rw-block:not(:last-child) {
   margin-bottom: 46px; }
@@ -6548,9 +6551,13 @@ input:placeholder-shown {
 
 .rw-right-indicator {
   position: relative;
-  cursor: default; }
-  .rw-right-indicator:not(:last-child) {
-    margin-right: 13px; }
+  cursor: default;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column; }
   .rw-right-indicator > span {
     font-size: 14px; }
 
@@ -6566,10 +6573,23 @@ input:placeholder-shown {
 
 .rw-header-buttons {
   display: flex;
-  justify-content: space-between;
-  width: 100px;
-  padding-right: 5px;
-  padding-left: 53px; }
+  justify-content: flex-end;
+  align-items: center;
+  width: 100px; }
+
+.rw-header-pick-all,
+.rw-header-disable-all {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column; }
+  .rw-header-pick-all:before,
+  .rw-header-disable-all:before {
+    position: relative;
+    top: 5px;
+    margin-bottom: 6px; }
 
 .rw-header-pick-all {
   position: relative;
@@ -7107,11 +7127,8 @@ input:placeholder-shown {
     z-index: 100; }
   .post-editor-column-empty .hint-wrapper {
     position: absolute;
-    top: 30px;
-    left: 0;
-    transform: translateX(-5px); }
-    .post-editor-column-empty .hint-wrapper > div {
-      transform: translateY(-20px); }
+    right: 5px;
+    margin-right: 0; }
 
 .post-editor-big-icon-paste:before {
   font-size: 14px; }
