@@ -181,8 +181,6 @@
                     dragID: 'yomamasofatdrags',
                     label: 'Фото',
                     expected_value: 'medium_url',
-                    required: true,
-                    invalid: false,
                     width: 4,
                     image: {
                         width: 700,
