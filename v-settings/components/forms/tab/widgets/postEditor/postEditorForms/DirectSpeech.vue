@@ -177,8 +177,8 @@
                 },
                 loaderConfig: {
                     type: 'field',
-                    inputID: 'yomamasofat',
-                    dragID: 'yomamasofatdrags',
+                    inputID: 'directSpeechCoverInputID',
+                    dragID: 'directSpeechCoverDragID',
                     label: 'Фото',
                     expected_value: 'medium_url',
                     width: 4,
