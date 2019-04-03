@@ -13,7 +13,7 @@ def get_site_settings():
 
 
 class RobotsTxtView(TemplateView):
-    template_name = 'sitesettings/robots.txt'
+    template_name = 'robots.txt'
 
     def render_to_response(self, context, **kwargs):
         return super(RobotsTxtView, self).render_to_response(
