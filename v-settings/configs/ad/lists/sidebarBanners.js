@@ -6,17 +6,18 @@ const state = {
                 type: 'flag',
                 is_sortable: false,
                 align_text: 'left',
-                width: 60,
+                width: 120,
                 fixed: true,
                 codename: 'checkbox',
-                sort: 'none'
+                sort: 'none',
+                menu: true
             },
             {
                 name: '',
                 type: 'image',
                 is_sortable: false,
-                align_text: 'center',
-                width: 60,
+                align_text: 'left',
+                width: 100,
                 fixed: true,
                 codename: 'cover.min_crop_url',
                 sort: 'none'

@@ -12,7 +12,12 @@
                         <img src="images/svg/city-guide-cover.svg" alt="" class="city-guide__cover">
                         <span class="city-guide__cover-icon icon-hotel"></span>
                         <figcaption class="city-guide__img-figcaption">
-                            <img src="images/svg/wobbler-city-guide.svg" alt="" class="city-guide__cover-wobbler">
+                            <div class="city-guide__cover-wobbler">
+                                @@include("modules/wobbler.html", {
+                                    "wobbler": "city-guide"
+                                })
+                            </div>
+
                             <h1 class="city-guide__title">Где остановиться?</h1>
                         </figcaption>
                     </figure>

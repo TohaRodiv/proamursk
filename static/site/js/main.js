@@ -64,10 +64,8 @@ function ajaxSubscribe(jqForm) {
 
     $.ajax({
         data: dataToSend,
-        url: '/api/site/subscribe/',
+        url: '/api/mailing/subscribe/',
         method: 'POST',
-        processData: false,
-        contentType: false,
 
         success: function (response) {
             // console.log(response);
@@ -1661,7 +1659,7 @@ function clearAllSelect() {
 
 // закрытие select при клике в любое место
 $('body').click(function(event) {
-    if($(event.target).parents('.select').length == 0) {
+    if($(event.target).parents('.select').length == 0 && !$(event.target).hasClass('select')) {
         $('.select__options-list').addClass('hidden');
         $('.select__value_visible').removeClass('focus');
     }
@@ -1669,7 +1667,7 @@ $('body').click(function(event) {
 
 // закрытие select при фокусе на любом элементе
 $('body').on('focus', 'button, input', function(event) {
-    if($(event.target).parents('.select').length == 0) {
+    if($(event.target).parents('.select').length == 0 && !$(event.target).hasClass('select')) {
         $('.select__options-list').addClass('hidden');
         $('.select__value_visible').removeClass('focus');
     }

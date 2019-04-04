@@ -6,10 +6,11 @@ const state = {
                 type: 'flag',
                 is_sortable: false,
                 align_text: 'left',
-                width: 80,
+                width: 120,
                 fixed: true,
                 codename: 'checkbox',
-                sort: 'none'
+                sort: 'none',
+                menu: true
             },
             {
                 name: '#',
@@ -43,10 +44,10 @@ const state = {
                 align_text: 'left',
                 width: 165,
                 fixed: true,
-                codename: 'users_count',
+                codename: 'users_amount',
                 isMain: false,
                 sort: {
-                    order_by: 'users_count'
+                    order_by: 'users_amount'
                 }
             },
             {

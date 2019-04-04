@@ -39,6 +39,7 @@ import filesList from './configs/files/lists/files'
 import feedbacksPopup from './configs/feedback/info-popups/feedbacks'
 import textErrorsPopup from './configs/feedback/info-popups/textErrors'
 import operationsPopup from './configs/operations/info-popups/operationLog'
+import subscribersPopup from './configs/emailing/info-popups/subscribers'
 
 //Подключаем разделы форм
 import newsForm from './configs/publications/forms/news'
@@ -107,7 +108,8 @@ let lists = [
 let infoPopups = [
     feedbacksPopup,
     textErrorsPopup,
-    operationsPopup
+    operationsPopup,
+    subscribersPopup
 ];
 
 let forms = [

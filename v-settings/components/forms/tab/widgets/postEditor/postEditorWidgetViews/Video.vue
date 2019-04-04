@@ -1,7 +1,7 @@
 <template>
     <div>
         <iframe
-                v-if="code.indexOf('youtube.com') !== -1"
+                v-if="computedIsYoutube"
                 width="656"
                 height="360"
                 :src="handleYoutubeLinkFormat()"
@@ -10,7 +10,7 @@
                 allowfullscreen>
         </iframe>
         <iframe
-                v-if="code.indexOf('vimeo.com') !== -1"
+                v-if="computedIsVimeo"
                 :src="handleVimeoLinkFormat()"
                 width="656"
                 height="360"
@@ -30,21 +30,77 @@
             description: String,
         },
 
+        data() {
+            return {}
+        },
+
+        computed: {
+            computedIsShortYoutube() {
+                
+                const link = this.code;
+
+                if (link.indexOf('youtu.be') != -1) {
+                    return true;
+                }
+
+                return false;
+            },
+
+            computedIsYoutube() {
+                const link = this.code;
+
+                if (link.indexOf('youtube.com') != -1) {
+                    return true;
+                }
+
+                if (this.computedIsShortYoutube) {
+                    return true;
+                }
+
+                return false;
+            },
+
+            computedIsVimeo() {
+                const link = this.code;
+                
+                if (link.indexOf('vimeo.com') != -1) {
+                    return true;
+                }
+
+                return false;
+            }
+        },
+
         methods: {
-            handleYoutubeLinkFormat(){
+            handleYoutubeLinkFormat() {
+                const baseUrl = 'https://www.youtube.com/embed/'
                 let link = this.code;
-                let withoutWatch = link.split('watch?v=');
-                withoutWatch[0] = withoutWatch[0] + 'embed/';
-                link = withoutWatch.join('');
-                if (link.indexOf('&t') !== -1) {
-                    let withoutTime = link.split('&t');
-                    link = withoutTime[0];
+                
+                const element = document.createElement('a');
+                
+                element.setAttribute('href', link);
+                
+                const pathname = element.pathname;
+                
+                element.remove();
+
+                if (this.computedIsShortYoutube) {
+                    return baseUrl + pathname.replace('/', '');
+                } else {
+                    let withoutWatch = link.split('watch?v=');
+                    withoutWatch[0] = withoutWatch[0] + 'embed/';
+                    link = withoutWatch.join('');
+                    if (link.indexOf('&t') !== -1) {
+                        let withoutTime = link.split('&t');
+                        link = withoutTime[0];
+                    }
+                    if (link.indexOf('?t') !== -1) {
+                        let withoutTime = link.split('?t');
+                        link = withoutTime[0];
+                    }
+                    return link;
                 }
-                if (link.indexOf('?t') !== -1) {
-                    let withoutTime = link.split('?t');
-                    link = withoutTime[0];
-                }
-                return link
+                
             },
 
             handleVimeoLinkFormat(){

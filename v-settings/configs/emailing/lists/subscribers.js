@@ -6,10 +6,11 @@ const state = {
                 type: 'flag',
                 is_sortable: false,
                 align_text: 'left',
-                width: 80,
+                width: 120,
                 fixed: true,
                 codename: 'checkbox',
-                sort: 'none'
+                sort: 'none',
+                menu: true
             },
             {
                 name: '#',
@@ -43,7 +44,6 @@ const state = {
                 align_text: 'left',
                 width: 200,
                 codename: 'mailerlite_id',
-                isMain: true,
                 sort: {
                     order_by: 'title'
                 }
