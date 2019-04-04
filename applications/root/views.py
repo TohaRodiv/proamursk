@@ -101,7 +101,7 @@ class NewsDetailView(DetailView):
     template_name = 'site/news-details.html'
 
     def get_queryset(self):
-        qs = super(NewsDetailView, self).get_queryset()
+        qs = News.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -197,7 +197,7 @@ class EventsDetailView(DetailView):
     template_name = 'site/event-announcement.html'
 
     def get_queryset(self):
-        qs = super(EventsDetailView, self).get_queryset()
+        qs = Event.objects.select_related('cover').filter(is_active=True)
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -240,7 +240,7 @@ class ReportsDetailView(DetailView):
     template_name = 'site/reportage-details.html'
 
     def get_queryset(self):
-        qs = super(ReportsDetailView, self).get_queryset()
+        qs = Report.objects.filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -282,7 +282,7 @@ class HistoryDetailView(DetailView):
     template_name = 'site/history-details.html'
 
     def get_queryset(self):
-        qs = super(HistoryDetailView, self).get_queryset()
+        qs = History.objects.filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -320,6 +320,7 @@ class PersonsListView(InfinityLoaderListView):
 
 class PersonsDetailView(DetailView):
     model = Person
+    queryset = Person.objects.filter(is_active=True, publication_date__lte=timezone.now())
     context_object_name = 'person'
     template_name = 'site/people-details.html'
 
@@ -407,7 +408,7 @@ class PlaceDetailView(DetailView):
     template_name = 'site/place-details.html'
 
     def get_queryset(self):
-        qs = super(PlaceDetailView, self).get_queryset()
+        qs = Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -433,7 +434,7 @@ class SpecialsDetailView(DetailView):
     slug_field = 'codename'
 
     def get_queryset(self):
-        qs = Special.objects.filter(is_active=True, publication_date__lte=datetime.now())
+        qs = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
