@@ -97,7 +97,7 @@ class NewsDetailView(DetailView):
     template_name = 'site/news-details.html'
 
     def get_queryset(self):
-        qs = super(NewsDetailView, self).get_queryset()
+        qs = News.objects.select_related('cover').filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -194,7 +194,7 @@ class EventsDetailView(DetailView):
     template_name = 'site/event-announcement.html'
 
     def get_queryset(self):
-        qs = super(EventsDetailView, self).get_queryset()
+        qs = Event.objects.select_related('cover').filter(is_active=True)
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -239,7 +239,7 @@ class ReportsDetailView(DetailView):
     template_name = 'site/reportage-details.html'
 
     def get_queryset(self):
-        qs = super(ReportsDetailView, self).get_queryset()
+        qs = Report.objects.filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -283,7 +283,7 @@ class HistoryDetailView(DetailView):
     template_name = 'site/history-details.html'
 
     def get_queryset(self):
-        qs = super(HistoryDetailView, self).get_queryset()
+        qs = History.objects.filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -328,7 +328,7 @@ class PersonsDetailView(DetailView):
     template_name = 'site/people-details.html'
 
     def get_queryset(self):
-        qs = super(PersonsDetailView, self).get_queryset()
+        qs = Person.objects.filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -413,7 +413,7 @@ class PlaceDetailView(DetailView):
     template_name = 'site/place-details.html'
 
     def get_queryset(self):
-        qs = super(PlaceDetailView, self).get_queryset()
+        qs = Place.objects.filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -438,7 +438,7 @@ class SpecialsDetailView(DetailView):
     slug_field = 'codename'
 
     def get_queryset(self):
-        qs = super(SpecialsDetailView, self).get_queryset()
+        qs = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
@@ -464,7 +464,7 @@ class FilmDetailView(DetailView):
     template_name = 'site/film-announcement.html'
 
     def get_queryset(self):
-        qs = super(FilmDetailView, self).get_queryset()
+        qs = Film.objects.filter(is_active=True).prefetch_related('sessions')
         if self.request.user and self.request.user.is_staff:
             qs = self.model.objects.select_related('cover').all()
         return qs
