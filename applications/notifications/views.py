@@ -59,7 +59,7 @@ class NotificationSender(object):
             self.notifications[notification.channel.codename].append(notification_obj)
 
     def make_notification(self, notification):
-        context = {}
+        context = dict(domain=settings.ROOT_LINK if hasattr(settings, 'ROOT_LINK') else '')
         result = None
         recipients = self.get_notification_recipients(notification)
         if not recipients:
