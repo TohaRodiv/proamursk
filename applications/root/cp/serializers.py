@@ -30,7 +30,7 @@ class NewsDetailSerializer(ModelSerializer):
 
     class Meta:
         model = News
-        fields = ('id', 'cover', 'title', 'descriptor', 'lead', 'content', 'comment', 'publication_date',
+        fields = ('id', 'cover', 'title', 'descriptor', 'lead', 'content', 'text', 'comment', 'publication_date',
                   'create_date', 'edit_date',
                   'meta_title', 'meta_description', 'meta_keywords', 'og_image', 'is_active', 'cover_author',
                   'content_author', 'show_two_banners')
