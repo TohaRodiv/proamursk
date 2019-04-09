@@ -42,12 +42,16 @@
                                     <td class="footer__info-text" style="width: 320px; padding-top: 40px; padding-left: 80px; padding-bottom: 40px; font-size: 14px; color: #FFFFFF;">Вы получили это письмо, потому что подписаны на еженедельную рассылку сайта proamursk.ru</td>
                                     <td class="social-wrap" style="padding-top: 40px; padding-right: 80px; padding-bottom: 40px; font-size: 0; text-align: right;">
                                         {% get_settings as settings %}
-                                        <a href="{{ settings.instagram }}" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
-                                            <img src="{{ domain }}{% static "site/images/email/instagram.png" %}{% static_version %}" alt="Инстаграм" style="width: 45px; height: 45px;">
-                                        </a>
-                                        <a href="{{ settings.odnoklassniki }}" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
-                                            <img src="{{ domain }}{% static "site/images/email/odnoklassniki.png" %}{% static_version %}" alt="Одноклассники" style="width: 45px; height: 45px;">
-                                        </a>
+                                        {% if settings.instagram %}
+                                            <a href="{{ settings.instagram }}" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
+                                                <img src="{{ domain }}{% static "site/images/email/instagram.png" %}{% static_version %}" alt="Инстаграм" style="width: 45px; height: 45px;">
+                                            </a>
+                                        {% endif %}
+                                        {% if settings.odnoklassniki %}
+                                            <a href="{{ settings.odnoklassniki }}" class="social-link" style="color: #0073FF; text-decoration: underline; display: inline-block; margin-left: 30px;">
+                                                <img src="{{ domain }}{% static "site/images/email/odnoklassniki.png" %}{% static_version %}" alt="Одноклассники" style="width: 45px; height: 45px;">
+                                            </a>
+                                        {% endif %}
                                     </td>
                                 </tr>
 
