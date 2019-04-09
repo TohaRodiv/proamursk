@@ -52,7 +52,6 @@ def subscribe(request):
             subscriber.is_active = True
             subscriber.save()
             update_subscribers([subscriber.id])
-            send_subscriber_email(request, subscriber)
             return JsonResponse({'status': True, 'message': 'Вы успешно восстановили подписку на рассылку'})
     else:
         return JsonResponse({'status':False, 'message': settings.COMMON_ERROR_MESSAGE})
