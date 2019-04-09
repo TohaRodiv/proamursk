@@ -51,7 +51,7 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.CharField('Подзаголовок', max_length=255)
     lead = models.TextField('Лид')
-    content = models.TextField()
+    content = models.TextField(blank=True)
     text = JSONField(blank=True)
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
