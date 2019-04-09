@@ -147,7 +147,6 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        hasWideLabel: true,
                         elements: [
                             {
                                 label: '',
