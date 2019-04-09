@@ -73,7 +73,10 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
         return reverse('news-detail', args=[self.id])
 
     def save(self, *args, **kwargs):
-        self.search_text = '%s %s' % (self.title, clean_html(self.content))
+        try:
+            self.search_text = '%s %s' % (self.title, get_post_editor_text(self.text))
+        except Exception as e:
+            pass
         super(News, self).save(*args, **kwargs)
 
 
