@@ -17,6 +17,7 @@ from .filters import SubscribersFilter, CampaignsFilter
 from .serializers import (SubscribersSerializer, CampaignDetailSerializer, CampaignListSerializer, PreviewSerializer,
                           SendEmailSerializer)
 from ..models import Subscriber, Campaign
+from ..views import send_subscriber_email
 try:
     from ..tasks import update_subscribers, create_subscriber, send_email
 except:
@@ -40,6 +41,7 @@ class SubscriberCpViewSet(CpViewSet):
         self.write_log('add', request.user, serializer.instance)
         create_subscriber.delay(serializer.instance.id)
         headers = self.get_success_headers(serializer.data)
+        send_subscriber_email(request, serializer.instance)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def activate_action(self, qs, data):
