@@ -2874,6 +2874,11 @@ input:placeholder-shown {
     padding-right: 15px;
     padding-left: 15px; }
 
+a.additional-button-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 .delete-button-border {
   font-size: 14px;
   color: #ff3455 !important;
@@ -3537,7 +3542,9 @@ input:placeholder-shown {
 
 .link {
   color: #2686ed;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer;
+  transition: color .2s ease; }
   .link:hover {
     color: #1661b2; }
 
@@ -4266,11 +4273,10 @@ input:placeholder-shown {
 
 .list-hint-inner-wrapper {
   position: absolute;
-  width: 310px;
   display: flex;
-  top: 24px;
+  top: 40px;
   justify-content: center;
-  margin-top: 17px; }
+  align-items: center; }
 
 .list-hint-arrow {
   position: absolute;
@@ -4280,9 +4286,6 @@ input:placeholder-shown {
   border-bottom: 5px solid #778088; }
 
 .list-hint-message {
-  position: absolute;
-  min-width: 50px;
-  max-width: 270px;
   padding: 12px;
   font-size: 12px;
   font-weight: 300;
@@ -4936,6 +4939,70 @@ input:placeholder-shown {
   font-size: 14px; }
   .table-actions-dropdown-item:first-child {
     border-top: none; }
+
+.related-list {
+  padding: 20px 40px 0 40px;
+  font-size: 14px;
+  box-sizing: content-box; }
+
+.related-list-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px; }
+
+.related-list-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto; }
+  .related-list-container::-webkit-scrollbar {
+    display: none; }
+
+.related-list-header,
+.related-list-row {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  border-bottom: 1px solid rgba(234, 243, 249, 0.8);
+  padding: 0 0 0 14px;
+  width: auto; }
+
+.related-list-header-cell {
+  font-weight: 300; }
+  .related-list-header-cell .icon-sort {
+    color: rgba(35, 41, 46, 0.3);
+    position: absolute;
+    font-size: 5px;
+    left: -14px;
+    top: 18px; }
+    .related-list-header-cell .icon-sort.active {
+      color: #23292e; }
+    .related-list-header-cell .icon-sort.asc {
+      transform: rotate(180deg); }
+    .related-list-header-cell .icon-sort.desc {
+      transform: rotate(0deg); }
+
+.related-list-row-cell.blue {
+  color: #2686ed; }
+
+.related-list-cell {
+  padding-right: 20px;
+  position: relative; }
+  .related-list-cell p {
+    margin: 0; }
+
+.related-list-buttons-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 70px; }
+
+.related-list-paginator-container {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center; }
 
 .summ-widget-wrapper {
   display: flex;
