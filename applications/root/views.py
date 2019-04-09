@@ -116,7 +116,7 @@ class EventsListView(View):
 
         events = list(Event.objects.select_related('cover').filter(
             is_active=True,
-            start_event_date__gte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('-start_event_date')[:2])
+            start_event_date__gte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('start_event_date')[:2])
 
         reports = Report.objects.select_related('cover').filter(is_active=True,
                                                                 publication_date__lte=datetime.now()).order_by('-publication_date')
@@ -159,11 +159,11 @@ class EventsListFutureView(InfinityLoaderListView):
 
     def get_queryset(self):
         return Event.objects.filter(is_active=True,
-                                    start_event_date__gte=datetime.now()).order_by('-start_event_date')[16:]
+                                    start_event_date__gte=datetime.now()).order_by('start_event_date')[16:]
 
     def get(self, request):
         items = Event.objects.filter(is_active=True,
-                                     start_event_date__gte=datetime.now()).order_by('-start_event_date')
+                                     start_event_date__gte=datetime.now()).order_by('start_event_date')
         has_next = items.count() > 16
         items = items[:16]
         return render(request, self.template_name, {self.context_list_name: items,

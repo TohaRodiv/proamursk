@@ -1,4 +1,3 @@
-
 const state = {
     formsOptions: {
         news: [
@@ -104,7 +103,7 @@ const state = {
                                 hint: ''
                             }
                         ]
-                    },
+                    }
                 ]
             },
             {
@@ -133,11 +132,11 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
+                        modClass: 'marginBottom50',
                         elements: [
                             {
                                 label: 'Содержание новости',
-                                required: true,
-                                invalid: false,
+                                // required: true,
                                 widget: 'formatter',
                                 codename: 'content',
                                 width: 12,
@@ -145,6 +144,19 @@ const state = {
                             }
                         ]
                     },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: '',
+                                // required: true,
+                                widget: 'postEditor',
+                                codename: 'text',
+                                hint: ''
+                            }
+                        ]
+                    }
                 ]
             },
             {
@@ -166,7 +178,7 @@ const state = {
                                 width: 12,
                                 image: {
                                     width: 1720,
-                                    height: 1000,
+                                    height: 1000
                                 },
                                 codename: 'cover',
                                 widget: 'singleImageLoader',
@@ -174,9 +186,9 @@ const state = {
                                 requireSendId: true,
                                 key_attr: 'id',
                                 hint: ''
-                            },
+                            }
                         ]
-                    },
+                    }
                 ]
             },
             {
@@ -198,7 +210,7 @@ const state = {
                                 codename: 'meta_title',
                                 widget: 'simpleInput',
                                 hint: ''
-                            },
+                            }
                         ]
                     },
                     {
@@ -215,7 +227,7 @@ const state = {
                                 codename: 'meta_description',
                                 widget: 'textarea',
                                 hint: ''
-                            },
+                            }
                         ]
                     },
                     {
@@ -232,7 +244,7 @@ const state = {
                                 codename: 'meta_keywords',
                                 widget: 'textarea',
                                 hint: ''
-                            },
+                            }
                         ]
                     },
                     {
@@ -249,7 +261,7 @@ const state = {
                                 width: 12,
                                 image: {
                                     width: 1200,
-                                    height: 630,
+                                    height: 630
                                 },
 
                                 codename: 'og_image',
@@ -257,21 +269,21 @@ const state = {
                                 requireSendId: true,
                                 key_attr: 'id',
                                 hint: ''
-                            },
+                            }
                         ]
-                    },
+                    }
                 ]
             }
-        ],
+        ]
     },
     activeFlag: {
         news: {
             title: 'Активная запись',
-            hint: 'Страницы неактивных записей не отображаются на сайте',
+            hint: 'Страницы неактивных записей не отображаются на сайте'
         }
-    },
+    }
 };
 
 export default {
     state
-}
+};
