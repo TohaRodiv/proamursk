@@ -4,6 +4,7 @@
 {% load pytils_dt %}
 {% load site_tags %}
 {% load utils_tags %}
+{% load posteditor_tags %}
 
 {% block title %}
     {{ news.meta_title|default:news.title }}
@@ -45,9 +46,7 @@
 
                             <p class="publication__lead">{{ news.lead }}</p>
 
-                            <div class="news-details-content wysiwyg-container">
-                                {{ news.content|safe }}
-                            </div>
+                            {% post_editor_make_content news.text 'default' %}
 
                             <div class="publication__footer">
                                 {% if news.content_author %}
