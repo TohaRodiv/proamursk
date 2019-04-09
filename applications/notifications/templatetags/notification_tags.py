@@ -9,30 +9,33 @@ register = template.Library()
 
 @register.inclusion_tag('notifications/title.html', takes_context=True)
 def title(context, text):
-    return {'text': text}
+    return {'text': text, 'domain': context.get('domain', ''),}
 
 
 @register.inclusion_tag('notifications/link.html', takes_context=True)
 def link(context, url, text=None):
     return {'text': text,
+            'domain': context.get('domain', ''),
             'url': url}
 
 
 @register.inclusion_tag('notifications/button.html', takes_context=True)
 def button(context, url, text=None):
     return {'text': text,
+            'domain': context.get('domain', ''),
             'url': url}
 
 
 @register.inclusion_tag('notifications/email.html', takes_context=True)
 def email(context, url, text=None):
     return {'text': text,
+            'domain': context.get('domain', ''),
             'url': url}
 
 
 @register.inclusion_tag('notifications/separator.html', takes_context=True)
 def separator(context):
-    return {}
+    return {'domain': context.get('domain', '')}
 
 
 @register.simple_tag(takes_context=True)
