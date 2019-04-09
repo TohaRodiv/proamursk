@@ -129,28 +129,28 @@ const state = {
                             }
                         ]
                     },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginBottom50',
-                        elements: [
-                            {
-                                label: 'Содержание новости',
-                                // required: true,
-                                widget: 'formatter',
-                                codename: 'content',
-                                width: 12,
-                                hint: ''
-                            }
-                        ]
-                    },
+                    // {
+                    //     labelPosition: 'left',
+                    //     direction: 'row',
+                    //     modClass: 'marginBottom50',
+                    //     elements: [
+                    //         {
+                    //             label: 'Содержание новости',
+                    //             // required: true,
+                    //             widget: 'formatter',
+                    //             codename: 'content',
+                    //             width: 12,
+                    //             hint: ''
+                    //         }
+                    //     ]
+                    // },
                     {
                         labelPosition: 'left',
                         direction: 'row',
                         elements: [
                             {
                                 label: '',
-                                // required: true,
+                                required: true,
                                 widget: 'postEditor',
                                 codename: 'text',
                                 hint: ''

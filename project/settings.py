@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 ]
 
 if not DEBUG:
-    INSTALLED_APPS = INSTALLED_APPS + ['raven.contrib.django.raven_compat',]
+    INSTALLED_APPS = INSTALLED_APPS + ['raven.contrib.django.raven_compat', ]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -148,7 +148,7 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 57
+STATIC_VERSION = 58
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -277,9 +277,9 @@ BAN_MESSAGE = 'Превышен лимит запросов, попробуйт�
 
 
 CORS_ORIGIN_WHITELIST = (
-        'localhost:8080',
-        '127.0.0.1:8080'
-    )
+    'localhost:8080',
+    '127.0.0.1:8080'
+)
 
 if DEBUG:
     CORS_ORIGIN_ALLOW_ALL = True
