@@ -254,6 +254,8 @@ class ChangeUserPasswordAPIView(APIView):
                 response = errors
                 return Response(response, status=400)
 
+        return Response(dict(), status=400)
+
     @classmethod
     def get_urls(self):
         urlpatterns = [
