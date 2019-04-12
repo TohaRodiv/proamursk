@@ -10,14 +10,10 @@
                         </div>
                         <div class="auth-component">
                             <changePassword
-                                v-if="route === 'change-password'"
+                                v-if="route === 'change-password' || route === 'change-password-authorised'"
                             ></changePassword>
-                            <restorePassword
-                                v-if="route === 'restore-password'"
-                            ></restorePassword>
-                            <signin
-                                v-if="route === 'auth'"
-                            ></signin>
+                            <restorePassword v-if="route === 'restore-password'"></restorePassword>
+                            <signin v-if="route === 'auth'"></signin>
                         </div>
                     </div>
                     <div class="auth-footer">
@@ -32,22 +28,21 @@
 </template>
 
 <script>
-    import changePassword from './ChangePassword.vue'
-    import restorePassword from './RestorePassword.vue'
-    import signin from './Signin.vue'
+import changePassword from "./ChangePassword.vue";
+import restorePassword from "./RestorePassword.vue";
+import signin from "./Signin.vue";
 
-    export default {
-        name: 'auth-base',
-        components: {
-            changePassword,
-            restorePassword,
-            signin
-        },
-        computed: {
-            route: function () {
-                return this.$route.name
-            }
+export default {
+    name: "auth-base",
+    components: {
+        changePassword,
+        restorePassword,
+        signin
+    },
+    computed: {
+        route: function() {
+            return this.$route.name;
         }
     }
-
+};
 </script>
