@@ -2092,6 +2092,9 @@ input[type="checkbox"]:checked:disabled + label:before {
   border-color: rgba(0, 0, 0, 0);
   background: rgba(38, 134, 237, 0.4); }
 
+input[type="checkbox"]:checked + label {
+  font-weight: 400; }
+
 input[type="checkbox"]:checked + label:after {
   content: "\E908";
   position: absolute;
@@ -2323,6 +2326,9 @@ input[type="radio"]:disabled + label {
 
 input[type="radio"]:not(:disabled) + label:hover:before {
   border-color: #2686ed; }
+
+input[type="radio"]:checked + label {
+  font-weight: 400; }
 
 input[type="radio"]:checked + label:before {
   border-color: #2686ed; }
@@ -2964,7 +2970,10 @@ input:placeholder-shown {
   padding-right: 8px;
   padding-left: 8px;
   transition: all .2s;
-  cursor: pointer; }
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
   .additional-button-2:hover {
     background: #cfe4f9;
     color: #2c6cb6; }
@@ -2975,8 +2984,22 @@ input:placeholder-shown {
   .additional-button-2.big {
     font-size: 13px;
     height: 30px;
-    padding-right: 15px;
-    padding-left: 15px; }
+    padding-right: 20px;
+    padding-left: 20px; }
+  .additional-button-2 > span {
+    font-size: 14px;
+    height: 20px;
+    position: relative;
+    top: 1px; }
+  .additional-button-2.print > span {
+    padding-left: 28px;
+    position: relative; }
+    .additional-button-2.print > span:before {
+      content: '\E917';
+      position: absolute;
+      font-family: 'cp-fonts';
+      font-size: 17px;
+      left: 0; }
 
 a.additional-button-2 {
   display: flex;
@@ -4784,7 +4807,10 @@ a.additional-button-2 {
 
 .table-interface-picker-container {
   display: flex;
+  align-items: center;
   margin-left: 30px; }
+  .table-interface-picker-container > div:not(:last-child) {
+    margin-right: 5px; }
 
 .table-interface-picker-item {
   display: flex;
@@ -4792,7 +4818,6 @@ a.additional-button-2 {
   align-items: center;
   width: 35px;
   height: 35px;
-  margin-right: 5px;
   border: 1px solid #d0d8dc;
   border-radius: 5px;
   transition: background-color linear .2s, border linear .2s, color linear .2s;
@@ -4811,6 +4836,27 @@ a.additional-button-2 {
   background-color: rgba(38, 134, 237, 0.1);
   border: 1px solid rgba(38, 134, 237, 0.1) !important;
   color: #2686ed; }
+
+.print-popup-content {
+  padding: 0 40px;
+  font-size: 14px;
+  font-weight: 300; }
+
+.print-popup-radiobuttons-group,
+.print-popup-checkboxes-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px; }
+
+.print-popup-radiobuttons-group {
+  margin: 0 0 28px 0; }
+
+.print-popup-checkboxes-group {
+  margin: 0 0 56px 0; }
+
+.print-popup-checkbox:not(:last-child),
+.print-popup-radio:not(:last-child) {
+  margin-bottom: 12px; }
 
 .filters-container {
   position: relative;
@@ -9134,6 +9180,12 @@ body {
 
 input {
   margin: 0; }
+
+h2 {
+  color: #23292e;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0 0 28px 0; }
 
 .main-wrapper {
   width: 100%;
