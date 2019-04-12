@@ -72,7 +72,7 @@ class SigninAPIView(APIView):
 
         if user is not None and user.is_active:
             login(request, user)
-            response = {}
+            response = dict(request_change_password=user.request_change_password)
             response = Response(response)
             response.set_cookie('user_id', value=user.id, httponly=False)
             return response
@@ -242,7 +242,7 @@ class ChangeUserPasswordAPIView(APIView):
 
                 if user is not None and user.is_active:
                     login(request, user)
-                    response = dict(data=dict(user_id=user.pk), message=u'Новый пароль успешно установлен')
+                    response = dict(data=dict(user_id=user.pk, request_change_password=user.request_change_password), message=u'Новый пароль успешно установлен')
                     response = Response(response)
                     response.set_cookie('user_id', value=user.id, httponly=False)
                     return response
