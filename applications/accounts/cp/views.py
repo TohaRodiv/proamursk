@@ -9,7 +9,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
+from django.core.mail import send_mail
+from django.template import loader
 # from applications.api.views import PasswordRecoveryAPIView
 from applications.banrequest.views import check
 from cp_vue.api.permissions import SapPermissions
@@ -19,15 +20,16 @@ from .serializers import UserDetailSerializer, UserListSerializer, UserNestedSer
     SetPasswordSerializer
 from .filters import UserFilter
 from ..models import User
+from ..forms import SetPasswordForm, PasswordResetForm
 
 try:
     from applications.notifications.tasks import send_notification
 except ImportError:
-    send_notification = None
     try:
-        from applications.api.tasks import send_email
+        from applications.accounts.tasks import send_email
     except ImportError:
         send_email = None
+        send_notification = None
 
 
 class SelfUserPermission(permissions.BasePermission):
@@ -70,7 +72,7 @@ class SigninAPIView(APIView):
 
         if user is not None and user.is_active:
             login(request, user)
-            response = {}
+            response = dict(request_change_password=user.request_change_password)
             response = Response(response)
             response.set_cookie('user_id', value=user.id, httponly=False)
             return response
@@ -197,9 +199,77 @@ class UsersCpViewSet(CpViewSet):
         return queryset
 
 
+class ChangeUserPasswordAPIView(APIView):
+
+    def post(self, request):
+
+        user = request.user
+
+        if user and user.is_authenticated:
+            data = request.data
+            form = SetPasswordForm(user, data)
+            if form.is_valid():
+                form.save()
+                notification_context = {
+                    'user_name': user.first_name,
+                    'user_surname': user.last_name,
+                    'user_email': user.email,
+                    'site_link': 'http://%s' % request.get_host()
+                }
+                if send_notification:
+                    try:
+                        send_notification.delay('password_recovery_complete',
+                                                template_context=notification_context,
+                                                recipient_email=[user.email],
+                                                recipient_sms=[user.phone])
+                    except:
+                        pass
+                else:
+                    from_email = None
+                    subject = u'Изменение пароля'
+                    email = loader.render_to_string('emails/password-changed-email.html', notification_context)
+                    if send_email:
+                        try:
+                            send_email.delay(subject, email, from_email, [user.email])
+                        except:
+                            pass
+                    else:
+                        try:
+                            send_mail(subject, email, from_email, [user.email])
+                        except:
+                            pass
+                user = authenticate(username=user.username, password=form.cleaned_data['new_password1'])
+
+                if user is not None and user.is_active:
+                    login(request, user)
+                    response = dict(data=dict(user_id=user.pk, request_change_password=user.request_change_password), message=u'Новый пароль успешно установлен')
+                    response = Response(response)
+                    response.set_cookie('user_id', value=user.id, httponly=False)
+                    return response
+                else:
+                    response = dict(message=u'Пользователь не авторизован')
+                    return Response(response, status=400)
+            else:
+                errors = dict([(k, [i.message for i in v]) for k, v in form.errors.as_data().items()])
+                response = errors
+                return Response(response, status=400)
+
+        return Response(dict(), status=400)
+
+    @classmethod
+    def get_urls(self):
+        urlpatterns = [
+            url(r'^change-user-password/$',
+                ChangeUserPasswordAPIView.as_view(),
+                name="api-change-user-password"),
+        ]
+        return urlpatterns
+
+
 cp_api.register(UsersCpViewSet)
 cp_api.register(SigninAPIView)
 cp_api.register(LogoutAPIView)
 cp_api.register(PasswordRecoveryAPIView)
 cp_api.register(PasswordChangeAPIView)
 cp_api.register(UserDetailAPIView)
+cp_api.register(ChangeUserPasswordAPIView)
