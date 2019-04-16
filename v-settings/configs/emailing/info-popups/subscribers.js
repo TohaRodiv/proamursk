@@ -53,6 +53,14 @@ const state = {
                     }
                 },
                 {
+                    type: 'simpleRow',
+                    title: 'Дата посл. синхр.',
+                    content: {
+                        type: 'dateTime',
+                        codename: 'sync_date'
+                    }
+                },
+                {
                     type: 'hr',
                     showIf: {
                         type: 'simple',
