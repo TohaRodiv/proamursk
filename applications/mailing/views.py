@@ -62,13 +62,6 @@ def subscribe(request):
 @csrf_exempt
 @require_POST
 def webhook_handler(request):
-    send_mail(
-        'url_data',
-        'DATA:\n%s \n\n %s \n\n' % (request.body, request.POST),
-        'no-reply@perfectura.ru',
-        ['scamp.khb@list.ru'],
-        fail_silently=True,
-    )
     try:
         payload = json.loads(request.body)
     except:
