@@ -41,15 +41,15 @@ const state = {
                     title: 'Дата создания',
                     content: {
                         type: 'dateTime',
-                        codename: 'edit_date'
+                        codename: 'create_date'
                     }
                 },
                 {
                     type: 'simpleRow',
-                    title: 'Дата создания',
+                    title: 'Дата изменения',
                     content: {
                         type: 'dateTime',
-                        codename: 'create_date'
+                        codename: 'edit_date'
                     }
                 },
                 {
