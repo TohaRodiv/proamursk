@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.http import require_POST
@@ -59,6 +60,7 @@ def subscribe(request):
     else:
         return JsonResponse({'status':False, 'message': settings.COMMON_ERROR_MESSAGE})
 
+
 @csrf_exempt
 @require_POST
 def webhook_handler(request):
@@ -79,7 +81,7 @@ def webhook_handler(request):
 
             if e_type == 'subscriber.create':
                 Subscriber.objects.create(email=subscriber.get('email'), mailerlite_id=subscriber.get('id'),
-                                          is_active=True)
+                                          is_active=True, sync_date=datetime.now())
             elif e_type == 'subscriber.update':
                 try:
                     obj = Subscriber.objects.get(mailerlite_id=subscriber.get('id'))
@@ -96,6 +98,7 @@ def webhook_handler(request):
                             obj.is_active = True
                         else:
                             obj.is_active = False
+                    obj.sync_date = datetime.now()
                     obj.save()
 
             elif e_type == 'subscriber.unsubscribe':
@@ -105,6 +108,7 @@ def webhook_handler(request):
                     pass
                 else:
                     obj.is_active = False
+                    obj.sync_date = datetime.now()
                     obj.save()
 
         return HttpResponse('ok')
