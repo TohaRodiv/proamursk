@@ -70,8 +70,6 @@ def webhook_handler(request):
         return HttpResponse(status=400)
     else:
 
-
-
         events = payload.get('events', [])
 
         for e in events:
@@ -80,8 +78,9 @@ def webhook_handler(request):
             subscriber = data.get('subscriber')
 
             if e_type == 'subscriber.create':
-                Subscriber.objects.create(email=subscriber.get('email'), mailerlite_id=subscriber.get('id'),
-                                          is_active=True, sync_date=datetime.now())
+                obj = Subscriber.objects.create(email=subscriber.get('email'), mailerlite_id=subscriber.get('id'),
+                                                is_active=True, sync_date=datetime.now())
+                send_subscriber_email(request, obj)
             elif e_type == 'subscriber.update':
                 try:
                     obj = Subscriber.objects.get(mailerlite_id=subscriber.get('id'))
