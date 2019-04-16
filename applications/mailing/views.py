@@ -3,6 +3,7 @@ from django.conf import settings
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.http import require_POST
 from django.core.mail import send_mail
+from django.views.decorators.csrf import csrf_exempt
 
 from . models import Subscriber
 from . forms import SubscribeForm
@@ -58,7 +59,7 @@ def subscribe(request):
     else:
         return JsonResponse({'status':False, 'message': settings.COMMON_ERROR_MESSAGE})
 
-
+@csrf_exempt
 @require_POST
 def webhook_handler(request):
     if request.is_ajax():
