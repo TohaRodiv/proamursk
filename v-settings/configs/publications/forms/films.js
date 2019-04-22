@@ -286,7 +286,6 @@ const state = {
                                 modClass: 'marginBottom22',
                                 type: 'field',
                                 gotHeaders: true,
-                                isPatch: true,
                                 rows: [
                                     {
                                         type: 'mask-datetime',
