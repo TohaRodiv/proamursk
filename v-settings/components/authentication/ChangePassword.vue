@@ -30,8 +30,8 @@
             </div>
         </div>
         <button class="button button-common auth-main-button auth-main-button-size" @click="check">Сохранить</button>
-        <router-link :to="{name: 'auth'}" tag="button" class="button auth-secondary-button auth-secondary-button-size">
-            Назад
+        <router-link v-if="compShowCancel" :to="{name: 'auth'}" tag="button" class="button auth-secondary-button auth-secondary-button-size">
+            Отмена
         </router-link>
     </div>
 </template>
