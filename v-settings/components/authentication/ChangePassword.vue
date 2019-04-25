@@ -10,7 +10,7 @@
                         v-model="new_password1"
                         class="input auth-input auth_input_size password-input"
                         :class="{'input-on-error': errors.new_password1}"
-                        @click="errors.new_password1 = ''"
+                        @click="errors.new_password1 = false"
                         placeholder="Новый пароль">
                 <div class="input-error-message" v-if="errors.new_password1 && focus === 'new_password1'">
                     {{ errors.new_password1 }}
@@ -23,15 +23,15 @@
                     v-model="new_password2"
                     class="input auth-input auth_input_size password-input"
                     :class="{'input-on-error': errors.new_password2}"
-                    @click="errors.new_password2 = ''"
+                    @click="errors.new_password2 = false"
                     placeholder="Новый пароль ещё раз">
             <div class="input-error-message" v-if="errors.new_password2 && focus === 'new_password2'">
                 {{ errors.new_password2 }}
             </div>
         </div>
         <button class="button button-common auth-main-button auth-main-button-size" @click="check">Сохранить</button>
-        <router-link :to="{name: 'auth'}" tag="button" class="button auth-secondary-button auth-secondary-button-size">
-            Назад
+        <router-link v-if="compShowCancel" :to="{name: 'auth'}" tag="button" class="button auth-secondary-button auth-secondary-button-size">
+            Отмена
         </router-link>
     </div>
 </template>
