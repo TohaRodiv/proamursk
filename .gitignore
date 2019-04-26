@@ -25,5 +25,4 @@ npm-debug.log
 *.python-version
 *.pkl
 
-package-lock.json
 .vscode

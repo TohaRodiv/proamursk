@@ -10,6 +10,12 @@ if (process.env.NODE_ENV === 'development') {
                 {
                     test: /\.vue$/,
                     loader: 'vue-loader',
+                    options: {
+                        loaders: {
+                            scss: 'vue-style-loader!css-loader!sass-loader',
+                            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                        }
+                    }
                 },
                 {
                     test: /\.js$/,
@@ -23,13 +29,14 @@ if (process.env.NODE_ENV === 'development') {
                             ],
                             comments: false,
                             'babelrc': false
-                        },
+                        }
                     },
                     exclude: /node_modules/
                 },
                 {
                     test: /\.sass$/,
                     use: [
+                        'vue-style-loader',
                         {
                             loader: 'style-loader'
                         },
@@ -42,10 +49,11 @@ if (process.env.NODE_ENV === 'development') {
                         {
                             loader: 'sass-loader',
                             options: {
-                                sourceMap: true
+                                sourceMap: true,
+                                indentedSyntax: true
                             }
                         }
-                    ],
+                    ]
                 },
                 {
                     test: /\.css/,
@@ -58,8 +66,8 @@ if (process.env.NODE_ENV === 'development') {
                             options: {
                                 sourceMap: true
                             }
-                        },
-                    ],
+                        }
+                    ]
                 },
                 {
                     test: /\.(gif|png|jpe?g|ico|svg)$/i,       /*Лоадер картинок*/
@@ -67,22 +75,22 @@ if (process.env.NODE_ENV === 'development') {
                         {
                             loader: 'file-loader',
                             options: {
-                                exclude: [path.resolve(__dirname, "../../v-settings/src/fonts")],
+                                exclude: [path.resolve(__dirname, '../../v-settings/src/fonts')],
                                 name: 'images/[name].[ext]'
                             }
-                        },
+                        }
                     ]
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|svg)$/,     /*Лоадер-шрифтов*/
                     exclude: [
                         /node_modules/,
-                        path.resolve(__dirname, "../../v-settings/src/images"),
+                        path.resolve(__dirname, '../../v-settings/src/images')
                     ],
                     loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
-                },
+                }
             ]
-        },
+        }
     };
 }
 
@@ -93,6 +101,12 @@ else if (process.env.NODE_ENV === 'production') {
                 {
                     test: /\.vue$/,
                     loader: 'vue-loader',
+                    options: {
+                        loaders: {
+                            scss: 'vue-style-loader!css-loader!sass-loader',
+                            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                        }
+                    }
                 },
                 {
                     test: /\.js$/,
@@ -112,15 +126,21 @@ else if (process.env.NODE_ENV === 'production') {
                 },
                 {
                     test: /\.sass$/,
-                    use: ExtractTextPlugin.extract({
-                        use: [{
+                    use: [
+                        'vue-style-loader',
+                        {
+                            loader: 'style-loader'
+                        },
+                        {
                             loader: 'css-loader'
-                        }, {
-                            loader: 'sass-loader'
-                        }],
-                    }),
-                    // use style-loader in development
-                    // fallback: 'style-loader'
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                indentedSyntax: true
+                            }
+                        }
+                    ]
                 },
                 {
                     test: /\.css/,
@@ -132,7 +152,7 @@ else if (process.env.NODE_ENV === 'production') {
                         {
                             loader: 'file-loader',
                             options: {
-                                exclude: path.resolve(__dirname, "../../cp_vue/frontend/src/fonts"),
+                                exclude: path.resolve(__dirname, '../../cp_vue/frontend/src/fonts'),
                                 name: 'images/[name].[ext]'
                             }
                         },
@@ -140,10 +160,10 @@ else if (process.env.NODE_ENV === 'production') {
                             loader: 'image-webpack-loader',
                             options: {
                                 gifsicle: {
-                                    interlaced: false,
+                                    interlaced: false
                                 },
                                 optipng: {
-                                    optimizationLevel: 7,
+                                    optimizationLevel: 7
                                 },
                                 pngquant: {
                                     quality: '65-90',
@@ -152,23 +172,20 @@ else if (process.env.NODE_ENV === 'production') {
                                 mozjpeg: {
                                     progressive: true,
                                     quality: 65
-                                },
+                                }
                             }
-                        },
+                        }
                     ]
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|svg)$/,     /*Лоадер-шрифтов*/
                     exclude: [
                         /node_modules/,
-                        path.resolve(__dirname, "../../v-settings/src/images"),
+                        path.resolve(__dirname, '../../v-settings/src/images')
                     ],
                     loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
-                },
+                }
             ]
-        },
+        }
     };
 }
-
-
-
