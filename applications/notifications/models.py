@@ -89,8 +89,8 @@ class Recipient(BaseModel, IsActiveMixin):
         return {'id': self.pk, 'name': self.name}
 
     class Meta:
-        verbose_name = 'Получатель'
-        verbose_name_plural = 'Получатели'
+        verbose_name = 'Получатель уведомлений'
+        verbose_name_plural = 'Получатели уведомлений'
 
 
 class Notifications(BaseModel, IsActiveMixin):
