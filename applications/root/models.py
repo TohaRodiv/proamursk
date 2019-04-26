@@ -388,8 +388,8 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     search_vector = SearchVectorField(blank=True)
 
     class Meta:
-        verbose_name = 'Страница гида по городу'
-        verbose_name_plural = 'Страницы гидов по городу'
+        verbose_name = 'Гид по городу'
+        verbose_name_plural = 'Гиды по городу'
         ordering = '-id',
 
     def __str__(self):

@@ -23,8 +23,8 @@ class Campaign(BaseModel):
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
 
     class Meta:
-        verbose_name = 'Кампания рассылки'
-        verbose_name_plural = 'Кампании рассылки'
+        verbose_name = 'Шаблон рассылки'
+        verbose_name_plural = 'Шаблоны рассылок'
 
     def __str__(self):
         return self.name
