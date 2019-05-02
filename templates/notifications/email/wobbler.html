@@ -1,6 +1,6 @@
 {% load site_tags static static_version utils_tags %}
 
-<div class="wobbler" style="display: inline-block; height: 16px; padding: 5px 12px; color: #FFFFFF; background-color: #0073FF; border-radius: 17px; vertical-align: middle;">
+<div class="wobbler" style="display: inline-block; height: 16px; padding: 5px 12px; font-size: 14px; line-height: 1.5; color: #FFFFFF; background-color: #0073FF; border-radius: 17px; vertical-align: middle;">
     {% if model_name == "news" %}
         <img src="{{ domain }}{% static "site/images/email/wobbler-news.png" %}{% static_version %}" alt="" class="wobbler__icon" style="height: 16px; margin-right: 5px;">
         <span class="wobbler__text" style="display: inline-block; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: text-top;">Новости</span>
