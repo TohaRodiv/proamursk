@@ -9,7 +9,7 @@ const state = {
                 blocks: [
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom47',
+                        modClass: 'marginBottom50',
                         direction: 'row',
                         elements: [
                             {

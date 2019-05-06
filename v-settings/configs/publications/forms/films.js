@@ -25,7 +25,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -42,7 +42,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -59,7 +59,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -76,7 +76,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -93,7 +93,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -110,7 +110,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -144,7 +144,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -162,7 +162,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -195,7 +195,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 label: 'Описание',
@@ -224,7 +224,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',
@@ -283,7 +283,7 @@ const state = {
                                 widget: 'simpleChildEntity',
                                 hint: '',
                                 label: 'Сеансы',
-                                modClass: 'marginBottom22',
+                                modClass: 'marginBottom20',
                                 type: 'field',
                                 gotHeaders: true,
                                 rows: [
@@ -317,7 +317,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',
@@ -334,7 +334,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',
@@ -350,7 +350,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {

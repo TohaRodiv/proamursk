@@ -11,7 +11,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',
@@ -29,7 +29,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',
@@ -58,7 +58,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom28',
+                        modClass: 'marginBottom30',
                         elements: [
                             {
                                 type: 'field',
@@ -98,7 +98,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: ['marginBottom22', 'marginTop22'],
+                        modClass: ['marginBottom20', 'marginTop20'],
                         renderFlag: 'isEmail',
                         elements: [
                             {
@@ -154,7 +154,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginTop22',
+                        modClass: 'marginTop20',
                         renderFlag: 'isSms',
                         elements: [
                             {
@@ -201,7 +201,7 @@ const state = {
                     {
                         labelPosition: 'top',
                         direction: 'row',
-                        modClass: 'marginBottom18',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'shortTag',
@@ -285,7 +285,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',

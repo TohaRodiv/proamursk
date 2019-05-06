@@ -152,7 +152,7 @@ const state = {
                                         blocks: [
                                             {
                                                 labelPosition: 'top',
-                                                modClass: 'marginBottom22',
+                                                modClass: 'marginBottom20',
                                                 direction: 'row',
                                                 elements: [
                                                     {
@@ -180,7 +180,7 @@ const state = {
                                             },
                                             {
                                                 labelPosition: 'top',
-                                                modClass: 'marginBottom22',
+                                                modClass: 'marginBottom20',
                                                 direction: 'row',
                                                 elements: [
                                                     {
@@ -246,7 +246,7 @@ const state = {
                             // }
                             // Сброс данных второго селектора
                             vue.set(selector, 'resetFlag', true)
-                            
+
                         }
                     },
                     item: {
