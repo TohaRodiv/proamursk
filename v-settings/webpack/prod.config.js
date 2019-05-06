@@ -48,7 +48,7 @@ module.exports.plugins = (module.exports.plugins || []).concat([
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
-    new MiniCssExtractPlugin({ filename: "css/styles.css" }),
+    new MiniCssExtractPlugin({ filename: "css/styles.css", publicPath: './' }),
     new CompressionPlugin({
         asset: '[path].gz[query]',
         algorithm: 'gzip'
