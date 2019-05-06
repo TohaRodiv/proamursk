@@ -5,9 +5,8 @@ const baseConfig = require('./base.config.js');
 
 const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Visualizer = require('webpack-visualizer-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
@@ -20,9 +19,7 @@ module.exports = merge(baseConfig, {
         publicPath: '/static/cp_vue/',
         filename: 'build.js'
     },
-    performance: {
-        hints: false
-    },
+    performance: { hints: false },
     devtool: '#eval-source-map'
 });
 
@@ -31,11 +28,7 @@ module.exports = merge(baseConfig, {
 module.exports.devtool = '#source-map';
 module.exports.plugins = (module.exports.plugins || []).concat([
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-        'process.env': {
-            NODE_ENV: '"production"'
-        }
-    }),
+    new webpack.DefinePlugin({ 'process.env': { NODE_ENV: '"production"' } }),
     new UglifyJsPlugin({
         uglifyOptions: {
             ecma: 7,
@@ -43,31 +36,36 @@ module.exports.plugins = (module.exports.plugins || []).concat([
             parallel: true,
             output: {
                 comments: false,
-                beautify: false,
+                beautify: false
             },
             toplevel: false,
             nameCache: null,
             ie8: false,
             keep_classnames: undefined,
             keep_fnames: false,
-            safari10: false,
+            safari10: false
         }
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
-    new ExtractTextPlugin('css/styles.css'),
+    new MiniCssExtractPlugin({ filename: "css/styles.css" }),
     new CompressionPlugin({
         asset: '[path].gz[query]',
-        algorithm: 'gzip',
+        algorithm: 'gzip'
     }),
 
     new CopyWebpackPlugin([
-        {from: path.resolve(__dirname, "../../formatter/js/formatter.js"), to: path.resolve(__dirname, "../../static/cp_vue/js")},
-        {from: path.resolve(__dirname, "../../formatter/css/demo.css"), to: path.resolve(__dirname, "../../static/cp_vue/css/formatter")},
-        {from: path.resolve(__dirname, "../../v-settings/src/css/formatter_content.css"), to: path.resolve(__dirname, "../../static/cp_vue/css/formatter")},
-        {from: path.resolve(__dirname, "../../formatter/images/icons/"), to: path.resolve(__dirname, "../../static/cp_vue/css/images/icons")},
+        {
+            from: path.resolve(__dirname, "../../formatter/js/formatter.js"), to: path.resolve(__dirname, "../../static/cp_vue/js")
+        },
+        {
+            from: path.resolve(__dirname, "../../formatter/css/demo.css"), to: path.resolve(__dirname, "../../static/cp_vue/css/formatter")
+        },
+        { 
+            from: path.resolve(__dirname, "../../v-settings/src/css/formatter_content.css"), to: path.resolve(__dirname, "../../static/cp_vue/css/formatter")
+        },
+        { 
+            from: path.resolve(__dirname, "../../formatter/images/icons/"), to: path.resolve(__dirname, "../../static/cp_vue/css/images/icons")
+        }
     ])
-    // new Visualizer({
-    //     filename: '../v-settings/webpack/statistics.html'
-    // })
 ]);

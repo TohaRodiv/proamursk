@@ -2142,7 +2142,6 @@
                 _normalizeHTML(parentParagraph);
                 parentParagraph.normalize();
                 selection.addRange(currentRange);
-                _setFocusNodeContent(selection.anchorNode)
             }
             else if (startContainer.nodeName == 'LI') {
                 var fragmentList = (fragment.querySelector('ul, ol')) ? fragment.querySelector('ul, ol') : null;
@@ -2172,9 +2171,7 @@
 
             _updateCursorPosition();
             _removeEmptyChildNodes(rootElement);
-
-            selection.addRange(currentRange);
-            selection.collapseToEnd();
+            _setFocusNodeContent(selection.anchorNode);
 
             self.formatterCode.value = rootElement.innerHTML;
             _hidePreloader();
@@ -2394,7 +2391,6 @@
                 selection.removeAllRanges();
                 selection.addRange(range);
             }
-
         }
 
 
@@ -2430,6 +2426,7 @@
                 var startContainer = _getCursorNode();
                 var parents = _getParents(startContainer, true).reverse();
                 var currentNode, currentPathNode, nodeClass;
+
                 for (var i = 0; i < parents.length; i++) {
                     currentNode = parents[i];
                     currentPathNode = cursorPathItemElement.cloneNode(false);
@@ -2451,6 +2448,7 @@
                         cursorPathElement.appendChild(separatorNode.cloneNode(true));
                     }
                 }
+
                 _updateToolbar();
             }, 1);
         }
@@ -2552,11 +2550,8 @@
                 rootElement.innerHTML = '';
                 rootElement.appendChild(newLineElement);
                 _setFocusNodeContent(newLineElement);
-                _syncCode();
             }
-            else {
-                _syncCode();
-            }
+            _syncCode();
             _updateCursorPosition();
         }
 
@@ -2674,6 +2669,44 @@
                     pNode.innerHTML = '&#8203';
                 }
             }
+
+
+            var rangeStartNode = range.startContainer.nodeName == '#text' ? range.startContainer.parentNode : range.startContainer;
+            if (inlineTags.indexOf(rangeStartNode.nodeName.toLowerCase()) != -1) {
+                if (rangeStartNode.nodeName !== 'BODY') {
+                    var currentRangeAllParents = _getParents(range.startContainer, false);
+                    var currentRangeClosestParent = rangeStartNode.parentNode;
+                    var currentRangeParentNode;
+
+                    currentRangeAllParents.forEach(function (item) {
+                        if (inlineTags.indexOf(item.nodeName.toLowerCase()) != -1) {
+                            return currentRangeParentNode = item;
+                        }
+                    })
+
+                    setTimeout(function() {
+                        var timeoutRange = _getCurrentRange();
+                        var timeoutRangeParentNode = timeoutRange.startContainer.parentNode;
+
+                        if (rangeStartNode.nodeName !== timeoutRangeParentNode.nodeName) {
+                            var lastNode;
+                            if (timeoutRangeParentNode.nodeName == 'P') {
+                                var lastNode = currentRangeParentNode.cloneNode(true);
+                            }
+                            else {
+                                var lastNode = currentRangeClosestParent.cloneNode(true);
+                            }
+
+                            lastNode.innerHTML = '&#8203';
+                            timeoutRange.insertNode(lastNode);
+                            _setFocusNodeContent(lastNode)
+                        }
+                    }, 1);
+                }
+            }
+
+            var rootElement = _getRootElement();
+            _removeEmptyChildNodes(rootElement);
         }
 
 
