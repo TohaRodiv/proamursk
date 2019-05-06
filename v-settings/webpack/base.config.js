@@ -108,13 +108,16 @@ else if (process.env.NODE_ENV === 'production') {
                     use: [
                         {
                             loader: MiniCssExtractPlugin.loader,
-                            options: { 
-                                publicPath: (resourcePath, context) => {
-                                    return path.relative(path.dirname(resourcePath), context) + '/css/';
-                                }
+                            options: {
+                                publicPath: '../'
                             }
                         },
-                        'css-loader',
+                        {
+                            loader: 'css-loader',
+                            // options: {
+                            //     url: false
+                            // }
+                        },
                         {
                             loader: 'sass-loader',
                             options: { indentedSyntax: true }
@@ -125,10 +128,11 @@ else if (process.env.NODE_ENV === 'production') {
                     test: /\.(gif|png|jpe?g|ico|svg)$/i,       /*Лоадер картинок*/
                     loaders: [
                         {
-                            loader: 'file-loader',
+                            loader: 'url-loader',
                             options: {
                                 exclude: path.resolve(__dirname, '../../cp_vue/frontend/src/fonts'),
-                                name: 'images/[name].[ext]'
+                                name: 'images/[name].[ext]',
+                                limit: 50
                             }
                         },
                         {
@@ -143,7 +147,8 @@ else if (process.env.NODE_ENV === 'production') {
                                 mozjpeg: {
                                     progressive: true,
                                     quality: 65
-                                }
+                                },
+                                url: false
                             }
                         }
                     ]
