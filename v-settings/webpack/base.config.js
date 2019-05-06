@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -10,6 +10,12 @@ if (process.env.NODE_ENV === 'development') {
                 {
                     test: /\.vue$/,
                     loader: 'vue-loader',
+                    options: {
+                        loaders: {
+                            scss: 'vue-style-loader!css-loader!sass-loader',
+                            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                        }
+                    }
                 },
                 {
                     test: /\.js$/,
@@ -23,43 +29,26 @@ if (process.env.NODE_ENV === 'development') {
                             ],
                             comments: false,
                             'babelrc': false
-                        },
+                        }
                     },
                     exclude: /node_modules/
                 },
                 {
                     test: /\.sass$/,
                     use: [
-                        {
-                            loader: 'style-loader'
-                        },
+                        'vue-style-loader',
                         {
                             loader: 'css-loader',
-                            options: {
-                                sourceMap: true
-                            }
+                            options: { sourceMap: true }
                         },
                         {
                             loader: 'sass-loader',
                             options: {
-                                sourceMap: true
+                                sourceMap: true,
+                                indentedSyntax: true
                             }
                         }
-                    ],
-                },
-                {
-                    test: /\.css/,
-                    use: [
-                        {
-                            loader: 'style-loader'
-                        },
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        },
-                    ],
+                    ]
                 },
                 {
                     test: /\.(gif|png|jpe?g|ico|svg)$/i,       /*Лоадер картинок*/
@@ -67,22 +56,19 @@ if (process.env.NODE_ENV === 'development') {
                         {
                             loader: 'file-loader',
                             options: {
-                                exclude: [path.resolve(__dirname, "../../v-settings/src/fonts")],
+                                exclude: [path.resolve(__dirname, '../../v-settings/src/fonts')],
                                 name: 'images/[name].[ext]'
                             }
-                        },
+                        }
                     ]
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|svg)$/,     /*Лоадер-шрифтов*/
-                    exclude: [
-                        /node_modules/,
-                        path.resolve(__dirname, "../../v-settings/src/images"),
-                    ],
+                    exclude: [/node_modules/, path.resolve(__dirname, '../../v-settings/src/images')],
                     loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
-                },
+                }
             ]
-        },
+        }
     };
 }
 
@@ -93,6 +79,13 @@ else if (process.env.NODE_ENV === 'production') {
                 {
                     test: /\.vue$/,
                     loader: 'vue-loader',
+                    options: {
+                        loaders: {
+                            extractCSS: true,
+                            scss: 'vue-style-loader!css-loader!sass-loader',
+                            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                        }
+                    }
                 },
                 {
                     test: /\.js$/,
@@ -105,26 +98,28 @@ else if (process.env.NODE_ENV === 'production') {
                                 'stage-2'
                             ],
                             comments: false,
-                            'babelrc': false
+                            babelrc: false
                         }
                     },
                     exclude: /node_modules/
                 },
                 {
                     test: /\.sass$/,
-                    use: ExtractTextPlugin.extract({
-                        use: [{
-                            loader: 'css-loader'
-                        }, {
-                            loader: 'sass-loader'
-                        }],
-                    }),
-                    // use style-loader in development
-                    // fallback: 'style-loader'
-                },
-                {
-                    test: /\.css/,
-                    loader: 'style-loader!css-loader'
+                    use: [
+                        {
+                            loader: MiniCssExtractPlugin.loader,
+                            options: { 
+                                publicPath: (resourcePath, context) => {
+                                    return path.relative(path.dirname(resourcePath), context) + '/css/';
+                                }
+                            }
+                        },
+                        'css-loader',
+                        {
+                            loader: 'sass-loader',
+                            options: { indentedSyntax: true }
+                        }
+                    ]
                 },
                 {
                     test: /\.(gif|png|jpe?g|ico|svg)$/i,       /*Лоадер картинок*/
@@ -132,19 +127,15 @@ else if (process.env.NODE_ENV === 'production') {
                         {
                             loader: 'file-loader',
                             options: {
-                                exclude: path.resolve(__dirname, "../../cp_vue/frontend/src/fonts"),
+                                exclude: path.resolve(__dirname, '../../cp_vue/frontend/src/fonts'),
                                 name: 'images/[name].[ext]'
                             }
                         },
                         {
                             loader: 'image-webpack-loader',
                             options: {
-                                gifsicle: {
-                                    interlaced: false,
-                                },
-                                optipng: {
-                                    optimizationLevel: 7,
-                                },
+                                gifsicle: { interlaced: false },
+                                optipng: { optimizationLevel: 7 },
                                 pngquant: {
                                     quality: '65-90',
                                     speed: 4
@@ -152,23 +143,29 @@ else if (process.env.NODE_ENV === 'production') {
                                 mozjpeg: {
                                     progressive: true,
                                     quality: 65
-                                },
+                                }
                             }
-                        },
+                        }
                     ]
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|svg)$/,     /*Лоадер-шрифтов*/
                     exclude: [
                         /node_modules/,
-                        path.resolve(__dirname, "../../v-settings/src/images"),
+                        path.resolve(__dirname, '../../v-settings/src/images'),
+                        path.resolve(__dirname, '../../static/')
                     ],
-                    loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
-                },
+                    use: [
+                        {
+                            loader: 'url-loader',
+                            options: {
+                                limit: 50000,
+                                name: 'fonts/[name].[ext]' 
+                            }
+                        }
+                    ]
+                }
             ]
-        },
+        }
     };
 }
-
-
-
