@@ -1,4 +1,4 @@
-; 'use strict';
+;'use strict';
 
 
 (function (factory) {
@@ -639,7 +639,7 @@
                     self.toolbarElement.appendChild(toolbarLineElement);
                 }
                 formatterElement.appendChild(self.toolbarElement);
-                window.addEventListener('click', function (event) {
+                window.addEventListener('click', function () {
                     if (!event.target.closest('.formatter-popup')) {
                         _removePopUps();
                     }
@@ -647,6 +647,7 @@
                 });
             }
         }
+
 
         function _updateToolbar() {
             var toolbarButtons = self.options.toolbar;
@@ -660,7 +661,6 @@
                             continue;
                         }
                         if (actionName && actionName != '|') {
-                            let sheet = document.styleSheets[0];
                             var actionNode = _findParentActionElement(actionName, _getCursorNode());
                             button = self.toolbarElement.querySelector('.formatter-toolbar__button_' + _camelCaseToDash(actionName));
                             if (_actionState(actionName)) {
@@ -674,18 +674,11 @@
                                     _addClass(button, 'formatter-toolbar__button_active');
                                     if (button.nextSibling) _addClass(button.nextSibling, 'formatter-toolbar__button_active');
                                     if (actionName == 'fontColor') {
-                                        if (sheet.insertRule) {
-                                            sheet.insertRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after { background-color: ' + actionNode.style.color + ' !important; }', sheet.cssRules.length);
-                                        } else {
-                                            sheet.addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: ' + actionNode.style.color + ' !important;');
-                                        }
+
+                                        document.styleSheets[0].addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: ' + actionNode.style.color + ' !important;');
                                     }
                                     if (actionName == 'backgroundColor') {
-                                        if (sheet.insertRule) {
-                                            sheet.insertRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after { background-color: ' + actionNode.style['backgroundColor'] + ' !important; }', sheet.cssRules.length);
-                                        } else {
-                                            sheet.addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: ' + actionNode.style['backgroundColor'] + ' !important;');
-                                        }
+                                        document.styleSheets[0].addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: ' + actionNode.style['backgroundColor'] + ' !important;');
                                     }
                                 }
                             }
@@ -698,18 +691,10 @@
                                     _removeClass(button, 'formatter-toolbar__button_active');
                                     if (button.nextSibling) _removeClass(button.nextSibling, 'formatter-toolbar__button_active');
                                     if (actionName == 'fontColor') {
-                                        if (sheet.insertRule) {
-                                            sheet.insertRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after { background-color: #000000 !important; }', sheet.cssRules.length);
-                                        } else {
-                                            sheet.addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: #000000 !important;');
-                                        }
+                                        document.styleSheets[0].addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: #000000 !important;');
                                     }
                                     if (actionName == 'backgroundColor') {
-                                        if (sheet.insertRule) {
-                                            sheet.insertRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after { background-color: #ffffff !important; }', sheet.cssRules.length);
-                                        } else {
-                                            sheet.addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: #ffffff !important;');
-                                        }
+                                        document.styleSheets[0].addRule('.formatter-toolbar__button_' + _camelCaseToDash(actionName) + ':after', 'background-color: #ffffff !important;');
                                     }
                                 }
 
@@ -1673,7 +1658,7 @@
             html = _cleanStyle(html);
             html = _cleanClass(html);
             html = _removeBlockWithoutStyles(html);
-            html = _wrapToParagraph(html);
+            // html = _wrapToParagraph(html);
             return html
         }
 
@@ -1704,28 +1689,12 @@
                     }
                 }
             }
-
             var availableTagsString = availableTags.join('|');
-            var notavailableTagsRE = new RegExp('(?:<(?!\/?(p|br|' + availableTagsString + ')(?:\\s|\/*>)))(?:.+?)>', 'ig');
-
-            var styleTag = new RegExp('<style[^>]*>(?:(?!<\/style>)[^])*<\/style>', 'ig');
-            var scriptTag = new RegExp('<script[^>]*>(?:(?!<\/script>)[^])*<\/script>', 'igm');
-
-            var conditionalCommentRE = new RegExp('<!-*\\[.*?\\]>*?[^!]*!-*\\[.*?\\]-*>', 'igm');
-            var htmlCommentRE = new RegExp('<!--[^-\2]*?-->', 'igm');
-
-            html = html.replace(new RegExp('\n', 'ig'), ' ');
-            html = html.replace(new RegExp('<br>', 'ig'), ' ');
-
-            html = html.replace(htmlCommentRE, '');
-
-            html = html.replace(scriptTag, '');
+            var styleTag = new RegExp('<style(.+?)>(.+?)<\/style>', 'ig');
+            var re = new RegExp('(?:<(?!\/?(p|br|' + availableTagsString + ')(?:\\s|\/*>)))(?:.+?)>', 'ig');
+            html = html.replace(new RegExp('\n', 'ig'), '');
             html = html.replace(styleTag, '');
-
-            html = html.replace(conditionalCommentRE, '');
-
-            html = html.replace(notavailableTagsRE, '');
-
+            html = html.replace(re, '');
             return _removeEmptyTags(html)
         }
 
@@ -1834,14 +1803,13 @@
                     styleObject = self.actions[action]['style'];
                     for (var styleName in styleObject) {
                         var styleValue = styleObject[styleName];
-                        style = _camelCaseToDash(styleName) + ':\s*' + styleValue;
+                        style = _camelCaseToDash(styleName) +': '+ styleValue;
                         if (availableStyles.indexOf(style) < 0) availableStyles.push(style)
                     }
                 }
             }
             var availableStylesString = availableStyles.join('|');
-
-            var styleRe1 = new RegExp(';*\\s*(?!(' + availableStylesString + '))(?:[a-z\\-]+?):\\s*[^;]+', 'ig');
+            var styleRe1 = new RegExp(';\\s*(?!(' + availableStylesString + '))(?:[a-z\\-]+?):\\s*[^;]+', 'ig');
             var styleRe2 = new RegExp('"(?!(' + availableStylesString + '))(?:[a-z\\-]+?):\\s*[^;]+;', 'ig');
             var styleRe3 = new RegExp("'(?!(" + availableStylesString + "))(?:[a-z\\-]+?):\\s*[^;]+;", 'ig');
             // проверка на приходящие свойства, должны быть в формате ключ-значение, учитывая что в значении могут быть "", которые могут закрыть атрибут style
@@ -1850,16 +1818,14 @@
 
 
             var defaultIframeTextColor;
-            if (document.getElementsByTagName('iframe').length === 1) {
+            if (document.getElementsByTagName('iframe').length === 1)
                 defaultIframeTextColor = getComputedStyle(document.getElementsByTagName('iframe')[0].contentWindow.document.body).color;
-            }
-            else {
+            else
                 for (let i = 0; i < document.getElementsByTagName('iframe').length; i++) {
                     var className = document.getElementsByTagName('iframe')[i].className;
                     if (className.indexOf('formatter-content') !== -1)
                         defaultIframeTextColor = getComputedStyle(document.getElementsByTagName('iframe')[i].contentWindow.document.body).color;
                 }
-            }
 
             // // экранирование скобок для подстановки в регулярное выражение
             defaultIframeTextColor = defaultIframeTextColor.replace(/\(/ig, '\\(');
@@ -1867,46 +1833,23 @@
 
             var defaultTextColorRe = new RegExp("color:\\s*" + defaultIframeTextColor + ";", 'ig');
 
-            html = html.replace(/\s*style="[a-zA-Zа-яА-Я0-9\-,._':;&\(\)\s\!#]*"/ig, function (str) {
+            html = html.replace(/\s*style="[a-zA-Z0-9\-,.':;&\(\)\s\!#]*"/ig, function (str) {
                 str = str.replace(/&[a-z0-9#]*;/ig, ''); //убирает символы юникода, например &quot; кавычки в правиле font-family
-                str = str.replace('&quot;', '');
                 str = str.replace(styleRe4, '$&');
-                str = str.replace(new RegExp('\n', 'ig'), ' ');
-
-                // удалет недопустимые стили формата "style: propertie;"
-                str = str.replace(/(?:[a-z-]+?):\s*([^;|"]*?)*;{0,1}/ig, function (str) {
-                    var re = new RegExp('^(\s*' + availableStylesString + ')', 'ig');
-
-                    if (str.search(re) == -1) {
-                        var re2 = new RegExp('\s*' + str + ';*', 'ig')
-                        str = str.replace(re2, '');
-                    }
-                    else {
-                        str = str;
-                    }
-                    return str
-                })
-
+                str = str.replace(styleRe1, '');
                 str = str.replace(styleRe2, '"');
                 str = str.replace(styleRe3, "'");
                 str = str.replace(colorRe, '');  // проверяет валидность формата цвета hex или rgb(a)
-                str = str.replace(defaultTextColorRe, '');
                 str = str.replace(/="\s/ig, '="');
                 str = str.replace(/='\s/ig, '=');
-
-                if (str && str.match(/:/g) === null) {
-                    str = str.replace(str, '');
-                }
+                str = str.replace(defaultTextColorRe, '');
                 return str
             });
             //проверка на <span|b|i style="text-align: ;">
             var styleRe5 = new RegExp('<(span|b|i|)[\\s\\n\\w=";]*(text-align:\\s*(center|left|right|justify|initial)*);">', 'ig');
 
             html = html.replace(styleRe5, '');
-            html = html.replace(/\s*style=";*\s*"/ig, '');
-            html = html.replace(/\s*style="\s*"/ig, '');
             html = html.replace(/\s*style=""/ig, '');
-            html = html.replace(/\s*style=">/ig, '>');
             return html
         }
 
@@ -2028,21 +1971,9 @@
         // Events
 
 
-        function _onpaste(event) {
+        function _onpaste(event){
             _showPreloader();
             event.preventDefault();
-
-
-            function __setCursorToEnd(element){
-                var range = document.createRange();
-                var selection = self.iframeDocument.getSelection();
-                range.setStart(element, 1);
-                range.collapse(true);
-                selection.removeAllRanges();
-                selection.addRange(range);
-            }
-
-            var iframe = document.getElementsByClassName('formatter-content')[0];
             var selection = self.iframeDocument.getSelection();
             var range = _getCurrentRange();
             var rootElement = _getRootElement();
@@ -2052,48 +1983,27 @@
             var cleanedHtml = _cleanHtml(pasteData);
 
             var pasteBlock = self.iframeDocument.createElement('div');
-            pasteBlock.innerHTML = cleanedHtml;
+                pasteBlock.innerHTML = cleanedHtml;
 
 
             var fragment = self.iframeDocument.createDocumentFragment();
-            while (pasteBlock.firstChild) {
+            while(pasteBlock.firstChild){
                 fragment.appendChild(pasteBlock.firstChild);
             }
 
             var contentTypeIndex = 0; // 0 - text, 1 - stringHTML, 2 - blockHTML
-            if (fragment.querySelectorAll(blockTags.join(', ')).length > 0) {
+            if (fragment.querySelectorAll(blockTags.join(', ')).length > 0){
                 contentTypeIndex = 2;
             }
-            else if (fragment.querySelectorAll(inlineTags.join(', ')).length > 0) {
+            else if(fragment.querySelectorAll(inlineTags.join(', ')).length > 0){
                 contentTypeIndex = 1;
             }
 
-            // Проверка вставляемых списков, чтобы вложенные списки всегда были внутри li, если это не так, то переместить в ближайший предыдущий li
-            if (fragment.querySelectorAll('ul, ol').length > 0) {
-                var fragmentFirstLevelLists = fragment.querySelectorAll('ul, ol');
-
-                fragmentFirstLevelLists.forEach(function (firstLevelList) {
-                    if (firstLevelList.querySelectorAll('ul, ol').length > 0) {
-                        var fragmentLists = firstLevelList.querySelectorAll('ul, ol');
-
-                        fragmentLists.forEach(function (list) {
-                            if (list.parentNode.nodeName == 'UL' || list.parentNode.nodeName == 'OL') { // проверка, что список вложен в другой список
-                                if (list.previousSibling && list.previousSibling.nodeName == 'LI') { // если вложенный список не единственный элемент
-                                    list.previousSibling.appendChild(list); // то переместить в ближайший предыдущий li
-                                }
-                                else {
-                                    _unwrapElement(list); // то убрать родительский список
-                                }
-                            }
-                        });
-                    }
-                })
+            if(!range.collapsed){
+               _execCommand('delete');
             }
 
-            if (!range.collapsed) {
-                _execCommand('delete');
-            }
-
+            var currentSelection = self.iframeDocument.getSelection();
             var currentRange = _getCurrentRange();
             var startContainer = currentRange.startContainer;
             var parentParagraph = _getParentParagraph(startContainer);
@@ -2101,92 +2011,96 @@
 
             // условия на то, куда вставляется: текст, параграф, элемент списка, остальные элементы(b, i, span)
             if (startContainer.nodeName == '#text') {
-
                 if (contentTypeIndex == 2) { //если вставляется блочный элемент, то текст разрывается и блок встает между ним
                     var leftPart = _splitNode(range.startContainer, range.startOffset, parentNode);
-
-                    var markerNode = _createMarkerNode();
-
                     if (_findParentNode(startContainer, 'li')) { // если текст в li
-                        _findParentNode(leftPart, 'li').appendChild(fragment);
-                        _insertAfter(leftPart.nextSibling, markerNode);
-                        if (_isEmptyNode(leftPart.nextSibling)) {
+                        if (_isEmptyNode(leftPart)) {
+                            _findParentNode(leftPart, 'li').appendChild(fragment);
+                        }
+                        else if (_isEmptyNode(leftPart.nextSibling)) {
+                            _findParentNode(leftPart, 'li').appendChild(fragment);
                             _removeNode(leftPart.nextSibling);
+                        }
+                        else {
+                            _findParentNode(leftPart, 'li').appendChild(fragment);
                         }
                     }
                     else {
                         if (_isEmptyNode(leftPart)) {
-                            _insertAfter(leftPart, markerNode);
                             _replace(leftPart, fragment);
                         }
                         else if (_isEmptyNode(leftPart.nextSibling)) {
-                            _insertAfter(leftPart.nextSibling, markerNode);
                             _replace(leftPart.nextSibling, fragment);
                         }
                         else {
-                            _insertAfter(leftPart, markerNode);
                             _insertAfter(leftPart, fragment);
                         }
                     }
-
-                    var iframeMarker = iframe.contentWindow.document.getElementById(markerNode.id);
-                    __setCursorToEnd(iframeMarker.previousSibling)
-                    iframeMarker.remove();
+                    range.selectNodeContents(leftPart);
+                    range.collapse();
                 }
                 else if (contentTypeIndex < 2) { //если вставляется текст или строчный элемент, то текст встает на место курсора
                     currentRange.insertNode(fragment);
+                    selection.addRange(currentRange);
+                    selection.collapseToEnd();
                 }
             }
-            else if (startContainer.nodeName == 'P') {
-                _replace(currentRange.startContainer, fragment);
+            else if (startContainer.nodeName == 'P'){ // в пустой параграф вставляется любой скопированный фрагмент
+                _replace(currentRange.startContainer,fragment)
                 _normalizeHTML(parentParagraph);
                 parentParagraph.normalize();
                 selection.addRange(currentRange);
+                selection.collapseToEnd();
             }
-            else if (startContainer.nodeName == 'LI') {
+            else if (startContainer.nodeName == 'LI') { // в пустой элемент списка
                 var fragmentList = (fragment.querySelector('ul, ol')) ? fragment.querySelector('ul, ol') : null;
                 if (fragmentList !== null) { //если вставляется список, то вставляются только новые элементы li
-                    var fragmentListItems = ((fragmentList) && ((fragmentList.nodeName == 'UL') || (fragmentList.nodeName == 'OL'))) ? fragmentList.childNodes : null;
+                    var fragmentListItems = ((fragmentList)&&((fragmentList.nodeName=='UL') || (fragmentList.nodeName=='OL'))) ? fragmentList.childNodes : null;
                     for (var i = fragmentListItems.length - 1; i > 0; i--) {
-                        _insertAfter(startContainer, fragmentListItems[i].cloneNode(true));
+                        _insertAfter(startContainer, fragmentListItems[i].cloneNode(true))
                     }
                     _replace(startContainer, fragmentListItems[0].cloneNode(true));
                     selection.addRange(currentRange);
-                    _setFocusNodeContent(selection.anchorNode);
+                    _setFocusNodeContent(selection.anchorNode)
                 }
                 else { // вставляется скопированный фрагмент
+                    currentRange.selectNodeContents(startContainer);
                     currentRange.insertNode(fragment);
                     currentRange.selectNodeContents(startContainer);
+                    selection.addRange(currentRange);
+                    selection.collapseToEnd();
                 }
             }
             else {
                 if (_findParentNode(startContainer, 'li')) {
-                    _insertAfter(startContainer, fragment);
+                    _insertAfter(startContainer, fragment)
                 }
                 else {
+                    currentRange.selectNodeContents(startContainer);
                     currentRange.insertNode(fragment);
                     currentRange.selectNodeContents(startContainer);
+                    selection.addRange(currentRange);
+                    selection.collapseToEnd();
                 }
             }
 
-            _updateCursorPosition();
-            _removeEmptyChildNodes(rootElement);
-            _setFocusNodeContent(selection.anchorNode);
 
+            //_removeEmptyChildNodes(rootElement);
             self.formatterCode.value = rootElement.innerHTML;
             _hidePreloader();
+
         }
 
 
-        function _findIdenticalElements(element) {
+        function _findIdenticalElements(element){
             var result = [];
-            if (element) {
+            if(element){
                 var selector = element.tagName.toLowerCase();
-                if (element.hasAttribute('class')) {
+                if(element.hasAttribute('class')){
                     var classList = element.className.split(' ');
                     selector = selector + '.' + classList.join('.');
                 }
-                if (element.hasAttribute('style')) {
+                if(element.hasAttribute('style')){
                     var styleString = element.getAttribute('style');
                     selector = selector + '[style="' + styleString + '"]';
                 }
@@ -2196,14 +2110,14 @@
         }
 
 
-        function _onkeyup(event) {
+        function _onkeyup(event){
             var keyCode = event.keyCode || event.which;
             if (keyCode == 8 || keyCode == 46) return _formatEmpty(event);
             _syncCode();
         }
 
 
-        function _onkeydown(event) {
+        function _onkeydown(event){
             var keyCode = event.keyCode || event.which;
             var isMac = navigator.platform == 'MacIntel';
             if (keyCode == 8 || keyCode == 46) return _formatDelete(event);
@@ -2216,28 +2130,28 @@
         }
 
 
-        function _onkeypress(event) {
+        function _onkeypress(event){
             var keyCode = event.keyCode || event.which;
             var textNode;
-            if ((event.altKey || event.metaKey || event.ctrlKey) && keyCode == 13) {
+            if((event.altKey || event.metaKey || event.ctrlKey) && keyCode == 13) {
                 _formatNewLineBr();
             }
             else if (keyCode == 13) return _formatNewLine(event);
             else if (keyCode == 9) return _formatTab(event);
-            else if (!event.ctrlKey && !event.metaKey) {
+            else if (!event.ctrlKey && !event.metaKey){
                 var cursorNode = _getCursorNode();
-                if (Object.keys(cursorNode.dataset).length > 0) {
+                if (Object.keys(cursorNode.dataset).length > 0){
                     textNode = self.iframeDocument.createTextNode('\u200B');
                     _insertAfter(cursorNode, textNode);
                     _setSelection(textNode, 1, textNode, 1);
                 }
-                setTimeout(function () {
+                setTimeout(function(){
                     var range = _getCurrentRange();
                     var startContainer = range.startContainer;
                     var endContainer = range.endContainer;
                     var cursorNode = _getCursorNode();
                     var re = /[\u200B-\u200D\uFEFF]/g;
-                    if (re.test(cursorNode.textContent)) {
+                    if(re.test(cursorNode.textContent)){
                         _removeZeroWidthSpace(cursorNode);
                         _setSelection(startContainer, startContainer.textContent.length, endContainer, endContainer.textContent.length);
                     }
@@ -2246,7 +2160,7 @@
         }
 
 
-        function _onclick(event) {
+        function _onclick(event){
             _removePopUps();
             _updateCursorPosition();
         }
@@ -2254,54 +2168,54 @@
 
         // Selection
 
-        function _getCursorNode() {
+        function _getCursorNode(){
             // Возвращает элемент где находится стартовая позиция выделения
             var selection = self.iframeDocument.getSelection();
-            var range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
-            if (!range) return null;
-            return range.startContainer.nodeType == 3 ? range.startContainer.parentNode : range.startContainer;
+            var range = selection.rangeCount > 0?selection.getRangeAt(0):null;
+            if(!range) return null;
+            return range.startContainer.nodeType == 3?range.startContainer.parentNode:range.startContainer;
         }
 
 
-        function _selectCursorWord() {
+        function _selectCursorWord(){
             // Выделяет слово по положению каретки
             var range = _getCurrentRange();
             var cursorWordParams = _getCursorWordParts();
-            if (cursorWordParams.leftPart && cursorWordParams.rightPart) {
+            if(cursorWordParams.leftPart && cursorWordParams.rightPart){
                 var startWordMatch = cursorWordParams.leftPart;
-                var startWord = startWordMatch && startWordMatch.length > 0 ? startWordMatch[0] : '';
-                var startOffset = startWordMatch ? startWordMatch.index : range.startOffset;
+                var startWord = startWordMatch && startWordMatch.length > 0?startWordMatch[0]:'';
+                var startOffset = startWordMatch?startWordMatch.index:range.startOffset;
 
                 var endWordMatch = cursorWordParams.rightPart;
-                var endWord = endWordMatch && endWordMatch.length > 0 ? endWordMatch[0] : '';
-                var endOffset = endWord ? endWord.length + range.startOffset : range.startOffset;
-                if (startWord && endWord) {
+                var endWord = endWordMatch && endWordMatch.length > 0?endWordMatch[0]:'';
+                var endOffset = endWord?endWord.length + range.startOffset:range.startOffset;
+                if (startWord && endWord){
                     _setSelection(range.startContainer, startOffset, range.endContainer, endOffset);
                 }
             }
         }
 
 
-        function _getCursorWordParts() {
+        function _getCursorWordParts(){
             // Возвращает объект параметров для слова внутри которго находится курсор
 
-            var checkExistsMatch = function (matchObject) {
+            var checkExistsMatch = function (matchObject){
                 return matchObject.length > 0 && matchObject[0] != ''
             };
 
             var range = _getCurrentRange();
             var params = {};
-            if (range && range.collapsed) {
-                var text = range.startContainer.nodeType == 3 ? range.startContainer.textContent : range.startContainer.innerText;
-                if (text) {
+            if(range && range.collapsed){
+                var text = range.startContainer.nodeType == 3?range.startContainer.textContent:range.startContainer.innerText;
+                if (text){
                     var endPart = text.substring(range.startOffset);
                     var startPart = text.substring(0, range.startOffset);
                     var leftPart = startPart.match(/[0-9a-zA-Zа-яА-Я_]*$/i);
                     var rightPart = endPart.match(/^[0-9a-zA-Zа-яА-Я_]*/i);
-                    if (checkExistsMatch(leftPart)) {
+                    if(checkExistsMatch(leftPart)){
                         params.leftPart = leftPart;
                     }
-                    if (checkExistsMatch(rightPart)) {
+                    if(checkExistsMatch(rightPart)){
                         params.rightPart = rightPart;
                     }
                 }
@@ -2310,14 +2224,14 @@
         }
 
 
-        function _cursorInWord() {
+        function _cursorInWord(){
             // Возвращает true - если курсор внутри слова, иначе false
             var cursorWordParts = _getCursorWordParts();
             return cursorWordParts && cursorWordParts.leftPart && cursorWordParts.rightPart
         }
 
 
-        function _setSelection(startContainer, startOffset, endContainer, endOffset) {
+        function _setSelection(startContainer, startOffset, endContainer, endOffset){
             // Ставит выделенеие по переданым параметрам
             var selection = self.iframeDocument.getSelection();
             var range = self.iframeDocument.createRange();
@@ -2328,7 +2242,7 @@
         }
 
 
-        function _selectNode(node) {
+        function _selectNode(node){
             // Выделяет переданный элемент
             var selection = self.iframeDocument.getSelection();
             var range = self.iframeDocument.createRange();
@@ -2338,7 +2252,7 @@
         }
 
 
-        function _selectNodeContents(node) {
+        function _selectNodeContents(node){
             // Выделяет переданный элемент
             var selection = self.iframeDocument.getSelection();
             var range = self.iframeDocument.createRange();
@@ -2348,13 +2262,13 @@
         }
 
 
-        function _replaceSelection(node) {
+        function _replaceSelection(node){
             // Заменяет выделение на переданный узел
             var selection = self.iframeDocument.getSelection();
-            if (!selection) return;
-            var range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
+            if(!selection) return;
+            var range = selection.rangeCount > 0?selection.getRangeAt(0):null;
 
-            if (selection.anchorNode == selection.focusNode) {
+            if(selection.anchorNode == selection.focusNode){
                 var markerNode = _createMarkerNode();
                 range.insertNode(markerNode);
                 range.setStartAfter(markerNode);
@@ -2368,20 +2282,20 @@
         }
 
 
-        function _getCurrentRange() {
+        function _getCurrentRange(){
             // Возвращает текущий range
             var selection = self.iframeDocument.getSelection();
             return selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
         }
 
 
-        function _isCollapsedSelection() {
+        function _isCollapsedSelection(){
             var selection = self.iframeDocument.getSelection();
             return selection.anchorNode == selection.focusNode && selection.anchorOffset == selection.focusOffset
         }
 
 
-        function _setFocusNodeContent(node) {
+        function _setFocusNodeContent(node){
             // Ставит фокус в переданный элемент
             var range = self.iframeDocument.createRange();
             var selection = self.iframeDocument.getSelection();
@@ -2391,14 +2305,15 @@
                 selection.removeAllRanges();
                 selection.addRange(range);
             }
+
         }
 
 
-        function _getCurrentRangeParams() {
+        function _getCurrentRangeParams(){
             // Возвращает текущии параметры выделения.
             var params = {};
             var range = _getCurrentRange();
-            if (!range) _focusFrame();
+            if(!range) _focusFrame();
             range = _getCurrentRange();
             params.startContainer = range.startContainer;
             params.startOffset = range.startOffset;
@@ -2412,43 +2327,41 @@
 
         // Cursor
 
-        function _updateCursorPosition() {
-            setTimeout(function () {
+        function _updateCursorPosition(){
+            setTimeout(function(){
                 var cursorPathElement = formatterElement.querySelector('.formatter-footer__cursor-path');
-                cursorPathElement.innerHTML = '';
+                    cursorPathElement.innerHTML = '';
                 var cursorPathItemElement = document.createElement('div');
-                cursorPathItemElement.className = 'formatter-footer__cursor-path-item';
+                    cursorPathItemElement.className = 'formatter-footer__cursor-path-item';
 
                 var separatorNode = cursorPathItemElement.cloneNode(false);
-                separatorNode.innerHTML = '&raquo;';
-                separatorNode.className = 'formatter-footer__cursor-path-separator';
+                    separatorNode.innerHTML = '&raquo;';
+                    separatorNode.className = 'formatter-footer__cursor-path-separator';
 
                 var startContainer = _getCursorNode();
                 var parents = _getParents(startContainer, true).reverse();
                 var currentNode, currentPathNode, nodeClass;
-
-                for (var i = 0; i < parents.length; i++) {
+                for (var i = 0; i < parents.length; i++){
                     currentNode = parents[i];
                     currentPathNode = cursorPathItemElement.cloneNode(false);
                     currentPathNode.dataset.index = i;
                     nodeClass = currentNode.classList.length > 0 ? ' » ' + currentNode.className.split(' ').join('.') : '';
-                    currentPathNode.innerText = currentNode.tagName.toLowerCase() + nodeClass;
-                    currentPathNode.addEventListener('click', function (event) {
+                    currentPathNode.innerText = currentNode.tagName.toLowerCase()+nodeClass;
+                    currentPathNode.addEventListener('click', function(event){
                         if (self.codeView) return;
 
                         var element = event.target;
                         var index = element.dataset.index;
-                        if (index && index < parents.length) {
+                        if(index && index < parents.length){
                             _selectNode(parents[index]);
                             _focusFrame();
                         }
                     });
                     cursorPathElement.appendChild(currentPathNode);
-                    if (i < parents.length - 1) {
+                    if(i < parents.length - 1){
                         cursorPathElement.appendChild(separatorNode.cloneNode(true));
                     }
                 }
-
                 _updateToolbar();
             }, 1);
         }
@@ -2456,7 +2369,7 @@
 
         // Other
 
-        function _createMarkerNode() {
+        function  _createMarkerNode(){
             // Создает и возвращает маркированый элемент
             var id = "marker_" + ("" + Math.random()).slice(2);
             var node = self.iframeDocument.createElement('span');
@@ -2465,13 +2378,13 @@
         }
 
 
-        function _getRootElement() {
+        function _getRootElement(){
             // Возвращает корневой элемент редактора. В данном слкчае  это body
             return self.iframeDocument.getElementsByTagName('body')[0]
         }
 
 
-        function _getNewLineElement() {
+        function _getNewLineElement(){
             // Создает и возвращает элемент пустой строки
             var newLineElement = self.iframeDocument.createElement('p');
             newLineElement.innerHTML = '&#8203';
@@ -2479,24 +2392,24 @@
         }
 
 
-        function _formatNewLine(event) {
+        function _formatNewLine(event){
             // Добавляет элемент новой строки
             var cursorNode = _getCursorNode();
             var listItemNode = cursorNode.closest('li');
             var listNode = cursorNode.closest('ol, ul');
             var parentListItemNode, newLineElement, splitElement;
 
-            if (listItemNode && _isEmptyNode(listItemNode)) {
+            if(listItemNode && _isEmptyNode(listItemNode)){
                 event.preventDefault();
                 parentListItemNode = listNode.closest('li');
-                if (parentListItemNode) {
+                if(parentListItemNode){
                     newLineElement = self.iframeDocument.createElement('li');
                     newLineElement.innerHTML = '&#8203';
-                    if (_isEmptyNode(listNode)) {
+                    if(_isEmptyNode(listNode)){
                         _removeNode(listNode);
                         _insertAfter(parentListItemNode, newLineElement)
                     }
-                    else if (listItemNode.nextSibling) {
+                    else if(listItemNode.nextSibling){
                         splitElement = _splitNode(listItemNode, 0, listNode);
                         _removeNode(listItemNode);
                         _removeEmptyChildNodes(splitElement);
@@ -2504,24 +2417,24 @@
                         _insertAfter(parentListItemNode, newLineElement);
                         newLineElement = newLineElement.firstChild;
                     }
-                    else {
+                    else{
                         _removeNode(listItemNode);
                         _insertAfter(parentListItemNode, newLineElement)
                     }
                 }
-                else {
+                else{
                     newLineElement = _getNewLineElement();
-                    if (_isEmptyNode(listNode)) {
+                    if(_isEmptyNode(listNode) ){
                         _removeNode(listItemNode);
                         _replace(listNode, newLineElement)
                     }
-                    else if (listItemNode.nextSibling) {
+                    else if(listItemNode.nextSibling){
                         splitElement = _splitNode(listItemNode, 0, listNode);
                         _removeNode(listItemNode);
                         _removeEmptyChildNodes(splitElement);
                         _insertAfter(splitElement, newLineElement)
                     }
-                    else {
+                    else{
                         _removeNode(listItemNode);
                         _insertAfter(listNode, newLineElement)
                     }
@@ -2530,10 +2443,10 @@
             }
 
 
-            setTimeout(function () {
+            setTimeout(function(){
                 var range = _getCurrentRange();
                 var startContainer = range.startContainer;
-                if (_isEmptyNode(startContainer)) {
+                if(_isEmptyNode(startContainer)){
                     startContainer.innerHTML = '&#8203';
                     _setSelection(startContainer, startContainer.textContent.length, startContainer, startContainer.textContent.length)
                 }
@@ -2541,27 +2454,30 @@
         }
 
 
-        function _formatEmpty() {
+        function _formatEmpty(){
             // Если тело редактора пустое, добавлет элемент пустой строки.
             var rootElement = _getRootElement();
             var text = rootElement.innerText.trim();
-            if (text == '') {
+            if (text == ''){
                 var newLineElement = _getNewLineElement();
                 rootElement.innerHTML = '';
                 rootElement.appendChild(newLineElement);
                 _setFocusNodeContent(newLineElement);
+                _syncCode();
             }
-            _syncCode();
+            else{
+                _syncCode();
+            }
             _updateCursorPosition();
         }
 
 
-        function _formatTab(event) {
+        function _formatTab(event){
             event.preventDefault();
             var cursorNode = _getCursorNode();
             var listItemNode = cursorNode.closest('li');
             var listNode = cursorNode.closest('ol, ul');
-            if (listItemNode && !_isEmptyNode(listNode)) {
+            if(listItemNode && !_isEmptyNode(listNode)){
                 var range = _getCurrentRange();
                 var rangeParams = _getCurrentRangeParams();
                 var startRangeListItemNode = _findParentNode(rangeParams.startContainer, 'li');
@@ -2569,26 +2485,26 @@
 
                 if (!startRangeListItemNode && !endRangeListItemNode) return;
 
-                if (startRangeListItemNode == endRangeListItemNode) {
-                    if (event.shiftKey) {
+                if(startRangeListItemNode == endRangeListItemNode){
+                    if (event.shiftKey){
                         _removeIndentListItem(listItemNode);
                     }
                     else {
                         _indentListItem(listItemNode);
                     }
                 }
-                else {
+                else{
                     var commonList = range.commonAncestorContainer;
-                    if (startRangeListItemNode.previousSibling || event.shiftKey) {
+                    if(startRangeListItemNode.previousSibling || event.shiftKey){
                         var items;
-                        items = Array.prototype.slice.call(commonList.querySelectorAll('li')).filter(function (el) {
+                        items = Array.prototype.slice.call(commonList.querySelectorAll('li')).filter(function(el){
                             return _rangeIntersectsNode(range, el);
                         });
-                        items.map(function (li) {
-                            if (event.shiftKey) {
+                        items.map(function(li){
+                            if (event.shiftKey){
                                 _removeIndentListItem(li);
                             }
-                            else {
+                            else{
                                 _indentListItem(li);
                             }
                         });
@@ -2599,19 +2515,19 @@
         }
 
 
-        function _formatDelete(event) {
+        function _formatDelete(event){
             var range = _getCurrentRange();
             var listItemNode = _findParentNode(range.startContainer, 'li');
             var cursorNode = _getCursorNode();
 
-            if (_isEmptyNode(cursorNode)) {
+            if(_isEmptyNode(cursorNode)){
                 cursorNode.innerHTML = '<br>';
             }
 
-            if (listItemNode) {
+            if(listItemNode){
                 var listNode = listItemNode.parentNode;
 
-                if (!listItemNode.previousSibling && _isEmptyNode(listItemNode) && !listNode.previousSibling) {
+                if(!listItemNode.previousSibling && _isEmptyNode(listItemNode) && !listNode.previousSibling){
                     event.preventDefault();
                     var emptyParagraph = _getNewLineElement();
                     _insertBefore(listNode, emptyParagraph);
@@ -2620,32 +2536,33 @@
                     return false;
                 }
 
-                setTimeout(function () {
+                setTimeout(function(){
                     var childList = listItemNode.querySelector('ul, ol');
-                    if (listItemNode && childList) {
+                    if(listItemNode && childList){
                         var previousListItem = listItemNode.previousSibling;
                         var text = listItemNode.textContent.replace(childList.textContent, '');
-                        if (!/[^\s]/g.test(text)) {
-                            if (previousListItem) {
+                        if(!/[^\s]/g.test(text)){
+                            if(previousListItem){
                                 previousListItem.appendChild(childList);
                                 _removeNode(listItemNode);
                             }
                             else {
                                 _removeNode(listItemNode);
-                                if (listNode.childNodes.length > 1) {
-                                    while (childList.firstChild) {
+                                if(listNode.childNodes.length > 1){
+                                    while(childList.firstChild){
                                         _insertBefore(listNode.firstChild, childList.firstChild)
                                     }
                                 }
-                                else {
+                                else{
                                     _replaceChildNodes(childList, listNode)
                                 }
+
                             }
 
-                            if (previousListItem) {
+                            if(previousListItem){
                                 _setFocusNodeContent(previousListItem);
                             }
-                            else {
+                            else{
                                 var selection = self.iframeDocument.getSelection();
                                 var newRange = self.iframeDocument.createRange();
                                 newRange.setStart(_getFirstTextNode(listNode.firstChild), 0);
@@ -2659,58 +2576,17 @@
                     }
                     _joinNeighborsList(childList);
                 }, 0);
+
             }
 
-            if (!_isCollapsedSelection() && range.startContainer.nodeName == '#text') {
+            if(!_isCollapsedSelection() && !listItemNode){
                 event.preventDefault();
                 range.deleteContents();
-                var pNode = _findParentNode(range.startContainer, 'p');
-                if (pNode && pNode.innerText.length == 0) {
-                    pNode.innerHTML = '&#8203';
-                }
             }
-
-
-            var rangeStartNode = range.startContainer.nodeName == '#text' ? range.startContainer.parentNode : range.startContainer;
-            if (inlineTags.indexOf(rangeStartNode.nodeName.toLowerCase()) != -1) {
-                if (rangeStartNode.nodeName !== 'BODY') {
-                    var currentRangeAllParents = _getParents(range.startContainer, false);
-                    var currentRangeClosestParent = rangeStartNode.parentNode;
-                    var currentRangeParentNode;
-
-                    currentRangeAllParents.forEach(function (item) {
-                        if (inlineTags.indexOf(item.nodeName.toLowerCase()) != -1) {
-                            return currentRangeParentNode = item;
-                        }
-                    })
-
-                    setTimeout(function() {
-                        var timeoutRange = _getCurrentRange();
-                        var timeoutRangeParentNode = timeoutRange.startContainer.parentNode;
-
-                        if (rangeStartNode.nodeName !== timeoutRangeParentNode.nodeName) {
-                            var lastNode;
-                            if (timeoutRangeParentNode.nodeName == 'P') {
-                                var lastNode = currentRangeParentNode.cloneNode(true);
-                            }
-                            else {
-                                var lastNode = currentRangeClosestParent.cloneNode(true);
-                            }
-
-                            lastNode.innerHTML = '&#8203';
-                            timeoutRange.insertNode(lastNode);
-                            _setFocusNodeContent(lastNode)
-                        }
-                    }, 1);
-                }
-            }
-
-            var rootElement = _getRootElement();
-            _removeEmptyChildNodes(rootElement);
         }
 
 
-        function _formatNewLineBr() {
+        function _formatNewLineBr(){
             var range = _getCurrentRange();
             var brElement = self.iframeDocument.createElement('br');
             range.deleteContents();
@@ -2723,7 +2599,7 @@
         }
 
 
-        function _syncCode() {
+        function _syncCode(){
             // Устанавливает код из iFrame в texarea
             var rootElement = _getRootElement();
             self.formatterCode.value = rootElement.innerHTML;
@@ -2732,12 +2608,12 @@
         }
 
 
-        function _syncDOM() {
+        function _syncDOM(){
             // Устанавливает код из textarea в iFrame
             _showPreloader();
             var cleanedHtml = _cleanHtml(self.formatterCode.value);
             cleanedHtml = _wrapToParagraph(cleanedHtml);
-            if (cleanedHtml == '') {
+            if(cleanedHtml == ''){
                 cleanedHtml = _getNewLineElement().outerHTML;
             }
             var rootElement = _getRootElement();
@@ -2748,7 +2624,7 @@
         }
 
 
-        function _dispatchChangeCodeEvent() {
+        function _dispatchChangeCodeEvent(){
             if ('createEvent' in document) {
                 var event = document.createEvent('HTMLEvents');
                 event.initEvent('change', false, true);
@@ -2759,60 +2635,43 @@
         }
 
 
-        function _focusFrame() {
+        function _focusFrame(){
             self.formatterFrame.contentWindow.document.body.focus();
         }
 
 
         function _formateCode() {
-            function __getListMatch(listNode) {
-                var listTagRegExp = new RegExp('(<(?:ul|ol)(?:[^>]*)>)(.*)(<\/(?:ul|ol)>)', 'gi');
-                    listMatch = listTagRegExp.exec(listNode);
-
-                return listMatch;
-            }
-
             function __insertTab(node, level, i) {
                 var childNodes = node.childNodes,
                     currentNode,
                     parentCurrentNode,
-                    fragment = '',
-                    listNodeHTML = node.outerHTML.replace(new RegExp('\n', 'ig'), ' '),
-                    listMatch = __getListMatch(listNodeHTML);
-
+                    fragment = '', // переменная для отформатированного кода дочерних элементов
+                    listTagRegExp = new RegExp('(<(?:ul|ol)(?:[^>]*)>)(.*)(<\/(?:ul|ol)>)', 'gi'),
+                    listMatch = listTagRegExp.exec(node.outerHTML);
                 // проверка, если это вообще первый ul или ol в textarea, то первая часть вставляется без переноса строки \n
                 if (i == 0) fragment += '    '.repeat(level) + listMatch[1];
                 else fragment += '\n' + '    '.repeat(level) + listMatch[1];
 
                 for (var i = 0; i < childNodes.length; i++) {
-                    if (childNodes[i].nodeName !== '#text') {
-                        currentNode = childNodes[i];
-
-                        var liTagRegExp = new RegExp('(<(?:li)(?:[^>]*)>)(.*)(<\/(?:li)>)', 'gi'),
-                            liNodeHTML = currentNode.outerHTML.replace(new RegExp('\n', 'ig'), ' '),
-                            liMatch = liTagRegExp.exec(liNodeHTML);
-
-                        if (liMatch) {
-                            fragment += '\n' + '    '.repeat(1 + level) + liMatch[1];
-                            if ((currentNode.nodeType == 1) && ((currentNode.querySelector('ol') || currentNode.querySelector('ul')))) {
-                                parentCurrentNode = currentNode.querySelector('ul, ol');
-                                currentNode.removeChild(parentCurrentNode);
-                                fragment += '\n' + '    '.repeat(2 + level) + currentNode.innerHTML.trim();
-                                fragment += __insertTab(parentCurrentNode, level + 2);
-                                fragment += '\n' + '    '.repeat(1 + level) + liMatch[3];
-                            }
-                            else {
-                                fragment += currentNode.innerHTML.trim();
-                                fragment += liMatch[3];
-                            }
-                        }
+                    currentNode = childNodes[i];
+                    var liTagRegExp = new RegExp('(<(?:li)>)(.*)(<\/(?:li)>)', 'gi'),
+                        liMatch = liTagRegExp.exec(currentNode.outerHTML);
+                    fragment += '\n' +  '    '.repeat(1 + level) + liMatch[1];
+                    if ((currentNode.nodeType == 1) && ((currentNode.querySelector('ol') || currentNode.querySelector('ul')))) {
+                        parentCurrentNode = currentNode.querySelector('ol') ? currentNode.querySelector('ol') : currentNode.querySelector('ul');
+                        currentNode.removeChild(parentCurrentNode);
+                        fragment += '\n' + '    '.repeat(2 + level) + currentNode.innerHTML.trim();
+                        fragment += __insertTab(parentCurrentNode, level + 2);
+                        fragment += '\n' + '    '.repeat(1 + level) + liMatch[3];
+                    }
+                    else {
+                        fragment += currentNode.innerHTML.trim();
+                        fragment += liMatch[3];
                     }
                 }
-
-                fragment += '\n' + '    '.repeat(level) + listMatch[3];
+                fragment += '\n' +  '    '.repeat(level) + listMatch[3];
                 return fragment;
             }
-
             var formatterCodeValue = self.formatterCode.value,
                 originalCode = self.iframeDocument.createElement('div'),
                 originalChildNodes = originalCode.childNodes,
@@ -2888,17 +2747,17 @@
 
 
         function _getFirstTextNode(el) {
-            if (el) {
+            if(el){
                 if (el.nodeType == 3) return el;
                 var textNodes = _getTextNodes(el);
-                return textNodes.length > 0 ? textNodes[0] : null;
+                return textNodes.length > 0?textNodes[0]:null;
             }
             return null
         }
 
 
         function _getLastTextNode(el) {
-            if (el) {
+            if(el) {
                 if (el.nodeType == 3) return el;
                 var textNodes = _getTextNodes(el);
                 return textNodes.length > 0 ? textNodes[textNodes.length - 1] : null;
@@ -2924,10 +2783,10 @@
                     currentRange.setStart(node, startOffset);
                     currentRange.surroundContents(currentWrapper);
                     textNode = _getFirstTextNode(currentWrapper);
-                    if (textNode) {
+                    if(textNode){
                         range.setStart(textNode, 0)
                     }
-                    else {
+                    else{
                         range.setStart(currentWrapper, 0)
                     }
 
@@ -2936,14 +2795,14 @@
                     currentRange.setEnd(node, endOffset);
                     currentRange.surroundContents(currentWrapper);
                     textNode = _getLastTextNode(currentWrapper);
-                    if (textNode) {
+                    if(textNode){
                         range.setEnd(textNode, textNode.length)
                     }
-                    else {
+                    else{
                         range.setEnd(currentWrapper, 1)
                     }
                 }
-                else {
+                else{
                     currentRange.surroundContents(currentWrapper);
                 }
                 return currentWrapper
@@ -2954,13 +2813,13 @@
         function _wrapSelection(node) {
             // Заворачивает выделенный текст в переданный элемент
             var selection = self.iframeDocument.getSelection();
-            if (!selection) return;
-            var range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
+            if(!selection) return;
+            var range = selection.rangeCount > 0?selection.getRangeAt(0):null;
 
-            if (selection.anchorNode == selection.focusNode) {
+            if(selection.anchorNode == selection.focusNode){
                 var fragment = range.extractContents();
                 node.append(fragment);
-                if (!node.hasChildNodes()) {
+                if(!node.hasChildNodes()){
                     node.innerHTML = '&#8203';
                 }
                 var markerNode = _createMarkerNode();
@@ -2973,7 +2832,7 @@
                 range.selectNodeContents(node);
                 selection.addRange(range);
             }
-            else {
+            else{
                 var nodes = _getRangeTextNodes(range);
                 var wrapFunc = _createWrapperFunction(node, range);
                 nodes.map(wrapFunc);
@@ -2986,7 +2845,7 @@
         function _unwrapSelectionByAction(action) {
             var selectionNode, edgeNode;
             var selection = self.iframeDocument.getSelection();
-            if (!selection) return;
+            if(!selection) return;
 
             var range = _getCurrentRange();
             var rangeParams = _getCurrentRangeParams();
@@ -2995,36 +2854,36 @@
             var commonContainer = range.commonAncestorContainer;
             var newRange = range.cloneRange();
 
-            var __setRangeStart = function (node) {
+            var __setRangeStart = function(node){
                 var textNode = _getFirstTextNode(node);
-                if (textNode) {
+                if(textNode){
                     rangeParams.startContainer = textNode;
                     rangeParams.startOffset = 0;
                 }
-                else {
+                else{
                     newRange.setStartBefore(node.firstChild);
                     rangeParams.startContainer = newRange.startContainer;
                     rangeParams.startOffset = newRange.startOffset;
                 }
             };
 
-            var __setRangeEnd = function (node) {
+            var __setRangeEnd = function(node){
                 textNode = _getLastTextNode(node);
-                if (textNode) {
+                if(textNode){
                     rangeParams.endContainer = textNode;
                     rangeParams.endOffset = textNode.length;
                 }
-                else {
+                else{
                     newRange.setEndAfter(node.lastChild);
                     rangeParams.endContainer = newRange.endContainer;
                     rangeParams.endOffset = newRange.endOffset;
                 }
             };
 
-            if (_isCollapsedSelection()) {
+            if(_isCollapsedSelection()){
                 if (!actionNode) return;
 
-                if (_cursorInWord()) {
+                if(_cursorInWord()){
                     _selectCursorWord();
                     selectionNode = _cutSelection(actionNode);
                     rangeParams.startContainer = _getFirstTextNode(selectionNode);
@@ -3032,19 +2891,19 @@
                     _unwrapElement(selectionNode);
                     _setSelection(rangeParams.startContainer, rangeParams.startOffset, rangeParams.endContainer, rangeParams.endOffset);
                 }
-                else {
+                else{
                     var contentElement;
-                    var lastElement = actionNode.childNodes.length > 0 ? actionNode.childNodes[actionNode.childNodes.length - 1].cloneNode(true) : null;
-                    lastElement = lastElement && lastElement.nodeType != 3 ? lastElement : null;
-                    if (lastElement) {
+                    var lastElement = actionNode.childNodes.length > 0?actionNode.childNodes[actionNode.childNodes.length-1].cloneNode(true):null;
+                        lastElement = lastElement && lastElement.nodeType != 3?lastElement:null;
+                    if(lastElement){
                         var textNodes = _getTextNodes(lastElement);
-                        for (var i = 0; i < textNodes.length; i++) {
+                        for(var i=0; i<textNodes.length; i++){
                             _removeNode(textNodes[i]);
                         }
                         contentElement = _getDeepLastChild(lastElement);
-                        contentElement.innerHTML = '&#8203';
+                        contentElement.innerHTML= '&#8203';
                     }
-                    else {
+                    else{
                         lastElement = self.iframeDocument.createTextNode('\u200B');
                         contentElement = lastElement;
                     }
@@ -3056,7 +2915,7 @@
                     selection.addRange(range);
                 }
             }
-            else if (selection.anchorNode == selection.focusNode || actionNode == commonContainer) {
+            else if(selection.anchorNode == selection.focusNode || actionNode == commonContainer){
                 if (!actionNode) return;
                 selectionNode = _cutSelection(actionNode);
                 __setRangeStart(selectionNode);
@@ -3064,27 +2923,27 @@
                 _unwrapElement(selectionNode);
                 _setSelection(rangeParams.startContainer, rangeParams.startOffset, rangeParams.endContainer, rangeParams.endOffset);
             }
-            else {
+            else{
                 var actionElements = Array.prototype.slice.call(_getRangeActionElements(action, range));
                 var currentElement, textNode;
-                for (var j = 0; j < actionElements.length; j++) {
+                for(var j = 0; j < actionElements.length; j++){
                     currentElement = actionElements[j];
-                    if (currentElement == rangeParams.startContainer || (rangeParams.startContainer.nodeType == 3 && _isDescendant(currentElement, rangeParams.startContainer) && currentElement.innerText.length == rangeParams.startContainer.length - rangeParams.startOffset)) {
+                    if(currentElement == rangeParams.startContainer || (rangeParams.startContainer.nodeType == 3 && _isDescendant(currentElement, rangeParams.startContainer) &&currentElement.innerText.length == rangeParams.startContainer.length - rangeParams.startOffset)){
                         __setRangeStart(currentElement);
                         _unwrapElement(currentElement);
                     }
-                    else if (currentElement == rangeParams.endContainer || (rangeParams.endContainer.nodeType == 3 && _isDescendant(currentElement, rangeParams.endContainer) && currentElement.innerText.length == rangeParams.endOffset)) {
+                    else if(currentElement == rangeParams.endContainer || (rangeParams.endContainer.nodeType == 3 && _isDescendant(currentElement, rangeParams.endContainer) && currentElement.innerText.length == rangeParams.endOffset)){
                         __setRangeEnd(currentElement);
                         _unwrapElement(currentElement);
                     }
-                    else if (_isDescendant(currentElement, rangeParams.startContainer)) {
+                    else if (_isDescendant(currentElement, rangeParams.startContainer)){
                         edgeNode = _splitNode(rangeParams.startContainer, rangeParams.startOffset, currentElement);
                         selectionNode = edgeNode.nextSibling;
                         __setRangeStart(selectionNode);
                         _unwrapElement(selectionNode);
 
                     }
-                    else if (_isDescendant(currentElement, rangeParams.endContainer)) {
+                    else if (_isDescendant(currentElement, rangeParams.endContainer)){
                         selectionNode = _splitNode(rangeParams.endContainer, rangeParams.endOffset, currentElement);
                         __setRangeEnd(selectionNode);
                         _unwrapElement(selectionNode);
@@ -3098,23 +2957,23 @@
         }
 
 
-        function _cutSelection(stopNode) {
+        function _cutSelection(stopNode){
             // Вырезает выделение с сохранением структуры.
             // Возвращает вырезанный Node
             var currentRange = _getCurrentRange();
             var leftPart = _splitNode(currentRange.startContainer, currentRange.startOffset, stopNode);
-            if (_isEmptyNode(leftPart)) {
+            if(_isEmptyNode(leftPart)){
                 _removeNode(leftPart)
             }
             leftPart = _splitNode(currentRange.endContainer, currentRange.endOffset, stopNode);
-            if (leftPart.nextSibling && _isEmptyNode(leftPart.nextSibling)) {
+            if(leftPart.nextSibling && _isEmptyNode(leftPart.nextSibling)){
                 _removeNode(leftPart.nextSibling)
             }
             return leftPart;
         }
 
 
-        function _unwrapElement(el) {
+        function _unwrapElement(el){
             var parent = el.parentNode;
             while (el.firstChild) parent.insertBefore(el.firstChild, el);
             parent.removeChild(el);
@@ -3156,19 +3015,19 @@
 
 
         function _extend(target, source) {
-            if (_isObject(target) && _isObject(source)) {
-                for (var key in source) {
+            if(_isObject(target) && _isObject(source)){
+                for(var key in source){
                     target[key] = source[key]
                 }
             }
         }
 
 
-        function _getNeighborsBetween(startNode, endNode, includeSelf) {
+        function _getNeighborsBetween(startNode, endNode, includeSelf){
             var items = [];
             var element = startNode;
             if (includeSelf) items.push(startNode);
-            while (element.nextSibling && element.nextSibling !== endNode) {
+            while(element.nextSibling && element.nextSibling !== endNode){
                 element = element.nextSibling;
                 items.push(element);
             }
@@ -3189,14 +3048,14 @@
         }
 
 
-        function _replace(oldNode, newNode) {
+        function _replace(oldNode, newNode){
             oldNode.parentNode.replaceChild(newNode, oldNode);
         }
 
 
-        function _replaceChildNodes(fromNode, toNode) {
-            if (fromNode && fromNode.childNodes && toNode) {
-                while (fromNode.firstChild) {
+        function _replaceChildNodes(fromNode, toNode){
+            if(fromNode && fromNode.childNodes && toNode){
+                while(fromNode.firstChild){
                     toNode.appendChild(fromNode.firstChild)
                 }
             }
@@ -3217,41 +3076,41 @@
         }
 
 
-        function _isEmptyNode(node) {
+        function _isEmptyNode(node){
             return node && /^[\u0020\u200B-\u200D\uFEFF]*$/g.test(node.textContent);
         }
 
 
-        function _removeNode(node) {
+        function _removeNode(node){
             if (node && node.parentNode) {
                 node.parentNode.removeChild(node);
             }
         }
 
 
-        function _getParentNode(node) {
-            return node.parentNode ? node.parentNode : null
+        function _getParentNode(node){
+            return node.parentNode?node.parentNode:null
         }
 
 
-        function _getParents(node, self) {
+        function _getParents(node, self){
             // Возвращает массив родительских элементов
             var parents = [];
-            if (node && node.tagName != 'BODY') {
-                self = self ? true : false;
+            if(node && node.tagName != 'BODY'){
+                self = self?true:false;
                 var parentNode;
                 var currentNode = node;
                 var walk = true;
-                if (self) {
+                if(self){
                     parents.push(node);
                 }
-                while (walk) {
+                while(walk){
                     parentNode = _getParentNode(currentNode);
-                    if (parentNode && parentNode.tagName && parentNode.tagName != 'BODY') {
+                    if(parentNode && parentNode.tagName && parentNode.tagName != 'BODY'){
                         parents.push(parentNode);
                         currentNode = parentNode
                     }
-                    else {
+                    else{
                         walk = false;
                         break;
                     }
@@ -3261,58 +3120,58 @@
         }
 
 
-        function _addClass(node, className) {
-            var classList = node.className.split(' ').filter(function (el) { return el != '' });
-            if (classList.lastIndexOf(className) < 0) {
+        function _addClass(node, className){
+            var classList = node.className.split(' ').filter(function(el){return el != ''});
+            if(classList.lastIndexOf(className) < 0){
                 classList.push(className);
                 node.className = classList.join(' ')
             }
         }
 
 
-        function _removeClass(node, className) {
+        function _removeClass(node, className){
             var classList = node.className.split(' ');
             var index = classList.lastIndexOf(className);
-            if (index >= 0) classList.splice(index, 1);
+            if(index >= 0) classList.splice(index, 1);
             node.className = classList.join(' ')
         }
 
 
-        function _hasClass(node, className) {
+        function _hasClass (node, className){
             var classList = node.className.split(' ');
             return classList.lastIndexOf(className) >= 0
         }
 
 
-        function _findParentNode(node, selector) {
+        function _findParentNode(node, selector){
             var result;
-            if (node) {
-                result = (node.nodeType == 3 ? node.parentNode : node).closest(selector);
+            if(node){
+                result = (node.nodeType==3?node.parentNode:node).closest(selector);
             }
             return result;
         }
 
 
-        function _getChildNodes(node) {
-            return node && node.childNodes ? node.childNodes : null
+        function _getChildNodes(node){
+            return node && node.childNodes?node.childNodes:null
         }
 
 
-        function _getDeepLastChild(node) {
-            return node.lastChild ? _getDeepLastChild(node.lastChild) : node;
+        function _getDeepLastChild(node){
+            return node.lastChild?_getDeepLastChild(node.lastChild):node;
         }
 
 
         function _camelCaseToDash(str) {
-            return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+            return str.replace( /([a-z])([A-Z])/g, '$1-$2' ).toLowerCase();
         }
 
 
-        function _getParentParagraph(node) {
+        function _getParentParagraph (node) {
             var result;
-            if (node) {
-                var el = node.nodeType == 3 ? node.parentNode : node;
-                result = el.closest('body p');
+            if (node){
+                var el = node.nodeType == 3?node.parentNode:node;
+                result =  el.closest('body p');
             }
             return result;
         }
@@ -3320,9 +3179,9 @@
 
         function _getTopElement(node) {
             var result;
-            if (node) {
-                var el = node.nodeType == 3 ? node.parentNode : node;
-                result = el.closest('body > p, body > ul, body > ol');
+            if (node){
+                var el = node.nodeType == 3?node.parentNode:node;
+                result =  el.closest('body > p, body > ul, body > ol');
             }
             return result;
         }
@@ -3341,7 +3200,7 @@
             // Возвращает значение
             var rootElement = _getRootElement();
             var value = '';
-            if (!_isEmptyNode(rootElement)) {
+            if(!_isEmptyNode(rootElement)){
                 value = self.formatterCode.value;
             }
             return value
