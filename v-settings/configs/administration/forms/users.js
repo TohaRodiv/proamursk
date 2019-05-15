@@ -8,7 +8,7 @@ const state = {
                 blocks: [
                     {
                         labelPosition: 'top',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -81,13 +81,13 @@ const state = {
                                 hint: '',
                                 mounted: (component) => {
                                     if (component.isSuperUser.flag) {
-                                        component.changeField({ 
+                                        component.changeField({
                                             codename: 'roles',
                                             key: 'required',
                                             value: false
                                         });
                                     } else {
-                                        component.changeField({ 
+                                        component.changeField({
                                             codename: 'roles',
                                             key: 'required',
                                             value: true
@@ -119,7 +119,7 @@ const state = {
 
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -174,7 +174,7 @@ const state = {
                                 },
                                 codename: 'avatar',
                                 widget: 'singleImageLoader',
-                                modClass: 'marginBottom22',
+                                modClass: 'marginBottom20',
                                 requireSendId: true,
                                 key_attr: 'id',
                                 hint: ''

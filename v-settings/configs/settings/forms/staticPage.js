@@ -11,7 +11,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',
@@ -29,7 +29,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom41',
+                        modClass: 'marginBottom40',
                         elements: [
                             {
                                 type: 'field',
@@ -47,7 +47,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'json',

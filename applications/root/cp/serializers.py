@@ -406,8 +406,7 @@ class SlidersListSerializer(ModelSerializer):
 
     class Meta:
         model = Slider
-        fields = ('id', 'title', 'format', 'format_name', 'comment', 'slides_count', 'create_date', 'edit_date',
-                  'is_active')
+        fields = ('id', 'title', 'format', 'format_name', 'comment', 'slides_count', 'create_date', 'edit_date')
 
     def get_slides_count(self, instance):
         return instance.slides_count if hasattr(instance, 'slides_count') else 0
@@ -423,7 +422,7 @@ class SlidersDetailSerializer(ModelSerializer):
     class Meta:
         model = Slider
         fields = ('id', 'title', 'format', 'format_name', 'comment', 'start_publication_date', 'end_publication_date',
-                  'create_date', 'edit_date', 'is_active', 'slides')
+                  'create_date', 'edit_date', 'slides')
 
     def get_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.format)

@@ -7,7 +7,7 @@ const state = {
                 blocks: [
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -24,7 +24,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -41,7 +41,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -58,7 +58,7 @@ const state = {
                     },
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -89,7 +89,7 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 type: 'field',
@@ -112,7 +112,7 @@ const state = {
                 blocks: [
                     {
                         labelPosition: 'left',
-                        modClass: 'marginBottom22',
+                        modClass: 'marginBottom20',
                         direction: 'row',
                         elements: [
                             {
@@ -124,7 +124,7 @@ const state = {
                                 height: 80,
                                 codename: 'lead',
                                 widget: 'textarea',
-                                modClass: 'marginBottom22',
+                                modClass: 'marginBottom20',
                                 hint: ''
                             }
                         ]
@@ -182,7 +182,7 @@ const state = {
                                 },
                                 codename: 'cover',
                                 widget: 'singleImageLoader',
-                                modClass: 'marginBottom22',
+                                modClass: 'marginBottom20',
                                 requireSendId: true,
                                 key_attr: 'id',
                                 hint: ''

@@ -1,15 +1,9 @@
 export const formController = {
-    data() {
-        return {}
-    },
-
-    watch: {
-        getFormsImmutableData: function() {
-            // мониторить изменения формы с бэка
-        }
-    },
-
     methods: {
+        watchBackendData(value) {
+            // мониторить изменения данных, пришедших из бэка
+        },
+
         modifyFormData(rawFormData) {
             // мониторить изменения formsData
         },
