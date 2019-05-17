@@ -1,21 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300&subset=latin,cyrillic-ext);
-body:not(.main-body){
-  margin: 15px 20px 15px 15px;
-  font-family: 'Source Sans Pro', 'Roboto', 'Helvetica', 'sans-serif';
-  color: #333;
-  font-size: 14px;
-  line-height: 1.5; }
+
+body:not(.main-body) {
+    margin: 15px 20px 15px 15px;
+    font-family: 'Source Sans Pro', 'Roboto', 'Helvetica', 'sans-serif';
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
 
 .show-blocks > p,
 .show-blocks > ul,
 .show-blocks > ol {
-  position: relative;
-  border: 1px dashed #cccccc;
-  margin-left: -5px;
-  margin-right: -5px; }
-  .show-blocks > p:before,
-  .show-blocks > ul:before,
-  .show-blocks > ol:before {
+    position: relative;
+    border: 1px dashed #cccccc;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.show-blocks > p:before,
+.show-blocks > ul:before,
+.show-blocks > ol:before {
     width: 15px;
     height: 15px;
     background: #cccccc;
@@ -25,54 +29,89 @@ body:not(.main-body){
     left: -1px;
     font-size: 10px;
     line-height: 15px;
-    text-align: center; }
+    text-align: center;
+}
 
 .show-blocks > p {
-  padding: 15px 4px 3px; }
-  .show-blocks > p:before {
-    content: 'p'; }
+    padding: 15px 4px 3px;
+}
+
+.show-blocks > p:before {
+    content: 'p';
+}
 
 .show-blocks > ol {
-  padding-top: 15px;
-  padding-bottom: 3px; }
-  .show-blocks > ol:before {
-    content: 'ol'; }
+    padding-top: 15px;
+    padding-bottom: 3px;
+}
+
+.show-blocks > ol:before {
+    content: 'ol';
+}
 
 .show-blocks > ul {
-  padding-top: 15px;
-  padding-bottom: 3px; }
-  .show-blocks > ul:before {
-    content: 'ul'; }
+    padding-top: 15px;
+    padding-bottom: 3px;
+}
+
+.show-blocks > ul:before {
+    content: 'ul';
+}
+
+p {
+    margin: 0;
+    font-family: "Source Sans Pro", "Roboto", "Helvetica", "sans-serif";
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+p:first-child {
+    margin-top: 0;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
 
 ul,
 ol {
-  padding-left: 30px; }
+    padding-left: 30px;
+}
 
 .wysiwyg-h1,
 .wysiwyg-h2,
 .wysiwyg-h3 {
-  font-weight: normal !important; }
+    font-weight: 600 !important;
+}
 
 .wysiwyg-h1 {
-  font-size: 26px;
-  line-height: 1.3em;
-  margin: 15px 0 10px 0; }
+    font-size: 22px;
+    line-height: 1.3em;
+    margin: 15px 0 10px 0;
+}
 
 .wysiwyg-h2 {
-  font-size: 22px;
-  line-height: 1.3em;
-  margin: 15px 0 10px 0; }
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 15px 0 10px 0;
+}
 
 .wysiwyg-h3 {
-  font-size: 18px;
-  line-height: 1.3em;
-  margin: 15px 0 10px 0; }
+    font-size: 16px;
+    line-height: 1.3em;
+    margin: 15px 0 10px 0;
+}
 
 .wysiwyg-h1:first-child, .wysiwyg-h2:first-child, .wysiwyg-h3:first-child {
-  margin-top: 0; }
+    margin-top: 0;
+}
 
 .footnote {
-  color: #ff3f12;
-  text-decoration: underline; }
+    color: #ff3f12;
+    text-decoration: underline;
+}
 
 /*# sourceMappingURL=formatter_content.css.map */
