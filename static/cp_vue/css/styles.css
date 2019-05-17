@@ -2908,7 +2908,7 @@ a.additional-button-2 {
   color: #2686ed;
   background-color: #EDF5FA;
   border: 1px solid transparent;
-  border-radius: 50%;
+  border-radius: 50% !important;
   cursor: pointer; }
   .more-options-button:hover,
   .edit-entity-round-button:hover,
@@ -7051,30 +7051,31 @@ a.additional-button-2 {
 
 .post-editor-text-widget {
   margin: 0;
-  font-family: 'Source Sans Pro', 'Roboto', 'Helvetica', 'sans-serif';
+  font-family: "Source Sans Pro", "Roboto", "Helvetica", "sans-serif";
   color: #333;
   font-size: 14px;
   line-height: 1.5; }
-  .post-editor-text-widget > p:first-child {
-    margin-block-start: 0;
-    -webkit-margin-before: 0; }
-  .post-editor-text-widget > p:last-child {
-    margin-block-end: 0;
-    -webkit-margin-after: 0; }
+  .post-editor-text-widget > p {
+    margin-top: 1em;
+    margin-bottom: 1em; }
+    .post-editor-text-widget > p:first-child {
+      margin-top: 0; }
+    .post-editor-text-widget > p:last-child {
+      margin-bottom: 0; }
   .post-editor-text-widget .wysiwyg-h1,
   .post-editor-text-widget .wysiwyg-h2,
   .post-editor-text-widget .wysiwyg-h3 {
-    font-weight: normal !important; }
+    font-weight: 600 !important; }
   .post-editor-text-widget .wysiwyg-h1 {
-    font-size: 26px;
-    line-height: 1.3em;
-    margin: 15px 0 10px 0; }
-  .post-editor-text-widget .wysiwyg-h2 {
     font-size: 22px;
     line-height: 1.3em;
     margin: 15px 0 10px 0; }
-  .post-editor-text-widget .wysiwyg-h3 {
+  .post-editor-text-widget .wysiwyg-h2 {
     font-size: 18px;
+    line-height: 1.3em;
+    margin: 15px 0 10px 0; }
+  .post-editor-text-widget .wysiwyg-h3 {
+    font-size: 16px;
     line-height: 1.3em;
     margin: 15px 0 10px 0; }
   .post-editor-text-widget .wysiwyg-h1:first-child, .post-editor-text-widget .wysiwyg-h2:first-child, .post-editor-text-widget .wysiwyg-h3:first-child {
