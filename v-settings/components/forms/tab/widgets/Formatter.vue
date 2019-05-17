@@ -119,7 +119,8 @@ export default {
         return {
             oldValue: "",
             value: "",
-            focus: false
+            focus: false,
+            static_version: ""
         };
     },
 
@@ -150,6 +151,8 @@ export default {
     },
 
     mounted() {
+        this.getStaticVersion();
+
         const callMe = () => {
             if (this.loadStatus.mainData) {
                 const el = document.getElementById(
@@ -179,8 +182,8 @@ export default {
                     ],
                     formatterFrameCssPath:
                         process.env.NODE_ENV === "development"
-                            ? "/v-settings/src/css/formatter_content.css"
-                            : "/static/cp_vue/css/formatter/formatter_content.css",
+                            ? "/v-settings/src/css/formatter_content.css"+this.static_version
+                            : "/static/cp_vue/css/formatter/formatter_content.css"+this.static_version,
                     width: 700
                 });
             } else {
@@ -265,6 +268,13 @@ export default {
 
             this.options.invalid = false;
             this.options.message = "";
+        },
+
+        getStaticVersion() {
+            let staticVersion = document.getElementsByTagName('html')[0].getAttribute('data-static-version');
+            if (staticVersion) {
+                this.static_version = staticVersion;
+            }
         }
     }
 };
