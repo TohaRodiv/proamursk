@@ -67,6 +67,7 @@ const state = {
             },
         ],
     },
+    
 };
 
 export default {

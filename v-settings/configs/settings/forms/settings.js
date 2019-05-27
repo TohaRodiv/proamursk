@@ -221,6 +221,13 @@ const state = {
             },
         ],
     },
+    actionsConfig: {
+        settings: {
+            addButton: false,
+            activationButtons: false,
+            deleteButton: false,
+        }
+    },
 };
 
 export default {
