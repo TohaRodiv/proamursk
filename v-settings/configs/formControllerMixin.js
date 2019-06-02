@@ -2,12 +2,8 @@ import vue from 'vue';
 
 export const formController = {
     methods: {
-        watchBackendData(value) {
-            // мониторить изменения данных, пришедших из бэка
-        },
-
-        modifyFormData(rawFormData) {
-            // мониторить изменения formsData
+        onChangeData(newFormData, oldFormData) {
+            // Мониторинг изменений данных
         },
 
         modifyConfig(rawConfig) {
