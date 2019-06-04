@@ -45,7 +45,7 @@ class AbstractAccount(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField('Фамилия', max_length=255, blank=True)
     patronymic = models.CharField('Отчество', max_length=255, blank=True, default='')
     email = models.EmailField('Email', blank=True)
-    is_staff = models.BooleanField('Статус персонала', default=False)
+    is_staff = models.BooleanField('Статус персонала', default=True)
     is_active = models.BooleanField('Состояние', default=True)
     avatar = models.ForeignKey('mediafiles.MediaFile', blank=True, null=True, verbose_name='Аватар',
                                on_delete=models.SET_NULL)
