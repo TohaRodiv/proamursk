@@ -75,6 +75,7 @@ class UserDetailSerializer(ModelSerializer):
                                 required=False, allow_null=True)
     roles = ObjectRelatedField(queryset=CpRole.objects.all(), serializer_class=CpRoleNestedSerializer,
                                required=False, many=True)
+    full_name = serializers.SerializerMethodField()
 
     class Meta:
         model = User
