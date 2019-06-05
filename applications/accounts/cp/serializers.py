@@ -265,6 +265,52 @@ class SetPasswordSerializer(serializers.ModelSerializer):
         user.save()
 
 
+class ChangePasswordSerializer(serializers.ModelSerializer):
+    """
+    Сериализатор для установки нового пароля пользователя
+    """
+    old_password = serializers.CharField(write_only=True, required=True)
+    new_password1 = serializers.CharField(write_only=True, required=True)
+    new_password2 = serializers.CharField(write_only=True, required=True)
+
+    class Meta:
+        model = User
+        fields = 'new_password1', 'new_password2'
+
+    def validate(self, attrs):
+        old_password = attrs.pop('old_password')
+        new_pass1 = attrs.get('new_password1')
+        new_pass2 = attrs.get('new_password2')
+        errors = dict()
+        request = self.context.get('request')
+        if not request.user.check_password(old_password):
+            errors['old_password'] = ['Старый пароль указан неправильно']
+        if new_pass2 != new_pass1:
+            errors['new_password1'] = ['Пароли не совпадают']
+            errors['new_password2'] = ['Пароли не совпадают']
+        validation_error = password_not_valid(new_pass1)
+        if validation_error:
+            if 'new_password1' in errors:
+                errors['new_password1'].append(validation_error)
+            else:
+                errors['new_password1'] = [validation_error]
+        validation_error = password_not_valid(new_pass1)
+        if validation_error:
+            if 'new_password2' in errors:
+                errors['new_password2'].append(validation_error)
+            else:
+                errors['new_password2'] = [validation_error]
+        if errors:
+            raise serializers.ValidationError(errors)
+        return super(ChangePasswordSerializer, self).validate(attrs)
+
+    def save(self, *args, **kwargs):
+        user = self.instance
+        user.set_password(self.validated_data.get('new_password1'))
+        user.request_change_password = False
+        user.save()
+
+
 def password_not_valid(password):
     first_re = '^[0-9a-zA-Z\!\%\?\&\*\{\}\]\[\(\)\@]{6,}$'
     second_re = '[A-Z]+'
