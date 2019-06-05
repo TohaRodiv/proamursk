@@ -78,7 +78,8 @@ class UserDetailSerializer(ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'avatar', 'username', 'first_name', 'last_name', 'patronymic', 'roles', 'is_active',
+        fields = ('id', 'avatar', 'username', 'email', 'full_name', 'first_name', 'last_name', 'patronymic', 'roles',
+                  'is_active',
                   'request_change_password', 'password1', 'password2', 'is_superuser', 'create_date', 'edit_date',
                   'comment')
         read_only_fields = 'is_superuser',
@@ -88,6 +89,9 @@ class UserDetailSerializer(ModelSerializer):
             'first_name': {'required': True},
             'last_name': {'required': True}
         }
+
+    def get_full_name(self, instance):
+        return instance.get_full_name()
 
     # def validate_password1(self, data):
     #     password1 = data

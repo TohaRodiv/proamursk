@@ -49,7 +49,7 @@ class UserDetailAPIView(APIView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            data = UserNestedSerializer(request.user).data
+            data = UserDetailSerializer(request.user).data
             return Response(data, status=200)
         else:
             return Response(status=400)
