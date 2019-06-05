@@ -40,11 +40,6 @@ export default {
         },
         { type: 'hr' },
         {
-            type: 'boolean',
-            title: 'Пользователь имеет доступ к ПУ',
-            codename: 'is_staff'
-        },
-        {
             type: 'list',
             title: 'Роли',
             codename: 'roles',
@@ -53,20 +48,6 @@ export default {
                     codename: 'name'
                 }
             ]
-        },
-        {
-            type: 'simpleRow',
-            title: 'Должность',
-            content: {
-                codename: 'position.name'
-            }
-        },
-        {
-            type: 'simpleRow',
-            title: 'Место работы (точка)',
-            content: {
-                codename: 'point.name'
-            }
         },
         {
             type: 'hr',
