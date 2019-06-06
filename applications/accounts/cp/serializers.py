@@ -83,10 +83,9 @@ class UserDetailSerializer(ModelSerializer):
                   'is_active',
                   'request_change_password', 'password1', 'password2', 'is_superuser', 'create_date', 'edit_date',
                   'comment')
-        read_only_fields = 'is_superuser',
+        read_only_fields = ('is_superuser', 'email')
         extra_kwargs = {
             'username': {'required': True},
-            'email': {'required': True, 'write_only': True},
             'first_name': {'required': True},
             'last_name': {'required': True}
         }
