@@ -78,22 +78,7 @@ const state = {
                                         flex: .85,
                                     },
                                 ],
-                                hint: '',
-                                mounted: (component) => {
-                                    if (component.isSuperUser.flag) {
-                                        component.changeField({
-                                            codename: 'roles',
-                                            key: 'required',
-                                            value: false
-                                        });
-                                    } else {
-                                        component.changeField({
-                                            codename: 'roles',
-                                            key: 'required',
-                                            value: true
-                                        });
-                                    }
-                                }
+                                hint: ''
                             },
                         ]
                     },
