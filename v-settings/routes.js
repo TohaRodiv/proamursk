@@ -7,6 +7,8 @@ import tables from '../cp_vue/frontend/vue/components/workzone/Tables.vue';
 import forms from './components/forms/Forms.vue';
 import authBase from './components/authentication/AuthBase.vue';
 
+import printListPage from '../cp_vue/frontend/vue/components/workzone/tables/tables/ThePrintListPage.vue';
+
 //Сюда можно добавить любые новые роуты
 const routes = [
     { path: '/test', component: test, name: 'test' },
@@ -15,6 +17,7 @@ const routes = [
     { path: '/admin/password-restore/', name: 'restore-password', component: authBase },
     { path: '/admin/password-change/:token1/:token2', component: authBase, name: 'change-password' },
     { path: '/admin/password-change/', component: authBase, name: 'change-password-authorised' },
+    { path: '/admin/print/', component: printListPage, name: 'print-list-page' },
     {
         path: '/admin/:view',
         component: main,

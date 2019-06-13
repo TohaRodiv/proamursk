@@ -75,19 +75,23 @@ class UserDetailSerializer(ModelSerializer):
                                 required=False, allow_null=True)
     roles = ObjectRelatedField(queryset=CpRole.objects.all(), serializer_class=CpRoleNestedSerializer,
                                required=False, many=True)
+    full_name = serializers.SerializerMethodField()
 
     class Meta:
         model = User
-        fields = ('id', 'avatar', 'username', 'first_name', 'last_name', 'patronymic', 'roles', 'is_active',
+        fields = ('id', 'avatar', 'username', 'email', 'full_name', 'first_name', 'last_name', 'patronymic', 'roles',
+                  'is_active',
                   'request_change_password', 'password1', 'password2', 'is_superuser', 'create_date', 'edit_date',
                   'comment')
-        read_only_fields = 'is_superuser',
+        read_only_fields = ('is_superuser', 'email')
         extra_kwargs = {
             'username': {'required': True},
-            'email': {'required': True, 'write_only': True},
             'first_name': {'required': True},
             'last_name': {'required': True}
         }
+
+    def get_full_name(self, instance):
+        return instance.get_full_name()
 
     # def validate_password1(self, data):
     #     password1 = data
@@ -257,6 +261,52 @@ class SetPasswordSerializer(serializers.ModelSerializer):
         if errors:
             raise serializers.ValidationError(errors)
         return super(SetPasswordSerializer, self).validate(attrs)
+
+    def save(self, *args, **kwargs):
+        user = self.instance
+        user.set_password(self.validated_data.get('new_password1'))
+        user.request_change_password = False
+        user.save()
+
+
+class ChangePasswordSerializer(serializers.ModelSerializer):
+    """
+    Сериализатор для установки нового пароля пользователя
+    """
+    old_password = serializers.CharField(write_only=True, required=True)
+    new_password1 = serializers.CharField(write_only=True, required=True)
+    new_password2 = serializers.CharField(write_only=True, required=True)
+
+    class Meta:
+        model = User
+        fields = 'new_password1', 'new_password2'
+
+    def validate(self, attrs):
+        old_password = attrs.pop('old_password')
+        new_pass1 = attrs.get('new_password1')
+        new_pass2 = attrs.get('new_password2')
+        errors = dict()
+        request = self.context.get('request')
+        if not request.user.check_password(old_password):
+            errors['old_password'] = ['Старый пароль указан неправильно']
+        if new_pass2 != new_pass1:
+            errors['new_password1'] = ['Пароли не совпадают']
+            errors['new_password2'] = ['Пароли не совпадают']
+        validation_error = password_not_valid(new_pass1)
+        if validation_error:
+            if 'new_password1' in errors:
+                errors['new_password1'].append(validation_error)
+            else:
+                errors['new_password1'] = [validation_error]
+        validation_error = password_not_valid(new_pass1)
+        if validation_error:
+            if 'new_password2' in errors:
+                errors['new_password2'].append(validation_error)
+            else:
+                errors['new_password2'] = [validation_error]
+        if errors:
+            raise serializers.ValidationError(errors)
+        return super(ChangePasswordSerializer, self).validate(attrs)
 
     def save(self, *args, **kwargs):
         user = self.instance

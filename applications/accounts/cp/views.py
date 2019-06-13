@@ -17,7 +17,7 @@ from cp_vue.api.permissions import SapPermissions
 from cp_vue.api.views import CpViewSet
 from cp_vue.api.core import cp_api
 from .serializers import UserDetailSerializer, UserListSerializer, UserNestedSerializer, PasswordRecoverySerializer, \
-    SetPasswordSerializer
+    SetPasswordSerializer, ChangePasswordSerializer
 from .filters import UserFilter
 from ..models import User
 from ..forms import SetPasswordForm, PasswordResetForm
@@ -49,7 +49,7 @@ class UserDetailAPIView(APIView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            data = UserNestedSerializer(request.user).data
+            data = UserDetailSerializer(request.user).data
             return Response(data, status=200)
         else:
             return Response(status=400)
@@ -267,6 +267,70 @@ class ChangeUserPasswordAPIView(APIView):
         return urlpatterns
 
 
+class ChangeOldPasswordAPIView(APIView):
+
+    def post(self, request):
+
+        user = request.user
+
+        if user and user.is_authenticated:
+            data = request.data
+            serializer = ChangePasswordSerializer(instance=user, data=data)
+            if serializer.is_valid():
+                serializer.save()
+                notification_context = {
+                    'user_name': user.first_name,
+                    'user_surname': user.last_name,
+                    'user_email': user.email,
+                    'site_link': 'http://%s' % request.get_host()
+                }
+                if send_notification:
+                    try:
+                        send_notification.delay('password_recovery_complete',
+                                                template_context=notification_context,
+                                                recipient_email=[user.email],
+                                                recipient_sms=[user.phone])
+                    except:
+                        pass
+                else:
+                    from_email = None
+                    subject = u'Изменение пароля'
+                    email = loader.render_to_string('emails/password-changed-email.html', notification_context)
+                    if send_email:
+                        try:
+                            send_email.delay(subject, email, from_email, [user.email])
+                        except:
+                            pass
+                    else:
+                        try:
+                            send_mail(subject, email, from_email, [user.email])
+                        except:
+                            pass
+                user = authenticate(username=user.username, password=serializer.validated_data['new_password1'])
+
+                if user is not None and user.is_active:
+                    login(request, user)
+                    response = dict(data=dict(user_id=user.pk), message=u'Новый пароль успешно установлен')
+                    response = Response(response)
+                    response.set_cookie('user_id', value=user.id, httponly=False)
+                    return response
+                else:
+                    response = dict(message=u'Пользователь не авторизован')
+                    return Response(response, status=400)
+            else:
+                return Response(dict(), status=400)
+
+        return Response(dict(), status=400)
+
+    @classmethod
+    def get_urls(self):
+        urlpatterns = [
+            url(r'^change-user-old-password/$',
+                ChangeUserPasswordAPIView.as_view(),
+                name="api-change-user-old-password"),
+        ]
+        return urlpatterns
+
 cp_api.register(UsersCpViewSet)
 cp_api.register(SigninAPIView)
 cp_api.register(LogoutAPIView)
@@ -274,3 +338,4 @@ cp_api.register(PasswordRecoveryAPIView)
 cp_api.register(PasswordChangeAPIView)
 cp_api.register(UserDetailAPIView)
 cp_api.register(ChangeUserPasswordAPIView)
+cp_api.register(ChangeOldPasswordAPIView)

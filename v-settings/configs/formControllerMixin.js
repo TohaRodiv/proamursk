@@ -29,6 +29,15 @@ export const formController = {
                 }
             }
 
+            if (model === 'users') {
+                const superuser = this.isSuperUser.flag
+                const rolesConfig = flatConfig.roles
+
+                if (superuser) {
+                    this.$set(rolesConfig, 'required', false)
+                }
+            }
+
             return modifiedConfig;
         }
     }
