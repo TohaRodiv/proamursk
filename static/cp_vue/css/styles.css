@@ -5160,8 +5160,7 @@ a.additional-button-2 {
   width: 1020px; }
 
 .forms-workzone-no-tabs {
-  height: calc(100% - 82px);
-  padding-top: 30px; }
+  height: calc(100% - 82px); }
 
 .forms-main-title {
   max-width: 980px;
