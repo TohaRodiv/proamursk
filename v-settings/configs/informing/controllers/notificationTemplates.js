@@ -57,8 +57,10 @@ export default {
         _setHintInfo(data, component) {
             this._makeRequest(data, component)
                 .then(items => {
-                    const html = this._generateHtml(items);
-                    this._installHtml(data, component, html);
+                    if (items) {
+                        const html = this._generateHtml(items);
+                        this._installHtml(data, component, html);
+                    }
                 });
         },
 
@@ -71,13 +73,16 @@ export default {
             const actionId = typeof data.action == 'object'
                 ? data.action.id
                 : data.action;
-            const url = '/events/' + actionId;
 
-            try {
-                const { variables } = await api.get(url);
-                return variables;
-            } catch (error) {
-                //
+            if (actionId) {
+                const url = '/events/' + actionId;
+
+                try {
+                    const { variables } = await api.get(url);
+                    return variables;
+                } catch (error) {
+                    //
+                }
             }
         },
 
