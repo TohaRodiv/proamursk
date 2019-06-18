@@ -174,6 +174,8 @@ export default {
 
                     if (content == 'email') {
                         email.push(Object.assign({}, item, { prefix: 'email' }));
+                        email.push(Object.assign({}, item, { prefix: 'link' }));
+                        email.push(Object.assign({}, item, { prefix: 'button' }));
                     } else if (content == 'link') {
                         link.push(Object.assign({}, item, { prefix: 'link' }));
                         link.push(Object.assign({}, item, { prefix: 'button' }));
