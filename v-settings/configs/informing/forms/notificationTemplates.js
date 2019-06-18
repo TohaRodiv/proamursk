@@ -1,5 +1,3 @@
-
-
 const state = {
     formsOptions: {
         'notification-templates': [
@@ -23,7 +21,7 @@ const state = {
                                 widget: 'simpleInput',
 
                                 hint: ''
-                            },
+                            }
                         ]
                     },
                     {
@@ -48,11 +46,11 @@ const state = {
                                 view_structure: [
                                     {
                                         value: 'name',
-                                        flex: 1.5,
-                                    },
+                                        flex: 1.5
+                                    }
                                 ],
                                 hint: ''
-                            },
+                            }
                         ]
                     },
                     {
@@ -62,18 +60,6 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                controlFlag: [  /*Данный виджет способен управлять этими флагами*/
-                                    {
-                                        toBeChecked: 'codename',   /*На какое значение в массиве выбранных сущностей смотреть*/
-                                        value: 'email',            /*Каким должно быть значение*/
-                                        flag: 'isEmail'                /*Какой флаг тригеррит*/
-                                    },
-                                    {
-                                        toBeChecked: 'codename',
-                                        value: 'sms',
-                                        flag: 'isSms'
-                                    },
-                                ],
                                 label: 'Способ отправки',
                                 api_route: 'channels',
                                 required: true,
@@ -88,18 +74,17 @@ const state = {
                                 view_structure: [
                                     {
                                         value: 'name',
-                                        flex: 1.5,
-                                    },
+                                        flex: 1.5
+                                    }
                                 ],
                                 hint: ''
-                            },
+                            }
                         ]
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
                         modClass: ['marginBottom20', 'marginTop20'],
-                        renderFlag: 'isEmail',
                         elements: [
                             {
                                 type: 'field',
@@ -109,14 +94,14 @@ const state = {
                                 width: 12,
                                 codename: 'subject',
                                 widget: 'simpleInput',
-                                hint: ''
-                            },
+                                hint: '',
+                                show: false
+                            }
                         ]
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        renderFlag: 'isEmail',
                         elements: [
                             {
                                 type: 'field',
@@ -127,59 +112,9 @@ const state = {
                                 height: 400,
                                 codename: 'text',
                                 widget: 'textarea',
-                                hint_meta_fields: {                                                                     /*По всем вопросам смотри алтан-шину: notificationTemplates*/
-                                    hint_type: 'tags&vars',
-                                    renderTrigger: 'isEmail',
-                                    hint_api: 'events',
-                                    hint_id: 'action',
-                                    hint_value_container: 'variables',
-                                    hint_value: 'variable',
-                                    mustaches: {
-                                        otag: '{{',
-                                        ctag: '}}'
-                                    },
-                                    universalTags: {
-                                        title: true,
-                                        link: true,
-                                        email: true,
-                                        button: true,
-                                        html_template: false,
-                                        separator: true,
-                                    },
-                                },
-                                hint: 'sad'
-                            },
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginTop20',
-                        renderFlag: 'isSms',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Текст сообщения',
-                                required: true,
-                                invalid: false,
-                                width: 12,
-                                height: 80,
-                                codename: 'text',
-                                widget: 'textarea',
-                                hint_meta_fields: {                                                                     /*По всем вопросам смотри алтан-шину: notificationTemplates*/
-                                    hint_type: 'tags&vars',
-                                    hint_api: 'events',
-                                    renderTrigger: 'isSms',
-                                    hint_id: 'action',
-                                    hint_value_container: 'variables',
-                                    hint_value: 'variable',
-                                    mustaches: {
-                                        otag: '{{',
-                                        ctag: '}}'
-                                    }
-                                },
-                                hint: ''
-                            },
+                                hint: '',
+                                show: false
+                            }
                         ]
                     },
                     {
@@ -195,7 +130,7 @@ const state = {
                                 required: false,
                                 invalid: false,
                                 hint: ''
-                            },
+                            }
                         ]
                     },
                     {
@@ -224,8 +159,8 @@ const state = {
                                 view_structure: [
                                     {
                                         value: 'full_name',
-                                        flex: .85,
-                                    },
+                                        flex: .85
+                                    }
                                 ],
                                 hint: ''
                             },
@@ -246,11 +181,11 @@ const state = {
                                 view_structure: [
                                     {
                                         value: 'name',
-                                        flex: .85,
-                                    },
+                                        flex: .85
+                                    }
                                 ],
                                 hint: ''
-                            },
+                            }
                         ]
                     },
                     {
@@ -275,11 +210,11 @@ const state = {
                                 view_structure: [
                                     {
                                         value: 'name',
-                                        flex: .85,
-                                    },
+                                        flex: .85
+                                    }
                                 ],
                                 hint: ''
-                            },
+                            }
                         ]
                     },
                     {
@@ -297,21 +232,21 @@ const state = {
                                 codename: 'comment',
                                 widget: 'textarea',
                                 hint: ''
-                            },
+                            }
                         ]
-                    },
+                    }
                 ]
-            },
-        ],
+            }
+        ]
     },
     activeFlag: {
         'notification-templates': {
             title: 'Активный шаблон',
-            hint: 'Неактивные шаблоны игнорируются и уведомления не отправляются',
+            hint: 'Неактивные шаблоны игнорируются и уведомления не отправляются'
         }
-    },
+    }
 };
 
 export default {
     state
-}
+};
