@@ -635,15 +635,16 @@ textarea {
   overflow: hidden; }
 
 .slide {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
   min-width: 100%;
   height: 100%;
-  padding: 0; }
-  .slide.active {
-    display: block; }
+  padding: 0;
+  opacity: 0;
+  transition: opacity 300ms linear; }
+  .slide:first-child {
+    opacity: 1; }
 
 .slider-arrow {
   display: none;
