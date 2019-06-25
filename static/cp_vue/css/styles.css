@@ -9588,6 +9588,7 @@ div, a {
 
 .base-hint__wrap {
   position: relative;
+  text-align: left;
 }
 .base-hint__icon-question {
   margin: 0 10px;
@@ -9638,20 +9639,20 @@ div, a {
   background: #778088;
   border-radius: 5px;
 }
-.base-hint__message-wrap:before {
-    position: absolute;
-    content: '';
-    border: 5px solid transparent;
-    left: 50%;
-    transform: translateX(-50%);
+.base-hint__arrow {
+  z-index: 22;
+  position: absolute;
+  border: 5px solid transparent;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.base-hint__message-wrap_top-arrow:before {
+.base-hint__arrow_top {
   border-bottom-color: #778088;
-  top: -10px;
-}
-.base-hint__message-wrap_bottom-arrow:before {
-  border-top-color: #778088;
   bottom: -10px;
+}
+.base-hint__arrow_bottom {
+  border-top-color: #778088;
+  top: -10px;
 }
 .base-hint__message {
   font-weight: 300;
