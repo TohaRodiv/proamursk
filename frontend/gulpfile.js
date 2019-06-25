@@ -110,7 +110,7 @@ function devJS() {
         .pipe(sourcemaps.init())
         .pipe(concat('main.js'))
         .pipe(gulp.dest('static/js/'))
-        .pipe(gulp.dest('../../static/site/js/'))
+        .pipe(gulp.dest('./../static/site/js/'))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('static/js/'))
