@@ -1694,11 +1694,15 @@ $('.slider-arrow').on('click', function() {
     if ($(this).hasClass('slider-arrow-next')) newActiveSlideIndex = (currentActiveSlideIndex < slidesAmount - 1) ? currentActiveSlideIndex + 1 : 0;
     else if ($(this).hasClass('slider-arrow-prev')) newActiveSlideIndex = (currentActiveSlideIndex > 0) ? currentActiveSlideIndex - 1 : slidesAmount - 1;
 
-    sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
+    sliderContainer.find('.slide.active').stop().animate({
+        opacity: 0
+    }, animateSpeed, "linear", function() {
         $(this).removeClass('active');
     });
 
-    sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
+    sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().animate({
+        opacity: 1
+    }, animateSpeed, "linear", function() {
         $(this).addClass('active');
     });
 
@@ -1745,11 +1749,15 @@ $('.slider-circles-container').on('click', '.slider-circle-item', function() {
         newActiveSlideIndex = sliderCircleItems.index($(this));
 
     if (currentActiveSlideIndex != newActiveSlideIndex) {
-        sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
+        sliderContainer.find('.slide.active').stop().animate({
+            opacity: 0
+        }, animateSpeed, "linear", function() {
             $(this).removeClass('active');
         });
 
-        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
+        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().animate({
+            opacity: 1
+        }, animateSpeed, "linear", function() {
             $(this).addClass('active');
         });
 
@@ -1827,11 +1835,15 @@ $('.timeline-step').click(function () {
         newActiveSlideIndex = $(this).data('timeline-slide')-1;
 
     if (currentActiveSlideIndex != newActiveSlideIndex) {
-        sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
+        sliderContainer.find('.slide.active').stop().animate({
+            opacity: 0
+        }, animateSpeed, "linear", function() {
             $(this).removeClass('active');
         });
 
-        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
+        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().animate({
+            opacity: 1
+        }, animateSpeed, "linear", function() {
             $(this).addClass('active');
         });
 
@@ -1859,11 +1871,15 @@ $('.preview-slider__mini-btn').click(function () {
         newActiveSlideIndex = sliderPreviewWrap.find('.preview-slider__mini-btn').index($(this));
 
     if (currentActiveSlideIndex != newActiveSlideIndex) {
-        sliderContainer.find('.slide.active').stop().fadeOut(animateSpeed, function() {
+        sliderContainer.find('.slide.active').stop().animate({
+            opacity: 0
+        }, animateSpeed, "linear", function() {
             $(this).removeClass('active');
         });
 
-        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().fadeIn(animateSpeed, function() {
+        sliderContainer.find('.slide').eq(newActiveSlideIndex).stop().animate({
+            opacity: 1
+        }, animateSpeed, "linear", function() {
             $(this).addClass('active');
         });
 
