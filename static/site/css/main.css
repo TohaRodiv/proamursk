@@ -1441,6 +1441,7 @@ input.btn_preloader {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
+    max-width: 100%;
     line-height: 1.5; }
 
 .post-editor {
