@@ -87,7 +87,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'applications.contentblocks.context_processors.content_blocks'
+                'applications.contentblocks.context_processors.content_blocks',
+                'applications.root.context_processors.project_settings',
             ],
         },
     },
@@ -148,7 +149,7 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 86
+STATIC_VERSION = 87
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
