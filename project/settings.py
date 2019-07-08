@@ -100,12 +100,12 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'proamursk_prod',
-            'USER': 'superadmin',
-            'PASSWORD': 'air3N97r',
-            'HOST': 'proamursk.ru',
+            'NAME': 'proamursk_local',
+            'USER': 'postgres',
+            'PASSWORD': '',
+            'HOST': '127.0.0.1',
             'PORT': '5432',
-        },
+        }
     }
 
 else:
