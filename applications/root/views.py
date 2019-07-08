@@ -73,6 +73,7 @@ class IndexView(View):
         wide_banner = WideBanner.objects.filter((Q(start_publication_date__isnull=True) | Q(start_publication_date__lte=datetime.now())) &
                                                 (Q(end_publication_date__isnull=True) | Q(end_publication_date__gte=datetime.now())),
                                                 is_active=True).order_by('?').first()
+
         return render(request, 'site/index.html', dict(films=films,
                                                        specials=specials,
                                                        top_objects=top_objects,

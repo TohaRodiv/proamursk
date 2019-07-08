@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        {% if content_blocks.show_banner.content %}
+        {% if content_blocks.show_banner.content and wide_banner %}
             <a href="" class="layout-section container banner">
                 <img src="{{ wide_banner.cover|get_thumbnail_url_by_name:"wide_banner" }}" alt="" class="banner__img">
             </a>
