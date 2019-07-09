@@ -4,9 +4,11 @@
             <h2 class="additional-block__title">Читайте также:</h2>
             <div class="base-4items-grid">
                 {% for item in items %}
-                    {% with cover_name="3_column_img_"|add:item.cover_format %}
-                        {% include "site/modules/grid-publication.html" %}
-                    {% endwith %}
+                    {% if item %}
+                        {% with cover_name="3_column_img_"|add:item.cover_format %}
+                            {% include "site/modules/grid-publication.html" %}
+                        {% endwith %}
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>

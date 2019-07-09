@@ -46,8 +46,32 @@
             <div class="base-3items-grid">
                 {% for top_item in top_objects|slice:"1:4" %}
                     {% with item=top_item.get_object %}
+                        {% if item %}
+                            {% if forloop.counter == 1 %}
+                                {% with cover_name="3_column_img_"|add:item.cover_format %}
+                                    {% include "site/modules/grid-publication.html" %}
+                                {% endwith %}
+                            {% endif %}
+                            {% if forloop.counter == 2 %}
+                                {% with cover_name="3_column_img_"|add:item.cover_format %}
+                                    {% include "site/modules/grid-publication.html" %}
+                                {% endwith %}
+                            {% endif %}
+                            {% if forloop.counter == 3 %}
+                                {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format %}
+                                    {% include "site/modules/grid-publication.html" %}
+                                {% endwith %}
+                            {% endif %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+
+            <div class="base-3items-grid-inverse">
+                {% for item in persons|slice:":3" %}
+                    {% if item %}
                         {% if forloop.counter == 1 %}
-                            {% with cover_name="3_column_img_"|add:item.cover_format %}
+                            {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format %}
                                 {% include "site/modules/grid-publication.html" %}
                             {% endwith %}
                         {% endif %}
@@ -57,30 +81,10 @@
                             {% endwith %}
                         {% endif %}
                         {% if forloop.counter == 3 %}
-                            {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format %}
+                            {% with cover_name="3_column_img_"|add:item.cover_format %}
                                 {% include "site/modules/grid-publication.html" %}
                             {% endwith %}
                         {% endif %}
-                    {% endwith %}
-                {% endfor %}
-            </div>
-
-            <div class="base-3items-grid-inverse">
-                {% for item in persons|slice:":3" %}
-                    {% if forloop.counter == 1 %}
-                        {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format %}
-                            {% include "site/modules/grid-publication.html" %}
-                        {% endwith %}
-                    {% endif %}
-                    {% if forloop.counter == 2 %}
-                        {% with cover_name="3_column_img_"|add:item.cover_format %}
-                            {% include "site/modules/grid-publication.html" %}
-                        {% endwith %}
-                    {% endif %}
-                    {% if forloop.counter == 3 %}
-                        {% with cover_name="3_column_img_"|add:item.cover_format %}
-                            {% include "site/modules/grid-publication.html" %}
-                        {% endwith %}
                     {% endif %}
                 {% endfor %}
             </div>
@@ -88,9 +92,11 @@
             <div class="js-infinity-loader-wrap">
                 <div class="base-4items-grid js-infinity-loader-grid">
                     {% for item in persons|slice:"3:" %}
-                        {% with cover_name="3_column_img_"|add:item.cover_format %}
-                            {% include "site/modules/grid-publication.html" %}
-                        {% endwith %}
+                        {% if item %}
+                            {% with cover_name="3_column_img_"|add:item.cover_format %}
+                                {% include "site/modules/grid-publication.html" %}
+                            {% endwith %}
+                        {% endif %}
                     {% endfor %}
                 </div>
                 {% if has_next %}

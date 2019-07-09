@@ -46,20 +46,22 @@
 
         <div class="base-3items-grid">
             {% for item in events|slice:"1:4" %}
-                {% if forloop.counter == 1 %}
-                    {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="announcement" %}
-                        {% include "site/modules/grid-event.html" %}
-                    {% endwith %}
-                {% endif %}
-                {% if forloop.counter == 2 %}
-                    {% with cover_name="3_column_img_"|add:item.cover_format add_link=False wobler_type="announcement" %}
-                        {% include "site/modules/grid-event.html" %}
-                    {% endwith %}
-                {% endif %}
-                {% if forloop.counter == 3 %}
-                    {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format wobler_type="announcement" %}
-                        {% include "site/modules/grid-event.html" %}
-                    {% endwith %}
+                {% if item %}
+                    {% if forloop.counter == 1 %}
+                        {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="announcement" %}
+                            {% include "site/modules/grid-event.html" %}
+                        {% endwith %}
+                    {% endif %}
+                    {% if forloop.counter == 2 %}
+                        {% with cover_name="3_column_img_"|add:item.cover_format add_link=False wobler_type="announcement" %}
+                            {% include "site/modules/grid-event.html" %}
+                        {% endwith %}
+                    {% endif %}
+                    {% if forloop.counter == 3 %}
+                        {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format wobler_type="announcement" %}
+                            {% include "site/modules/grid-event.html" %}
+                        {% endwith %}
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </div>
@@ -67,9 +69,11 @@
         <div class="js-infinity-loader-wrap">
             <div class="base-4items-grid js-infinity-loader-grid">
                 {% for item in events|slice:"4:" %}
-                    {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="announcement" %}
-                        {% include "site/modules/grid-event.html" %}
-                    {% endwith %}
+                    {% if item %}
+                        {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="announcement" %}
+                            {% include "site/modules/grid-event.html" %}
+                        {% endwith %}
+                    {% endif %}
                 {% endfor %}
             </div>
             {% if has_next %}
