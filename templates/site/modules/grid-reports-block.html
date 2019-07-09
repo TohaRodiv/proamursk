@@ -1,5 +1,7 @@
 {% for item in reports %}
-    {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="reportage" %}
-        {% include "site/modules/grid-event.html" %}
-    {% endwith %}
+    {% if item %}
+        {% with cover_name="3_column_img_"|add:item.cover_format wobler_type="reportage" %}
+            {% include "site/modules/grid-event.html" %}
+        {% endwith %}
+    {% endif %}
 {% endfor %}

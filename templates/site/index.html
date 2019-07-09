@@ -113,22 +113,24 @@
                 {% include "site/page-block/cinema-widget.html" %}
 
                 {% for item in what_to_do %}
-                    {% if forloop.counter == 1 %}
-                        {% with css_class="grid-publication_6-col" model_name=item|get_model_name cover_name="6_column_img_"|add:item.cover_format %}
-                            {% if model_name == 'event' or model_name == 'report' %}
-                                {% include "site/modules/grid-event.html" %}
-                            {% else %}
-                                {% include "site/modules/grid-publication.html" %}
-                            {% endif %}
-                        {% endwith %}
-                    {% else %}
-                        {% with model_name=item|get_model_name cover_name="3_column_img_"|add:item.cover_format %}
-                            {% if model_name == 'event' or model_name == 'report' %}
-                                {% include "site/modules/grid-event.html" %}
-                            {% else %}
-                                {% include "site/modules/grid-publication.html" %}
-                            {% endif %}
-                        {% endwith %}
+                    {% if item %}
+                        {% if forloop.counter == 1 %}
+                            {% with css_class="grid-publication_6-col" model_name=item|get_model_name cover_name="6_column_img_"|add:item.cover_format %}
+                                {% if model_name == 'event' or model_name == 'report' %}
+                                    {% include "site/modules/grid-event.html" %}
+                                {% else %}
+                                    {% include "site/modules/grid-publication.html" %}
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            {% with model_name=item|get_model_name cover_name="3_column_img_"|add:item.cover_format %}
+                                {% if model_name == 'event' or model_name == 'report' %}
+                                    {% include "site/modules/grid-event.html" %}
+                                {% else %}
+                                    {% include "site/modules/grid-publication.html" %}
+                                {% endif %}
+                            {% endwith %}
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
             </div>

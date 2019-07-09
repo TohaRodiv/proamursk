@@ -1,5 +1,7 @@
 {% for item in persons %}
-    {% with cover_name="3_column_img_"|add:item.cover_format %}
-        {% include "site/modules/grid-publication.html" %}
-    {% endwith %}
+    {% if item %}
+        {% with cover_name="3_column_img_"|add:item.cover_format %}
+            {% include "site/modules/grid-publication.html" %}
+        {% endwith %}
+    {% endif %}
 {% endfor %}
