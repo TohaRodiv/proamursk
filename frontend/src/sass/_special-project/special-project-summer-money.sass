@@ -1,41 +1,10 @@
 .sp-summer-money
     margin-bottom: -40px
 
-.sp img
-    display: block
-
 .sp-summer-money__photo
-    border-radius: 4px
+    border-radius: 28px
 
-.sp-summer-money__icon_slider-wait
-    width: 250px
-
-.sp-summer-money__icon_slider-body-check
-    width: 185px
-
-.sp-block
-    &_mt30
-        margin-top: 30px
-
-    &_mt40
-        margin-top: 40px
-
-    &_mt60
-        margin-top: 60px
-
-    &_mt80
-        margin-top: 80px
-
-    &_mt100
-        margin-top: 100px
-
-    p
-        margin-bottom: 20px
-
-        &:last-child
-            margin-bottom: 0
-
-.sp-light-section
+.sp-summer-money-light-section
     padding-top: 100px
     padding-bottom: 100px
     background-color: #fbfcfd
@@ -47,280 +16,6 @@
         letter-spacing: 0.02em
         line-height: 24px
         text-align: center
-
-.sp-6col
-    width: 640px
-    margin-left: auto
-    margin-right: auto
-
-.sp-6col_3-3
-    display: flex
-    align-items: flex-start
-
-    .sp-3col
-        width: 310px
-        flex-shrink: 0
-        flex-grow: 0
-
-        & + .sp-3col
-            margin-left: 20px
-
-.sp-6col_4-2
-    display: flex
-    align-items: flex-start
-
-    & > :first-child
-        margin-right: 20px
-
-    .sp-4col
-        width: 420px
-        flex-shrink: 0
-
-    .sp-2col
-        width: 200px
-        position: relative
-
-.sp-12col_4-4-4
-    display: flex
-    align-items: flex-start
-
-    & :nth-child(2)
-        margin-left: 20px
-        margin-right: 20px
-
-    img
-        width: 420px
-
-.sp-full_4-4-4
-    display: flex
-    align-items: flex-start
-    justify-content: center
-
-    &__item
-        flex-shrink: 0
-
-        &:nth-child(1)
-            figcaption
-                width: 280px
-                margin-left: auto
-
-        &:nth-child(2)
-            margin-left: 20px
-            margin-right: 20px
-
-            figcaption
-                width: 480px
-
-        &:nth-child(3)
-            figcaption
-                width: 280px
-
-    figcaption
-        margin-top: 20px
-        font-size: 15px
-        line-height: 20px
-        letter-spacing: 0.08em
-        color: $base-dark-c
-
-    img
-        height: 460px
-
-.sp-3col__text
-    padding-right: 40px
-
-.sp-8col
-    width: 860px
-    margin-left: auto
-    margin-right: auto
-
-.sp-flex-container
-    display: flex
-    align-items: flex-start
-    justify-content: space-between
-
-.sp-grid__item_third
-    width: calc((100% - 90px) / 3)
-
-.sp-round-number
-    width: 48px
-    height: 48px
-    margin-bottom: 15px
-    font-size: $huge-fz
-    line-height: 48px
-    color: $base-c
-    text-align: center
-    border: 2px solid $base-c
-    border-radius: 50%
-
-.sp-base-subtitle
-    margin-bottom: 60px
-    font-family: $bold-f
-    font-size: 24px
-    letter-spacing: 0.03em
-    line-height: $base-lh
-    text-align: center
-
-.sp-dropdown-section
-    width: 1080px
-    margin-left: auto
-    margin-right: auto
-    padding: 50px 155px
-    background: $light-c
-    border: 1px solid #d2d7dd
-    border-radius: 4px
-
-    &__pretext
-
-.sp-full_2-2
-    display: flex
-    align-items: flex-start
-    justify-content: space-between
-
-    & > *
-        width: calc(50% - 20px)
-
-.sp-title
-    margin-bottom: 20px
-    font-size: 24px
-    font-family: $bold-f
-
-.sp-separator_line
-    height: 1px
-    background-color: #D7DBE0
-
-.sp-separator_sign
-    display: flex
-    align-items: center
-    color: #7A8BA1
-
-    &::before,
-    &::after
-        content: ""
-        height: 2px
-        flex-grow: 1
-        background-color: $border-c
-
-    &::before
-        margin-right: 3px
-
-    &::after
-        margin-left: 3px
-
-.sp-direct-speech
-    width: 800px
-    margin-left: -160px
-
-.sp-fact-wrap
-    display: flex
-    align-items: flex-start
-    justify-content: center
-
-.sp-grid
-    display: flex
-    flex-wrap: wrap
-    align-items: flex-start
-    margin-right: -60px
-    margin-bottom: -20px
-
-    .sp-grid__item_half
-        width: calc(50% - 60px)
-        flex-basis: 380px
-        flex-shrink: 0
-        margin-right: 60px
-        margin-bottom: 20px
-
-.sp-fact
-    flex-basis: 200px
-    flex-grow: 0
-
-    &_center
-        margin: 0 10px
-        text-align: center
-
-        .sp-fact__icon
-            margin-left: auto
-            margin-right: auto
-
-    &_in-column
-        .sp-fact__icon
-            margin-bottom: 20px
-
-        &:not(:last-child)
-            margin-bottom: 40px
-
-    &__icon
-        margin-bottom: 10px
-
-        img
-            margin-left: auto
-            margin-right: auto
-
-        &_big
-            width: 90px
-            height: 90px
-            line-height: 90px
-
-        &_small
-            width: 56px
-            height: 56px
-            line-height: 52px
-            font-size: 50px
-
-        &_error
-            color: #FF1800
-            text-align: center
-            border: 4px solid #FF1800
-
-    &__number
-        font-family: $bold-f
-        font-size: 42px
-        line-height: $micro-lh
-        color: $base-c
-
-    &__title
-        line-height: $mini-lh
-
-        &_italic
-            font-size: 21px
-            font-family: $add-sb-it-f
-
-        &_bold
-            font-size: $base-fz
-            font-family: $bold-f
-
-    &__subtext
-        margin-top: 5px
-        margin-left: auto
-        margin-right: auto
-        font-size: 15px
-        letter-spacing: 0.08em
-        line-height: 20px
-        color: $base-dark-c
-
-        &_limited
-            width: 150px
-
-        &_mt10
-            margin-top: 10px
-
-    &__text
-        font-size: $base-fz
-        line-height: $base-lh
-
-    a
-        color: $base-c
-        text-decoration: none
-
-        span
-            position: relative
-            margin-left: 5px
-            font-size: 10px
-            left: 0
-            transition: left 0.2s
-
-        &:hover
-            span
-                left: 5px
 
 .sp-summer-money__overflow-small-img
     width: 420px
@@ -788,146 +483,6 @@
             &:focus
                 text-decoration: underline
 
-.icon-title-wrap
-
-.icon-title
-    &__icon
-        width: 105px
-        margin: 0 auto 20px
-
-    &__text
-        margin-left: auto
-        margin-right: auto
-        font-family: $bold-f
-        font-size: 18px
-        letter-spacing: 0.02em
-        line-height: 24px
-        text-align: center
-        color: $dark-c
-
-        &_1line
-            max-width: 400px
-
-        &_2line
-            max-width: 280px
-
-.icon-separator
-    display: flex
-    align-items: center
-
-    &::before,
-    &::after
-        content: ""
-        display: block
-        height: 2px
-        flex-grow: 1
-        background-color: $base-c
-
-    &::before
-        margin-right: 15px
-
-    &::after
-        margin-left: 15px
-
-    &__icon
-        height: 65px
-
-.sp-slider-timeline
-    display: flex
-    align-items: flex-start
-    justify-content: space-between
-    position: relative
-
-    &::after
-        content: ""
-        display: block
-        height: 1px
-        position: absolute
-        top: 15px
-        left: 110px
-        right: 116px
-        z-index: 1
-        background-color: #C3CEDF
-
-.sp-slider-note
-    width: 1080px
-    margin: 20px auto 0
-    font-size: 15px
-    letter-spacing: 0.08em
-    color: $base-dark-c
-
-    a
-        text-decoration: none
-        color: $base-c
-
-        &:hover
-            text-decoration: underline
-
-.sp-summer-money-section_1__slider-timeline
-    width: 860px
-    margin: 0 auto
-
-.sp-summer-money-section_2__slider-timeline
-    width: 610px
-    margin: 0 auto
-
-.timeline-step
-    position: relative
-    z-index: 2
-    text-align: center
-
-    &:first-child
-        .timeline-step__number-wrap
-            width: calc((100% - 27px) / 2 + 27px + 20px)
-            padding-left: calc((100% - 27px) / 2)
-            margin-left: 0
-
-    &:last-child
-        .timeline-step__number-wrap
-            width: calc((100% - 27px) / 2 + 27px + 20px)
-            padding-right: calc((100% - 27px) / 2)
-            margin-right: 0
-
-    &:hover
-        .timeline-step__number
-            color: $base-c
-            border-color: $base-c
-
-        .timeline-step__title
-            color: $base-c
-
-    &__number-wrap
-        width: 67px
-        height: 27px
-        margin: 0 auto 10px
-        padding: 0 20px
-        background-color: #fbfcfd
-
-    &__number
-        display: block
-        width: 27px
-        height: 27px
-        font-size: $base-fz
-        line-height: 24px
-        color: #C3CEDF
-        text-align: center
-        border: 1px solid #C3CEDF
-        border-radius: 50%
-
-    &__title
-        font-size: 15px
-        letter-spacing: 0.08em
-
-    &.active
-        .timeline-step__number
-            font-family: $bold-f
-            color: $light-c
-            border-color: $base-c
-            background-color: $base-c
-
-        .timeline-step__title
-            color: $base-c
-
 .sp-summer-money-slider
     &:hover
         .sp-summer-money-slider__arrow-container
@@ -964,6 +519,130 @@
     .slider-arrow-next
         right: 0
         background: linear-gradient(90deg, rgba(#4c607b, 0) 0%, rgba(#4c607b, 0.55) 100%)
+
+.sp-summer-money-working-conditions
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 1080px
+    margin-left: auto
+    margin-right: auto
+
+.sp-summer-money-working-conditions-section__title
+    margin-bottom: 40px
+    font-family: $bold-f
+    font-size: $huge-fz
+    letter-spacing: 0.02em
+    line-height: $micro-lh
+    text-align: center
+
+.sp-summer-money-working-conditions__img
+    width: 225px
+    margin-left: 90px
+    margin-right: 90px
+
+.sp-summer-money-working-conditions__bubble
+    position: relative
+    width: 340px
+    flex-shrink: 0
+    margin-top: -90px
+    padding: 40px
+    background-color: #FAFBFC
+    border-radius: 56px
+
+    &_left
+        &::before
+            content: ""
+            display: block
+            position: absolute
+            top: 30px
+            right: -70px
+            width: 112px
+            height: 57px
+            background-image: url(../images/special-projects/summer-money/svg/gray-corner.svg)
+            background-size: contain
+            background-repeat: no-repeat
+
+    &_right
+        &::before
+            content: ""
+            display: block
+            position: absolute
+            top: 30px
+            left: -70px
+            width: 112px
+            height: 57px
+            transform: scale(-1, 1)
+            background-image: url(../images/special-projects/summer-money/svg/gray-corner.svg)
+            background-size: contain
+            background-repeat: no-repeat
+
+.sp-summer-money-working-conditions__title
+    margin-bottom: 35px
+    font-size: $big-fz
+    font-family: $bold-f
+
+.sp-summer-money-working-conditions__text-block
+    display: flex
+    align-items: flex-start
+
+.sp-summer-money-working-conditions__icon
+    flex-shrink: 0
+    width: 42px
+    margin-right: 20px
+
+.sp-summer-money-working-conditions__text
+    flex-grow: 1
+    font-size: $base-fz
+    line-height: $base-lh
+
+.sp-summer-money__info-sign
+    width: 48px
+    height: 48px
+    margin: 0 auto 10px
+    font-size: 36px
+    line-height: 44px
+    border: 2px solid #FF1800
+    flex-shrink: 0
+    color: #FF1800
+    text-align: center
+    border-radius: 50%
+
+.sp-summer-money-working-conditions-section__subtitle
+    width: 335px
+    margin-left: auto
+    margin-right: auto
+    margin-bottom: 30px
+    font-size: $base-fz
+    font-family: $bold-f
+    text-align: center
+
+.sp-summer-money-documents-grid
+    display: flex
+    flex-wrap: wrap
+    width: 750px
+    margin-top: 60px
+    margin-left: 330px
+
+.sp-summer-money-documents__item
+    display: flex
+    align-items: center
+    flex: 0 1 43%
+
+    &:nth-child(1),
+    &:nth-child(2)
+        margin-bottom: 40px
+
+    &:nth-child(2n+1)
+        margin-right: 30px
+
+.sp-summer-money-documents__icon
+    width: 46px
+    margin-right: 20px
+
+.sp-summer-money-documents__text
+    font-size: $big-fz
+    font-family: $bold-f
 
 .sp-step-slider
     width: 1080px
@@ -1060,68 +739,3 @@
         margin-right: 30px
 
     &__text
-
-.sp-info-note
-    display: flex
-    align-items: flex-start
-
-    &__sign
-        flex-shrink: 0
-        color: #FF1800
-        text-align: center
-        border-radius: 50%
-
-    &__text
-        line-height: $base-lh
-        text-align: left
-
-    &_small
-        width: 640px
-        margin-top: 20px
-        margin-left: 18px
-
-        .sp-info-note
-            &__sign
-                width: 23px
-                height: 23px
-                margin-right: 15px
-                font-size: 17px
-                line-height: 22px
-                border: 1px solid #FF1800
-
-            &__text
-                font-size: 14px
-                color: $base-dark-c
-
-    &_big
-        .sp-info-note
-            &__sign
-                width: 43px
-                height: 43px
-                margin-right: 20px
-                font-size: 34px
-                line-height: 40px
-                border: 2px solid #FF1800
-
-            &__text
-                font-size: $base-fz
-                color: $dark-c
-
-    &_middle
-        .sp-info-note
-            &__text
-                width: 660px
-
-.sp-summer-money-section_1
-    .sp-summer-money-section__title
-        width: 640px
-
-.sp-summer-money-section_2__fact-wrap
-    display: flex
-    align-items: flex-end
-
-    .sp-fact-wrap
-        flex-grow: 1
-        justify-content: space-between
-        margin-left: -10px
-        margin-right: -10px
