@@ -5350,6 +5350,14 @@ footer {
 
 .sp-summer-money-whom-work__icon {
   margin-bottom: 35px; }
+  .sp-summer-money-whom-work__icon_guide {
+    width: 130px; }
+  .sp-summer-money-whom-work__icon_promoter {
+    width: 120px; }
+  .sp-summer-money-whom-work__icon_freelance {
+    width: 150px; }
+  .sp-summer-money-whom-work__icon_handyman {
+    width: 120px; }
 
 .sp-summer-money-whom-work__title {
   margin-bottom: 20px;
@@ -5587,7 +5595,7 @@ footer {
   width: 340px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  margin-top: -90px;
+  margin-top: -50px;
   padding: 40px;
   background-color: #FAFBFC;
   border-radius: 56px; }
