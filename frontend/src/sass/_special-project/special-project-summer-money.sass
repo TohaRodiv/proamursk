@@ -7,97 +7,11 @@
 .sp-summer-money__photo
     border-radius: 4px
 
-.sp-summer-money__icon_kindergarden
-    height: 80px
-
-.sp-summer-money__icon_children-in-kindergarden
-    height: 67px
-    margin-top: 13px
-
-.sp-summer-money__icon_rocking-horse,
-.sp-summer-money__icon_constructror
-    height: 57px
-
-.sp-summer-money__icon_globe
-    height: 70px
-
-.sp-summer-money__icon_boy-cubes
-    width: 290px
-    height: 200px
-    margin-top: 37px
-
-.sp-summer-money__icon_fitball
-    width: 215px
-    height: 270px
-    margin-top: 25px
-
-.sp-summer-money__icon_uprobrz,
-.sp-summer-money__icon_mfc,
-.sp-summer-money__icon_gosuslugi
-    height: 85px
-
 .sp-summer-money__icon_slider-wait
     width: 250px
 
 .sp-summer-money__icon_slider-body-check
     width: 185px
-
-.sp-summer-money__icon_school,
-.sp-summer-money__icon_schoolchild,
-.sp-summer-money__icon_medal
-    height: 75px
-
-.sp-summer-money__icon_techworker
-    width: 320px
-
-.sp-summer-money__icon_science
-    width: 195px
-
-.sp-summer-money__icon_nerd
-    width: 240px
-    position: relative
-    top: -20px
-
-.sp-summer-money__icon_winner
-    width: 215px
-    margin-top: 25px
-    margin-left: 55px
-
-.sp-summer-money__icon_documents
-    width: 245px
-    position: absolute
-    right: 160px
-    top: 200px
-
-.sp-summer-money__icon_wait-call
-    width: 320px
-    position: absolute
-    top: 210px
-    right: 140px
-
-.sp-summer-money__icon_litercy,
-.sp-summer-money__icon_arithmetic,
-.sp-summer-money__icon_world
-    width: 105px
-
-.sp-summer-money__icon_80percent,
-.sp-summer-money__icon_sections
-    height: 80px
-
-.sp-summer-money__gto-medal
-    width: 78px
-    height: 80px
-
-.sp-summer-money-gto-wrap
-    .sp-fact_center
-        &:first-child
-            margin-left: 0
-
-        &:last-child
-            margin-right: 0
-
-.sp-summer-money-gto-text
-    margin-left: 20px
 
 .sp-block
     &_mt30
@@ -122,9 +36,9 @@
             margin-bottom: 0
 
 .sp-light-section
-    padding: 40px 0 80px
+    padding-top: 100px
+    padding-bottom: 100px
     background-color: #fbfcfd
-    border: 1px solid #d7dbe0
 
     &__title
         margin-bottom: 40px
@@ -571,6 +485,16 @@
     width: 580px
     margin-right: -170px
 
+.sp-summer-money-illustr3
+    width: 415px
+
+.sp-summer-money-illustr4
+    position: relative
+    z-index: 1
+    width: 360px
+    margin-top: -20px
+    margin-left: 20px
+
 .sp-summer-money-why-work-child
     width: 640px
     margin-top: -300px
@@ -624,6 +548,40 @@
 .sp-summer-money-why-work-parent__description
     font-size: $base-fz
 
+.sp-summer-money-whom-work__row
+    display: flex
+
+    &_1
+        margin-left: 400px
+        margin-top: -250px
+        margin-bottom: 50px
+
+    &_2
+        margin-left: 110px
+
+.sp-summer-money-whom-work
+    width: 900px
+
+.sp-summer-money-whom-work__item
+    flex: 1 1 420px
+    padding: 70px 50px
+    background-color: #fafbfc
+    border-radius: 56px
+
+    &:not(:last-child)
+        margin-right: 60px
+
+.sp-summer-money-whom-work__icon
+    margin-bottom: 35px
+
+.sp-summer-money-whom-work__title
+    margin-bottom: 20px
+    font-size: $big-fz
+    font-family: $bold-f
+
+.sp-summer-money-whom-work__description
+    font-size: $base-fz
+
 .sp-summer-money-section
     &__cover-wrap
         position: relative
@@ -674,6 +632,161 @@
         font-size: 22px
         font-family: $add-sb-it-f
         text-align: center
+
+.sp-summer-money-direct-speech
+    display: flex
+    align-items: flex-start
+    background-color: #fff
+    border-radius: 56px
+
+    &_block
+        width: 1080px
+        margin-left: 50px
+        padding: 60px 90px
+
+    &_slide
+        height: 100%
+        padding: 90px
+
+.sp-summer-money-direct-speech__speaker
+    width: 230px
+    flex-shrink: 0
+    margin-right: 50px
+    margin-top: -15px
+
+.sp-summer-money-direct-speech__avatar
+    margin-bottom: 15px
+
+.sp-summer-money-direct-speech__author-description
+    margin-bottom: 0
+
+.sp-summer-money-direct-speech__text-wrap
+    position: relative
+    flex-grow: 1
+
+    &::before
+        content: ""
+        display: block
+        width: 80px
+        height: 50px
+        position: absolute
+        top: -15px
+        left: -40px
+        z-index: 1
+        background-image: url(../images/special-projects/summer-money/svg/quotes.svg)
+        background-size: contain
+        background-repeat: no-repeat
+
+.sp-summer-money-direct-speech__text
+    position: relative
+    z-index: 2
+
+.sp-summer-money-where-find
+    width: 822px
+    margin-top: -290px
+    margin-left: 440px
+    padding: 80px 70px
+    background-color: #fafbfc
+    border-radius: 56px
+
+.sp-summer-money-where-find__item
+    display: flex
+    align-items: flex-start
+
+    &:not(:last-child)
+        margin-bottom: 100px
+
+    &_inverse
+        flex-direction: row-reverse
+
+        .sp-summer-money-where-find__info
+            margin-left: 0
+            margin-right: 50px
+
+.sp-summer-money-where-find__img
+    display: block
+    width: 460px
+    border-radius: 28px
+
+    &_1
+        margin-right: -200px
+        margin-top: -110px
+
+    &_2,
+    &_4
+        margin-left: -210px
+        margin-top: -30px
+
+    &_3
+        margin-right: -200px
+
+        & + .sp-summer-money-where-find__info
+            align-self: flex-end
+
+.sp-summer-money-where-find__info
+    width: 370px
+    flex-shrink: 0
+    margin-left: 60px
+
+.sp-summer-money-where-find__count
+    width: 64px
+    height: 64px
+    margin-bottom: 30px
+    font-size: 40px
+    line-height: 64px
+    font-family: $bold-f
+    color: $light-c
+    text-align: center
+    background-color: $base-c
+    border-radius: 50%
+
+.sp-summer-money-where-find__title
+    margin-bottom: 20px
+    font-size: $big-fz
+    font-family: $bold-f
+
+.sp-summer-money-where-find__description
+    font-size: $base-fz
+
+.sp-summer-money-where-find__table
+    font-size: $mini-fz
+
+    tr
+        &:not(:last-child)
+            td
+                padding-bottom: 10px
+
+    td
+        padding: 0
+        vertical-align: baseline
+
+        &:first-child
+            padding-right: 20px
+
+        [class^="icon-"]
+            display: inline-block
+            width: 18px
+            height: 20px
+            margin-right: 5px
+            font-size: 0
+            line-height: 20px
+            color: #0073FF
+            vertical-align: -2px
+            text-align: center
+
+            &::before
+                font-size: 17px
+
+        div
+            line-height: 1.5
+
+        a
+            color: $base-c
+            text-decoration: none
+
+            &:hover,
+            &:focus
+                text-decoration: underline
 
 .icon-title-wrap
 
@@ -876,15 +989,15 @@
         background-color: #EFF3F9
 
         &-prev
-            left: 20px
+            left: -70px
             padding-right: 2px
 
         &-next
-            right: 20px
+            right: -70px
             padding-left: 5px
 
     .slider-circles-container
-        bottom: 40px
+        bottom: -50px
 
     .slider-circle-item
         background-color: $light-c
@@ -893,90 +1006,6 @@
         &.active,
         &:hover
             background-color: $base-c
-
-    &__step-number
-        display: block
-        width: 48px
-        height: 48px
-        margin: 0 auto 10px
-        font-size: 28px
-        line-height: 48px
-        font-family: $bold-f
-        color: $light-c
-        text-align: center
-        background-color: $base-c
-        border-radius: 50%
-
-    &__step-title
-        margin-bottom: 20px
-        font-family: $bold-f
-        font-size: 24px
-        letter-spacing: 0.03em
-        line-height: $base-lh
-        text-align: center
-
-    &__text
-        width: 640px
-        margin-left: auto
-        margin-right: auto
-
-    &__fact-wrap
-        .sp-fact
-            width: 200px
-            margin-left: 50px
-            margin-right: 50px
-
-.sp-step-slider-1__slide-1
-    padding-top: 50px
-    text-align: center
-
-.sp-step-slider-1__slide-2
-    padding: 160px 120px 70px
-
-.sp-step-slider-1__slide-3
-    padding: 110px 120px
-
-.sp-step-slider-1__slide-4
-    padding: 110px 195px
-
-.sp-step-slider-1__slide-5,
-.sp-step-slider-1__slide-6
-    padding-top: 50px
-
-.sp-step-slider-1__slide-5
-    .sp-step-slider-1__content
-        display: flex
-        align-items: flex-end
-        justify-content: center
-        margin-top: 60px
-
-    .sp-step-slider-1__text
-        width: 260px
-        margin-right: 75px
-        margin-bottom: 0
-        font-size: $mini-fz
-
-.sp-step-slider-1__slide-6
-    .sp-step-slider-1__content
-        display: flex
-        align-items: flex-end
-        justify-content: center
-        margin-top: 60px
-
-    .sp-step-slider-1__text
-        width: 360px
-        margin-right: 75px
-        margin-bottom: 0
-        font-size: $mini-fz
-
-.sp-step-slider-1__slide-7
-    padding: 50px 110px
-
-    .sp-step-slider-1__subtitle
-        margin-top: 20px
-        margin-bottom: 20px
-        font-family: $bold-f
-        text-align: center
 
 .sp-bullet-list-wrap
     &:not(:last-child)
