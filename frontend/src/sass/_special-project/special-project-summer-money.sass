@@ -1,7 +1,9 @@
 .sp-summer-money
-    margin-bottom: -40px
+    padding-top: 0
+    overflow: hidden
 
-.sp-summer-money__photo
+.sp-summer-money__photo,
+.sp-summer-money__preview-slider
     border-radius: 28px
 
 .sp-summer-money-light-section
@@ -17,22 +19,12 @@
         line-height: 24px
         text-align: center
 
-.sp-summer-money__overflow-small-img
-    width: 420px
-    max-width: initial
-
-    &_left
-        margin-left: -110px
-
-.sp-summer-money__overflow-big-img
-    width: 640px
-    max-width: initial
-
 .sp-summer-money-header
     position: relative
     height: 980px
     margin-bottom: 100px
     color: $light-c
+    background-color: rgba(23, 33, 54, 0.5)
     background-image: url(../images/special-projects/summer-money/sp-summer-money-header-img.jpg)
     background-size: cover
     background-position: top center
@@ -58,10 +50,6 @@
             width: 500px
             right: 25px
             bottom: 35px
-
-.sp-summer-money
-    padding-top: 0
-    overflow: hidden
 
     &__title
         margin-bottom: 10px
@@ -277,61 +265,10 @@
 .sp-summer-money-whom-work__description
     font-size: $base-fz
 
-.sp-summer-money-section
-    &__cover-wrap
-        position: relative
-        height: 550px
-        display: flex
-        justify-content: center
-        margin-left: -40px
-        margin-right: -40px
-        margin-bottom: 80px
-        background-size: cover
-        background-position: center
-        background-repeat: no-repeat
-        border-radius: 0 0 50% 50% / 0 0 60px 60px
-        overflow: hidden
-
-        &::after
-            content: ""
-            position: absolute
-            top: 0
-            left: 0
-            z-index: 1
-            width: 100%
-            height: 100%
-            background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.5) 100%)
-
-    &__title-wrap
-        position: relative
-        z-index: 2
-        margin-top: 340px
-        text-align: center
-
-    &__title
-        font-size: 76px
-        line-height: $micro-lh
-        font-family: $bold-f
-        color: $light-c
-
-    &__subtitle
-        margin-top: 20px
-        font-size: 36px
-        font-family: $bold-f
-        letter-spacing: 0.02em
-        text-transform: uppercase
-        text-align: center
-
-    &__description
-        margin-bottom: 60px
-        font-size: 22px
-        font-family: $add-sb-it-f
-        text-align: center
-
 .sp-summer-money-direct-speech
     display: flex
     align-items: flex-start
-    background-color: #fff
+    background-color: $light-c
     border-radius: 56px
 
     &_block
@@ -510,7 +447,7 @@
         height: 100%
         font-size: 35px
         color: $light-c
-        border-radius: 4px
+        border-radius: 28px
 
     .slider-arrow-prev
         left: 0
@@ -535,6 +472,7 @@
     letter-spacing: 0.02em
     line-height: $micro-lh
     text-align: center
+    text-transform: uppercase
 
 .sp-summer-money-working-conditions__img
     width: 225px
@@ -644,14 +582,58 @@
     font-size: $big-fz
     font-family: $bold-f
 
-.sp-step-slider
+.sp-summer-money-experience-grid
+    display: flex
+    flex-wrap: wrap
+
+.sp-summer-money-experience-item
+    flex: 1 1 45%
+    padding: 65px 55px 55px
+    background-color: #fbfcfd
+    border-radius: 28px
+
+    &:nth-child(1),
+    &:nth-child(2)
+        margin-bottom: 50px
+
+    &:nth-child(2n+1)
+        margin-right: 40px
+
+.sp-summer-money-experience-item__head
+    display: flex
+    align-items: flex-start
+    margin-bottom: 35px
+
+.sp-summer-money-experience-item__avatar
+    width: 96px
+    height: 96px
+    flex-shrink: 0
+    margin-right: 30px
+    border-radius: 50%
+
+.sp-summer-money-experience-item__person-info
+    flex-grow: 1
+
+.sp-summer-money-experience-item__name
+    margin-bottom: 5px
+    font-size: $medium-fz
+    font-family: $bold-f
+    color: $base-c
+
+.sp-summer-money-experience-item__description
+    font-size: $base-fz
+    font-family: $add-sb-it-f
+
+.sp-summer-money-experience-item__text p
+    font-size: $mini-fz
+
+.sp-summer-money-step-slider
     width: 1080px
     height: 640px
     margin-left: auto
     margin-right: auto
-    background: $light-c
-    border: 1px solid #d2d7dd
-    border-radius: 4px
+    background-color: $light-c
+    border-radius: 56px
 
     .slider-arrow
         display: block
@@ -685,57 +667,3 @@
         &.active,
         &:hover
             background-color: $base-c
-
-.sp-bullet-list-wrap
-    &:not(:last-child)
-        margin-bottom: 60px
-
-.sp-bullet-list
-    margin: 0
-    padding: 0 0 0 18px
-
-    &__title
-        font-family: $bold-f
-        font-size: 18px
-        letter-spacing: 0.02em
-        line-height: 24px
-        text-align: center
-        text-transform: uppercase
-        color: $dark-c
-
-    &__item
-        line-height: $base-lh
-
-        &:not(:last-child)
-            margin-bottom: 20px
-
-.sp-bullet-item
-    position: relative
-
-    &::before
-        content: ""
-        width: 8px
-        height: 8px
-        position: absolute
-        left: -18px
-        top: 8px
-        background-color: $base-c
-        border-radius: 50%
-
-.sp-icon-list
-    padding: 0
-    margin: 40px 0 0 0
-
-.sp-icon-list__item
-    display: flex
-    align-items: flex-start
-
-    &:not(:last-child)
-        margin-bottom: 20px
-
-.sp-icon-item
-    &__icon
-        flex-shrink: 0
-        margin-right: 30px
-
-    &__text
