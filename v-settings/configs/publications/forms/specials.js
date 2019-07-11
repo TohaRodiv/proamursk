@@ -1,6 +1,6 @@
 const state = {
     formsOptions: {
-        'specials': [
+        specials: [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -14,13 +14,12 @@ const state = {
                                 type: 'field',
                                 label: 'Заголовок',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'title',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -31,13 +30,12 @@ const state = {
                                 type: 'field',
                                 label: 'Подзаголовок',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'descriptor',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -48,23 +46,21 @@ const state = {
                                 type: 'mask-datetime',
                                 label: 'Дата и время публикации',
                                 required: true,
-                                invalid: false,
                                 width: 4,
                                 codename: 'publication_date',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
                             {
                                 type: 'field',
                                 label: 'URL (кодовое название)',
                                 required: true,
-                                invalid: false,
                                 width: 4,
                                 codename: 'codename',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -78,38 +74,22 @@ const state = {
                                 width: 6,
                                 has_borders: true,
                                 required: true,
-                                invalid: false,
                                 widget: 'radioButtons',
                                 hint: '',
                                 values: [
                                     {
                                         label: 'Обычная обложка',
                                         flag: true,
-                                        codename: 'small'
+                                        codename: 'small',
                                     },
                                     {
                                         label: 'Полноразмерная обложка',
                                         flag: false,
-                                        codename: 'full'
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom20',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Автор обложки или источник',
-                                width: 8,
-                                codename: 'cover_author',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                        codename: 'full',
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -118,13 +98,15 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Автор(ы) материала или источник',
-                                width: 8,
-                                codename: 'content_author',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                label: 'Контент материала для создания поискового индекса',
+                                width: 12,
+                                height: 300,
+                                codename: 'search_text',
+                                widget: 'textarea',
+                                hint: '',
+                                required: true,
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -135,16 +117,15 @@ const state = {
                                 type: 'field',
                                 label: 'Комментарий',
                                 required: false,
-                                invalid: false,
                                 width: 12,
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
-                ]
+                ],
             },
             {
                 id: 2,
@@ -161,7 +142,6 @@ const state = {
                                 label: 'Обложка',
                                 expected_value: 'medium_url',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 image: {
                                     width: 3840,
@@ -171,11 +151,11 @@ const state = {
                                 widget: 'singleImageLoader',
                                 requireSendId: true,
                                 key_attr: 'id',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
             {
                 id: 3,
@@ -191,13 +171,12 @@ const state = {
                                 type: 'field',
                                 label: 'Заголовок страницы (title / og:title)',
                                 required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'meta_title',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -208,13 +187,12 @@ const state = {
                                 type: 'field',
                                 label: 'Описание страницы<br>(description / og:description)',
                                 required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'meta_description',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -225,13 +203,12 @@ const state = {
                                 type: 'field',
                                 label: 'Ключевые слова, через запятую (keywords)',
                                 required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'meta_keywords',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -254,22 +231,22 @@ const state = {
                                 widget: 'singleImageLoader',
                                 requireSendId: true,
                                 key_attr: 'id',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
-            }
+                ],
+            },
         ],
     },
     activeFlag: {
-        'specials': {
+        specials: {
             title: 'Активная запись',
             hint: 'Страницы неактивных записей не отображаются на сайте',
-        }
+        },
     },
 };
 
 export default {
-    state
-}
+    state,
+};

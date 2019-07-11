@@ -9,7 +9,7 @@
 .sp-summer-money-light-section
     padding-top: 100px
     padding-bottom: 100px
-    background-color: #fbfcfd
+    background-color: #FAFBFC
 
     &__title
         margin-bottom: 40px
@@ -87,8 +87,13 @@
     &:not(:last-child)
         margin-right: 30px
 
-.sp-summer-money-stat-item__icon
+.sp-summer-money-stat-item__icon-wrap
+    height: 65px
+    display: flex
+    align-items: flex-end
     margin-bottom: 20px
+
+.sp-summer-money-stat-item__icon
 
     &_passport
         width: 46px
@@ -256,7 +261,7 @@
 
 .sp-summer-money-whom-work__icon
     margin-bottom: 35px
-    
+
     &_guide
         width: 130px
 
@@ -282,6 +287,7 @@
     align-items: flex-start
     background-color: $light-c
     border-radius: 56px
+    box-shadow: 0px 26px 28px #e1ecf7
 
     &_block
         width: 1080px
@@ -601,7 +607,7 @@
 .sp-summer-money-experience-item
     flex: 1 1 45%
     padding: 65px 55px 55px
-    background-color: #fbfcfd
+    background-color: #FAFBFC
     border-radius: 28px
 
     &:nth-child(1),
@@ -646,6 +652,10 @@
     margin-right: auto
     background-color: $light-c
     border-radius: 56px
+    box-shadow: 0px 26px 28px #e1ecf7
+
+    .sp-summer-money-direct-speech
+        box-shadow: none
 
     .slider-arrow
         display: block
@@ -660,6 +670,9 @@
         line-height: 50px
         color: $base-c
         background-color: #EFF3F9
+
+        &:hover
+            background-color: #e1ecf7
 
         &-prev
             left: -70px
@@ -679,3 +692,8 @@
         &.active,
         &:hover
             background-color: $base-c
+
+.sp-summer-money__share-block
+    margin-left: auto
+    margin-top: 100px
+    margin-bottom: 50px
