@@ -28,18 +28,24 @@
         <div class="sp-8col">
             <div class="sp-summer-money__statistics-wrap">
                 <div class="sp-summer-money-stat-item">
-                    <img src="" alt="" class="sp-summer-money-stat-item__icon sp-summer-money-stat-item__icon_passport">
+                    <div class="sp-summer-money-stat-item__icon-wrap">
+                        <img src="{% static "site/images/special-projects/summer-money/svg/icon-passport-white.svg" %}{% static_version %}" alt="" class="sp-summer-money-stat-item__icon sp-summer-money-stat-item__icon_passport">
+                    </div>
                     <div class="sp-summer-money-stat-item__title">14 лет</div>
                     <div class="sp-summer-money-stat-item__description">С&nbsp;этого возраста, согласно трудовому кодексу&nbsp;РФ, с&nbsp;подростком можно заключить официальный трудовой
                     договор</div>
                 </div>
                 <div class="sp-summer-money-stat-item">
-                    <img src="" alt="" class="sp-summer-money-stat-item__icon sp-summer-money-stat-item__icon_man">
+                    <div class="sp-summer-money-stat-item__icon-wrap">
+                        <img src="{% static "site/images/special-projects/summer-money/svg/icon-school-child.svg" %}{% static_version %}" alt="" class="sp-summer-money-stat-item__icon sp-summer-money-stat-item__icon_man">
+                    </div>
                     <div class="sp-summer-money-stat-item__title">230 школьников</div>
                     <div class="sp-summer-money-stat-item__description">участвуют в&nbsp;программе летнего трудоустройства в&nbsp;Амурске в&nbsp;2019 году</div>
                 </div>
                 <div class="sp-summer-money-stat-item">
-                    <img src="" alt="" class="sp-summer-money-stat-item__icon sp-summer-money-stat-item__icon_coins">
+                    <div class="sp-summer-money-stat-item__icon-wrap">
+                        <img src="{% static "site/images/special-projects/summer-money/svg/icon-coins.svg" %}{% static_version %}" alt="" class="sp-summer-money-stat-item__icon sp-summer-money-stat-item__icon_coins">
+                    </div>
                     <div class="sp-summer-money-stat-item__title">> 7000 ₽</div>
                     <div class="sp-summer-money-stat-item__description">в&nbsp;среднем может заработать подросток в&nbsp;Амурске за&nbsp;лето</div>
                 </div>
@@ -537,9 +543,7 @@
 
 
     <div class="container">
-        <div class="sp-footer">
-            <div>Автор {{ object.content_author }}</div>
-
+        <div class="sp-summer-money__share-block">
             {% include "site/page-block/share-widget.html" %}
         </div>
     </div>
