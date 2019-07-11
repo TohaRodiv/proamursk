@@ -4304,12 +4304,12 @@ a.additional-button-2 {
 
 .list-hint-inner-wrapper {
   position: absolute;
-  bottom: -25px;
+  top: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: 32px; }
 
 .list-hint-arrow {
   position: absolute;
@@ -8562,16 +8562,7 @@ a.additional-button-2 {
   padding: 10px; }
 
 .header-logo-container a {
-  display: flex;
   height: 100%; }
-
-.logo-bottom-border {
-  position: absolute;
-  top: calc(100% + 1px);
-  width: calc(100% - 40px);
-  height: 1px;
-  left: 20px;
-  z-index: 10; }
 
 .logo-img {
   display: block;
