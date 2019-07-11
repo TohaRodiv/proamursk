@@ -3571,13 +3571,6 @@ footer {
   margin-left: auto;
   margin-right: auto; }
 
-.sp-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 100px;
-  margin-bottom: 50px; }
-
 .sp-bullet-list-wrap:not(:last-child) {
   margin-bottom: 60px; }
 
@@ -4544,7 +4537,7 @@ footer {
 .sp-summer-money-light-section {
   padding-top: 100px;
   padding-bottom: 100px;
-  background-color: #fbfcfd; }
+  background-color: #FAFBFC; }
   .sp-summer-money-light-section__title {
     margin-bottom: 40px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
@@ -4612,14 +4605,20 @@ footer {
   .sp-summer-money-stat-item:not(:last-child) {
     margin-right: 30px; }
 
-.sp-summer-money-stat-item__icon {
+.sp-summer-money-stat-item__icon-wrap {
+  height: 65px;
+  display: flex;
+  align-items: flex-end;
   margin-bottom: 20px; }
-  .sp-summer-money-stat-item__icon_passport {
-    width: 46px; }
-  .sp-summer-money-stat-item__icon_man {
-    width: 68px; }
-  .sp-summer-money-stat-item__icon_coins {
-    width: 72px; }
+
+.sp-summer-money-stat-item__icon_passport {
+  width: 46px; }
+
+.sp-summer-money-stat-item__icon_man {
+  width: 68px; }
+
+.sp-summer-money-stat-item__icon_coins {
+  width: 72px; }
 
 .sp-summer-money-stat-item__title {
   margin-bottom: 5px;
@@ -4785,7 +4784,8 @@ footer {
   display: flex;
   align-items: flex-start;
   background-color: #FFFFFF;
-  border-radius: 56px; }
+  border-radius: 56px;
+  box-shadow: 0px 26px 28px #e1ecf7; }
   .sp-summer-money-direct-speech_block {
     width: 1080px;
     margin-left: 50px;
@@ -5072,7 +5072,7 @@ footer {
 .sp-summer-money-experience-item {
   flex: 1 1 45%;
   padding: 65px 55px 55px;
-  background-color: #fbfcfd;
+  background-color: #FAFBFC;
   border-radius: 28px; }
   .sp-summer-money-experience-item:nth-child(1), .sp-summer-money-experience-item:nth-child(2) {
     margin-bottom: 50px; }
@@ -5113,7 +5113,10 @@ footer {
   margin-left: auto;
   margin-right: auto;
   background-color: #FFFFFF;
-  border-radius: 56px; }
+  border-radius: 56px;
+  box-shadow: 0px 26px 28px #e1ecf7; }
+  .sp-summer-money-step-slider .sp-summer-money-direct-speech {
+    box-shadow: none; }
   .sp-summer-money-step-slider .slider-arrow {
     display: block;
     width: 48px;
@@ -5128,6 +5131,8 @@ footer {
     line-height: 50px;
     color: #0073FF;
     background-color: #EFF3F9; }
+    .sp-summer-money-step-slider .slider-arrow:hover {
+      background-color: #e1ecf7; }
     .sp-summer-money-step-slider .slider-arrow-prev {
       left: -70px;
       padding-right: 2px; }
@@ -5141,3 +5146,8 @@ footer {
     border: 1px solid #0073FF; }
     .sp-summer-money-step-slider .slider-circle-item.active, .sp-summer-money-step-slider .slider-circle-item:hover {
       background-color: #0073FF; }
+
+.sp-summer-money__share-block {
+  margin-left: auto;
+  margin-top: 100px;
+  margin-bottom: 50px; }
