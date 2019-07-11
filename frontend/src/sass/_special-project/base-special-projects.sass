@@ -1,0 +1,157 @@
+.sp img
+    display: block
+
+.sp-block
+    &_mt30
+        margin-top: 30px
+
+    &_mt40
+        margin-top: 40px
+
+    &_mt60
+        margin-top: 60px
+
+    &_mt80
+        margin-top: 80px
+
+    &_mt100
+        margin-top: 100px
+
+    p
+        margin-bottom: 20px
+
+        &:last-child
+            margin-bottom: 0
+
+.sp-6col
+    width: 640px
+    margin-left: auto
+    margin-right: auto
+
+.sp-6col_3-3
+    display: flex
+    align-items: flex-start
+
+    .sp-3col
+        width: 310px
+        flex-shrink: 0
+        flex-grow: 0
+
+        & + .sp-3col
+            margin-left: 20px
+
+.sp-6col_4-2
+    display: flex
+    align-items: flex-start
+
+    & > :first-child
+        margin-right: 20px
+
+    .sp-4col
+        width: 420px
+        flex-shrink: 0
+
+    .sp-2col
+        width: 200px
+        position: relative
+
+.sp-12col_4-4-4
+    display: flex
+    align-items: flex-start
+
+    & :nth-child(2)
+        margin-left: 20px
+        margin-right: 20px
+
+    img
+        width: 420px
+
+.sp-full_4-4-4
+    display: flex
+    align-items: flex-start
+    justify-content: center
+
+    &__item
+        flex-shrink: 0
+
+        &:nth-child(1)
+            figcaption
+                width: 280px
+                margin-left: auto
+
+        &:nth-child(2)
+            margin-left: 20px
+            margin-right: 20px
+
+            figcaption
+                width: 480px
+
+        &:nth-child(3)
+            figcaption
+                width: 280px
+
+    figcaption
+        margin-top: 20px
+        font-size: 15px
+        line-height: 20px
+        letter-spacing: 0.08em
+        color: $base-dark-c
+
+    img
+        height: 460px
+
+.sp-3col__text
+    padding-right: 40px
+
+.sp-8col
+    width: 860px
+    margin-left: auto
+    margin-right: auto
+
+.sp-10col
+    width: 1080px
+    margin-left: auto
+    margin-right: auto
+
+.sp-footer
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-top: 100px
+    margin-bottom: 50px
+
+.sp-bullet-list-wrap
+    &:not(:last-child)
+        margin-bottom: 60px
+
+.sp-bullet-list
+    margin: 0
+    padding: 0 0 0 18px
+
+    &__title
+        font-family: $bold-f
+        font-size: 18px
+        letter-spacing: 0.02em
+        line-height: 24px
+        text-align: center
+        text-transform: uppercase
+        color: $dark-c
+
+    &__item
+        line-height: $base-lh
+
+        &:not(:last-child)
+            margin-bottom: 20px
+
+.sp-bullet-item
+    position: relative
+
+    &::before
+        content: ""
+        width: 8px
+        height: 8px
+        position: absolute
+        left: -18px
+        top: 8px
+        background-color: $base-c
+        border-radius: 50%
