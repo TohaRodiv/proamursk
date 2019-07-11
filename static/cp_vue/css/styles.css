@@ -4254,14 +4254,15 @@ a.additional-button-2 {
 
 .list-item-image, .list-item-image-round {
   position: relative;
+  display: flex;
+  align-items: center;
   height: 50px;
   width: 50px;
   margin: 7px 0;
   border-radius: 5px;
   overflow: hidden; }
   .list-item-image img, .list-item-image-round img {
-    width: 100%;
-    height: 100%; }
+    width: 100%; }
 
 .list-item-image-round {
   border-radius: 50%; }
@@ -4308,8 +4309,7 @@ a.additional-button-2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
-  margin-right: 32px; }
+  width: 100%; }
 
 .list-hint-arrow {
   position: absolute;
@@ -5688,10 +5688,8 @@ a.additional-button-2 {
 
 .left .label {
   margin-right: 20px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; }
+  min-height: 36px;
+  text-align: right; }
   .left .label.required:before {
     content: "*";
     position: relative;
