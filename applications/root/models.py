@@ -181,8 +181,6 @@ class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.TextField('Подзаголовок')
     codename = models.CharField('URL (кодовое название)', max_length=255, unique=True)
-    cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
-    content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
     search_text = models.TextField(blank=True)

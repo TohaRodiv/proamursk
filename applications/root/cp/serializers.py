@@ -238,7 +238,7 @@ class PlacesListSerializer(ModelSerializer):
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
-    
+
     def get_reviews_count(self, instance):
         return instance.reviews_count if hasattr(instance, 'reviews_count') else 0
 
@@ -288,7 +288,7 @@ class SpecialsDetailSerializer(ModelSerializer):
         model = Special
         fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'descriptor', 'codename',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
-                  'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author')
+                  'meta_description', 'meta_keywords', 'og_image', 'search_text',)
 
     def get_cover_format_name(self, instance):
         return dict(instance.FORMATS).get(instance.cover_format)
