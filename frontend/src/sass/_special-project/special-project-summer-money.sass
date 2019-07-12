@@ -94,7 +94,6 @@
     margin-bottom: 20px
 
 .sp-summer-money-stat-item__icon
-
     &_passport
         width: 46px
 
@@ -693,7 +692,83 @@
         &:hover
             background-color: $base-c
 
+.sp-summer-money-expert-comments__item
+    position: relative
+    width: 750px
+
+    &::before
+        content: ""
+        display: block
+        position: absolute
+        top: 50%
+        z-index: 1
+        transform: translateY(-50%)
+        background-repeat: no-repeat
+        background-size: contain
+
+    &:nth-child(1)::before
+        width: 430px
+        height: 355px
+        right: -360px
+        background-image: url(../images/special-projects/summer-money/svg/expert-comments1.svg)
+
+    &:nth-child(2)::before
+        width: 380px
+        height: 320px
+        left: -330px
+        background-image: url(../images/special-projects/summer-money/svg/expert-comments2.svg)
+
+    &:nth-child(3)::before
+        width: 320px
+        height: 320px
+        right: -300px
+        background-image: url(../images/special-projects/summer-money/svg/expert-comments3.svg)
+
+    &:not(:last-child)
+        margin-bottom: 100px
+
+    &_right
+        margin-left: auto
+
+    .sp-summer-money-direct-speech
+        display: block
+        position: relative
+        z-index: 2
+        padding: 80px 60px
+
+    .sp-summer-money-direct-speech__speaker
+        display: flex
+        align-items: flex-start
+        width: 460px
+        margin-top: 0
+        margin-right: 0
+        margin-bottom: 50px
+
+    .sp-summer-money-direct-speech__text-info-wrap
+        margin-top: 10px
+
+    .sp-summer-money-direct-speech__text-wrap
+        margin-left: 30px
+        margin-right: 30px
+
 .sp-summer-money__share-block
-    margin-left: auto
-    margin-top: 100px
-    margin-bottom: 50px
+    margin: 100px auto 50px
+
+    .share-widget
+        display: block
+        text-align: center
+
+    .share-widget__text
+        display: block
+        margin-bottom: 15px
+        margin-right: 0
+
+    .share-widget__links-wrap
+        justify-content: center
+
+    .share-widget__link-img
+        width: 37px
+        height: 37px
+
+    .share-widget__link:not(:last-child)
+        margin-right: 15px

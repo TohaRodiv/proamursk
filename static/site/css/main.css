@@ -5147,7 +5147,69 @@ footer {
     .sp-summer-money-step-slider .slider-circle-item.active, .sp-summer-money-step-slider .slider-circle-item:hover {
       background-color: #0073FF; }
 
+.sp-summer-money-expert-comments__item {
+  position: relative;
+  width: 750px; }
+  .sp-summer-money-expert-comments__item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    background-repeat: no-repeat;
+    background-size: contain; }
+  .sp-summer-money-expert-comments__item:nth-child(1)::before {
+    width: 430px;
+    height: 355px;
+    right: -360px;
+    background-image: url(../images/special-projects/summer-money/svg/expert-comments1.svg); }
+  .sp-summer-money-expert-comments__item:nth-child(2)::before {
+    width: 380px;
+    height: 320px;
+    left: -330px;
+    background-image: url(../images/special-projects/summer-money/svg/expert-comments2.svg); }
+  .sp-summer-money-expert-comments__item:nth-child(3)::before {
+    width: 320px;
+    height: 320px;
+    right: -300px;
+    background-image: url(../images/special-projects/summer-money/svg/expert-comments3.svg); }
+  .sp-summer-money-expert-comments__item:not(:last-child) {
+    margin-bottom: 100px; }
+  .sp-summer-money-expert-comments__item_right {
+    margin-left: auto; }
+  .sp-summer-money-expert-comments__item .sp-summer-money-direct-speech {
+    display: block;
+    position: relative;
+    z-index: 2;
+    padding: 80px 60px; }
+  .sp-summer-money-expert-comments__item .sp-summer-money-direct-speech__speaker {
+    display: flex;
+    align-items: flex-start;
+    width: 460px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 50px; }
+  .sp-summer-money-expert-comments__item .sp-summer-money-direct-speech__text-info-wrap {
+    margin-top: 10px; }
+  .sp-summer-money-expert-comments__item .sp-summer-money-direct-speech__text-wrap {
+    margin-left: 30px;
+    margin-right: 30px; }
+
 .sp-summer-money__share-block {
-  margin-left: auto;
-  margin-top: 100px;
-  margin-bottom: 50px; }
+  margin: 100px auto 50px; }
+  .sp-summer-money__share-block .share-widget {
+    display: block;
+    text-align: center; }
+  .sp-summer-money__share-block .share-widget__text {
+    display: block;
+    margin-bottom: 15px;
+    margin-right: 0; }
+  .sp-summer-money__share-block .share-widget__links-wrap {
+    justify-content: center; }
+  .sp-summer-money__share-block .share-widget__link-img {
+    width: 37px;
+    height: 37px; }
+  .sp-summer-money__share-block .share-widget__link:not(:last-child) {
+    margin-right: 15px; }
