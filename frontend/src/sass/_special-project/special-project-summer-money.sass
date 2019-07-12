@@ -3,8 +3,14 @@
     overflow: hidden
 
 .sp-summer-money__photo,
-.sp-summer-money__preview-slider
+.sp-summer-money__preview-slider,
+.sp-summer-money__preview-slider .slide,
+.preview-slider__big-img-wrap::after
     border-radius: 28px
+
+.preview-slider__big-img-wrap::after,
+.sp-summer-money__preview-slider .slide
+    overflow: hidden
 
 .sp-summer-money-light-section
     padding-top: 100px
@@ -12,6 +18,7 @@
     background-color: #FAFBFC
 
     &__title
+        position: relative
         margin-bottom: 40px
         font-family: $bold-f
         font-size: 24px
@@ -52,18 +59,45 @@
             bottom: 35px
 
     &__title
+        position: relative
         margin-bottom: 10px
         font-size: 76px
         line-height: $mini-lh
         font-family: $bold-f
         color: $light-c
+        text-transform: uppercase
+
+        &::before
+            content: "Г"
+            display: block
+            width: 35px
+            height: 53px
+            position: absolute
+            top: 0
+            right: 100px
+            line-height: $mini-lh
+            font-family: $bold-f
+            color: $light-c
+            text-transform: uppercase
+
+        &::after
+            content: ""
+            display: block
+            width: 60px
+            height: 75px
+            position: absolute
+            top: 10px
+            right: 55px
+            background-image: url(../images/special-projects/summer-money/svg/strikethrough.svg)
+            background-size: contain
+            background-repeat: no-repeat
 
     &__description
         width: 590px
         margin-top: 0
         margin-bottom: 35px
         font-size: $medium-fz
-        line-height: $add-light-it-f
+        font-family: $add-sb-it-f
 
     &__wobbler
         margin-bottom: 100px
