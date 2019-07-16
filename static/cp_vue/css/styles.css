@@ -5604,14 +5604,14 @@ a.additional-button-2 {
   z-index: 9; }
   .tab-required-star-left:before {
     content: "*";
-    font-size: 16px;
+    font-size: 14px;
     color: #23292e;
     padding-right: 3px;
     margin-bottom: auto; }
 
 .tab-required-star:after {
   content: "*";
-  font-size: 16px;
+  font-size: 14px;
   color: #23292e;
   font-weight: 300;
   padding-left: 3px;
