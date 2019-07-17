@@ -1,4 +1,4 @@
-import vue from 'vue'
+import vue from 'vue';
 
 const dict = {
     'event-announcements': 'Анонс события',
@@ -7,109 +7,109 @@ const dict = {
     history: 'Историческая статья',
     places: 'Статья о месте',
     'city-guides': 'Гид по городу',
-    specials: 'Спецпроект'
-}
+    specials: 'Спецпроект',
+};
 
 const valuesForIndex = [
     {
         id: 'event-announcements',
-        name: 'Анонс события'
+        name: 'Анонс события',
     },
     {
         id: 'reports',
-        name: 'Репортаж о событии'
+        name: 'Репортаж о событии',
     },
     {
         id: 'history',
-        name: 'Историческая статья'
+        name: 'Историческая статья',
     },
     {
         id: 'persons',
-        name: 'Статья о жителе Амурска'
+        name: 'Статья о жителе Амурска',
     },
     {
         id: 'places',
-        name: 'Статья о месте'
+        name: 'Статья о месте',
     },
     {
         id: 'city-guides',
-        name: 'Гид по городу'
+        name: 'Гид по городу',
     },
     {
         id: 'specials',
-        name: 'Спецпроект'
+        name: 'Спецпроект',
     },
-]
+];
 
 const valuesForEvents = [
     {
         id: 'event-announcements',
-        name: 'Анонс события'
+        name: 'Анонс события',
     },
     {
         id: 'reports',
-        name: 'Репортаж о событии'
+        name: 'Репортаж о событии',
     },
-]
+];
 
 const valuesForPlaces = [
     {
         id: 'places',
         name: 'Статья о месте',
-        isDefault: true
-    }
-]
+        isDefault: true,
+    },
+];
 
 const valuesForPersons = [
     {
         id: 'persons',
         name: 'Статья о жителе Амурска',
-        isDefault: true
-    }
-]
+        isDefault: true,
+    },
+];
 
 const valuesForHistory = [
     {
         id: 'history',
         name: 'Историческая статья',
-        isDefault: true
-    }
-]
+        isDefault: true,
+    },
+];
 
 const valuesForReports = [
     {
         id: 'reports',
         name: 'Репортаж о событии',
-        isDefault: true
-    }
-]
+        isDefault: true,
+    },
+];
 
 const twoSelectorScructure = [
     {
         type: 'vertical_list',
         list: [
             {
-                requiredValue: 'item.title'
+                requiredValue: 'item.title',
             },
             {
                 requiredValue: 'entity',
                 isTransparent: true,
-                value: dict
-            }
-        ]
+                value: dict,
+            },
+        ],
     },
-]
+];
 
 const oneSelectorScructure = [
     {
         type: 'vertical_list',
         list: [
             {
-                requiredValue: 'item.title'
-            }
-        ]
+                requiredValue: 'item.title',
+            },
+        ],
     },
-]
+];
 
 
 const state = {
@@ -121,8 +121,8 @@ const state = {
                 renderConditions: [
                     {
                         codename: 'codename',
-                        values: ['index', 'events-index', 'history-list', 'places-list', 'persons-list', 'reports-list']
-                    }
+                        values: ['index', 'events-index', 'history-list', 'places-list', 'persons-list', 'reports-list',],
+                    },
                 ],
                 blocks: [
                     {
@@ -164,7 +164,7 @@ const state = {
                                                         required: true,
                                                         sortFlag: {
                                                             value: 'id',
-                                                            direction: 'asc'
+                                                            direction: 'asc',
                                                         },
                                                         view_structure: [
                                                             {
@@ -174,9 +174,9 @@ const state = {
                                                         ],
                                                         hint: '',
                                                         available_values: valuesForIndex,
-                                                        returnFromAvailableValues: 'id'
-                                                    }
-                                                ]
+                                                        returnFromAvailableValues: 'id',
+                                                    },
+                                                ],
                                             },
                                             {
                                                 labelPosition: 'top',
@@ -192,7 +192,7 @@ const state = {
                                                         widget: 'singleSelector',
                                                         sortFlag: {
                                                             value: 'id',
-                                                            direction: 'asc'
+                                                            direction: 'desc',
                                                         },
                                                         view_structure: [
                                                             {
@@ -202,23 +202,23 @@ const state = {
                                                         ],
                                                         hint: '',
                                                         api_route: 'event-announcements',
-                                                        codename: 'item'
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
+                                                        codename: 'item',
+                                                    },
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
     },
     additionalFormsInterface: {
         'static-pages': {
-            isDynamicForm: 'static-page-settings'
+            isDynamicForm: 'static-page-settings',
         },
     },
     formsEvents: {
@@ -227,124 +227,105 @@ const state = {
                 top_items: {
                     entity: {
                         item: function (from, widget, data) {
-                            let selector = widget.popup_structure[0].blocks[1].elements[0]
-                            let list = widget.entity_structure[0].list[0]
+                            let selector = widget.popup_structure[0].blocks[1].elements[0];
+
                             if (data[from]) {
-                                vue.set(selector, 'isBlocked', false)
-                                vue.set(selector, 'api_route', data[from])
-                                vue.set(selector, 'label', dict[data[from]])
-                            } else {
-                                // vue.set(selector, 'isBlocked', true)
+                                vue.set(selector, 'isBlocked', false);
+                                vue.set(selector, 'api_route', data[from]);
+                                vue.set(selector, 'label', dict[data[from]]);
                             }
-                            // Заготовка, чтобы можно было отправлять entity, если ничего не выбрано в первом селекторе
-                            // try {
-                            //     if (data.entity == 'index' || data.entity == 'events-index') {
-                            //         vue.set(selector, 'resetFlag', true)
-                            //     }
-                            // } catch (e) {
 
-                            // }
-                            // Сброс данных второго селектора
-                            vue.set(selector, 'resetFlag', true)
-
-                        }
+                            vue.set(selector, 'resetFlag', true);
+                        },
                     },
                     item: {
                         item: function (from, widget, data) {
-                            // let re = new RegExp('([a-z]+)')
-                            // let match
-                            // try {
-                            //     match = data.item.site_url.match(re)[0]
-                            // } catch (e) {
-                            //     match = ''
-                            // }
-                            // vue.set(data, 'entity', match)
-                            vue.set(data, 'object_id', data.item.id)
-                        }
-                    }
+                            vue.set(data, 'object_id', data.item);
+                        },
+                    },
                 },
             },
             onMount: {
                 top_items: function (widget, data) {
-                    let firstSelector = widget.popup_structure[0].blocks[0].elements[0]
-                    let secondSelector = widget.popup_structure[0].blocks[1].elements[0]
+                    let firstSelector = widget.popup_structure[0].blocks[0].elements[0];
+                    let secondSelector = widget.popup_structure[0].blocks[1].elements[0];
                     if (data['codename'] == 'index') {
-                        vue.set(widget.popup_structure[0].blocks[0], 'show', true)
-                        vue.set(secondSelector, 'api_route', 'event-announcements')
-                        vue.set(secondSelector, 'label', dict['event-announcements'])
-                        vue.set(secondSelector, 'isBlocked', true)
-                        vue.set(secondSelector, 'required', true)
-                        vue.set(firstSelector, 'available_values', valuesForIndex)
-                        vue.set(firstSelector, 'required', true)
+                        vue.set(widget.popup_structure[0].blocks[0], 'show', true);
+                        vue.set(secondSelector, 'api_route', 'event-announcements');
+                        vue.set(secondSelector, 'label', dict['event-announcements']);
+                        vue.set(secondSelector, 'isBlocked', true);
+                        vue.set(secondSelector, 'required', true);
+                        vue.set(firstSelector, 'available_values', valuesForIndex);
+                        vue.set(firstSelector, 'required', true);
                         vue.set(widget, 'show', true),
-                        vue.set(widget, 'entity_structure', twoSelectorScructure)
+                        vue.set(widget, 'entity_structure', twoSelectorScructure);
                     }
                     else if (data['codename'] == 'events-index') {
-                        vue.set(widget.popup_structure[0].blocks[0], 'show', true)
-                        vue.set(secondSelector, 'api_route', 'event-announcements')
-                        vue.set(secondSelector, 'label', dict['event-announcements'])
-                        vue.set(secondSelector, 'isBlocked', true)
-                        vue.set(secondSelector, 'required', true)
-                        vue.set(firstSelector, 'available_values', valuesForEvents)
-                        vue.set(firstSelector, 'required', true)
+                        vue.set(widget.popup_structure[0].blocks[0], 'show', true);
+                        vue.set(secondSelector, 'api_route', 'event-announcements');
+                        vue.set(secondSelector, 'label', dict['event-announcements']);
+                        vue.set(secondSelector, 'isBlocked', true);
+                        vue.set(secondSelector, 'required', true);
+                        vue.set(firstSelector, 'available_values', valuesForEvents);
+                        vue.set(firstSelector, 'required', true);
                         vue.set(widget, 'show', true),
-                        vue.set(widget, 'entity_structure', twoSelectorScructure)
+                        vue.set(widget, 'entity_structure', twoSelectorScructure);
                     }
                     else if (data['codename'] == 'history-list') {
-                        vue.set(widget.popup_structure[0].blocks[0], 'show', false)
-                        vue.set(firstSelector, 'available_values', valuesForHistory)
-                        vue.set(firstSelector, 'required', false)
-                        vue.set(secondSelector, 'api_route', 'history')
-                        vue.set(secondSelector, 'label', dict['history'])
-                        vue.set(secondSelector, 'isBlocked', false)
-                        vue.set(secondSelector, 'required', true)
-                        vue.set(widget, 'show', true)
-                        vue.set(widget, 'entity_structure', oneSelectorScructure)
+                        vue.set(widget.popup_structure[0].blocks[0], 'show', false);
+                        vue.set(firstSelector, 'available_values', valuesForHistory);
+                        vue.set(firstSelector, 'required', false);
+                        vue.set(secondSelector, 'api_route', 'history');
+                        vue.set(secondSelector, 'label', dict['history']);
+                        vue.set(secondSelector, 'isBlocked', false);
+                        vue.set(secondSelector, 'required', true);
+                        vue.set(widget, 'show', true);
+                        vue.set(widget, 'entity_structure', oneSelectorScructure);
                     }
                     else if (data['codename'] == 'places-list') {
-                        vue.set(widget.popup_structure[0].blocks[0], 'show', false)
-                        vue.set(firstSelector, 'available_values', valuesForPlaces)
-                        vue.set(firstSelector, 'required', false)
-                        vue.set(secondSelector, 'api_route', 'places')
-                        vue.set(secondSelector, 'label', dict['places'])
-                        vue.set(secondSelector, 'isBlocked', false)
-                        vue.set(secondSelector, 'required', true)
-                        vue.set(widget, 'show', true)
-                        vue.set(widget, 'entity_structure', oneSelectorScructure)
+                        vue.set(widget.popup_structure[0].blocks[0], 'show', false);
+                        vue.set(firstSelector, 'available_values', valuesForPlaces);
+                        vue.set(firstSelector, 'required', false);
+                        vue.set(secondSelector, 'api_route', 'places');
+                        vue.set(secondSelector, 'label', dict['places']);
+                        vue.set(secondSelector, 'isBlocked', false);
+                        vue.set(secondSelector, 'required', true);
+                        vue.set(widget, 'show', true);
+                        vue.set(widget, 'entity_structure', oneSelectorScructure);
                     }
                     else if (data['codename'] == 'persons-list') {
-                        vue.set(widget.popup_structure[0].blocks[0], 'show', false)
-                        vue.set(firstSelector, 'available_values', valuesForPersons)
-                        vue.set(firstSelector, 'required', false)
-                        vue.set(secondSelector, 'api_route', 'persons')
-                        vue.set(secondSelector, 'label', dict['persons'])
-                        vue.set(secondSelector, 'isBlocked', false)
-                        vue.set(secondSelector, 'required', true)
-                        vue.set(widget, 'show', true)
-                        vue.set(widget, 'entity_structure', oneSelectorScructure)
+                        vue.set(widget.popup_structure[0].blocks[0], 'show', false);
+                        vue.set(firstSelector, 'available_values', valuesForPersons);
+                        vue.set(firstSelector, 'required', false);
+                        vue.set(secondSelector, 'api_route', 'persons');
+                        vue.set(secondSelector, 'label', dict['persons']);
+                        vue.set(secondSelector, 'isBlocked', false);
+                        vue.set(secondSelector, 'required', true);
+                        vue.set(widget, 'show', true);
+                        vue.set(widget, 'entity_structure', oneSelectorScructure);
                     }
                     else if (data['codename'] == 'reports-list') {
-                        vue.set(widget.popup_structure[0].blocks[0], 'show', false)
-                        vue.set(firstSelector, 'available_values', valuesForReports)
-                        vue.set(firstSelector, 'required', false)
-                        vue.set(secondSelector, 'api_route', 'reports')
-                        vue.set(secondSelector, 'label', dict['reports'])
-                        vue.set(secondSelector, 'isBlocked', false)
-                        vue.set(secondSelector, 'required', true)
-                        vue.set(widget, 'show', true)
-                        vue.set(widget, 'entity_structure', oneSelectorScructure)
+                        vue.set(widget.popup_structure[0].blocks[0], 'show', false);
+                        vue.set(firstSelector, 'available_values', valuesForReports);
+                        vue.set(firstSelector, 'required', false);
+                        vue.set(secondSelector, 'api_route', 'reports');
+                        vue.set(secondSelector, 'label', dict['reports']);
+                        vue.set(secondSelector, 'isBlocked', false);
+                        vue.set(secondSelector, 'required', true);
+                        vue.set(widget, 'show', true);
+                        vue.set(widget, 'entity_structure', oneSelectorScructure);
                     }
                     else {
-                        vue.set(widget, 'show', false)
-                        vue.set(firstSelector, 'required', false)
-                        vue.set(secondSelector, 'required', false)
+                        vue.set(widget, 'show', false);
+                        vue.set(firstSelector, 'required', false);
+                        vue.set(secondSelector, 'required', false);
                     }
-                }
-            }
+                },
+            },
         },
     },
 };
 
 export default {
-    state
-}
+    state,
+};
