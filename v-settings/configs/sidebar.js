@@ -153,10 +153,10 @@ const state = {
                     hasAddButton: true,
                 },
                 {
-                    name: 'События для уведомлений',
+                    name: 'Типы уведомлений',
                     view: 'events',
-                    formsName: 'Событие для уведомления #',
-                    newFormName: 'Новое событие для уведомления',
+                    formsName: 'Тип уведомлений #',
+                    newFormName: 'Новое тип уведомлений',
                     hasAddButton: true,
                 },
             ],

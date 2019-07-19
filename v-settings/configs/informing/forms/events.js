@@ -17,13 +17,12 @@ const state = {
                                 type: 'field',
                                 label: 'Название',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'name',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -34,13 +33,12 @@ const state = {
                                 type: 'field',
                                 label: 'Кодовое название',
                                 required: true,
-                                invalid: false,
-                                width: 4,
+                                width: 5,
                                 codename: 'codename',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'top',
@@ -55,32 +53,88 @@ const state = {
                                     existing: 'Переменные и теги',
                                 },
                                 dragOrder: 'weight',
-                                required: false,
-                                invalid: false,
                                 isDraggable: true,
                                 codename: 'variables',
                                 widget: 'childEntity',
-                                api_route: 'product-cards',
-                                modClass: 'marginBottom40',
+                                modClass: 'marginBottom50',
                                 requireSendId: true,
                                 hint: '',
                                 entity_structure: [
                                     {
-                                        type: 'tags&vars',
-                                        // isNested: 'variables',
-                                        typeVar: 'construction_type',
-                                        valueVar: 'content_type',
-                                        mustaches: {                                                                    /*Просто так в шаблоне нельзя применять скобки в скобках*/
-                                            otag: '{{',
-                                            ctag: '}}'
-                                        }
-                                    }
+                                        map: {
+                                            layout: 'column',
+                                            elements: [
+                                                {
+                                                    layout: 'row',
+                                                    elements: [
+                                                        { 
+                                                            value: item => {
+                                                                if (item.construction_type === 'var') {
+                                                                    return '{{';
+                                                                } else if (item.construction_type === 'tag') {
+                                                                    return '{%';
+                                                                }
+                                                            },
+                                                        },
+                                                        { 
+                                                            before: '&nbsp;',
+                                                            codename: 'codename',
+                                                            after: '&nbsp;', 
+                                                        },
+                                                        { 
+                                                            value: item => {
+                                                                if (item.construction_type === 'var') {
+                                                                    return '}}';
+                                                                } else if (item.construction_type === 'tag') {
+                                                                    return '%}';
+                                                                }
+                                                            },
+                                                        },
+                                                        {
+                                                            before: '&nbsp;&mdash;&nbsp;',
+                                                            codename: 'name',
+                                                        },
+                                                    ],
+                                                },
+                                                {
+                                                    layout: 'row',
+                                                    elements: [
+                                                        {
+                                                            codename: 'construction_type',
+                                                            class: ['halfTransparent',],
+                                                            dict: {
+                                                                var: { string: 'Переменная', },
+                                                                tag: { string: 'Шаблонный тег', },
+                                                            },
+                                                        },
+                                                        {
+                                                            before: '&nbsp;/&nbsp;',
+                                                            codename: 'content_type',
+                                                            empty: '',
+                                                            class: ['halfTransparent',],
+                                                            dict: {
+                                                                text: { string: 'Текст', },
+                                                                link: { string: 'Ссылка', },
+                                                                email: { string: 'Email', },
+                                                            },
+                                                        },
+                                                        // {
+                                                        //     before: '&nbsp;/&nbsp;',
+                                                        //     codename: 'channel',
+                                                        //     empty: '',
+                                                        //     class: ['halfTransparent',],
+                                                        // },
+                                                    ],
+                                                },
+                                                
+                                            ],
+                                        },
+                                    },
                                 ],
                                 popup_structure: [
                                     {
                                         id: 1,
-                                        label: 'Свойство товара',
-                                        clearFlags: ['isVar'],
+                                        label: '',
                                         blocks: [
                                             {
                                                 labelPosition: 'left',
@@ -91,13 +145,12 @@ const state = {
                                                         type: 'field',
                                                         label: 'Название',
                                                         required: true,
-                                                        invalid: false,
                                                         width: 8,
                                                         codename: 'name',
                                                         widget: 'simpleInput',
-                                                        hint: ''
+                                                        hint: '',
                                                     },
-                                                ]
+                                                ],
                                             },
                                             {
                                                 labelPosition: 'left',
@@ -108,13 +161,12 @@ const state = {
                                                         type: 'field',
                                                         label: 'Кодовое название',
                                                         required: true,
-                                                        invalid: false,
                                                         width: 4,
                                                         codename: 'codename',
                                                         widget: 'simpleInput',
-                                                        hint: ''
+                                                        hint: '',
                                                     },
-                                                ]
+                                                ],
                                             },
                                             {
                                                 labelPosition: 'left',
@@ -127,96 +179,113 @@ const state = {
                                                         required: true,
                                                         width: 6,
                                                         widget: 'singleSelector',
-                                                        invalid: false,
-                                                        controlFlag: [  /*Данный виджет способен управлять этими флагами*/
-                                                            {
-                                                                toBeChecked: 'id',   /*На какое значение в массиве выбранных сущностей смотреть*/
-                                                                value: 'var',            /*Каким должно быть значение*/
-                                                                flag: 'isVar'                /*Какой флаг тригеррит*/
-                                                            },
-                                                        ],
                                                         sortFlag: {
                                                             value: 'name',
-                                                            direction: 'asc'
+                                                            direction: 'asc',
                                                         },
                                                         codename: 'construction_type',
-                                                        view_structure: [     /*Структура picked_item*/
+                                                        view_structure: [
                                                             {
                                                                 value: 'name',
-                                                                flex: 1.5,      /*Так как контейнер будет флексовым, стоит ввести отдельное значение flex*/
+                                                                flex: 1.5,
                                                             },
                                                         ],
                                                         available_values: [
                                                             {
                                                                 id: 'var',
-                                                                name: 'Переменная'
+                                                                name: 'Переменная',
                                                             },
                                                             {
                                                                 id: 'tag',
-                                                                name: 'Шаблонный тег'
+                                                                name: 'Шаблонный тег',
                                                             },
                                                         ],
                                                         returnFromAvailableValues: 'id',
-                                                        hint: ''
+                                                        hint: '',
                                                     },
-                                                ]
+                                                ],
                                             },
                                             {
                                                 labelPosition: 'left',
                                                 direction: 'row',
-                                                renderFlag: 'isVar',
                                                 modClass: 'marginBottom20',
+                                                show: false,
                                                 elements: [
                                                     {
                                                         type: 'field',
                                                         label: 'Тип содержимого',
-                                                        required: true,
+                                                        required: false,
                                                         width: 6,
                                                         widget: 'singleSelector',
                                                         returnOnly: 'codename',
-                                                        invalid: false,
                                                         sortFlag: {
                                                             value: 'name',
-                                                            direction: 'asc'
+                                                            direction: 'asc',
                                                         },
                                                         codename: 'content_type',
-                                                        view_structure: [     /*Структура picked_item*/
+                                                        view_structure: [
                                                             {
                                                                 value: 'name',
-                                                                flex: 1.5,      /*Так как контейнер будет флексовым, стоит ввести отдельное значение flex*/
+                                                                flex: 1.5,
                                                             },
                                                         ],
                                                         available_values: [
                                                             {
                                                                 id: 'text',
-                                                                name: 'Текст'
+                                                                name: 'Текст',
                                                             },
                                                             {
                                                                 id: 'link',
-                                                                name: 'Ссылка'
+                                                                name: 'Ссылка',
                                                             },
                                                             {
                                                                 id: 'email',
-                                                                name: 'Email'
+                                                                name: 'Email',
                                                             },
                                                         ],
                                                         hint: '',
-                                                        returnFromAvailableValues: 'id'
+                                                        returnFromAvailableValues: 'id',
                                                     },
-                                                ]
+                                                ],
                                             },
-                                        ]
+                                            {
+                                                labelPosition: 'left',
+                                                direction: 'row',
+                                                modClass: 'marginBottom20',
+                                                show: false,
+                                                elements: [
+                                                    {
+                                                        type: 'shortTag',
+                                                        label: 'Способы отправки',
+                                                        required: false,
+                                                        width: 8,
+                                                        widget: 'multipleSelector',
+                                                        codename: 'channel',
+                                                        // callbackType: 'idArray',
+                                                        sortFlag: {
+                                                            value: 'id',
+                                                            direction: 'asc',
+                                                        },
+                                                        view_structure: [
+                                                            {
+                                                                value: 'name',
+                                                                flex: 1.5,
+                                                            },
+                                                        ],
+                                                        api_route: 'channels',
+                                                        hint: '',
+                                                        expected_value: 'channel',
+                                                        key_attr: 'channel',
+                                                        returnWhole: true,
+                                                        onlyFull: true,
+                                                    },
+                                                ],
+                                            },
+                                        ],
                                     },
                                 ],
-                                rows: [
-                                    {
-                                        width: 8,
-                                        codename: 'text',
-                                        widget: 'textField',
-                                    },
-                                ]
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -227,27 +296,58 @@ const state = {
                                 type: 'field',
                                 label: 'Комментарий',
                                 required: false,
-                                invalid: false,
                                 height: 80,
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
         ],
     },
     activeFlag: {
         events: {
-            title: 'Активное событие',
-            hint: 'Неактивные события игнорируются и уведомления не отправляются',
-        }
+            title: 'Активный тип уведомлений',
+            hint: 'Уведомления неактивного типа игнорируются и не отправляются',
+        },
+    },
+    formsEvents: {
+        events: {
+            onChangePopup: {
+                variables: {
+                    construction_type: {
+                        content_type(from, widget, data, component) {
+                            const constructionType = data[from];
+                            const contentTypeConfig = widget.popup_structure[0].blocks[3];
+
+                            if (constructionType == 'var') {
+                                component.$set(contentTypeConfig, 'show', true);
+                                component.$set(contentTypeConfig.elements[0], 'required', true);
+                            } else {
+                                component.$set(contentTypeConfig, 'show', false);
+                                component.$set(contentTypeConfig.elements[0], 'required', false);
+                            }
+                        },
+                        ways_to_send(from, widget, data, component) {
+                            const constructionType = data[from];
+                            const channelConfig = widget.popup_structure[0].blocks[4];
+
+                            if (constructionType == 'tag') {
+                                component.$set(channelConfig, 'show', true);
+                                component.$set(channelConfig.elements[0], 'required', true);
+                            } else {
+                                component.$set(channelConfig, 'show', false);
+                                component.$set(channelConfig.elements[0], 'required', false);
+                            }
+                        },
+                    },
+                },
+            },
+        },
     },
 };
 
-export default {
-    state
-}
+export default { state, };

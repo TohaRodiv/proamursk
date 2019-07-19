@@ -711,7 +711,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.6); }
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: background-color linear 0.2s; }
 
 .innactive-image-round {
   right: 15px;
@@ -2601,7 +2602,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: absolute;
   right: 15px;
   top: 10px;
-  z-index: 5;
+  z-index: 2;
   font-size: 0;
   color: #A6A9AA;
   cursor: pointer; }
@@ -5822,6 +5823,20 @@ a.additional-button-2 {
   .child-entity-add-button-innactive:hover {
     background-color: #91E4B0 !important; }
 
+.child-entities-image-wrap::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: background-color linear 0.2s; }
+
+.child-entities-image-wrap_innactive::after {
+  background-color: rgba(255, 255, 255, 0.6); }
+
 .child-entities-image {
   display: flex;
   align-items: center;
@@ -6058,6 +6073,9 @@ a.additional-button-2 {
   border-radius: 50%;
   margin: 12px 15px 12px 8px; }
 
+.child-entities-container {
+  position: relative; }
+
 .child-entities-draggable-container {
   position: absolute;
   display: flex;
@@ -6071,7 +6089,7 @@ a.additional-button-2 {
   display: flex;
   width: 100%;
   height: calc(100% - 47px - 30px);
-  top: 77.5px;
+  top: 91px;
   z-index: 2; }
 
 .child-entities-draggable, .simple-child-entities-draggable {
@@ -6098,7 +6116,8 @@ a.additional-button-2 {
   cursor: -webkit-grabbing; }
 
 .child-entity-layout-collector {
-  padding-right: 20px; }
+  padding-right: 20px;
+  transition: color linear 0.2s; }
   .child-entity-layout-collector span.green {
     color: #23CA62; }
   .child-entity-layout-collector span.red {
@@ -6286,8 +6305,9 @@ a.additional-button-2 {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: auto;
-  width: 100%; }
+  margin-bottom: auto; }
+  .image-loader-wrapper:not(:last-child) {
+    margin-right: 0; }
 
 .loader-tab-left-label {
   display: flex;

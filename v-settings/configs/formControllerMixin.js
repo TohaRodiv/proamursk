@@ -2,18 +2,20 @@ import vue from 'vue';
 import _ from 'lodash';
 
 import notificationTemplatesController from '../configs/informing/controllers/notificationTemplates';
+import recipientsController from '../configs/informing/controllers/recipients';
 
 const actions = {
     change: {
-        notificationTemplates: notificationTemplatesController.change
-    }
+        notificationTemplates: notificationTemplatesController.change,
+        recipients: recipientsController.change,
+    },
 };
 
 export const formController = {
     data() {
         return {
-            oldFormData: {}
-        }
+            oldFormData: {},
+        };
     },
 
     methods: {
@@ -59,7 +61,7 @@ export const formController = {
             const model = this.toCamelCase(this.computedModel);
 
             _.map(differentValues, key => {
-                if (_.has(actions, ['change', model, key])) {
+                if (_.has(actions, ['change', model, key,])) {
                     actions.change[model][key](newFormData, this);
                 }
             });
@@ -88,20 +90,20 @@ export const formController = {
                 const slidesConfig = flatConfig.slides;
 
                 if (this.computedIsEditForm) {
-                    vue.set(slidesConfig, 'isBlocked', false)
+                    vue.set(slidesConfig, 'isBlocked', false);
                 }
             }
 
             if (model === 'users') {
-                const superuser = this.isSuperUser.flag
-                const rolesConfig = flatConfig.roles
+                const superuser = this.isSuperUser.flag;
+                const rolesConfig = flatConfig.roles;
 
                 if (superuser) {
-                    this.$set(rolesConfig, 'required', false)
+                    this.$set(rolesConfig, 'required', false);
                 }
             }
 
             return modifiedConfig;
-        }
-    }
-}
+        },
+    },
+};
