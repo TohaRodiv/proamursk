@@ -137,17 +137,18 @@ class ImageDetailSerializer(ModelSerializer):
     thumbnails = ThumbnailDetailSerializer(many=True, source='thumbnail_set')
     tags = MediaTagsSerializer(many=True)
     extension = serializers.SerializerMethodField(read_only=True)
+    large_url = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = MediaFile
         fields = ('id', 'name', 'width', 'height', 'size', 'original_url', 'tags', 'thumbnails', 'extension',
-                  'create_date')
+                  'large_url', 'create_date')
 
     def get_original_url(self, instance):
         return instance.file.url
 
-    def get_min_crop_url(self, instance):
-        return instance.get_thumbnail_url_by_name('sap_min_crop')
+    def get_large_url(self, instance):
+        return instance.get_thumbnail_url_by_name('sap_large')
 
     def get_size(self, instance):
         return instance.get_text_file_size()
