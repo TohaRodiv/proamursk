@@ -54,7 +54,9 @@
                 v-for="(element) in block.elements"
                 :key="(typeof element.codename !== 'object') ? element.codename : Math.random()"
             >
-                <headerWidget v-if="element.type === 'header'" :options="element" />
+                <headerWidget
+                    v-if="element.type === 'header'"
+                    :options="element" />
 
                 <recursiveNode
                     v-if="element.type === 'recursion'"
@@ -204,7 +206,10 @@
                     :options="element"
                 />
 
-                <summWidget v-if="element.widget === 'summWidget'" :options="element" />
+                <summWidget
+                    v-if="element.widget === 'summWidget'"
+                    :options="element" 
+                />
 
                 <geoinput
                     v-if="element.widget === 'geoinput'"
@@ -245,6 +250,15 @@
                     :isBlocked="isBlocked(element)"
                     :passedData="data[element.codename]"
                     :options="element"
+                />
+
+                <input-datetime
+                    v-if="element.widget === 'inputDatetime'"
+                    :passed-data="data[element.codename]"
+                    :options="element"
+                    :label-position="block.labelPosition"
+                    :blocked="isBlocked(element)"
+                    @clearError="clearError"
                 />
             </div>
         </div>
