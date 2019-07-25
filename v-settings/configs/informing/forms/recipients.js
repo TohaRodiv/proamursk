@@ -50,6 +50,7 @@ const state = {
                                     },
                                 ],
                                 hint: '',
+                                returnField: 'codename'
                             },
                             {
                                 type: 'field',

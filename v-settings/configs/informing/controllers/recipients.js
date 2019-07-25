@@ -4,7 +4,7 @@ export default {
             const channel = data.channel;
             const emailConfig = component.FORM_CONFIG.email;
 
-            if (channel == 1) {
+            if (channel == 'email') {
                 component.$set(emailConfig, 'show', true);
                 component.$set(emailConfig, 'required', true);
             } else {
