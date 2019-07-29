@@ -250,6 +250,7 @@
                     :isBlocked="isBlocked(element)"
                     :passedData="data[element.codename]"
                     :options="element"
+                    @clearError="clearError"
                 />
 
                 <input-datetime
