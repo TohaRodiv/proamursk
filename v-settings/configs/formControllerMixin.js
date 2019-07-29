@@ -3,11 +3,13 @@ import _ from 'lodash';
 
 import notificationTemplatesController from '../configs/informing/controllers/notificationTemplates';
 import recipientsController from '../configs/informing/controllers/recipients';
+import staticPagesController from '../configs/companionContent/controller/staticPages';
 
 const actions = {
     change: {
         notificationTemplates: notificationTemplatesController.change,
         recipients: recipientsController.change,
+        staticPages: staticPagesController.change,
     },
 };
 
