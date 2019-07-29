@@ -20,9 +20,9 @@ const state = {
                                 width: 12,
                                 codename: 'title',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -39,31 +39,31 @@ const state = {
                                 available_values: [
                                     {
                                         name: 'Горизонтальный / 3:2',
-                                        id: 'format_3x2'
+                                        id: 'format_3x2',
                                     },
                                     {
                                         name: 'Горизонтальный / 2:1',
-                                        id: 'format_2x1'
-                                    }
+                                        id: 'format_2x1',
+                                    },
                                 ],
                                 sortFlag: {
                                     value: 'name',
-                                    flex: 1.5
+                                    flex: 1.5,
                                 },
                                 widget: 'singleSelector',
                                 hint: '',
                                 view_structure: [
                                     {
                                         value: 'name',
-                                        flex: 1.5
+                                        flex: 1.5,
                                     },
                                 ],
                                 blockedCondition: {
                                     type: 'isEmpty',
-                                    flag: 'slides'
-                                }
+                                    flag: 'slides',
+                                },
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'top',
@@ -93,13 +93,13 @@ const state = {
                                         type: 'image',
                                         requiredValue: 'cover.medium_url',
                                         height: '100px',
-                                        width: 'auto'
+                                        width: 'auto',
                                     },
                                     {
                                         type: 'text',
                                         requiredValue: 'description',
-                                        flex: 1
-                                    }
+                                        flex: 1,
+                                    },
                                 ],
                                 textOptions: true,
                                 popup_structure: [
@@ -128,9 +128,9 @@ const state = {
                                                         modClass: 'marginBottom20',
                                                         requireSendId: true,
                                                         key_attr: 'id',
-                                                        hint: ''
+                                                        hint: '',
                                                     },
-                                                ]
+                                                ],
                                             },
                                             {
                                                 labelPosition: 'top',
@@ -146,9 +146,9 @@ const state = {
                                                         height: 80,
                                                         codename: 'description',
                                                         widget: 'textarea',
-                                                        hint: ''
+                                                        hint: '',
                                                     },
-                                                ]
+                                                ],
                                             },
                                             {
                                                 labelPosition: 'top',
@@ -160,11 +160,11 @@ const state = {
                                                         codename: 'is_active',
                                                         widget: 'singleCheckbox',
                                                         hint: '',
-                                                        default: true
-                                                    }
-                                                ]
+                                                        default: true,
+                                                    },
+                                                ],
                                             },
-                                        ]
+                                        ],
                                     },
                                 ],
                                 rows: [
@@ -176,9 +176,9 @@ const state = {
                                         codename: 'description',
                                         widget: 'field',
                                     },
-                                ]
+                                ],
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -194,38 +194,16 @@ const state = {
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
-                ]
+                ],
             },
         ],
-    },
-    formsEvents: {
-        sliders: {
-            onChange: {
-                format: {
-                    slides: function (from, widget, formsData) {
-                        let loader = widget.popup_structure[0].blocks[0].elements[0];
-                        if (from === 'format') {
-                            if (formsData[from] === 'format_3x2') {
-                                vue.set(loader, 'image', {width: 1720, height: 1144});
-                                vue.set(widget, 'isBlocked', false);
-                            } else if (formsData[from] === 'format_2x1') {
-                                vue.set(loader, 'image', {width: 1720, height: 860});
-                                vue.set(widget, 'isBlocked', false);
-                            } else if (formsData[from] === null) {
-                                vue.set(widget, 'isBlocked', true);
-                            }
-                        }
-                    },
-                },
-            },
-        },
     },
 };
 
 export default {
-    state
-}
+    state,
+};
