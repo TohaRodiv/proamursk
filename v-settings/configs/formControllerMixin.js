@@ -25,42 +25,6 @@ export const formController = {
     },
 
     methods: {
-        toCamelCase(str) {
-            let s =
-              str &&
-              str
-                  .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-                  .map(x => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase())
-                  .join('');
-            return s.slice(0, 1).toLowerCase() + s.slice(1);
-        },
-        
-        getDifferentValues(newData, oldData) {
-            const differentValues = [];
-            const keys = _.keys(newData);
-
-            for (let key of keys) {
-                if (!_.isEqual(newData[key], oldData[key])) {
-                    differentValues.push(key);
-                }
-            }
-
-            return differentValues;
-        },
-
-        getNewValues(newData, oldData) {
-            const newValues = [];
-            const keys = _.keys(newData);
-
-            for (let key of keys) {
-                if (!_.has(oldData, key)) {
-                    newValues.push(key);
-                }
-            }
-
-            return newValues;
-        },
-
         onChangeData(newFormData, oldFormData) {
             const differentValues = this.getDifferentValues(newFormData, this.oldFormData);
             const newValues = this.getNewValues(newFormData, this.oldFormData);
