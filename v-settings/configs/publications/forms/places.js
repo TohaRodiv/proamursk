@@ -19,9 +19,9 @@ const state = {
                                 width: 12,
                                 codename: 'title',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -36,9 +36,9 @@ const state = {
                                 width: 12,
                                 codename: 'descriptor',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -46,16 +46,16 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'mask-datetime',
+                                format: 'datetime',
                                 label: 'Дата и время публикации',
                                 required: true,
                                 invalid: false,
                                 width: 4,
                                 codename: 'publication_date',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                widget: 'inputDatetime',
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -70,9 +70,9 @@ const state = {
                                 width: 8,
                                 codename: 'address',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -87,9 +87,9 @@ const state = {
                                 codename: 'coordinates',
                                 width: 12,
                                 hint: '',
-                                defaultCoordinates: '50.2368500, 136.8813600'
-                            }
-                        ]
+                                defaultCoordinates: '50.2368500, 136.8813600',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -102,9 +102,9 @@ const state = {
                                 width: 12,
                                 codename: 'schedule',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -117,9 +117,9 @@ const state = {
                                 width: 12,
                                 codename: 'contacts',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -133,9 +133,9 @@ const state = {
                                 codename: 'site',
                                 widget: 'simpleInput',
                                 hint: '',
-                                placeholder: 'http(s)://'
-                            }
-                        ]
+                                placeholder: 'http(s)://',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -149,9 +149,9 @@ const state = {
                                 codename: 'instagram',
                                 widget: 'simpleInput',
                                 hint: '',
-                                placeholder: 'http(s)://'
-                            }
-                        ]
+                                placeholder: 'http(s)://',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -172,16 +172,16 @@ const state = {
                                     {
                                         label: 'Обычная обложка',
                                         flag: true,
-                                        codename: 'small'
+                                        codename: 'small',
                                     },
                                     {
                                         label: 'Полноразмерная обложка',
                                         flag: false,
-                                        codename: 'full'
-                                    }
-                                ]
-                            }
-                        ]
+                                        codename: 'full',
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -194,9 +194,9 @@ const state = {
                                 width: 8,
                                 codename: 'cover_author',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -209,9 +209,9 @@ const state = {
                                 width: 8,
                                 codename: 'content_author',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -222,9 +222,9 @@ const state = {
                                 label: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
                                 codename: 'show_two_banners',
                                 widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -240,11 +240,11 @@ const state = {
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
-                ]
+                ],
             },
             {
                 id: 2,
@@ -265,9 +265,9 @@ const state = {
                                 codename: 'lead',
                                 widget: 'textarea',
                                 modClass: 'marginBottom20',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
 
                     },
                     {
@@ -280,11 +280,11 @@ const state = {
                                 required: true,
                                 widget: 'postEditor',
                                 codename: 'content',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
-                ]
+                ],
             },
             {
                 id: 3,
@@ -311,11 +311,11 @@ const state = {
                                 widget: 'singleImageLoader',
                                 requireSendId: true,
                                 key_attr: 'id',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
             {
                 id: 4,
@@ -335,9 +335,9 @@ const state = {
                                 width: 12,
                                 codename: 'meta_title',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -352,9 +352,9 @@ const state = {
                                 width: 12,
                                 codename: 'meta_description',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -369,9 +369,9 @@ const state = {
                                 width: 12,
                                 codename: 'meta_keywords',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -394,22 +394,22 @@ const state = {
                                 widget: 'singleImageLoader',
                                 requireSendId: true,
                                 key_attr: 'id',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
-            }
+                ],
+            },
         ],
     },
     activeFlag: {
         'places': {
             title: 'Активная запись',
             hint: 'Страницы неактивных записей не отображаются на сайте',
-        }
+        },
     },
 };
 
 export default {
-    state
-}
+    state,
+};

@@ -24,23 +24,15 @@ module.exports = {
         "json"
     ],
     "rules": {
+        "no-console": "off",
         "vue/html-indent": ["error", 4, {
             "attribute": 1,
             "baseIndent": 1,
             "closeBracket": 0,
             "alignAttributesVertically": true,
             "ignores": []
-          }],
+        }],
         "vue/prop-name-casing": 0,
-        "vue/multiline-html-element-content-newline": ["error", {
-            "ignoreWhenEmpty": false,
-            "ignores": ["pre", "textarea"]
-        }],
-        "vue/singleline-html-element-content-newline": ["error", {
-            "ignoreWhenNoAttributes": false,
-            "ignoreWhenEmpty": false,
-            "ignores": ["pre", "textarea"]
-        }],
         "vue/html-self-closing": ["error", {
             "html": {
                 "void": "never",
@@ -50,10 +42,17 @@ module.exports = {
             "svg": "always",
             "math": "always"
         }],
+        "vue/max-attributes-per-line": ["error", {
+            "singleline": 1,
+            "multiline": {
+                "max": 1,
+                "allowFirstLine": false
+            }
+        }],
         "semi": ["error", "always"],
         "block-spacing": ["error", "always"],
         "comma-dangle": ["error", "always"],
-        "max-len": ["error", 120],
+        "max-len": ["warn", 120],
         "indent": ["error", 4],
         "multiline-ternary": ["error", "always"],
         "object-curly-spacing": ["error", "always"]

@@ -14,14 +14,16 @@
                             class="hint-container icon-question"
                             @mouseenter="showHint = true"
                             @mouseleave="showHint = false"
-                        ></div>
+                        />
                         <div v-if="showHint" class="arrow-wrapper">
-                            <div class="hint-arrow"></div>
+                            <div class="hint-arrow"/>
                         </div>
-                        <div class="hint-message" v-if="showHint">{{options.hint}}</div>
+                        <div class="hint-message" v-if="showHint">
+                            {{options.hint}}
+                        </div>
                     </div>
                 </div>
-                <span class="label-text tab-required-star-left" v-html="options.label"></span>
+                <span class="label-text tab-required-star-left" v-html="options.label"/>
             </div>
             <div class="tab-left-label col4" v-if="labelPosition === 'left' && !options.required">
                 <div
@@ -33,14 +35,16 @@
                             class="hint-container icon-question"
                             @mouseenter="showHint = true"
                             @mouseleave="showHint = false"
-                        ></div>
+                        />
                         <div v-if="showHint" class="arrow-wrapper">
-                            <div class="hint-arrow"></div>
+                            <div class="hint-arrow"/>
                         </div>
-                        <div class="hint-message" v-if="showHint">{{options.hint}}</div>
+                        <div class="hint-message" v-if="showHint">
+                            {{options.hint}}
+                        </div>
                     </div>
                 </div>
-                <span class="label-text" v-html="options.label"></span>
+                <span class="label-text" v-html="options.label"/>
             </div>
         </div>
         <div
@@ -52,11 +56,11 @@
                 style="width: auto"
                 v-if="labelPosition === 'top' && options.required"
             >
-                <span class="label-text ellipsis" v-html="options.label"></span>
+                <span class="label-text ellipsis" v-html="options.label"/>
             </div>
-            <span class="tab-required-star" v-if="labelPosition === 'top' && options.required"></span>
+            <span class="tab-required-star" v-if="labelPosition === 'top' && options.required"/>
             <div class="tab-top-label ellipsis" v-if="labelPosition === 'top' && !options.required">
-                <span class="label-text" v-html="options.label"></span>
+                <span class="label-text" v-html="options.label"/>
             </div>
             <div class="hint-wrapper" v-if="labelPosition === 'top' && options.hint.length > 0">
                 <div class="hint-inner-wrapper">
@@ -64,11 +68,13 @@
                         class="hint-container icon-question"
                         @mouseenter="showHint = true"
                         @mouseleave="showHint = false"
-                    ></div>
+                    />
                     <div v-if="showHint" class="arrow-wrapper">
-                        <div class="hint-arrow"></div>
+                        <div class="hint-arrow"/>
                     </div>
-                    <div class="hint-message" v-if="showHint">{{options.hint}}</div>
+                    <div class="hint-message" v-if="showHint">
+                        {{options.hint}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,9 +87,11 @@
             <div
                 :class="{'blocked-input': isBlocked}"
                 style="width: 702px; background-color: rgba(250, 250, 250, .4)"
-            ></div>
+            />
             <textarea @change="changeValue($event)" :id="'formatter-' + options.codename">{{(text) ? text : ''}}</textarea>
-            <div class="input-error-message" v-if="options.invalid && focus">{{options.message}}</div>
+            <div class="input-error-message" v-if="options.invalid && focus">
+                {{options.message}}
+            </div>
         </div>
     </div>
 </template>
@@ -93,7 +101,7 @@ export default {
     props: {
         labelPosition: {
             type: String,
-            default: "left"
+            default: "left",
         },
         options: {
             type: Object,
@@ -101,18 +109,18 @@ export default {
                 return {
                     view_structure: [
                         {
-                            codename: "name"
-                        }
+                            codename: "name",
+                        },
                     ],
                     label: "Дефолтный лейбл",
                     required: false,
-                    hint: ""
+                    hint: "",
                 };
-            }
+            },
         },
         onlyEmit: Boolean,
         text: String,
-        isBlocked: Boolean
+        isBlocked: Boolean,
     },
 
     data() {
@@ -120,14 +128,14 @@ export default {
             oldValue: "",
             value: "",
             focus: false,
-            static_version: ""
+            static_version: "",
         };
     },
 
     computed: {
         loadStatus() {
             return this.$store.state.forms.loadStatus;
-        }
+        },
     },
 
     watch: {
@@ -138,16 +146,16 @@ export default {
         value: function() {
             if (!this.onlyEmit)
                 this.$store.commit("setFormsObject", {
-                    [this.options.codename]: this.value
+                    [this.options.codename]: this.value,
                 });
             else
-                this.$emit("callback", { [this.options.codename]: this.value });
+                this.$emit("callback", { [this.options.codename]: this.value, });
 
             this.validateOnchange();
         },
         "options.invalid": function() {
             if (this.options.invalid) this.setInvalid(true);
-        }
+        },
     },
 
     mounted() {
@@ -176,15 +184,15 @@ export default {
                             "|",
                             "link",
                             "specialChar",
-                            "footnote"
+                            "footnote",
                         ],
-                        ["setStyle", "fontColor", "backgroundColor"]
+                        ["setStyle", "fontColor", "backgroundColor",],
                     ],
                     formatterFrameCssPath:
                         process.env.NODE_ENV === "development"
                             ? "/v-settings/src/css/formatter_content.css"+this.static_version
                             : "/static/cp_vue/css/formatter/formatter_content.css"+this.static_version,
-                    width: 700
+                    width: 700,
                 });
             } else {
                 setTimeout(() => {
@@ -220,54 +228,57 @@ export default {
         },
 
         validateOnchange() {
-            this.setInvalid(false);
-
-            this.$emit("clearErrors", { index: this.child_entity_id });
             if (this.options.invalid) {
-                this.$emit(
-                    "clearErrors",
-                    this.options.codename
-                ); /*Эмит для сложных доч. сущностей*/
-                let tabHasErrors = {
-                    tabId: 0,
-                    status: false
-                };
-
-                const payload = { view: this.$route.params.view };
-                const config = this.$store.getters.getFormsConfig(payload);
-
-                for (let a = 0; a < config.length; a++) {
-                    const tab = config[a];
-                    for (let b = 0; b < tab.blocks.length; b++) {
-                        const block = tab.blocks[b];
-                        for (let c = 0; c < block.elements.length; c++) {
-                            const element = block.elements[c];
-
-                            if (element.codename === this.options.codename) {
-                                tabHasErrors.tabId = tab.id;
-                                this.$store.commit("setInvalidStatus", {
-                                    view: this.$route.params.view,
-                                    tabIndex: a,
-                                    blockIndex: b,
-                                    elementIndex: c,
-                                    status: false,
-                                    message: ""
-                                });
-                            }
-                            tabHasErrors.status = element.invalid;
-                        }
-                    }
-                }
-                if (tabHasErrors.status === false)
-                    this.$store.commit("setInvalidStatusOnTab", {
-                        view: this.$route.params.view,
-                        tabId: tabHasErrors.tabId,
-                        status: false
-                    });
+                this.setInvalid(false);
+                this.$emit('clearError', this.options.codename);
             }
 
-            this.options.invalid = false;
-            this.options.message = "";
+            // this.$emit("clearErrors", { index: this.child_entity_id });
+            // if (this.options.invalid) {
+            //     this.$emit(
+            //         "clearErrors",
+            //         this.options.codename
+            //     ); /*Эмит для сложных доч. сущностей*/
+            //     let tabHasErrors = {
+            //         tabId: 0,
+            //         status: false
+            //     };
+
+            //     const payload = { view: this.$route.params.view };
+            //     const config = this.$store.getters.getFormsConfig(payload);
+
+            //     for (let a = 0; a < config.length; a++) {
+            //         const tab = config[a];
+            //         for (let b = 0; b < tab.blocks.length; b++) {
+            //             const block = tab.blocks[b];
+            //             for (let c = 0; c < block.elements.length; c++) {
+            //                 const element = block.elements[c];
+
+            //                 if (element.codename === this.options.codename) {
+            //                     tabHasErrors.tabId = tab.id;
+            //                     this.$store.commit("setInvalidStatus", {
+            //                         view: this.$route.params.view,
+            //                         tabIndex: a,
+            //                         blockIndex: b,
+            //                         elementIndex: c,
+            //                         status: false,
+            //                         message: ""
+            //                     });
+            //                 }
+            //                 tabHasErrors.status = element.invalid;
+            //             }
+            //         }
+            //     }
+            //     if (tabHasErrors.status === false)
+            //         this.$store.commit("setInvalidStatusOnTab", {
+            //             view: this.$route.params.view,
+            //             tabId: tabHasErrors.tabId,
+            //             status: false
+            //         });
+            // }
+
+            // this.options.invalid = false;
+            // this.options.message = "";
         },
 
         getStaticVersion() {
@@ -275,7 +286,7 @@ export default {
             if (staticVersion) {
                 this.static_version = staticVersion;
             }
-        }
-    }
+        },
+    },
 };
 </script>

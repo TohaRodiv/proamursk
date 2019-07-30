@@ -118,12 +118,13 @@
                                 <div class="forms-workzone" :class="{'forms-workzone-no-tabs': config.length === 1 || formsCurrentMode === 'moving'}">
                                     <tab
                                         :data="data"
-                                        v-for="(tab, index) in compConfig"
+                                        v-for="(tab, index) in config"
                                         :key="tab.id"
                                         :options="tab"
                                         :tabIndex="index"
                                         :reopenTrigger="reopenTrigger"
                                         v-show="(formsCurrentMode !== 'moving') ? tab.id === currentTabId : ((newMode) ? tab.id === 1 : true)"
+                                        @clearError="clearError"
                                     />
                                 </div>
                             </div>

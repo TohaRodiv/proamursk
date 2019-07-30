@@ -10,7 +10,7 @@ const state = {
                 fixed: true,
                 codename: 'checkbox',
                 sort: 'none',
-                menu: true
+                menu: true,
             },
             {
                 name: '#',
@@ -22,8 +22,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'Шаблон',
@@ -34,8 +34,8 @@ const state = {
                 codename: 'name',
                 isMain: true,
                 sort: {
-                    order_by: 'name'
-                }
+                    order_by: 'name',
+                },
             },
             {
                 name: 'Способ отправки',
@@ -45,19 +45,19 @@ const state = {
                 width: 150,
                 codename: 'channel_name',
                 sort: {
-                    order_by: 'channel_name'
-                }
+                    order_by: 'channel_name',
+                },
             },
             {
-                name: 'Событие',
+                name: 'Тип уведомления',
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
                 width: 300,
                 codename: 'action_name',
                 sort: {
-                    order_by: 'action_name'
-                }
+                    order_by: 'action_name',
+                },
             },
             {
                 name: 'Комментарий',
@@ -67,8 +67,8 @@ const state = {
                 width: 160,
                 codename: 'comment',
                 sort: {
-                    order_by: 'comment'
-                }
+                    order_by: 'comment',
+                },
             },
             {
                 name: 'Дата создания',
@@ -78,8 +78,8 @@ const state = {
                 width: 180,
                 codename: 'create_date',
                 sort: {
-                    order_by: 'create_date'
-                }
+                    order_by: 'create_date',
+                },
             },
             {
                 name: 'Дата изменения',
@@ -89,8 +89,8 @@ const state = {
                 width: 180,
                 codename: 'edit_date',
                 sort: {
-                    order_by: 'edit_date'
-                }
+                    order_by: 'edit_date',
+                },
             },
         ],
     },
@@ -99,7 +99,7 @@ const state = {
             addButton: true,
             activationButtons: true,
             deleteButton: true,
-        }
+        },
     },
     filterConfig: {
         'notification-templates': [
@@ -112,18 +112,18 @@ const state = {
                 callbackValue: 'id',
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
             },
             {
-                filterTitle: 'События',
+                filterTitle: 'Типы уведомлений',
                 queryName: 'action_id__in',
                 input_type: 'tagSelector',
                 api_route: 'events',
                 callbackValue: 'id',
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
             },
             {
@@ -134,7 +134,7 @@ const state = {
                 callbackValue: 'id',
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
             },
             {
@@ -147,12 +147,12 @@ const state = {
                 entity_structure: [
                     {
                         flex: 1,
-                        value: 'full_name'
+                        value: 'full_name',
                     },
                 ],
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
             },
             {
@@ -163,26 +163,26 @@ const state = {
                 callbackValue: 'id',
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
             },
             {
                 filterTitle: 'Дата создания',
                 queryName: {
                     min: 'create_date__gte',
-                    max: 'create_date__lte'
+                    max: 'create_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Дата изменения',
                 queryName: {
                     min: 'edit_date__gte',
-                    max: 'edit_date__lte'
+                    max: 'edit_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Состояния',
@@ -194,26 +194,26 @@ const state = {
                         id: 2,
                         name: 'Все шаблоны',
                         value: '',
-                        checked: true
+                        checked: true,
                     },
                     {
                         id: 1,
                         name: 'Активные шаблоны',
                         value: 'true',
-                        checked: false
+                        checked: false,
                     },
                     {
                         id: 0,
                         name: 'Неактивные шаблоны',
                         value: 'false',
-                        checked: false
+                        checked: false,
                     },
-                ]
+                ],
             },
         ],
     },
 };
 
 export default {
-    state
-}
+    state,
+};

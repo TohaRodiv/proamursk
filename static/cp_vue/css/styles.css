@@ -711,7 +711,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.6); }
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: background-color linear 0.2s; }
 
 .innactive-image-round {
   right: 15px;
@@ -895,6 +896,8 @@
 .colorInnactive_3 {
   transition: color linear 0.2s;
   color: #C8CACB !important; }
+  .colorInnactive_3 > .halfTransparent {
+    color: inherit !important; }
 
 .colorInnactive_5 {
   transition: color linear 0.2s;
@@ -2415,7 +2418,8 @@ input[type="search"]::-webkit-search-results-decoration {
   transition: opacity linear .2s; }
 
 .textarea-preview-wrapper {
-  display: flex; }
+  display: flex;
+  position: relative; }
 
 .textarea-preview-container {
   display: flex;
@@ -2495,17 +2499,18 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .textarea-preview-error-message {
   position: absolute;
-  top: calc(100% + 5px);
-  left: 245px;
   min-width: 180px;
   max-width: 330px;
   padding: 9px 10px;
-  border-radius: 2px;
+  border-radius: 5px;
   color: #ffffff;
   font-size: 12px;
   line-height: 1.3;
   background-color: #FF9FAF;
-  z-index: 10; }
+  z-index: 10;
+  bottom: 0;
+  transform: translateY(calc(100% + 5px));
+  left: 245px; }
 
 .popup-preloader {
   display: flex;
@@ -2601,7 +2606,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: absolute;
   right: 15px;
   top: 10px;
-  z-index: 5;
+  z-index: 2;
   font-size: 0;
   color: #A6A9AA;
   cursor: pointer; }
@@ -3341,6 +3346,7 @@ a.additional-button-2 {
 
 .selector-active-part {
   width: 100%;
+  height: 34px;
   border: none !important;
   box-shadow: none !important;
   padding-right: 28px; }
@@ -5821,6 +5827,20 @@ a.additional-button-2 {
   .child-entity-add-button-innactive:hover {
     background-color: #91E4B0 !important; }
 
+.child-entities-image-wrap::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: background-color linear 0.2s; }
+
+.child-entities-image-wrap_innactive::after {
+  background-color: rgba(255, 255, 255, 0.6); }
+
 .child-entities-image {
   display: flex;
   align-items: center;
@@ -6057,6 +6077,9 @@ a.additional-button-2 {
   border-radius: 50%;
   margin: 12px 15px 12px 8px; }
 
+.child-entities-container {
+  position: relative; }
+
 .child-entities-draggable-container {
   position: absolute;
   display: flex;
@@ -6070,7 +6093,7 @@ a.additional-button-2 {
   display: flex;
   width: 100%;
   height: calc(100% - 47px - 30px);
-  top: 77.5px;
+  top: 91px;
   z-index: 2; }
 
 .child-entities-draggable, .simple-child-entities-draggable {
@@ -6097,7 +6120,8 @@ a.additional-button-2 {
   cursor: -webkit-grabbing; }
 
 .child-entity-layout-collector {
-  padding-right: 20px; }
+  padding-right: 20px;
+  transition: color linear 0.2s; }
   .child-entity-layout-collector span.green {
     color: #23CA62; }
   .child-entity-layout-collector span.red {
@@ -6287,6 +6311,8 @@ a.additional-button-2 {
   flex-direction: column;
   margin-bottom: auto;
   width: 100%; }
+  .image-loader-wrapper:not(:last-child) {
+    margin-right: 0; }
 
 .loader-tab-left-label {
   display: flex;
@@ -8560,6 +8586,7 @@ a.additional-button-2 {
   padding: 10px; }
 
 .header-logo-container a {
+  display: block;
   height: 100%; }
 
 .logo-img {
@@ -9548,17 +9575,20 @@ div, a {
   font-size: 14px;
   font-weight: 300;
 }
-.base-label_left .base-label {
+.base-label_left {
   height: 36px;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
+}
+.base-label_left .base-label {
+    text-align: right;
 }
 .base-label_left .base-label.base-label_required:before {
-    content: '*';
-    position: relative;
-    left: 0;
-    margin-right: 2px;
+      content: '*';
+      position: relative;
+      left: 0;
+      margin-right: 2px;
 }
 .base-label_top .base-label {
   margin-left: 15px;
@@ -9680,6 +9710,387 @@ div, a {
 }
 .base-hint-message__title {
   font-weight: 600;
+}
+
+.input-datetime-picker__wrap {
+  position: absolute;
+  top: 46px;
+  background: white;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-family: 'Source Sans Pro';
+  color: #23292e;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.input-datetime-picker__wrap:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: 5px solid transparent;
+    z-index: 9;
+}
+.input-datetime-picker__wrap_below:before {
+    top: -10px;
+    border-bottom-color: white;
+}
+.input-datetime-picker__wrap_on-top:before {
+    bottom: -10px;
+    border-top-color: white;
+}
+.input-datetime-picker__head {
+  padding: 10px 0 0 0;
+  border-bottom: 1px solid #EDF5FA;
+}
+.input-datetime-picker__body {
+  margin: 0 10px 0 10px;
+}
+.input-datetime-picker__body:last-child {
+    padding-bottom: 10px;
+}
+.input-datetime-picker__month-year-wrap {
+  margin: 10px 20px 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input-datetime-picker__prev-month-icon {
+  color: #23292e;
+  transition: color .2s;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  display: block;
+}
+.input-datetime-picker__prev-month-icon:before {
+    content: '\e917';
+    font-family: 'cp-fonts';
+    cursor: pointer;
+    position: relative;
+    left: 0;
+}
+.input-datetime-picker__prev-month-icon:hover {
+    color: #2686ED;
+}
+.input-datetime-picker__next-month-icon {
+  color: #23292e;
+  transition: color .2s;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  display: block;
+}
+.input-datetime-picker__next-month-icon:before {
+    content: '\e918';
+    font-family: 'cp-fonts';
+    cursor: pointer;
+    position: relative;
+    right: 0;
+}
+.input-datetime-picker__next-month-icon:hover {
+    color: #2686ED;
+}
+.input-datetime-picker__month-year {
+  font-size: 16px;
+  font-weight: 600;
+}
+.input-datetime-picker__labels-wrap {
+  display: flex;
+  font-size: 12px;
+  font-weight: 300;
+  margin: 10px 25px 0 25px;
+}
+.input-datetime-picker__label {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #919496;
+}
+.input-datetime-picker__label:not(:last-child) {
+    margin-right: 6px;
+}
+.input-datetime-picker__week {
+  display: flex;
+  margin: 10px 15px;
+}
+.input-datetime-picker__day-wrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color .2s, border-color .2s;
+  cursor: pointer;
+}
+.input-datetime-picker__day-wrap:not(:last-child) {
+    margin-right: 6px;
+}
+.input-datetime-picker__day-wrap:hover {
+    color: #2686ED;
+    border-color: #D4E7FB;
+}
+.input-datetime-picker__day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
+}
+.input-datetime-picker__day_prev-month {
+    color: #C8CACB;
+}
+.input-datetime-picker__day_next-month {
+    color: #C8CACB;
+}
+.input-datetime-picker__day_checked {
+    color: #2686ED;
+    background: #E4F0FA;
+    border-color: #9CC8F7;
+}
+.input-datetime-picker__day_disabled {
+    color: #C8CACB;
+    pointer-events: none;
+}
+.input-datetime-picker__footer {
+  border-top: 1px solid #EDF5FA;
+}
+.input-datetime-picker__time {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-datetime-picker__hours-wrap {
+  position: relative;
+  margin: 15px 7px 15px 0;
+}
+.input-datetime-picker__minutes-wrap {
+  position: relative;
+  margin: 15px 0 15px 7px;
+}
+.input-datetime-picker__hours {
+  border: 1px solid #D0D8DC;
+  border-radius: 5px;
+  padding: 0 0 0 15px;
+  font-size: 14px;
+  height: 36px;
+  width: 60px;
+}
+.input-datetime-picker__minutes {
+  border: 1px solid #D0D8DC;
+  border-radius: 5px;
+  padding: 0 0 0 15px;
+  font-size: 14px;
+  height: 36px;
+  width: 60px;
+}
+.input-datetime-picker__hours-buttons {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.input-datetime-picker__minutes-buttons {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.input-datetime-picker__next-hour-button {
+  all: unset;
+  color: #A6A9AA;
+  transition: color .2s;
+  cursor: pointer;
+  position: relative;
+}
+.input-datetime-picker__next-hour-button:hover {
+    color: #2686ED;
+}
+.input-datetime-picker__prev-hour-button {
+  all: unset;
+  color: #A6A9AA;
+  transition: color .2s;
+  cursor: pointer;
+  position: relative;
+}
+.input-datetime-picker__prev-hour-button:hover {
+    color: #2686ED;
+}
+.input-datetime-picker__next-minutes-button {
+  all: unset;
+  color: #A6A9AA;
+  transition: color .2s;
+  cursor: pointer;
+  position: relative;
+}
+.input-datetime-picker__next-minutes-button:hover {
+    color: #2686ED;
+}
+.input-datetime-picker__prev-minutes-button {
+  all: unset;
+  color: #A6A9AA;
+  transition: color .2s;
+  cursor: pointer;
+  position: relative;
+}
+.input-datetime-picker__prev-minutes-button:hover {
+    color: #2686ED;
+}
+.input-datetime-picker__next-hour-icon {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+.input-datetime-picker__next-hour-icon:before {
+    font-family: 'cp-fonts';
+    content: '\e919';
+    font-size: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+.input-datetime-picker__prev-hour-icon {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+.input-datetime-picker__prev-hour-icon:before {
+    font-family: 'cp-fonts';
+    content: '\e916';
+    font-size: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+.input-datetime-picker__next-minutes-icon {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+.input-datetime-picker__next-minutes-icon:before {
+    font-family: 'cp-fonts';
+    content: '\e919';
+    font-size: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+.input-datetime-picker__prev-minutes-icon {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+.input-datetime-picker__prev-minutes-icon:before {
+    font-family: 'cp-fonts';
+    content: '\e916';
+    font-size: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.error-tip__wrap {
+  background: #FF9FAF;
+  min-width: 210px;
+  max-width: 330px;
+  position: absolute;
+  top: 40px;
+  left: 5px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+}
+.error-tip__message {
+  color: white;
+  font-size: 12px;
+}
+
+.input-datetime__wrap {
+  display: flex;
+  width: 100%;
+}
+.input-datetime__wrap_label-top {
+    flex-direction: column;
+}
+.input-datetime__wrap_label-left {
+    flex-direction: row;
+}
+.input-datetime__input-wrap {
+  position: relative;
+}
+.input-datetime__input {
+  border: 1px solid #D0D8DC;
+  border-radius: 5px;
+  padding: 0 15px;
+  font-size: 14px;
+  height: 36px;
+  width: 100%;
+}
+.input-datetime__input:focus {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.input-datetime__input:before {
+    font-family: 'cp-fonts';
+    content: '';
+    position: absolute;
+}
+.input-datetime__input:disabled {
+    background: #F8F8F8;
+}
+.input-datetime__input_error {
+    border-color: #FF9FAF;
+}
+.input-datetime__icon {
+  position: absolute;
+  color: #A6A9AA;
+  transition: color .2s;
+  right: 30px;
+  top: 10px;
+  cursor: pointer;
+}
+.input-datetime__icon:before {
+    content: '\e912';
+    font-family: 'cp-fonts';
+    font-size: 15px;
+    position: absolute;
+}
+.input-datetime__icon:hover {
+    color: #23292e;
+}
+.input-datetime__icon_disabled {
+    color: #C8CACB;
+}
+.input-datetime__icon_disabled:hover {
+      color: #C8CACB !important;
+}
+.input-datetime__icon_active {
+  color: #23292e;
+}
+.input-datetime__icon_disabled {
+  cursor: default;
+}
+.input-datetime__icon_disabled:hover {
+    color: #A6A9AA;
 }
 
 .kit-forecast__inner {

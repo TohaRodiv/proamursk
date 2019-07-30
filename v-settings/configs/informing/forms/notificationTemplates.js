@@ -20,9 +20,9 @@ const state = {
                                 codename: 'name',
                                 widget: 'simpleInput',
 
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -31,7 +31,7 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Событие',
+                                label: 'Тип уведомлений',
                                 expected_value: 'id',
                                 required: true,
                                 width: 8,
@@ -41,17 +41,17 @@ const state = {
                                 api_route: 'events',
                                 sortFlag: {
                                     value: 'name',
-                                    direction: 'asc'
+                                    direction: 'asc',
                                 },
                                 view_structure: [
                                     {
                                         value: 'name',
-                                        flex: 1.5
-                                    }
+                                        flex: 1.5,
+                                    },
                                 ],
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -68,23 +68,23 @@ const state = {
                                 invalid: false,
                                 sortFlag: {
                                     value: 'name',
-                                    direction: 'asc'
+                                    direction: 'asc',
                                 },
                                 codename: 'channel',
                                 view_structure: [
                                     {
                                         value: 'name',
-                                        flex: 1.5
-                                    }
+                                        flex: 1.5,
+                                    },
                                 ],
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: ['marginBottom20', 'marginTop20'],
+                        modClass: ['marginBottom20', 'marginTop20',],
                         elements: [
                             {
                                 type: 'field',
@@ -95,9 +95,9 @@ const state = {
                                 codename: 'subject',
                                 widget: 'simpleInput',
                                 hint: '',
-                                show: false
-                            }
-                        ]
+                                show: false,
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -113,14 +113,14 @@ const state = {
                                 codename: 'text',
                                 widget: 'textarea',
                                 hint: '',
-                                show: false
-                            }
-                        ]
+                                show: false,
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: ['marginBottom30', 'marginTop50'],
+                        modClass: ['marginBottom30', 'marginTop50',],
                         hasWideLabel: true,
                         elements: [
                             {
@@ -129,9 +129,9 @@ const state = {
                                 size: 'first',
                                 required: false,
                                 invalid: false,
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'top',
@@ -150,19 +150,19 @@ const state = {
                                 api_route: 'users',
                                 sortFlag: {
                                     value: 'full_name',
-                                    direction: 'asc'
+                                    direction: 'asc',
                                 },
                                 filter_results: {
                                     flag: 'is_staff',
-                                    value: 'true'
+                                    value: 'true',
                                 },
                                 view_structure: [
                                     {
                                         value: 'full_name',
-                                        flex: .85
-                                    }
+                                        flex: .85,
+                                    },
                                 ],
-                                hint: ''
+                                hint: '',
                             },
                             {
                                 type: 'shortTag',
@@ -176,17 +176,17 @@ const state = {
                                 api_route: 'user-roles',
                                 sortFlag: {
                                     value: 'name',
-                                    direction: 'asc'
+                                    direction: 'asc',
                                 },
                                 view_structure: [
                                     {
                                         value: 'name',
-                                        flex: .85
-                                    }
+                                        flex: .85,
+                                    },
                                 ],
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -205,17 +205,17 @@ const state = {
                                 api_route: 'recipients',
                                 sortFlag: {
                                     value: 'name',
-                                    direction: 'asc'
+                                    direction: 'asc',
                                 },
                                 view_structure: [
                                     {
                                         value: 'name',
-                                        flex: .85
-                                    }
+                                        flex: .85,
+                                    },
                                 ],
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -231,22 +231,22 @@ const state = {
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
+                                hint: '',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
     },
     activeFlag: {
         'notification-templates': {
             title: 'Активный шаблон',
-            hint: 'Неактивные шаблоны игнорируются и уведомления не отправляются'
-        }
-    }
+            hint: 'Неактивные шаблоны игнорируются и уведомления не отправляются',
+        },
+    },
 };
 
 export default {
-    state
+    state,
 };

@@ -10,7 +10,7 @@ const state = {
                 fixed: true,
                 codename: 'checkbox',
                 sort: 'none',
-                menu: true
+                menu: true,
             },
             {
                 name: '#',
@@ -22,8 +22,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'Название',
@@ -34,8 +34,8 @@ const state = {
                 codename: 'name',
                 isMain: true,
                 sort: {
-                    order_by: 'name'
-                }
+                    order_by: 'name',
+                },
             },
             {
                 name: 'Кодовое имя',
@@ -45,8 +45,8 @@ const state = {
                 width: 180,
                 codename: 'codename',
                 sort: {
-                    order_by: 'codename'
-                }
+                    order_by: 'codename',
+                },
             },
             {
                 name: 'Комментарий',
@@ -56,8 +56,8 @@ const state = {
                 width: 160,
                 codename: 'comment',
                 sort: {
-                    order_by: 'comment'
-                }
+                    order_by: 'comment',
+                },
             },
             {
                 name: 'Дата создания',
@@ -67,8 +67,8 @@ const state = {
                 width: 180,
                 codename: 'create_date',
                 sort: {
-                    order_by: 'create_date'
-                }
+                    order_by: 'create_date',
+                },
             },
             {
                 name: 'Дата изменения',
@@ -78,8 +78,8 @@ const state = {
                 width: 180,
                 codename: 'edit_date',
                 sort: {
-                    order_by: 'edit_date'
-                }
+                    order_by: 'edit_date',
+                },
             },
         ],
     },
@@ -88,7 +88,7 @@ const state = {
             addButton: true,
             activationButtons: true,
             deleteButton: true,
-        }
+        },
     },
     filterConfig: {
         'events': [
@@ -96,19 +96,19 @@ const state = {
                 filterTitle: 'Дата создания',
                 queryName: {
                     min: 'create_date__gte',
-                    max: 'create_date__lte'
+                    max: 'create_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Дата изменения',
                 queryName: {
                     min: 'edit_date__gte',
-                    max: 'edit_date__lte'
+                    max: 'edit_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Состояния',
@@ -118,28 +118,28 @@ const state = {
                 values: [
                     {
                         id: 2,
-                        name: 'Все события',
+                        name: 'Все типы уведомлений',
                         value: '',
-                        checked: true
+                        checked: true,
                     },
                     {
                         id: 1,
-                        name: 'Активные события',
+                        name: 'Активные типы уведомлений',
                         value: 'true',
-                        checked: false
+                        checked: false,
                     },
                     {
                         id: 0,
-                        name: 'Неактивные события',
+                        name: 'Неактивные типы уведомлений',
                         value: 'false',
-                        checked: false
+                        checked: false,
                     },
-                ]
+                ],
             },
         ],
     },
 };
 
 export default {
-    state
-}
+    state,
+};

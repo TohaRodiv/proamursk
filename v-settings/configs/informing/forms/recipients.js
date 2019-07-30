@@ -21,10 +21,9 @@ const state = {
                                 width: 12,
                                 codename: 'name',
                                 widget: 'simpleInput',
-
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -33,18 +32,6 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                controlFlag: [  /*Данный виджет способен управлять этими флагами*/
-                                    {
-                                        toBeChecked: 'codename',   /*На какое значение в массиве выбранных сущностей смотреть*/
-                                        value: 'email',            /*Каким должно быть значение*/
-                                        flag: 'isEmail'                /*Какой флаг тригеррит*/
-                                    },
-                                    {
-                                        toBeChecked: 'codename',
-                                        value: 'sms',
-                                        flag: 'isSms'
-                                    },
-                                ],
                                 label: 'Способ отправки',
                                 api_route: 'channels',
                                 required: true,
@@ -53,7 +40,7 @@ const state = {
                                 invalid: false,
                                 sortFlag: {
                                     value: 'name',
-                                    direction: 'asc'
+                                    direction: 'asc',
                                 },
                                 codename: 'channel',
                                 view_structure: [
@@ -62,33 +49,20 @@ const state = {
                                         flex: 1.5,
                                     },
                                 ],
-                                hint: ''
+                                hint: '',
+                                returnField: 'codename',
                             },
                             {
                                 type: 'field',
                                 label: 'Email',
-                                renderFlag: 'isEmail',
-                                nullRightMargin: true,
-                                required: true,
-                                invalid: false,
+                                required: false,
                                 width: 4,
                                 codename: 'email',
-                                modClass: 'width460',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
+                                show: false,
                             },
-                            {
-                                type: 'mask-phone',
-                                label: 'Телефон',
-                                renderFlag: 'isSms',
-                                required: true,
-                                invalid: false,
-                                width: 4,
-                                codename: 'phone',
-                                widget: 'simpleInput',
-                                hint: ''
-                            },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -99,16 +73,15 @@ const state = {
                                 type: 'field',
                                 label: 'Комментарий',
                                 required: false,
-                                invalid: false,
                                 height: 80,
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
         ],
     },
@@ -116,10 +89,10 @@ const state = {
         recipients: {
             title: 'Активный получатель',
             hint: 'Неактивным получателям не поступают уведомления',
-        }
+        },
     },
 };
 
 export default {
-    state
-}
+    state,
+};

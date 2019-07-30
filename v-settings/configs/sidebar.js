@@ -8,72 +8,72 @@ const state = {
                     view: 'news',
                     formsName: 'Новость #',
                     newFormName: 'Новая новость',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Анонсы событий',
                     view: 'event-announcements',
                     formsName: 'Анонс события #',
                     newFormName: 'Новый анонс события',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Репортажи о событиях',
                     view: 'reports',
                     formsName: 'Репортаж о событии #',
                     newFormName: 'Новый репортаж о событии',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Киноанонсы',
                     view: 'films',
                     formsName: 'Киноанонс #',
                     newFormName: 'Новый киноанонс',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Исторические статьи',
                     view: 'history',
                     formsName: 'Историческая статья #',
                     newFormName: 'Новая историческая статья',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Рубрики истор. статей',
                     view: 'history-rubrics',
                     formsName: 'Рубрика исторических статей #',
                     newFormName: 'Новая рубрика исторических статей',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Cтатьи о людях',
                     view: 'persons',
                     formsName: 'Cтатья о жителе Амурска #',
                     newFormName: 'Новая статья о жителе Амурска',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Статьи о местах',
                     view: 'places',
                     formsName: 'Статья о месте #',
                     newFormName: 'Новая статья о месте',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Гиды по городу',
                     view: 'city-guides',
                     formsName: 'Гид по городу #',
                     newFormName: 'Новый гид по городу',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Спецпроекты',
                     view: 'specials',
                     formsName: 'Спецпроект #',
                     newFormName: 'Новый спецпроект',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
-            ]
+            ],
         },
         {
             name: 'Сопутствующий контент',
@@ -83,7 +83,7 @@ const state = {
                     view: 'sliders',
                     formsName: 'Слайдер #',
                     newFormName: 'Новый слайдер',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Статические страницы',
@@ -91,8 +91,8 @@ const state = {
                     newFormName: 'Новая статическая страница',
                     view: 'static-pages',
                     hasAddButton: false,
-                }
-            ]
+                },
+            ],
         },
         {
             name: 'Реклама',
@@ -102,16 +102,16 @@ const state = {
                     view: 'wide-banners',
                     formsName: 'Баннер-растяжка #',
                     newFormName: 'Новый баннер-растяжка',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Баннеры в сайдбаре',
                     view: 'sidebar-banners',
                     formsName: 'Баннер в сайдбаре #',
                     newFormName: 'Новый баннер в сайдбаре',
-                    hasAddButton: true
-                }
-            ]
+                    hasAddButton: true,
+                },
+            ],
         },
         {
             name: 'Обратная связь',
@@ -119,21 +119,21 @@ const state = {
                 {
                     name: 'Обращения в редакцию',
                     view: 'feedbacks',
-                    hasAddButton: false
+                    hasAddButton: false,
                 },
                 {
                     name: 'Сообщения об ошибках',
                     view: 'text-errors',
-                    hasAddButton: false
+                    hasAddButton: false,
                 },
                 {
                     name: 'Отзывы о местах',
                     view: 'reviews',
                     formsName: 'Отзыв о месте #',
                     newFormName: 'Новый отзыв о месте',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
-            ]
+            ],
         },
         {
             name: 'Информирование',
@@ -143,23 +143,23 @@ const state = {
                     view: 'notification-templates',
                     formsName: 'Шаблон уведомлений #',
                     newFormName: 'Новый шаблон уведомлений',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Получатели уведомлений',
                     view: 'recipients',
                     formsName: 'Получатель уведомлений #',
                     newFormName: 'Новый получатель уведомлений',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
-                    name: 'События для уведомлений',
+                    name: 'Типы уведомлений',
                     view: 'events',
-                    formsName: 'Событие для уведомления #',
-                    newFormName: 'Новое событие для уведомления',
-                    hasAddButton: true
+                    formsName: 'Тип уведомлений #',
+                    newFormName: 'Новое тип уведомлений',
+                    hasAddButton: true,
                 },
-            ]
+            ],
         },
         {
             name: 'Email-рассылки',
@@ -169,16 +169,16 @@ const state = {
                     view: 'subscribers',
                     formsName: 'Подписчик #',
                     newFormName: 'Новый подписчик',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
-                    name: 'Шаблоны рассылок',
+                    name: 'Контент писем для рассылок',
                     view: 'campaigns',
-                    formsName: 'Шаблон рассылки #',
-                    newFormName: 'Новый шаблон рассылки',
-                    hasAddButton: true
+                    formsName: 'Контент письма для рассылки #',
+                    newFormName: 'Новый контент письма для рассылки рассылки',
+                    hasAddButton: true,
                 },
-            ]
+            ],
         },
         {
             name: 'Медиатека',
@@ -193,7 +193,7 @@ const state = {
                     view: 'files',
                     hasAddButton: false,
                 },
-            ]
+            ],
         },
         {
             name: 'Учетные записи',
@@ -203,16 +203,16 @@ const state = {
                     view: 'users',
                     formsName: 'Пользователь #',
                     newFormName: 'Новый пользователь',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
                 {
                     name: 'Роли',
                     view: 'user-roles',
                     formsName: 'Роль #',
                     newFormName: 'Новая роль',
-                    hasAddButton: true
+                    hasAddButton: true,
                 },
-            ]
+            ],
         },
         {
             name: 'Журнал операций',
@@ -222,7 +222,7 @@ const state = {
                     view: 'operation-log',
                     hasAddButton: false,
                 },
-            ]
+            ],
         },
         {
             name: 'Настройки',
@@ -239,9 +239,9 @@ const state = {
                     view: 'settings',
                     formsName: 'Общие настройки сайта',
                     hasAddButton: false,
-                    onlyForm: true
+                    onlyForm: true,
                 },
-            ]
+            ],
         },
     ],
 };
@@ -253,10 +253,10 @@ const getters = {
             let node = state.sidebarConfig[i];
             for (let j = 0; j < node['sub-headers'].length; j++) {
                 if (node['sub-headers'][j].view === payload.params.view)
-                    return node.name + ' / ' + node['sub-headers'][j].name
+                    return node.name + ' / ' + node['sub-headers'][j].name;
             }
         }
-        return 'Hеизвестный раздел'
+        return 'Hеизвестный раздел';
     },
 
     sidebarFormsInterfaceName: state => (payload) => {
@@ -271,7 +271,7 @@ const getters = {
                 }
             }
         }
-        return 'Неизвестный раздел'
+        return 'Неизвестный раздел';
     },
 };
 
@@ -279,4 +279,4 @@ const getters = {
 export default {
     state,
     getters,
-}
+};

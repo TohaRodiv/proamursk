@@ -19,9 +19,9 @@ const state = {
                                 width: 12,
                                 codename: 'title',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -37,9 +37,9 @@ const state = {
                                 codename: 'link',
                                 widget: 'simpleInput',
                                 hint: '',
-                                placeholder: 'http(s)://'
-                            }
-                        ]
+                                placeholder: 'http(s)://',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -47,26 +47,26 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'mask-datetime',
+                                format: 'datetime',
                                 label: 'Дата и время<br>начала публикации',
                                 required: false,
                                 invalid: false,
                                 width: 4,
                                 codename: 'start_publication_date',
-                                widget: 'simpleInput',
-                                hint: ''
+                                widget: 'inputDatetime',
+                                hint: '',
                             },
                             {
-                                type: 'mask-datetime',
+                                format: 'datetime',
                                 label: 'Дата и время<br>окончания публикации',
                                 required: false,
                                 invalid: false,
                                 width: 4,
                                 codename: 'end_publication_date',
-                                widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                widget: 'inputDatetime',
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -82,11 +82,11 @@ const state = {
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
-                ]
+                ],
             },
             {
                 id: 2,
@@ -114,11 +114,11 @@ const state = {
                                 modClass: 'marginBottom20',
                                 requireSendId: true,
                                 key_attr: 'id',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
         ],
     },
@@ -126,10 +126,10 @@ const state = {
         'wide-banners': {
             title: 'Активный баннер',
             hint: 'Неактивные баннеры не отображаются на сайте',
-        }
+        },
     },
 };
 
 export default {
-    state
-}
+    state,
+};
