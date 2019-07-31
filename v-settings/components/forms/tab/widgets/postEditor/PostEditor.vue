@@ -1,6 +1,8 @@
 <template>
     <div class="post-editor-wrapper">
-        <div class="post-editor-empty-wrapper" v-if="!content.length">
+        <div
+            class="post-editor-empty-wrapper"
+            v-if="!content.length">
             <div class="tab-left-label col4"/>
             <div
                 class="post-editor-empty-container"
@@ -8,11 +10,16 @@
                 @mouseenter="focusEmptyContainer = true"
                 @mouseleave="focusEmptyContainer = false"
             >
-                <img src="../../../../../src/images/post-editor-placeholder.svg" class="post-editor-empty-icon" alt="">
+                <img
+                    src="../../../../../src/images/post-editor-placeholder.svg"
+                    class="post-editor-empty-icon"
+                    alt="">
                 <div>
                     Пустая публикация. Чтобы добавить контент, создайте первую секцию
                 </div>
-                <button class="button post-editor-button" @click="addSectionPopup = true">
+                <button
+                    class="button post-editor-button"
+                    @click="addSectionPopup = true">
                     <div class="icon-plus post-editor-button-icon"/>
                     <div>
                         Добавить секцию
@@ -20,15 +27,24 @@
                 </button>
             </div>
         </div>
-        <div v-if="content.length" class="post-editor-outer-wrapper">
-            <div class="post-editor-add-section-wrapper" style="margin-left: 240px; margin-top: 0;">
-                <div class="post-editor-add-section" @click="addSectionPopup = 0">
+        <div
+            v-if="content.length"
+            class="post-editor-outer-wrapper">
+            <div
+                class="post-editor-add-section-wrapper"
+                style="margin-left: 240px; margin-top: 0;">
+                <div
+                    class="post-editor-add-section"
+                    @click="addSectionPopup = 0">
                     <div class="icon-plus"/>
                     <div>
                         Добавить секцию
                     </div>
                 </div>
-                <div class="post-editor-paste-section" v-if="sectionBuffer.length" @click="pasteSection(0)">
+                <div
+                    class="post-editor-paste-section"
+                    v-if="sectionBuffer.length"
+                    @click="pasteSection(0)">
                     <div class="icon-paste"/>
                     <div>
                         Вставить секцию
@@ -43,20 +59,29 @@
                 :id="section.dragId"
                 @mouseenter="sectionHovered = secDex"
                 @mouseleave="sectionHovered = ''">
-                <div class="post-editor-add-section-helper-top" v-if="secDex !== 0">
-                    <div style="margin-top: 32px;" v-if="section.marginTop && (sectionHovered !== secDex || sectionOnDrag)">
+                <div
+                    class="post-editor-add-section-helper-top"
+                    v-if="secDex !== 0">
+                    <div
+                        style="margin-top: 32px;"
+                        v-if="section.marginTop && (sectionHovered !== secDex || sectionOnDrag)">
                         {{section.marginTop + ' em'}}
                     </div>
                     <div
                         v-if="sectionHovered === secDex && !sectionOnDrag && !widgetOnDrag"
                         class="post-editor-add-section-wrapper">
-                        <div class="post-editor-add-section" @click="addSectionPopup = secDex">
+                        <div
+                            class="post-editor-add-section"
+                            @click="addSectionPopup = secDex">
                             <div class="icon-plus"/>
                             <div>
                                 Добавить секцию
                             </div>
                         </div>
-                        <div class="post-editor-paste-section" v-if="sectionBuffer.length" @click="pasteSection(secDex)">
+                        <div
+                            class="post-editor-paste-section"
+                            v-if="sectionBuffer.length"
+                            @click="pasteSection(secDex)">
                             <div class="icon-paste"/>
                             <div>
                                 Вставить секцию
@@ -68,11 +93,22 @@
                     <div>
                         {{numberToWord(section.columns.length)}} {{multiEnds(section.columns.length)}} / {{concatColumnNumbers(section)}}
                     </div>
-                    <div class="post-editor-block-info-buttons" v-if="sectionHovered === secDex && !sectionOnDrag && !widgetOnDrag">
-                        <button class="button blue-button-small icon-moving" @mousedown="startSectionDnd(secDex, $event)"/>
-                        <button v-if="sectionIsConfigurable" class="button blue-button-small icon-edit" @click="showChangeSectionPopup(secDex, section)"/>
-                        <button class="button blue-button-small icon-copy" @click="copySection(section)"/>
-                        <button class="button delete-button-round-small icon-close" @click="deleteSection(secDex)"/>
+                    <div
+                        class="post-editor-block-info-buttons"
+                        v-if="sectionHovered === secDex && !sectionOnDrag && !widgetOnDrag">
+                        <button
+                            class="button blue-button-small icon-moving"
+                            @mousedown="startSectionDnd(secDex, $event)"/>
+                        <button
+                            v-if="sectionIsConfigurable"
+                            class="button blue-button-small icon-edit"
+                            @click="showChangeSectionPopup(secDex, section)"/>
+                        <button
+                            class="button blue-button-small icon-copy"
+                            @click="copySection(section)"/>
+                        <button
+                            class="button delete-button-round-small icon-close"
+                            @click="deleteSection(secDex)"/>
                     </div>
                 </div>
                 <div class="post-editor-inned-block-wrapper">
@@ -82,7 +118,9 @@
                         :id="block.dragId ? block.dragId : ''"
                         :style="(`flex: ${block.width}`)">
                         <div :style="setSectionPadding(section, block) + (`box-shadow: ${isOnDrag(section) ? '0 2px 8px 0 rgba(35, 41, 46, 0.15)' : ''}`)">
-                            <div style="height: 15px; width: 100%;" v-if="!block.widgets || !block.widgets.length"/>
+                            <div
+                                style="height: 15px; width: 100%;"
+                                v-if="!block.widgets || !block.widgets.length"/>
                             <div
                                 class="post-editor-column-empty"
                                 v-if="!block.widgets || !block.widgets.length">
@@ -93,12 +131,16 @@
                                         @mouseleave="mouseOverButton = ''"
                                         @click="openCreateWidgetPopup(block, section)"
                                         style="margin-right: 0;"/>
-                                    <div class="hint-wrapper" v-if="mouseOverButton === `${secDex}_${blockDex}_add`">
+                                    <div
+                                        class="hint-wrapper"
+                                        v-if="mouseOverButton === `${secDex}_${blockDex}_add`">
                                         <div class="hint-inner-wrapper">
                                             <div class="arrow-wrapper">
                                                 <div class="hint-arrow"/>
                                             </div>
-                                            <div class="hint-message" style="padding: 6px 13px 9px 13px; color: #fff">
+                                            <div
+                                                class="hint-message"
+                                                style="padding: 6px 13px 9px 13px; color: #fff">
                                                 Добавить блок
                                             </div>
                                         </div>
@@ -111,12 +153,16 @@
                                         @mouseleave="mouseOverButton = ''"
                                         class="button edit-entity-round-button icon-paste post-editor-big-icon-paste"
                                         style="margin-right: 0;"/>
-                                    <div class="hint-wrapper" v-if="mouseOverButton === `${secDex}_${blockDex}_paste`">
+                                    <div
+                                        class="hint-wrapper"
+                                        v-if="mouseOverButton === `${secDex}_${blockDex}_paste`">
                                         <div class="hint-inner-wrapper">
                                             <div class="arrow-wrapper">
                                                 <div class="hint-arrow"/>
                                             </div>
-                                            <div class="hint-message" style="padding: 6px 13px 9px 13px; color: #fff">
+                                            <div
+                                                class="hint-message"
+                                                style="padding: 6px 13px 9px 13px; color: #fff">
                                                 Вставить блок
                                             </div>
                                         </div>
@@ -161,20 +207,29 @@
                         </div>
                     </div>
                 </div>
-                <div class="post-editor-add-section-helper-bottom" v-if="secDex !== content.length - 1">
-                    <div style="margin-top: 7px;" v-if="section.marginBottom && (sectionHovered !== secDex || sectionOnDrag)">
+                <div
+                    class="post-editor-add-section-helper-bottom"
+                    v-if="secDex !== content.length - 1">
+                    <div
+                        style="margin-top: 7px;"
+                        v-if="section.marginBottom && (sectionHovered !== secDex || sectionOnDrag)">
                         {{section.marginBottom + ' em'}}
                     </div>
                     <div
                         v-if="sectionHovered === secDex && !sectionOnDrag && !widgetOnDrag"
                         class="post-editor-add-section-wrapper">
-                        <div class="post-editor-add-section" @click="addSectionPopup = secDex + 1">
+                        <div
+                            class="post-editor-add-section"
+                            @click="addSectionPopup = secDex + 1">
                             <div class="icon-plus"/>
                             <div>
                                 Добавить секцию
                             </div>
                         </div>
-                        <div class="post-editor-paste-section" v-if="sectionBuffer.length" @click="pasteSection(secDex + 1)">
+                        <div
+                            class="post-editor-paste-section"
+                            v-if="sectionBuffer.length"
+                            @click="pasteSection(secDex + 1)">
                             <div class="icon-paste"/>
                             <div>
                                 Вставить секцию
@@ -183,14 +238,21 @@
                     </div>
                 </div>
             </div>
-            <div class="post-editor-add-section-wrapper" style="margin-left: 240px; margin-bottom: 0;">
-                <div class="post-editor-add-section" @click="addSectionPopup = content.length">
+            <div
+                class="post-editor-add-section-wrapper"
+                style="margin-left: 240px; margin-bottom: 0;">
+                <div
+                    class="post-editor-add-section"
+                    @click="addSectionPopup = content.length">
                     <div class="icon-plus"/>
                     <div>
                         Добавить секцию
                     </div>
                 </div>
-                <div class="post-editor-paste-section" v-if="sectionBuffer.length" @click="pasteSection(content.length)">
+                <div
+                    class="post-editor-paste-section"
+                    v-if="sectionBuffer.length"
+                    @click="pasteSection(content.length)">
                     <div class="icon-paste"/>
                     <div>
                         Вставить секцию
