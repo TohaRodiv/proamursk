@@ -10,7 +10,7 @@ const state = {
                 fixed: true,
                 codename: 'checkbox',
                 sort: 'none',
-                menu: true
+                menu: true,
             },
             {
                 name: '#',
@@ -22,8 +22,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'Заголовок',
@@ -34,8 +34,8 @@ const state = {
                 codename: 'title',
                 isMain: true,
                 sort: {
-                    order_by: 'title'
-                }
+                    order_by: 'title',
+                },
             },
             {
                 name: 'Формат слайдера',
@@ -44,7 +44,7 @@ const state = {
                 align_text: 'left',
                 width: 200,
                 codename: 'format_name',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Кол-во слайдов',
@@ -54,8 +54,8 @@ const state = {
                 width: 120,
                 codename: 'slides_count',
                 sort: {
-                    order_by: 'slides_count'
-                }
+                    order_by: 'slides_count',
+                },
             },
             {
                 name: 'Комментарий',
@@ -64,7 +64,7 @@ const state = {
                 align_text: 'center',
                 width: 160,
                 codename: 'comment',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Дата создания',
@@ -74,8 +74,8 @@ const state = {
                 width: 180,
                 codename: 'create_date',
                 sort: {
-                    order_by: 'create_date'
-                }
+                    order_by: 'create_date',
+                },
             },
             {
                 name: 'Дата изменения',
@@ -85,10 +85,10 @@ const state = {
                 width: 180,
                 codename: 'edit_date',
                 sort: {
-                    order_by: 'edit_date'
-                }
+                    order_by: 'edit_date',
+                },
             },
-        ]
+        ],
     },
 
     actionsConfig: {
@@ -96,7 +96,8 @@ const state = {
             addButton: true,
             activationButtons: false,
             deleteButton: true,
-        }
+            duplicateButton: true,
+        },
     },
 
     filterConfig: {
@@ -116,42 +117,42 @@ const state = {
                         codename: 'format_2x1',
                         name: 'Горизонтальный / 2:1',
                     },
-                ]
+                ],
             },
             {
                 filterTitle: 'Количество слайдов',
                 minMaxCodename: 'slides_count',
                 queryName: {
                     min: 'slides_count__lte',
-                    max: 'slides_count__gte'
+                    max: 'slides_count__gte',
                 },
                 input_type: 'toFromInteger',
-                type: 'int'
+                type: 'int',
             },
             {
                 filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',
                 queryName: {
                     min: 'create_date__gte',
-                    max: 'create_date__lte'
+                    max: 'create_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Дата изменения',
                 minMaxCodename: 'edit_date',
                 queryName: {
                     min: 'edit_date__gte',
-                    max: 'edit_date__lte'
+                    max: 'edit_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
-            }
-        ]
+                type: 'date_time',
+            },
+        ],
     },
 };
 
 export default {
-    state
-}
+    state,
+};

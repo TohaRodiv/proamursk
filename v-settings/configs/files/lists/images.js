@@ -10,7 +10,7 @@ const state = {
                 fixed: true,
                 codename: 'checkbox',
                 sort: 'none',
-                menu: true
+                menu: true,
             },
             {
                 name: '',
@@ -20,7 +20,7 @@ const state = {
                 width: 100,
                 fixed: true,
                 codename: 'min_crop_url',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: '#',
@@ -32,8 +32,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'Имя файла оригинала',
@@ -44,8 +44,8 @@ const state = {
                 codename: 'name',
                 isMain: true,
                 sort: {
-                    order_by: 'name'
-                }
+                    order_by: 'name',
+                },
             },
             {
                 name: 'Разрешение, px',
@@ -53,15 +53,15 @@ const state = {
                 codename: '',
                 path: {
                     width: 'width',
-                    height: 'height'
+                    height: 'height',
                 },
                 is_sortable: false,
                 fixed: true,
                 align_text: 'left',
                 width: 140,
                 sort: {
-                    order_by: 'width'
-                }
+                    order_by: 'width',
+                },
             },
             {
                 name: 'Размер оригинала',
@@ -72,8 +72,8 @@ const state = {
                 align_text: 'left',
                 width: 160,
                 sort: {
-                    order_by: 'file_size'
-                }
+                    order_by: 'file_size',
+                },
             },
             {
                 name: 'Размер миниатюр',
@@ -84,8 +84,8 @@ const state = {
                 align_text: 'left',
                 width: 160,
                 sort: {
-                    order_by: 'thumbnails_size'
-                }
+                    order_by: 'thumbnails_size',
+                },
             },
             {
                 name: 'Медиатег',
@@ -94,8 +94,8 @@ const state = {
                 align_text: 'left',
                 width: 340,
                 sort: {
-                    order_by: 'file_size'
-                }
+                    order_by: 'file_size',
+                },
             },
             {
                 name: 'Ссылка',
@@ -104,7 +104,7 @@ const state = {
                 align_text: 'left',
                 width: 420,
                 codename: 'original_url',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Дата загрузки',
@@ -114,17 +114,18 @@ const state = {
                 width: 180,
                 codename: 'create_date',
                 sort: {
-                    order_by: 'create_date'
-                }
+                    order_by: 'create_date',
+                },
             },
-        ]
+        ],
     },
     actionsConfig: {
         mediafiles: {
             addButton: false,
             activationButtons: false,
             deleteButton: true,
-        }
+            duplicateButton: false,
+        },
     },
     filterConfig: {
         mediafiles: [
@@ -135,16 +136,16 @@ const state = {
                 api_route: 'mediafiles-extensions',
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
-                callbackValue: 'id'
+                callbackValue: 'id',
             },
             {
                 filterTitle: 'Ширина, px',
                 minMaxCodename: 'width',
                 queryName: {
                     min: 'width__gte',
-                    max: 'width__lte'
+                    max: 'width__lte',
                 },
                 input_type: 'toFromInteger',
             },
@@ -153,7 +154,7 @@ const state = {
                 minMaxCodename: 'height',
                 queryName: {
                     min: 'height__gte',
-                    max: 'height__lte'
+                    max: 'height__lte',
                 },
                 input_type: 'toFromInteger',
             },
@@ -162,7 +163,7 @@ const state = {
                 minMaxCodename: 'file_size',
                 queryName: {
                     min: 'file_size__gte',
-                    max: 'file_size__lte'
+                    max: 'file_size__lte',
                 },
                 input_type: 'toFromInteger',
             },
@@ -174,28 +175,28 @@ const state = {
                 api_route: 'mediafiles-tags',
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
-                callbackValue: 'id'
+                callbackValue: 'id',
             },
             {
                 filterTitle: 'Дата загрузки',
                 queryName: {
                     min: 'create_date__gte',
-                    max: 'create_date__lte'
+                    max: 'create_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
-        ]
+        ],
     },
     additionalListInterfaces: {
         mediafiles: {
             hasGrid: true,
-        }
+        },
     },
 };
 
 export default {
-    state
-}
+    state,
+};

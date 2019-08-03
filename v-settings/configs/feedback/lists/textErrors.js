@@ -11,8 +11,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'URL страницы',
@@ -21,7 +21,7 @@ const state = {
                 width: 240,
                 codename: 'url',
                 customName: 'original_name',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Дата создания',
@@ -31,17 +31,18 @@ const state = {
                 width: 180,
                 codename: 'create_date',
                 sort: {
-                    order_by: 'create_date'
-                }
+                    order_by: 'create_date',
+                },
             },
-        ]
+        ],
     },
     actionsConfig: {
         'text-errors': {
             addButton: false,
             activationButtons: false,
             deleteButton: false,
-        }
+            duplicateButton: false,
+        },
     },
     filterConfig: {
         'text-errors': [
@@ -50,15 +51,15 @@ const state = {
                 minMaxCodename: 'create_date',
                 queryName: {
                     min: 'create_date__gte',
-                    max: 'create_date__lte'
+                    max: 'create_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
-        ]
+        ],
     },
 };
 
 export default {
     state,
-}
+};

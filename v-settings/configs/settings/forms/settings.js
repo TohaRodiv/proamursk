@@ -22,9 +22,9 @@ const state = {
                                 width: 12,
                                 codename: 'mailer_lite_api_key',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -39,9 +39,9 @@ const state = {
                                 codename: 'instagram',
                                 widget: 'simpleInput',
                                 hint: '',
-                                placeholder: 'http(s)://'
+                                placeholder: 'http(s)://',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -56,9 +56,9 @@ const state = {
                                 codename: 'odnoklassniki',
                                 widget: 'simpleInput',
                                 hint: '',
-                                placeholder: 'http(s)://'
+                                placeholder: 'http(s)://',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -74,11 +74,11 @@ const state = {
                                 width: 12,
                                 codename: 'copyright',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
-                    }
-                ]
+                        ],
+                    },
+                ],
             },
             {
                 id: 2,
@@ -99,9 +99,9 @@ const state = {
                                 width: 12,
                                 codename: 'yandex_count',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -117,9 +117,9 @@ const state = {
                                 width: 12,
                                 codename: 'google_count',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -135,11 +135,11 @@ const state = {
                                 width: 12,
                                 codename: 'meta_tags',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
             {
                 id: 3,
@@ -160,11 +160,11 @@ const state = {
                                 width: 12,
                                 codename: 'robots',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
             {
                 id: 4,
@@ -184,9 +184,9 @@ const state = {
                                 width: 12,
                                 codename: 'disable_title',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -200,9 +200,9 @@ const state = {
                                 widget: 'formatter',
                                 codename: 'disable_text',
                                 width: 12,
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -213,11 +213,11 @@ const state = {
                                 required: false,
                                 codename: 'disable_site',
                                 widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
-                ]
+                ],
             },
         ],
     },
@@ -226,10 +226,11 @@ const state = {
             addButton: false,
             activationButtons: false,
             deleteButton: false,
-        }
+            duplicateButton: false,
+        },
     },
 };
 
 export default {
-    state
-}
+    state,
+};

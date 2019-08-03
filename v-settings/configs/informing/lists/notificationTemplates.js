@@ -99,6 +99,7 @@ const state = {
             addButton: true,
             activationButtons: true,
             deleteButton: true,
+            duplicateButton: true,
         },
     },
     filterConfig: {

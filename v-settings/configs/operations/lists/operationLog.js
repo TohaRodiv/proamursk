@@ -11,8 +11,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'Дата операции',
@@ -23,8 +23,8 @@ const state = {
                 width: 180,
                 codename: 'action_time',
                 sort: {
-                    order_by: 'action_time'
-                }
+                    order_by: 'action_time',
+                },
             },
             {
                 name: 'Тип операции',
@@ -35,8 +35,8 @@ const state = {
                 width: 120,
                 codename: 'action_type_name',
                 sort: {
-                    order_by: 'action_type_name'
-                }
+                    order_by: 'action_type_name',
+                },
             },
             {
                 name: 'Пользователь',
@@ -46,8 +46,8 @@ const state = {
                 width: 190,
                 codename: 'user_full_name',
                 sort: {
-                    order_by: 'user_full_name'
-                }
+                    order_by: 'user_full_name',
+                },
             },
             {
                 name: 'Сущность',
@@ -58,8 +58,8 @@ const state = {
                 width: 300,
                 codename: 'content_type_name',
                 sort: {
-                    order_by: 'content_type_name'
-                }
+                    order_by: 'content_type_name',
+                },
             },
             {
                 name: 'ID записи',
@@ -69,8 +69,8 @@ const state = {
                 width: 70,
                 codename: 'object_id',
                 sort: {
-                    order_by: 'object_id'
-                }
+                    order_by: 'object_id',
+                },
             },
             {
                 name: 'Запись',
@@ -80,8 +80,8 @@ const state = {
                 width: 250,
                 codename: 'object_name',
                 sort: {
-                    order_by: 'object_name'
-                }
+                    order_by: 'object_name',
+                },
             },
         ],
     },
@@ -90,7 +90,8 @@ const state = {
             addButton: false,
             activationButtons: false,
             deleteButton: false,
-        }
+            duplicateButton: false,
+        },
     },
     filterConfig: {
         'operation-log': [
@@ -99,10 +100,10 @@ const state = {
                 minMaxCodename: 'action_time',
                 queryName: {
                     min: 'action_time__gte',
-                    max: 'action_time__lte'
+                    max: 'action_time__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Типы операций',
@@ -123,7 +124,7 @@ const state = {
                         codename: 'delete',
                         name: 'Удаление',
                     },
-                ]
+                ],
             },
             {
                 filterTitle: 'Пользователи',
@@ -135,12 +136,12 @@ const state = {
                 entity_structure: [
                     {
                         flex: 1,
-                        value: 'full_name'
+                        value: 'full_name',
                     },
                 ],
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
             },
             {
@@ -164,5 +165,5 @@ const state = {
 };
 
 export default {
-    state
-}
+    state,
+};

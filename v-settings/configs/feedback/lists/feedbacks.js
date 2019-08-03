@@ -11,8 +11,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'Тема обращения',
@@ -22,7 +22,7 @@ const state = {
                 width: 260,
                 codename: 'subject_name',
                 isMain: true,
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Отправитель',
@@ -32,8 +32,8 @@ const state = {
                 width: 240,
                 codename: 'name',
                 sort: {
-                    order_by: 'name'
-                }
+                    order_by: 'name',
+                },
             },
             {
                 name: 'Email',
@@ -43,8 +43,8 @@ const state = {
                 width: 240,
                 codename: 'email',
                 sort: {
-                    order_by: 'email'
-                }
+                    order_by: 'email',
+                },
             },
             {
                 name: 'Телефон',
@@ -54,8 +54,8 @@ const state = {
                 width: 140,
                 codename: 'phone',
                 sort: {
-                    order_by: 'phone'
-                }
+                    order_by: 'phone',
+                },
             },
             {
                 name: 'Прикреплённые файлы',
@@ -64,7 +64,7 @@ const state = {
                 align_text: 'center',
                 width: 200,
                 codename: 'attachments',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Дата создания',
@@ -74,17 +74,18 @@ const state = {
                 width: 180,
                 codename: 'create_date',
                 sort: {
-                    order_by: 'create_date'
-                }
+                    order_by: 'create_date',
+                },
             },
-        ]
+        ],
     },
     actionsConfig: {
         'feedbacks': {
             addButton: false,
             activationButtons: false,
             deleteButton: false,
-        }
+            duplicateButton: false,
+        },
     },
     filterConfig: {
         'feedbacks': [
@@ -98,49 +99,49 @@ const state = {
                 values: [
                     {
                         id: 'news',
-                        name: 'Поделиться хорошей новостью'
+                        name: 'Поделиться хорошей новостью',
                     },
                     {
                         id: 'event',
-                        name: 'Рассказать о событии'
+                        name: 'Рассказать о событии',
                     },
                     {
                         id: 'history',
-                        name: 'Поведать историю'
+                        name: 'Поведать историю',
                     },
                     {
                         id: 'person',
-                        name: 'Рассказать о герое'
+                        name: 'Рассказать о герое',
                     },
                     {
                         id: 'place',
-                        name: 'Оставить отзыв о месте'
+                        name: 'Оставить отзыв о месте',
                     },
                     {
                         id: 'error',
-                        name: 'Рассказать об ошибке'
+                        name: 'Рассказать об ошибке',
                     },
                 ],
                 entity_structure: [
                     {
-                        value: 'name'
-                    }
-                ]
+                        value: 'name',
+                    },
+                ],
             },
             {
                 filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',
                 queryName: {
                     min: 'create_date__gte',
-                    max: 'create_date__lte'
+                    max: 'create_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
-        ]
+        ],
     },
 };
 
 export default {
     state,
-}
+};
