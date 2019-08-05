@@ -67,7 +67,8 @@ class UserFile(models.Model):
         return os.path.isfile(path)
 
     def get_ext(self):
-        file_name, file_ext = os.path.basename(self.file.name).split('.')
+        file_parts = os.path.basename(self.file.name).split('.')
+        file_ext = file_parts[-1]
         return file_ext.lower()
 
     def get_file_size(self):
