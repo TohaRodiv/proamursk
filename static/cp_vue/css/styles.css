@@ -1316,7 +1316,6 @@
   align-items: center;
   flex-wrap: wrap;
   border-top: 1px solid rgba(219, 225, 228, 0.5);
-  border-bottom: 1px solid rgba(219, 225, 228, 0.5);
   padding: 7px 0 12px 25px; }
 
 .previewer-tags-item {
@@ -1332,7 +1331,8 @@
   border: 1px solid #D0D8DC; }
 
 .previewer-menu-list {
-  padding: 20px 0 20px 25px; }
+  padding: 20px 0 20px 25px;
+  border-top: 1px solid rgba(219, 225, 228, 0.5); }
 
 .previewer-menu-inner-header {
   margin-bottom: 5px;
