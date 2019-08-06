@@ -165,8 +165,9 @@
                                         v-for="(tab, index) in config"
                                         :key="tab.id"
                                         :options="tab"
-                                        :tabIndex="index"
+                                        :tabIndex="Number(index)"
                                         :reopenTrigger="reopenTrigger"
+                                        :form-data="data"
                                         v-show="(formsCurrentMode !== 'moving') ? tab.id === currentTabId : ((newMode) ? tab.id === 1 : true)"
                                         @clearError="clearError"
                                     />
@@ -181,7 +182,7 @@
                     </div>
                     <form-sidebar
                         v-if="computedShowFormSidebar"
-                        :item="compUnionData"
+                        :item="rawData"
                         :actions="actions"
                         :activate-action="activateAction"
                         @initAction="actionHandler"

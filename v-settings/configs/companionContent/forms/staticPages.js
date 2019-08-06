@@ -97,25 +97,13 @@ const state = {
                                                 direction: 'row',
                                                 elements: [
                                                     {
-                                                        type: 'field',
+                                                        codename: 'entity',
+                                                        widget: 'newSingleSelector',
                                                         label: 'Тип материала',
                                                         width: 6,
-                                                        widget: 'singleSelector',
-                                                        codename: 'entity',
                                                         required: true,
-                                                        sortFlag: {
-                                                            value: 'id',
-                                                            direction: 'asc',
-                                                        },
-                                                        view_structure: [
-                                                            {
-                                                                value: 'name',
-                                                                flex: 1.5,
-                                                            },
-                                                        ],
-                                                        hint: '',
-                                                        available_values: valuesForIndex,
-                                                        returnFromAvailableValues: 'id',
+                                                        template: 'name',
+                                                        options: valuesForIndex,
                                                     },
                                                 ],
                                             },
@@ -125,27 +113,21 @@ const state = {
                                                 direction: 'row',
                                                 elements: [
                                                     {
-                                                        type: 'field',
+                                                        codename: 'item',
+                                                        widget: 'newSingleSelector',
                                                         label: 'Анонс события',
                                                         width: 12,
                                                         required: true,
-                                                        isBlocked: false,
-                                                        widget: 'singleSelector',
-                                                        callbackType: 'idArray',
-                                                        sortFlag: {
-                                                            value: 'id',
-                                                            direction: 'desc',
-                                                        },
-                                                        view_structure: [
+                                                        template: 'name',
+                                                        api: 'event-announcements',
+                                                        queries: [
                                                             {
-                                                                value: 'title',
-                                                                flex: 1.5,
+                                                                flag: 'order_by',
+                                                                value(item) {
+                                                                    return '-' + item.id;
+                                                                },
                                                             },
                                                         ],
-                                                        hint: '',
-                                                        api_route: 'event-announcements',
-                                                        codename: 'item',
-                                                        returnFull: true,
                                                     },
                                                 ],
                                             },

@@ -49,7 +49,7 @@
                 class="tab-item"
                 v-if="element.show !== false"
                 v-show="(element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true"
-                :class="[(block.modClass && ( (block.nullRender) ? (data[block.nullRender] && data[block.nullRender].length !== 0) : true ) ) ? block.modClass : element.modClass , findMyWidth(element, block)]"
+                :class="[(block.modClass && ( (block.nullRender) ? (formData[block.nullRender] && formData[block.nullRender].length !== 0) : true ) ) ? block.modClass : element.modClass , findMyWidth(element, block)]"
                 :style="(block.uniqWidget) ? {width: '100%'} : ((element.nullRightMargin) ? {marginRight: 0, width: '460px'} : '')"
                 v-for="(element) in block.elements"
                 :key="(typeof element.codename !== 'object') ? element.codename : Math.random()"
@@ -61,14 +61,14 @@
                 <recursiveNode
                     v-if="element.type === 'recursion'"
                     @recursiveCallback="recursiveCallbackStore"
-                    :data="data"
+                    :data="formData"
                     :node="element"
                 />
                 <!--Длинное условие v-if ниже нужно для того чтобы рендерить по имени виджета, и наличие (если необходимо) определённого флага во vuex-->
                 <simpleInput
                     v-if="element.widget === 'simpleInput'"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :isBlocked="isBlocked(element)"
                     :options="element"
                     @clearError="clearError"
@@ -76,7 +76,7 @@
 
                 <wideHint
                     v-if="element.widget === 'wideHint'"
-                    :passedData="(element.codename) ? data[element.codename] : ''"
+                    :passedData="(element.codename) ? formData[element.codename] : ''"
                     :options="element"
                 />
 
@@ -84,7 +84,7 @@
                     v-if="element.widget === 'textarea'"
                     :labelPosition="block.labelPosition"
                     :isBlocked="isBlocked(element)"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
@@ -93,7 +93,7 @@
                     v-if="element.widget === 'singleSelector'"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
@@ -102,7 +102,7 @@
                     v-if="element.widget === 'multipleSelector' && !(element.cancelRenderIFSuperuser && getFormsImmutableData.is_superuser)"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
@@ -111,7 +111,7 @@
                     v-if="element.widget === 'singleCheckbox'"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
@@ -120,7 +120,7 @@
                     v-if="element.widget === 'radioButtons'"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :direction="block.direction"
                     :options="element"
                 />
@@ -129,26 +129,26 @@
                     v-if="element.widget === 'radioTabs'"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :direction="block.direction"
                     :options="element"
                 />
 
                 <simpleChildEntity
-                    v-show="((element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true) && ( (block.nullRender) ? (data[block.nullRender] && data[block.nullRender].length !== 0) : true )"
+                    v-show="((element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true) && ( (block.nullRender) ? (formData[block.nullRender] && formData[block.nullRender].length !== 0) : true )"
                     v-if="element.widget === 'simpleChildEntity'"
                     :isBlocked="isBlocked(element)"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
 
                 <childEntity
-                    v-show="((element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true ) && ( (block.nullRender) ? (data[block.nullRender] && data[block.nullRender].length !== 0) : true )"
+                    v-show="((element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true ) && ( (block.nullRender) ? (formData[block.nullRender] && formData[block.nullRender].length !== 0) : true )"
                     v-if="element.widget === 'childEntity'"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
@@ -157,7 +157,7 @@
                     v-if="element.widget === 'singleImageLoader'"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
@@ -166,7 +166,7 @@
                     v-if="element.widget === 'singleFileLoader'"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
@@ -175,7 +175,7 @@
                     v-if="element.widget === 'multipleImageLoader'"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :dndOrder="data[element.dndFlag]"
                     :options="element"
                     @clearError="clearError"
@@ -185,7 +185,7 @@
                     v-if="element.widget === 'multipleFileLoader'"
                     :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :dndOrder="data[element.dndFlag]"
                     :options="element"
                     @clearError="clearError"
@@ -201,7 +201,7 @@
 
                 <blockedInput
                     v-if="element.widget === 'blockedInput'"
-                    :passedData="data[element.passedCodename]"
+                    :passedData="formData[element.passedCodename]"
                     :labelPosition="block.labelPosition"
                     :options="element"
                 />
@@ -214,7 +214,7 @@
                 <geoinput
                     v-if="element.widget === 'geoinput'"
                     :isBlocked="isBlocked(element)"
-                    :passedCoord="data[element.codename]"
+                    :passedCoord="formData[element.codename]"
                     :labelPosition="block.labelPosition"
                     :options="element"
                     @clearError="clearError"
@@ -223,7 +223,7 @@
                 <formatter
                     v-if="element.widget === 'formatter'"
                     :isBlocked="isBlocked(element)"
-                    :text="data[element.codename]"
+                    :text="formData[element.codename]"
                     :labelPosition="block.labelPosition"
                     :options="element"
                     @clearError="clearError"
@@ -232,14 +232,14 @@
                 <rightsWidget
                     v-if="element.widget === 'rightsWidget'"
                     :isBlocked="isBlocked(element)"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                 />
 
                 <postEditor
                     v-if="element.widget === 'postEditor'"
                     :isBlocked="isBlocked(element)"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
@@ -248,14 +248,14 @@
                     v-if="element.widget === 'textareaPreviewLetter'"
                     :labelPosition="block.labelPosition"
                     :isBlocked="isBlocked(element)"
-                    :passedData="data[element.codename]"
+                    :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
                 />
 
                 <input-datetime
                     v-if="element.widget === 'inputDatetime'"
-                    :passed-data="data[element.codename]"
+                    :passed-data="formData[element.codename]"
                     :options="element"
                     :label-position="block.labelPosition"
                     :blocked="isBlocked(element)"
