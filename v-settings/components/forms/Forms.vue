@@ -170,6 +170,7 @@
                                         :form-data="data"
                                         v-show="(formsCurrentMode !== 'moving') ? tab.id === currentTabId : ((newMode) ? tab.id === 1 : true)"
                                         @clearError="clearError"
+                                        @change="setNewValues"
                                     />
                                 </div>
                             </div>

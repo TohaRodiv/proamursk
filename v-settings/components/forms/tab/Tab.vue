@@ -72,6 +72,7 @@
                     :isBlocked="isBlocked(element)"
                     :options="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <wideHint
