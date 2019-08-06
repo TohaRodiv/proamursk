@@ -1,3 +1,5 @@
+import seo from "../../../../cp_vue/frontend/vue/store/seoConfig";
+
 const state = {
     formsOptions: {
         news: [
@@ -189,89 +191,7 @@ const state = {
                     },
                 ],
             },
-            {
-                id: 4,
-                title: 'SEO и OG',
-                invalid: false,
-                blocks: [
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginBottom20',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Заголовок страницы (title / og:title)',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                codename: 'meta_title',
-                                widget: 'simpleInput',
-                                hint: '',
-                            },
-                        ],
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        modClass: 'marginBottom20',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Описание страницы<br>(description / og:description)',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                codename: 'meta_description',
-                                widget: 'textarea',
-                                hint: '',
-                            },
-                        ],
-                    },
-                    {
-                        labelPosition: 'left',
-                        modClass: 'marginBottom20',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                label: 'Ключевые слова, через запятую (keywords)',
-                                required: false,
-                                invalid: false,
-                                width: 12,
-                                codename: 'meta_keywords',
-                                widget: 'textarea',
-                                hint: '',
-                            },
-                        ],
-                    },
-                    {
-                        labelPosition: 'left',
-                        direction: 'row',
-                        elements: [
-                            {
-                                type: 'field',
-                                inputID: 'newsCoverInputOG',
-                                dragID: 'newsCoverDragOG',
-                                label: 'Обложка для социальных сетей (og:image)',
-                                expected_value: 'medium_url',
-                                required: false,
-                                width: 12,
-                                image: {
-                                    width: 1200,
-                                    height: 630,
-                                },
-
-                                codename: 'og_image',
-                                widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: '',
-                            },
-                        ],
-                    },
-                ],
-            },
+            seo,
         ],
     },
     activeFlag: {
