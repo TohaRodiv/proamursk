@@ -49,7 +49,7 @@ const state = {
                 },
             },
             {
-                name: 'Тип уведомления',
+                name: 'Тип уведомлений',
                 type: 'text',
                 is_sortable: true,
                 align_text: 'left',
