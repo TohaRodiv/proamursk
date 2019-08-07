@@ -248,39 +248,40 @@ const state = {
                                                     },
                                                 ],
                                             },
-                                            {
-                                                labelPosition: 'left',
-                                                direction: 'row',
-                                                modClass: 'marginBottom20',
-                                                show: false,
-                                                elements: [
-                                                    {
-                                                        type: 'shortTag',
-                                                        label: 'Способы отправки',
-                                                        required: false,
-                                                        width: 8,
-                                                        widget: 'multipleSelector',
-                                                        codename: 'channel',
-                                                        // callbackType: 'idArray',
-                                                        sortFlag: {
-                                                            value: 'id',
-                                                            direction: 'asc',
-                                                        },
-                                                        view_structure: [
-                                                            {
-                                                                value: 'name',
-                                                                flex: 1.5,
-                                                            },
-                                                        ],
-                                                        api_route: 'channels',
-                                                        hint: '',
-                                                        expected_value: 'channel',
-                                                        key_attr: 'channel',
-                                                        returnWhole: true,
-                                                        onlyFull: true,
-                                                    },
-                                                ],
-                                            },
+                                            // {
+                                            //     labelPosition: 'left',
+                                            //     direction: 'row',
+                                            //     modClass: 'marginBottom20',
+                                            //     show: false,
+                                            //     elements: [
+                                            //         {
+                                            //             type: 'shortTag',
+                                            //             label: 'Способы отправки',
+                                            //             required: false,
+                                            //             width: 8,
+                                            //             widget: 'multipleSelector',
+                                            //             codename: 'channels',
+                                            //             // callbackType: 'idArray',
+                                            //             sortFlag: {
+                                            //                 value: 'id',
+                                            //                 direction: 'asc',
+                                            //             },
+                                            //             view_structure: [
+                                            //                 {
+                                            //                     value: 'name',
+                                            //                     flex: 1.5,
+                                            //                 },
+                                            //             ],
+                                            //             api_route: 'channels',
+                                            //             hint: '',
+                                            //             expected_value: 'channels',
+                                            //             key_attr: 'channels',
+                                            //             returnWhole: true,
+                                            //             onlyFull: true,
+                                            //             returnFull: true,
+                                            //         },
+                                            //     ],
+                                            // },
                                         ],
                                     },
                                 ],
@@ -331,18 +332,18 @@ const state = {
                                 component.$set(contentTypeConfig.elements[0], 'required', false);
                             }
                         },
-                        ways_to_send(from, widget, data, component) {
-                            const constructionType = data[from];
-                            const channelConfig = widget.popup_structure[0].blocks[4];
+                        // channels(from, widget, data, component) {
+                        //     const constructionType = data[from];
+                        //     const channelConfig = widget.popup_structure[0].blocks[4];
 
-                            if (constructionType == 'tag') {
-                                component.$set(channelConfig, 'show', true);
-                                component.$set(channelConfig.elements[0], 'required', true);
-                            } else {
-                                component.$set(channelConfig, 'show', false);
-                                component.$set(channelConfig.elements[0], 'required', false);
-                            }
-                        },
+                        //     if (constructionType == 'tag') {
+                        //         component.$set(channelConfig, 'show', true);
+                        //         component.$set(channelConfig.elements[0], 'required', true);
+                        //     } else {
+                        //         component.$set(channelConfig, 'show', false);
+                        //         component.$set(channelConfig.elements[0], 'required', false);
+                        //     }
+                        // },
                     },
                 },
             },
