@@ -10,7 +10,7 @@ const state = {
                 fixed: true,
                 codename: 'checkbox',
                 sort: 'none',
-                menu: true
+                menu: true,
             },
             {
                 name: '',
@@ -20,7 +20,7 @@ const state = {
                 width: 100,
                 fixed: true,
                 codename: 'cover.min_crop_url',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: '#',
@@ -32,8 +32,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'Заголовок',
@@ -44,8 +44,8 @@ const state = {
                 codename: 'title',
                 isMain: true,
                 sort: {
-                    order_by: 'title'
-                }
+                    order_by: 'title',
+                },
             },
             {
                 name: 'Рубрика',
@@ -54,7 +54,7 @@ const state = {
                 align_text: 'left',
                 width: 240,
                 codename: 'rubric',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Формат обложки',
@@ -63,7 +63,7 @@ const state = {
                 align_text: 'left',
                 width: 200,
                 codename: 'cover_format_name',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Ссылка',
@@ -72,7 +72,7 @@ const state = {
                 align_text: 'left',
                 width: 120,
                 codename: 'site_url',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Комментарий',
@@ -81,7 +81,7 @@ const state = {
                 align_text: 'center',
                 width: 160,
                 codename: 'comment',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Дата публикации',
@@ -91,8 +91,8 @@ const state = {
                 width: 180,
                 codename: 'publication_date',
                 sort: {
-                    order_by: 'publication_date'
-                }
+                    order_by: 'publication_date',
+                },
             },
             {
                 name: 'Дата создания',
@@ -102,8 +102,8 @@ const state = {
                 width: 180,
                 codename: 'create_date',
                 sort: {
-                    order_by: 'create_date'
-                }
+                    order_by: 'create_date',
+                },
             },
             {
                 name: 'Дата изменения',
@@ -113,17 +113,18 @@ const state = {
                 width: 180,
                 codename: 'edit_date',
                 sort: {
-                    order_by: 'edit_date'
-                }
+                    order_by: 'edit_date',
+                },
             },
-        ]
+        ],
     },
     actionsConfig: {
         'history': {
             addButton: true,
             activationButtons: true,
             deleteButton: true,
-        }
+            duplicateButton: true,
+        },
     },
     filterConfig: {
         'history': [
@@ -135,13 +136,13 @@ const state = {
                 callbackValue: 'id',
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
                 entity_structure: [
                     {
-                        value: 'name'
-                    }
-                ]
+                        value: 'name',
+                    },
+                ],
             },
             {
                 filterTitle: 'Форматы обложек',
@@ -158,37 +159,37 @@ const state = {
                         codename: 'full',
                         name: 'Полноразмерная обложка',
                     },
-                ]
+                ],
             },
             {
                 filterTitle: 'Дата публикации',
                 minMaxCodename: 'publication_date',
                 queryName: {
                     min: 'publication_date__gte',
-                    max: 'publication_date__lte'
+                    max: 'publication_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',
                 queryName: {
                     min: 'create_date__gte',
-                    max: 'create_date__lte'
+                    max: 'create_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Дата изменения',
                 minMaxCodename: 'edit_date',
                 queryName: {
                     min: 'edit_date__gte',
-                    max: 'edit_date__lte'
+                    max: 'edit_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Состояние',
@@ -200,26 +201,26 @@ const state = {
                         id: 2,
                         name: 'Все статьи',
                         value: '',
-                        checked: true
+                        checked: true,
                     },
                     {
                         id: 1,
                         name: 'Активные статьи',
                         value: 'true',
-                        checked: false
+                        checked: false,
                     },
                     {
                         id: 0,
                         name: 'Неактивные статьи',
                         value: 'false',
-                        checked: false
-                    }
-                ]
-            }
-        ]
+                        checked: false,
+                    },
+                ],
+            },
+        ],
     },
 };
 
 export default {
-    state
-}
+    state,
+};

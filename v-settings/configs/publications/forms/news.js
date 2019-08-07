@@ -172,7 +172,7 @@ const state = {
                                 inputID: 'newsCoverInput',
                                 dragID: 'newsCoverDrag',
                                 label: 'Обложка',
-                                expected_value: 'medium_url',
+                                expected_value: 'original_url',
                                 required: true,
                                 invalid: false,
                                 width: 12,

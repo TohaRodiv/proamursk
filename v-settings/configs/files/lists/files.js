@@ -10,7 +10,7 @@ const state = {
                 fixed: true,
                 codename: 'checkbox',
                 sort: 'none',
-                menu: true
+                menu: true,
             },
             {
                 name: '',
@@ -20,7 +20,7 @@ const state = {
                 width: 100,
                 fixed: true,
                 codename: 'extension',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: '#',
@@ -32,8 +32,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'Имя файла',
@@ -44,8 +44,8 @@ const state = {
                 codename: 'name',
                 isMain: true,
                 sort: {
-                    order_by: 'name'
-                }
+                    order_by: 'name',
+                },
             },
             {
                 name: 'Размер',
@@ -56,8 +56,8 @@ const state = {
                 align_text: 'left',
                 width: 100,
                 sort: {
-                    order_by: 'file_size'
-                }
+                    order_by: 'file_size',
+                },
             },
             {
                 name: 'Медиатег',
@@ -67,8 +67,8 @@ const state = {
                 align_text: 'left',
                 width: 340,
                 sort: {
-                    order_by: 'tags'
-                }
+                    order_by: 'tags',
+                },
             },
             {
                 name: 'Ссылка',
@@ -77,7 +77,7 @@ const state = {
                 align_text: 'left',
                 width: 420,
                 codename: 'url',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Дата загрузки',
@@ -87,17 +87,18 @@ const state = {
                 width: 180,
                 codename: 'create_date',
                 sort: {
-                    order_by: 'create_date'
-                }
+                    order_by: 'create_date',
+                },
             },
-        ]
+        ],
     },
     actionsConfig: {
         files: {
             addButton: false,
             activationButtons: false,
             deleteButton: true,
-        }
+            duplicateButton: false,
+        },
     },
     filterConfig: {
         files: [
@@ -109,16 +110,16 @@ const state = {
                 api_route: 'files-extensions',
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
-                callbackValue: 'id'
+                callbackValue: 'id',
             },
             {
                 filterTitle: 'Размер, КБ',
                 minMaxCodename: 'file_size',
                 queryName: {
                     min: 'file_size__gte',
-                    max: 'file_size__lte'
+                    max: 'file_size__lte',
                 },
                 input_type: 'toFromInteger',
             },
@@ -130,23 +131,23 @@ const state = {
                 api_route: 'files-tags',
                 sortFlag: {
                     value: 'name',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
-                callbackValue: 'id'
+                callbackValue: 'id',
             },
             {
                 filterTitle: 'Дата загрузки',
                 queryName: {
                     min: 'create_date__gte',
-                    max: 'create_date__lte'
+                    max: 'create_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
-        ]
+        ],
     },
 };
 
 export default {
-    state
-}
+    state,
+};

@@ -10,7 +10,7 @@ const state = {
                 fixed: true,
                 codename: 'checkbox',
                 sort: 'none',
-                menu: true
+                menu: true,
             },
             {
                 name: '#',
@@ -22,8 +22,8 @@ const state = {
                 codename: 'id',
                 sort: {
                     direction: 'DESC',
-                    order_by: 'id'
-                }
+                    order_by: 'id',
+                },
             },
             {
                 name: 'Место',
@@ -34,8 +34,8 @@ const state = {
                 codename: 'title',
                 isMain: true,
                 sort: {
-                    order_by: 'title'
-                }
+                    order_by: 'title',
+                },
             },
             {
                 name: 'Отправитель',
@@ -45,8 +45,8 @@ const state = {
                 width: 200,
                 codename: 'name',
                 sort: {
-                    order_by: 'name'
-                }
+                    order_by: 'name',
+                },
             },
             {
                 name: 'Email',
@@ -56,8 +56,8 @@ const state = {
                 width: 250,
                 codename: 'email',
                 sort: {
-                    order_by: 'email'
-                }
+                    order_by: 'email',
+                },
             },
             {
                 name: 'Телефон',
@@ -67,8 +67,8 @@ const state = {
                 width: 140,
                 codename: 'phone',
                 sort: {
-                    order_by: 'phone'
-                }
+                    order_by: 'phone',
+                },
             },
             {
                 name: 'Комментарий',
@@ -77,7 +77,7 @@ const state = {
                 align_text: 'center',
                 width: 160,
                 codename: 'comment',
-                sort: 'none'
+                sort: 'none',
             },
             {
                 name: 'Дата создания',
@@ -87,8 +87,8 @@ const state = {
                 width: 180,
                 codename: 'create_date',
                 sort: {
-                    order_by: 'create_date'
-                }
+                    order_by: 'create_date',
+                },
             },
             {
                 name: 'Дата изменения',
@@ -98,17 +98,18 @@ const state = {
                 width: 180,
                 codename: 'edit_date',
                 sort: {
-                    order_by: 'edit_date'
-                }
+                    order_by: 'edit_date',
+                },
             },
-        ]
+        ],
     },
     actionsConfig: {
         'reviews': {
             addButton: true,
             activationButtons: true,
             deleteButton: true,
-        }
+            duplicateButton: true,
+        },
     },
     filterConfig: {
         'reviews': [
@@ -121,7 +122,7 @@ const state = {
                 callbackValue: 'id',
                 sortFlag: {
                     value: 'title',
-                    direction: 'asc'
+                    direction: 'asc',
                 },
             },
             {
@@ -129,20 +130,20 @@ const state = {
                 minMaxCodename: 'create_date',
                 queryName: {
                     min: 'create_date__gte',
-                    max: 'create_date__lte'
+                    max: 'create_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Дата изменения',
                 minMaxCodename: 'edit_date',
                 queryName: {
                     min: 'edit_date__gte',
-                    max: 'edit_date__lte'
+                    max: 'edit_date__lte',
                 },
                 input_type: 'toFromDate',
-                type: 'date_time'
+                type: 'date_time',
             },
             {
                 filterTitle: 'Состояния',
@@ -154,26 +155,26 @@ const state = {
                         id: 2,
                         name: 'Все отзывы',
                         value: '',
-                        checked: true
+                        checked: true,
                     },
                     {
                         id: 1,
                         name: 'Активные отзывы',
                         value: 'true',
-                        checked: false
+                        checked: false,
                     },
                     {
                         id: 0,
                         name: 'Неактивные отзывы',
                         value: 'false',
-                        checked: false
-                    }
-                ]
-            }
-        ]
+                        checked: false,
+                    },
+                ],
+            },
+        ],
     },
 };
 
 export default {
     state,
-}
+};

@@ -1316,7 +1316,6 @@
   align-items: center;
   flex-wrap: wrap;
   border-top: 1px solid rgba(219, 225, 228, 0.5);
-  border-bottom: 1px solid rgba(219, 225, 228, 0.5);
   padding: 7px 0 12px 25px; }
 
 .previewer-tags-item {
@@ -1332,7 +1331,8 @@
   border: 1px solid #D0D8DC; }
 
 .previewer-menu-list {
-  padding: 20px 0 20px 25px; }
+  padding: 20px 0 20px 25px;
+  border-top: 1px solid rgba(219, 225, 228, 0.5); }
 
 .previewer-menu-inner-header {
   margin-bottom: 5px;
@@ -2775,8 +2775,9 @@ input:placeholder-shown {
   font-size: 16px;
   color: #FF3455;
   font-weight: 600;
-  padding: 5px 20px;
-  transition: color linear .2s; }
+  padding: 0 15px;
+  transition: color linear .2s;
+  height: 22px; }
   .forms-cancel-button:disabled {
     opacity: .5; }
   .forms-cancel-button:hover {
@@ -2829,8 +2830,8 @@ input:placeholder-shown {
   font-size: 16px;
   color: #2686ed;
   font-weight: 600;
-  padding: 5px 20px;
-  margin-right: 10px; }
+  padding: 0 15px;
+  height: 22px; }
   .forms-save-and-add-button:hover {
     color: #1661B2; }
   .forms-save-and-add-button:disabled {
@@ -5196,7 +5197,9 @@ a.additional-button-2 {
   height: 56px; }
 
 .forms-buttons-container-inner {
-  margin-left: auto; }
+  margin-left: auto;
+  display: flex;
+  align-items: center; }
 
 .forms-tabs-container {
   display: flex;
@@ -5258,6 +5261,12 @@ a.additional-button-2 {
   bottom: -1px;
   width: 100%;
   border-bottom: 1px solid #2686ed; }
+
+.form-footer__minor-buttons-wrap .button:not(:last-child) {
+  border-right: 1px solid #EDF5FA; }
+
+.form-footer__major-buttons-wrap {
+  padding-left: 15px; }
 
 .forms-sidebar-container {
   position: absolute;

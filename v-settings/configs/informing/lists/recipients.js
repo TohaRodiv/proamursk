@@ -96,10 +96,11 @@ const state = {
         ],
     },
     actionsConfig: {
-        recipient: {
+        recipients: {
             addButton: true,
             activationButtons: true,
             deleteButton: true,
+            duplicateButton: true,
         },
     },
     filterConfig: {
