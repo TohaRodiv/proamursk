@@ -219,6 +219,7 @@
                     :labelPosition="block.labelPosition"
                     :options="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <formatter
