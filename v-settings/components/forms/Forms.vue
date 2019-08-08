@@ -171,6 +171,7 @@
                                         v-show="(formsCurrentMode !== 'moving') ? tab.id === currentTabId : ((newMode) ? tab.id === 1 : true)"
                                         @clearError="clearError"
                                         @change="setNewValues"
+                                        @setError="setError"
                                     />
                                 </div>
                             </div>
@@ -245,7 +246,7 @@
                             v-if="compHasEditPermission"
                             class="button forms-save-button"
                             :disabled="buttonsDisabled"
-                            @click="saveEntity('save')">
+                            @click="save">
                             Сохранить
                         </button>
                     </div>
@@ -272,7 +273,7 @@
                             v-if="getIsSuperUser || (hasAddRight() && ($route.params.id === 'form' ? true : hasAddButton))"
                             class="button forms-save-button"
                             :disabled="buttonsDisabled"
-                            @click="($route.params.id === 'form') ? saveEntity('save') : saveEntity('add')"
+                            @click="save"
                         >
                             Сохранить
                         </button>

@@ -214,12 +214,12 @@
 
                 <geoinput
                     v-if="element.widget === 'geoinput'"
-                    :isBlocked="isBlocked(element)"
                     :passedCoord="formData[element.codename]"
                     :labelPosition="block.labelPosition"
                     :options="element"
                     @clearError="clearError"
                     @change="onChange"
+                    @setError="setError"
                 />
 
                 <formatter
