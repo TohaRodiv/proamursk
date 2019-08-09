@@ -271,6 +271,14 @@
                     @clearError="clearError"
                     @change="onChange"
                 />
+
+                <base-input
+                    v-if="element.widget === 'baseInput'"
+                    :passed-data="formData[element.codename]"
+                    :options="element"
+                    :label-position="block.labelPosition"
+                    @clearError="clearError"
+                />
             </div>
         </div>
     </div>
