@@ -263,6 +263,14 @@
                     :blocked="isBlocked(element)"
                     @clearError="clearError"
                 />
+
+                <checkboxesGroup
+                    v-if="element.widget === 'checkboxes'"
+                    :prop-config="element"
+                    :prop-data="formData[element.codename]"
+                    @clearError="clearError"
+                    @change="onChange"
+                />
             </div>
         </div>
     </div>
