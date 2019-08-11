@@ -275,9 +275,19 @@
                 <base-input
                     v-if="element.widget === 'baseInput'"
                     :prop-data="formData[element.codename]"
-                    :prop-config="element"
-                    :prop-label-position="block.labelPosition"
+                    v-bind="element"
+                    :label-position="block.labelPosition"
                     @clearError="clearError"
+                    @change="onChange"
+                />
+
+                <generate-password-input
+                    v-if="element.widget === 'generatePasswordInput'"
+                    :prop-data="formData[element.codename]"
+                    :prop-config="element"
+                    :label-position="block.labelPosition"
+                    @clearError="clearError"
+                    @change="onChange"
                 />
             </div>
         </div>
