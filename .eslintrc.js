@@ -32,6 +32,20 @@ module.exports = {
             "alignAttributesVertically": true,
             "ignores": []
         }],
+        "vue/script-indent": [
+            "warn",
+            4,
+            {
+                baseIndent: 0
+            }
+        ],
+        "vue/style-indent": [
+            "warn",
+            4,
+            {
+                baseIndent: 0
+            }
+        ],
         "vue/prop-name-casing": 0,
         "vue/html-self-closing": ["error", {
             "html": {
@@ -53,8 +67,8 @@ module.exports = {
         "block-spacing": ["error", "always"],
         "comma-dangle": ["error", "always"],
         "max-len": ["warn", 120],
-        "indent": ["error", 4],
+        // "indent": ["error", 4],
         "multiline-ternary": ["error", "always"],
         "object-curly-spacing": ["error", "always"]
-    }
+    },
 };
