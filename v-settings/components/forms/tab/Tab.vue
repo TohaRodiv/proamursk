@@ -272,8 +272,8 @@
                     @change="onChange"
                 />
 
-                <base-input
-                    v-if="element.widget === 'baseInput'"
+                <input-component
+                    v-if="element.widget === 'inputComponent'"
                     :prop-data="formData[element.codename]"
                     v-bind="element"
                     :label-position="block.labelPosition"
@@ -281,7 +281,7 @@
                     @change="onChange"
                 />
 
-                <generate-password-input
+                <password-widget
                     v-if="element.widget === 'passwordWidget'"
                     :prop-generator-data="formData.password1"
                     :prop-auxiliary-data="formData.password2"
