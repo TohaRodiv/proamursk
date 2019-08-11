@@ -282,9 +282,11 @@
                 />
 
                 <generate-password-input
-                    v-if="element.widget === 'generatePasswordInput'"
-                    :prop-data="formData[element.codename]"
-                    :prop-config="element"
+                    v-if="element.widget === 'passwordWidget'"
+                    :prop-generator-data="formData.password1"
+                    :prop-auxiliary-data="formData.password2"
+                    :config-generator="element"
+                    :config-auxiliary="block.elements[1]"
                     :label-position="block.labelPosition"
                     @clearError="clearError"
                     @change="onChange"
