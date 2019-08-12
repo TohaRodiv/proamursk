@@ -65,13 +65,12 @@ const state = {
                                 type: 'field',
                                 label: 'Формат обложки<br>(представление в сетке)',
                                 codename: 'cover_format',
-                                has_borders: true,
+                                borders: true,
                                 required: true,
-                                invalid: false,
                                 widget: 'radioButtons',
                                 width: 6,
                                 hint: '',
-                                values: [
+                                options: [
                                     {
                                         label: 'Обычная обложка',
                                         flag: true,

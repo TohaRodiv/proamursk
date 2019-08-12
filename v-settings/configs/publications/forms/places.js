@@ -163,20 +163,17 @@ const state = {
                                 label: 'Формат обложки<br>(представление в сетке)',
                                 codename: 'cover_format',
                                 width: 6,
-                                has_borders: true,
+                                borders: true,
                                 required: true,
-                                invalid: false,
                                 widget: 'radioButtons',
                                 hint: '',
-                                values: [
+                                options: [
                                     {
                                         label: 'Обычная обложка',
-                                        flag: true,
                                         codename: 'small',
                                     },
                                     {
                                         label: 'Полноразмерная обложка',
-                                        flag: false,
                                         codename: 'full',
                                     },
                                 ],

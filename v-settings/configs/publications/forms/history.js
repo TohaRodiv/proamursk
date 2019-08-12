@@ -94,21 +94,18 @@ const state = {
                                 type: 'field',
                                 label: 'Формат обложки<br>(представление в сетке)',
                                 codename: 'cover_format',
-                                has_borders: true,
+                                borders: true,
                                 required: true,
-                                invalid: false,
                                 widget: 'radioButtons',
                                 hint: '',
                                 width: 6,
-                                values: [
+                                options: [
                                     {
                                         label: 'Обычная обложка',
-                                        flag: true,
                                         codename: 'small',
                                     },
                                     {
                                         label: 'Полноразмерная обложка',
-                                        flag: false,
                                         codename: 'full',
                                     },
                                 ],

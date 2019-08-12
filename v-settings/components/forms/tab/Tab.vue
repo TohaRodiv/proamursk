@@ -119,11 +119,11 @@
 
                 <radiobuttonGroup
                     v-if="element.widget === 'radioButtons'"
-                    :isBlocked="isBlocked(element)"
-                    :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
-                    :direction="block.direction"
-                    :options="element"
+                    :label-position="block.labelPosition"
+                    :form-data="formData"
+                    :config="element"
+                    @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <radioTabs
