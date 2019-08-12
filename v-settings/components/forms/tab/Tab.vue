@@ -257,11 +257,11 @@
 
                 <input-datetime
                     v-if="element.widget === 'inputDatetime'"
-                    :passed-data="formData[element.codename]"
-                    :options="element"
+                    :prop-data="formData[element.codename]"
+                    :prop-config="element"
                     :label-position="block.labelPosition"
-                    :blocked="isBlocked(element)"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <checkboxesGroup
