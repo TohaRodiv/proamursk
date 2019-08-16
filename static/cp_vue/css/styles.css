@@ -2450,6 +2450,8 @@ input[type="search"]::-webkit-search-results-decoration {
       font-size: 14px;
       line-height: 1;
       color: #C8CACB; }
+    .textarea-preview-container textarea:disabled {
+      background-color: #fafafa; }
 
 .popup-inner {
   width: 100%; }
@@ -4906,7 +4908,7 @@ a.additional-button-2 {
 
 .table-actions-wrapper {
   position: relative;
-  z-index: 101;
+  z-index: 1;
   display: flex;
   height: 30px;
   padding: 5px 15px;
@@ -9579,57 +9581,6 @@ div, a {
   opacity: 0;
 }
 
-.base-label {
-  line-height: 18px;
-  font-size: 14px;
-  font-weight: 300;
-}
-.base-label_left {
-  height: 36px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.base-label_left .base-label {
-    text-align: right;
-}
-.base-label_left .base-label.base-label_required:before {
-      content: '*';
-      position: relative;
-      left: 0;
-      margin-right: 2px;
-}
-.base-label_top .base-label {
-  margin-left: 15px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.base-label_top .base-label.base-label_required:after {
-    content: '*';
-    position: relative;
-    right: 0;
-    margin-left: 2px;
-}
-
-.checkboxes-group {
-  display: flex;
-}
-.checkboxes-group_column {
-  flex-direction: column;
-}
-.checkboxes-group__box {
-  padding: 20px;
-}
-.checkboxes-group__box.border {
-    border: 1px solid #EDF5FA;
-    border-radius: 5px;
-}
-.checkboxes-group__item:not(:last-child) {
-  margin-bottom: 15px;
-}
-
 .base-hint__wrap {
   position: relative;
   text-align: left;
@@ -9703,6 +9654,9 @@ div, a {
   font-size: 12px;
   width: max-content;
 }
+.base-hint__message > ul.ul_null-left-margin {
+    margin-left: 0;
+}
 .base-hint__message > ul {
     margin: 5px 0 5px 25px;
     padding-left: 20px;
@@ -9719,6 +9673,57 @@ div, a {
 }
 .base-hint-message__title {
   font-weight: 600;
+}
+
+.base-label {
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.base-label_left {
+  height: 36px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.base-label_left .base-label {
+    text-align: right;
+}
+.base-label_left .base-label.base-label_required:before {
+      content: '*';
+      position: relative;
+      left: 0;
+      margin-right: 2px;
+}
+.base-label_top .base-label {
+  margin-left: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.base-label_top .base-label.base-label_required:after {
+    content: '*';
+    position: relative;
+    right: 0;
+    margin-left: 2px;
+}
+
+.checkboxes-group {
+  display: flex;
+}
+.checkboxes-group_column {
+  flex-direction: column;
+}
+.checkboxes-group__box {
+  padding: 20px;
+}
+.checkboxes-group__box.border {
+    border: 1px solid #EDF5FA;
+    border-radius: 5px;
+}
+.checkboxes-group__item:not(:last-child) {
+  margin-bottom: 15px;
 }
 
 .input-datetime-picker__wrap {
