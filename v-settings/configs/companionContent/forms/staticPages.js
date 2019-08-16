@@ -61,7 +61,7 @@ const state = {
     formsOptions: {
         'static-pages': [
             {
-                id: 97,
+                id: 1,
                 title: 'КОНТЕНТ',
                 renderCondition: {
                     flag: 'codename',
@@ -81,8 +81,6 @@ const state = {
                                     existing: 'Публикация в топе',
                                 },
                                 dragOrder: 'weight',
-                                required: false,
-                                invalid: false,
                                 isDraggable: true,
                                 widget: 'childEntity',
                                 codename: 'top_items',
