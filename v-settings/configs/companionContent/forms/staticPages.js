@@ -170,7 +170,7 @@ const state = {
                         'reports-list',
                         'specials-list',
                         'policy',
-                        'news',
+                        'news-list',
                     ],
                 },  
                 blocks: [
