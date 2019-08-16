@@ -267,7 +267,7 @@
                     </div>
                     <div class="form-footer__major-buttons-wrap">
                         <button
-                            v-if="getIsSuperUser || (hasAddRight() && hasAddButton)"
+                            v-if="getIsSuperUser || (hasAddRight() && ($route.params.id === 'form' ? true : hasAddButton))"
                             class="button forms-save-button"
                             :disabled="buttonsDisabled"
                             @click="($route.params.id === 'form') ? saveEntity('save') : saveEntity('add')"

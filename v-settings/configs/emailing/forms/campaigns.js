@@ -60,7 +60,7 @@ const hint = `<span style="font-weight: 600;">Тег для публикаций
     <li>
         <span>{% separator  %} — Сепаратор.</span>
     </li>
-</ul>`
+</ul>`;
 
 const state = {
     formsOptions: {
@@ -82,9 +82,9 @@ const state = {
                                 width: 12,
                                 codename: 'name',
                                 widget: 'simpleInput',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -99,9 +99,9 @@ const state = {
                                 widthPopup: '900px',
                                 codename: 'content',
                                 widget: 'textareaPreviewLetter',
-                                hint: hint
-                            }
-                        ]
+                                hint: hint,
+                            },
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -117,16 +117,16 @@ const state = {
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
-                ]
-            }
+                ],
+            },
         ],
     },
 };
 
 export default {
-    state
-}
+    state,
+};

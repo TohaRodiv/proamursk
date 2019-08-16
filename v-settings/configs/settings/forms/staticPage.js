@@ -1,5 +1,3 @@
-
-
 const state = {
     formsOptions: {
         'static-page-settings': [
@@ -21,10 +19,9 @@ const state = {
                                 width: 6,
                                 codename: 'name',
                                 widget: 'simpleInput',
-
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -39,10 +36,9 @@ const state = {
                                 width: 6,
                                 codename: 'codename',
                                 widget: 'simpleInput',
-
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -59,11 +55,11 @@ const state = {
                                 height: 600,
                                 codename: 'admin_form_config',
                                 widget: 'textarea',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
         ],
     },
@@ -71,5 +67,5 @@ const state = {
 };
 
 export default {
-    state
-}
+    state,
+};

@@ -7,7 +7,7 @@ import staticPagesController from '../configs/companionContent/controllers/stati
 import slidersController from '../configs/companionContent/controllers/sliders';
 import cityGuidesController from '../configs/publications/controllers/cityGuides';
 
-const actions = {
+const controllers = {
     change: {
         notificationTemplates: notificationTemplatesController.change,
         recipients: recipientsController.change,
@@ -15,6 +15,10 @@ const actions = {
         sliders: slidersController.change,
         cityGuides: cityGuidesController.change,
     },
+
+    // modifyConfig: {
+    //     'static-pages': staticPagesController.modifyConfig,
+    // },
 };
 
 export const formController = {
@@ -31,8 +35,8 @@ export const formController = {
             const model = this.toCamelCase(this.computedModel);
 
             _.map(differentValues, key => {
-                if (_.has(actions, ['change', model, key,])) {
-                    actions.change[model][key](newFormData, this);
+                if (_.has(controllers, ['change', model, key,])) {
+                    controllers.change[model][key](newFormData, this);
                 }
             });
 
@@ -54,6 +58,13 @@ export const formController = {
                         flatConfig[codename] = widget;
                     }
                 }
+            }
+
+            const hasModify = controllers.modifyConfig
+                && controllers.modifyConfig[model];
+
+            if (hasModify) {
+                modifiedConfig = controllers.modifyConfig[model](modifiedConfig, this);
             }
 
             if (model === 'sliders') {

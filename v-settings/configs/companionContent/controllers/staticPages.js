@@ -82,7 +82,7 @@ const valuesForReports = [
     },
 ];
 
-const twoSelectorScructure = [
+const twoSelectorStructure = [
     {
         type: 'vertical_list',
         list: [
@@ -98,7 +98,7 @@ const twoSelectorScructure = [
     },
 ];
 
-const oneSelectorScructure = [
+const oneSelectorStructure = [
     {
         type: 'vertical_list',
         list: [
@@ -136,6 +136,7 @@ export default {
         },
 
         codename(data, component) {
+            // console.log('codename');
             const codename = data.codename;
             const codenames = ['index', 'events-index', 'history-list', 'places-list', 'persons-list', 'reports-list',];
 
@@ -154,7 +155,7 @@ export default {
                             component.$set(firstSelector, 'available_values', valuesForIndex);
                             component.$set(firstSelector, 'required', true);
                             component.$set(config, 'show', true),
-                            component.$set(config, 'entity_structure', twoSelectorScructure);
+                            component.$set(config, 'entity_structure', twoSelectorStructure);
                         } else if (codename == 'events-index') {
                             component.$set(config.popup_structure[0].blocks[0], 'show', true);
                             component.$set(secondSelector, 'api_route', 'event-announcements');
@@ -164,7 +165,7 @@ export default {
                             component.$set(firstSelector, 'available_values', valuesForEvents);
                             component.$set(firstSelector, 'required', true);
                             component.$set(config, 'show', true),
-                            component.$set(config, 'entity_structure', twoSelectorScructure);
+                            component.$set(config, 'entity_structure', twoSelectorStructure);
                         } else if (codename == 'history-list') {
                             component.$set(config.popup_structure[0].blocks[0], 'show', false);
                             component.$set(firstSelector, 'available_values', valuesForHistory);
@@ -174,7 +175,7 @@ export default {
                             component.$set(secondSelector, 'isBlocked', false);
                             component.$set(secondSelector, 'required', true);
                             component.$set(config, 'show', true);
-                            component.$set(config, 'entity_structure', oneSelectorScructure);
+                            component.$set(config, 'entity_structure', oneSelectorStructure);
                         } else if (codename == 'places-list') {
                             component.$set(config.popup_structure[0].blocks[0], 'show', false);
                             component.$set(firstSelector, 'available_values', valuesForPlaces);
@@ -184,7 +185,7 @@ export default {
                             component.$set(secondSelector, 'isBlocked', false);
                             component.$set(secondSelector, 'required', true);
                             component.$set(config, 'show', true);
-                            component.$set(config, 'entity_structure', oneSelectorScructure);
+                            component.$set(config, 'entity_structure', oneSelectorStructure);
                         } else if (codename == 'persons-list') {
                             component.$set(config.popup_structure[0].blocks[0], 'show', false);
                             component.$set(firstSelector, 'available_values', valuesForPersons);
@@ -194,7 +195,7 @@ export default {
                             component.$set(secondSelector, 'isBlocked', false);
                             component.$set(secondSelector, 'required', true);
                             component.$set(config, 'show', true);
-                            component.$set(config, 'entity_structure', oneSelectorScructure);
+                            component.$set(config, 'entity_structure', oneSelectorStructure);
                         } else if (codename == 'reports-list') {
                             component.$set(config.popup_structure[0].blocks[0], 'show', false);
                             component.$set(firstSelector, 'available_values', valuesForReports);
@@ -204,15 +205,12 @@ export default {
                             component.$set(secondSelector, 'isBlocked', false);
                             component.$set(secondSelector, 'required', true);
                             component.$set(config, 'show', true);
-                            component.$set(config, 'entity_structure', oneSelectorScructure);
+                            component.$set(config, 'entity_structure', oneSelectorStructure);
                         } else {
                             component.$set(config, 'show', false);
                             component.$set(firstSelector, 'required', false);
                             component.$set(secondSelector, 'required', false);
                         }
-                    })
-                    .catch(error => {
-                        console.error(error);
                     });
             }
         },

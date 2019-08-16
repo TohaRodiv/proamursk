@@ -41,7 +41,7 @@ const valuesForIndex = [
     },
 ];
 
-const twoSelectorScructure = [
+const twoSelectorStructure = [
     {
         type: 'vertical_list',
         list: [
@@ -61,14 +61,12 @@ const state = {
     formsOptions: {
         'static-pages': [
             {
-                id: 98,
+                id: 1,
                 title: 'КОНТЕНТ',
-                renderConditions: [
-                    {
-                        codename: 'codename',
-                        values: ['index', 'events-index', 'history-list', 'places-list', 'persons-list', 'reports-list',],
-                    },
-                ],
+                renderCondition: {
+                    flag: 'codename',
+                    value: ['index', 'events-index', 'history-list', 'places-list', 'persons-list', 'reports-list',],
+                },  
                 blocks: [
                     {
                         labelPosition: 'top',
@@ -83,14 +81,12 @@ const state = {
                                     existing: 'Публикация в топе',
                                 },
                                 dragOrder: 'weight',
-                                required: false,
-                                invalid: false,
                                 isDraggable: true,
                                 widget: 'childEntity',
                                 codename: 'top_items',
                                 requireSendId: true,
                                 hint: '',
-                                entity_structure: twoSelectorScructure,
+                                entity_structure: twoSelectorStructure,
                                 popup_structure: [
                                     {
                                         id: 1,
@@ -154,6 +150,57 @@ const state = {
                                         ],
                                     },
                                 ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 98,
+                title: 'ИНФОРМАЦИЯ',
+                renderCondition: {
+                    flag: 'codename',
+                    value: [
+                        'events-index',
+                        'events-list-future',
+                        'events-list-past',
+                        'history-list',
+                        'places-list',
+                        'persons-list',
+                        'reports-list',
+                        'specials-list',
+                        'policy',
+                    ],
+                },  
+                blocks: [
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        modClass: 'marginBottom20',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Название страницы',
+                                width: 12,
+                                codename: 'name',
+                                widget: 'simpleInput',
+                                hint: '',
+                                isBlocked: true,
+                            },
+                        ],
+                    },
+                    {
+                        labelPosition: 'left',
+                        direction: 'row',
+                        elements: [
+                            {
+                                type: 'field',
+                                label: 'Кодовое название',
+                                width: 4,
+                                codename: 'codename',
+                                widget: 'simpleInput',
+                                hint: '',
+                                isBlocked: true,
                             },
                         ],
                     },

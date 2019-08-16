@@ -4,32 +4,32 @@ const defaultTags = [
     {
         codename: 'title',
         postfix: '"Текст"',
-        name: 'Заголовок'
+        name: 'Заголовок',
     },
     {
         codename: 'link',
         postfix: '"Ссылка" "Текст"',
-        name: 'Ссылка'
+        name: 'Ссылка',
     },
     {
         codename: 'email',
         postfix: '"Адрес" "Текст"',
-        name: 'Email'
+        name: 'Email',
     },
     {
         codename: 'button',
         postfix: '"Ссылка" "Заголовок"',
-        name: 'Кнопка'
+        name: 'Кнопка',
     },
     {
         codename: 'html_template',
         postfix: '"ID шаблона"',
-        name: 'HTML шаблон'
+        name: 'HTML шаблон',
     },
     {
         codename: 'separator',
-        name: 'Сепаратор'
-    }
+        name: 'Сепаратор',
+    },
 ];
 
 export default {
@@ -46,9 +46,13 @@ export default {
             if (channel) {
                 component.$set(subjectConfig, 'show', true);
                 component.$set(textConfig, 'show', true);
+                component.$set(subjectConfig, 'required', true);
+                component.$set(textConfig, 'required', true);
             } else {
                 component.$set(subjectConfig, 'show', false);
                 component.$set(textConfig, 'show', false);
+                component.$set(subjectConfig, 'required', false);
+                component.$set(textConfig, 'required', false);
             }
 
             this._setHintInfo(data, component);
@@ -78,7 +82,7 @@ export default {
                 const url = '/events/' + actionId;
 
                 try {
-                    const { variables } = await api.get(url);
+                    const { variables, } = await api.get(url);
                     return variables;
                 } catch (error) {
                     //
@@ -87,7 +91,7 @@ export default {
         },
 
         _generateHtml(items) {
-            let { tags, vars } = this._getVarsAndTags(items);
+            let { tags, vars, } = this._getVarsAndTags(items);
             const varsHtml = this._generateHtmlVars(vars);
             const tagsHtml = this._generateHtmlTags(tags);
             const defaultTagsHtml = this._generateHtmlDefaultTags(defaultTags);
@@ -173,21 +177,21 @@ export default {
                     const content = item.content_type;
 
                     if (content == 'email') {
-                        email.push(Object.assign({}, item, { prefix: 'email' }));
-                        email.push(Object.assign({}, item, { prefix: 'link' }));
-                        email.push(Object.assign({}, item, { prefix: 'button' }));
+                        email.push(Object.assign({}, item, { prefix: 'email', }));
+                        email.push(Object.assign({}, item, { prefix: 'link', }));
+                        email.push(Object.assign({}, item, { prefix: 'button', }));
                     } else if (content == 'link') {
-                        link.push(Object.assign({}, item, { prefix: 'link' }));
-                        link.push(Object.assign({}, item, { prefix: 'button' }));
+                        link.push(Object.assign({}, item, { prefix: 'link', }));
+                        link.push(Object.assign({}, item, { prefix: 'button', }));
                     }
                 } else if (construction == 'tag') {
                     tags.push(item);
                 }
             });
 
-            tags = [...email, ...link, ...tags];
+            tags = [...email, ...link, ...tags,];
 
-            return { tags, vars };
+            return { tags, vars, };
         },
 
         _arrayToList(array) {
@@ -212,6 +216,6 @@ export default {
             }
 
             return list;
-        }
-    }
+        },
+    },
 };
