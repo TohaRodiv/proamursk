@@ -7,25 +7,26 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 //Основные настройки
 module.exports = merge(baseConfig, {
-    entry: ['babel-polyfill', './cp_vue/frontend/vue/main.js'],
+    entry: ['babel-polyfill', './cp_vue/frontend/vue/main.js',],
     output: {
         path: path.resolve(__dirname, '/../../dist'),
         publicPath: '/dist/',
-        filename: 'build.js'
+        filename: 'build.js',
     },
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-        }
+        },
     },
     devServer: {
         historyApiFallback: true,
         noInfo: true,
         filename: 'build.js',
-        publicPath: '/dist/'
+        publicPath: '/dist/',
+        host: '127.0.0.1',
     },
     performance: {
-        hints: false
+        hints: false,
     },
     devtool: 'inline-source-map',
 });
@@ -36,8 +37,8 @@ module.exports = merge(baseConfig, {
 module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
         'process.env': {
-            'NODE_ENV': `"development"`
-        }
+            'NODE_ENV': `"development"`,
+        },
     }),
     new VueLoaderPlugin(),
 ]);
