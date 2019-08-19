@@ -38,7 +38,7 @@ const state = {
                                 codename: 'action',
                                 widget: 'singleSelector',
                                 invalid: false,
-                                api_route: 'events',
+                                api_route: 'actions',
                                 sortFlag: {
                                     value: 'name',
                                     direction: 'asc',
