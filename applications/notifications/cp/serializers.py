@@ -1,5 +1,6 @@
 # -*-coding: utf-8 -*-
 
+from datetime import datetime
 from rest_framework import serializers
 from applications.accounts.cp.serializers import UserNestedSerializer
 from cp_vue.api.serializers import ModelSerializer
@@ -18,17 +19,19 @@ class ChannelSerializer(ModelSerializer):
 
 
 class VariableDetailSerializer(ModelSerializer):
+    channels = ObjectRelatedField(queryset=Channel.objects.all(), serializer_class=ChannelSerializer,
+                                  many=True, required=False)
 
     class Meta:
         model = Variable
-        fields = ('id', 'name', 'codename', 'construction_type', 'content_type', 'comment', 'weight')
+        fields = ('id', 'name', 'codename', 'construction_type', 'content_type', 'comment', 'weight', 'channels')
 
     def validate(self, attrs):
         construction_type = attrs.get('construction_type')
         content_type = attrs.get('content_type')
 
         if construction_type == 'var' and not content_type:
-            raise serializers.ValidationError(dict(content_type=u'Заполните поле'))
+            raise serializers.ValidationError(dict(content_type='Заполните поле'))
 
         return attrs
 
@@ -96,7 +99,8 @@ class RecipientDetailSerializer(ModelSerializer):
 
     class Meta:
         model = Recipient
-        fields = ('id', 'name', 'channel', 'phone', 'email', 'comment', 'is_active', 'create_date', 'edit_date')
+        fields = ('id', 'name', 'channel', 'phone', 'telegram_chat_id', 'email', 'comment', 'is_active', 'create_date',
+                  'edit_date')
 
 
 class HtmlTemplateListSerializer(ModelSerializer):
@@ -143,3 +147,13 @@ class NotificationsDetailSerializer(ModelSerializer):
         model = Notifications
         fields = ('id', 'name', 'channel', 'action', 'recipients', 'roles', 'users', 'subject', 'text', 'comment',
                   'is_active', 'create_date', 'edit_date')
+
+
+class NotificationsSelectSerializer(ModelSerializer):
+    channel = ObjectRelatedField(queryset=Channel.objects.all(), serializer_class=ChannelSerializer)
+    action = ObjectRelatedField(queryset=Action.objects.all(), serializer_class=ActionNestedSerializer)
+
+    class Meta:
+        model = Notifications
+        fields = ('id', 'name', 'channel', 'action', 'is_active')
+

@@ -5,6 +5,11 @@ import requests
 import hashlib
 import itertools
 
+try:
+    import telebot
+except:
+    telebot = None
+
 from django.conf import settings
 from django.core import mail
 from django.core.mail import EmailMessage
@@ -90,6 +95,10 @@ class NotificationSender(object):
             context = dict([(k, v) for k, v in self.template_context.items() if k in self.allowed_variables])
             text = self.render_string(notification.text, context)
             result = SmsCenterMessage(recipients, text)
+        elif notification.channel.codename == 'telegram_bot':
+            context = dict([(k, v) for k, v in self.template_context.items() if k in self.allowed_variables])
+            text = self.render_string(notification.text, context)
+            result = TelegramBotMessage(recipients, text)
 
         return result
 
@@ -109,6 +118,8 @@ class NotificationSender(object):
                     set([self.make_phone_number(u.phone) for u in users_for_send if u.phone and u.is_active]))
             elif notification.channel.codename == 'email':
                 recipients = list(set([u.email for u in users_for_send if u.email and u.is_active]))
+            elif notification.channel.codename == 'telegram_bot':
+                recipients = list(set([u.telegram_chat_id for u in users_for_send if hasattr(u, 'telegram_chat_id') and u.telegram_chat_id and u.is_active]))
         elif is_client_notification:
             key = 'recipient_%s' % notification.channel.codename
             recipients = self.params.get(key, [])
@@ -149,6 +160,9 @@ class NotificationSender(object):
                 connection = mail.get_connection()
                 connection.send_messages(notifications)
             elif channel == 'sms':
+                for notification in notifications:
+                    notification.send()
+            elif channel == 'telegram_bot':
                 for notification in notifications:
                     notification.send()
 
@@ -384,3 +398,22 @@ class SmsCenterMessage(object):
             pass
         else:
             pass
+
+
+class TelegramBotMessage(object):
+
+    def __init__(self, recipients, message):
+        if telebot is None:
+            raise Exception('telebot module not found. Run: pip install pyTelegramBotAPI')
+
+        self.recipients = recipients
+        self.message = str(message)
+        try:
+            token = settings.TELEGRAM_BOT_API_KEY
+        except Exception as e:
+            token = ''
+        self.bot = telebot.TeleBot(token=token)
+
+    def send(self):
+        for r in self.recipients:
+            self.bot.send_message(r, self.message)
