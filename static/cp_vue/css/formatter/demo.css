@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300&subset=latin,cyrillic-ext);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300&subset=latin,cyrillic-ext);
 .formatter-toolbar {
   overflow: hidden;
   box-sizing: border-box;
@@ -541,5 +541,3 @@
   margin: 0 auto;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg); }
-
-/*# sourceMappingURL=demo.css.map */

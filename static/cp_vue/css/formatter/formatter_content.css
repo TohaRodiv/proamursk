@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300&subset=latin,cyrillic-ext);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&subset=cyrillic);
 
 body:not(.main-body) {
     margin: 15px 20px 15px 15px;
@@ -113,5 +114,3 @@ ol {
     color: #ff3f12;
     text-decoration: underline;
 }
-
-/*# sourceMappingURL=formatter_content.css.map */

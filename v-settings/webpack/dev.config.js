@@ -24,6 +24,7 @@ module.exports = merge(baseConfig, {
         filename: 'build.js',
         publicPath: '/dist/',
         host: '127.0.0.1',
+        port: '8080',
     },
     performance: {
         hints: false,
