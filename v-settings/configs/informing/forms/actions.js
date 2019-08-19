@@ -280,6 +280,7 @@ const state = {
                                                         returnWhole: true,
                                                         onlyFull: true,
                                                         returnFull: true,
+                                                        isBlocked: true,
                                                     },
                                                 ],
                                             },
@@ -356,10 +357,8 @@ const state = {
 
                             if (constructionType == 'tag') {
                                 component.$set(channelConfig, 'show', true);
-                                component.$set(channelConfig.elements[0], 'required', true);
                             } else {
                                 component.$set(channelConfig, 'show', false);
-                                component.$set(channelConfig.elements[0], 'required', false);
                             }
                         },
                     },
