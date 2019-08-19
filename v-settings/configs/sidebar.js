@@ -154,7 +154,7 @@ const state = {
                 },
                 {
                     name: 'Типы уведомлений',
-                    view: 'events',
+                    view: 'actions',
                     formsName: 'Тип уведомлений #',
                     newFormName: 'Новое тип уведомлений',
                     hasAddButton: true,

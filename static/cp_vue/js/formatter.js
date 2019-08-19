@@ -35,7 +35,7 @@
             formatterFrameCssPath: 'css/formatter_content.css',
             specialChars: defaultSpecialChars,
             colors: defaultColors,
-            imagesPath: 'images/',
+            imagesPath: 'formatter/images/',
             excludeToolbarButtons: excludeToolbarButtons
         };
 

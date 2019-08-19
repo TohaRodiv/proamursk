@@ -79,7 +79,7 @@ export default {
                 : data.action;
 
             if (actionId) {
-                const url = '/events/' + actionId;
+                const url = '/actions/' + actionId;
 
                 try {
                     const { variables, } = await api.get(url);

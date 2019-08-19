@@ -19,6 +19,15 @@ class ActionFilter(APIFilterSet):
         }
 
 
+class VariableFilter(APIFilterSet):
+    channel_id__in = NumberInFilter(field_name='channels', lookup_expr='in')
+    action_id__in = NumberInFilter(field_name='action', lookup_expr='in')
+
+    class Meta:
+        model = Variable
+        fields = {}
+
+
 class RecipientFilter(APIFilterSet):
     q = SearchFilter(search_fields=['name', 'phone', 'email', 'comment'])
     instant_search = filters.CharFilter(field_name="name", lookup_expr="icontains")

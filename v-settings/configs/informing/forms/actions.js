@@ -1,8 +1,9 @@
-
+import EventBus from '../../../../cp_vue/frontend/vue/EventBus';
+import api from '../../../../cp_vue/frontend/vue/store/utils/api';
 
 const state = {
     formsOptions: {
-        'events': [
+        actions: [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -248,40 +249,41 @@ const state = {
                                                     },
                                                 ],
                                             },
-                                            // {
-                                            //     labelPosition: 'left',
-                                            //     direction: 'row',
-                                            //     modClass: 'marginBottom20',
-                                            //     show: false,
-                                            //     elements: [
-                                            //         {
-                                            //             type: 'shortTag',
-                                            //             label: 'Способы отправки',
-                                            //             required: false,
-                                            //             width: 8,
-                                            //             widget: 'multipleSelector',
-                                            //             codename: 'channels',
-                                            //             // callbackType: 'idArray',
-                                            //             sortFlag: {
-                                            //                 value: 'id',
-                                            //                 direction: 'asc',
-                                            //             },
-                                            //             view_structure: [
-                                            //                 {
-                                            //                     value: 'name',
-                                            //                     flex: 1.5,
-                                            //                 },
-                                            //             ],
-                                            //             api_route: 'channels',
-                                            //             hint: '',
-                                            //             expected_value: 'channels',
-                                            //             key_attr: 'channels',
-                                            //             returnWhole: true,
-                                            //             onlyFull: true,
-                                            //             returnFull: true,
-                                            //         },
-                                            //     ],
-                                            // },
+                                            {
+                                                labelPosition: 'left',
+                                                direction: 'row',
+                                                modClass: 'marginBottom20',
+                                                show: false,
+                                                elements: [
+                                                    {
+                                                        type: 'shortTag',
+                                                        label: 'Способы отправки',
+                                                        required: false,
+                                                        width: 8,
+                                                        widget: 'multipleSelector',
+                                                        codename: 'channels',
+                                                        // callbackType: 'idArray',
+                                                        sortFlag: {
+                                                            value: 'id',
+                                                            direction: 'asc',
+                                                        },
+                                                        view_structure: [
+                                                            {
+                                                                value: 'name',
+                                                                flex: 1.5,
+                                                            },
+                                                        ],
+                                                        api_route: 'channels',
+                                                        hint: '',
+                                                        expected_value: 'channels',
+                                                        key_attr: 'channels',
+                                                        returnWhole: true,
+                                                        onlyFull: true,
+                                                        returnFull: true,
+                                                        isBlocked: true,
+                                                    },
+                                                ],
+                                            },
                                         ],
                                     },
                                 ],
@@ -310,17 +312,17 @@ const state = {
         ],
     },
     activeFlag: {
-        events: {
+        actions: {
             title: 'Активный тип уведомлений',
             hint: 'Уведомления неактивного типа игнорируются и не отправляются',
         },
     },
     formsEvents: {
-        events: {
+        actions: {
             onChangePopup: {
                 variables: {
                     construction_type: {
-                        content_type(from, widget, data, component) {
+                        async content_type(from, widget, data, component) {
                             const constructionType = data[from];
                             const contentTypeConfig = widget.popup_structure[0].blocks[3];
 
@@ -330,20 +332,35 @@ const state = {
                             } else {
                                 component.$set(contentTypeConfig, 'show', false);
                                 component.$set(contentTypeConfig.elements[0], 'required', false);
+
+                                // Проверка
+                                const codename = 'channels';
+                                const url = `/${ codename }/select/`;
+
+                                try {
+                                    
+                                    const { items: channels, } = await api.get(url);
+                                
+                                    if (channels.length === 1) {
+                                        EventBus.$emit('SET_DATA_INTO_WIDGET', { codename, data: channels, });
+                                    } else if (channels.length > 1) {
+                                        component.$set(contentTypeConfig.elements[0], 'isBlocked', false);
+                                    }
+                                } catch (error) {
+                                    EventBus.$emit('SET_ERROR', { url, error, });
+                                }
                             }
                         },
-                        // channels(from, widget, data, component) {
-                        //     const constructionType = data[from];
-                        //     const channelConfig = widget.popup_structure[0].blocks[4];
+                        channel(from, widget, data, component) {
+                            const constructionType = data[from];
+                            const channelConfig = widget.popup_structure[0].blocks[4];
 
-                        //     if (constructionType == 'tag') {
-                        //         component.$set(channelConfig, 'show', true);
-                        //         component.$set(channelConfig.elements[0], 'required', true);
-                        //     } else {
-                        //         component.$set(channelConfig, 'show', false);
-                        //         component.$set(channelConfig.elements[0], 'required', false);
-                        //     }
-                        // },
+                            if (constructionType == 'tag') {
+                                component.$set(channelConfig, 'show', true);
+                            } else {
+                                component.$set(channelConfig, 'show', false);
+                            }
+                        },
                     },
                 },
             },

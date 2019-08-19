@@ -3,6 +3,7 @@
 from datetime import datetime
 from django.conf import settings
 from django.db import models
+from django.contrib.postgres.fields import JSONField
 from core.models import BaseModel, IsActiveMixin
 from cp_vue.models import CpRole
 
@@ -13,8 +14,8 @@ class Action(BaseModel, IsActiveMixin):
     comment = models.TextField('Комментарий', blank=True)
 
     class Meta:
-        verbose_name = 'Событие'
-        verbose_name_plural = 'События для уведомлений'
+        verbose_name = 'Тип уведомления'
+        verbose_name_plural = 'Типы уведомлений'
 
     def __str__(self):
         return self.name
@@ -49,6 +50,7 @@ class Variable(models.Model):
         ('email', 'Email')
     )
     action = models.ForeignKey(Action, on_delete=models.CASCADE, verbose_name='Событие', related_name='variables')
+    channels = models.ManyToManyField(Channel, verbose_name='Канал', blank=True)
     name = models.CharField('Название', max_length=255)
     codename = models.CharField('Кодовое имя', max_length=255)
     construction_type = models.CharField('Тип конструкции', max_length=255, choices=VAR_TYPES)
@@ -80,6 +82,7 @@ class Recipient(BaseModel, IsActiveMixin):
     channel = models.ForeignKey(Channel, verbose_name='Способ отправки', on_delete=models.CASCADE)
     email = models.EmailField('Email', max_length=255, blank=True)
     phone = models.CharField('Телефон', max_length=255, blank=True)
+    telegram_chat_id = models.CharField('Telegram Chat ID', max_length=255, blank=True)
     comment = models.TextField('Комментарий', blank=True)
 
     def __str__(self):
@@ -130,4 +133,3 @@ class HtmlTemplate(BaseModel):
         db_table = 'notifications_html_template'
         verbose_name = 'HTML шаблон'
         verbose_name_plural = 'HTML шаблоны'
-

@@ -1,22 +1,21 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 
+from __future__ import unicode_literals
 
 from cp_vue.api.core import cp_api
 from cp_vue.api.views import CpViewSet
 
-from django.db.models import Sum, Count
+from cp_vue.api.permissions import SapPermissions
 from .serializers import (VariableDetailSerializer, ActionListSerializer, ActionDetailSerializer,
                           RecipientListSerializer, RecipientDetailSerializer, ChannelSerializer,
                           HtmlTemplateListSerializer, HtmlTemplateDetailSerializer, NotificationsListSerializer,
                           NotificationsDetailSerializer)
 from .filters import (ActionFilter, RecipientFilter, ChannelFilter, HtmlTemplateFilter,
-                      NotificationsFilter)
+                      NotificationsFilter, VariableFilter)
 from ..models import Variable, Action, Recipient, Channel, HtmlTemplate, Notifications
 
 
 class ActionCpViewSet(CpViewSet):
-    path = 'events'
+    path = 'actions'
     model = Action
     available_actions = dict(delete='Удаление', activate='Активация и Деактивация')
     list_serializer_class = ActionListSerializer
@@ -24,6 +23,18 @@ class ActionCpViewSet(CpViewSet):
     queryset = Action.objects.all().prefetch_related('variables').order_by('name')
     filter_class = ActionFilter
     ordering_fields = ('id', 'name', 'codename', 'is_active', 'create_date', 'edit_date')
+
+
+class VariableCpViewSet(CpViewSet):
+    path = 'variables'
+    model = Variable
+    available_actions = dict()
+    list_serializer_class = VariableDetailSerializer
+    serializer_class = VariableDetailSerializer
+    queryset = Variable.objects.all().order_by('action__id')
+    permission_classes = (SapPermissions,)
+    filter_class = VariableFilter
+    ordering_fields = ('id', 'name', 'codename')
 
 
 class RecipientCpViewSet(CpViewSet):
@@ -66,9 +77,11 @@ class NotificationsCpViewSet(CpViewSet):
     filter_class = NotificationsFilter
     ordering_fields = ('id', 'name', 'action__name', 'create_date', 'edit_date')
 
+
 cp_api.register(ActionCpViewSet)
 cp_api.register(RecipientCpViewSet)
 cp_api.register(ChannelCpViewSet)
 cp_api.register(HtmlTemplateCpViewSet)
 cp_api.register(NotificationsCpViewSet)
+cp_api.register(VariableCpViewSet)
 

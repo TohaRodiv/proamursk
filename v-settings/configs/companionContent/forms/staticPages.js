@@ -131,6 +131,7 @@ const state = {
                                                         required: true,
                                                         isBlocked: false,
                                                         widget: 'singleSelector',
+                                                        callbackType: 'idArray',
                                                         sortFlag: {
                                                             value: 'id',
                                                             direction: 'desc',
@@ -144,6 +145,7 @@ const state = {
                                                         hint: '',
                                                         api_route: 'event-announcements',
                                                         codename: 'item',
+                                                        returnFull: true,
                                                     },
                                                 ],
                                             },
@@ -170,7 +172,7 @@ const state = {
                         'reports-list',
                         'specials-list',
                         'policy',
-                        'news',
+                        'news-list',
                     ],
                 },  
                 blocks: [
@@ -219,7 +221,7 @@ const state = {
             onChangePopup: {
                 top_items: {
                     entity: {
-                        item: function (from, widget, data) {
+                        item(from, widget, data) {
                             let selector = widget.popup_structure[0].blocks[1].elements[0];
 
                             if (data[from]) {
@@ -232,8 +234,8 @@ const state = {
                         },
                     },
                     item: {
-                        item: function (from, widget, data) {
-                            vue.set(data, 'object_id', data.item);
+                        item(from, widget, data) {
+                            vue.set(data, 'object_id', data.item.id);
                         },
                     },
                 },
