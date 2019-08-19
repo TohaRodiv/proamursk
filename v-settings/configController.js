@@ -93,7 +93,7 @@ let lists = [
     rolesList,
     notificationTemplateList,
     recipientsList,
-    actionstList,
+    actionsList,
     feedbacksList,
     textErrorsList,
     reviewsList,
