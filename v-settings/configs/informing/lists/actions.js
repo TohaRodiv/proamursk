@@ -1,6 +1,6 @@
 const state = {
     columnsConfig: {
-        'events': [
+        actions: [
             {
                 name: '',
                 type: 'flag',
@@ -84,7 +84,7 @@ const state = {
         ],
     },
     actionsConfig: {
-        'events': {
+        actions: {
             addButton: true,
             activationButtons: true,
             deleteButton: true,
@@ -92,7 +92,7 @@ const state = {
         },
     },
     filterConfig: {
-        'events': [
+        actions: [
             {
                 filterTitle: 'Дата создания',
                 queryName: {
