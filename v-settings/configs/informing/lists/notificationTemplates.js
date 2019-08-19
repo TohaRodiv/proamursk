@@ -120,7 +120,7 @@ const state = {
                 filterTitle: 'Типы уведомлений',
                 queryName: 'action_id__in',
                 input_type: 'tagSelector',
-                api_route: 'events',
+                api_route: 'actions',
                 callbackValue: 'id',
                 sortFlag: {
                     value: 'name',
