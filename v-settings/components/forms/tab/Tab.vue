@@ -50,7 +50,7 @@
                 v-show="(element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true"
                 :class="[(block.modClass && ( (block.nullRender) ? (formData[block.nullRender] && formData[block.nullRender].length !== 0) : true ) ) ? block.modClass : element.modClass , findMyWidth(element, block)]"
                 :style="(block.uniqWidget) ? {width: '100%'} : ((element.nullRightMargin) ? {marginRight: 0, width: '460px'} : '')"
-                v-for="(element) in block.elements"
+                v-for="(element, elementIndex) in block.elements"
                 :key="(typeof element.codename !== 'object') ? element.codename : Math.random()"
                 class="tab-item"
             >
@@ -87,6 +87,16 @@
                     :label-position="block.labelPosition"
                     :prop-data="formData[element.codename]"
                     :config="element"
+                    @clearError="clearError"
+                    @change="onChange"
+                />
+
+                <textarea-json
+                    v-if="element.widget === 'textareaJson'"
+                    :label-position="block.labelPosition"
+                    :prop-data="formData[element.codename]"
+                    :config="element"
+                    :elementIndex="elementIndex"
                     @clearError="clearError"
                     @change="onChange"
                 />
