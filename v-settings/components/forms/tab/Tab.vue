@@ -260,10 +260,11 @@
                 <textareaPreviewLetter
                     v-if="element.widget === 'textareaPreviewLetter'"
                     :labelPosition="block.labelPosition"
-                    :isBlocked="isBlocked(element)"
-                    :passedData="formData[element.codename]"
-                    :options="element"
+                    :propData="formData[element.codename]"
+                    :config="element"
                     @clearError="clearError"
+                    @change="onChange"
+                    @setError="setError"
                 />
 
                 <input-datetime
