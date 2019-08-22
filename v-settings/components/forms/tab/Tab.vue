@@ -167,16 +167,15 @@
 
                 <singleImageLoader
                     v-if="element.widget === 'singleImageLoader'"
-                    :isBlocked="isBlocked(element)"
-                    :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
+                    :label-position="block.labelPosition"
+                    :passed-data="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <singleFileLoader
                     v-if="element.widget === 'singleFileLoader'"
-                    :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
                     :passedData="formData[element.codename]"
                     :options="element"
