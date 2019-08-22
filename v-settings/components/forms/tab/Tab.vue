@@ -243,9 +243,9 @@
 
                 <rightsWidget
                     v-if="element.widget === 'rightsWidget'"
-                    :isBlocked="isBlocked(element)"
-                    :passedData="formData[element.codename]"
+                    :passed-data="formData[element.codename]"
                     :options="element"
+                    @change="onChange"
                 />
 
                 <postEditor
