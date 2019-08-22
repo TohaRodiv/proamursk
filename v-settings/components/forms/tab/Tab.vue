@@ -1,62 +1,63 @@
 <template>
     <div
-        class="tab-wrapper"
-        v-if="isNaN(+(this.$route.params.id)) || ((formsCurrentMode === 'moving') ? (showMovingsTab && ((openedIndex === 0) ? (openedIndex ===  tabIndex) : true)) : true)"
+        v-if="isNaN(+(this.$route.params.id)) || ((formsCurrentMode === 'moving') ? (showMovingsTab && ((openedIndex === 0) ? (openedIndex === tabIndex) : true)) : true)"
         :style="(formsCurrentMode !== 'moving') ? {marginTop: 0}: ''"
+        class="tab-wrapper"
     >
         <div
-            class="forms-moving-borders"
             v-if="formsCurrentMode === 'moving' && options.codename !== getMovingData.status && options.show && !isNaN(+(this.$route.params.id)) && showMovingsTab"
+            class="forms-moving-borders"
         />
 
         <div
-            class="tab-movings"
             :class="{'marginBottom30': options.show}"
             v-if="formsCurrentMode === 'moving' && ( (getMovingData.status_log && getMovingData.status_log[openedIndex]) ? getMovingData.status_log[openedIndex].status !== 'complete': true) && !isNaN(+(this.$route.params.id)) && showMovingsTab && (getMovingData && ((getMovingData.status !== 'complete') ? openedIndex !== getMovingData.status_log.length - 1 : true))"
             @click="toggleTabOnMovingsForm()"
+            class="tab-movings"
         >
             <div
-                class="tab-movings-arrow icon-arrow-2"
                 :class="{'tab-movings-arrow-closed': !options.show}"
+                class="tab-movings-arrow icon-arrow-2"
             />
             <span
                 class="tab-movings-text"
             >
-                {{ (getMovingData.status_log[openedIndex + 1]) ? getMovingData.status_log[openedIndex + 1].status_name : ''}}
+                {{ (getMovingData.status_log[openedIndex + 1]) ? getMovingData.status_log[openedIndex + 1].status_name : '' }}
             </span>
         </div>
 
         <div
-            class="current-moving"
             v-if="getMovingData.status_log && openedIndex === getMovingData.status_log.length - 1 && getMovingData.status !== 'complete' && getMovingData.status !== 'canceled'"
+            class="current-moving"
         >
-            {{getCurrentStatus()}}
+            {{ getCurrentStatus() }}
         </div>
 
         <div
-            class="tab-row"
             v-if="!(block.cancelRenderIFSuperuser && getFormsImmutableData.is_superuser) && ((block.blockedOn) ? ( (block.blockedOn === 'new' && isNaN(+($route.params.id)) ? false : ( (block.blockedOn === 'exist' && !isNaN(+($route.params.id)) ) ? false : true ) )) : true)"
             v-show="((block.renderFlag || block.forbiddenFlag) && ((formsCurrentMode === 'moving') ? options.show : true ) ) ? checkTriggersFlag(block) : true && (formsCurrentMode === 'moving' && !isNaN(+($route.params.id))) ? options.show === true && showMovingsTab : true"
             v-for="(block, blockDex) in options.blocks"
             :key="blockDex"
             :style="calculateFlexDirection(block)"
+            class="tab-row"
         >
             <div
-                class="tab-left-label col4"
                 v-if="block.labelPosition !== 'left' && !block.hasWideLabel && !block.uniqWidget"
+                class="tab-left-label col4"
             />
             <div
-                class="tab-item"
                 v-if="element.show !== false"
                 v-show="(element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true"
                 :class="[(block.modClass && ( (block.nullRender) ? (formData[block.nullRender] && formData[block.nullRender].length !== 0) : true ) ) ? block.modClass : element.modClass , findMyWidth(element, block)]"
                 :style="(block.uniqWidget) ? {width: '100%'} : ((element.nullRightMargin) ? {marginRight: 0, width: '460px'} : '')"
                 v-for="(element) in block.elements"
                 :key="(typeof element.codename !== 'object') ? element.codename : Math.random()"
+                class="tab-item"
             >
                 <headerWidget
                     v-if="element.type === 'header'"
-                    :options="element" />
+                    :options="element"
+                />
 
                 <recursiveNode
                     v-if="element.type === 'recursion'"
@@ -83,11 +84,11 @@
 
                 <textareaComp
                     v-if="element.widget === 'textarea'"
-                    :labelPosition="block.labelPosition"
-                    :isBlocked="isBlocked(element)"
-                    :passedData="formData[element.codename]"
-                    :options="element"
+                    :label-position="block.labelPosition"
+                    :prop-data="formData[element.codename]"
+                    :config="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <singleSelector
@@ -110,11 +111,11 @@
 
                 <singleCheckbox
                     v-if="element.widget === 'singleCheckbox'"
-                    :isBlocked="isBlocked(element)"
-                    :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
-                    :options="element"
+                    :label-position="block.labelPosition"
+                    :prop-data="formData[element.codename]"
+                    :config="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <radiobuttonGroup
