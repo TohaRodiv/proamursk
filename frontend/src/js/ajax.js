@@ -24,7 +24,7 @@ function ajaxInstantSearch(q) {
                 removeSearchResult();
                 if (responseObj.message) showNotification(responseObj.message, 'error');
             }
-        }
+        },
     });
 }
 
@@ -55,7 +55,7 @@ function ajaxSubscribe(jqForm) {
         },
         complete: function () {
             hideBtnPreloader();
-        }
+        },
     });
 }
 
@@ -98,7 +98,7 @@ function ajaxUploadFile(file, attachmentItem) {
                 attachmentItem.find('.js-abort-attachment-uploading').addClass('js-attachment-delete');
                 attachmentItem.find('.js-abort-attachment-uploading').removeClass('js-abort-attachment-uploading');
 
-                attachmentItem.data('id', response.data.file_id)
+                attachmentItem.data('id', response.data.file_id);
 
                 attachmentItem.find('.attachment-item__progress').remove();
 
@@ -113,7 +113,7 @@ function ajaxUploadFile(file, attachmentItem) {
         },
         complete: function () {
             hideBtnPreloader();
-        }
+        },
     });
 }
 
@@ -127,7 +127,7 @@ function ajaxForms(jqForm) {
 
     if (filesIdToSend.length > 0) {
         filesIdToSend.forEach(function(id) {
-            dataToSend = dataToSend + '&attachments=' + id
+            dataToSend = dataToSend + '&attachments=' + id;
         });
     }
     // console.log(dataToSend);
@@ -150,7 +150,7 @@ function ajaxForms(jqForm) {
         },
         complete: function () {
             hideBtnPreloader();
-        }
+        },
     });
 }
 
@@ -180,7 +180,7 @@ function ajaxPlaceReview(jqForm) {
         },
         complete: function () {
             hideBtnPreloader();
-        }
+        },
     });
 }
 
@@ -210,7 +210,7 @@ function ajaxBugreport(jqForm) {
         },
         complete: function () {
             hideBtnPreloader();
-        }
+        },
     });
 }
 
@@ -238,31 +238,31 @@ function ajaxInfinityLoader(url, templateName, page) {
                     $('.btn_more').addClass('hidden');
                 }
 
-                if (templateName === 'news') {
+                if (url === 'news') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.news);
                 }
-                else if (templateName === 'announcements') {
+                else if (url === 'announcements') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.announcements);
                 }
-                else if (templateName === 'reports') {
+                else if (url === 'reports') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.reports);
                 }
-                else if (templateName === 'history') {
+                else if (url === 'history') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.articles);
                 }
-                else if (templateName === 'places') {
+                else if (url === 'places') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.places);
                 }
-                else if (templateName === 'persons') {
+                else if (url === 'persons') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.articles);
                 }
-                else if (templateName === 'reviews') {
+                else if (url === 'reviews') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.reviews);
                 }
-                else if (templateName === 'special-projects') {
+                else if (url === 'special-projects') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.specialProjects);
                 }
-                else if (templateName === 'search-result') {
+                else if (url === 'search-result') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.search_result);
                 }
             }
@@ -272,7 +272,7 @@ function ajaxInfinityLoader(url, templateName, page) {
         },
         complete: function () {
             hideBtnPreloader();
-        }
+        },
     });
 }
 
@@ -308,7 +308,7 @@ function ajaxSearchResultInfinityLoader(page, q, section) {
         },
         complete: function () {
             hideBtnPreloader();
-        }
+        },
     });
 }
 
@@ -366,7 +366,7 @@ $('body').on('click', '.js-btn_more', function () {
 
     pageCount++;
     $(this).data('page-count', pageCount);
-})
+});
 
 $('.js-pop-up__form').submit(function (event) {
     event.preventDefault();
@@ -393,4 +393,4 @@ $('.js-pop-up__form').submit(function (event) {
     else {
         return false;
     }
-})
+});
