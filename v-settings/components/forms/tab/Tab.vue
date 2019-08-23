@@ -103,11 +103,11 @@
 
                 <singleSelector
                     v-if="element.widget === 'singleSelector'"
-                    :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
                     :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <multipleSelector
