@@ -23,7 +23,7 @@ const state = {
                         ],
                     },
                     {
-                        labelPosition: 'top',
+                        labelPosition: 'left',
                         direction: 'row',
                         modClass: 'marginBottom40',
                         elements: [
@@ -46,13 +46,13 @@ const state = {
                                 label: 'JSON конфиг формы<br>страницы',
                                 codename: 'admin_form_config',
                                 widget: 'textareaJson',
-                                // hint: {
-                                //     text: 'Очень длинная подсказка, чтобы проверить, будет ли резаться строка, или она уйдёт под сайдбар',
-                                //     styles: {
-                                //         marginBottom: 'auto',
-                                //     },
-                                // },
-                                // required: true,
+                                hint: {
+                                    text: 'Очень длинная подсказка, чтобы проверить, будет ли резаться строка, или она уйдёт под сайдбар',
+                                    styles: {
+                                        marginBottom: 'auto',
+                                    },
+                                },
+                                required: true,
                             },
                         ],
                     },

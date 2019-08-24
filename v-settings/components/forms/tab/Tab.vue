@@ -111,12 +111,12 @@
                 />
 
                 <multipleSelector
-                    v-if="element.widget === 'multipleSelector' && !(element.cancelRenderIFSuperuser && getFormsImmutableData.is_superuser)"
-                    :isBlocked="isBlocked(element)"
-                    :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
+                    v-if="element.widget === 'multipleSelector'"
+                    :label-position="block.labelPosition"
+                    :passed-data="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <singleCheckbox
