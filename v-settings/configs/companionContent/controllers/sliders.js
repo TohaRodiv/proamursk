@@ -15,5 +15,15 @@ export default {
                 component.$set(slidesConfig, 'isBlocked', true);
             }
         },
+
+        slides(data, component) {
+            console.log('slides');
+            const slides = data.slides;
+
+            if (slides && slides.length) {
+                const formatConfig = component.FORM_CONFIG.format;
+                component.$set(formatConfig, 'isBlocked', true);
+            }
+        },
     },
 };
