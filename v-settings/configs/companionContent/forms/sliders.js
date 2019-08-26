@@ -115,9 +115,7 @@ const state = {
                                                         inputID: 'slideCoverInput',
                                                         dragID: 'slideCoverDrag',
                                                         label: 'Изображение',
-                                                        expected_value: 'medium_url',
                                                         required: true,
-                                                        invalid: false,
                                                         width: 12,
                                                         image: {
                                                             width: 1720,
@@ -140,8 +138,6 @@ const state = {
                                                     {
                                                         type: 'field',
                                                         label: 'Описание',
-                                                        required: false,
-                                                        invalid: false,
                                                         width: 12,
                                                         height: 80,
                                                         codename: 'description',
@@ -156,7 +152,6 @@ const state = {
                                                 elements: [
                                                     {
                                                         label: 'Активный слайд (неактивные слайды не отображаются на странице)',
-                                                        required: false,
                                                         codename: 'is_active',
                                                         widget: 'singleCheckbox',
                                                         hint: '',
