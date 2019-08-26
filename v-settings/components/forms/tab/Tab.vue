@@ -147,12 +147,11 @@
                 />
 
                 <simpleChildEntity
-                    v-show="((element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true) && ( (block.nullRender) ? (formData[block.nullRender] && formData[block.nullRender].length !== 0) : true )"
                     v-if="element.widget === 'simpleChildEntity'"
-                    :isBlocked="isBlocked(element)"
-                    :passedData="formData[element.codename]"
+                    :passed-data="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <childEntity
