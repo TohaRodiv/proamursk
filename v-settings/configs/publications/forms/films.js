@@ -275,6 +275,8 @@ const state = {
                 title: 'РАСПИСАНИЕ СЕАНСОВ',
                 blocks: [
                     {
+                        labelPosition: 'left',
+                        direction: 'row',
                         elements: [
                             {
                                 codename: 'sessions',
