@@ -101,9 +101,7 @@ const state = {
                                 inputID: 'wideBannersCoverInput',
                                 dragID: 'wideBannersCoverDrag',
                                 label: 'Баннер',
-                                expected_value: 'medium_url',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 image: {
                                     width: 2600,

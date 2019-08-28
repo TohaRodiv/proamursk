@@ -149,7 +149,7 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 118
+STATIC_VERSION = 120
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -183,7 +183,7 @@ MEDIALIB_THUMB_SIZE = {
     # Админка
     'sap_min': (140, 140),
     'sap_medium': (350, 350),
-    'sap_large': (1410, 1410),
+    'sap_large': (1400, 1400),
     'sap_min_crop': (140, 140, 'crop'),
     'sap_medium_crop': (350, 350, 'crop'),
 

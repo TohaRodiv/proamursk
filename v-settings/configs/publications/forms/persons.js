@@ -202,9 +202,7 @@ const state = {
                                 inputID: 'personsCoverInput',
                                 dragID: 'personsCoverDrag',
                                 label: 'Обложка',
-                                expected_value: 'medium_url',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 image: {
                                     width: 1720,
@@ -285,8 +283,6 @@ const state = {
                                 inputID: 'personsCoverInputOG',
                                 dragID: 'personsCoverDragOG',
                                 label: 'Обложка для социальных сетей (og:image)',
-                                expected_value: 'medium_url',
-                                required: false,
                                 width: 12,
                                 image: {
                                     width: 1200,

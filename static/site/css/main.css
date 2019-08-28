@@ -357,6 +357,9 @@ ul, ol {
 .icon-success:before {
   content: "\e926"; }
 
+.icon-mail:before {
+  content: "\e932"; }
+
 .container {
   position: relative;
   width: 1300px;
@@ -4497,8 +4500,11 @@ footer {
     line-height: 20px;
     color: #0073FF;
     vertical-align: -2px;
-    text-align: center;
+    text-align: center; }
+  .sp-place__contacts-table [class^="icon-"]::before {
     font-size: 17px; }
+  .sp-place__contacts-table .icon-mail::before {
+    font-size: 13px; }
   .sp-place__contacts-table a {
     color: #0073FF;
     text-decoration: none; }

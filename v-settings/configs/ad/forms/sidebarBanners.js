@@ -101,9 +101,7 @@ const state = {
                                 inputID: 'wideBannersVertCoverInput',
                                 dragID: 'wideBannersVertCoverDrag',
                                 label: 'Вертикальный баннер',
-                                expected_value: 'medium_url',
                                 required: true,
-                                invalid: false,
                                 width: 6,
                                 image: {
                                     width: 760,
@@ -121,9 +119,7 @@ const state = {
                                 inputID: 'wideBannersHorCoverInput',
                                 dragID: 'wideBannersHorCoverDrag',
                                 label: 'Горизонтальный баннер',
-                                expected_value: 'medium_url',
                                 required: true,
-                                invalid: false,
                                 width: 6,
                                 image: {
                                     width: 760,

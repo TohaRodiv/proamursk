@@ -19,7 +19,7 @@ const state = {
                                 width: 4,
                                 codename: 'last_name',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
                             {
                                 type: 'field',
@@ -29,7 +29,7 @@ const state = {
                                 width: 4,
                                 codename: 'first_name',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
                             {
                                 type: 'field',
@@ -39,9 +39,9 @@ const state = {
                                 width: 4,
                                 codename: 'patronymic',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'top',
@@ -57,7 +57,7 @@ const state = {
                                 width: 4,
                                 codename: 'username',
                                 widget: 'simpleInput',
-                                hint: ''
+                                hint: '',
                             },
                             {
                                 type: 'shortTag',
@@ -70,7 +70,7 @@ const state = {
                                 api_route: 'user-roles',
                                 sortFlag: {
                                     value: 'name',
-                                    direction: 'asc'
+                                    direction: 'asc',
                                 },
                                 view_structure: [
                                     {
@@ -78,9 +78,9 @@ const state = {
                                         flex: .85,
                                     },
                                 ],
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
@@ -96,9 +96,9 @@ const state = {
                                 requiredIfOnCreate: true,
                                 codename: 'password2',
                                 widget: 'passwordChanger',
-                                hint: 'Пароль может состоять только из цифр или букв английского алфавита, должен быть не короче шести символов, а также содержать как минимум одну цифру и одну букву в любом регистре, например: 8goods'
+                                hint: 'Пароль может состоять только из цифр или букв английского алфавита, должен быть не короче шести символов, а также содержать как минимум одну цифру и одну букву в любом регистре, например: 8goods',
                             },
-                        ]
+                        ],
                     },
 
 
@@ -116,9 +116,9 @@ const state = {
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: ''
-                            }
-                        ]
+                                hint: '',
+                            },
+                        ],
                     },
 
                     {
@@ -130,11 +130,11 @@ const state = {
                                 required: false,
                                 codename: 'request_change_password',
                                 widget: 'singleCheckbox',
-                                hint: ''
-                            }
-                        ]
-                    }
-                ]
+                                hint: '',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id: 2,
@@ -149,9 +149,6 @@ const state = {
                                 inputID: 'usersInput',
                                 dragID: 'usersDrag',
                                 label: 'Фотография / Аватар',
-                                expected_value: 'medium_url',
-                                required: false,
-                                invalid: false,
                                 width: 6,
                                 image: {
                                     width: 360,
@@ -162,22 +159,22 @@ const state = {
                                 modClass: 'marginBottom20',
                                 requireSendId: true,
                                 key_attr: 'id',
-                                hint: ''
+                                hint: '',
                             },
-                        ]
+                        ],
                     },
-                ]
-            }
+                ],
+            },
         ],
     },
     activeFlag: {
         users: {
             title: 'Активный пользователь',
             hint: 'Неактивные пользователи не могут авторизоваться на сайте и в ПУ',
-        }
+        },
     },
 };
 
 export default {
-    state
-}
+    state,
+};

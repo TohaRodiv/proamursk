@@ -463,7 +463,6 @@ const state = {
                                                         inputID: 'cityGuidesCoverInput',
                                                         dragID: 'cityGuidesCoverDrag',
                                                         label: 'Изображение',
-                                                        expected_value: 'medium_url',
                                                         width: 12,
                                                         image: {
                                                             width: 1720,
@@ -579,8 +578,6 @@ const state = {
                                 inputID: 'cityGuidesCoverInputOG',
                                 dragID: 'cityGuidesCoverDragOG',
                                 label: 'Обложка для социальных сетей (og:image)',
-                                expected_value: 'medium_url',
-                                required: false,
                                 width: 12,
                                 image: {
                                     width: 1200,
