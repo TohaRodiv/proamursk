@@ -19,7 +19,7 @@ function checkFadeBlock() {
 
             if (blockPos < windowScroll + windowHeightHalf) {
                 item.classList.add('js-fade-block_animate');
-                setTimeout(() => {
+                setTimeout(function() {
                     item.classList.remove('js-fade-block', 'js-fade-block_animate');
                 }, 600);
             }
