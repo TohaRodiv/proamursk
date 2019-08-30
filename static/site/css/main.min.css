@@ -2922,7 +2922,11 @@ footer {
     width: 640px; }
   .grid-publication_8-col {
     width: 860px;
-    min-height: 500px; }
+    height: 500px; }
+    .grid-publication_8-col .grid-publication__text-wrap {
+      position: absolute;
+      bottom: 0;
+      width: 100%; }
   .grid-publication_6-col.grid-publication_format-full .grid-publication__title, .grid-publication_8-col.grid-publication_format-full .grid-publication__title {
     font-size: 36px; }
   .grid-publication_6-col.grid-publication_format-full .grid-publication__text, .grid-publication_8-col.grid-publication_format-full .grid-publication__text {
