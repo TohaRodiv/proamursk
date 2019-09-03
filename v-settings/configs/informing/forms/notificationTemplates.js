@@ -196,12 +196,10 @@ const state = {
                             {
                                 type: 'shortTag',
                                 label: 'Получатели уведомлений',
-                                required: false,
                                 width: 6,
                                 codename: 'recipients',
                                 callbackType: 'idArray',
                                 widget: 'multipleSelector',
-                                invalid: false,
                                 api_route: 'recipients',
                                 sortFlag: {
                                     value: 'name',
@@ -214,6 +212,10 @@ const state = {
                                     },
                                 ],
                                 hint: '',
+                                filter_results: {
+                                    flag: 'channel_id__in',
+                                    value: null,
+                                },
                             },
                         ],
                     },
