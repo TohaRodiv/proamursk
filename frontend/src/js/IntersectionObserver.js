@@ -1,7 +1,7 @@
 var images = $('.lazyload');
 var IntersectionObserverOptions = {
-    root: document.querySelector('body')[0],
-    threshold: 0.5,
+    root: document.querySelector('main')[0],
+    // threshold: 0.5,
 };
 
 var IntersectionObserverCallback = function(entries) {
@@ -17,9 +17,7 @@ var IntersectionObserverCallback = function(entries) {
                 image.src = image.getAttribute('data-src');
             }
 
-            loadWithFade(image);
-            imageObserver.unobserve(image);
-
+            image.onload = imageOnLoad(image);
         }
     }
 };
@@ -29,9 +27,14 @@ var imageObserver = new IntersectionObserver(
     IntersectionObserverOptions
 );
 
-images.each(function(i, image) {
+images.each(function(i) {
     imageObserver.observe(images[i]);
 });
+
+function imageOnLoad(image) {
+    loadWithFade(image);
+    imageObserver.unobserve(image);
+}
 
 function loadWithFade(item) {
     item.classList.add('js-fade_animate');
