@@ -15,13 +15,13 @@ $('body').keydown(function (event) {
         $('input[name="url"]').val(currentURL);
         $('.js-error-selection-textarea').val(selection);
         $('input, textarea').addClass('fill');
-        resizeTextarea($('.bugreport').find('.variable-height-textarea'), 27, 120)
+        resizeTextarea($('.bugreport').find('.variable-height-textarea'), 27, 120);
     }
 });
 
 
 function getSelectionText() {
-   return window.getSelection().toString();
+    return window.getSelection().toString();
 }
 
 $('body').on('change', 'input, textarea, .select__value', function () {
@@ -31,7 +31,7 @@ $('body').on('change', 'input, textarea, .select__value', function () {
     else {
         $(this).addClass('fill');
     }
-})
+});
 
 
 $('.variable-height-textarea').on('keyup', function () {
@@ -74,4 +74,4 @@ Array.prototype.remove = function(value) {
         return this.splice(idx, 1);
     }
     return false;
-}
+};
