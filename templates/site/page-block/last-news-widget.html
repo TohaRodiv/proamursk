@@ -8,7 +8,7 @@
             {% for news_item in news %}
                 <li class="last-news-item">
                     <a href="{{ news_item.get_absolute_url }}" class="last-news-item__link">
-                        <img src="{{ news_item.cover|get_thumbnail_url_by_name:"news_aside_cover" }}" alt="" class="last-news-item__img">
+                        <img src="" alt="" class="last-news-item__img lazyload" data-src="{{ news_item.cover|get_thumbnail_url_by_name:"news_aside_cover" }}">
                         <div class="last-news-item__text-wrap">
                             <h4 class="last-news-item__title">{{ news_item.title }}</h4>
                             <div class="last-news-item__date">{{ news_item.publication_date|ru_strftime:"%d %B %Y" }}</div>

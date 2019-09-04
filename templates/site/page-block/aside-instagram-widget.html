@@ -1,6 +1,6 @@
 {% load static_version admin_static %}
 <div class="aside-instagram-widget">
     <a href="{{ request.SETTINGS.instagram }}" class="aside__instagram-banner-link" target="_blank">
-        <img src="{% static "site/images/instagram-aside.jpg" %}{% static_version %}" alt="" class="instagram-banner">
+        <img src="" data-src="{% static "site/images/instagram-aside.jpg" %}{% static_version %}" alt="" class="instagram-banner instagram-banner_aside lazyload">
     </a>
 </div>

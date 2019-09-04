@@ -14,6 +14,7 @@
         color: inherit
 
     & > a:not(.grid-publication__link)
+        position: relative
         display: flex
         flex-direction: column
         height: 100%
@@ -21,6 +22,7 @@
 
     &__cover-wrap
         position: relative
+        background-color: $light-gray
 
     &__cover
         position: relative
@@ -152,6 +154,9 @@
     &_format-base
 
         .grid-publication
+            &__cover-wrap
+                height: 278px
+
             &__cover
                 border-bottom: 1px solid $border-c
 
@@ -168,9 +173,12 @@
 
         .grid-publication
             &__cover-wrap
-                position: absolute
-                display: block
+                // position: absolute
+                position: relative
+                display: flex
+                flex-direction: column
                 height: 100%
+                flex-grow: 1
 
                 &::after
                     content: ""
@@ -184,9 +192,12 @@
 
             &__cover
                 height: 100%
+                flex-grow: 1
 
             &__text-wrap
-                margin-top: 280px
+                // margin-top: 280px
+                position: absolute;
+                bottom: 0;
 
             &__link
                 color: $light-c
@@ -273,5 +284,9 @@
             margin: auto
 
 .special-projects-list__item
+    background-color: $light-gray
+    .grid-publication
+        background-color: transparent
+        
     &:not(:last-child)
         margin-bottom: 20px
