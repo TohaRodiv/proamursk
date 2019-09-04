@@ -120,7 +120,7 @@
 {#                <div class="js-subscribe-form__submited subscribe-form__submited hidden">Мы выслали письмо для подтверждения, проверьте почту. Спасибо</div>#}
 {#            </div>#}
 
-            <a href="{{ request.SETTINGS.instagram }}" class="footer__instagram-banner-link" target="_blank"><img src="{% static "site/images/instagram-footer.jpg" %}{% static_version %}" alt="" class="instagram-banner"></a>
+            <a href="{{ request.SETTINGS.instagram }}" class="footer__instagram-banner-link" target="_blank"><img src="" data-src="{% static "site/images/instagram-footer.jpg" %}{% static_version %}" alt="" class="instagram-banner instagram-banner_footer lazyload"></a>
 
             <div class="footer__main">
                 <div class="footer-top">

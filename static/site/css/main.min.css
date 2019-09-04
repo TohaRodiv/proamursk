@@ -3073,8 +3073,12 @@ footer {
 .special-project__wobbler .wobbler {
   margin: auto; }
 
-.special-projects-list__item:not(:last-child) {
-  margin-bottom: 20px; }
+.special-projects-list__item {
+  background-color: #DFDFDF; }
+  .special-projects-list__item .grid-publication {
+    background-color: transparent; }
+  .special-projects-list__item:not(:last-child) {
+    margin-bottom: 20px; }
 
 .additional-block {
   padding: 40px 0;
@@ -3255,6 +3259,10 @@ footer {
   .banner__img {
     display: block;
     width: 100%; }
+    .banner__img_vertical {
+      height: 460px; }
+    .banner__img_horizontal {
+      height: 240px; }
 
 .share-widget {
   display: -webkit-box;
@@ -3908,6 +3916,12 @@ footer {
 
 .instagram-banner {
   display: block; }
+  .instagram-banner_footer {
+    width: 880px;
+    height: 120px; }
+  .instagram-banner_aside {
+    width: 380px;
+    height: 500px; }
 
 .aside-instagram-widget {
   height: 500px; }

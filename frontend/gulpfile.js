@@ -3,7 +3,6 @@ const gulp = require('gulp'),
     colors = require('colors'),
 
     // Development plugins
-    babel = require('gulp-babel'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps = require('gulp-sourcemaps'),
