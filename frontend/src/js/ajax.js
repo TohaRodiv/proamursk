@@ -265,6 +265,11 @@ function ajaxInfinityLoader(url, templateName, page) {
                 else if (url === 'search-result') {
                     $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.search_result);
                 }
+
+                var images = $('.lazyload');
+                images.each(function(i, image) {
+                    imageObserver.observe(image);
+                });
             }
             else {
                 if (responseObj.message) showNotification(responseObj.message, 'error');
