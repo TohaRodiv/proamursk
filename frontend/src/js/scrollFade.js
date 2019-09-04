@@ -12,7 +12,7 @@ $(function() {
 function checkFadeBlock() {
     var windowScroll = pageYOffset;
 
-    fadeBlocks.each(function (item) {
+    fadeBlocks.each(function (i, item) {
         if (item.classList.contains('js-fade')) {
             var blockPos = item.getBoundingClientRect().top + windowScroll;
 
