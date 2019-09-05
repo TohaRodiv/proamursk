@@ -396,6 +396,7 @@ $('.js-pop-up__form').submit(function (event) {
         }
     }
     else {
+        showNotification('Одно или несколько полей формы содержат ошибки', 'error');
         return false;
     }
 });
