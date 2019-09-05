@@ -5340,19 +5340,23 @@ footer {
     background-repeat: no-repeat; }
 
 .sp-summer-money-illustr1 {
-  width: 385px; }
+  width: 385px;
+  height: 458px; }
 
 .sp-summer-money-illustr2 {
   width: 580px;
+  height: 542px;
   margin-right: -170px; }
 
 .sp-summer-money-illustr3 {
-  width: 415px; }
+  width: 415px;
+  height: 400px; }
 
 .sp-summer-money-illustr4 {
   position: relative;
   z-index: 1;
   width: 360px;
+  height: 457px;
   margin-top: -20px;
   margin-left: 20px; }
 
@@ -5612,6 +5616,10 @@ footer {
 .sp-summer-money-slider .slider-container {
   height: 760px; }
 
+.sp-summer-money-slider img {
+  width: 100%;
+  height: 100%; }
+
 .sp-summer-money-slider__arrow-container {
   position: absolute;
   width: 100%;
@@ -5677,6 +5685,7 @@ footer {
 
 .sp-summer-money-working-conditions__img {
   width: 225px;
+  height: 388px;
   margin-left: 90px;
   margin-right: 90px; }
 
