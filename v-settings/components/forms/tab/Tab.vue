@@ -148,20 +148,21 @@
 
                 <simpleChildEntity
                     v-if="element.widget === 'simpleChildEntity'"
-                    :passed-data="formData[element.codename]"
-                    :options="element"
+                    :items="formData[element.codename]"
+                    :config="element"
                     @clearError="clearError"
                     @change="onChange"
+                    @simpleChildEntityEvent="simpleChildEntityEventsHandler"
                 />
 
                 <childEntity
-                    v-show="((element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true ) && ( (block.nullRender) ? (formData[block.nullRender] && formData[block.nullRender].length !== 0) : true )"
                     v-if="element.widget === 'childEntity'"
-                    :isBlocked="isBlocked(element)"
-                    :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
-                    :options="element"
+                    :label-position="block.labelPosition"
+                    :items="formData[element.codename]"
+                    :config="element"
                     @clearError="clearError"
+                    @change="onChange"
+                    @resetElementConfig="resetElementConfig"
                 />
 
                 <singleImageLoader
