@@ -18,7 +18,6 @@
                                 <div
                                     :class="{'forms-tabs-item-error': tab.invalid, 'forms-tabs-item-selected': tab.id === currentTabId, 'forms-tabs-item-blocked': tab.blocked}"
                                     v-show="(tab.renderFlag || tab.forbiddenFlag || tab.hidden) ? checkTriggersFlag(tab) : true"
-                                    v-if="!(tab.cancelRenderIFSuperuser && getIsSuperUser && itsMineUserForm())"
                                     v-for="(tab, tabDex) in config"
                                     :key="tabDex"
                                     @click="tab.blocked ? '' : setCurrentTab(tab.id)"
@@ -34,8 +33,7 @@
                                 </div>
                             </div>
                             <div
-                                :class="{'width100percents': !getMovingData || !getMovingData.status_log}"
-                                class="forms-wrapper-inner"
+                                class="forms-wrapper-inner width100percents"
                             >
                                 <div
                                     :class="{'forms-workzone-no-tabs': config.length === 1}"
@@ -101,7 +99,7 @@
             />
 
             <div
-                v-if="!isNaN(+($route.params.id))"
+                v-if="!isNaN(+(id))"
                 class="forms-buttons-container"
             >
                 <div class="forms-buttons-container-inner">
@@ -114,7 +112,7 @@
                             {{ action.label }}
                         </button>
                         <button
-                            v-if="isDeleteButtonAvailable && (getIsSuperUser || (data.object_permissions && data.object_permissions.delete))"
+                            v-if="hasDelete"
                             @click="showDeletePopup = true"
                             class="button borderless-button forms-cancel-button"
                         >
@@ -148,13 +146,13 @@
             </div>
 
             <div
-                v-if="isNaN(+($route.params.id))"
+                v-if="isNaN(+(id))"
                 class="forms-buttons-container"
             >
                 <div class="forms-buttons-container-inner">
                     <div class="form-footer__minor-buttons-wrap">
                         <button
-                            v-if="$route.params.id !== 'form' && (getIsSuperUser || (hasAddRight() && hasAddButton))"
+                            v-if="hasSaveAndAdd"
                             @click="saveEntity('add&push')"
                             class="button borderless-button forms-save-and-add-button"
                         >
@@ -163,7 +161,7 @@
                     </div>
                     <div class="form-footer__major-buttons-wrap">
                         <button
-                            v-if="getIsSuperUser || (hasAddRight() && ($route.params.id === 'form' ? true : hasAddButton))"
+                            v-if="hasSave"
                             @click="save"
                             class="button forms-save-button"
                         >

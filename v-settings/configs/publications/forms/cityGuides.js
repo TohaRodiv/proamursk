@@ -151,7 +151,7 @@ const state = {
                                 requireSendId: true,
                                 hint: '',
                                 disableClickaway: true,
-                                entity_structure: [
+                                row: [
                                     {
                                         type: 'vertical_list',
                                         list: [
@@ -161,7 +161,7 @@ const state = {
                                         ],
                                     },
                                 ],
-                                popup_structure: [
+                                popup: [
                                     {
                                         id: 1,
                                         blocks: [

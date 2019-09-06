@@ -277,7 +277,8 @@ const state = {
                                 modClass: 'marginBottom20',
                                 type: 'field',
                                 gotHeaders: true,
-                                rows: [
+                                // isDraggable: true,
+                                defaultRowConfig: [
                                     {
                                         format: 'datetime',
                                         widget: 'inputDatetime',

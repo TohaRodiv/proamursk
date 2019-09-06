@@ -72,12 +72,8 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                isBlocked: true,
+                                blocked: false,
                                 label: 'Слайды',
-                                popupLabels: {
-                                    new: 'Слайд в слайдере',
-                                    existing: 'Слайд в слайдере',
-                                },
                                 dragOrder: 'weight',
                                 required: false,
                                 invalid: false,
@@ -86,9 +82,8 @@ const state = {
                                 modClass: 'marginBottom50',
                                 codename: 'slides',
                                 requireSendId: true,
-                                disableClickaway: true,
                                 hint: '',
-                                entity_structure: [
+                                row: [
                                     {
                                         type: 'image',
                                         requiredValue: 'cover.medium_url',
@@ -102,66 +97,74 @@ const state = {
                                     },
                                 ],
                                 textOptions: true,
-                                popup_structure: [
-                                    {
-                                        id: 1,
-                                        blocks: [
-                                            {
-                                                labelPosition: 'top',
-                                                direction: 'row',
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        inputID: 'slideCoverInput',
-                                                        dragID: 'slideCoverDrag',
-                                                        label: 'Изображение',
-                                                        required: true,
-                                                        width: 12,
-                                                        image: {
-                                                            width: 1720,
-                                                            height: 1144,
-                                                        },
-                                                        codename: 'cover',
-                                                        widget: 'singleImageLoader',
-                                                        modClass: 'marginBottom20',
-                                                        requireSendId: true,
-                                                        key_attr: 'id',
-                                                        hint: '',
-                                                    },
-                                                ],
-                                            },
-                                            {
-                                                labelPosition: 'top',
-                                                direction: 'row',
-                                                modClass: 'marginBottom50',
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        label: 'Описание',
-                                                        width: 12,
-                                                        height: 80,
-                                                        codename: 'description',
-                                                        widget: 'textarea',
-                                                        hint: '',
-                                                    },
-                                                ],
-                                            },
-                                            {
-                                                labelPosition: 'top',
-                                                direction: 'row',
-                                                elements: [
-                                                    {
-                                                        label: 'Активный слайд (неактивные слайды не отображаются на странице)',
-                                                        codename: 'is_active',
-                                                        widget: 'singleCheckbox',
-                                                        hint: '',
-                                                        default: true,
-                                                    },
-                                                ],
-                                            },
-                                        ],
+                                popup: {
+                                    label: {
+                                        add: 'Слайд в слайдере',
+                                        edit: 'Слайд в слайдере',
                                     },
-                                ],
+                                    disableClickaway: true,
+                                    config: [
+                                        {
+                                            id: 1,
+                                            blocks: [
+                                                {
+                                                    labelPosition: 'top',
+                                                    direction: 'row',
+                                                    elements: [
+                                                        {
+                                                            type: 'field',
+                                                            inputID: 'slideCoverInput',
+                                                            dragID: 'slideCoverDrag',
+                                                            label: 'Изображение',
+                                                            required: true,
+                                                            width: 12,
+                                                            image: {
+                                                                width: 1720,
+                                                                height: 1144,
+                                                            },
+                                                            codename: 'cover',
+                                                            widget: 'singleImageLoader',
+                                                            modClass: 'marginBottom20',
+                                                            requireSendId: true,
+                                                            key_attr: 'id',
+                                                            hint: '',
+                                                        },
+                                                    ],
+                                                },
+                                                {
+                                                    labelPosition: 'top',
+                                                    direction: 'row',
+                                                    modClass: 'marginBottom50',
+                                                    elements: [
+                                                        {
+                                                            type: 'field',
+                                                            label: 'Описание',
+                                                            width: 12,
+                                                            height: 80,
+                                                            codename: 'description',
+                                                            widget: 'textarea',
+                                                            hint: '',
+                                                            required: true,
+                                                        },
+                                                    ],
+                                                },
+                                                {
+                                                    labelPosition: 'top',
+                                                    direction: 'row',
+                                                    elements: [
+                                                        {
+                                                            label: 'Активный слайд (неактивные слайды не отображаются на странице)',
+                                                            codename: 'is_active',
+                                                            widget: 'singleCheckbox',
+                                                            hint: '',
+                                                            default: true,
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
                                 rows: [
                                     {
                                         codename: 'cover.medium_url',
