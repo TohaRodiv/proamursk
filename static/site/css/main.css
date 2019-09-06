@@ -2239,11 +2239,13 @@ footer {
     text-decoration: none; }
     .last-news-item__link:hover .last-news-item__title, .last-news-item__link:focus .last-news-item__title {
       color: #0073FF; }
-  .last-news-item__img {
-    display: block;
+  .last-news-item__img-wrap {
     width: 110px;
     height: 80px;
+    flex-shrink: 0;
     margin-right: 20px; }
+  .last-news-item__img {
+    display: block; }
   .last-news-item__title {
     font-size: 16px;
     line-height: 1.3;
