@@ -75,9 +75,6 @@ const state = {
                                 blocked: false,
                                 label: 'Слайды',
                                 dragOrder: 'weight',
-                                required: false,
-                                invalid: false,
-                                isDraggable: true,
                                 widget: 'childEntity',
                                 modClass: 'marginBottom50',
                                 codename: 'slides',
@@ -97,6 +94,13 @@ const state = {
                                     },
                                 ],
                                 textOptions: true,
+                                // Это должно быть настройкой по умолчанию
+                                icons: false,
+                                menu: {
+                                    edit: true,
+                                    delete: true,
+                                    activate: true,
+                                },
                                 popup: {
                                     label: {
                                         add: 'Слайд в слайдере',
@@ -144,7 +148,6 @@ const state = {
                                                             codename: 'description',
                                                             widget: 'textarea',
                                                             hint: '',
-                                                            required: true,
                                                         },
                                                     ],
                                                 },
