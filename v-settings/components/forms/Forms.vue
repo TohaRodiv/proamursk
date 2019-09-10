@@ -3,7 +3,22 @@
         id="form"
         class="forms"
     >
-        <div class="forms-container">
+        <new-preloader 
+            v-show="preloader"
+            :loading="loading"
+            @enablePreloader="preloader = true"
+            @disablePreloader="preloader = false"
+            class="form__preloader"
+        >
+            <img
+                src="../../../cp_vue/frontend/src/preloader/Preloader32.gif"
+                alt=""
+            >
+        </new-preloader>
+        <div 
+            v-if="!preloader"
+            class="forms-container"
+        >
             <div class="forms-container-inner">
                 <div
                     :style="computedFormsWrapperWidth"
@@ -45,7 +60,6 @@
                                         :key="tab.id"
                                         :options="tab"
                                         :tabIndex="Number(index)"
-                                        :reopenTrigger="reopenTrigger"
                                         :form-data="data"
                                         v-show="tab.id === currentTabId"
                                         @clearError="clearError"
