@@ -77,25 +77,11 @@
                 v-if="showDeletePopup"
                 @onDelete="typeOfMove === 'onDelete'"
             />
-            <cancelPopup
-                @closePopup="showCancelPopup = false"
-                v-if="showCancelPopup"
-                @cancelMoving="cancelMoving"
-            />
-            <infoPopup
-                @closeInfoPopup="showInfoPopup = false"
-                @infoPopupResume="saveEntity('moveForward')"
-                v-if="showInfoPopup"
-            />
             <unsavedPopup
                 @closePopup="showUnsavedPopup = false"
                 @continue="forceLeaveRoute"
                 :pathForRouter="unsavedPopupDaWae"
                 v-if="showUnsavedPopup"
-            />
-            <historyPopup
-                @closePopup="showHistoryPopup = false"
-                v-if="showHistoryPopup"
             />
 
             <div
