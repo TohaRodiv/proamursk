@@ -64,7 +64,7 @@
                     </div>
                     <form-sidebar
                         v-if="computedShowFormSidebar"
-                        :item="data"
+                        :item="hybridData"
                         :actions="actions"
                         :activate-action="activateAction"
                         @initAction="actionHandler"
@@ -89,7 +89,7 @@
             />
             <unsavedPopup
                 @closePopup="showUnsavedPopup = false"
-                @continueConfirmed="continueConfirmed = true"
+                @continue="forceLeaveRoute"
                 :pathForRouter="unsavedPopupDaWae"
                 v-if="showUnsavedPopup"
             />

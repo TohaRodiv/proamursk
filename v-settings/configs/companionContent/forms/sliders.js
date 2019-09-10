@@ -95,11 +95,11 @@ const state = {
                                 ],
                                 textOptions: true,
                                 // Это должно быть настройкой по умолчанию
-                                icons: false,
                                 menu: {
                                     edit: true,
                                     delete: true,
                                     activate: true,
+                                    // editLink: 'news',
                                 },
                                 popup: {
                                     label: {
