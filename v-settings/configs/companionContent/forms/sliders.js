@@ -93,7 +93,7 @@ const state = {
                                         flex: 1,
                                     },
                                 ],
-                                textOptions: true,
+                                // textOptions: true,
                                 // Это должно быть настройкой по умолчанию
                                 menu: {
                                     edit: true,
