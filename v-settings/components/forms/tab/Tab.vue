@@ -119,6 +119,15 @@
                     @change="onChange"
                 />
 
+                <CpSelect
+                    v-if="element.widget === 'select'"
+                    :labelPosition="block.labelPosition"
+                    :value="formData[element.codename]"
+                    :config="element"
+                    @clearError="clearError"
+                    @change="onChange"
+                />
+
                 <singleCheckbox
                     v-if="element.widget === 'singleCheckbox'"
                     :label-position="block.labelPosition"

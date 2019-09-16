@@ -16,11 +16,9 @@ const state = {
                                 type: 'field',
                                 label: 'Название',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'title',
                                 widget: 'simpleInput',
-                                hint: '',
                             },
                         ],
                     },
@@ -31,12 +29,13 @@ const state = {
                         elements: [
                             {
                                 type: 'field',
-                                label: 'Формат слайдера',
                                 codename: 'format',
+                                widget: 'select',
+                                label: 'Формат слайдера',
+                                width: 12,
                                 required: true,
-                                invalid: false,
-                                width: 6,
-                                available_values: [
+                                template: 'name',
+                                options: [
                                     {
                                         name: 'Горизонтальный / 3:2',
                                         id: 'format_3x2',
@@ -46,25 +45,50 @@ const state = {
                                         id: 'format_2x1',
                                     },
                                 ],
-                                sortFlag: {
-                                    value: 'name',
-                                    flex: 1.5,
-                                },
-                                widget: 'singleSelector',
-                                hint: '',
-                                view_structure: [
-                                    {
-                                        value: 'name',
-                                        flex: 1.5,
-                                    },
-                                ],
-                                // blockedCondition: {
-                                //     type: 'isEmpty',
-                                //     flag: 'slides',
-                                // },
                             },
                         ],
                     },
+                    // {
+                    //     labelPosition: 'left',
+                    //     modClass: 'marginBottom20',
+                    //     direction: 'row',
+                    //     elements: [
+                    //         {
+                    //             type: 'field',
+                    //             label: 'Формат слайдера',
+                    //             codename: 'format',
+                    //             required: true,
+                    //             invalid: false,
+                    //             width: 6,
+                    //             available_values: [
+                    //                 {
+                    //                     name: 'Горизонтальный / 3:2',
+                    //                     id: 'format_3x2',
+                    //                 },
+                    //                 {
+                    //                     name: 'Горизонтальный / 2:1',
+                    //                     id: 'format_2x1',
+                    //                 },
+                    //             ],
+                    //             sortFlag: {
+                    //                 value: 'name',
+                    //                 flex: 1.5,
+                    //             },
+                    //             widget: 'singleSelector',
+                    //             hint: '',
+                    //             view_structure: [
+                    //                 {
+                    //                     value: 'name',
+                    //                     flex: 1.5,
+                    //                 },
+                    //             ],
+                    //             // blockedCondition: {
+                    //             //     type: 'isEmpty',
+                    //             //     flag: 'slides',
+                    //             // },
+                    //         },
+                    //     ],
+                    // },
                     {
                         labelPosition: 'top',
                         direction: 'row',
