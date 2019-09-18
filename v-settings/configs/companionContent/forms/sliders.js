@@ -1,5 +1,3 @@
-import vue from 'vue';
-
 const state = {
     formsOptions: {
         sliders: [
