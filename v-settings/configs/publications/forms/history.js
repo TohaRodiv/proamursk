@@ -46,25 +46,16 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
+                                widget: 'select',
                                 label: 'Рубрика',
-                                expected_value: 'id',
                                 required: true,
                                 width: 6,
                                 codename: 'rubric',
-                                widget: 'singleSelector',
-                                invalid: false,
-                                api_route: 'history-rubrics',
-                                sortFlag: {
-                                    value: 'name',
-                                    direction: 'asc',
+                                api: 'history-rubrics',
+                                params: {
+                                    order_by: 'name',
                                 },
-                                view_structure: [
-                                    {
-                                        value: 'name',
-                                    },
-                                ],
-                                hint: '',
+                                template: 'name',
                             },
                         ],
                     },

@@ -46,47 +46,6 @@ const state = {
                             },
                         ],
                     },
-                    // {
-                    //     labelPosition: 'left',
-                    //     modClass: 'marginBottom20',
-                    //     direction: 'row',
-                    //     elements: [
-                    //         {
-                    //             type: 'field',
-                    //             label: 'Формат слайдера',
-                    //             codename: 'format',
-                    //             required: true,
-                    //             invalid: false,
-                    //             width: 6,
-                    //             available_values: [
-                    //                 {
-                    //                     name: 'Горизонтальный / 3:2',
-                    //                     id: 'format_3x2',
-                    //                 },
-                    //                 {
-                    //                     name: 'Горизонтальный / 2:1',
-                    //                     id: 'format_2x1',
-                    //                 },
-                    //             ],
-                    //             sortFlag: {
-                    //                 value: 'name',
-                    //                 flex: 1.5,
-                    //             },
-                    //             widget: 'singleSelector',
-                    //             hint: '',
-                    //             view_structure: [
-                    //                 {
-                    //                     value: 'name',
-                    //                     flex: 1.5,
-                    //                 },
-                    //             ],
-                    //             // blockedCondition: {
-                    //             //     type: 'isEmpty',
-                    //             //     flag: 'slides',
-                    //             // },
-                    //         },
-                    //     ],
-                    // },
                     {
                         labelPosition: 'top',
                         direction: 'row',
