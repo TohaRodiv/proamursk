@@ -6,6 +6,7 @@
         <new-preloader 
             v-show="preloader"
             :loading="loading"
+            :forceDisable="disablePreloader"
             @enablePreloader="preloader = true"
             @disablePreloader="preloader = false"
             class="form__preloader"
@@ -14,14 +15,9 @@
                 src="../../../cp_vue/frontend/src/preloader/Preloader32.gif"
                 alt=""
             >
-            <div class="forms-buttons-container" />
         </new-preloader>
-        <!-- <transition
-            name="fade"
-            mode="in-out"
-        > -->
         <div 
-            v-show="!preloader"
+            v-if="!preloader"
             class="forms-container"
         >
             <div class="forms-container-inner">
@@ -83,7 +79,8 @@
                     </div>
                     <form-sidebar
                         v-if="computedShowFormSidebar"
-                        :item="hybridData"
+                        :item="data"
+                        :meta="meta"
                         :actions="actions"
                         :activate-action="activateAction"
                         @initAction="actionHandler"
@@ -104,35 +101,36 @@
             />
 
             <div
-                v-if="!isNaN(+(id))"
                 class="forms-buttons-container"
             >
                 <div class="forms-buttons-container-inner">
                     <div class="form-footer__minor-buttons-wrap">
-                        <button
-                            v-for="(action, indexAction) in footerActions"
-                            :key="'footer-custom-action-' + indexAction"
-                            :class="action.classes"
-                        >
-                            {{ action.label }}
-                        </button>
-                        <button
-                            v-if="hasDelete"
-                            @click="showDeletePopup = true"
-                            class="button borderless-button forms-cancel-button"
-                        >
-                            Удалить
-                        </button>
-                        <button
-                            v-if="duplicateAction"
-                            @click="actionHandler(duplicateAction.method)"
-                            class="button borderless-button forms-save-and-add-button"
-                        >
-                            {{ duplicateAction.label }}
-                        </button>
+                        <template v-if="!isAdd">
+                            <button
+                                v-for="(action, indexAction) in footerActions"
+                                :key="'footer-custom-action-' + indexAction"
+                                :class="action.classes"
+                            >
+                                {{ action.label }}
+                            </button>
+                            <button
+                                v-if="hasDelete"
+                                @click="showDeletePopup = true"
+                                class="button borderless-button forms-cancel-button"
+                            >
+                                Удалить
+                            </button>
+                            <button
+                                v-if="duplicateAction"
+                                @click="actionHandler(duplicateAction.method)"
+                                class="button borderless-button forms-save-and-add-button"
+                            >
+                                {{ duplicateAction.label }}
+                            </button>
+                        </template>
                         <button
                             v-if="compHasEditPermission"
-                            @click="saveEntity('save&push')"
+                            @click="saveAndAdd"
                             class="button borderless-button forms-save-and-add-button"
                         >
                             Сохранить и добавить
@@ -141,33 +139,7 @@
                     <div class="form-footer__major-buttons-wrap">
                         <button
                             v-if="compHasEditPermission"
-                            @click="save"
-                            class="button forms-save-button"
-                        >
-                            Сохранить
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div
-                v-if="isNaN(+(id))"
-                class="forms-buttons-container"
-            >
-                <div class="forms-buttons-container-inner">
-                    <div class="form-footer__minor-buttons-wrap">
-                        <button
-                            v-if="hasSaveAndAdd"
-                            @click="saveEntity('add&push')"
-                            class="button borderless-button forms-save-and-add-button"
-                        >
-                            Сохранить и добавить
-                        </button>
-                    </div>
-                    <div class="form-footer__major-buttons-wrap">
-                        <button
-                            v-if="hasSave"
-                            @click="save"
+                            @click="saveButtonHandler"
                             class="button forms-save-button"
                         >
                             Сохранить
@@ -176,7 +148,6 @@
                 </div>
             </div>
         </div>
-        <!-- </transition> -->
     </div>
 </template>
 

@@ -6,76 +6,80 @@
             <div class="popup-post-editor-forms-wrapper">
                 <div style="display: flex; margin-bottom: 22px;">
                     <imageLoader
-                            style="width: 340px;"
-                            :labelPosition="'top'"
-                            @callback="imageCallback($event.__directSpeechImage)"
-                            :passedData="(passedData.image) ? passedData.image : undefined"
-                            :options="loaderConfig">
+                        style="width: 340px;"
+                        labelPosition="top"
+                        @change="onChange"
+                        @setError="setError"
+                        @clearError="clearError"
+                        :image="image"
+                        :config="imageConfig"
+                    >
                     </imageLoader>
                     <div style="margin-left: 20px;">
-                        <simpleInput
-                                style="width: 340px; margin-bottom: 22px;"
-                                :labelPosition="'top'"
-                                :type="'childEntity'"
-                                :passedData="(passedData.fio) ? passedData.fio : ''"
-                                @callback="fio = $event.name"
-                                :options="fioConfig">
-                        </simpleInput>
-                        <simpleInput
-                                style="width: 340px;"
-                                :labelPosition="'top'"
-                                :type="'childEntity'"
-                                :passedData="(passedData.job) ? passedData.job : ''"
-                                @callback="job = $event.name"
-                                :options="jobConfig">
-                        </simpleInput>
+                        <cp-input
+                            style="width: 340px; margin-bottom: 22px;"
+                            :labelPosition="'top'"
+                            :value="fio"
+                            @change="onChange"
+                            @clearError="clearError"
+                            :config="fioConfig"
+                        >
+                        </cp-input>
+                        <cp-input
+                            style="width: 340px;"
+                            labelPosition="top"
+                            :value="job"
+                            @change="onChange"
+                            @clearError="clearError"
+                            :config="jobConfig"
+                        >
+                        </cp-input>
                     </div>
                 </div>
                 <formatter
-                        style="margin-bottom: 43px;"
-                        :text="(passedData.text) ? passedData.text : ''"
-                        :onlyEmit="true"
-                        @callback="text = $event.text"
-                        :labelPosition="'top'"
-                        :options="formatterOptions">
+                    style="margin-bottom: 43px;"
+                    :text="text"
+                    @change="onChange"
+                    @clearError="clearError"
+                    :labelPosition="'top'"
+                    :config="formatterConfig"
+                >
                 </formatter>
                 <div class="popup-post-editor-forms-indents-wrapper">
                     <span>Отступы</span>
                     <div class="popup-post-editor-forms-indents-container" style="margin-top: 30px;">
-                        <selector
-                                style="margin-bottom: 20px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData && passedData.marginTop) ? passedData.marginTop : ''"
-                                :options="initialiseIndentsConfig('Внешний сверху, em')"
-                                @callback="indentsCallbacks('marginTop', $event)"
-                        ></selector>
-                        <selector
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData && passedData.marginBottom) ? passedData.marginBottom : ''"
-                                :options="initialiseIndentsConfig('Внешний снизу, em')"
-                                @callback="indentsCallbacks('marginBottom', $event)"
-                        ></selector>
-                        <selector
-                                style="margin-bottom: 20px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData && passedData.paddingTop) ? passedData.paddingTop : ''"
-                                :options="initialiseIndentsConfig('Внутр. сверху, em')"
-                                @callback="indentsCallbacks('paddingTop', $event)"
-                        ></selector>
-                        <selector
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData && passedData.paddingBottom) ? passedData.paddingBottom : ''"
-                                :options="initialiseIndentsConfig('Внутр. снизу, em')"
-                                @callback="indentsCallbacks('paddingBottom', $event)"
-                        ></selector>
+                        <cp-select
+                            style="margin-bottom: 20px; margin-right: 15px"
+                            labelPosition="top"
+                            :value="marginTop"
+                            :config="marginTopConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
+                        <cp-select
+                            style="margin-bottom: 20px; margin-right: 15px"
+                            labelPosition="top"
+                            :value="marginBottom"
+                            :config="marginBottomConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
+                        <cp-select
+                            style="margin-bottom: 20px; margin-right: 15px"
+                            labelPosition="top"
+                            :value="paddingTop"
+                            :config="paddingTopConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
+                        <cp-select
+                            style="margin-bottom: 20px; margin-right: 15px"
+                            labelPosition="top"
+                            :value="paddingBottom"
+                            :config="paddingBottomConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
                     </div>
                 </div>
             </div>
@@ -91,130 +95,156 @@
 
 <script>
     import cloneDeep from 'lodash/cloneDeep'
-    import simpleInput from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/SimpleInput.vue'
-    import selector from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
+    // import simpleInput from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/SimpleInput.vue'
+    import CpInput from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/CpInput.vue'
+    // import selector from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
+    import CpSelect from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/CpSelectSwitcher.vue'
     import imageLoader from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/loaders/SingleImageLoader.vue'
     import formatter from '../../Formatter.vue'
 
+    const marginOptions = [
+        {
+            id: 1,
+            name: 1,
+        },
+        {
+            id: 2,
+            name: 2,
+        },
+        {
+            id: 3,
+            name: 3,
+        },
+        {
+            id: 4,
+            name: 4,
+        },
+        {
+            id: 5,
+            name: 5,
+        }
+    ]
+
     export default {
+        components: {
+            // selector,
+            formatter,
+            imageLoader,
+            // simpleInput,
+            CpInput,
+            CpSelect,
+        },
+
         props: {
-            passedData: [Object, Boolean],
+            passedData: {
+                type: [Object, Boolean],
+                default() {
+                    return {};
+                }
+            }
         },
 
         data() {
             return {
                 showTransition: false,
                 fioConfig: {
-                    type: 'field',
                     label: 'ФИО',
                     required: true,
                     invalid: false,
+                    message: '',
                     placeholder: 'Введите значение',
-                    width: 4,
-                    codename: 'name',
-                    widget: 'simpleInput',
-                    hint: '',
+                    width: 6,
+                    codename: 'fio',
                 },
                 jobConfig: {
-                    type: 'field',
                     label: 'Род деятельности',
                     required: true,
                     invalid: false,
+                    message: '',
                     placeholder: 'Введите значение',
-                    width: 4,
-                    codename: 'name',
-                    widget: 'simpleInput',
-                    hint: '',
+                    width: 6,
+                    codename: 'job',
                 },
-                indentsConfig: {
-                    type: 'field',
-                    label: '',
-                    codename: 'callback',
-                    required: false,
-                    invalid: false,
+                marginTopConfig: {
+                    codename: 'marginTop',
                     width: 3,
-                    available_values: [
-                        {
-                            name: '1',
-                            id: 1
-                        },
-                        {
-                            name: '2',
-                            id: 2
-                        },
-                        {
-                            name: '3',
-                            id: 3
-                        },
-                        {
-                            name: '4',
-                            id: 4
-                        },
-                        {
-                            name: '5',
-                            id: 5
-                        },
-                    ],
-                    sortFlag: {
-                        value: 'name'
-                    },
-                    view_structure: [
-                        {
-                            value: 'name',
-                            flex: 1.5
-                        },
-                    ],
-                    returnFromAvailableValues: 'id'
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внешний сверху, em',
                 },
-                formatterOptions: {
+                marginBottomConfig: {
+                    codename: 'marginBottom',
+                    width: 3,
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внешний снизу, em',
+                },
+                paddingTopConfig: {
+                    codename: 'paddingTop',
+                    width: 3,
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внутренний сверху, em',
+                },
+                paddingBottomConfig: {
+                    codename: 'paddingBottom',
+                    width: 3,
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внутренний снизу, em',
+                },
+                formatterConfig: {
                     label: 'Текст',
                     required: true,
                     invalid: false,
-                    widget: 'formatter',
+                    message: '',
                     codename: 'text',
-                    width: 12,
-                    hint: ''
                 },
-                loaderConfig: {
-                    type: 'field',
-                    inputID: 'directSpeechCoverInputID',
-                    dragID: 'directSpeechCoverDragID',
+                imageConfig: {
                     label: 'Фото',
-                    expected_value: 'medium_url',
-                    width: 4,
+                    codename: 'image',
+                    required: true,
+                    invalid: false,
+                    message: '',
+                    width: 6,
                     image: {
                         width: 700,
                         height: 700,
                     },
-                    codename: '__directSpeechImage',
-                    widget: 'singleImageLoader',
-                    requireSendId: true,
-                    key_attr: 'id',
-                    hint: ''
                 },
 
                 fio: '',
                 job: '',
                 image: {},
                 text: '',
-                indents: {
-                    marginTop: '',
-                    marginBottom: '',
-                    paddingTop: '',
-                    paddingBottom: '',
-                }
+                marginTop: null,
+                marginBottom: null,
+                paddingTop: null,
+                paddingBottom: null,
             }
         },
         mounted() {
             setTimeout(() => this.showTransition = true, 200);
+            this.setData();
         },
-        computed: {},
+        
         methods: {
+            setData() {
+                this.fio = this.passedData.fio || '';
+                this.job = this.passedData.job || '';
+                this.image = this.passedData.image || {};
+                this.text = this.passedData.text || '';
+                this.marginTop = this.passedData.marginTop || null;
+                this.marginBottom = this.passedData.marginBottom || null;
+                this.paddingTop = this.passedData.paddingTop || null;
+                this.paddingBottom = this.passedData.paddingBottom || null;
+            },
+
             validate(){
                 let hasError = false;
                 if (!Object.keys(this.image).length) {
-                    this.loaderConfig.invalid = true;
-                    this.loaderConfig.message = 'Загрузите изображение или вставьте из Галереи';
+                    this.imageConfig.invalid = true;
+                    this.imageConfig.message = 'Загрузите изображение или вставьте из Галереи';
                     hasError = true;
                 }
                 if (!this.text) {
@@ -236,45 +266,31 @@
             },
 
             saveForm(){
-                let payload = {};
-                payload.text = this.text;
-                payload.image = this.image;
-                payload.fio = this.fio;
-                payload.job = this.job;
-                Object.assign(payload, this.indents);
+                const { text, image, fio, job, marginTop, marginBottom, paddingTop, paddingBottom } = this;
+                const payload = { text, image, fio, job, marginTop, marginBottom, paddingTop, paddingBottom };
                 this.$emit('changed', payload);
             },
-
-            initialiseIndentsConfig(label){
-                let copy = cloneDeep(this.indentsConfig);
-                copy.label = label;
-                return copy
-            },
-
-            imageCallback(image){
-                if (image) this.image = image;
-                else this.image = {};
-            },
-
-            indentsCallbacks(from, value){
-                if (from === 'marginTop') this.indents.marginTop = value.callback;
-                else if (from === 'marginBottom') this.indents.marginBottom = value.callback;
-                else if (from === 'paddingTop') this.indents.paddingTop = value.callback;
-                else if (from === 'paddingBottom') this.indents.paddingBottom = value.callback;
-            },
-
-
 
             closePopup(){
                 this.$emit('closePopup')
             },
-        },
 
-        components: {
-            selector,
-            formatter,
-            imageLoader,
-            simpleInput,
-        }
+            onChange(item) {
+                // console.log('onChange', item);
+                const [codename, value] = Object.entries(item)[0];
+                this[codename] = value;
+            },
+
+            setError({ codename, message }) {
+                // console.log('setError', codename, message);
+                this[codename + 'Config'].invalid = true;
+                this[codename + 'Config'].message = message;
+            },
+
+            clearError(codename) {
+                // console.log('clearError', codename);
+                this[codename + 'Config'].invalid = false;
+            }
+        },
     }
 </script>

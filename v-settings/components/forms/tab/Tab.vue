@@ -70,7 +70,6 @@
                     v-if="element.widget === 'simpleInput'"
                     :labelPosition="block.labelPosition"
                     :passedData="formData[element.codename]"
-                    :isBlocked="isBlocked(element)"
                     :options="element"
                     @clearError="clearError"
                     @change="onChange"
@@ -148,7 +147,6 @@
 
                 <radioTabs
                     v-if="element.widget === 'radioTabs'"
-                    :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
                     :passedData="formData[element.codename]"
                     :direction="block.direction"
@@ -177,8 +175,8 @@
                 <singleImageLoader
                     v-if="element.widget === 'singleImageLoader'"
                     :label-position="block.labelPosition"
-                    :passed-data="formData[element.codename]"
-                    :options="element"
+                    :image="formData[element.codename]"
+                    :config="element"
                     @clearError="clearError"
                     @change="onChange"
                 />
@@ -186,24 +184,24 @@
                 <singleFileLoader
                     v-if="element.widget === 'singleFileLoader'"
                     :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
-                    :options="element"
+                    :file="formData[element.codename]"
+                    :config="element"
                     @clearError="clearError"
+                    @setError="setError"
+                    @change="onChange"
                 />
 
                 <multipleImageLoader
                     v-if="element.widget === 'multipleImageLoader'"
-                    :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
-                    :dndOrder="data[element.dndFlag]"
-                    :options="element"
+                    :images="formData[element.codename]"
+                    :config="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <multipleFileLoader
                     v-if="element.widget === 'multipleFileLoader'"
-                    :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
                     :passedData="formData[element.codename]"
                     :dndOrder="data[element.dndFlag]"
@@ -213,7 +211,6 @@
 
                 <passwordChanger
                     v-if="element.widget === 'passwordChanger'"
-                    :isBlocked="isBlocked(element)"
                     :labelPosition="block.labelPosition"
                     :options="element"
                     @clearError="clearError"
@@ -243,11 +240,11 @@
 
                 <formatter
                     v-if="element.widget === 'formatter'"
-                    :isBlocked="isBlocked(element)"
                     :text="formData[element.codename]"
                     :labelPosition="block.labelPosition"
-                    :options="element"
+                    :config="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <rightsWidget
@@ -259,7 +256,6 @@
 
                 <postEditor
                     v-if="element.widget === 'postEditor'"
-                    :isBlocked="isBlocked(element)"
                     :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
@@ -292,10 +288,10 @@
                     @change="onChange"
                 />
 
-                <input-component
-                    v-if="element.widget === 'inputComponent'"
-                    :prop-data="formData[element.codename]"
-                    v-bind="element"
+                <CpInput
+                    v-if="element.widget === 'input'"
+                    :value="formData[element.codename]"
+                    :config="element"
                     :label-position="block.labelPosition"
                     @clearError="clearError"
                     @change="onChange"
@@ -310,6 +306,12 @@
                     :label-position="block.labelPosition"
                     @clearError="clearError"
                     @change="onChange"
+                />
+
+                <hidden-input
+                    v-if="element.widget === 'hiddentInput'"
+                    :prop-data="data[element.codename]"
+                    :config="element"
                 />
             </div>
         </div>

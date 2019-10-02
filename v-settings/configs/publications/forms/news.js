@@ -13,14 +13,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Заголовок',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'title',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -30,14 +27,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Подзаголовок',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'descriptor',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -50,11 +44,9 @@ const state = {
                                 format: 'datetime',
                                 label: 'Дата и время публикации',
                                 required: true,
-                                invalid: false,
                                 width: 4,
                                 codename: 'publication_date',
                                 widget: 'inputDatetime',
-                                hint: '',
                             },
                         ],
                     },
@@ -64,12 +56,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Автор обложки или источник',
                                 width: 8,
                                 codename: 'cover_author',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -79,12 +69,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Автор(ы) материала или источник',
                                 width: 8,
                                 codename: 'content_author',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -94,15 +82,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Комментарий',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -118,44 +102,24 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Лид',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 height: 80,
                                 codename: 'lead',
                                 widget: 'textarea',
                                 modClass: 'marginBottom20',
-                                hint: '',
                             },
                         ],
                     },
-                    // {
-                    //     labelPosition: 'left',
-                    //     direction: 'row',
-                    //     modClass: 'marginBottom50',
-                    //     elements: [
-                    //         {
-                    //             label: 'Содержание новости',
-                    //             // required: true,
-                    //             widget: 'formatter',
-                    //             codename: 'content',
-                    //             width: 12,
-                    //             hint: ''
-                    //         }
-                    //     ]
-                    // },
                     {
                         labelPosition: 'left',
                         direction: 'row',
                         elements: [
                             {
-                                label: '',
                                 required: true,
                                 widget: 'postEditor',
                                 codename: 'text',
-                                hint: '',
                             },
                         ],
                     },
@@ -170,9 +134,6 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
-                                inputID: 'newsCoverInput',
-                                dragID: 'newsCoverDrag',
                                 label: 'Обложка',
                                 required: true,
                                 width: 12,
@@ -183,9 +144,6 @@ const state = {
                                 codename: 'cover',
                                 widget: 'singleImageLoader',
                                 modClass: 'marginBottom20',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: '',
                             },
                         ],
                     },
