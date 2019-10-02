@@ -1,5 +1,5 @@
-var images = $('.lazyload');
-var fadeBlocks = $('.js-fade');
+let images = document.querySelectorAll('.lazyload');
+let fadeBlocks = document.querySelectorAll('.js-fade');
 var IntersectionObserverOptions = {
     root: document.querySelector('main')[0],
     // threshold: 0.5,
@@ -7,7 +7,7 @@ var IntersectionObserverOptions = {
 
 
 var IntersectionObserverImageCallback = function(entries) {
-    for (var i=0, max= entries.length; i < max; i++) {
+    for (var i = 0, max = entries.length; i < max; i++) {
         var entry = entries[i];
         if (entry && entry.isIntersecting) {
             var image = entry.target;
@@ -29,8 +29,8 @@ var imageObserver = new IntersectionObserver(
     IntersectionObserverOptions
 );
 
-images.each(function(i) {
-    imageObserver.observe(images[i]);
+images.forEach( item => {
+    imageObserver.observe(item);
 });
 
 
@@ -50,8 +50,8 @@ var blockObserver = new IntersectionObserver(
     IntersectionObserverOptions
 );
 
-fadeBlocks.each(function(i) {
-    blockObserver.observe(fadeBlocks[i]);
+fadeBlocks.forEach( item =>  {
+    blockObserver.observe(item);
 });
 
 
@@ -66,3 +66,15 @@ function showWithFade(item) {
         item.classList.remove('lazyload', 'js-fade', 'js-fade_animate');
     }, 300);
 }
+
+let lazyImageOuter = document.querySelectorAll('.lazy-image-outer');
+function setProportionalSize(item) {
+    let itemWidth = item.offsetWidth;
+    let itemMaxWidth = item.dataset.width;
+    let itemMaxHeight = item.dataset.height;
+    item.style.height = (itemWidth * itemMaxHeight / itemMaxWidth) + 'px';
+}
+
+lazyImageOuter.forEach( item => {
+    setProportionalSize(item);
+});

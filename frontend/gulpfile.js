@@ -18,11 +18,12 @@ const gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     gzip = require('gulp-gzip'),
+    babel = require('gulp-babel'),
 
 
     // NPM paths
     jquery = 'node_modules/jquery/dist/jquery.min.js',
-    jqueryMaskPlugin = 'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js',
+    jqueryMaskPlugin = 'node_modules/jquery-mask-plugin/dist/jquery.mask.js',
     slickCarousel = 'node_modules/slick-carousel/slick/slick.min.js',
     IntersectionObserver = 'node_modules/intersection-observer/intersection-observer.js',
 
@@ -110,6 +111,9 @@ function devJS() {
     return gulp.src(srcJS)
         .pipe(plumber(settingsPlumber))
         .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env',],
+        }))
         .pipe(concat('main.js'))
         .pipe(gulp.dest('static/js/'))
         .pipe(gulp.dest('./../static/site/js/'))
@@ -186,6 +190,9 @@ function prodJS() {
     return gulp.src(srcJS)
         .pipe(plumber(settingsPlumber))
         .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env',],
+        }))
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./../static/site/js/'))
         .pipe(uglify())
