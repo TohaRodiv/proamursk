@@ -66,15 +66,3 @@ function showWithFade(item) {
         item.classList.remove('lazyload', 'js-fade', 'js-fade_animate');
     }, 300);
 }
-
-let lazyImageOuter = document.querySelectorAll('.lazy-image-outer');
-function setProportionalSize(item) {
-    let itemWidth = item.offsetWidth;
-    let itemMaxWidth = item.dataset.width;
-    let itemMaxHeight = item.dataset.height;
-    item.style.height = (itemWidth * itemMaxHeight / itemMaxWidth) + 'px';
-}
-
-lazyImageOuter.forEach( item => {
-    setProportionalSize(item);
-});

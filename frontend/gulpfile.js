@@ -27,7 +27,6 @@ const gulp = require('gulp'),
     slickCarousel = 'node_modules/slick-carousel/slick/slick.min.js',
     IntersectionObserver = 'node_modules/intersection-observer/intersection-observer.js',
 
-
     // JS paths
     srcJS = [
         IntersectionObserver,
