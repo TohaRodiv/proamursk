@@ -1,13 +1,14 @@
 <template>
     <div class="popup-wrapper" :class="{'popup-wrapper-transition': showTransition}">
-        <div class="popup-container" style="max-width: 560px;" v-show="showTransition">
+        <div class="popup-container" style="max-width: 540px;" v-show="showTransition">
             <div class="popup-close-icon icon-close" @click="closePopup"></div>
             <div class="popup-post-editor-forms-label">Разделитель</div>
             <div class="popup-post-editor-forms-wrapper">
                 <div class="popup-post-editor-forms-indents-wrapper">
+                    <div class="popup-post-editor-forms-indents-title">Отступы</div>
                     <div class="popup-post-editor-forms-indents-container">
                         <cp-select
-                            style="margin-bottom: 20px; margin-right: 20px"
+                            style="margin-right: 20px"
                             labelPosition="top"
                             :value="marginTop"
                             :config="marginTopConfig"
@@ -15,15 +16,16 @@
                             @clearError="clearError"
                         ></cp-select>
                         <cp-select
-                            style="margin-bottom: 20px; margin-right: 20px"
                             labelPosition="top"
                             :value="marginBottom"
                             :config="marginBottomConfig"
                             @change="onChange"
                             @clearError="clearError"
                         ></cp-select>
+                    </div>
+                    <div class="popup-post-editor-forms-indents-container">
                         <cp-select
-                            style="margin-bottom: 20px; margin-right: 20px"
+                            style="margin-right: 20px"
                             labelPosition="top"
                             :value="paddingTop"
                             :config="paddingTopConfig"
@@ -31,7 +33,6 @@
                             @clearError="clearError"
                         ></cp-select>
                         <cp-select
-                            style="margin-bottom: 20px; margin-right: 20px"
                             labelPosition="top"
                             :value="paddingBottom"
                             :config="paddingBottomConfig"
@@ -52,9 +53,7 @@
 </template>
 
 <script>
-    import cloneDeep from 'lodash/cloneDeep'
     import CpSelect from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/CpSelectSwitcher.vue'
-    // import textarea from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/Textarea.vue'
 
     const marginOptions = [
         {

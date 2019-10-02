@@ -5,50 +5,44 @@
             <div class="popup-post-editor-forms-label">Текст</div>
             <div class="popup-post-editor-forms-wrapper">
                 <formatter
-                        style="margin-bottom: 43px;"
-                        :text="(passedData.text) ? passedData.text : ''"
-                        :onlyEmit="true"
-                        @callback="text = $event.text"
-                        :labelPosition="'none'"
-                        :options="formatterOptions">
-                </formatter>
+                    style="margin-bottom: 43px;"
+                    :text="text"
+                    @change="onChange"
+                    @clearError="clearError"
+                    labelPosition="top"
+                    :config="textConfig"
+                ></formatter>
                 <div class="popup-post-editor-forms-indents-wrapper">
-                    <span>Отступы</span>
-                    <div class="popup-post-editor-forms-indents-container" style="margin-top: 30px;">
-                        <selector
-                                style="margin-bottom: 20px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :options="initialiseConfig('Внешний сверху, em')"
-                                :passedData="(passedData.marginTop) ? passedData.marginTop : ''"
-                                @callback="indentsCallbacks('marginTop', $event)"
-                        ></selector>
-                        <selector
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :options="initialiseConfig('Внешний снизу, em')"
-                                :passedData="(passedData.marginBottom) ? passedData.marginBottom : ''"
-                                @callback="indentsCallbacks('marginBottom', $event)"
-                        ></selector>
-                        <selector
-                                style="margin-bottom: 20px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :options="initialiseConfig('Внутр. сверху, em')"
-                                :passedData="(passedData.paddingTop) ? passedData.paddingTop : ''"
-                                @callback="indentsCallbacks('paddingTop', $event)"
-                        ></selector>
-                        <selector
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :options="initialiseConfig('Внутр. снизу, em')"
-                                :passedData="(passedData.paddingBottom) ? passedData.paddingBottom : ''"
-                                @callback="indentsCallbacks('paddingBottom', $event)"
-                        ></selector>
+                    <div class="popup-post-editor-forms-indents-title">Отступы</div>
+                    <div class="popup-post-editor-forms-indents-container">
+                        <cp-select
+                            labelPosition="top"
+                            :value="marginTop"
+                            :config="marginTopConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
+                        <cp-select
+                            labelPosition="top"
+                            :value="marginBottom"
+                            :config="marginBottomConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
+                        <cp-select
+                            labelPosition="top"
+                            :value="paddingTop"
+                            :config="paddingTopConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
+                        <cp-select
+                            labelPosition="top"
+                            :value="paddingBottom"
+                            :config="paddingBottomConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
                     </div>
                 </div>
             </div>
@@ -63,120 +57,151 @@
 </template>
 
 <script>
-    import cloneDeep from 'lodash/cloneDeep'
-    import selector from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
+    import CpSelect from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/CpSelectSwitcher.vue'
     import formatter from '../../Formatter.vue'
 
+    const marginOptions = [
+        {
+            id: 1,
+            name: 1,
+        },
+        {
+            id: 2,
+            name: 2,
+        },
+        {
+            id: 3,
+            name: 3,
+        },
+        {
+            id: 4,
+            name: 4,
+        },
+        {
+            id: 5,
+            name: 5,
+        }
+    ];
+
     export default {
+        components: {
+            CpSelect,
+            formatter,
+        },
+
         props: {
-            passedData: [Object, Boolean],
+            passedData: {
+                type: [Object, Boolean],
+                default() {
+                    return {};
+                }
+            }
         },
 
         data() {
             return {
                 showTransition: false,
-                selectorConfig: {
-                    type: 'field',
-                    label: '',
-                    codename: 'callback',
-                    required: false,
-                    invalid: false,
+                marginTopConfig: {
+                    codename: 'marginTop',
                     width: 3,
-                    available_values: [
-                        {
-                            name: '1',
-                            id: 1,
-                        },
-                        {
-                            name: '2',
-                            id: 2,
-                        },
-                        {
-                            name: '3',
-                            id: 3,
-                        },
-                        {
-                            name: '4',
-                            id: 4,
-                        },
-                        {
-                            name: '5',
-                            id: 5,
-                        },
-                    ],
-                    sortFlag: {
-                        value: 'name'
-                    },
-                    view_structure: [
-                        {
-                            value: 'name',
-                            flex: 1.5
-                        },
-                    ],
-                    returnFromAvailableValues: 'id'
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внешний сверху, em',
                 },
-                formatterOptions: {
-                    label: '',
-                    required: false,
-                    invalid: false,
-                    widget: 'formatter',
+                marginBottomConfig: {
+                    codename: 'marginBottom',
+                    width: 3,
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внешний снизу, em',
+                },
+                paddingTopConfig: {
+                    codename: 'paddingTop',
+                    width: 3,
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внутренний сверху, em',
+                },
+                paddingBottomConfig: {
+                    codename: 'paddingBottom',
+                    width: 3,
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внутренний снизу, em',
+                },
+                textConfig: {
+                    label: 'Текст',
                     codename: 'text',
-                    width: 12,
-                    hint: ''
+                    required: true,
+                    invalid: false,
+                    message: '',
                 },
 
                 text: '',
-                indents: {
-                    marginTop: '',
-                    marginBottom: '',
-                    paddingTop: '',
-                    paddingBottom: '',
-                }
+                marginTop: null,
+                marginBottom: null,
+                paddingTop: null,
+                paddingBottom: null,
             }
         },
         mounted() {
             setTimeout(() => this.showTransition = true, 200);
+            this.setData();
         },
-        computed: {},
         methods: {
+            setData() {
+                this.text = this.passedData.text || '';
+                this.marginTop = this.passedData.marginTop || null;
+                this.marginBottom = this.passedData.marginBottom || null;
+                this.paddingTop = this.passedData.paddingTop || null;
+                this.paddingBottom = this.passedData.paddingBottom || null;
+            },
+
             validate(){
                 let hasError = false;
                 if (!this.text) {
-                    this.formatterOptions.invalid = true;
-                    this.formatterOptions.message = 'Заполните поле';
+                    this.textConfig.invalid = true;
+                    this.textConfig.message = 'Заполните поле';
                     hasError = true;
                 }
                 if (!hasError) this.saveForm()
             },
 
             saveForm(){
-                let payload = {};
-                payload.text = this.text;
-                Object.assign(payload, this.indents);
+                const { 
+                    text,
+                    marginTop, 
+                    marginBottom, 
+                    paddingTop, 
+                    paddingBottom,
+                } = this;
+                const payload = {
+                    text,
+                    marginTop, 
+                    marginBottom, 
+                    paddingTop, 
+                    paddingBottom,
+                };
                 this.$emit('changed', payload);
-            },
-
-            initialiseConfig(label){
-                let copy = cloneDeep(this.selectorConfig);
-                copy.label = label;
-                return copy
-            },
-
-            indentsCallbacks(from, value){
-                if (from === 'marginTop') this.indents.marginTop = value.callback;
-                else if (from === 'marginBottom') this.indents.marginBottom = value.callback;
-                else if (from === 'paddingTop') this.indents.paddingTop = value.callback;
-                else if (from === 'paddingBottom') this.indents.paddingBottom = value.callback;
-            },
+            },  
 
             closePopup(){
                 this.$emit('closePopup')
             },
-        },
 
-        components: {
-            selector,
-            formatter,
-        }
+            onChange(item) {
+                const [codename, value] = Object.entries(item)[0];
+                this[codename] = value;
+            },
+
+            setError({ codename, message }) {
+                this[codename + 'Config'].invalid = true;
+                this[codename + 'Config'].message = message;
+            },
+
+            clearError(codename) {
+                this[codename + 'Config'].invalid = false;
+            }
+        },
     }
 </script>

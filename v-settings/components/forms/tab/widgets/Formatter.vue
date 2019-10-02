@@ -173,7 +173,6 @@ export default {
             hover: false,
             focus: false,
             static_version: "",
-            initOnceFlag: false,
         };
     },
 

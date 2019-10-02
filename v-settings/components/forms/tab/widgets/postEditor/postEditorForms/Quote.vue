@@ -5,59 +5,57 @@
             <div class="popup-post-editor-forms-label">Цитата</div>
             <div class="popup-post-editor-forms-wrapper">
                 <div class="popup-post-editor-forms-indents-wrapper">
-                    <simpleInput
-                            style="width: 460px; margin-bottom: 22px;"
-                            :labelPosition="'top'"
-                            :type="'childEntity'"
-                            :passedData="(passedData.title) ? passedData.title : ''"
-                            @callback="title = $event.name"
-                            :options="titleConfig">
-                    </simpleInput>
-                    <textComp
-                            style="width: 460px; margin-bottom: 50px;"
-                            :labelPosition="'top'"
-                            :type="'childEntity'"
-                            :passedData="(passedData.text) ? passedData.text : ''"
-                            @callback="text = $event.name"
-                            :options="textareaOptions">
-                    </textComp>
+                    <cp-input
+                        style="width: 460px; margin-bottom: 22px;"
+                        labelPosition="top"
+                        :value="title"
+                        @change="onChange"
+                        @clearError="clearError"
+                        :config="titleConfig"
+                    >
+                    </cp-input>
+                    <textareaComp
+                        style="width: 460px; margin-bottom: 50px;"
+                        labelPosition="top"
+                        :propData="text"
+                        @change="onChange"
+                        @clearError="clearError"
+                        :config="textConfig"
+                    ></textareaComp>
+                    <div class="popup-post-editor-forms-indents-title">Отступы</div>
                     <div class="popup-post-editor-forms-indents-container">
-                        <selector
-                                style="margin-right: 20px; margin-bottom: 22px; width: 220px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData.marginTop) ? passedData.marginTop : ''"
-                                :options="initialiseConfig('Внешний отступ сверху, em')"
-                                @callback="indentsCallbacks('marginTop', $event)"
-                        ></selector>
-                        <selector
-                                style="margin-right: 0; margin-bottom: 22px; width: 220px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData.marginBottom) ? passedData.marginBottom : ''"
-                                :options="initialiseConfig('Внешний отступ снизу, em')"
-                                @callback="indentsCallbacks('marginBottom', $event)"
-                        ></selector>
-                        <selector
-                                style="margin-right: 20px; margin-bottom: 20px; width: 220px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData.paddingTop) ? passedData.paddingTop : ''"
-                                :options="initialiseConfig('Внутренний отступ сверху, em')"
-                                @callback="indentsCallbacks('paddingTop', $event)"
-                        ></selector>
-                        <selector
-                                style="margin-right: 0; margin-bottom: 20px; width: 220px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData.paddingBottom) ? passedData.paddingBottom : ''"
-                                :options="initialiseConfig('Внутренний отступ снизу, em')"
-                                @callback="indentsCallbacks('paddingBottom', $event)"
-                        ></selector>
+                        <cp-select
+                            style="margin-right: 20px"
+                            labelPosition="top"
+                            :value="marginTop"
+                            :config="marginTopConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
+                        <cp-select
+                            labelPosition="top"
+                            :value="marginBottom"
+                            :config="marginBottomConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
+                    </div>
+                    <div class="popup-post-editor-forms-indents-container">
+                        <cp-select
+                            style="margin-right: 20px"
+                            labelPosition="top"
+                            :value="paddingTop"
+                            :config="paddingTopConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
+                        <cp-select
+                            labelPosition="top"
+                            :value="paddingBottom"
+                            :config="paddingBottomConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                        ></cp-select>
                     </div>
                 </div>
             </div>
@@ -72,141 +70,169 @@
 </template>
 
 <script>
-    import cloneDeep from 'lodash/cloneDeep'
-    import simpleInput from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/SimpleInput.vue'
-    import selector from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
+    import CpInput from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/CpInput.vue'
+    import CpSelect from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/CpSelectSwitcher.vue'
     import textarea from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/Textarea.vue'
 
+    const marginOptions = [
+        {
+            id: 1,
+            name: 1,
+        },
+        {
+            id: 2,
+            name: 2,
+        },
+        {
+            id: 3,
+            name: 3,
+        },
+        {
+            id: 4,
+            name: 4,
+        },
+        {
+            id: 5,
+            name: 5,
+        }
+    ];
+
     export default {
+        components: {
+            CpSelect,
+            CpInput,
+            textareaComp: textarea,
+        },
+
         props: {
-            passedData: [Object, Boolean],
+            passedData: {
+                type: [Object, Boolean],
+                default() {
+                    return {};
+                }
+            }
         },
 
         data() {
             return {
                 showTransition: false,
 
-                textareaOptions:  {
-                    type: 'field',
+                textConfig: {
                     label: 'Текст',
                     required: true,
                     invalid: false,
-                    width: 12,
-                    height: 100,
-                    codename: 'name',
-                    widget: 'textarea',
-                    hint: ''
+                    message: '',
+                    width: 8,
+                    height: 80,
+                    codename: 'text',
                 },
-
+                
                 titleConfig: {
-                    type: 'field',
                     label: 'Заголовок',
-                    required: false,
-                    invalid: false,
                     placeholder: 'Введите значение',
-                    width: 12,
-                    codename: 'name',
-                    widget: 'simpleInput',
-                    hint: '',
+                    width: 8,
+                    codename: 'title',
                 },
 
-                indentsConfig: {
-                    type: 'field',
-                    label: '',
-                    codename: 'callback',
-                    required: false,
-                    invalid: false,
+                marginTopConfig: {
+                    codename: 'marginTop',
                     width: 4,
-                    available_values: [
-                        {
-                            name: '1',
-                            id: 1,
-                        },
-                        {
-                            name: '2',
-                            id: 2,
-                        },
-                        {
-                            name: '3',
-                            id: 3,
-                        },
-                        {
-                            name: '4',
-                            id: 4,
-                        },
-                        {
-                            name: '5',
-                            id: 5,
-                        },
-                    ],
-                    sortFlag: {
-                        value: 'name'
-                    },
-                    view_structure: [
-                        {
-                            value: 'name',
-                            flex: 1.5
-                        },
-                    ],
-                    returnFromAvailableValues: 'id'
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внешний сверху, em',
+                },
+                marginBottomConfig: {
+                    codename: 'marginBottom',
+                    width: 4,
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внешний снизу, em',
+                },
+                paddingTopConfig: {
+                    codename: 'paddingTop',
+                    width: 4,
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внутренний сверху, em',
+                },
+                paddingBottomConfig: {
+                    codename: 'paddingBottom',
+                    width: 4,
+                    options: marginOptions,
+                    placeholder: '',
+                    label: 'Внутренний снизу, em',
                 },
 
                 text: '',
                 title: '',
 
-                indents: {
-                    marginTop: '',
-                    marginBottom: '',
-                    paddingTop: '',
-                    paddingBottom: '',
-                }
+                marginTop: null,
+                marginBottom: null,
+                paddingTop: null,
+                paddingBottom: null,
             }
         },
         mounted() {
             setTimeout(() => this.showTransition = true, 200);
+            this.setData();
         },
-        computed: {},
         methods: {
+            setData() {
+                this.title = this.passedData.title || '';
+                this.text = this.passedData.text || '';
+                this.marginTop = this.passedData.marginTop || null;
+                this.marginBottom = this.passedData.marginBottom || null;
+                this.paddingTop = this.passedData.paddingTop || null;
+                this.paddingBottom = this.passedData.paddingBottom || null;
+            },
+
             validate(){
                 let hasError = false;
                 if (!this.text) {
-                    this.textareaOptions.invalid = true;
-                    this.textareaOptions.message = 'Заполните поле';
+                    this.textConfig.invalid = true;
+                    this.textConfig.message = 'Заполните поле';
                     hasError = true;
                 }
                 if (!hasError) this.saveForm()
             },
 
             saveForm(){
-                let payload = {};
-                payload.text = this.text;
-                payload.title = this.title;
-                Object.assign(payload, this.indents);
+                const { 
+                    text,
+                    title,
+                    marginTop, 
+                    marginBottom, 
+                    paddingTop, 
+                    paddingBottom,
+                } = this;
+                const payload = {
+                    text,
+                    title,
+                    marginTop, 
+                    marginBottom, 
+                    paddingTop, 
+                    paddingBottom,
+                };
                 this.$emit('changed', payload);
-            },
-
-            initialiseConfig(label){
-                let copy = cloneDeep(this.indentsConfig);
-                copy.label = label;
-                return copy
-            },
-
-            indentsCallbacks(from, value){
-                if (from === 'marginTop') this.indents.marginTop = value.callback;
-                else if (from === 'marginBottom') this.indents.marginBottom = value.callback;
-                else if (from === 'paddingTop') this.indents.paddingTop = value.callback;
-                else if (from === 'paddingBottom') this.indents.paddingBottom = value.callback;
             },
 
             closePopup(){
                 this.$emit('closePopup')
             },
-        },
 
-        components: {
-            selector,
-            simpleInput,
-            textComp: textarea,
-        }
+            onChange(item) {
+                const [codename, value] = Object.entries(item)[0];
+                this[codename] = value;
+            },
+
+            setError({ codename, message }) {
+                this[codename + 'Config'].invalid = true;
+                this[codename + 'Config'].message = message;
+            },
+
+            clearError(codename) {
+                this[codename + 'Config'].invalid = false;
+            }
+        },
     }
 </script>

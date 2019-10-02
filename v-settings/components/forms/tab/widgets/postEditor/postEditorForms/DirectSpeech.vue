@@ -18,13 +18,12 @@
                     <div style="margin-left: 20px;">
                         <cp-input
                             style="width: 340px; margin-bottom: 22px;"
-                            :labelPosition="'top'"
+                            labelPosition="top"
                             :value="fio"
                             @change="onChange"
                             @clearError="clearError"
                             :config="fioConfig"
-                        >
-                        </cp-input>
+                        ></cp-input>
                         <cp-input
                             style="width: 340px;"
                             labelPosition="top"
@@ -32,8 +31,7 @@
                             @change="onChange"
                             @clearError="clearError"
                             :config="jobConfig"
-                        >
-                        </cp-input>
+                        ></cp-input>
                     </div>
                 </div>
                 <formatter
@@ -41,15 +39,14 @@
                     :text="text"
                     @change="onChange"
                     @clearError="clearError"
-                    :labelPosition="'top'"
-                    :config="formatterConfig"
+                    labelPosition="top"
+                    :config="textConfig"
                 >
                 </formatter>
                 <div class="popup-post-editor-forms-indents-wrapper">
-                    <span>Отступы</span>
-                    <div class="popup-post-editor-forms-indents-container" style="margin-top: 30px;">
+                    <div class="popup-post-editor-forms-indents-title">Отступы</div>
+                    <div class="popup-post-editor-forms-indents-container">
                         <cp-select
-                            style="margin-bottom: 20px; margin-right: 15px"
                             labelPosition="top"
                             :value="marginTop"
                             :config="marginTopConfig"
@@ -57,7 +54,6 @@
                             @clearError="clearError"
                         ></cp-select>
                         <cp-select
-                            style="margin-bottom: 20px; margin-right: 15px"
                             labelPosition="top"
                             :value="marginBottom"
                             :config="marginBottomConfig"
@@ -65,7 +61,6 @@
                             @clearError="clearError"
                         ></cp-select>
                         <cp-select
-                            style="margin-bottom: 20px; margin-right: 15px"
                             labelPosition="top"
                             :value="paddingTop"
                             :config="paddingTopConfig"
@@ -73,7 +68,6 @@
                             @clearError="clearError"
                         ></cp-select>
                         <cp-select
-                            style="margin-bottom: 20px; margin-right: 15px"
                             labelPosition="top"
                             :value="paddingBottom"
                             :config="paddingBottomConfig"
@@ -94,10 +88,7 @@
 </template>
 
 <script>
-    import cloneDeep from 'lodash/cloneDeep'
-    // import simpleInput from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/SimpleInput.vue'
     import CpInput from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/CpInput.vue'
-    // import selector from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
     import CpSelect from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/CpSelectSwitcher.vue'
     import imageLoader from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/loaders/SingleImageLoader.vue'
     import formatter from '../../Formatter.vue'
@@ -127,10 +118,8 @@
 
     export default {
         components: {
-            // selector,
             formatter,
             imageLoader,
-            // simpleInput,
             CpInput,
             CpSelect,
         },
@@ -193,7 +182,7 @@
                     placeholder: '',
                     label: 'Внутренний снизу, em',
                 },
-                formatterConfig: {
+                textConfig: {
                     label: 'Текст',
                     required: true,
                     invalid: false,
@@ -248,8 +237,8 @@
                     hasError = true;
                 }
                 if (!this.text) {
-                    this.formatterOptions.invalid = true;
-                    this.formatterOptions.message = 'Заполните поле';
+                    this.textConfig.invalid = true;
+                    this.textConfig.message = 'Заполните поле';
                     hasError = true;
                 }
                 if (!this.fio) {
@@ -276,19 +265,16 @@
             },
 
             onChange(item) {
-                // console.log('onChange', item);
                 const [codename, value] = Object.entries(item)[0];
                 this[codename] = value;
             },
 
             setError({ codename, message }) {
-                // console.log('setError', codename, message);
                 this[codename + 'Config'].invalid = true;
                 this[codename + 'Config'].message = message;
             },
 
             clearError(codename) {
-                // console.log('clearError', codename);
                 this[codename + 'Config'].invalid = false;
             }
         },

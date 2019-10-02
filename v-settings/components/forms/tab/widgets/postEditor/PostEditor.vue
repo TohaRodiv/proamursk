@@ -316,7 +316,6 @@ import { mapGetters, mapState, } from 'vuex';
 export default {
     props: {
         options: Object,
-        isBlocked: Boolean,
         passedData: [Array, String,],
     },
 
