@@ -79,6 +79,10 @@
     ]
 
     export default {
+        components: {
+            CpSelect,
+        },
+
         props: {
             passedData: {
                 type: [Object, Boolean],
@@ -149,26 +153,18 @@
             },
 
             onChange(item) {
-                // console.log('onChange', item);
                 const [codename, value] = Object.entries(item)[0];
                 this[codename] = value;
             },
 
             setError({ codename, message }) {
-                // console.log('setError', codename, message);
                 this[codename + 'Config'].invalid = true;
                 this[codename + 'Config'].message = message;
             },
 
             clearError(codename) {
-                // console.log('clearError', codename);
                 this[codename + 'Config'].invalid = false;
             }
         },
-
-        components: {
-            CpSelect,
-            // textComp: textarea,
-        }
     }
 </script>

@@ -291,7 +291,7 @@
         >
             <div class="tab-left-label col4"/>
             <div class="post-editor-error-message">
-                {{ options.message }}
+                {{ errorMessage }}
             </div>
         </div>
     </div>
@@ -382,18 +382,19 @@ export default {
     watch: {
         'content': {
             handler: function () {
-                this.$store.commit('setFormsObject', { [this.options.codename]: this.content, });
+                console.log('content')
+                this.$emit('change', { [this.options.codename]: this.content, });
                 this.clearError();
             },
 
             deep: true,
         },
 
-        'passedData': function () {
-            if (this.passedData && this.passedData.length && typeof this.passedData !== 'string') {
-                this.content = this.passedData;
-            }
-        },
+        // 'passedData': function () {
+        //     if (this.passedData && this.passedData.length && typeof this.passedData !== 'string') {
+        //         this.content = this.passedData;
+        //     }
+        // },
     },
 
     created(){
@@ -439,9 +440,35 @@ export default {
             }
             return false;
         },
+
+        // content: {
+        //     get() {
+        //         return this.passedData || [];
+        //     },
+        //     set(value) {
+        //         console.log('set content', value)
+        //         this.$emit('change', { [this.options.codename]: value || [] });
+        //     }
+        // },
+
+        errorMessage() {
+            return Array.isArray(this.options.message)
+                ? this.options.message.join(', ')
+                : this.options;
+        },
     },
 
     methods: {
+        // addWidget({ sectionIndex, blockIndex, widgetIndex, widget }) {
+        //     // const content = deepClone(this.content);
+        //     // this.content[sectionIndex].columns[blockIndex].widgets[widgetIndex] = widget;
+        //     // this.content = content;
+        // },
+
+        // changeWidget({ index, widget }) {
+
+        // },
+
         //-------------Начало функций для dragNDrop виджета--------------------
         widgetDragStart(secDex, blockDex, widDex, e){
             this.widgetCoords = { secDex, blockDex, widDex , };
@@ -899,7 +926,8 @@ export default {
             this.$store.commit('postEditorCopyWidget', { width, widget , });
         },
 
-        pasteWidget(secDex, blockDex, widgetIndex){
+        pasteWidget(secDex, blockDex, widgetIndex) {
+            console.log('pasteWidget', secDex, blockDex, widgetIndex)
             let copy = cloneDeep(this.widgetBuffer[0].widget);
             if (typeof widgetIndex === 'undefined') {
                 vue.set(this.content[secDex].columns[blockDex], 'widgets', [copy,]);
@@ -911,6 +939,7 @@ export default {
         },
 
         editWidget(block, widget, index){
+            console.log('editWidget')
             this.widgetForm = {
                 widgetIndex: index,
                 popupType: widget.type,
@@ -919,12 +948,13 @@ export default {
             };
         },
 
-        callProperForm(e){
+        callProperForm(e) {
             //Даю время на закрытие попапа
             setTimeout(() => this.widgetForm.popupType = e, 200);
         },
 
         openCreateWidgetPopup(block, section, index){
+            console.log('openCreateWidgetPopup')
             if (section.isPercentage) this.createPicker.isPercentage = true;
             this.createPicker.width = block.width;
             this.createPicker.showPicker = true;
