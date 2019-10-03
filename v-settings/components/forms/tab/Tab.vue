@@ -1,71 +1,30 @@
 <template>
     <div
-        v-if="isNaN(+(this.$route.params.id)) || ((formsCurrentMode === 'moving') ? (showMovingsTab && ((openedIndex === 0) ? (openedIndex === tabIndex) : true)) : true)"
-        :style="(formsCurrentMode !== 'moving') ? {marginTop: 0}: ''"
+        style="margin-top: 0"
         class="tab-wrapper"
     >
         <div
-            v-if="formsCurrentMode === 'moving' && options.codename !== getMovingData.status && options.show && !isNaN(+(this.$route.params.id)) && showMovingsTab"
-            class="forms-moving-borders"
-        />
-
-        <div
-            :class="{'marginBottom30': options.show}"
-            v-if="formsCurrentMode === 'moving' && ( (getMovingData.status_log && getMovingData.status_log[openedIndex]) ? getMovingData.status_log[openedIndex].status !== 'complete': true) && !isNaN(+(this.$route.params.id)) && showMovingsTab && (getMovingData && ((getMovingData.status !== 'complete') ? openedIndex !== getMovingData.status_log.length - 1 : true))"
-            @click="toggleTabOnMovingsForm()"
-            class="tab-movings"
-        >
-            <div
-                :class="{'tab-movings-arrow-closed': !options.show}"
-                class="tab-movings-arrow icon-arrow-2"
-            />
-            <span
-                class="tab-movings-text"
-            >
-                {{ (getMovingData.status_log[openedIndex + 1]) ? getMovingData.status_log[openedIndex + 1].status_name : '' }}
-            </span>
-        </div>
-
-        <div
-            v-if="getMovingData.status_log && openedIndex === getMovingData.status_log.length - 1 && getMovingData.status !== 'complete' && getMovingData.status !== 'canceled'"
-            class="current-moving"
-        >
-            {{ getCurrentStatus() }}
-        </div>
-
-        <div
-            v-if="!(block.cancelRenderIFSuperuser && getFormsImmutableData.is_superuser) && ((block.blockedOn) ? ( (block.blockedOn === 'new' && isNaN(+($route.params.id)) ? false : ( (block.blockedOn === 'exist' && !isNaN(+($route.params.id)) ) ? false : true ) )) : true)"
-            v-show="((block.renderFlag || block.forbiddenFlag) && ((formsCurrentMode === 'moving') ? options.show : true ) ) ? checkTriggersFlag(block) : true && (formsCurrentMode === 'moving' && !isNaN(+($route.params.id))) ? options.show === true && showMovingsTab : true"
             v-for="(block, blockDex) in options.blocks"
             :key="blockDex"
             :style="calculateFlexDirection(block)"
             class="tab-row"
         >
             <div
-                v-if="block.labelPosition !== 'left' && !block.hasWideLabel && !block.uniqWidget"
+                v-if="block.labelPosition && block.labelPosition !== 'left' && !block.hasWideLabel && !block.uniqWidget"
                 class="tab-left-label col4"
             />
             <div
-                v-if="element.show !== false"
-                v-show="(element.renderFlag || element.forbiddenFlag) ? checkTriggersFlag(element) : true"
-                :class="[(block.modClass && ( (block.nullRender) ? (formData[block.nullRender] && formData[block.nullRender].length !== 0) : true ) ) ? block.modClass : element.modClass , findMyWidth(element, block)]"
-                :style="(block.uniqWidget) ? {width: '100%'} : ((element.nullRightMargin) ? {marginRight: 0, width: '460px'} : '')"
                 v-for="(element, elementIndex) in block.elements"
                 :key="(typeof element.codename !== 'object') ? element.codename : Math.random()"
+                :class="[(block.modClass && ( (block.nullRender) ? (data[block.nullRender] && data[block.nullRender].length !== 0) : true ) ) ? block.modClass : element.modClass , findMyWidth(element, block)]"
+                :style="(block.uniqWidget) ? {width: '100%'} : ((element.nullRightMargin) ? {marginRight: 0, width: '460px'} : '')"
                 class="tab-item"
             >
                 <headerWidget
                     v-if="element.type === 'header'"
                     :options="element"
                 />
-
-                <recursiveNode
-                    v-if="element.type === 'recursion'"
-                    @recursiveCallback="recursiveCallbackStore"
-                    :data="formData"
-                    :node="element"
-                />
-                <!--Длинное условие v-if ниже нужно для того чтобы рендерить по имени виджета, и наличие (если необходимо) определённого флага во vuex-->
+                
                 <simpleInput
                     v-if="element.widget === 'simpleInput'"
                     :labelPosition="block.labelPosition"
@@ -139,7 +98,7 @@
                 <radiobuttonGroup
                     v-if="element.widget === 'radioButtons'"
                     :label-position="block.labelPosition"
-                    :form-data="formData"
+                    :value="formData[element.codename]"
                     :config="element"
                     @clearError="clearError"
                     @change="onChange"
@@ -259,6 +218,7 @@
                     :passedData="formData[element.codename]"
                     :options="element"
                     @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <textareaPreviewLetter

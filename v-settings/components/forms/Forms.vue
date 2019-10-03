@@ -15,9 +15,10 @@
                 src="../../../cp_vue/frontend/src/preloader/Preloader32.gif"
                 alt=""
             >
+            <div class="forms-buttons-container" />
         </new-preloader>
         <div 
-            v-if="!preloader"
+            v-show="!preloader"
             class="forms-container"
         >
             <div class="forms-container-inner">
@@ -33,8 +34,7 @@
                             >
                                 <div
                                     :class="{'forms-tabs-item-error': tab.invalid, 'forms-tabs-item-selected': tab.id === currentTabId, 'forms-tabs-item-blocked': tab.blocked}"
-                                    v-show="!tab.hidden"
-                                    v-for="(tab, tabDex) in config"
+                                    v-for="(tab, tabDex) in configComputed"
                                     :key="tabDex"
                                     @click="tab.blocked ? '' : setCurrentTab(tab.id)"
                                     class="forms-tabs-item"
@@ -57,7 +57,7 @@
                                 >
                                     <tab
                                         :data="data"
-                                        v-for="(tab, index) in config"
+                                        v-for="(tab, index) in configComputed"
                                         :key="tab.id"
                                         :options="tab"
                                         :tabIndex="Number(index)"
