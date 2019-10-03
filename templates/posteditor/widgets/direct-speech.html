@@ -5,7 +5,7 @@
     <div class="indent-wrap {% if widget.marginTop %}indent-wrap_mt{{ widget.marginTop }}{% endif %} {% if widget.marginBottom %}indent-wrap_mb{{ widget.marginBottom }}{% endif %} {% if widget.paddingTop %}indent-wrap_pt{{ widget.paddingTop }}{% endif %} {% if widget.paddingBottom %}indent-wrap_pb{{ widget.paddingBottom }}{% endif %}">
         <div class="direct-speech">
             {% if widget.image.id %}
-                <img src="" data="{{ images|get_item:widget.image.id|get_thumbnail_url_by_name:"poste_ditor_direct_photo" }}" alt="" class="direct-speech__avatar lazyload">
+                <img src="" data-src="{{ images|get_item:widget.image.id|get_thumbnail_url_by_name:"poste_ditor_direct_photo" }}" alt="" class="direct-speech__avatar lazyload">
             {% endif %}
             <div class="direct-speech__text-wrap">
                 <div class="direct-speech__author">{{ widget.fio }}</div>

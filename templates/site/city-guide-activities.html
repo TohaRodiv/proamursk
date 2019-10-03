@@ -27,7 +27,7 @@
                 <div class="base-layout__main">
                     <article class="publication">
                         <figure class="city-guide__cover-wrap">
-                            <img src="{% static "site/images/svg/city-guide-cover.svg" %}{% static_version %}" alt="" class="city-guide__cover">
+                            <img src="" data-src="{% static "site/images/svg/city-guide-cover.svg" %}{% static_version %}" alt="" class="city-guide__cover lazyload">
                             <span class="city-guide__cover-icon icon-{{ guide.guide_format }}"></span>
                             <figcaption class="city-guide__img-figcaption">
                                 <div class="city-guide__cover-wobbler">
@@ -140,7 +140,7 @@
 
                                     {% if item.cover %}
                                         <figure class="city-guide__image post-editor__block_image center">
-                                            <img src="{{ item.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" title="">
+                                            <img src="" data-src="{{ item.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" title="" class="lazyload">
                                             {% if item.cover_description %}
                                                 <figcaption class="post-editor__block_caption">{{ item.cover_description }}</figcaption>
                                             {% endif %}

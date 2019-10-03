@@ -28,7 +28,7 @@
                     <article class="publication film">
                         <h1 class="film-title">{{ film.title }}</h1>
                         <div class="film-header">
-                            <img src="{{ film.cover|get_thumbnail_url_by_name:"film_detail" }}" alt="" class="film-cover">
+                            <img src="" data-src="{{ film.cover|get_thumbnail_url_by_name:"film_detail" }}" alt="" class="film-cover lazyload">
                             <div class="film-info">
                                 <table class="film-info-table">
                                     <tr>

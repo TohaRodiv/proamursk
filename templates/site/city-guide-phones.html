@@ -27,7 +27,7 @@
                 <div class="base-layout__main">
                     <article class="publication">
                         <figure class="city-guide__cover-wrap">
-                            <img src="{% static "site/images/svg/city-guide-cover.svg" %}{% static_version %}" alt="" class="city-guide__cover">
+                            <img src="" data-src="{% static "site/images/svg/city-guide-cover.svg" %}{% static_version %}" alt="" class="city-guide__cover lazyload">
                             <span class="city-guide__cover-icon icon-{{ guide.guide_format }}"></span>
                             <figcaption class="city-guide__img-figcaption">
                                 <div class="city-guide__cover-wobbler">
@@ -42,7 +42,7 @@
 
                         <div class="publication__content">
                             <div class="city-guide-item">
-                                <img src="{% static "site/images/city-guide-cover3.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover">
+                                <img src="" data-src="{% static "site/images/city-guide-cover3.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover lazyload">
                                 <div class="city-guide-item__text-wrap">
                                     <h2 class="city-guide-item__title">Экстренные службы</h2>
                                     <table class="city-guide-table city-guide-table_emergency">
@@ -79,7 +79,7 @@
                             </div>
 
                             <div class="city-guide-item">
-                                <img src="{% static "site/images/city-guide-cover4.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover">
+                                <img src="" data-src="{% static "site/images/city-guide-cover4.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover lazyload">
                                 <div class="city-guide-item__text-wrap">
                                     <h2 class="city-guide-item__title">Если что-то сломалось</h2>
                                     <table class="city-guide-table city-guide-table_repairs">

@@ -30,7 +30,7 @@
                                         {% endif %}
                                         <span class="movie-posters-item__icon round-rating">{{ film.age_restriction }}</span>
                                     </div>
-                                    <img src="{{ film.cover|get_thumbnail_url_by_name:"films_list" }}" alt="" class="movie-posters-item__cover">
+                                    <img src="" data-src="{{ film.cover|get_thumbnail_url_by_name:"films_list" }}" alt="" class="movie-posters-item__cover lazyload">
                                     <div class="movie-posters-item__title">{{ film.title }}</div>
                                     <div class="movie-posters-item__genre">{{ film.genre }}</div>
                                 </a>
