@@ -169,6 +169,9 @@ ul, ol {
   background: rgba(0, 0, 0, 0.3);
   cursor: pointer; }
 
+.lazy-image-outer {
+  background-color: #DFDFDF; }
+
 @font-face {
   font-family: "Proxima Nova Regular";
   src: url("../fonts/ProximaNova-Regular.woff2") format("woff2"), url("../fonts/ProximaNova-Regular.woff") format("woff");
@@ -1561,6 +1564,13 @@ input.btn_preloader {
 .post-editor-column [class*="post-editor__block_"]:not(:first-child) {
   margin-top: 40px; }
 
+.post-editor__block_image.center .lazy-image-outer {
+  margin-left: auto;
+  margin-right: auto; }
+
+.post-editor__block_image.right .lazy-image-outer {
+  margin-left: auto; }
+
 .post-editor__section_8 {
   width: 100%; }
   .post-editor__section_8 .post-editor__block_text {
@@ -1622,9 +1632,6 @@ input.btn_preloader {
   .post-editor__section_3-3 .slider-caption {
     width: 100%; }
 
-.lazy-image-outer {
-  background-color: #DFDFDF; }
-
 .post-editor__block_image {
   position: relative; }
   .post-editor__block_image .post-editor__img-wrap {
@@ -1667,6 +1674,9 @@ input.btn_preloader {
     margin-left: auto; }
   .post-editor__block_image.right .post-editor__block_caption {
     text-align: right; }
+
+.post-editor__block_slider .slide {
+  background-color: #DFDFDF; }
 
 .post-editor__block_slider img {
   display: block; }
@@ -2255,7 +2265,9 @@ footer {
 .publication {
   margin-bottom: 50px; }
   .publication__cover-wrap {
-    position: relative; }
+    position: relative;
+    height: 500px;
+    background-color: #DFDFDF; }
     .publication__cover-wrap::after {
       content: "";
       display: block;
@@ -3878,7 +3890,8 @@ footer {
   margin: 0 auto 40px; }
 
 .aside__instagram-banner-link {
-  display: block; }
+  display: block;
+  background-color: #DFDFDF; }
 
 .instagram-banner {
   display: block; }
