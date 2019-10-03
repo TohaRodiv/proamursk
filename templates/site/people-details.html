@@ -26,7 +26,7 @@
             <div class="base-layout__main">
                 <article class="publication">
                     <figure class="publication__cover-wrap">
-                        <img src="{{ person.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" class="publication__cover">
+                        <img src="" data-src="{{ person.cover|get_thumbnail_url_by_name:"pub_cover" }}" alt="" class="publication__cover lazyload">
                         <figcaption class="publication__img-figcaption">
                             <span class="publication__img-author">{{ person.cover_author }}</span>
                         </figcaption>

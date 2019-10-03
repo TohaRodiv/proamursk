@@ -4,7 +4,7 @@
         <div class="slider-container">
             {% for slide in slider %}
                 <div class="slide" data-description="{{ slide.description }}">
-                    <img src="{{ slide.img }}" alt="{{ slide.description }}">
+                    <img src="" data-src="{{ slide.img }}" alt="{{ slide.description }}" class="lazyload">
                 </div>
             {% endfor %}
         </div>

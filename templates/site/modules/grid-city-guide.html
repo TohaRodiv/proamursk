@@ -8,15 +8,15 @@
     <div class="grid-publication__cover-wrap">
         <div class="grid-publication__bg-gradient"></div>
         {% if item.guide_format == 'hotel' %}
-            <img src="{% static "site/images/svg/city-guide-cover-hotel.svg" %}{% static_version %}" alt="" class="grid-publication__cover">
+            <img src="" data-src="{% static "site/images/svg/city-guide-cover-hotel.svg" %}{% static_version %}" alt="" class="grid-publication__cover lazyload">
         {% elif item.guide_format == 'food' %}
-            <img src="{% static "site/images/svg/city-guide-cover-food.svg" %}{% static_version %}" alt=""   class="grid-publication__cover">
+            <img src="" data-src="{% static "site/images/svg/city-guide-cover-food.svg" %}{% static_version %}" alt=""   class="grid-publication__cover lazyload">
         {% elif item.guide_format == 'activities' %}
-            <img src="{% static "site/images/svg/city-guide-cover-activities.svg" %}{% static_version %}" alt="" class="grid-publication__cover">
+            <img src="" data-src="{% static "site/images/svg/city-guide-cover-activities.svg" %}{% static_version %}" alt="" class="grid-publication__cover lazyload">
         {% elif item.guide_format == 'transport' %}
-            <img src="{% static "site/images/svg/city-guide-cover-transport.svg" %}{% static_version %}" alt="" class="grid-publication__cover">
+            <img src="" data-src="{% static "site/images/svg/city-guide-cover-transport.svg" %}{% static_version %}" alt="" class="grid-publication__cover lazyload">
         {% elif item.guide_format == 'phones' %}
-            <img src="{% static "site/images/svg/city-guide-cover-phones.svg" %}{% static_version %}" alt="" class="grid-publication__cover">
+            <img src="" data-src="{% static "site/images/svg/city-guide-cover-phones.svg" %}{% static_version %}" alt="" class="grid-publication__cover lazyload">
         {% endif %}
     </div>
 

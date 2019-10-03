@@ -18,20 +18,22 @@ const gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     gzip = require('gulp-gzip'),
+    babel = require('gulp-babel'),
 
 
     // NPM paths
     jquery = 'node_modules/jquery/dist/jquery.min.js',
-    jqueryMaskPlugin = 'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js',
+    jqueryMaskPlugin = 'node_modules/jquery-mask-plugin/dist/jquery.mask.js',
     slickCarousel = 'node_modules/slick-carousel/slick/slick.min.js',
-
+    IntersectionObserver = 'node_modules/intersection-observer/intersection-observer.js',
 
     // JS paths
     srcJS = [
+        IntersectionObserver,
         jquery,
         jqueryMaskPlugin,
         slickCarousel,
-        'src/js/**/*.js'
+        'src/js/**/*.js',
     ],
 
 
@@ -40,14 +42,14 @@ const gulp = require('gulp'),
         errorHandler: function(error) {
             console.log('\n\tError'.red+' in plugin `'+error.plugin.cyan+'`\n\t'+error.message+' details: '+error);
             this.emit('end');
-        }
+        },
     },
 
 
     // email builder configuration
     emailbuilderConfig = {
         emailTest: {
-            to: ['vvidyaeva@gmail.com', 'valyavidyaeva@mail.ru','valyavidyaeva@yandex.ru', 'jes.hab.magik@gmail.com'],
+            to: ['vvidyaeva@gmail.com', 'valyavidyaeva@mail.ru','valyavidyaeva@yandex.ru', 'jes.hab.magik@gmail.com',],
             from: 'no-reply@perfectura.ru',
             subject: 'Алтан Шина Test Email',
             nodemailer: {
@@ -57,12 +59,12 @@ const gulp = require('gulp'),
                     secure: true,
                     auth: {
                         user: 'no-reply@perfectura.ru',
-                        pass: 'Bq1ty3h7'
-                    }
+                        pass: 'Bq1ty3h7',
+                    },
                 },
-                defaults: {}
-            }
-        }
+                defaults: {},
+            },
+        },
     };
 
 
@@ -74,14 +76,14 @@ const dev = gulp.parallel(devSass, devJS, devImages, devFonts, devHtml, devShort
 
 
 function watch() {
-    gulp.watch(['src/sass/**/*.sass'], devSass);
-    gulp.watch(['src/sass/_short-styles/*.sass'], devShortStaticStyles);
-    gulp.watch(['src/js/**/*.js'], devJS);
-    gulp.watch(['src/images/**/*.*'], devImages);
-    gulp.watch(['src/fonts/**/*.*'], devFonts);
-    gulp.watch(['src/html/**/*.html'], devHtml);
-    gulp.watch(['src/html/404.html', 'src/html/500.html'], gulp.parallel(frontendShortHtml));
-};
+    gulp.watch(['src/sass/**/*.sass',], devSass);
+    gulp.watch(['src/sass/_short-styles/*.sass',], devShortStaticStyles);
+    gulp.watch(['src/js/**/*.js',], devJS);
+    gulp.watch(['src/images/**/*.*',], devImages);
+    gulp.watch(['src/fonts/**/*.*',], devFonts);
+    gulp.watch(['src/html/**/*.html',], devHtml);
+    gulp.watch(['src/html/404.html', 'src/html/500.html',], gulp.parallel(frontendShortHtml));
+}
 
 
 function devSass() {
@@ -89,33 +91,36 @@ function devSass() {
         .pipe(plumber(settingsPlumber))
         .pipe(sourcemaps.init())
         .pipe(sass({
-            indentedSyntax: true
+            indentedSyntax: true,
         }))
         .pipe(concat('main.css'))
         .pipe(autoprefixer({
-            browsers: ['last 4 versions'],
+            browsers: ['last 4 versions',],
             grid: 'autoplace',
-            flexbox: true
+            flexbox: true,
         }))
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({ suffix: '.min', }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('static/css/'))
         .pipe(gulp.dest('./../static/site/css/'));
-};
+}
 
 
 function devJS() {
     return gulp.src(srcJS)
         .pipe(plumber(settingsPlumber))
         .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env',],
+        }))
         .pipe(concat('main.js'))
         .pipe(gulp.dest('static/js/'))
         .pipe(gulp.dest('./../static/site/js/'))
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({ suffix: '.min' , }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('static/js/'))
         .pipe(gulp.dest('./../static/site/js/'));
-};
+}
 
 
 function devImages() {
@@ -123,7 +128,7 @@ function devImages() {
         .pipe(plumber(settingsPlumber))
         .pipe(gulp.dest('static/images/'))
         .pipe(gulp.dest('./../static/site/images/'));
-};
+}
 
 
 function devFonts() {
@@ -131,7 +136,7 @@ function devFonts() {
         .pipe(plumber(settingsPlumber))
         .pipe(gulp.dest('static/fonts/'))
         .pipe(gulp.dest('./../static/site/fonts/'));
-};
+}
 
 
 function devHtml() {
@@ -139,10 +144,10 @@ function devHtml() {
         .pipe(plumber(settingsPlumber))
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: 'src/html/'
+            basepath: 'src/html/',
         }))
         .pipe(gulp.dest('static/'));
-};
+}
 
 
 exports.dev = dev;
@@ -166,33 +171,36 @@ function prodSass() {
         .pipe(plumber(settingsPlumber))
         .pipe(sourcemaps.init())
         .pipe(sass({
-            indentedSyntax: true
+            indentedSyntax: true,
         }))
         .pipe(concat('main.css'))
         .pipe(autoprefixer())
         .pipe(gulp.dest('./../static/site/css/'))
         .pipe(cleanCSS())
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({ suffix: '.min', }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./../static/site/css/'))
         .pipe(gzip())
         .pipe(gulp.dest('./../static/site/css/'));
-};
+}
 
 
 function prodJS() {
     return gulp.src(srcJS)
         .pipe(plumber(settingsPlumber))
         .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env',],
+        }))
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./../static/site/js/'))
         .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({ suffix: '.min', }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./../static/site/js/'))
         .pipe(gzip())
         .pipe(gulp.dest('./../static/site/js/'));
-};
+}
 
 
 function prodImages() {
@@ -200,12 +208,12 @@ function prodImages() {
         .pipe(plumber(settingsPlumber))
         .pipe(imagemin({
             progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()],
-            interlaced: true
+            svgoPlugins: [{ removeViewBox: false, },],
+            use: [pngquant(),],
+            interlaced: true,
         }))
         .pipe(gulp.dest('./../static/site/images/'));
-};
+}
 
 
 function prodImagesSVG() {
@@ -214,7 +222,7 @@ function prodImagesSVG() {
         .pipe(gulp.dest('./../static/site/images/'))
         .pipe(gzip())
         .pipe(gulp.dest('./../static/site/images/'));
-};
+}
 
 
 function prodFonts() {
@@ -223,7 +231,7 @@ function prodFonts() {
         .pipe(gulp.dest('./../static/site/fonts/'))
         .pipe(gzip())
         .pipe(gulp.dest('./../static/site/fonts/'));
-};
+}
 
 exports.prod = prod;
 exports.prodSass = prodSass;
@@ -241,40 +249,40 @@ const email = gulp.series(emailStyles, emailHtml);
 const emailTest = gulp.series(emailStyles, emailHtml, emailTestSend);
 
 function emailWatch() {
-    gulp.watch(['src/sass/email/email.sass', 'src/html/email/email.html'], gulp.series(emailStyles, emailHtml));
-};
+    gulp.watch(['src/sass/email/email.sass', 'src/html/email/email.html',], gulp.series(emailStyles, emailHtml));
+}
 
 
 function emailStyles() {
-    return gulp.src(['src/sass/email/email.sass'])
+    return gulp.src(['src/sass/email/email.sass',])
         .pipe(plumber(settingsPlumber))
         .pipe(sass({
-            indentedSyntax: true
+            indentedSyntax: true,
         }))
         .pipe(autoprefixer({
-            browsers: ['last 4 versions'],
+            browsers: ['last 4 versions',],
             grid: 'autoplace',
-            flexbox: true
+            flexbox: true,
         }))
         .pipe(concat('email.css'))
         .pipe(autoprefixer())
         .pipe(gulp.dest('static/css/email/'));
-};
+}
 
 
 function emailHtml() {
-    return gulp.src(['src/html/email/email.html'])
+    return gulp.src(['src/html/email/email.html',])
         .pipe(plumber(settingsPlumber))
         .pipe(emailbuilder({}).build())
         .pipe(gulp.dest('static/email/'));
-};
+}
 
 
 function emailTestSend() {
-    return gulp.src(['static/email/email.html'])
+    return gulp.src(['static/email/email.html',])
         .pipe(plumber(settingsPlumber))
         .pipe(emailbuilder(emailbuilderConfig).sendEmailTest());
-};
+}
 
 exports.email = email;
 exports.emailTest = emailTest;
@@ -289,62 +297,62 @@ exports.emailTestSend = emailTestSend;
 // ----------------------
 
 function devShortStaticStyles() {
-    return gulp.src(['src/sass/short-styles.sass'])
+    return gulp.src(['src/sass/short-styles.sass',])
         .pipe(plumber(settingsPlumber))
         .pipe(sourcemaps.init())
         .pipe(sass({
-            indentedSyntax: true
+            indentedSyntax: true,
         }))
         .pipe(concat('short-styles.css'))
         .pipe(autoprefixer())
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({ suffix: '.min' , }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('static/css/'))
         .pipe(gulp.dest('./../static/site/css/'));
-};
+}
 
 
 function prodShortStaticStyles() {
-    return gulp.src(['src/sass/short-styles.sass'])
+    return gulp.src(['src/sass/short-styles.sass',])
         .pipe(plumber(settingsPlumber))
         .pipe(sourcemaps.init())
         .pipe(sass({
-            indentedSyntax: true
+            indentedSyntax: true,
         }))
         .pipe(concat('short-styles.css'))
         .pipe(autoprefixer())
         .pipe(gulp.dest('./../static/site/css/'))
         .pipe(cleanCSS())
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({ suffix: '.min', }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./../static/site/css/'))
         .pipe(gzip())
         .pipe(gulp.dest('./../static/site/css/'));
-};
+}
 
 
 function frontendShortHtml() {
-    return gulp.src(['src/html/404.html', 'src/html/500.html'])
+    return gulp.src(['src/html/404.html', 'src/html/500.html',])
 
-    .pipe(plumber(settingsPlumber))
-    .pipe(fileinclude({
-        prefix: '@@',
-        basepath: 'src/html/'
-    }))
-    .pipe(gulp.dest('static/'));
-};
+        .pipe(plumber(settingsPlumber))
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: 'src/html/',
+        }))
+        .pipe(gulp.dest('static/'));
+}
 
 
 function templatesShortHtml() {
-    return gulp.src(['src/html/404.html', 'src/html/500.html'])
+    return gulp.src(['src/html/404.html', 'src/html/500.html',])
 
-    .pipe(plumber(settingsPlumber))
-    .pipe(fileinclude({
-        prefix: '@@',
-        basepath: 'src/html/'
-    }))
-    .pipe(gulp.dest('./../templates/'));
-};
+        .pipe(plumber(settingsPlumber))
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: 'src/html/',
+        }))
+        .pipe(gulp.dest('./../templates/'));
+}
 
 exports.devShortStaticStyles = devShortStaticStyles;
 exports.prodShortStaticStyles = prodShortStaticStyles;

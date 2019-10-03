@@ -5,6 +5,16 @@
 .post-editor-column [class*="post-editor__block_"]:not(:first-child)
     margin-top: 40px
 
+.post-editor__block_image.center
+    .lazy-image-outer
+        margin-left: auto
+        margin-right: auto
+
+
+.post-editor__block_image.right
+    .lazy-image-outer
+        margin-left: auto
+
 .post-editor__section_8
     width: 100%
 
@@ -131,6 +141,9 @@
             text-align: right
 
 .post-editor__block_slider
+
+    .slide
+        background-color: $light-gray
 
     img
         display: block

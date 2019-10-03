@@ -8,7 +8,7 @@
             <div class="slider-container">
                 {% for film in films %}
                     <a href="{% url "films-detail" film.id %}" class="slide cinema-widget__slide">
-                        <img src="{{ film.cover|get_thumbnail_url_by_name:"film_banner" }}" alt="" class="cinema-widget__slide-img">
+                        <img src="" data-src="{{ film.cover|get_thumbnail_url_by_name:"film_banner" }}" alt="" class="cinema-widget__slide-img lazyload">
                     </a>
                 {% endfor %}
             </div>

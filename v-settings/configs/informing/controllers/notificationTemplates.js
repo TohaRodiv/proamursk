@@ -42,6 +42,7 @@ export default {
             const channel = data.channel;
             const subjectConfig = component.FORM_CONFIG.subject;
             const textConfig = component.FORM_CONFIG.text;
+            const recipientsConfig = component.FORM_CONFIG.recipients;
 
             if (channel) {
                 component.$set(subjectConfig, 'show', true);
@@ -56,6 +57,19 @@ export default {
             }
 
             this._setHintInfo(data, component);
+
+            if (channel && channel.id) {
+                recipientsConfig.filter_results.value = channel.id;
+                const recipients = data.recipients 
+                    ? data.recipients.filter(recipient => recipient.channel == channel.id) 
+                    : [];
+                component.$store.commit('setFormsObject', { recipients, });
+            } else {
+                recipientsConfig.filter_results.value = null;
+                component.$store.commit('setFormsObject', { recipients: [], });
+            }
+
+            component.$store.commit('triggerUpdateTabsData');
         },
 
         _setHintInfo(data, component) {

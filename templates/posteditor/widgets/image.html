@@ -8,7 +8,11 @@
                 <a href="{{ widget.link }}" {% if request.get_host not in widget.link %}target="_blank"{% endif %} class="post-editor__img-wrap {% if not widget.backgroundFlag %}hoverable{% endif %}">
             {% endif %}
                 {% get_image_size column.width as image_size %}
-                <img src="{{ images|get_item:widget.image.id|get_thumbnail_url_by_size:image_size }}" alt="{{ widget.alt }}" title="{{ widget.title }}">
+                {% with image=images|get_item:widget.image.id %}
+                    <div class="lazy-image-outer" data-width="{{ image.width }}" data-height="{{ image.height }}">
+                        <img src="" data-src="{{ image|get_thumbnail_url_by_size:image_size }}" alt="{{ widget.alt }}" title="{{ widget.title }}" class="lazyload">
+                    </div>
+                {% endwith %}
             {% if widget.link %}
                 <div class="img-shadow"></div>
                 </a>

@@ -27,7 +27,7 @@
                 <div class="base-layout__main">
                     <article class="publication">
                         <figure class="publication__cover-wrap">
-                            <img src="{{ news.cover|get_thumbnail_url_by_name:"news_cover" }}" alt="" class="publication__cover">
+                            <img src="" data-src="{{ news.cover|get_thumbnail_url_by_name:"news_cover" }}" alt="" class="publication__cover lazyload">
                             <figcaption class="publication__img-figcaption">
                                 {% if news.cover_author %}
                                     <span class="publication__img-author">{{ news.cover_author }}</span>

@@ -27,7 +27,7 @@
                 <div class="base-layout__main">
                     <article class="publication">
                         <figure class="city-guide__cover-wrap">
-                            <img src="{% static "site/images/svg/city-guide-cover.svg" %}{% static_version %}" alt="" class="city-guide__cover">
+                            <img src="" data-src="{% static "site/images/svg/city-guide-cover.svg" %}{% static_version %}" alt="" class="city-guide__cover lazyload">
                             <span class="city-guide__cover-icon icon-{{ guide.guide_format }}"></span>
                             <figcaption class="city-guide__img-figcaption">
                                 <div class="city-guide__cover-wobbler">
@@ -42,11 +42,12 @@
 
                         <div class="publication__content">
                             <div class="city-guide-item">
-                                <img src="{% static "site/images/city-guide-cover1.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover">
+                                <img src="" data-src="{% static "site/images/city-guide-cover1.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover lazyload">
                                 <div class="city-guide-item__text-wrap">
                                     <h2 class="city-guide-item__title">
                                         <img src="{% static "site/images/svg/city-guide-bus-icon.svg" %}{% static_version %}" alt="" class="city-guide-item__title-icon">
-                                        Автобусы</h2>
+                                        Автобусы
+                                    </h2>
                                     <p>Амурск — очень компактный город. Можно сказать, что почти все здесь находится в шаговой доступности. Здесь не бывает пробок, а транспорт ходит часто и без задержек.</p>
 
                                     <section class="city-guide-item__section">
@@ -146,17 +147,18 @@
                             </div>
 
                             <div class="city-guide-item">
-                                <img src="{% static "site/images/city-guide-cover2.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover">
+                                <img src="" data-src="{% static "site/images/city-guide-cover2.jpg" %}{% static_version %}" alt="" class="city-guide-item__cover lazyload">
                                 <div class="city-guide-item__text-wrap">
                                     <h2 class="city-guide-item__title">
                                         <img src="{% static "site/images/svg/city-guide-taxi-icon.svg" %}{% static_version %}" alt="" class="city-guide-item__title-icon">
-                                        Такси</h2>
+                                        Такси
+                                    </h2>
 
                                     <p>В городе работает несколько служб такси. За 100 руб. можно добраться практически в любую точку. Поездка до железнодорожного вокзала (станция Мылки) обойдется в 400 руб.</p>
 
                                     <div class="city-guide-item__taxi-grid">
                                         <div class="taxi-grid-item">
-                                            <img src="{% static "site/images/city-guide-taxi1.jpg" %}{% static_version %}" alt="" class="taxi-grid-item__img">
+                                            <img src="" data-src="{% static "site/images/city-guide-taxi1.jpg" %}{% static_version %}" alt="" class="taxi-grid-item__img lazyload">
                                             <div class="taxi-grid-item__title">Такси Maxim</div>
                                             <a href="tel:999000" class="taxi-grid-item__phone">
                                                 <span class="icon-phone"></span>
@@ -164,7 +166,7 @@
                                             </a>
                                         </div>
                                         <div class="taxi-grid-item">
-                                            <img src="{% static "site/images/city-guide-taxi2.jpg" %}{% static_version %}" alt="" class="taxi-grid-item__img">
+                                            <img src="" data-src="{% static "site/images/city-guide-taxi2.jpg" %}{% static_version %}" alt="" class="taxi-grid-item__img lazyload">
                                             <div class="taxi-grid-item__title">Такси «Аист»</div>
                                             <a href="tel:901901" class="taxi-grid-item__phone">
                                                 <span class="icon-phone"></span>
@@ -172,7 +174,7 @@
                                             </a>
                                         </div>
                                         <div class="taxi-grid-item">
-                                            <img src="{% static "site/images/city-guide-taxi3.jpg" %}{% static_version %}" alt="" class="taxi-grid-item__img">
+                                            <img src="" data-src="{% static "site/images/city-guide-taxi3.jpg" %}{% static_version %}" alt="" class="taxi-grid-item__img lazyload">
                                             <div class="taxi-grid-item__title">Такси «Наш город»</div>
                                             <a href="tel:+74214225555" class="taxi-grid-item__phone">
                                                 <span class="icon-phone"></span>
