@@ -12,14 +12,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Заголовок',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'title',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -31,29 +28,20 @@ const state = {
                             {
                                 type: 'field',
                                 label: 'Анонс события',
-                                expected_value: 'id',
-                                required: false,
                                 width: 12,
                                 codename: 'event',
-                                widget: 'singleSelector',
-                                invalid: false,
-                                api_route: 'event-announcements',
-                                sortFlag: {
-                                    value: 'title',
-                                    direction: 'asc',
+                                widget: 'select',
+                                api: 'event-announcements',
+                                params: {
+                                    order_by: 'title',
                                 },
-                                view_structure: [
-                                    {
-                                        value: 'title',
-                                        flex: 1.5,
-                                    },
-                                ],
-                                hint: '',
-                                syncDataOnForm: {
-                                    event_date_text: 'event_date_text',
-                                    place: 'place',
-                                    coordinates: 'coordinates',
-                                },
+                                template: 'title',
+                                // Перенести логику
+                                // syncDataOnForm: {
+                                //     event_date_text: 'event_date_text',
+                                //     place: 'place',
+                                //     coordinates: 'coordinates',
+                                // },
                             },
                         ],
                     },
@@ -66,11 +54,9 @@ const state = {
                                 format: 'datetime',
                                 label: 'Дата и время публикации',
                                 required: true,
-                                invalid: false,
                                 width: 4,
                                 codename: 'publication_date',
                                 widget: 'inputDatetime',
-                                hint: '',
                             },
                         ],
                     },
@@ -80,14 +66,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Дата и время проведения<br>(для отображения на сайте)',
                                 required: true,
-                                invalid: false,
                                 width: 6,
                                 codename: 'event_date_text',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -97,14 +80,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Название места проведения',
                                 required: true,
-                                invalid: false,
                                 width: 8,
                                 codename: 'place',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -115,12 +95,9 @@ const state = {
                         elements: [
                             {
                                 label: 'Точка на карте',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'coordinates',
                                 widget: 'geoinput',
-                                hint: '',
                                 defaultCoordinates: '50.2368500, 136.8813600',
                             },
                         ],
@@ -131,13 +108,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Формат обложки<br>(представление в сетке)',
                                 codename: 'cover_format',
                                 borders: true,
                                 required: true,
                                 widget: 'radioButtons',
-                                hint: '',
                                 width: 6,
                                 options: [
                                     {
@@ -149,6 +124,7 @@ const state = {
                                         codename: 'full',
                                     },
                                 ],
+                                default: 'small',
                             },
                         ],
                     },
@@ -158,12 +134,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Автор обложки или источник',
                                 width: 8,
                                 codename: 'cover_author',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -173,12 +147,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Автор(ы) материала или источник',
                                 width: 8,
                                 codename: 'content_author',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -191,7 +163,6 @@ const state = {
                                 label: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
                                 codename: 'show_two_banners',
                                 widget: 'singleCheckbox',
-                                hint: '',
                             },
                         ],
                     },
@@ -201,15 +172,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Комментарий',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -225,15 +192,12 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Лид',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 height: 80,
                                 codename: 'lead',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -243,12 +207,8 @@ const state = {
                         hasWideLabel: true,
                         elements: [
                             {
-                                label: '',
-                                required: false,
-                                invalid: false,
                                 widget: 'postEditor',
                                 codename: 'content',
-                                hint: '',
                             },
                         ],
                     },
@@ -263,9 +223,6 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
-                                inputID: 'reportsCoverInput',
-                                dragID: 'reportsCoverDrag',
                                 label: 'Обложка',
                                 required: true,
                                 width: 12,
@@ -275,9 +232,6 @@ const state = {
                                 },
                                 codename: 'cover',
                                 widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: '',
                             },
                         ],
                     },
