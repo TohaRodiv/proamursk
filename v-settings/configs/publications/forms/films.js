@@ -12,13 +12,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Название фильма',
                                 required: true,
                                 width: 12,
                                 codename: 'title',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -28,13 +26,14 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'float',
                                 label: 'Год выпуска',
                                 required: true,
                                 width: 4,
                                 codename: 'release_year',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'inputNumber',
+                                style: {
+                                    textAlign: 'left',
+                                },
                             },
                         ],
                     },
@@ -50,7 +49,6 @@ const state = {
                                 width: 6,
                                 codename: 'country',
                                 widget: 'simpleInput',
-                                hint: '',
                             },
                         ],
                     },
@@ -60,13 +58,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Жанр',
                                 required: true,
                                 width: 6,
                                 codename: 'genre',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -82,7 +78,6 @@ const state = {
                                 width: 6,
                                 codename: 'director',
                                 widget: 'simpleInput',
-                                hint: '',
                             },
                         ],
                     },
@@ -92,13 +87,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'В главных ролях<br>(через запятую)',
                                 required: true,
                                 width: 12,
                                 codename: 'starring',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -108,13 +101,14 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'float',
                                 label: 'Продолжительность, мин.',
                                 required: true,
                                 width: 4,
                                 codename: 'duration',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'inputNumber',
+                                style: {
+                                    textAlign: 'left',
+                                },
                             },
                         ],
                     },
@@ -124,13 +118,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Возрастное ограничение',
                                 required: true,
                                 width: 4,
                                 codename: 'age_restriction',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -140,13 +132,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Ссылка на трейлер в YouTube',
                                 required: true,
                                 width: 12,
                                 codename: 'trailer',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                                 placeholder: 'http(s)://',
                             },
                         ],
@@ -157,14 +147,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Ссылка на страницу фильма на сайте кинотеатра «Молодость»',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'purchase_link',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                                 placeholder: 'http(s)://',
                             },
                         ],
@@ -176,10 +163,8 @@ const state = {
                         elements: [
                             {
                                 label: 'Фильм в формате 3D',
-                                required: false,
                                 codename: 'is_3d',
                                 widget: 'singleCheckbox',
-                                hint: '',
                             },
                         ],
                     },
@@ -191,11 +176,9 @@ const state = {
                             {
                                 label: 'Описание',
                                 required: true,
-                                invalid: false,
                                 widget: 'formatter',
                                 codename: 'description',
                                 width: 12,
-                                hint: '',
                             },
                         ],
                     },
@@ -208,7 +191,6 @@ const state = {
                                 label: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
                                 codename: 'show_two_banners',
                                 widget: 'singleCheckbox',
-                                hint: '',
                             },
                         ],
                     },
@@ -218,15 +200,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Комментарий',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -241,9 +219,6 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
-                                inputID: 'filmsCoverInput',
-                                dragID: 'filmsCoverDrag',
                                 label: 'Обложка',
                                 required: true,
                                 width: 6,
@@ -253,9 +228,6 @@ const state = {
                                 },
                                 codename: 'cover',
                                 widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: '',
                             },
                         ],
                     },
@@ -272,14 +244,14 @@ const state = {
                             {
                                 codename: 'sessions',
                                 widget: 'simpleChildEntity',
-                                hint: '',
                                 label: 'Сеансы',
-                                modClass: 'marginBottom20',
-                                type: 'field',
                                 gotHeaders: true,
-                                // isDraggable: true,
+                                // TODO: Избавиться от этого атрибута
+                                type: 'field',
                                 defaultRowConfig: [
                                     {
+                                        // TODO: Избавиться от этого атрибута
+                                        type: 'field',
                                         format: 'datetime',
                                         widget: 'inputDatetime',
                                         codename: 'session_time',
@@ -288,8 +260,8 @@ const state = {
                                         required: true,
                                     },
                                     {
-                                        type: 'price',
-                                        widget: 'simpleInput',
+                                        type: 'field',
+                                        widget: 'inputNumber',
                                         codename: 'price',
                                         width: 4,
                                         text: 'Стоимость билета, ₽',
