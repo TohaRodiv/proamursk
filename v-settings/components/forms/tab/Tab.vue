@@ -257,6 +257,15 @@
                     @change="onChange"
                 />
 
+                <CpInputNumber
+                    v-if="element.widget === 'inputNumber'"
+                    :value="formData[element.codename]"
+                    :config="element"
+                    :label-position="block.labelPosition"
+                    @clearError="clearError"
+                    @change="onChange"
+                />
+
                 <password-widget
                     v-if="element.widget === 'passwordWidget'"
                     :prop-generator-data="formData.password1"
