@@ -152,7 +152,11 @@
 </template>
 
 <script>
+import EventBus from '../../../../../cp_vue/frontend/vue/EventBus.js';
+
 export default {
+    name: 'Formatter',
+
     props: {
         labelPosition: {
             type: String,
@@ -201,13 +205,11 @@ export default {
             }
         },
 
-        '$route.params': {
-            handler(value) {
-                if (value.id === 'add') {
-                    this.onClearFormatter();
-                }
+        text(value) {
+            if (value === undefined) {
+                this.clearFormatter();
             }
-        },
+        }
     },
 
     mounted() {
@@ -250,12 +252,12 @@ export default {
             })
         },
 
-        onClearFormatter() {
-            const el = this.$refs['formatter-' + this.config.codename];
-
+        clearFormatter() {
+            const el = document.querySelector('.formatter-code');
             if (el) {
-                this.value = '';
-                const event = new Event('clear');
+                el.innerHTML = '';
+                el.value = '';
+                const event = new Event('sync');
                 el.dispatchEvent(event);
             }
         },
