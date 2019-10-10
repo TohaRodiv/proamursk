@@ -115,13 +115,13 @@ else if (process.env.NODE_ENV === 'production') {
                         },
                         {
                             loader: 'css-loader',
-                            // options: {
-                            //     url: false
-                            // }
                         },
                         {
                             loader: 'sass-loader',
-                            options: { indentedSyntax: true, },
+                            options: { 
+                                indentedSyntax: true,
+                                data: '@import ' + path.resolve(__dirname, '../../cp_vue/frontend/src/sass/vars.sass'), 
+                            },
                         },
                     ],
                 },

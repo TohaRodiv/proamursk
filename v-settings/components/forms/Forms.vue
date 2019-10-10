@@ -33,8 +33,12 @@
                                 class="forms-tabs-container"
                             >
                                 <div
-                                    :class="{'forms-tabs-item-error': tab.invalid, 'forms-tabs-item-selected': tab.id === currentTabId, 'forms-tabs-item-blocked': tab.blocked}"
-                                    v-for="(tab, tabDex) in configComputed"
+                                    :class="{
+                                        'forms-tabs-item-error': tab.invalid, 
+                                        'forms-tabs-item-selected': tab.id === currentTabId, 
+                                        'forms-tabs-item-blocked': tab.blocked
+                                    }"
+                                    v-for="(tab, tabDex) in tabs"
                                     :key="tabDex"
                                     @click="tab.blocked ? '' : setCurrentTab(tab.id)"
                                     class="forms-tabs-item"
@@ -57,7 +61,7 @@
                                 >
                                     <tab
                                         :data="data"
-                                        v-for="(tab, index) in configComputed"
+                                        v-for="(tab, index) in config"
                                         :key="tab.id"
                                         :options="tab"
                                         :tabIndex="Number(index)"
@@ -83,6 +87,8 @@
                         :meta="meta"
                         :actions="actions"
                         :activate-action="activateAction"
+                        :hasFieldsWithLanguage="hasFieldsWithLanguage"
+                        :language="language"
                         @initAction="actionHandler"
                     />
                 </div>
@@ -129,7 +135,7 @@
                             </button>
                         </template>
                         <button
-                            v-if="compHasEditPermission"
+                            v-if="hasSaveAndAdd"
                             @click="saveAndAdd"
                             class="button borderless-button forms-save-and-add-button"
                         >
@@ -138,7 +144,7 @@
                     </div>
                     <div class="form-footer__major-buttons-wrap">
                         <button
-                            v-if="compHasEditPermission"
+                            v-if="hasSave"
                             @click="saveButtonHandler"
                             class="button forms-save-button"
                         >

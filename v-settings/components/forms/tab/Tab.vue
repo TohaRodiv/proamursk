@@ -138,6 +138,7 @@
                     :config="element"
                     @clearError="clearError"
                     @change="onChange"
+                    @setError="setError"
                 />
 
                 <singleFileLoader
@@ -157,6 +158,7 @@
                     :config="element"
                     @clearError="clearError"
                     @change="onChange"
+                    @setError="setError"
                 />
 
                 <multipleFileLoader

@@ -1,5 +1,5 @@
-import vue from 'vue';
-import _ from 'lodash';
+// import vue from 'vue';
+// import _ from 'lodash';
 
 import notificationTemplatesController from '../configs/informing/controllers/notificationTemplates';
 import recipientsController from '../configs/informing/controllers/recipients';
@@ -14,7 +14,7 @@ const controllers = {
         recipients: recipientsController.change,
         staticPages: staticPagesController.change,
         sliders: slidersController.change,
-        cityGuides: cityGuidesController.change,
+        'city-guides': cityGuidesController.change,
         reports: reportsController.change,
     },
 };
