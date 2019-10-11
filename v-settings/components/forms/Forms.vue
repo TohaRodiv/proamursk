@@ -39,7 +39,7 @@
                                         'forms-tabs-item-blocked': tab.blocked
                                     }"
                                     v-for="(tab, tabDex) in tabs"
-                                    :key="tabDex"
+                                    :key="'forms-tabs-item-' + tabDex"
                                     @click="tab.blocked ? '' : setCurrentTab(tab.id)"
                                     class="forms-tabs-item"
                                 >
@@ -62,7 +62,7 @@
                                     <tab
                                         :data="data"
                                         v-for="(tab, index) in config"
-                                        :key="tab.id"
+                                        :key="'tab-' + tab.id"
                                         :options="tab"
                                         :tabIndex="Number(index)"
                                         :form-data="data"

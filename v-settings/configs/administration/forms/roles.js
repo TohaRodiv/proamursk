@@ -13,35 +13,30 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Название',
                                 required: true,
-                                invalid: false,
                                 width: 8,
                                 codename: 'name',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
-                        ]
+                        ],
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
                         elements: [
                             {
-                                required: false,
-                                invalid: false,
                                 widget: 'rightsWidget',
                                 codename: 'permissions',
                             },
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
         ],
     },
 };
 
 export default {
-    state
-}
+    state,
+};
