@@ -2,7 +2,7 @@
     <div class="post-editor-wrapper">
         <div
             class="post-editor-empty-wrapper"
-            v-if="!content.length">
+            v-if="isEmpty">
             <div class="tab-left-label col4"/>
             <div
                 class="post-editor-empty-container"
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div
-            v-if="content.length"
+            v-if="!isEmpty"
             class="post-editor-outer-wrapper">
             <div
                 class="post-editor-add-section-wrapper"
@@ -386,6 +386,19 @@ export default {
 
             deep: true,
         },
+
+        passedData(value) {
+            if (!value) {
+                this.content = [];
+            }
+        },
+
+        '$route.params': {
+            handler() {
+                this.content = this.passedData;
+            },
+            deep: true,
+        },
     },
 
     created(){
@@ -398,9 +411,7 @@ export default {
     },
 
     mounted(){
-        if (this.passedData && this.passedData.length && typeof this.passedData !== 'string') {
-            this.content = this.passedData;
-        }
+        this.content = this.passedData;
     },
 
     computed: {
@@ -420,7 +431,7 @@ export default {
                 return this.allConfigs.default;
         },
 
-        sectionIsConfigurable(){
+        sectionIsConfigurable() {
             if (this.editorConfig.sectionConfigs) {
                 let object = this.editorConfig.sectionConfigs;
                 for (let prop in object) {
@@ -436,6 +447,10 @@ export default {
             return Array.isArray(this.options.message)
                 ? this.options.message.join(', ')
                 : this.options;
+        },
+
+        isEmpty() {
+            return this.content == undefined || !this.content.length;
         },
     },
 
