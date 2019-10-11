@@ -10,18 +10,16 @@ const dict = {
 
 export default {
     change: {
-        entity(entity, { fields, formData, rows, loading, }) {
+        entity(entity, { fields, formData, $set, }) {
             if (entity) {
                 fields.item.api = entity;
                 fields.item.label = dict[entity];
-                rows['0-1'].show = true;
+                $set(fields.item, 'blocked', false);
             } else {
-                rows['0-1'].show = false;
+                $set(fields.item, 'blocked', true);
             }
 
-            if (!loading) {
-                formData.item = null;
-            }
+            formData.item = null;
         },
 
         item(item, { formData, }) {

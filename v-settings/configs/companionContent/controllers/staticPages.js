@@ -183,7 +183,6 @@ const generateTab = function(codename) {
         });
         const itemBlock = Object.assign({}, defaultBlock, {
             elements: [itemConfig,],
-            show: false,
         });
         const topItemsConfigPopup = Object.assign({}, defaultTab, {
             blocks: [entityBlock, itemBlock,],
@@ -216,7 +215,6 @@ const generateTab = function(codename) {
         });
         const itemBlock = Object.assign({},defaultBlock, {
             elements: [itemConfig,],
-            show: false,
         });
         const topItemsConfigPopup = Object.assign({},defaultTab, {
             blocks: [entityBlock, itemBlock,],
