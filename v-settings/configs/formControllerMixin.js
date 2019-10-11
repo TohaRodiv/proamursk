@@ -10,12 +10,16 @@ import reportsController from '../configs/publications/controllers/reports.js';
 
 const controllers = {
     change: {
-        notificationTemplates: notificationTemplatesController.change,
+        'notification-templates': notificationTemplatesController.change,
         recipients: recipientsController.change,
-        staticPages: staticPagesController.change,
+        'static-pages': staticPagesController.change,
         sliders: slidersController.change,
         'city-guides': cityGuidesController.change,
         reports: reportsController.change,
+    },
+
+    setConfigHook: {
+        'static-pages': staticPagesController.setConfigHook,
     },
 };
 
@@ -26,6 +30,12 @@ export const formController = {
                 if (controllers.change[this.view][codename]) {
                     controllers.change[this.view][codename](value, this);
                 }
+            }
+        },
+
+        setConfigHook(config, data) {
+            if (controllers.setConfigHook[this.view]) {
+                controllers.setConfigHook[this.view](config, data);
             }
         },
     },
