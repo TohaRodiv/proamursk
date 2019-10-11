@@ -298,7 +298,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import vue from 'vue';
 
 import addSectionPopup from './postEditorPopups/AddSectionPopup.vue';
@@ -307,11 +306,10 @@ import pickToCreatePopup from './postEditorPopups/CreateWidgetPopup.vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
 import formsComponent from './PostEditorForms.vue';
 
-
 import throttle from 'lodash/throttle';
 import cloneDeep from 'lodash/cloneDeep';
 import wordFormHelper from '../../../../../../cp_vue/frontend/vue/helpers/wordForms';
-import { mapGetters, mapState, } from 'vuex';
+import { mapState, } from 'vuex';
 
 export default {
     props: {
@@ -382,19 +380,12 @@ export default {
     watch: {
         'content': {
             handler: function () {
-                console.log('content')
                 this.$emit('change', { [this.options.codename]: this.content, });
                 this.clearError();
             },
 
             deep: true,
         },
-
-        // 'passedData': function () {
-        //     if (this.passedData && this.passedData.length && typeof this.passedData !== 'string') {
-        //         this.content = this.passedData;
-        //     }
-        // },
     },
 
     created(){
@@ -441,16 +432,6 @@ export default {
             return false;
         },
 
-        // content: {
-        //     get() {
-        //         return this.passedData || [];
-        //     },
-        //     set(value) {
-        //         console.log('set content', value)
-        //         this.$emit('change', { [this.options.codename]: value || [] });
-        //     }
-        // },
-
         errorMessage() {
             return Array.isArray(this.options.message)
                 ? this.options.message.join(', ')
@@ -459,16 +440,6 @@ export default {
     },
 
     methods: {
-        // addWidget({ sectionIndex, blockIndex, widgetIndex, widget }) {
-        //     // const content = deepClone(this.content);
-        //     // this.content[sectionIndex].columns[blockIndex].widgets[widgetIndex] = widget;
-        //     // this.content = content;
-        // },
-
-        // changeWidget({ index, widget }) {
-
-        // },
-
         //-------------Начало функций для dragNDrop виджета--------------------
         widgetDragStart(secDex, blockDex, widDex, e){
             this.widgetCoords = { secDex, blockDex, widDex , };
@@ -927,7 +898,6 @@ export default {
         },
 
         pasteWidget(secDex, blockDex, widgetIndex) {
-            console.log('pasteWidget', secDex, blockDex, widgetIndex)
             let copy = cloneDeep(this.widgetBuffer[0].widget);
             if (typeof widgetIndex === 'undefined') {
                 vue.set(this.content[secDex].columns[blockDex], 'widgets', [copy,]);
@@ -939,7 +909,6 @@ export default {
         },
 
         editWidget(block, widget, index){
-            console.log('editWidget')
             this.widgetForm = {
                 widgetIndex: index,
                 popupType: widget.type,
@@ -954,7 +923,6 @@ export default {
         },
 
         openCreateWidgetPopup(block, section, index){
-            console.log('openCreateWidgetPopup')
             if (section.isPercentage) this.createPicker.isPercentage = true;
             this.createPicker.width = block.width;
             this.createPicker.showPicker = true;
@@ -1060,36 +1028,9 @@ export default {
         },
 
         clearError() {
-            if (this.options.invalid === true) {
+            if (this.options.invalid) {
                 this.$emit('clearError', this.options.codename);
             }
-
-            //     let tabHasErrors = {
-            //         tabId: 0,
-            //         status: false
-            //     };
-
-            //     const payload = {view: this.$route.params.view};
-            //     const config = this.$store.getters.getFormsConfig(payload);
-
-            //     for (let a = 0; a < config.length; a++) {
-            //         const tab = config[a];
-            //         for (let b = 0; b < tab.blocks.length; b++) {
-            //             const block = tab.blocks[b];
-            //             for (let c = 0; c < block.elements.length; c++) {
-            //                 const element = block.elements[c];
-            //                 if (element.codename === this.options.codename) {
-            //                     tabHasErrors.tabId = tab.id;
-            //                     this.$store.commit('setInvalidStatus', {view: this.$route.params.view, tabIndex: a, blockIndex: b, elementIndex: c, status: false, message: ''});
-            //                     break;
-            //                 }
-            //                 tabHasErrors.status = element.invalid;
-            //             }
-            //         }
-            //     }
-            //     if (tabHasErrors.status === false)
-            //         this.$store.commit('setInvalidStatusOnTab', {view: this.$route.params.view, tabId: tabHasErrors.tabId, status: false});
-            // }
         },
     },
 
