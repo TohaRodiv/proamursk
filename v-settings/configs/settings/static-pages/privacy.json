@@ -1,32 +1,32 @@
 [
-  {
-    "id": 2,
-    "title": "КОНТЕНТ",
-    "blocks": [
-      {
-        "labelPosition": "left",
-        "modClass": "marginBottom20",
-        "elements": [
-          {
-            "label": "Заголовок",
-            "widget": "input",
-            "codename": "title",
-            "width": 12,
-            "required": true
-          }
+    {
+        "id": 2,
+        "title": "КОНТЕНТ",
+        "blocks": [
+            {
+                "labelPosition": "left",
+                "modClass": "marginBottom20",
+                "elements": [
+                    {
+                        "label": "Заголовок",
+                        "widget": "input",
+                        "codename": "title",
+                        "width": 12,
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "labelPosition": "left",
+                "elements": [
+                    {
+                        "label": "Контент",
+                        "widget": "formatter",
+                        "codename": "description",
+                        "required": true
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "labelPosition": "left",
-        "elements": [
-          {
-            "label": "Контент",
-            "widget": "formatter",
-            "codename": "content",
-            "required": true
-          }
-        ]
-      }
-    ]
-  }
+    }
 ]
