@@ -1,6 +1,7 @@
 # -*-coding: utf-8 -*-
 
 from django.db import models
+from django.urls import reverse
 from applications.mediafiles.models import MediaFile
 from core.models import BaseModel, BaseSeoMixin
 
@@ -33,6 +34,12 @@ class Page(BaseModel, BaseSeoMixin):
     def get_fields_names(self):
         fields = self.get_available_fields()
         return [i.codename for i in fields]
+
+    def get_absolute_url(self):
+        try:
+            return reverse(self.codename)
+        except:
+            return ''
 
     class Meta:
         verbose_name = u'Статическая страница'
