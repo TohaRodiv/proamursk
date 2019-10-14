@@ -79,9 +79,7 @@ class PageSettingDetailSerializer(ModelSerializer):
         singleImageLoader='mediafile',
         formatter='text',
         singleCheckbox='bool',
-        simpleInput=dict(
-            field='string'
-        )
+        input='string',
     )
 
     class Meta:
@@ -106,11 +104,7 @@ class PageSettingDetailSerializer(ModelSerializer):
                                     widget = item.get('widget')
                                     codename = item.get('codename')
                                     if codename not in [f.name for f in Page._meta.get_fields()]:
-                                        if widget == 'simpleInput':
-                                            widget_type = item.get('type')
-                                            data_type = self.WIDGET_DATA_TYPES.get(widget, dict()).get(widget_type)
-                                        else:
-                                            data_type = self.WIDGET_DATA_TYPES.get(widget)
+                                        data_type = self.WIDGET_DATA_TYPES.get(widget)
 
                                         if data_type and codename:
                                             blocks_data.append(dict(data_type=data_type, codename=codename))
