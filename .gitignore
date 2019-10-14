@@ -24,5 +24,6 @@ npm-debug.log
 *.pyc
 *.python-version
 *.pkl
+*.sql.gz
 
 .vscode

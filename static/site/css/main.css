@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.last-news, .news-list-item, .grid-publication, .cinema-widget {
+.last-news, .news-list-item, .grid-publication-placeholder, .grid-publication, .cinema-widget {
   border: 1px solid #D7DBE0;
   border-radius: 4px;
   overflow: hidden; }
@@ -2779,9 +2779,15 @@ footer {
   top: 0;
   right: 0; }
 
+.grid-publication-placeholder {
+  background-color: #FFFFFF; }
+  .grid-publication-placeholder_top1 {
+    height: 500px; }
+  .grid-publication-placeholder_top-other {
+    min-height: 460px; }
+
 .grid-publication {
   position: relative;
-  display: block;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
