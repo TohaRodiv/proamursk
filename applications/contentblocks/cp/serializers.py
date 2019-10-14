@@ -59,13 +59,13 @@ class PageNestedSerializer(ModelSerializer):
 
 
 class PageSettingListSerializer(ModelSerializer):
-    link = serializers.SerializerMethodField()
+    site_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Page
-        fields = ('id', 'name', 'codename', 'link', 'create_date', 'edit_date')
+        fields = ('id', 'name', 'codename', 'site_url', 'create_date', 'edit_date')
 
-    def get_link(self, instance):
+    def get_site_url(self, instance):
         try:
             return reverse(instance.codename)
         except:
@@ -147,13 +147,13 @@ class PageSettingDetailSerializer(ModelSerializer):
 
 
 class StaticPagesListSerializer(ModelSerializer):
-    link = serializers.SerializerMethodField()
+    site_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Page
-        fields = ('id', 'name', 'link', 'create_date', 'edit_date')
+        fields = ('id', 'name', 'site_url', 'create_date', 'edit_date')
 
-    def get_link(self, instance):
+    def get_site_url(self, instance):
         try:
             return reverse(instance.codename)
         except:

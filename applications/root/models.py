@@ -39,7 +39,7 @@ class TopItem(models.Model):
         obj = None
         model = self.get_model()
         if model:
-            obj = model.objects.filter(id=self.object_id).first()
+            obj = model.objects.filter(id=self.object_id, is_active=True).first()
         return obj
 
     def __str__(self):
