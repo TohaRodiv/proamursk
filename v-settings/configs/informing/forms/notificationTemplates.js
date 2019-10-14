@@ -35,7 +35,6 @@ const state = {
                                 params: {
                                     order_by: 'name',
                                 },
-                                template: 'name',
                             },
                         ],
                     },
@@ -54,7 +53,6 @@ const state = {
                                 params: {
                                     order_by: 'name',
                                 },
-                                template: 'name',
                             },
                         ],
                     },
@@ -64,7 +62,6 @@ const state = {
                         modClass: ['marginBottom20', 'marginTop20',],
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Тема письма',
                                 required: true,
                                 width: 12,
@@ -86,7 +83,6 @@ const state = {
                                 codename: 'text',
                                 widget: 'textarea',
                                 show: false,
-                                hint: '',
                             },
                         ],
                     },
@@ -133,7 +129,6 @@ const state = {
                                     order_by: 'name',
                                 },
                                 tags: 'short',
-                                template: 'name',
                             },
                         ],
                     },
@@ -154,7 +149,6 @@ const state = {
                                     channel_id__in: '',
                                 },
                                 tags: 'short',
-                                template: 'name',
                             },
                         ],
                     },

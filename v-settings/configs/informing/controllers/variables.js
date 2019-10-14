@@ -2,17 +2,15 @@ import api from '../../../../cp_vue/frontend/vue/store/utils/api.js';
 
 export default {
     change: {
-        async construction_type(constructionType, { config, rows, fields, $store, setValues, }) {
+        async construction_type(constructionType, { fields, $store, setValues, }) {
             const contentTypeConfig = fields.content_type;
-            const contentTypeRow = rows['0-3'];
-            const channelRow = rows['0-4'];
             const channelsConfig = fields.channels;
 
             if (constructionType === 'var') {
-                contentTypeRow.show = true;
+                contentTypeConfig.show = true;
                 contentTypeConfig.required = true;
             } else {
-                contentTypeRow.show = false;
+                contentTypeConfig.show = false;
                 contentTypeConfig.required = false;
 
                 // Проверка
@@ -33,10 +31,10 @@ export default {
             }
 
             if (constructionType === 'tag') {
-                channelRow.show = true;
+                channelsConfig.show = true;
                 channelsConfig.required = true;
             } else {
-                channelRow.show = false;
+                channelsConfig.show = false;
                 channelsConfig.required = false;
             }
         },
