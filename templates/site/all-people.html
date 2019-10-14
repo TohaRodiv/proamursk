@@ -26,7 +26,11 @@
                 {% if top_objects %}
                     <div class="base-layout__main">
                         {% with item=top_objects.0.get_object css_class='grid-publication_8-col' first_item=True cover_name="8_column_img"  %}
-                            {% include "site/modules/grid-publication.html" %}
+                            {% if item %}
+                                {% include "site/modules/grid-publication.html" %}
+                            {% else %}
+                                <div class="grid-publication-placeholder grid-publication-placeholder_top1"></div>
+                            {% endif %}
                         {% endwith %}
                     </div>
                 {% endif %}
@@ -62,6 +66,8 @@
                                     {% include "site/modules/grid-publication.html" %}
                                 {% endwith %}
                             {% endif %}
+                        {% else %}
+                            <div class="grid-publication-placeholder grid-publication-placeholder_top-other"></div>
                         {% endif %}
                     {% endwith %}
                 {% endfor %}
