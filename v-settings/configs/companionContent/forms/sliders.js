@@ -1,5 +1,3 @@
-import vue from 'vue';
-
 const state = {
     formsOptions: {
         sliders: [
@@ -13,14 +11,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Название',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'title',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -30,13 +25,12 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
-                                label: 'Формат слайдера',
                                 codename: 'format',
-                                required: true,
-                                invalid: false,
+                                widget: 'select',
+                                label: 'Формат слайдера',
                                 width: 6,
-                                available_values: [
+                                required: true,
+                                options: [
                                     {
                                         name: 'Горизонтальный / 3:2',
                                         id: 'format_3x2',
@@ -46,22 +40,6 @@ const state = {
                                         id: 'format_2x1',
                                     },
                                 ],
-                                sortFlag: {
-                                    value: 'name',
-                                    flex: 1.5,
-                                },
-                                widget: 'singleSelector',
-                                hint: '',
-                                view_structure: [
-                                    {
-                                        value: 'name',
-                                        flex: 1.5,
-                                    },
-                                ],
-                                blockedCondition: {
-                                    type: 'isEmpty',
-                                    flag: 'slides',
-                                },
                             },
                         ],
                     },
@@ -69,127 +47,109 @@ const state = {
                         labelPosition: 'top',
                         direction: 'row',
                         hasWideLabel: true,
+                        modClass: 'marginBottom50',
                         elements: [
                             {
-                                type: 'field',
-                                isBlocked: true,
+                                blocked: true,
                                 label: 'Слайды',
-                                popupLabels: {
-                                    new: 'Слайд в слайдере',
-                                    existing: 'Слайд в слайдере',
-                                },
                                 dragOrder: 'weight',
-                                required: false,
-                                invalid: false,
-                                isDraggable: true,
                                 widget: 'childEntity',
-                                modClass: 'marginBottom50',
                                 codename: 'slides',
-                                requireSendId: true,
-                                disableClickaway: true,
-                                hint: '',
-                                entity_structure: [
-                                    {
-                                        type: 'image',
-                                        requiredValue: 'cover.medium_url',
-                                        height: '100px',
-                                        width: 'auto',
-                                    },
-                                    {
-                                        type: 'text',
-                                        requiredValue: 'description',
-                                        flex: 1,
-                                    },
-                                ],
-                                textOptions: true,
-                                popup_structure: [
-                                    {
-                                        id: 1,
-                                        blocks: [
-                                            {
-                                                labelPosition: 'top',
-                                                direction: 'row',
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        inputID: 'slideCoverInput',
-                                                        dragID: 'slideCoverDrag',
-                                                        label: 'Изображение',
-                                                        required: true,
-                                                        width: 12,
-                                                        image: {
-                                                            width: 1720,
-                                                            height: 1144,
-                                                        },
-                                                        codename: 'cover',
-                                                        widget: 'singleImageLoader',
-                                                        modClass: 'marginBottom20',
-                                                        requireSendId: true,
-                                                        key_attr: 'id',
-                                                        hint: '',
-                                                    },
-                                                ],
-                                            },
-                                            {
-                                                labelPosition: 'top',
-                                                direction: 'row',
-                                                modClass: 'marginBottom50',
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        label: 'Описание',
-                                                        width: 12,
-                                                        height: 80,
-                                                        codename: 'description',
-                                                        widget: 'textarea',
-                                                        hint: '',
-                                                    },
-                                                ],
-                                            },
-                                            {
-                                                labelPosition: 'top',
-                                                direction: 'row',
-                                                elements: [
-                                                    {
-                                                        label: 'Активный слайд (неактивные слайды не отображаются на странице)',
-                                                        codename: 'is_active',
-                                                        widget: 'singleCheckbox',
-                                                        hint: '',
-                                                        default: true,
-                                                    },
-                                                ],
-                                            },
-                                        ],
-                                    },
-                                ],
                                 rows: [
                                     {
-                                        codename: 'cover.medium_url',
-                                        widget: 'image',
-                                    },
-                                    {
-                                        codename: 'description',
-                                        widget: 'field',
+                                        map: {
+                                            layout: 'row',
+                                            elements: [
+                                                {
+                                                    type: 'image',
+                                                    tag: 'img',
+                                                    codename: 'cover.medium_url',
+                                                    elStyle: {
+                                                        height: '100px',
+                                                        width: 'auto',
+                                                        borderRadius: '5px',
+                                                    },
+                                                },
+                                                {
+                                                    codename: 'description',
+                                                    empty: '',
+                                                    style: {
+                                                        marginLeft: '10px',
+                                                        whiteSpace: 'normal',
+                                                    },
+                                                },
+                                            ],
+                                        },
                                     },
                                 ],
+                                popup: {
+                                    label: 'Слайд в слайдере',
+                                    disableClickaway: true,
+                                    config: [
+                                        {
+                                            id: 1,
+                                            blocks: [
+                                                {
+                                                    labelPosition: 'top',
+                                                    direction: 'row',
+                                                    modClass: 'marginBottom20',
+                                                    elements: [
+                                                        {
+                                                            label: 'Изображение',
+                                                            required: true,
+                                                            width: 12,
+                                                            image: {
+                                                                width: 1720,
+                                                                height: 1144,
+                                                            },
+                                                            codename: 'cover',
+                                                            widget: 'singleImageLoader',
+                                                        },
+                                                    ],
+                                                },
+                                                {
+                                                    labelPosition: 'top',
+                                                    direction: 'row',
+                                                    modClass: 'marginBottom50',
+                                                    elements: [
+                                                        {
+                                                            label: 'Описание',
+                                                            width: 12,
+                                                            height: 80,
+                                                            codename: 'description',
+                                                            widget: 'textarea',
+                                                        },
+                                                    ],
+                                                },
+                                                {
+                                                    labelPosition: 'top',
+                                                    direction: 'row',
+                                                    elements: [
+                                                        {
+                                                            label: 'Активный слайд (неактивные слайды не отображаются на странице)',
+                                                            codename: 'is_active',
+                                                            widget: 'singleCheckbox',
+                                                            default: true,
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
                             },
                         ],
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Комментарий',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },

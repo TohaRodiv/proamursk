@@ -1,18 +1,26 @@
 export default {
     change: {
-        format(data, component) {
-            const format = data.format;
-            const slidesConfig = component.FORM_CONFIG.slides;
-            const coverConfig = slidesConfig.popup_structure[0].blocks[0].elements[0];
+        format(format, { fields, $set, }) {
+            const slidesConfig = fields.slides;
+            const coverConfig = slidesConfig.popup.config[0].blocks[0].elements[0];
 
             if (format == 'format_3x2') {
-                component.$set(coverConfig, 'image', { width: 1720, height: 1144, });
-                component.$set(slidesConfig, 'isBlocked', false);
+                $set(coverConfig, 'image', { width: 1720, height: 1144, });
+                $set(slidesConfig, 'blocked', false);
             } else if (format == 'format_2x1') {
-                component.$set(coverConfig, 'image', { width: 1720, height: 860, });
-                component.$set(slidesConfig, 'isBlocked', false);
-            } else if (format === null) {
-                component.$set(slidesConfig, 'isBlocked', true);
+                $set(coverConfig, 'image', { width: 1720, height: 860, });
+                $set(slidesConfig, 'blocked', false);
+            } else if (!format) {
+                $set(slidesConfig, 'blocked', true);
+            }
+        },
+
+        slides(slides, { fields, $set, }) {
+            const formatConfig = fields.format;
+            if (slides && slides.length) {
+                $set(formatConfig, 'blocked', true);
+            } else {
+                $set(formatConfig, 'blocked', false);
             }
         },
     },

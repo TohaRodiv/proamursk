@@ -12,15 +12,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Название',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'name',
-                                widget: 'simpleInput',
-
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -30,26 +26,15 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Тип уведомлений',
-                                expected_value: 'id',
                                 required: true,
                                 width: 8,
                                 codename: 'action',
-                                widget: 'singleSelector',
-                                invalid: false,
-                                api_route: 'actions',
-                                sortFlag: {
-                                    value: 'name',
-                                    direction: 'asc',
+                                widget: 'select',
+                                api: 'actions',
+                                params: {
+                                    order_by: 'name',
                                 },
-                                view_structure: [
-                                    {
-                                        value: 'name',
-                                        flex: 1.5,
-                                    },
-                                ],
-                                hint: '',
                             },
                         ],
                     },
@@ -59,26 +44,15 @@ const state = {
                         modClass: 'marginBottom30',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Способ отправки',
-                                api_route: 'channels',
                                 required: true,
                                 width: 4,
-                                widget: 'singleSelector',
-                                invalid: false,
-                                sortFlag: {
-                                    value: 'name',
-                                    direction: 'asc',
-                                },
                                 codename: 'channel',
-                                view_structure: [
-                                    {
-                                        value: 'name',
-                                        flex: 1.5,
-                                    },
-                                ],
-                                hint: '',
-                                returnFull: true,
+                                widget: 'select',
+                                api: 'channels',
+                                params: {
+                                    order_by: 'name',
+                                },
                             },
                         ],
                     },
@@ -88,14 +62,11 @@ const state = {
                         modClass: ['marginBottom20', 'marginTop20',],
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Тема письма',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'subject',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                                 show: false,
                             },
                         ],
@@ -105,15 +76,12 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Содержание письма',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 height: 400,
                                 codename: 'text',
                                 widget: 'textarea',
-                                hint: '',
                                 show: false,
                             },
                         ],
@@ -128,9 +96,6 @@ const state = {
                                 type: 'header',
                                 label: 'Кто будет получать уведомления?',
                                 size: 'first',
-                                required: false,
-                                invalid: false,
-                                hint: '',
                             },
                         ],
                     },
@@ -140,52 +105,30 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'shortTag',
+                                widget: 'select',
+                                multi: true,
                                 label: 'Пользователи с доступом в ПУ',
-                                required: false,
                                 width: 6,
                                 codename: 'users',
-                                callbackType: 'idArray',
-                                widget: 'multipleSelector',
-                                invalid: false,
-                                api_route: 'users',
-                                sortFlag: {
-                                    value: 'full_name',
-                                    direction: 'asc',
+                                api: 'users',
+                                params: {
+                                    order_by: 'full_name',
+                                    is_staff: 'true',
                                 },
-                                filter_results: {
-                                    flag: 'is_staff',
-                                    value: 'true',
-                                },
-                                view_structure: [
-                                    {
-                                        value: 'full_name',
-                                        flex: .85,
-                                    },
-                                ],
-                                hint: '',
+                                tags: 'short',
+                                template: 'full_name',
                             },
                             {
-                                type: 'shortTag',
+                                widget: 'select',
+                                multi: true,
                                 label: 'Роли в ПУ',
-                                required: false,
                                 width: 6,
                                 codename: 'roles',
-                                callbackType: 'idArray',
-                                widget: 'multipleSelector',
-                                invalid: false,
-                                api_route: 'user-roles',
-                                sortFlag: {
-                                    value: 'name',
-                                    direction: 'asc',
+                                api: 'user-roles',
+                                params: {
+                                    order_by: 'name',
                                 },
-                                view_structure: [
-                                    {
-                                        value: 'name',
-                                        flex: .85,
-                                    },
-                                ],
-                                hint: '',
+                                tags: 'short',
                             },
                         ],
                     },
@@ -195,28 +138,17 @@ const state = {
                         modClass: 'marginBottom50',
                         elements: [
                             {
-                                type: 'shortTag',
+                                widget: 'select',
+                                multi: true,
                                 label: 'Получатели уведомлений',
                                 width: 6,
                                 codename: 'recipients',
-                                callbackType: 'idArray',
-                                widget: 'multipleSelector',
-                                api_route: 'recipients',
-                                sortFlag: {
-                                    value: 'name',
-                                    direction: 'asc',
+                                api: 'recipients',
+                                params: {
+                                    order_by: 'name',
+                                    channel_id__in: '',
                                 },
-                                view_structure: [
-                                    {
-                                        value: 'name',
-                                        flex: .85,
-                                    },
-                                ],
-                                hint: '',
-                                filter_results: {
-                                    flag: 'channel_id__in',
-                                    value: null,
-                                },
+                                tags: 'short',
                             },
                         ],
                     },
@@ -226,15 +158,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Комментарий',
-                                required: false,
-                                invalid: false,
                                 height: 80,
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },

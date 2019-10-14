@@ -1,12 +1,9 @@
-
-
 const state = {
     formsOptions: {
         'recipients': [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
-                invalid: false,
                 blocks: [
                     {
                         labelPosition: 'left',
@@ -14,14 +11,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Название / ФИО',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'name',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -31,35 +25,23 @@ const state = {
                         modClass: 'marginBottom50',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Способ отправки',
-                                api_route: 'channels',
                                 required: true,
                                 width: 4,
-                                widget: 'singleSelector',
-                                invalid: false,
-                                sortFlag: {
-                                    value: 'name',
-                                    direction: 'asc',
-                                },
                                 codename: 'channel',
-                                view_structure: [
-                                    {
-                                        value: 'name',
-                                        flex: 1.5,
-                                    },
-                                ],
-                                hint: '',
-                                returnField: 'codename',
+                                widget: 'select',
+                                api: 'channels',
+                                params: {
+                                    order_by: 'name',
+                                },
+                                template: 'name',
                             },
                             {
-                                type: 'field',
                                 label: 'Email',
                                 required: false,
                                 width: 4,
                                 codename: 'email',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                                 show: false,
                             },
                         ],
@@ -70,14 +52,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Комментарий',
-                                required: false,
                                 height: 80,
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },

@@ -2,7 +2,7 @@
     <div class="post-editor-wrapper">
         <div
             class="post-editor-empty-wrapper"
-            v-if="!content.length">
+            v-if="isEmpty">
             <div class="tab-left-label col4"/>
             <div
                 class="post-editor-empty-container"
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div
-            v-if="content.length"
+            v-if="!isEmpty"
             class="post-editor-outer-wrapper">
             <div
                 class="post-editor-add-section-wrapper"
@@ -291,14 +291,13 @@
         >
             <div class="tab-left-label col4"/>
             <div class="post-editor-error-message">
-                {{ options.message }}
+                {{ errorMessage }}
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
 import vue from 'vue';
 
 import addSectionPopup from './postEditorPopups/AddSectionPopup.vue';
@@ -307,16 +306,14 @@ import pickToCreatePopup from './postEditorPopups/CreateWidgetPopup.vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
 import formsComponent from './PostEditorForms.vue';
 
-
 import throttle from 'lodash/throttle';
 import cloneDeep from 'lodash/cloneDeep';
 import wordFormHelper from '../../../../../../cp_vue/frontend/vue/helpers/wordForms';
-import { mapGetters, mapState, } from 'vuex';
+import { mapState, } from 'vuex';
 
 export default {
     props: {
         options: Object,
-        isBlocked: Boolean,
         passedData: [Array, String,],
     },
 
@@ -383,17 +380,24 @@ export default {
     watch: {
         'content': {
             handler: function () {
-                this.$store.commit('setFormsObject', { [this.options.codename]: this.content, });
+                this.$emit('change', { [this.options.codename]: this.content, });
                 this.clearError();
             },
 
             deep: true,
         },
 
-        'passedData': function () {
-            if (this.passedData && this.passedData.length && typeof this.passedData !== 'string') {
-                this.content = this.passedData;
+        passedData(value) {
+            if (!value) {
+                this.content = [];
             }
+        },
+
+        '$route.params': {
+            handler() {
+                this.content = this.passedData;
+            },
+            deep: true,
         },
     },
 
@@ -407,9 +411,7 @@ export default {
     },
 
     mounted(){
-        if (this.passedData && this.passedData.length && typeof this.passedData !== 'string') {
-            this.content = this.passedData;
-        }
+        this.content = this.passedData;
     },
 
     computed: {
@@ -429,7 +431,7 @@ export default {
                 return this.allConfigs.default;
         },
 
-        sectionIsConfigurable(){
+        sectionIsConfigurable() {
             if (this.editorConfig.sectionConfigs) {
                 let object = this.editorConfig.sectionConfigs;
                 for (let prop in object) {
@@ -439,6 +441,16 @@ export default {
                 }
             }
             return false;
+        },
+
+        errorMessage() {
+            return Array.isArray(this.options.message)
+                ? this.options.message.join(', ')
+                : this.options;
+        },
+
+        isEmpty() {
+            return this.content == undefined || !this.content.length;
         },
     },
 
@@ -900,7 +912,7 @@ export default {
             this.$store.commit('postEditorCopyWidget', { width, widget , });
         },
 
-        pasteWidget(secDex, blockDex, widgetIndex){
+        pasteWidget(secDex, blockDex, widgetIndex) {
             let copy = cloneDeep(this.widgetBuffer[0].widget);
             if (typeof widgetIndex === 'undefined') {
                 vue.set(this.content[secDex].columns[blockDex], 'widgets', [copy,]);
@@ -920,7 +932,7 @@ export default {
             };
         },
 
-        callProperForm(e){
+        callProperForm(e) {
             //Даю время на закрытие попапа
             setTimeout(() => this.widgetForm.popupType = e, 200);
         },
@@ -1031,36 +1043,9 @@ export default {
         },
 
         clearError() {
-            if (this.options.invalid === true) {
+            if (this.options.invalid) {
                 this.$emit('clearError', this.options.codename);
             }
-
-            //     let tabHasErrors = {
-            //         tabId: 0,
-            //         status: false
-            //     };
-
-            //     const payload = {view: this.$route.params.view};
-            //     const config = this.$store.getters.getFormsConfig(payload);
-
-            //     for (let a = 0; a < config.length; a++) {
-            //         const tab = config[a];
-            //         for (let b = 0; b < tab.blocks.length; b++) {
-            //             const block = tab.blocks[b];
-            //             for (let c = 0; c < block.elements.length; c++) {
-            //                 const element = block.elements[c];
-            //                 if (element.codename === this.options.codename) {
-            //                     tabHasErrors.tabId = tab.id;
-            //                     this.$store.commit('setInvalidStatus', {view: this.$route.params.view, tabIndex: a, blockIndex: b, elementIndex: c, status: false, message: ''});
-            //                     break;
-            //                 }
-            //                 tabHasErrors.status = element.invalid;
-            //             }
-            //         }
-            //     }
-            //     if (tabHasErrors.status === false)
-            //         this.$store.commit('setInvalidStatusOnTab', {view: this.$route.params.view, tabId: tabHasErrors.tabId, status: false});
-            // }
         },
     },
 

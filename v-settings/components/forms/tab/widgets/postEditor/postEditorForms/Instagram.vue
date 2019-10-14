@@ -1,70 +1,88 @@
 <template>
-    <div class="popup-wrapper" :class="{'popup-wrapper-transition': showTransition}">
-        <div class="popup-container" style="max-width: 540px;" v-show="showTransition">
-            <div class="popup-close-icon icon-close" @click="closePopup"></div>
-            <div class="popup-post-editor-forms-label">Цитата</div>
+    <div
+        :class="{'popup-wrapper-transition': showTransition}"
+        class="popup-wrapper"
+    >
+        <div
+            v-show="showTransition"
+            class="popup-container"
+            style="max-width: 540px;"
+        >
+            <div
+                @click="closePopup"
+                class="popup-close-icon icon-close"
+            />
+            <div class="popup-post-editor-forms-label">
+                Instagram
+            </div>
             <div class="popup-post-editor-forms-wrapper">
                 <div class="popup-post-editor-forms-indents-wrapper">
-                    <textComp
-                            style="width: 460px;"
-                            :labelPosition="'top'"
-                            :type="'childEntity'"
-                            :passedData="(passedData.link) ? passedData.link : ''"
-                            @callback="link = $event.name"
-                            :options="textareaOptions">
-                    </textComp>
+                    <textareaComp
+                        :propData="link"
+                        @change="onChange"
+                        @clearError="clearError"
+                        :config="linkConfig"
+                        style="width: 460px;"
+                        label-position="top"
+                    />
                     <radioButtonGroup
-                            :direction="'row'"
-                            :type="'postEditor'"
-                            style="margin-top: 20px; margin-bottom: 50px; margin-left: 15px;"
-                            :passedData="(passedData.align) ? passedData.align : undefined"
-                            @callback="align = $event"
-                            :options="alignConfig">
-                    </radioButtonGroup>
+                        :config="alignConfig"
+                        :value="align"
+                        @change="onChange"
+                        @clearError="clearError"
+                        style="margin-top: 20px; margin-bottom: 50px; margin-left: 15px;"
+                    />
+                    <div class="popup-post-editor-forms-indents-container" style="margin-bottom: 20px;">
+                        <cp-select
+                            :value="marginTop"
+                            :config="marginTopConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                            style="margin-right: 20px"
+                            label-position="top"
+                        />
+                        <cp-select
+                            :value="marginBottom"
+                            :config="marginBottomConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                            label-position="top"
+                        />
+                    </div>
                     <div class="popup-post-editor-forms-indents-container">
-                        <selector
-                                style="margin-right: 20px; margin-bottom: 22px; width: 220px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData.marginTop) ? passedData.marginTop : ''"
-                                :options="initialiseConfig('Внешний отступ сверху, em')"
-                                @callback="indentsCallbacks('marginTop', $event)"
-                        ></selector>
-                        <selector
-                                style="margin-right: 0; margin-bottom: 22px; width: 220px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData.marginBottom) ? passedData.marginBottom : ''"
-                                :options="initialiseConfig('Внешний отступ снизу, em')"
-                                @callback="indentsCallbacks('marginBottom', $event)"
-                        ></selector>
-                        <selector
-                                style="margin-right: 20px; margin-bottom: 20px; width: 220px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData.paddingTop) ? passedData.paddingTop : ''"
-                                :options="initialiseConfig('Внутренний отступ сверху, em')"
-                                @callback="indentsCallbacks('paddingTop', $event)"
-                        ></selector>
-                        <selector
-                                style="margin-right: 0; margin-bottom: 20px; width: 220px;"
-                                :isBlocked="false"
-                                :type="'childEntity'"
-                                :labelPosition="'top'"
-                                :passedData="(passedData.paddingBottom) ? passedData.paddingBottom : ''"
-                                :options="initialiseConfig('Внутренний отступ снизу, em')"
-                                @callback="indentsCallbacks('paddingBottom', $event)"
-                        ></selector>
+                        <cp-select
+                            :value="paddingTop"
+                            :config="paddingTopConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                            style="margin-right: 20px"
+                            label-position="top"
+                        />
+                        <cp-select
+                            :value="paddingBottom"
+                            :config="paddingBottomConfig"
+                            @change="onChange"
+                            @clearError="clearError"
+                            label-position="top"
+                        />
                     </div>
                 </div>
             </div>
             <div class="popup-buttons-wrapper">
                 <div class="popup-buttons-post-editor-container">
-                    <button class="button borderless-button forms-cancel-button" style="border-right: none !important;" @click="closePopup">Отмена</button>
-                    <button class="button forms-save-button" @click="validate">Сохранить</button>
+                    <button
+                        @click="closePopup"
+                        class="button borderless-button forms-cancel-button"
+                        style="border-right: none !important;"
+                    >
+                        Отмена
+                    </button>
+                    <button
+                        @click="validate"
+                        class="button forms-save-button"
+                    >
+                        Сохранить
+                    </button>
                 </div>
             </div>
         </div>
@@ -72,156 +90,179 @@
 </template>
 
 <script>
-    import cloneDeep from 'lodash/cloneDeep'
-    import selector from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/SingleSelector.vue'
-    import textarea from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/Textarea.vue'
-    import radioButtonGroup from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/RadioButtons.vue'
+import CpSelect from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/CpSelectSwitcher.vue';
+import textarea from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/Textarea.vue';
+import radioButtonGroup from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/RadioButtons.vue';
 
-    export default {
-        props: {
-            passedData: [Object, Boolean],
+const marginOptions = [
+    {
+        id: 1,
+        name: 1,
+    },
+    {
+        id: 2,
+        name: 2,
+    },
+    {
+        id: 3,
+        name: 3,
+    },
+    {
+        id: 4,
+        name: 4,
+    },
+    {
+        id: 5,
+        name: 5,
+    },
+];
+
+export default {
+    components: {
+        CpSelect,
+        textareaComp: textarea,
+        radioButtonGroup,
+    },
+
+    props: {
+        passedData: {
+            type: [Object, Boolean,],
+            default() {
+                return {};
+            },
         },
+    },
 
-        data() {
-            return {
-                showTransition: false,
+    data() {
+        return {
+            showTransition: false,
 
-                textareaOptions:  {
-                    type: 'field',
-                    label: 'Embed код',
-                    required: true,
-                    invalid: false,
-                    width: 12,
-                    height: 100,
-                    codename: 'name',
-                    widget: 'textarea',
-                    hint: ''
-                },
+            linkConfig: {
+                label: 'Embed код',
+                required: true,
+                invalid: false,
+                message: '',
+                width: 8,
+                height: 80,
+                codename: 'link',
+            },
 
-                alignConfig: {
-                    type: 'field',
-                    codename: 'align',
-                    required: false,
-                    invalid: false,
-                    widget: 'radioButtons',
-                    hint: '',
-                    width: 6,
-                    values: [
-                        {
-                            label: 'Слева',
-                            flag: true,
-                            codename: 'left'
-                        },
-                        {
-                            label: 'По центру',
-                            flag: false,
-                            codename: 'center'
-                        },
-                        {
-                            label: 'Справа',
-                            flag: false,
-                            codename: 'right'
-                        }
-                    ]
-                },
-
-                indentsConfig: {
-                    type: 'field',
-                    label: '',
-                    codename: 'callback',
-                    required: false,
-                    invalid: false,
-                    width: 4,
-                    available_values: [
-                        {
-                            name: '1',
-                            id: 1,
-                        },
-                        {
-                            name: '2',
-                            id: 2,
-                        },
-                        {
-                            name: '3',
-                            id: 3,
-                        },
-                        {
-                            name: '4',
-                            id: 4,
-                        },
-                        {
-                            name: '5',
-                            id: 5,
-                        },
-                    ],
-                    returnFromAvailableValues: 'id',
-                    sortFlag: {
-                        value: 'name'
+            alignConfig: {
+                codename: 'align',
+                width: 6,
+                options: [
+                    {
+                        label: 'Слева',
+                        codename: 'left',
                     },
-                    view_structure: [
-                        {
-                            value: 'name',
-                            flex: 1.5
-                        },
-                    ],
-                },
+                    {
+                        label: 'По центру',
+                        codename: 'center',
+                    },
+                    {
+                        label: 'Справа',
+                        codename: 'right',
+                    },
+                ],
+                direction: 'row',
+            },
 
-                link: '',
-                align: '',
+            marginTopConfig: {
+                codename: 'marginTop',
+                width: 4,
+                options: marginOptions,
+                label: 'Внешний отступ сверху, em',
+            },
+            marginBottomConfig: {
+                codename: 'marginBottom',
+                width: 4,
+                options: marginOptions,
+                label: 'Внешний отступ снизу, em',
+            },
+            paddingTopConfig: {
+                codename: 'paddingTop',
+                width: 4,
+                options: marginOptions,
+                label: 'Внутренний м сверху, em',
+            },
+            paddingBottomConfig: {
+                codename: 'paddingBottom',
+                width: 4,
+                options: marginOptions,
+                label: 'Внутренний отступ снизу, em',
+            },
 
-                indents: {
-                    marginTop: '',
-                    marginBottom: '',
-                    paddingTop: '',
-                    paddingBottom: '',
-                }
+            link: '',
+            align: '',
+
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
+            paddingBottom: null,
+        };
+    },
+    computed: {},
+    mounted() {
+        setTimeout(() => this.showTransition = true, 200);
+        this.setData();
+    },
+    methods: {
+        setData() {
+            this.link = this.passedData.link || '';
+            this.align = this.passedData.align || 'left';
+            this.marginTop = this.passedData.marginTop || null;
+            this.marginBottom = this.passedData.marginBottom || null;
+            this.paddingTop = this.passedData.paddingTop || null;
+            this.paddingBottom = this.passedData.paddingBottom || null;
+        },
+
+        validate(){
+            let hasError = false;
+            if (!this.link) {
+                this.linkConfig.invalid = true;
+                this.linkConfig.message = 'Заполните поле';
+                hasError = true;
             }
-        },
-        mounted() {
-            setTimeout(() => this.showTransition = true, 200);
-        },
-        computed: {},
-        methods: {
-            validate(){
-                let hasError = false;
-                if (!this.link) {
-                    this.textareaOptions.invalid = true;
-                    this.textareaOptions.message = 'Заполните поле';
-                    hasError = true;
-                }
-                if (!hasError) this.saveForm()
-            },
-
-            saveForm(){
-                let payload = {};
-                payload.link = this.link;
-                payload.align = this.align;
-                Object.assign(payload, this.indents);
-                this.$emit('changed', payload);
-            },
-
-            initialiseConfig(label){
-                let copy = cloneDeep(this.indentsConfig);
-                copy.label = label;
-                return copy
-            },
-
-            indentsCallbacks(from, value){
-                if (from === 'marginTop') this.indents.marginTop = value.callback;
-                else if (from === 'marginBottom') this.indents.marginBottom = value.callback;
-                else if (from === 'paddingTop') this.indents.paddingTop = value.callback;
-                else if (from === 'paddingBottom') this.indents.paddingBottom = value.callback;
-            },
-
-            closePopup(){
-                this.$emit('closePopup')
-            },
+            if (!hasError) this.saveForm();
         },
 
-        components: {
-            selector,
-            textComp: textarea,
-            radioButtonGroup,
-        }
-    }
+        saveForm(){
+            const { 
+                link,
+                align,
+                marginTop, 
+                marginBottom, 
+                paddingTop, 
+                paddingBottom,
+            } = this;
+            const payload = {
+                link,
+                align,
+                marginTop, 
+                marginBottom, 
+                paddingTop, 
+                paddingBottom,
+            };
+            this.$emit('changed', payload);
+        },
+
+        closePopup(){
+            this.$emit('closePopup');
+        },
+
+        onChange(item) {
+            const [codename, value,] = Object.entries(item)[0];
+            this[codename] = value;
+        },
+
+        setError({ codename, message, }) {
+            this[codename + 'Config'].invalid = true;
+            this[codename + 'Config'].message = message;
+        },
+
+        clearError(codename) {
+            this[codename + 'Config'].invalid = false;
+        },
+    },
+};
 </script>

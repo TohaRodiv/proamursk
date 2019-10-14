@@ -12,14 +12,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Заголовок',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'title',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -29,14 +26,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Подзаголовок',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 codename: 'descriptor',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -46,25 +40,16 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
+                                widget: 'select',
                                 label: 'Рубрика',
-                                expected_value: 'id',
                                 required: true,
                                 width: 6,
                                 codename: 'rubric',
-                                widget: 'singleSelector',
-                                invalid: false,
-                                api_route: 'history-rubrics',
-                                sortFlag: {
-                                    value: 'name',
-                                    direction: 'asc',
+                                api: 'history-rubrics',
+                                params: {
+                                    order_by: 'name',
                                 },
-                                view_structure: [
-                                    {
-                                        value: 'name',
-                                    },
-                                ],
-                                hint: '',
+                                template: 'name',
                             },
                         ],
                     },
@@ -77,11 +62,9 @@ const state = {
                                 format: 'datetime',
                                 label: 'Дата и время публикации',
                                 required: true,
-                                invalid: false,
                                 width: 4,
                                 codename: 'publication_date',
                                 widget: 'inputDatetime',
-                                hint: '',
                             },
                         ],
                     },
@@ -91,27 +74,23 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Формат обложки<br>(представление в сетке)',
                                 codename: 'cover_format',
-                                has_borders: true,
+                                borders: true,
                                 required: true,
-                                invalid: false,
                                 widget: 'radioButtons',
-                                hint: '',
                                 width: 6,
-                                values: [
+                                options: [
                                     {
                                         label: 'Обычная обложка',
-                                        flag: true,
                                         codename: 'small',
                                     },
                                     {
                                         label: 'Полноразмерная обложка',
-                                        flag: false,
                                         codename: 'full',
                                     },
                                 ],
+                                default: 'small',
                             },
                         ],
                     },
@@ -121,12 +100,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Автор обложки или источник',
                                 width: 8,
                                 codename: 'cover_author',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -136,12 +113,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Автор(ы) материала или источник',
                                 width: 8,
                                 codename: 'content_author',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -154,7 +129,6 @@ const state = {
                                 label: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
                                 codename: 'show_two_banners',
                                 widget: 'singleCheckbox',
-                                hint: '',
                             },
                         ],
                     },
@@ -164,15 +138,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Комментарий',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 height: 80,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -188,16 +158,12 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Лид',
                                 required: true,
-                                invalid: false,
                                 width: 12,
                                 height: 80,
                                 codename: 'lead',
                                 widget: 'textarea',
-                                modClass: 'marginBottom20',
-                                hint: '',
                             },
                         ],
                     },
@@ -208,11 +174,8 @@ const state = {
                         elements: [
                             {
                                 label: '',
-                                required: false,
-                                invalid: false,
                                 widget: 'postEditor',
                                 codename: 'content',
-                                hint: '',
                             },
                         ],
                     },
@@ -227,9 +190,6 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
-                                inputID: 'historyCoverInput',
-                                dragID: 'historyCoverDrag',
                                 label: 'Обложка',
                                 required: true,
                                 width: 12,
@@ -239,9 +199,6 @@ const state = {
                                 },
                                 codename: 'cover',
                                 widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: '',
                             },
                         ],
                     },

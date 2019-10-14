@@ -71,20 +71,27 @@ export default {
     },
 
     methods: {
-        handleChanging(payload){
+        handleChanging(payload) {
             let widget = {
                 type: this.data.popupType,
             };
             Object.assign(widget, payload);
 
-            if (!this.data.block.widgets)
+            if (!this.data.block.widgets) {
                 vue.set(this.data.block, 'widgets', [widget,]);
-            else if (typeof this.data.insertIndex !== 'undefined' && typeof this.data.insertIndex !== 'string')
+            } else if (typeof this.data.insertIndex !== 'undefined' && typeof this.data.insertIndex !== 'string') {
+                const index = this.data.insertIndex;
+                // this.$emit('add', { index, widget, })
                 this.data.block.widgets.splice(this.data.insertIndex, 0, widget);
-            else if (typeof this.data.widgetIndex === 'undefined' && typeof this.data.widgetIndex !== 'string')
-                this.data.block.widgets.push(widget);
-            else if (typeof this.data.widgetIndex !== 'undefined' && typeof this.data.widgetIndex !== 'string')
+            } else if (typeof this.data.widgetIndex === 'undefined' && typeof this.data.widgetIndex !== 'string') {
+                // const index = this.data.block.widgets.length;
+                // this.$emit('add', { index, widget, })
+                this.data.block.widgets.splice(amount, 0, widget);
+            } else if (typeof this.data.widgetIndex !== 'undefined' && typeof this.data.widgetIndex !== 'string') {
+                // const index = this.data.widgetIndex;
                 this.data.block.widgets.splice(this.data.widgetIndex, 1, widget);
+                // this.$emit('change', { index, widget, })
+            }
 
             this.$emit('clearStore');
         },

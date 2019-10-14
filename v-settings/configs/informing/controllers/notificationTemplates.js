@@ -34,15 +34,15 @@ const defaultTags = [
 
 export default {
     change: {
-        action(data, component) {
-            this._setHintInfo(data, component);
+        action(value, component) {
+            this._setHintInfo(component);
         },
 
-        channel(data, component) {
-            const channel = data.channel;
-            const subjectConfig = component.FORM_CONFIG.subject;
-            const textConfig = component.FORM_CONFIG.text;
-            const recipientsConfig = component.FORM_CONFIG.recipients;
+        channel(channel, component) {
+            const data = component.data;
+            const subjectConfig = component.fields.subject;
+            const textConfig = component.fields.text;
+            const recipientsConfig = component.fields.recipients;
 
             if (channel) {
                 component.$set(subjectConfig, 'show', true);
@@ -56,41 +56,41 @@ export default {
                 component.$set(textConfig, 'required', false);
             }
 
-            this._setHintInfo(data, component);
+            this._setHintInfo(component);
+
+            let recipients = [];
 
             if (channel && channel.id) {
-                recipientsConfig.filter_results.value = channel.id;
-                const recipients = data.recipients 
-                    ? data.recipients.filter(recipient => recipient.channel == channel.id) 
+                recipientsConfig.params.channel_id__in = channel.id;
+                recipients = data.recipients
+                    ? data.recipients.filter(recipient => recipient.channel == channel.id)
                     : [];
-                component.$store.commit('setFormsObject', { recipients, });
             } else {
-                recipientsConfig.filter_results.value = null;
-                component.$store.commit('setFormsObject', { recipients: [], });
+                recipientsConfig.params.channel_id__in = '';
+                recipients = [];
             }
 
-            component.$store.commit('triggerUpdateTabsData');
+            component.setNewValues({ recipients, });
         },
 
-        _setHintInfo(data, component) {
-            this._makeRequest(data, component)
+        _setHintInfo(component) {
+            this._makeRequest(component)
                 .then(items => {
                     if (items) {
                         const html = this._generateHtml(items);
-                        this._installHtml(data, component, html);
+                        this._installHtml(component, html);
                     }
                 });
         },
 
-        _installHtml(data, component, html) {
-            const textConfig = component.FORM_CONFIG.text;
+        _installHtml(component, html) {
+            const textConfig = component.fields.text;
             textConfig.hint = html;
         },
 
-        async _makeRequest(data, component) {
-            const actionId = typeof data.action == 'object'
-                ? data.action.id
-                : data.action;
+        async _makeRequest(component) {
+            const data = component.data;
+            const actionId = (data.action || {}).id;
 
             if (actionId) {
                 const url = '/actions/' + actionId;

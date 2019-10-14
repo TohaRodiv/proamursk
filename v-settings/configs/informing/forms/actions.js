@@ -1,6 +1,3 @@
-import EventBus from '../../../../cp_vue/frontend/vue/EventBus';
-import api from '../../../../cp_vue/frontend/vue/store/utils/api';
-
 const state = {
     formsOptions: {
         actions: [
@@ -15,29 +12,25 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Название',
                                 required: true,
                                 width: 12,
                                 codename: 'name',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom40',
+                        modClass: 'marginBottom50',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Кодовое название',
                                 required: true,
                                 width: 5,
                                 codename: 'codename',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -45,22 +38,15 @@ const state = {
                         labelPosition: 'top',
                         direction: 'row',
                         hasWideLabel: true,
+                        modClass: 'marginBottom50',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Переменные и теги',
-                                popupLabels: {
-                                    new: 'Переменные и теги',
-                                    existing: 'Переменные и теги',
-                                },
                                 dragOrder: 'weight',
                                 isDraggable: true,
-                                codename: 'variables',
                                 widget: 'childEntity',
-                                modClass: 'marginBottom50',
-                                requireSendId: true,
-                                hint: '',
-                                entity_structure: [
+                                codename: 'variables',
+                                rows: [
                                     {
                                         map: {
                                             layout: 'column',
@@ -68,7 +54,7 @@ const state = {
                                                 {
                                                     layout: 'row',
                                                     elements: [
-                                                        { 
+                                                        {
                                                             value: item => {
                                                                 if (item.construction_type === 'var') {
                                                                     return '{{';
@@ -77,12 +63,12 @@ const state = {
                                                                 }
                                                             },
                                                         },
-                                                        { 
+                                                        {
                                                             before: '&nbsp;',
                                                             codename: 'codename',
-                                                            after: '&nbsp;', 
+                                                            after: '&nbsp;',
                                                         },
-                                                        { 
+                                                        {
                                                             value: item => {
                                                                 if (item.construction_type === 'var') {
                                                                     return '}}';
@@ -119,174 +105,130 @@ const state = {
                                                                 email: { string: 'Email', },
                                                             },
                                                         },
-                                                        // {
-                                                        //     before: '&nbsp;/&nbsp;',
-                                                        //     codename: 'channel',
-                                                        //     empty: '',
-                                                        //     class: ['halfTransparent',],
-                                                        // },
                                                     ],
                                                 },
-                                                
+
                                             ],
                                         },
                                     },
                                 ],
-                                popup_structure: [
-                                    {
-                                        id: 1,
-                                        label: '',
-                                        blocks: [
-                                            {
-                                                labelPosition: 'left',
-                                                direction: 'row',
-                                                modClass: 'marginBottom20',
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        label: 'Название',
-                                                        required: true,
-                                                        width: 8,
-                                                        codename: 'name',
-                                                        widget: 'simpleInput',
-                                                        hint: '',
-                                                    },
-                                                ],
-                                            },
-                                            {
-                                                labelPosition: 'left',
-                                                direction: 'row',
-                                                modClass: 'marginBottom20',
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        label: 'Кодовое название',
-                                                        required: true,
-                                                        width: 4,
-                                                        codename: 'codename',
-                                                        widget: 'simpleInput',
-                                                        hint: '',
-                                                    },
-                                                ],
-                                            },
-                                            {
-                                                labelPosition: 'left',
-                                                direction: 'row',
-                                                modClass: 'marginBottom20',
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        label: 'Тип конструкции',
-                                                        required: true,
-                                                        width: 6,
-                                                        widget: 'singleSelector',
-                                                        sortFlag: {
-                                                            value: 'name',
-                                                            direction: 'asc',
+                                popup: {
+                                    label: 'Переменные и теги',
+                                    disableClickaway: true,
+                                    config: [
+                                        {
+                                            id: 1,
+                                            label: '',
+                                            blocks: [
+                                                {
+                                                    labelPosition: 'left',
+                                                    direction: 'row',
+                                                    modClass: 'marginBottom20',
+                                                    elements: [
+                                                        {
+                                                            label: 'Название',
+                                                            required: true,
+                                                            width: 8,
+                                                            codename: 'name',
+                                                            widget: 'input',
                                                         },
-                                                        codename: 'construction_type',
-                                                        view_structure: [
-                                                            {
-                                                                value: 'name',
-                                                                flex: 1.5,
-                                                            },
-                                                        ],
-                                                        available_values: [
-                                                            {
-                                                                id: 'var',
-                                                                name: 'Переменная',
-                                                            },
-                                                            {
-                                                                id: 'tag',
-                                                                name: 'Шаблонный тег',
-                                                            },
-                                                        ],
-                                                        returnFromAvailableValues: 'id',
-                                                        hint: '',
-                                                    },
-                                                ],
-                                            },
-                                            {
-                                                labelPosition: 'left',
-                                                direction: 'row',
-                                                modClass: 'marginBottom20',
-                                                show: false,
-                                                elements: [
-                                                    {
-                                                        type: 'field',
-                                                        label: 'Тип содержимого',
-                                                        required: false,
-                                                        width: 6,
-                                                        widget: 'singleSelector',
-                                                        returnOnly: 'codename',
-                                                        sortFlag: {
-                                                            value: 'name',
-                                                            direction: 'asc',
+                                                    ],
+                                                },
+                                                {
+                                                    labelPosition: 'left',
+                                                    direction: 'row',
+                                                    modClass: 'marginBottom20',
+                                                    elements: [
+                                                        {
+                                                            type: 'field',
+                                                            label: 'Кодовое название',
+                                                            required: true,
+                                                            width: 4,
+                                                            codename: 'codename',
+                                                            widget: 'input',
                                                         },
-                                                        codename: 'content_type',
-                                                        view_structure: [
-                                                            {
-                                                                value: 'name',
-                                                                flex: 1.5,
-                                                            },
-                                                        ],
-                                                        available_values: [
-                                                            {
-                                                                id: 'text',
-                                                                name: 'Текст',
-                                                            },
-                                                            {
-                                                                id: 'link',
-                                                                name: 'Ссылка',
-                                                            },
-                                                            {
-                                                                id: 'email',
-                                                                name: 'Email',
-                                                            },
-                                                        ],
-                                                        hint: '',
-                                                        returnFromAvailableValues: 'id',
-                                                    },
-                                                ],
-                                            },
-                                            {
-                                                labelPosition: 'left',
-                                                direction: 'row',
-                                                modClass: 'marginBottom20',
-                                                show: false,
-                                                elements: [
-                                                    {
-                                                        type: 'shortTag',
-                                                        label: 'Способы отправки',
-                                                        required: false,
-                                                        width: 8,
-                                                        widget: 'multipleSelector',
-                                                        codename: 'channels',
-                                                        // callbackType: 'idArray',
-                                                        sortFlag: {
-                                                            value: 'id',
-                                                            direction: 'asc',
+                                                    ],
+                                                },
+                                                {
+                                                    labelPosition: 'left',
+                                                    direction: 'row',
+                                                    modClass: 'marginBottom20',
+                                                    elements: [
+                                                        {
+                                                            widget: 'select',
+                                                            label: 'Тип конструкции',
+                                                            width: 6,
+                                                            codename: 'construction_type',
+                                                            options: [
+                                                                {
+                                                                    id: 'var',
+                                                                    name: 'Переменная',
+                                                                },
+                                                                {
+                                                                    id: 'tag',
+                                                                    name: 'Шаблонный тег',
+                                                                },
+                                                            ],
+                                                            template: 'name',
                                                         },
-                                                        view_structure: [
-                                                            {
-                                                                value: 'name',
-                                                                flex: 1.5,
+                                                    ],
+                                                },
+                                                {
+                                                    labelPosition: 'left',
+                                                    direction: 'row',
+                                                    modClass: 'marginBottom20',
+                                                    show: false,
+                                                    elements: [
+                                                        {
+                                                            widget: 'select',
+                                                            label: 'Тип содержимого',
+                                                            width: 6,
+                                                            codename: 'content_type',
+                                                            options: [
+                                                                {
+                                                                    id: 'text',
+                                                                    name: 'Текст',
+                                                                },
+                                                                {
+                                                                    id: 'link',
+                                                                    name: 'Ссылка',
+                                                                },
+                                                                {
+                                                                    id: 'email',
+                                                                    name: 'Email',
+                                                                },
+                                                            ],
+                                                            template: 'name',
+                                                        },
+                                                    ],
+                                                },
+                                                {
+                                                    labelPosition: 'left',
+                                                    direction: 'row',
+                                                    modClass: 'marginBottom20',
+                                                    show: false,
+                                                    elements: [
+                                                        {
+                                                            widget: 'select',
+                                                            multi: true,
+                                                            label: 'Способы отправки',
+                                                            width: 8,
+                                                            codename: 'channels',
+                                                            api: 'channels',
+                                                            params: {
+                                                                order_by: 'name',
                                                             },
-                                                        ],
-                                                        api_route: 'channels',
-                                                        hint: '',
-                                                        expected_value: 'channels',
-                                                        key_attr: 'channels',
-                                                        returnWhole: true,
-                                                        onlyFull: true,
-                                                        returnFull: true,
-                                                        isBlocked: true,
-                                                    },
-                                                ],
-                                            },
-                                        ],
-                                    },
-                                ],
+                                                            tags: 'short',
+                                                            template: 'name',
+                                                            blocked: true,
+                                                            required: true,
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
                             },
                         ],
                     },
@@ -296,14 +238,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Комментарий',
-                                required: false,
                                 height: 80,
                                 width: 12,
                                 codename: 'comment',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -315,55 +254,6 @@ const state = {
         actions: {
             title: 'Активный тип уведомлений',
             hint: 'Уведомления неактивного типа игнорируются и не отправляются',
-        },
-    },
-    formsEvents: {
-        actions: {
-            onChangePopup: {
-                variables: {
-                    construction_type: {
-                        async content_type(from, widget, data, component) {
-                            const constructionType = data[from];
-                            const contentTypeConfig = widget.popup_structure[0].blocks[3];
-
-                            if (constructionType == 'var') {
-                                component.$set(contentTypeConfig, 'show', true);
-                                component.$set(contentTypeConfig.elements[0], 'required', true);
-                            } else {
-                                component.$set(contentTypeConfig, 'show', false);
-                                component.$set(contentTypeConfig.elements[0], 'required', false);
-
-                                // Проверка
-                                const codename = 'channels';
-                                const url = `/${ codename }/select/`;
-
-                                try {
-                                    
-                                    const { items: channels, } = await api.get(url);
-                                
-                                    if (channels.length === 1) {
-                                        EventBus.$emit('SET_DATA_INTO_WIDGET', { codename, data: channels, });
-                                    } else if (channels.length > 1) {
-                                        component.$set(contentTypeConfig.elements[0], 'isBlocked', false);
-                                    }
-                                } catch (error) {
-                                    EventBus.$emit('SET_ERROR', { url, error, });
-                                }
-                            }
-                        },
-                        channel(from, widget, data, component) {
-                            const constructionType = data[from];
-                            const channelConfig = widget.popup_structure[0].blocks[4];
-
-                            if (constructionType == 'tag') {
-                                component.$set(channelConfig, 'show', true);
-                            } else {
-                                component.$set(channelConfig, 'show', false);
-                            }
-                        },
-                    },
-                },
-            },
         },
     },
 };
