@@ -395,7 +395,7 @@ export default {
 
         '$route.params': {
             handler() {
-                this.content = this.passedData;
+                this.content = this.passedData || [];
             },
             deep: true,
         },
@@ -411,7 +411,7 @@ export default {
     },
 
     mounted(){
-        this.content = this.passedData;
+        this.content = this.passedData || [];
     },
 
     computed: {
