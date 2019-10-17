@@ -245,18 +245,13 @@ const state = {
                                 codename: 'sessions',
                                 widget: 'simpleChildEntity',
                                 label: 'Сеансы',
-                                gotHeaders: true,
-                                // TODO: Избавиться от этого атрибута
-                                type: 'field',
                                 defaultRowConfig: [
                                     {
-                                        // TODO: Избавиться от этого атрибута
-                                        type: 'field',
                                         format: 'datetime',
                                         widget: 'inputDatetime',
                                         codename: 'session_time',
                                         width: 5,
-                                        text: 'Дата и время начала сеанса',
+                                        label: 'Дата и время начала сеанса',
                                         required: true,
                                     },
                                     {
@@ -264,7 +259,7 @@ const state = {
                                         widget: 'inputNumber',
                                         codename: 'price',
                                         width: 4,
-                                        text: 'Стоимость билета, ₽',
+                                        label: 'Стоимость билета, ₽',
                                         required: true,
                                     },
                                 ],
