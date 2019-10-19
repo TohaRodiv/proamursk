@@ -6864,7 +6864,7 @@ function handleFiles(files, filesList) {
       var currentFile = files[i];
 
       if (currentFile.size > 2097152) {
-        showNotification('Файл ' + currentFile.name + ' больше 2 Мб', 'error');
+        showNotification('Файл ' + currentFile.name + ' больше 2 МБ', 'error');
         return false;
       } else {
         var currentAttachment = attachmentItemTemplate.clone();
@@ -6874,7 +6874,7 @@ function handleFiles(files, filesList) {
       }
     }
   } else {
-    showNotification('Можно загрузить не более ' + (5 - filesListLengthBefore) + ' файлов по 2 Мб', 'error');
+    showNotification('Можно загрузить не более ' + (5 - filesListLengthBefore) + ' файлов по 2 МБ', 'error');
     return false;
   }
 
