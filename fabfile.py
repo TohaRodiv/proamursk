@@ -7,21 +7,14 @@ from fabric import Config
 
 connect_kwargs = dict(
     host='80.87.202.10',
-    user='superadmin',
-    connect_kwargs=dict(key_filename=os.path.join(os.path.expanduser("~"), '.ssh/superadmin')),
-    project_container='proamursk',
-    project_root='/var/www/proamursk/',
-    project_path='/var/www/proamursk/proamursk/',
-    containers=[],
-    db_name='proamursk_prod',
-    db_user='superadmin',
-    db_pass='air3N97r',
-    db_engine='postgres',
-    repo=dict(
-        proamursk=dict(path='/var/www/proamursk/proamursk/', branch='master'),
-        cp_vue=dict(path='/var/www/proamursk/proamursk/cp_vue/', branch='master'),
-        core=dict(path='/var/www/proamursk/proamursk/core/', branch='master')
-    )
+    user='fab_client',
+    connect_kwargs=dict(key_filename=os.path.join(os.path.expanduser("~"), '.ssh/fab_client')),
+    project_name='proamursk',
+    git=[
+        dict(branch='master', path='./'),
+        dict(branch='300ms', path='./cp_vue/'),
+        dict(branch='master', path='./core/'),
+    ]
 )
 
 for name, val in fab.__dict__.items():
