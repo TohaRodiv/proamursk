@@ -34,7 +34,6 @@ const state = {
                                 params: {
                                     order_by: 'name',
                                 },
-                                template: 'name',
                             },
                             {
                                 label: 'Email',

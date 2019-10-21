@@ -126,7 +126,8 @@ const state = {
                                                     direction: 'row',
                                                     elements: [
                                                         {
-                                                            label: 'Активный слайд (неактивные слайды не отображаются на странице)',
+                                                            name: 'Активный слайд (неактивные слайды не отображаются на странице)',
+                                                            label: '',
                                                             codename: 'is_active',
                                                             widget: 'singleCheckbox',
                                                             default: true,

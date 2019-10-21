@@ -39,7 +39,6 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                format: 'datetime',
                                 label: 'Дата и время публикации',
                                 required: true,
                                 width: 4,
@@ -67,6 +66,7 @@ const state = {
                                 borders: true,
                                 required: true,
                                 widget: 'radioButtons',
+                                direction: 'column',
                                 options: [
                                     {
                                         label: 'Обычная обложка',
@@ -137,7 +137,6 @@ const state = {
             {
                 id: 3,
                 title: 'SEO и OG',
-                invalid: false,
                 blocks: [
                     {
                         labelPosition: 'left',
@@ -145,13 +144,10 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Заголовок страницы (title / og:title)',
-                                required: false,
                                 width: 12,
                                 codename: 'meta_title',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -161,13 +157,10 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Описание страницы<br>(description / og:description)',
-                                required: false,
                                 width: 12,
                                 codename: 'meta_description',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -177,13 +170,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Ключевые слова, через запятую (keywords)',
-                                required: false,
                                 width: 12,
                                 codename: 'meta_keywords',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -192,9 +182,6 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
-                                inputID: 'cityGuidesCoverInputOG',
-                                dragID: 'cityGuidesCoverDragOG',
                                 label: 'Обложка для социальных сетей (og:image)',
                                 width: 12,
                                 image: {
@@ -204,9 +191,6 @@ const state = {
 
                                 codename: 'og_image',
                                 widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: '',
                             },
                         ],
                     },

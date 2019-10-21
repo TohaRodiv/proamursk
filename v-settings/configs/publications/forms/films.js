@@ -162,7 +162,8 @@ const state = {
                         modClass: 'marginBottom50',
                         elements: [
                             {
-                                label: 'Фильм в формате 3D',
+                                name: 'Фильм в формате 3D',
+                                label: '',
                                 codename: 'is_3d',
                                 widget: 'singleCheckbox',
                             },
@@ -178,7 +179,6 @@ const state = {
                                 required: true,
                                 widget: 'formatter',
                                 codename: 'description',
-                                width: 12,
                             },
                         ],
                     },
@@ -188,7 +188,8 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                label: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
+                                name: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
+                                label: '',
                                 codename: 'show_two_banners',
                                 widget: 'singleCheckbox',
                             },
@@ -247,7 +248,6 @@ const state = {
                                 label: 'Сеансы',
                                 defaultRowConfig: [
                                     {
-                                        format: 'datetime',
                                         widget: 'inputDatetime',
                                         codename: 'session_time',
                                         width: 5,
@@ -255,7 +255,6 @@ const state = {
                                         required: true,
                                     },
                                     {
-                                        type: 'field',
                                         widget: 'inputNumber',
                                         codename: 'price',
                                         width: 4,
@@ -271,7 +270,6 @@ const state = {
             {
                 id: 4,
                 title: 'SEO и OG',
-                invalid: false,
                 blocks: [
                     {
                         labelPosition: 'left',
@@ -279,14 +277,10 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Заголовок страницы (title / og:title)',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'meta_title',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -296,14 +290,10 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Описание страницы<br>(description / og:description)',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'meta_description',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -313,14 +303,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Ключевые слова, через запятую (keywords)',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'meta_keywords',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -329,21 +315,14 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
-                                inputID: 'filmsCoverInputOG',
-                                dragID: 'filmsCoverDragOG',
                                 label: 'Обложка для социальных сетей (og:image)',
                                 width: 12,
                                 image: {
                                     width: 1200,
                                     height: 630,
                                 },
-
                                 codename: 'og_image',
                                 widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: '',
                             },
                         ],
                     },

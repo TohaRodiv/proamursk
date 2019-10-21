@@ -14,15 +14,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Mailer Lite API Key',
                                 required: true,
-                                invalid: false,
-                                height: 56,
                                 width: 12,
                                 codename: 'mailer_lite_api_key',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -32,13 +28,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Профиль в Instagram',
-                                height: 56,
                                 width: 10,
                                 codename: 'instagram',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                                 placeholder: 'http(s)://',
                             },
                         ],
@@ -49,13 +42,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Профиль в Одноклассниках',
-                                height: 56,
                                 width: 10,
                                 codename: 'odnoklassniki',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                                 placeholder: 'http(s)://',
                             },
                         ],
@@ -66,15 +56,12 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Копирайт в подвале',
                                 required: true,
-                                invalid: false,
                                 height: 80,
                                 width: 12,
                                 codename: 'copyright',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -91,15 +78,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Код счетчика Yandex',
-                                required: false,
-                                invalid: false,
                                 height: 200,
                                 width: 12,
                                 codename: 'yandex_count',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -109,15 +92,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Код счетчика Google',
-                                required: false,
-                                invalid: false,
                                 height: 200,
                                 width: 12,
                                 codename: 'google_count',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -127,15 +106,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Дополнительные мета-теги',
-                                required: false,
-                                invalid: false,
                                 height: 200,
                                 width: 12,
                                 codename: 'meta_tags',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -144,7 +119,6 @@ const state = {
             {
                 id: 3,
                 title: 'ROBOTS.TXT',
-                invalid: false,
                 blocks: [
                     {
                         labelPosition: 'left',
@@ -152,15 +126,11 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Содержимое файла robots.txt',
-                                required: false,
-                                invalid: false,
                                 height: 200,
                                 width: 12,
                                 codename: 'robots',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -169,7 +139,6 @@ const state = {
             {
                 id: 4,
                 title: 'РЕЖИМ РАЗРАБОТКИ',
-                invalid: false,
                 blocks: [
                     {
                         labelPosition: 'left',
@@ -177,14 +146,10 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Заголовок',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'disable_title',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -195,12 +160,9 @@ const state = {
                         elements: [
                             {
                                 label: 'Текст сообщения',
-                                required: false,
-                                invalid: false,
                                 widget: 'formatter',
                                 codename: 'disable_text',
                                 width: 12,
-                                hint: '',
                             },
                         ],
                     },
@@ -209,11 +171,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                label: 'Включить режим разработки (сайт будет недоступен, пользователи увидят заглушку)',
-                                required: false,
+                                name: 'Включить режим разработки (сайт будет недоступен, пользователи увидят заглушку)',
+                                label: '',
                                 codename: 'disable_site',
                                 widget: 'singleCheckbox',
-                                hint: '',
                             },
                         ],
                     },

@@ -140,7 +140,6 @@ const state = {
                                                     modClass: 'marginBottom20',
                                                     elements: [
                                                         {
-                                                            type: 'field',
                                                             label: 'Кодовое название',
                                                             required: true,
                                                             width: 4,
@@ -169,7 +168,6 @@ const state = {
                                                                     name: 'Шаблонный тег',
                                                                 },
                                                             ],
-                                                            template: 'name',
                                                         },
                                                     ],
                                                 },
@@ -198,7 +196,6 @@ const state = {
                                                                     name: 'Email',
                                                                 },
                                                             ],
-                                                            template: 'name',
                                                         },
                                                     ],
                                                 },
@@ -206,10 +203,10 @@ const state = {
                                                     labelPosition: 'left',
                                                     direction: 'row',
                                                     modClass: 'marginBottom20',
-                                                    show: false,
                                                     elements: [
                                                         {
                                                             widget: 'select',
+                                                            show: false,
                                                             multi: true,
                                                             label: 'Способы отправки',
                                                             width: 8,
@@ -218,8 +215,6 @@ const state = {
                                                             params: {
                                                                 order_by: 'name',
                                                             },
-                                                            tags: 'short',
-                                                            template: 'name',
                                                             blocked: true,
                                                             required: true,
                                                         },

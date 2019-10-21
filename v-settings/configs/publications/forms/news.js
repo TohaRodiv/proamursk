@@ -41,7 +41,6 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                format: 'datetime',
                                 label: 'Дата и время публикации',
                                 required: true,
                                 width: 4,

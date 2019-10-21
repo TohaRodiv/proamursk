@@ -63,7 +63,8 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                label: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
+                                name: 'Показать в сайдбаре два узких рекламных баннера вместо одного большого',
+                                label: '',
                                 codename: 'show_two_banners',
                                 widget: 'singleCheckbox',
                             },
@@ -100,9 +101,6 @@ const state = {
                                 widget: 'select',
                                 codename: 'guide_format',
                                 required: true,
-                                params: {
-                                    order_by: 'id',
-                                },
                                 options: valuesForItems,
                             },
                         ],
@@ -116,8 +114,6 @@ const state = {
                                 show: false,
                                 blocked: true,
                                 label: 'Места',
-                                dragOrder: 'weight',
-                                isDraggable: true,
                                 widget: 'childEntity',
                                 codename: 'items',
                                 rows: [
@@ -177,9 +173,6 @@ const state = {
                                                             label: 'Материал об этом месте',
                                                             width: 12,
                                                             widget: 'select',
-                                                            params: {
-                                                                order_by: 'id',
-                                                            },
                                                             template: 'title',
                                                             api: 'places',
                                                             codename: 'place',
@@ -193,13 +186,13 @@ const state = {
                                                     labelPosition: 'left',
                                                     modClass: 'marginBottom20',
                                                     direction: 'row',
-                                                    show: false,
                                                     elements: [
                                                         {
                                                             label: 'Одноместный номер',
                                                             width: 6,
                                                             widget: 'input',
                                                             codename: 'single_room_price',
+                                                            show: false,
                                                         },
                                                     ],
                                                 },
@@ -208,13 +201,13 @@ const state = {
                                                     labelPosition: 'left',
                                                     modClass: 'marginBottom20',
                                                     direction: 'row',
-                                                    show: false,
                                                     elements: [
                                                         {
                                                             label: 'Номер люкс',
                                                             width: 6,
                                                             widget: 'input',
                                                             codename: 'luxury_room_price',
+                                                            show: false,
                                                         },
                                                     ],
                                                 },
@@ -223,13 +216,13 @@ const state = {
                                                     labelPosition: 'left',
                                                     modClass: 'marginBottom20',
                                                     direction: 'row',
-                                                    show: false,
                                                     elements: [
                                                         {
                                                             label: 'Питание',
                                                             width: 6,
                                                             widget: 'input',
                                                             codename: 'nutrition_info',
+                                                            show: false,
                                                         },
                                                     ],
                                                 },
@@ -240,13 +233,13 @@ const state = {
                                                     labelPosition: 'left',
                                                     modClass: 'marginBottom20',
                                                     direction: 'row',
-                                                    show: false,
                                                     elements: [
                                                         {
                                                             label: 'Кухня',
                                                             width: 6,
                                                             widget: 'input',
                                                             codename: 'kitchen',
+                                                            show: false,
                                                         },
                                                     ],
                                                 },
@@ -255,13 +248,13 @@ const state = {
                                                     labelPosition: 'left',
                                                     modClass: 'marginBottom20',
                                                     direction: 'row',
-                                                    show: false,
                                                     elements: [
                                                         {
                                                             label: 'Средний чек',
                                                             width: 6,
                                                             widget: 'input',
                                                             codename: 'avg_value',
+                                                            show: false,
                                                         },
                                                     ],
                                                 },
@@ -270,13 +263,13 @@ const state = {
                                                     labelPosition: 'left',
                                                     modClass: 'marginBottom20',
                                                     direction: 'row',
-                                                    show: false,
                                                     elements: [
                                                         {
                                                             label: 'Входной билет',
                                                             width: 6,
                                                             widget: 'input',
                                                             codename: 'enter_price',
+                                                            show: false,
                                                         },
                                                     ],
                                                 },
@@ -285,13 +278,13 @@ const state = {
                                                     labelPosition: 'left',
                                                     modClass: 'marginBottom20',
                                                     direction: 'row',
-                                                    show: false,
                                                     elements: [
                                                         {
                                                             label: 'Время работы',
                                                             width: 10,
                                                             widget: 'input',
                                                             codename: 'work_time',
+                                                            show: false,
                                                         },
                                                     ],
                                                 },
@@ -359,7 +352,6 @@ const state = {
                                                             label: 'Точка на карте',
                                                             widget: 'geoinput',
                                                             codename: 'coordinates',
-                                                            width: 12,
                                                             defaultCoordinates: '50.2368500, 136.8813600',
                                                         },
                                                     ],
@@ -373,9 +365,6 @@ const state = {
                                                             label: 'Слайдер',
                                                             width: 12,
                                                             widget: 'select',
-                                                            params: {
-                                                                order_by: 'id',
-                                                            },
                                                             template: 'title',
                                                             api: 'sliders',
                                                             codename: 'slider',
@@ -418,10 +407,10 @@ const state = {
                                                     direction: 'row',
                                                     elements: [
                                                         {
-                                                            label: 'Активное место (неактивные места не отображаются на сайте)',
+                                                            name: 'Активное место (неактивные места не отображаются на сайте)',
+                                                            label: '',
                                                             codename: 'is_active',
                                                             widget: 'singleCheckbox',
-                                                            marginLeft: true,
                                                         },
                                                     ],
                                                 },
@@ -437,7 +426,6 @@ const state = {
             {
                 id: 4,
                 title: 'SEO и OG',
-                invalid: false,
                 blocks: [
                     {
                         labelPosition: 'left',
@@ -445,14 +433,10 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Заголовок страницы (title / og:title)',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'meta_title',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
@@ -462,14 +446,10 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Описание страницы<br>(description / og:description)',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'meta_description',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -479,14 +459,10 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Ключевые слова, через запятую (keywords)',
-                                required: false,
-                                invalid: false,
                                 width: 12,
                                 codename: 'meta_keywords',
                                 widget: 'textarea',
-                                hint: '',
                             },
                         ],
                     },
@@ -495,21 +471,14 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
-                                inputID: 'cityGuidesCoverInputOG',
-                                dragID: 'cityGuidesCoverDragOG',
                                 label: 'Обложка для социальных сетей (og:image)',
                                 width: 12,
                                 image: {
                                     width: 1200,
                                     height: 630,
                                 },
-
                                 codename: 'og_image',
                                 widget: 'singleImageLoader',
-                                requireSendId: true,
-                                key_attr: 'id',
-                                hint: '',
                             },
                         ],
                     },
