@@ -47,7 +47,6 @@ const state = {
                                 widget: 'input',
                             },
                             {
-                                tags: 'short',
                                 label: 'Роли пользователя в ПУ',
                                 required: true,
                                 width: 8,
@@ -64,18 +63,19 @@ const state = {
                     {
                         labelPosition: 'left',
                         modClass: 'marginBottom50',
-                        uniqWidget: true,
                         direction: 'row',
                         elements: [
                             {
-                                type: 'field',
+                                widget: 'passwordWidget',
+                                codename: 'password1',
                                 required: false,
-                                invalid: false,
                                 width: 12,
-                                requiredIfOnCreate: true,
+                            },
+                            {
+                                widget: 'passwordWidgetAuxiliary',
                                 codename: 'password2',
-                                widget: 'passwordChanger',
-                                hint: 'Пароль может состоять только из цифр или букв английского алфавита, должен быть не короче шести символов, а также содержать как минимум одну цифру и одну букву в любом регистре, например: 8goods',
+                                required: false,
+                                width: 0,
                             },
                         ],
                     },
@@ -101,7 +101,8 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                label: 'Запросить у пользователя смену пароля при следующей авторизации',
+                                name: 'Запросить у пользователя смену пароля при следующей авторизации',
+                                label: '',
                                 codename: 'request_change_password',
                                 widget: 'singleCheckbox',
                             },

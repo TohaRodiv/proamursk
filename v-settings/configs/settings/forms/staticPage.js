@@ -4,7 +4,6 @@ const state = {
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
-                invalid: false,
                 blocks: [
                     {
                         labelPosition: 'left',
@@ -12,35 +11,31 @@ const state = {
                         modClass: 'marginBottom20',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Название страницы',
                                 required: true,
                                 width: 6,
                                 codename: 'name',
-                                widget: 'simpleInput',
-                                hint: '',
+                                widget: 'input',
                             },
                         ],
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom40',
+                        modClass: 'marginBottom50',
                         elements: [
                             {
-                                type: 'field',
                                 label: 'Кодовое название страницы',
                                 required: true,
                                 width: 6,
                                 codename: 'codename',
-                                widget: 'simpleInput',
+                                widget: 'input',
                             },
                         ],
                     },
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 label: 'JSON конфиг формы<br>страницы',

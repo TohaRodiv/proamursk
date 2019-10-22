@@ -58,7 +58,6 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'mask-phone',
                                 label: 'Телефон',
                                 width: 6,
                                 codename: 'phone',

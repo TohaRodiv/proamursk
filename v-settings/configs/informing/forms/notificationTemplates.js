@@ -115,7 +115,6 @@ const state = {
                                     order_by: 'full_name',
                                     is_staff: 'true',
                                 },
-                                tags: 'short',
                                 template: 'full_name',
                             },
                             {
@@ -128,7 +127,6 @@ const state = {
                                 params: {
                                     order_by: 'name',
                                 },
-                                tags: 'short',
                             },
                         ],
                     },
