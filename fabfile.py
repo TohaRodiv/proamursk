@@ -12,7 +12,7 @@ connect_kwargs = dict(
     project_name='proamursk',
     git=[
         dict(branch='master', path='./'),
-        dict(branch='300ms', path='./cp_vue/'),
+        dict(branch='master', path='./cp_vue/'),
         dict(branch='master', path='./core/'),
     ]
 )
