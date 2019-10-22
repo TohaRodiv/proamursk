@@ -4,7 +4,6 @@ const state = {
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
-                invalid: false,
                 blocks: [
                     {
                         labelPosition: 'left',
@@ -37,7 +36,6 @@ const state = {
                     {
                         labelPosition: 'left',
                         direction: 'row',
-                        modClass: 'marginBottom20',
                         elements: [
                             {
                                 label: 'JSON конфиг формы<br>страницы',

@@ -8,6 +8,7 @@
             :key="blockDex"
             :style="calculateFlexDirection(block)"
             class="tab-row"
+            :class="block.modClass"
         >
             <div
                 v-if="block.labelPosition && block.labelPosition !== 'left' && !block.hasWideLabel && !block.uniqWidget"
@@ -15,16 +16,15 @@
             />
             <div
                 v-for="(element, elementIndex) in block.elements"
-                :key="(typeof element.codename !== 'object') ? element.codename : Math.random()"
-                :class="[(block.modClass && ( (block.nullRender) ? (data[block.nullRender] && data[block.nullRender].length !== 0) : true ) ) ? block.modClass : element.modClass , findMyWidth(element, block)]"
-                :style="(block.uniqWidget) ? {width: '100%'} : ((element.nullRightMargin) ? {marginRight: 0, width: '460px'} : '')"
+                :key="'tab-' + options.id + '-block-' + blockDex + '-element-' + elementIndex"
+                :class="[element.modClass , findMyWidth(element, block)]"
                 class="tab-item"
             >
                 <headerWidget
                     v-if="element.type === 'header'"
                     :options="element"
                 />
-                
+
                 <simpleInput
                     v-if="element.widget === 'simpleInput'"
                     :labelPosition="block.labelPosition"
@@ -43,7 +43,7 @@
                 <textareaComp
                     v-if="element.widget === 'textarea'"
                     :label-position="block.labelPosition"
-                    :prop-data="formData[element.codename]"
+                    :value="formData[element.codename]"
                     :config="element"
                     @clearError="clearError"
                     @change="onChange"
@@ -52,27 +52,8 @@
                 <textarea-json
                     v-if="element.widget === 'textareaJson'"
                     :label-position="block.labelPosition"
-                    :prop-data="formData[element.codename]"
+                    :value="formData[element.codename]"
                     :config="element"
-                    :elementIndex="elementIndex"
-                    @clearError="clearError"
-                    @change="onChange"
-                />
-
-                <singleSelector
-                    v-if="element.widget === 'singleSelector'"
-                    :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
-                    :options="element"
-                    @clearError="clearError"
-                    @change="onChange"
-                />
-
-                <multipleSelector
-                    v-if="element.widget === 'multipleSelector'"
-                    :label-position="block.labelPosition"
-                    :passed-data="formData[element.codename]"
-                    :options="element"
                     @clearError="clearError"
                     @change="onChange"
                 />
@@ -89,7 +70,7 @@
                 <singleCheckbox
                     v-if="element.widget === 'singleCheckbox'"
                     :label-position="block.labelPosition"
-                    :prop-data="formData[element.codename]"
+                    :value="formData[element.codename]"
                     :config="element"
                     @clearError="clearError"
                     @change="onChange"
@@ -104,12 +85,13 @@
                     @change="onChange"
                 />
 
-                <radioTabs
+                <CpRadioTabs
                     v-if="element.widget === 'radioTabs'"
-                    :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
-                    :direction="block.direction"
-                    :options="element"
+                    :label-position="row.labelPosition"
+                    :value="formData[element.codename]"
+                    :config="element"
+                    @clearError="clearError"
+                    @change="onChange"
                 />
 
                 <simpleChildEntity
@@ -164,16 +146,8 @@
                 <multipleFileLoader
                     v-if="element.widget === 'multipleFileLoader'"
                     :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
-                    :dndOrder="data[element.dndFlag]"
-                    :options="element"
-                    @clearError="clearError"
-                />
-
-                <passwordChanger
-                    v-if="element.widget === 'passwordChanger'"
-                    :labelPosition="block.labelPosition"
-                    :options="element"
+                    :files="formData[element.codename]"
+                    :config="element"
                     @clearError="clearError"
                 />
 
@@ -186,7 +160,7 @@
 
                 <summWidget
                     v-if="element.widget === 'summWidget'"
-                    :options="element" 
+                    :options="element"
                 />
 
                 <geoinput
@@ -236,7 +210,7 @@
                 <input-datetime
                     v-if="element.widget === 'inputDatetime'"
                     :prop-data="formData[element.codename]"
-                    :prop-config="element"
+                    :config="element"
                     :label-position="block.labelPosition"
                     @clearError="clearError"
                     @change="onChange"
@@ -252,6 +226,15 @@
 
                 <CpInput
                     v-if="element.widget === 'input'"
+                    :value="formData[element.codename]"
+                    :config="element"
+                    :label-position="block.labelPosition"
+                    @clearError="clearError"
+                    @change="onChange"
+                />
+
+                <CpInputMask
+                    v-if="element.widget === 'inputMask'"
                     :value="formData[element.codename]"
                     :config="element"
                     :label-position="block.labelPosition"
