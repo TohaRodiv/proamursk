@@ -16,6 +16,7 @@ npm-debug.log
 /formatter/
 /media/
 /fab/
+/backups/
 /.idea/
 *.suo
 *.ntvs*

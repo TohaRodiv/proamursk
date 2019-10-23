@@ -119,9 +119,6 @@ const defaultItemConfig = {
     required: true,
     api: 'event-anouncements',
     template: 'title',
-    params: {
-        order_by: '-id',
-    },
 };
 
 const defaultEntityConfig = {
@@ -149,8 +146,6 @@ const defaultTab = {
 
 const defaultTopItemsConfig = {
     label: 'Избранные материалы',
-    dragOrder: 'weight',
-    isDraggable: true,
     widget: 'childEntity',
     codename: 'top_items',
     rows: [],
@@ -166,7 +161,8 @@ const showBannerBlock = {
     elements: [
         {
             widget: 'singleCheckbox',
-            label: 'Показывать на Главной странице баннер-растяжку вместо слайдера со спецпроектами',
+            name: 'Показывать на Главной странице баннер-растяжку вместо слайдера со спецпроектами',
+            label: '',
             codename: 'show_banner',
         },
     ],

@@ -3,7 +3,7 @@
         id="form"
         class="forms"
     >
-        <new-preloader 
+        <new-preloader
             v-show="preloader"
             :loading="loading"
             :forceDisable="disablePreloader"
@@ -17,7 +17,7 @@
             >
             <div class="forms-buttons-container" />
         </new-preloader>
-        <div 
+        <div
             v-show="!preloader"
             class="forms-container"
         >
@@ -34,8 +34,8 @@
                             >
                                 <div
                                     :class="{
-                                        'forms-tabs-item-error': tab.invalid, 
-                                        'forms-tabs-item-selected': tab.id === currentTabId, 
+                                        'forms-tabs-item-error': tab.invalid,
+                                        'forms-tabs-item-selected': tab.id === currentTabId,
                                         'forms-tabs-item-blocked': tab.blocked
                                     }"
                                     v-for="(tab, tabDex) in tabs"
@@ -70,7 +70,6 @@
                                         @clearError="clearError"
                                         @change="setNewValues"
                                         @setError="setError"
-                                        @simpleChildEntityEvent="simpleChildEntityEventsHandler"
                                     />
                                 </div>
                             </div>
@@ -78,7 +77,7 @@
                         <formFooter
                             v-if="compShowFormFooter"
                             :propConfig="compFooterConfig"
-                            :propItem="getFormsData"
+                            :propItem="data"
                         />
                     </div>
                     <form-sidebar
