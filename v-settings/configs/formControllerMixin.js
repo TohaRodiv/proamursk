@@ -16,6 +16,10 @@ const controllers = {
         reports: reportsController.change,
     },
 
+    requestHook: {
+        users: usersController.requestHook,
+    },
+
     afterSetConfigHook: {
         users: usersController.afterSetConfigHook,
     },
@@ -34,6 +38,12 @@ export const formController = {
         afterSetConfigHook(data) {
             if (controllers.afterSetConfigHook[this.view]) {
                 controllers.afterSetConfigHook[this.view](data, this);
+            }
+        },
+
+        requestHook(data, response) {
+            if (controllers.requestHook[this.view]) {
+                controllers.requestHook[this.view](data, response, this);
             }
         },
     },
