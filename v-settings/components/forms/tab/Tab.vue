@@ -100,7 +100,6 @@
                     :config="element"
                     @clearError="clearError"
                     @change="onChange"
-                    @simpleChildEntityEvent="simpleChildEntityEventsHandler"
                 />
 
                 <childEntity
@@ -110,7 +109,6 @@
                     :config="element"
                     @clearError="clearError"
                     @change="onChange"
-                    @resetElementConfig="resetElementConfig"
                 />
 
                 <singleImageLoader
@@ -149,18 +147,6 @@
                     :files="formData[element.codename]"
                     :config="element"
                     @clearError="clearError"
-                />
-
-                <blockedInput
-                    v-if="element.widget === 'blockedInput'"
-                    :passedData="formData[element.passedCodename]"
-                    :labelPosition="block.labelPosition"
-                    :options="element"
-                />
-
-                <summWidget
-                    v-if="element.widget === 'summWidget'"
-                    :options="element"
                 />
 
                 <geoinput
@@ -243,6 +229,7 @@
                 />
 
                 <CpInputNumber
+
                     v-if="element.widget === 'inputNumber'"
                     :value="formData[element.codename]"
                     :config="element"
@@ -260,12 +247,6 @@
                     :label-position="block.labelPosition"
                     @clearError="clearError"
                     @change="onChange"
-                />
-
-                <hidden-input
-                    v-if="element.widget === 'hiddentInput'"
-                    :prop-data="data[element.codename]"
-                    :config="element"
                 />
             </div>
         </div>
