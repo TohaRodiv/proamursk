@@ -40,7 +40,6 @@ const state = {
                         elements: [
                             {
                                 label: 'Email / Логин',
-                                parentValue: 'username',
                                 required: true,
                                 width: 4,
                                 codename: 'username',
