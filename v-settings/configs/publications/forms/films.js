@@ -246,6 +246,7 @@ const state = {
                                 codename: 'sessions',
                                 widget: 'simpleChildEntity',
                                 label: 'Сеансы',
+                                disableDraggable: true,
                                 defaultRowConfig: [
                                     {
                                         widget: 'inputDatetime',

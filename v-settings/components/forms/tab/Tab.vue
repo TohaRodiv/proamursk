@@ -1,4 +1,5 @@
 <template>
+    <!-- version 1-->
     <div
         style="margin-top: 0"
         class="tab-wrapper"
@@ -7,8 +8,8 @@
             v-for="(block, blockDex) in options.blocks"
             :key="blockDex"
             :style="calculateFlexDirection(block)"
-            class="tab-row"
             :class="block.modClass"
+            class="tab-row"
         >
             <div
                 v-if="block.labelPosition && block.labelPosition !== 'left' && !block.hasWideLabel && !block.uniqWidget"

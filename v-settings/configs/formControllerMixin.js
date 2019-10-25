@@ -16,9 +16,12 @@ const controllers = {
         reports: reportsController.change,
     },
 
-    setConfigHook: {
-        'static-pages': staticPagesController.setConfigHook,
-        users: usersController.setConfigHook,
+    requestHook: {
+        users: usersController.requestHook,
+    },
+
+    afterSetConfigHook: {
+        users: usersController.afterSetConfigHook,
     },
 };
 
@@ -32,9 +35,15 @@ export const formController = {
             }
         },
 
-        setConfigHook(config, data) {
-            if (controllers.setConfigHook[this.view]) {
-                controllers.setConfigHook[this.view](config, data, this);
+        afterSetConfigHook(data) {
+            if (controllers.afterSetConfigHook[this.view]) {
+                controllers.afterSetConfigHook[this.view](data, this);
+            }
+        },
+
+        requestHook(data, response) {
+            if (controllers.requestHook[this.view]) {
+                controllers.requestHook[this.view](data, response, this);
             }
         },
     },
