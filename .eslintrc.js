@@ -19,7 +19,6 @@ module.exports = {
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module",
-        // "parser": "vue-eslint-parser"
     },
     "plugins": [
         "vue",
@@ -36,43 +35,9 @@ module.exports = {
             "alignAttributesVertically": true,
             "ignores": []
         }],
-        // "vue/script-indent": [
-        //     "warn",
-        //     4,
-        //     {
-        //         "baseIndent": 0
-        //     }
-        // ],
-        // "vue/style-indent": [
-        //     "warn",
-        //     4,
-        //     {
-        //         "baseIndent": 0
-        //     }
-        // ],
-        // "vue/prop-name-casing": 0,
-        // "vue/html-self-closing": ["error", {
-        //     "html": {
-        //         "void": "never",
-        //         "normal": "always",
-        //         "component": "always"
-        //     },
-        //     "svg": "always",
-        //     "math": "always"
-        // }],
-        // "vue/max-attributes-per-line": ["error", {
-        //     "singleline": 1,
-        //     "multiline": {
-        //         "max": 1,
-        //         "allowFirstLine": false
-        //     }
-        // }],
         "semi": ["error", "always"],
-        // "block-spacing": ["error", "always"],
         "comma-dangle": ["error", "always"],
         "max-len": ["warn", 120],
         "indent": ["error", 4],
-        // "multiline-ternary": ["error", "always"],
-        // "object-curly-spacing": ["error", "always"]
     },
 };
