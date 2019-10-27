@@ -2,18 +2,25 @@
     <div class="auth-page">
         <div class="auth-wrapper">
             <div class="auth-image">
-                <div class="auth-image-inner"/>
+                <div class="auth-image-inner" />
             </div>
             <div class="auth-forms">
                 <div class="auth-forms-inner">
                     <div class="auth-container">
-                        <div class="auth_logo">
+                        <a
+                            :href="hostname"
+                            target="_blank"
+                            class="auth_logo"
+                        >
                             <img src="../../src/images/logo_crown.svg">
-                        </div>
+                        </a>
 
                         <div class="auth-component">
-                            <transition name="fade-auth" mode="out-in">
-                                <component v-bind:is="authComponent"/>
+                            <transition
+                                name="fade-auth"
+                                mode="out-in"
+                            >
+                                <component v-bind:is="authComponent" />
                             </transition>
                         </div>
                     </div>
@@ -21,7 +28,11 @@
                         <span>
                             ©&nbsp;
                         </span>
-                        <a href="http://perfectura.ru/" target="_blank" class="link">
+                        <a
+                            href="http://perfectura.ru/"
+                            target="_blank"
+                            class="link"
+                        >
                             Перфектура
                         </a>
                         <span>
@@ -40,16 +51,20 @@ import restorePassword from "./RestorePassword.vue";
 import signin from "./Signin.vue";
 
 export default {
-    name: "auth-base",
+    name: "AuthBase",
     components: {
         changePassword,
         restorePassword,
-        signin
+        signin,
     },
 
     computed: {
         route: function() {
             return this.$route.name;
+        },
+
+        hostname(){
+            return  window.location.protocol + '//' + window.location.hostname;
         },
 
         authComponent: function() {
@@ -63,7 +78,7 @@ export default {
             case "auth":
                 return "signin";
             }
-        }
-    }
+        },
+    },
 };
 </script>
