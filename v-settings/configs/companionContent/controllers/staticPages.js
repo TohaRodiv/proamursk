@@ -196,11 +196,10 @@ const generateTab = function(codename) {
             modClass: 'marginBottom50',
             elements: [topItemsConfig,],
         });
-        const tab = Object.assign({}, defaultTab, {
+        return Object.assign({}, defaultTab, {
             blocks: [topItemsBlock, showBannerBlock,],
             title: 'КОНТЕНТ',
         });
-        return tab;
     } else if (codename === 'events-index') {
         const entityConfig = Object.assign({},defaultEntityConfig, {
             options: optionsForEvents,
@@ -228,11 +227,10 @@ const generateTab = function(codename) {
             modClass: 'marginBottom50',
             elements: [topItemsConfig,],
         });
-        const tab = Object.assign({},defaultTab, {
+        return Object.assign({}, defaultTab, {
             blocks: [topItemsBlock,],
             title: 'КОНТЕНТ',
         });
-        return tab;
     } else if (codename === 'history-list') {
         const entityConfig = Object.assign({},defaultEntityConfig, {
             options: optionsForHistory,
@@ -265,11 +263,10 @@ const generateTab = function(codename) {
             modClass: 'marginBottom50',
             elements: [topItemsConfig,],
         });
-        const tab = Object.assign({},defaultTab, {
+        return Object.assign({}, defaultTab, {
             blocks: [topItemsBlock,],
             title: 'КОНТЕНТ',
         });
-        return tab;
     } else if (codename === 'places-list') {
         const entityConfig = Object.assign({},defaultEntityConfig, {
             options: optionsForPlaces,
@@ -302,11 +299,10 @@ const generateTab = function(codename) {
             modClass: 'marginBottom50',
             elements: [topItemsConfig,],
         });
-        const tab = Object.assign({},defaultTab, {
+        return Object.assign({}, defaultTab, {
             blocks: [topItemsBlock,],
             title: 'КОНТЕНТ',
         });
-        return tab;
     } else if (codename === 'persons-list') {
         const entityConfig = Object.assign({},defaultEntityConfig, {
             options: optionsForPersons,
@@ -339,11 +335,10 @@ const generateTab = function(codename) {
             modClass: 'marginBottom50',
             elements: [topItemsConfig,],
         });
-        const tab = Object.assign({},defaultTab, {
+        return Object.assign({}, defaultTab, {
             blocks: [topItemsBlock,],
             title: 'КОНТЕНТ',
         });
-        return tab;
     } else if (codename === 'reports-list') {
         const entityConfig = Object.assign({},defaultEntityConfig, {
             options: optionsForReports,
@@ -376,11 +371,10 @@ const generateTab = function(codename) {
             modClass: 'marginBottom50',
             elements: [topItemsConfig,],
         });
-        const tab = Object.assign({},defaultTab, {
+        return Object.assign({}, defaultTab, {
             blocks: [topItemsBlock,],
             title: 'КОНТЕНТ',
         });
-        return tab;
     }
 };
 
@@ -390,8 +384,7 @@ export default {
     setConfigHook(config, data) {
         const codename = data.codename;
         if (codenames.includes(codename)) {
-            const tab = generateTab(codename);
-            config.splice(0, 0, tab);
+            config.splice(0, 0, generateTab(codename));
         }
         config.push(seo);
     },
@@ -399,11 +392,7 @@ export default {
     change: {
         top_items(topItems, { fields, }) {
             const topItemsConfig = fields.top_items;
-            if (topItems && topItems.length > 3) {
-                topItemsConfig.noAddButton = true;
-            } else {
-                topItemsConfig.noAddButton = false;
-            }
+            topItemsConfig.noAddButton = !!(topItems && topItems.length > 3);
         },
     },
 };

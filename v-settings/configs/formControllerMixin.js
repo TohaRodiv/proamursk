@@ -23,6 +23,10 @@ const controllers = {
     afterSetConfigHook: {
         users: usersController.afterSetConfigHook,
     },
+
+    setConfigHook: {
+        'static-pages': staticPagesController.setConfigHook,
+    },
 };
 
 export const formController = {
@@ -44,6 +48,12 @@ export const formController = {
         requestHook(data, response) {
             if (controllers.requestHook[this.view]) {
                 controllers.requestHook[this.view](data, response, this);
+            }
+        },
+        
+        setConfigHook(config, data) {
+            if (controllers.setConfigHook[this.view]) {
+                controllers.setConfigHook[this.view](config, data, this);
             }
         },
     },
