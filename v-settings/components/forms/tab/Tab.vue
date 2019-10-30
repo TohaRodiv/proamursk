@@ -1,5 +1,5 @@
 <template>
-    <!-- version 1-->
+    <!-- version 3-->
     <div
         style="margin-top: 0"
         class="tab-wrapper"
@@ -230,8 +230,16 @@
                 />
 
                 <CpInputNumber
-
                     v-if="element.widget === 'inputNumber'"
+                    :value="formData[element.codename]"
+                    :config="element"
+                    :label-position="block.labelPosition"
+                    @clearError="clearError"
+                    @change="onChange"
+                />
+
+                <CpInputAutocomplete
+                    v-if="element.widget === 'inputAutocomplete'"
                     :value="formData[element.codename]"
                     :config="element"
                     :label-position="block.labelPosition"
@@ -247,6 +255,13 @@
                     :config-auxiliary="block.elements[1]"
                     :label-position="block.labelPosition"
                     @clearError="clearError"
+                    @change="onChange"
+                />
+
+                <CpRights
+                    v-if="element.widget === 'rights'"
+                    :config="element"
+                    :value="formData[element.codename]"
                     @change="onChange"
                 />
             </div>

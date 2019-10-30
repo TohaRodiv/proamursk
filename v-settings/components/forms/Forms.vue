@@ -1,5 +1,5 @@
 <template>
-    <!-- version 1-->
+    <!-- version 2-->
     <div
         id="form"
         class="forms"
@@ -116,12 +116,14 @@
                                 v-for="(action, indexAction) in footerActions"
                                 :key="'footer-custom-action-' + indexAction"
                                 :class="action.classes"
+                                :disabled="buttonsDisabled"
                             >
                                 {{ action.label }}
                             </button>
                             <button
                                 v-if="hasDelete"
                                 @click="showDeletePopup = true"
+                                :disabled="buttonsDisabled"
                                 class="button borderless-button forms-cancel-button"
                             >
                                 Удалить
@@ -129,6 +131,7 @@
                             <button
                                 v-if="duplicateAction"
                                 @click="actionHandler(duplicateAction.method)"
+                                :disabled="buttonsDisabled"
                                 class="button borderless-button forms-save-and-add-button"
                             >
                                 {{ duplicateAction.label }}
@@ -137,6 +140,7 @@
                         <button
                             v-if="hasSaveAndAdd"
                             @click="saveAndAdd"
+                            :disabled="buttonsDisabled"
                             class="button borderless-button forms-save-and-add-button"
                         >
                             Сохранить и добавить
@@ -146,6 +150,7 @@
                         <button
                             v-if="hasSave"
                             @click="saveButtonHandler"
+                            :disabled="buttonsDisabled"
                             class="button forms-save-button"
                         >
                             Сохранить

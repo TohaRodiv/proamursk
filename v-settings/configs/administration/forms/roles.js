@@ -22,12 +22,11 @@ const state = {
                         ],
                     },
                     {
-                        labelPosition: 'left',
-                        direction: 'row',
                         elements: [
                             {
-                                widget: 'rightsWidget',
+                                widget: 'rights',
                                 codename: 'permissions',
+                                sections: [],
                             },
                         ],
                     },

@@ -43,12 +43,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'autocomplete',
                                 label: 'Страна',
                                 required: true,
                                 width: 6,
                                 codename: 'country',
-                                widget: 'simpleInput',
+                                widget: 'inputAutocomplete',
                             },
                         ],
                     },
@@ -72,12 +71,11 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
-                                type: 'autocomplete',
                                 label: 'Режиссер',
                                 required: true,
                                 width: 6,
                                 codename: 'director',
-                                widget: 'simpleInput',
+                                widget: 'inputAutocomplete',
                             },
                         ],
                     },
