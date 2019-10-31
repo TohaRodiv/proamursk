@@ -1,19 +1,10 @@
+import { idWithoutCheckboxWithMenu, menuWithoutCheckbox, } from '../../columns';
+
 const state = {
     columnsConfig: {
-        'feedbacks': [
-            {
-                name: '#',
-                type: 'int',
-                is_sortable: true,
-                align_text: 'left',
-                width: 100,
-                fixed: true,
-                codename: 'id',
-                sort: {
-                    direction: 'DESC',
-                    order_by: 'id',
-                },
-            },
+        feedbacks: [
+            idWithoutCheckboxWithMenu,
+            menuWithoutCheckbox,
             {
                 name: 'Тема обращения',
                 type: 'text',
@@ -80,7 +71,7 @@ const state = {
         ],
     },
     actionsConfig: {
-        'feedbacks': {
+        feedbacks: {
             addButton: false,
             activationButtons: false,
             deleteButton: false,
@@ -88,7 +79,7 @@ const state = {
         },
     },
     filterConfig: {
-        'feedbacks': [
+        feedbacks: [
             {
                 filterTitle: 'Темы обращения',
                 queryName: 'subjects__in',
