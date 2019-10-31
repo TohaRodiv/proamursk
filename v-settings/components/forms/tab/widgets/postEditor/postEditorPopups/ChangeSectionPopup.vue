@@ -39,6 +39,7 @@
                 <div
                     v-if="config && config.hasPaddings"
                     class="popup-post-editor-forms-indents-container"
+                    style="margin-bottom: 20px;"
                 >
                     <cp-select
                         :value="paddingTop"

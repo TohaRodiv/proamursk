@@ -33,7 +33,7 @@
                     style="margin-top: 20px; margin-left: 15px;"
                 />
                 <textareaComp
-                    :propData="sign"
+                    :value="sign"
                     @change="onChange"
                     @setError="setError"
                     @clearError="clearError"
@@ -241,7 +241,7 @@ export default {
                 codename: 'alt',
             },
             backgroundFlagConfig: {
-                label: 'Не затемнять изображение по наведению, если оно является ссылкой',
+                name: 'Не затемнять изображение по наведению, если оно является ссылкой',
                 codename: 'backgroundFlag',
                 widget: 'singleCheckbox',
             },

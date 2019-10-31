@@ -30,6 +30,12 @@ const controllers = {
 };
 
 export const formController = {
+    data() {
+        return {
+            controllers,
+        };
+    },
+
     methods: {
         changeHook(codename, value) {
             if (controllers.change[this.view]) {
