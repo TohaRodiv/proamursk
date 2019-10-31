@@ -149,7 +149,7 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
 
-STATIC_VERSION = 147
+STATIC_VERSION = 148
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
