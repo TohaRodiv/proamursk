@@ -1,5 +1,5 @@
 <template>
-    <!-- version 3-->
+    <!-- version 4-->
     <div
         style="margin-top: 0"
         class="tab-wrapper"
@@ -24,15 +24,6 @@
                 <headerWidget
                     v-if="element.type === 'header'"
                     :options="element"
-                />
-
-                <simpleInput
-                    v-if="element.widget === 'simpleInput'"
-                    :labelPosition="block.labelPosition"
-                    :passedData="formData[element.codename]"
-                    :options="element"
-                    @clearError="clearError"
-                    @change="onChange"
                 />
 
                 <wideHint
