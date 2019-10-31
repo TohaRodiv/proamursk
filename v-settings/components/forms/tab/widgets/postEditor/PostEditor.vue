@@ -1,26 +1,29 @@
 <template>
     <div class="post-editor-wrapper">
         <div
+            v-if="isEmpty"
             class="post-editor-empty-wrapper"
-            v-if="isEmpty">
-            <div class="tab-left-label col4"/>
+        >
+            <div class="tab-left-label col4" />
             <div
-                class="post-editor-empty-container"
                 :class="{ 'post-editor-empty-error' : options.invalid }"
                 @mouseenter="focusEmptyContainer = true"
                 @mouseleave="focusEmptyContainer = false"
+                class="post-editor-empty-container"
             >
                 <img
                     src="../../../../../src/images/post-editor-placeholder.svg"
                     class="post-editor-empty-icon"
-                    alt="">
+                    alt=""
+                >
                 <div>
                     Пустая публикация. Чтобы добавить контент, создайте первую секцию
                 </div>
                 <button
+                    @click="addSectionPopup = true"
                     class="button post-editor-button"
-                    @click="addSectionPopup = true">
-                    <div class="icon-plus post-editor-button-icon"/>
+                >
+                    <div class="icon-plus post-editor-button-icon" />
                     <div>
                         Добавить секцию
                     </div>
@@ -29,60 +32,70 @@
         </div>
         <div
             v-if="!isEmpty"
-            class="post-editor-outer-wrapper">
+            class="post-editor-outer-wrapper"
+        >
             <div
                 class="post-editor-add-section-wrapper"
-                style="margin-left: 240px; margin-top: 0;">
+                style="margin-left: 240px; margin-top: 0;"
+            >
                 <div
+                    @click="addSectionPopup = 0"
                     class="post-editor-add-section"
-                    @click="addSectionPopup = 0">
-                    <div class="icon-plus"/>
+                >
+                    <div class="icon-plus" />
                     <div>
                         Добавить секцию
                     </div>
                 </div>
                 <div
-                    class="post-editor-paste-section"
                     v-if="sectionBuffer.length"
-                    @click="pasteSection(0)">
-                    <div class="icon-paste"/>
+                    @click="pasteSection(0)"
+                    class="post-editor-paste-section"
+                >
+                    <div class="icon-paste" />
                     <div>
                         Вставить секцию
                     </div>
                 </div>
             </div>
             <div
-                class="post-editor-block-wrapper"
                 :class="{'post-editor-block-wrapper-on-drag': isOnDrag(section)}"
                 :style="[section.marginTop && secDex !== 0 ? {marginTop: `calc(60px + ${section.marginTop}em)`} : '', section.marginBottom && secDex !== content.length - 1 ? {marginBottom: `calc(60px + ${section.marginBottom}em)`} : '']"
                 v-for="(section, secDex) in content"
                 :id="section.dragId"
                 @mouseenter="sectionHovered = secDex"
-                @mouseleave="sectionHovered = ''">
+                @mouseleave="sectionHovered = ''"
+                class="post-editor-block-wrapper"
+            >
                 <div
+                    v-if="secDex !== 0"
                     class="post-editor-add-section-helper-top"
-                    v-if="secDex !== 0">
+                >
                     <div
+                        v-if="section.marginTop && (sectionHovered !== secDex || sectionOnDrag)"
                         style="margin-top: 32px;"
-                        v-if="section.marginTop && (sectionHovered !== secDex || sectionOnDrag)">
-                        {{section.marginTop + ' em'}}
+                    >
+                        {{ section.marginTop + ' em' }}
                     </div>
                     <div
                         v-if="sectionHovered === secDex && !sectionOnDrag && !widgetOnDrag"
-                        class="post-editor-add-section-wrapper">
+                        class="post-editor-add-section-wrapper"
+                    >
                         <div
+                            @click="addSectionPopup = secDex"
                             class="post-editor-add-section"
-                            @click="addSectionPopup = secDex">
-                            <div class="icon-plus"/>
+                        >
+                            <div class="icon-plus" />
                             <div>
                                 Добавить секцию
                             </div>
                         </div>
                         <div
-                            class="post-editor-paste-section"
                             v-if="sectionBuffer.length"
-                            @click="pasteSection(secDex)">
-                            <div class="icon-paste"/>
+                            @click="pasteSection(secDex)"
+                            class="post-editor-paste-section"
+                        >
+                            <div class="icon-paste" />
                             <div>
                                 Вставить секцию
                             </div>
@@ -91,56 +104,67 @@
                 </div>
                 <div class="tab-left-label col4 post-editor-block-info">
                     <div>
-                        {{numberToWord(section.columns.length)}} {{multiEnds(section.columns.length)}} / {{concatColumnNumbers(section)}}
+                        {{ numberToWord(section.columns.length) }} {{ multiEnds(section.columns.length) }} / {{ concatColumnNumbers(section) }}
                     </div>
                     <div
+                        v-if="sectionHovered === secDex && !sectionOnDrag && !widgetOnDrag"
                         class="post-editor-block-info-buttons"
-                        v-if="sectionHovered === secDex && !sectionOnDrag && !widgetOnDrag">
+                    >
                         <button
+                            @mousedown="startSectionDnd(secDex, $event)"
                             class="button blue-button-small icon-moving"
-                            @mousedown="startSectionDnd(secDex, $event)"/>
+                        />
                         <button
                             v-if="sectionIsConfigurable"
+                            @click="showChangeSectionPopup(secDex, section)"
                             class="button blue-button-small icon-edit"
-                            @click="showChangeSectionPopup(secDex, section)"/>
+                        />
                         <button
+                            @click="copySection(section)"
                             class="button blue-button-small icon-copy"
-                            @click="copySection(section)"/>
+                        />
                         <button
+                            @click="deleteSection(secDex)"
                             class="button delete-button-round-small icon-close"
-                            @click="deleteSection(secDex)"/>
+                        />
                     </div>
                 </div>
                 <div class="post-editor-inned-block-wrapper">
                     <div
-                        class="post-editor-column"
                         v-for="(block, blockDex) in section.columns"
                         :id="block.dragId ? block.dragId : ''"
-                        :style="(`flex: ${block.width}`)">
+                        :style="(`flex: ${block.width}`)"
+                        class="post-editor-column"
+                    >
                         <div :style="setSectionPadding(section, block) + (`box-shadow: ${isOnDrag(section) ? '0 2px 8px 0 rgba(35, 41, 46, 0.15)' : ''}`)">
                             <div
+                                v-if="!block.widgets || !block.widgets.length"
                                 style="height: 15px; width: 100%;"
-                                v-if="!block.widgets || !block.widgets.length"/>
+                            />
                             <div
+                                v-if="!block.widgets || !block.widgets.length"
                                 class="post-editor-column-empty"
-                                v-if="!block.widgets || !block.widgets.length">
+                            >
                                 <div>
                                     <div
-                                        class="button edit-entity-round-button icon-plus post-editor-big-icon-add"
                                         @mouseenter="mouseOverButton=`${secDex}_${blockDex}_add`"
                                         @mouseleave="mouseOverButton = ''"
                                         @click="openCreateWidgetPopup(block, section)"
-                                        style="margin-right: 0;"/>
+                                        class="button edit-entity-round-button icon-plus post-editor-big-icon-add"
+                                        style="margin-right: 0;"
+                                    />
                                     <div
+                                        v-if="mouseOverButton === `${secDex}_${blockDex}_add`"
                                         class="hint-wrapper"
-                                        v-if="mouseOverButton === `${secDex}_${blockDex}_add`">
+                                    >
                                         <div class="hint-inner-wrapper">
                                             <div class="arrow-wrapper">
-                                                <div class="hint-arrow"/>
+                                                <div class="hint-arrow" />
                                             </div>
                                             <div
                                                 class="hint-message"
-                                                style="padding: 6px 13px 9px 13px; color: #fff">
+                                                style="padding: 6px 13px 9px 13px; color: #fff"
+                                            >
                                                 Добавить блок
                                             </div>
                                         </div>
@@ -152,17 +176,20 @@
                                         @mouseenter="mouseOverButton=`${secDex}_${blockDex}_paste`"
                                         @mouseleave="mouseOverButton = ''"
                                         class="button edit-entity-round-button icon-paste post-editor-big-icon-paste"
-                                        style="margin-right: 0;"/>
+                                        style="margin-right: 0;"
+                                    />
                                     <div
+                                        v-if="mouseOverButton === `${secDex}_${blockDex}_paste`"
                                         class="hint-wrapper"
-                                        v-if="mouseOverButton === `${secDex}_${blockDex}_paste`">
+                                    >
                                         <div class="hint-inner-wrapper">
                                             <div class="arrow-wrapper">
-                                                <div class="hint-arrow"/>
+                                                <div class="hint-arrow" />
                                             </div>
                                             <div
                                                 class="hint-message"
-                                                style="padding: 6px 13px 9px 13px; color: #fff">
+                                                style="padding: 6px 13px 9px 13px; color: #fff"
+                                            >
                                                 Вставить блок
                                             </div>
                                         </div>
@@ -170,11 +197,12 @@
                                 </div>
                             </div>
                             <div
+                                v-if="section.paddingTop && block.widgets && block.widgets.length"
                                 class="post-editor-column-inner-padding"
                                 style="top: 10px;"
-                                v-if="section.paddingTop && block.widgets && block.widgets.length">
+                            >
                                 <div>
-                                    {{section.paddingTop + ' em'}}
+                                    {{ section.paddingTop + ' em' }}
                                 </div>
                             </div>
                             <postEditorWidgetWrapper
@@ -197,40 +225,46 @@
                                 @dragWidget="widgetDragStart(secDex, blockDex, widDex)"
                             />
                             <div
+                                v-if="section.paddingBottom && block.widgets && block.widgets.length"
                                 class="post-editor-column-inner-padding"
                                 style="bottom: 10px;"
-                                v-if="section.paddingBottom && block.widgets && block.widgets.length">
+                            >
                                 <div>
-                                    {{section.paddingBottom + ' em'}}
+                                    {{ section.paddingBottom + ' em' }}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div
+                    v-if="secDex !== content.length - 1"
                     class="post-editor-add-section-helper-bottom"
-                    v-if="secDex !== content.length - 1">
+                >
                     <div
+                        v-if="section.marginBottom && (sectionHovered !== secDex || sectionOnDrag)"
                         style="margin-top: 7px;"
-                        v-if="section.marginBottom && (sectionHovered !== secDex || sectionOnDrag)">
-                        {{section.marginBottom + ' em'}}
+                    >
+                        {{ section.marginBottom + ' em' }}
                     </div>
                     <div
                         v-if="sectionHovered === secDex && !sectionOnDrag && !widgetOnDrag"
-                        class="post-editor-add-section-wrapper">
+                        class="post-editor-add-section-wrapper"
+                    >
                         <div
+                            @click="addSectionPopup = secDex + 1"
                             class="post-editor-add-section"
-                            @click="addSectionPopup = secDex + 1">
-                            <div class="icon-plus"/>
+                        >
+                            <div class="icon-plus" />
                             <div>
                                 Добавить секцию
                             </div>
                         </div>
                         <div
-                            class="post-editor-paste-section"
                             v-if="sectionBuffer.length"
-                            @click="pasteSection(secDex + 1)">
-                            <div class="icon-paste"/>
+                            @click="pasteSection(secDex + 1)"
+                            class="post-editor-paste-section"
+                        >
+                            <div class="icon-paste" />
                             <div>
                                 Вставить секцию
                             </div>
@@ -240,20 +274,23 @@
             </div>
             <div
                 class="post-editor-add-section-wrapper"
-                style="margin-left: 240px; margin-bottom: 0;">
+                style="margin-left: 240px; margin-bottom: 0;"
+            >
                 <div
+                    @click="addSectionPopup = content.length"
                     class="post-editor-add-section"
-                    @click="addSectionPopup = content.length">
-                    <div class="icon-plus"/>
+                >
+                    <div class="icon-plus" />
                     <div>
                         Добавить секцию
                     </div>
                 </div>
                 <div
-                    class="post-editor-paste-section"
                     v-if="sectionBuffer.length"
-                    @click="pasteSection(content.length)">
-                    <div class="icon-paste"/>
+                    @click="pasteSection(content.length)"
+                    class="post-editor-paste-section"
+                >
+                    <div class="icon-paste" />
                     <div>
                         Вставить секцию
                     </div>
@@ -286,10 +323,10 @@
             @clearStore="clearFormsConfig"
         />
         <div
-            class="post-editor-error-empty-container"
             v-if="options.invalid && focusEmptyContainer"
+            class="post-editor-error-empty-container"
         >
-            <div class="tab-left-label col4"/>
+            <div class="tab-left-label col4" />
             <div class="post-editor-error-message">
                 {{ errorMessage }}
             </div>
@@ -377,43 +414,6 @@ export default {
         };
     },
 
-    watch: {
-        'content': {
-            handler: function () {
-                this.$emit('change', { [this.options.codename]: this.content, });
-                this.clearError();
-            },
-
-            deep: true,
-        },
-
-        passedData(value) {
-            if (!value) {
-                this.content = [];
-            }
-        },
-
-        '$route.params': {
-            handler() {
-                this.content = this.passedData || [];
-            },
-            deep: true,
-        },
-    },
-
-    created(){
-        document.addEventListener('mouseup', this.DragEnd);
-        document.addEventListener('mousemove', function (e) {
-            if (this.sectionOnDrag) this.sectionHoverFunction(e);
-            if (this.widgetOnDrag) this.widgetHoverFunction(e);
-            this.mouseEvent = e;
-        }.bind(this));
-    },
-
-    mounted(){
-        this.content = this.passedData || [];
-    },
-
     computed: {
         ...mapState({
             allConfigs: state => state.configs.postEditor,
@@ -421,7 +421,9 @@ export default {
         }),
 
         sectionBuffer(){
-            return this.$store.getters.getPostEditorSection(!this.options.configCodename ? 'default' : this.options.configCodename);
+            return this.$store.getters.getPostEditorSection(!this.options.configCodename
+                ? 'default'
+                : this.options.configCodename);
         },
 
         editorConfig(){
@@ -452,6 +454,49 @@ export default {
         isEmpty() {
             return this.content == undefined || !this.content.length;
         },
+    },
+
+    watch: {
+        content: {
+            handler: function () {
+                this.$emit('change', { [this.options.codename]: this.content, });
+                this.clearError();
+            },
+            immediate: true,
+            deep: true,
+        },
+
+        passedData: {
+            handler(value) {
+                console.log('passedData');
+                if (!value) {
+                    this.content = [];
+                } else {
+                    this.content = value;
+                }
+            },
+            immediate: true,
+        },
+
+        '$route.params': {
+            handler() {
+                this.content = this.passedData || [];
+            },
+            deep: true,
+        },
+    },
+
+    created(){
+        document.addEventListener('mouseup', this.DragEnd);
+        document.addEventListener('mousemove', function (e) {
+            if (this.sectionOnDrag) this.sectionHoverFunction(e);
+            if (this.widgetOnDrag) this.widgetHoverFunction(e);
+            this.mouseEvent = e;
+        }.bind(this));
+    },
+
+    mounted(){
+        this.content = this.passedData || [];
     },
 
     methods: {
