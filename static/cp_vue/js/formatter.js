@@ -2728,6 +2728,7 @@
             // Устанавливает код из iFrame в texarea
             var rootElement = _getRootElement();
             self.formatterCode.value = rootElement.innerHTML;
+            console.log('_syncCode', rootElement.innerHTML);
             _dispatchChangeCodeEvent();
             _formateCode();
         }
@@ -2744,6 +2745,7 @@
             var rootElement = _getRootElement();
             rootElement.innerHTML = cleanedHtml;
             self.formatterCode.value = cleanedHtml;
+            console.log('_syncDOM', cleanedHtml);
             _dispatchChangeCodeEvent();
             _hidePreloader();
         }

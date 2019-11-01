@@ -1,4 +1,5 @@
 <template>
+    <!-- version 1 -->
     <div
         :class="{'col12': labelPosition === 'top', 'col16': labelPosition === 'left'}"
         :style="(labelPosition === 'left') ? {display: 'flex'} : false"
@@ -152,8 +153,6 @@
 </template>
 
 <script>
-import EventBus from '../../../../../cp_vue/frontend/vue/EventBus.js';
-
 export default {
     name: 'Formatter',
 
@@ -165,8 +164,8 @@ export default {
         config: {
             type: Object,
             default() {
-                return {}
-            }
+                return {};
+            },
         },
         text: String,
     },
@@ -177,6 +176,8 @@ export default {
             hover: false,
             focus: false,
             static_version: "",
+            ready: false,
+            mounted: false,
         };
     },
 
@@ -195,32 +196,55 @@ export default {
             return Array.isArray(this.config.message)
                 ? this.config.message.join(', ')
                 : this.config.message;
-        }
+        },
     },
 
     watch: {
         'config.invalid': {
             handler(value) {
-                this.setInvalid(value)
-            }
+                this.setInvalid(value);
+            },
         },
 
         text(value) {
-            if (value === undefined) {
+            console.log('text', value);
+            if (value == undefined) {
                 this.clearFormatter();
+            } else {
+                this.ready = true;
             }
-        }
+        },
+
+        mounted: {
+            handler(mounted) {
+                if (mounted && this.ready) {
+                    this.initFormatter();
+                }
+            },
+            immediate: true,
+        },
+
+        ready: {
+            handler(ready) {
+                if (ready && this.mounted) {
+                    this.initFormatter();
+                }
+            },
+            immediate: true,
+        },
     },
 
     mounted() {
         this.getStaticVersion();
-        this.initFormatter();
+        this.mounted = true;
+        // this.initFormatter();
     },
 
     methods: {
         initFormatter() {
             const el = this.$refs['formatter-' + this.config.codename];
             this.$nextTick(() => {
+                console.log('initFormatter', this.text);
                 new Formatter(el, {
                     toolbar: [
                         [
@@ -249,7 +273,7 @@ export default {
                                 : "/static/cp_vue/css/formatter/formatter_content.css" + this.static_version,
                     width: 700,
                 });
-            })
+            });
         },
 
         clearFormatter() {
@@ -283,7 +307,7 @@ export default {
 
         clearError() {
             if (this.config.invalid) {
-                this.$emit('clearError', this.config.codename)
+                this.$emit('clearError', this.config.codename);
             }
         },
 

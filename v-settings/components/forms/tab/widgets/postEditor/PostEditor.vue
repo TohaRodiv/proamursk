@@ -468,7 +468,6 @@ export default {
 
         passedData: {
             handler(value) {
-                console.log('passedData');
                 if (!value) {
                     this.content = [];
                 } else {
