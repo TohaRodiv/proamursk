@@ -1,5 +1,5 @@
 <template>
-    <!-- version 1 -->
+    <!-- version 2 -->
     <div
         :class="{'col12': labelPosition === 'top', 'col16': labelPosition === 'left'}"
         :style="(labelPosition === 'left') ? {display: 'flex'} : false"
