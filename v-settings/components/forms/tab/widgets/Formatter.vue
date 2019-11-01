@@ -178,6 +178,7 @@ export default {
             static_version: "",
             ready: false,
             mounted: false,
+            init: false,
         };
     },
 
@@ -207,7 +208,6 @@ export default {
         },
 
         text(value) {
-            console.log('text', value);
             if (value == undefined) {
                 this.clearFormatter();
             } else {
@@ -237,43 +237,44 @@ export default {
     mounted() {
         this.getStaticVersion();
         this.mounted = true;
-        // this.initFormatter();
     },
 
     methods: {
         initFormatter() {
-            const el = this.$refs['formatter-' + this.config.codename];
-            this.$nextTick(() => {
-                console.log('initFormatter', this.text);
-                new Formatter(el, {
-                    toolbar: [
-                        [
-                            "bold",
-                            "italic",
-                            "strikeThrough",
-                            "underline",
-                            "|",
-                            "insertUnorderedList",
-                            "insertOrderedList",
-                            "|",
-                            "justifyLeft",
-                            "justifyCenter",
-                            "justifyRight",
-                            "justifyFull",
-                            "|",
-                            "link",
-                            "specialChar",
-                            "footnote",
+            if (!this.init) {
+                this.init = true;
+                const el = this.$refs['formatter-' + this.config.codename];
+                this.$nextTick(() => {
+                    new Formatter(el, {
+                        toolbar: [
+                            [
+                                "bold",
+                                "italic",
+                                "strikeThrough",
+                                "underline",
+                                "|",
+                                "insertUnorderedList",
+                                "insertOrderedList",
+                                "|",
+                                "justifyLeft",
+                                "justifyCenter",
+                                "justifyRight",
+                                "justifyFull",
+                                "|",
+                                "link",
+                                "specialChar",
+                                "footnote",
+                            ],
+                            ["setStyle", "fontColor", "backgroundColor",],
                         ],
-                        ["setStyle", "fontColor", "backgroundColor",],
-                    ],
-                    formatterFrameCssPath:
+                        formatterFrameCssPath:
                             process.env.NODE_ENV === "development"
                                 ? "/v-settings/src/css/formatter_content.css" + this.static_version
                                 : "/static/cp_vue/css/formatter/formatter_content.css" + this.static_version,
-                    width: 700,
+                        width: 700,
+                    });
                 });
-            });
+            }
         },
 
         clearFormatter() {
