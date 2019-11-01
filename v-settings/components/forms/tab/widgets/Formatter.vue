@@ -207,12 +207,15 @@ export default {
             },
         },
 
-        text(value) {
-            if (value == undefined) {
-                this.clearFormatter();
-            } else {
-                this.ready = true;
-            }
+        text: {
+            handler(value) {
+                if (value == undefined) {
+                    this.clearFormatter();
+                } else {
+                    this.ready = true;
+                }
+            },
+            immediate: true,
         },
 
         mounted: {

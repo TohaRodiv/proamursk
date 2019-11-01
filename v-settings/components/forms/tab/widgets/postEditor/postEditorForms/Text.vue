@@ -182,7 +182,7 @@ export default {
             this.paddingBottom = this.passedData.paddingBottom || null;
         },
 
-        validate(){
+        validate() {
             let hasError = false;
             if (!this.text) {
                 this.textConfig.invalid = true;
