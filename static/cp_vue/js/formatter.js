@@ -749,7 +749,6 @@
                 self.iframeDocument.addEventListener('keyup', _onkeyup);
                 self.iframeDocument.addEventListener('keydown', _onkeydown);
                 self.iframeDocument.addEventListener('keypress', _onkeypress);
-                self.formatterCode.addEventListener('sync', _syncDOM);
                 if (self.formatterCode && !self.formatterCode.value) {
                     var rootElement = _getRootElement();
                     rootElement.appendChild(_getNewLineElement());
