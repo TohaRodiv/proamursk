@@ -26,7 +26,7 @@
                         label-position="top"
                     />
                     <textareaComp
-                        :propData="text"
+                        :value="text"
                         @change="onChange"
                         @clearError="clearError"
                         :config="textConfig"
