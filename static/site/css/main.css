@@ -819,7 +819,8 @@ textarea {
     background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(26, 54, 86, 0.02) 53.1%, rgba(34, 57, 85, 0.25) 77.4%, rgba(38, 43, 54, 0.8) 100%); }
 
 .preview-slider__big-img {
-  display: block; }
+  display: block;
+  height: 100%; }
 
 .preview-slider__small-img-wrap {
   height: 100px;
@@ -1679,7 +1680,8 @@ input.btn_preloader {
   background-color: #DFDFDF; }
 
 .post-editor__block_slider img {
-  display: block; }
+  display: block;
+  height: 100%; }
 
 .post-editor__block_slider .nav-wrapper {
   position: absolute;
