@@ -1,6 +1,6 @@
 const state = {
     columnsConfig: {
-        'subscribers': [
+        subscribers: [
             {
                 name: '',
                 type: 'flag',
@@ -82,15 +82,15 @@ const state = {
         ],
     },
     actionsConfig: {
-        'subscribers': {
+        subscribers: {
             addButton: true,
             activationButtons: true,
             deleteButton: false,
-            duplicateButton: false,
+            duplicateButton: true,
         },
     },
     filterConfig: {
-        'subscribers': [
+        subscribers: [
             {
                 filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',

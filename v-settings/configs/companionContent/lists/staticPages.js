@@ -1,19 +1,10 @@
+import { idWithoutCheckboxWithMenu, menuWithoutCheckbox } from '../../columns';
+
 const state = {
     columnsConfig: {
         'static-pages': [
-            {
-                name: '#',
-                type: 'int',
-                is_sortable: true,
-                align_text: 'left',
-                width: 100,
-                fixed: true,
-                codename: 'id',
-                sort: {
-                    direction: 'DESC',
-                    order_by: 'id',
-                },
-            },
+            idWithoutCheckboxWithMenu,
+            menuWithoutCheckbox,
             {
                 name: 'Название',
                 type: 'int',
