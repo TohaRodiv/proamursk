@@ -1,0 +1,398 @@
+.sp-dance
+    padding-top: 0
+    overflow: hidden
+
+.sp-dance__share-block
+    margin: 100px auto 50px
+
+    .share-widget
+        display: block
+        text-align: center
+
+    .share-widget__text
+        display: block
+        margin-bottom: 15px
+        margin-right: 0
+
+    .share-widget__links-wrap
+        justify-content: center
+
+    .share-widget__link-img
+        width: 37px
+        height: 37px
+
+    .share-widget__link:not(:last-child)
+        margin-right: 15px
+
+.sp-dance__photo,
+.sp-dance__preview-slider,
+.sp-dance__preview-slider .slide,
+.preview-slider__big-img-wrap::after
+    border-radius: 8px
+
+.preview-slider__big-img-wrap::after,
+.sp-dance__preview-slider .slide
+    overflow: hidden
+
+.sp-dance-light-section
+    padding-top: 110px
+    padding-bottom: 170px
+    background-color: #fbfcfd
+    border-top: 1px solid #d7dbe0
+    border-bottom: 1px solid #d7dbe0
+
+.sp-dance-header
+    position: relative
+    padding-top: 100px
+    padding-bottom: 160px
+    background-image: url(../images/special-projects/dance/header-decor.svg)
+    background-size: 1430px
+    background-position: center 80px
+    background-repeat: no-repeat
+
+    &__container
+        display: flex
+
+    &__content
+        width: 50%
+        margin-top: 100px
+        padding-left: 110px
+
+    &__title
+        margin-bottom: 20px
+        font-size: 76px
+        line-height: $micro-lh
+        font-family: $bold-f
+
+    &__description
+        width: 450px
+        margin-top: 0
+        margin-bottom: 1em
+        font-size: $medium-fz
+        font-family: $add-sb-it-f
+
+    &__wobbler
+        display: inline-block
+        margin-bottom: 80px
+
+    &__img-container
+        position: relative
+        width: 50%
+
+        &::after
+            content: ""
+            position: absolute
+            top: 50%
+            left: 60px
+            transform: translateY(-50%)
+            z-index: 1
+            display: block
+            width: 470px
+            height: 470px
+            border-radius: 50%
+            background-color: $base-c
+
+    &__img
+        display: block
+        width: 520px
+        margin-left: auto
+        transform: scale(-1, 1)
+        position: relative
+        z-index: 2
+
+.sp-dance-title
+    &_base
+        margin-bottom: 40px
+
+    &_line
+        display: flex
+        align-items: center
+
+        &::before
+            content: ""
+            display: block
+            flex-grow: 1
+            height: 1px
+            background-color: #7a8ba1
+            margin-right: 20px
+
+        &::after
+            content: ""
+            display: block
+            flex-grow: 1
+            height: 1px
+            background-color: #7a8ba1
+            margin-left: 20px
+
+    &_icon
+        &::before
+            content: ""
+            display: block
+            margin: 0 auto 40px
+            background-repeat: no-repeat
+
+        &_where-to-go
+            &::before
+                width: 140px
+                height: 132px
+                background-image: url(../images/special-projects/dance/where-to-go.svg)
+
+        &_children
+            &::before
+                width: 108px
+                height: 94px
+                background-image: url(../images/special-projects/dance/children.svg)
+
+        &_adult
+            &::before
+                width: 156px
+                height: 122px
+                background-image: url(../images/special-projects/dance/adult.svg)
+
+.sp-dance-h2-title
+    font-size: 42px
+    line-height: 1.2
+    font-family: $bold-f
+    letter-spacing: 0.02em
+    text-transform: uppercase
+    text-align: center
+
+.sp-dance-h3-title
+    font-size: $medium-fz
+    line-height: 1.2
+    font-family: $bold-f
+    letter-spacing: 0.02em
+    text-transform: uppercase
+    text-align: center
+
+.sp-dance-title-subtext
+    margin-top: -10px
+    font-size: 18px
+    text-align: center
+
+.sp-dance-styles-list
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-gap: 0 20px
+    margin: 100px 0 60px
+    counter-reset: styles-list
+
+.sp-dance-style
+    position: relative
+    border-radius: 8px
+    overflow: hidden
+
+    &::before
+        content: ""
+        position: absolute
+        top: 0
+        z-index: 1
+        width: 100%
+        height: 100%
+        background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(26, 54, 86, 0.02) 53.1%, rgba(34, 57, 85, 0.25) 77.4%, rgba(38, 43, 54, 0.8) 100%);
+
+    &__img
+        display: block
+        width: 100%
+
+    &__title
+        position: absolute
+        bottom: 20px
+        left: 15px
+        right: 15px
+        z-index: 2
+        height: 90px
+        font-size: $medium-fz
+        line-height: $micro-lh
+        font-family: $bold-f
+        color: $light-c
+        text-align: center
+
+        &::before
+            counter-increment: styles-list
+            content: counter(styles-list)
+            display: block
+            width: 36px
+            height: 36px
+            margin: 0 auto 10px
+            font-size: $big-fz
+            line-height: 36px
+            border-radius: 50%
+            background-color: $base-c
+
+.sp-dance-styles-slider
+    height: 620px
+    margin-bottom: 180px
+    background-color: $light-c
+    border: 1px solid #d2d7dd
+    border-radius: 4px
+
+    .slider-arrow
+        display: block
+        width: 48px
+        height: 48px
+        border-radius: 50%
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        z-index: 2
+        font-size: 25px
+        line-height: 50px
+        color: $base-c
+        background-color: #EFF3F9
+
+        &-prev
+            left: 20px
+            padding-right: 2px
+
+        &-next
+            right: 20px
+            padding-left: 5px
+
+    &__slide
+        padding: 110px
+
+    &__content
+        width: 490px
+
+    &__title
+        height: 62px
+        margin-bottom: 35px
+        font-size: $big-fz
+        font-family: $bold-f
+        text-transform: uppercase
+        color: $base-c
+
+    &__text
+        font-size: $base-fz
+
+    &__img
+        position: absolute
+
+        &_1
+            width: 320px
+            top: 68px
+            right: 110px
+
+        &_2
+            width: 380px
+            top: 110px
+            right: 80px
+
+        &_3
+            width: 490px
+            top: 93px
+            right: 70px
+
+        &_4
+            width: 410px
+            top: 110px
+            right: 110px
+
+        &_5
+            width: 320px
+            top: 75px
+            right: 110px
+
+.sp-dance-section-where-to-go
+    background-image: url(../images/special-projects/dance/decor-left.svg), url(../images/special-projects/dance/decor-right.svg)
+    background-position: calc(50vw - 900px) center, calc(50vw + 450px) center
+    background-repeat: no-repeat
+
+    &_children
+        margin-bottom: 120px
+
+.sp-dance-place-round
+    &__list
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: flex-start
+        margin: 0 -32px -75px
+        padding: 0
+
+    &__item
+        width: 222px
+        margin: 0 32px 75px
+        text-align: center
+
+    &__img
+        display: block
+        margin: 0 auto 20px
+
+    &__title
+        margin-bottom: 5px
+        font-size: $medium-fz
+        font-family: $add-sb-it-f
+
+    &__description
+        font-size: $mini-fz
+        font-style: italic
+
+.sp-dance__contacts-table
+    font-size: 16px
+    font-family: $base-f
+
+    [class^="icon-"]
+        display: inline-block
+        width: 18px
+        height: 20px
+        margin-right: 10px
+        font-size: 0
+        line-height: 20px
+        color: $base-c
+        vertical-align: -2px
+        text-align: center
+
+    [class^="icon-"]::before
+        font-size: 17px
+
+    .icon-mail::before
+        font-size: 13px
+
+    a
+        color: $base-c
+        text-decoration: none
+
+        &:hover,
+        &:focus
+            text-decoration: underline
+
+    tr:not(:last-child) td
+        padding-bottom: 10px
+
+    td
+        padding-top: 0
+        padding-left: 0
+        padding-right: 0
+        vertical-align: baseline
+
+
+.sp-dance-person
+    &__photo
+        display: block
+        width: 106px
+        height: 106px
+        margin-bottom: 35px
+        border-radius: 50%
+
+    &__name
+        display: block
+        font-size: $medium-fz
+        font-family: $bold-f
+        color: $base-c
+
+    &__work
+        display: block
+        font-size: $base-fz
+        font-family: $add-sb-it-f
+
+.sp-dance-place-full__list
+    padding: 0
+    margin-bottom: 0
+
+.sp-dance-slider_small
+    height: 380px
+
+.sp-dance-slider_big
+    height: 760px
