@@ -6044,6 +6044,10 @@ footer {
 .sp-dance {
   padding-top: 0;
   overflow: hidden; }
+  .sp-dance .slider:hover .sp-dance-slider__thin-arrow-container {
+    opacity: 1; }
+  .sp-dance .slider .nav-wrapper {
+    left: 0; }
 
 .sp-dance__share-block {
   margin: 100px auto 50px; }
@@ -6293,9 +6297,6 @@ footer {
 
 .sp-dance-arrow-slider_outer .slider-arrow-next {
   right: -90px; }
-
-.slider:hover .sp-dance-slider__thin-arrow-container {
-  opacity: 1; }
 
 .sp-dance-slider__thin-arrow-container {
   position: absolute;
