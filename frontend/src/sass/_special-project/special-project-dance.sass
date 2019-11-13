@@ -513,3 +513,99 @@
     position: relative
     z-index: 2
     font-size: $small-fz
+
+.sp-dance-qa
+    &-list
+        display: flex
+        justify-content: space-between
+        margin: 0
+        padding: 0
+
+    &-item
+        width: 370px
+        padding: 40px 40px 60px
+        background-color: $light-c
+        border-radius: 8px
+
+    &__question
+        margin-bottom: 20px
+        font-size: $big-fz
+        font-family: $bold-f
+        color: $base-c
+        text-align: center
+
+    &__answer
+
+.sp-dance-splash
+    padding: 70px 0 50px
+    background-color: $dark-c
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    text-align: center
+    color: $light-c
+
+    &__title
+        width: 480px
+        margin: 0 auto 30px
+
+    &__description
+        width: 575px
+        margin: 0 auto 20px
+        font-size: $medium-fz
+        font-family: $add-sb-it-f
+
+.sp-dance-online
+    &-list
+        margin: 0
+        padding: 0
+
+    &-item
+        display: flex
+        align-items: flex-start
+
+        &:not(:first-child)
+            padding-top: 60px
+
+        &:not(:last-child)
+            padding-bottom: 60px
+            border-bottom: 1px solid #7a8ba1
+
+    &__cover
+        display: block
+        width: 320px
+        flex-shrink: 0
+        margin-right: 65px
+
+    &__content
+        flex-grow: 1
+
+    &__title
+        margin-bottom: 20px
+        text-align: left
+
+    &__description
+
+    &__site
+        display: inline-block
+        margin-top: 20px
+        color: $base-c
+        text-decoration: none
+
+        &:hover span
+            text-decoration: underline
+
+        span
+            margin-left: 20px
+            vertical-align: 2px
+
+        &_youtube
+            &::before
+                content: ""
+                display: inline-block
+                width: 22px
+                height: 18px
+                margin-right: -4px
+                background-image: url(../images/special-projects/dance/youtube.svg)
+                background-repeat:
+                background-size: contain

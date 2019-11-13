@@ -6545,4 +6545,96 @@ footer {
   z-index: 2;
   font-size: 15px; }
 
+.sp-dance-qa-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0;
+  padding: 0; }
+
+.sp-dance-qa-item {
+  width: 370px;
+  padding: 40px 40px 60px;
+  background-color: #FFFFFF;
+  border-radius: 8px; }
+
+.sp-dance-qa__question {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+  color: #0073FF;
+  text-align: center; }
+
+.sp-dance-splash {
+  padding: 70px 0 50px;
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: #FFFFFF; }
+  .sp-dance-splash__title {
+    width: 480px;
+    margin: 0 auto 30px; }
+  .sp-dance-splash__description {
+    width: 575px;
+    margin: 0 auto 20px;
+    font-size: 22px;
+    font-family: "SegoeUI Semibold It", Arial, Helvetica, sans-serif; }
+
+.sp-dance-online-list {
+  margin: 0;
+  padding: 0; }
+
+.sp-dance-online-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+  .sp-dance-online-item:not(:first-child) {
+    padding-top: 60px; }
+  .sp-dance-online-item:not(:last-child) {
+    padding-bottom: 60px;
+    border-bottom: 1px solid #7a8ba1; }
+
+.sp-dance-online__cover {
+  display: block;
+  width: 320px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 65px; }
+
+.sp-dance-online__content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+.sp-dance-online__title {
+  margin-bottom: 20px;
+  text-align: left; }
+
+.sp-dance-online__site {
+  display: inline-block;
+  margin-top: 20px;
+  color: #0073FF;
+  text-decoration: none; }
+  .sp-dance-online__site:hover span {
+    text-decoration: underline; }
+  .sp-dance-online__site span {
+    margin-left: 20px;
+    vertical-align: 2px; }
+  .sp-dance-online__site_youtube::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 18px;
+    margin-right: -4px;
+    background-image: url(../images/special-projects/dance/youtube.svg);
+    background-size: contain; }
+
 /*# sourceMappingURL=main.min.css.map */
