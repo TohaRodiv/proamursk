@@ -220,13 +220,7 @@
             border-radius: 50%
             background-color: $base-c
 
-.sp-dance-styles-slider
-    height: 620px
-    margin-bottom: 180px
-    background-color: $light-c
-    border: 1px solid #d2d7dd
-    border-radius: 4px
-
+.sp-dance-arrow-slider
     .slider-arrow
         display: block
         width: 48px
@@ -248,6 +242,55 @@
         &-next
             right: 20px
             padding-left: 5px
+
+.sp-dance-arrow-slider_outer
+    .slider-arrow
+        &-prev
+            left: -90px
+
+        &-next
+            right: -90px
+
+.slider
+    &:hover
+        .sp-dance-slider__thin-arrow-container
+            opacity: 1
+
+.sp-dance-slider__thin-arrow-container
+    position: absolute
+    width: 100%
+    height: 760px
+    top: 0
+    opacity: 0
+    transition: opacity 0.2s
+
+    .slider-arrow
+        display: flex
+        align-items: center
+        justify-content: center
+        position: absolute
+        top: 0
+        z-index: 2
+        width: 160px
+        height: 100%
+        font-size: 35px
+        color: $light-c
+        border-radius: 28px
+
+    .slider-arrow-prev
+        left: 0
+        background: linear-gradient(90deg, rgba(#4c607b, 0.55) 0%, rgba(#4c607b, 0) 100%)
+
+    .slider-arrow-next
+        right: 0
+        background: linear-gradient(90deg, rgba(#4c607b, 0) 0%, rgba(#4c607b, 0.55) 100%)
+
+.sp-dance-styles-slider
+    height: 620px
+    margin-bottom: 180px
+    background-color: $light-c
+    border: 1px solid #d2d7dd
+    border-radius: 4px
 
     &__slide
         padding: 110px
@@ -367,7 +410,6 @@
         padding-right: 0
         vertical-align: baseline
 
-
 .sp-dance-person
     &__photo
         display: block
@@ -396,3 +438,41 @@
 
 .sp-dance-slider_big
     height: 760px
+
+.sp-dance-feedback-section
+    padding: 40px 0 60px
+    background-color: #FBFCFD
+
+.sp-dance-place1-feedback-slider
+    height: 540px
+
+.sp-dance-direct-speech
+    height: 100%
+    padding: 80px 110px
+    background-color: $light-c
+    border-radius: 56px
+
+.sp-dance-direct-speech__author-description
+    margin-bottom: 40px
+
+.sp-dance-direct-speech__text-wrap
+    position: relative
+    flex-grow: 1
+
+    &::before
+        content: ""
+        display: block
+        width: 80px
+        height: 50px
+        position: absolute
+        top: -15px
+        left: -40px
+        z-index: 1
+        background-image: url(../images/special-projects/summer-money/svg/quotes.svg)
+        background-size: contain
+        background-repeat: no-repeat
+
+.sp-dance-direct-speech__text
+    position: relative
+    z-index: 2
+    font-size: $small-fz
