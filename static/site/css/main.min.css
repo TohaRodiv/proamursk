@@ -6131,6 +6131,7 @@ footer {
   .sp-dance-header__img {
     display: block;
     width: 520px;
+    height: 744px;
     margin-left: auto;
     -webkit-transform: scale(-1, 1);
         -ms-transform: scale(-1, 1);
@@ -6603,11 +6604,12 @@ footer {
     border-bottom: 1px solid #7a8ba1; }
 
 .sp-dance-online__cover {
-  display: block;
   width: 320px;
+  height: 200px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  margin-right: 65px; }
+  margin-right: 65px;
+  background-color: #DFDFDF; }
 
 .sp-dance-online__content {
   -webkit-box-flex: 1;
