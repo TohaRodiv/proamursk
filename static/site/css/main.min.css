@@ -5206,11 +5206,12 @@ footer {
 .sp-summer-money {
   padding-top: 0;
   overflow: hidden; }
+  .sp-summer-money .preview-slider__big-img-wrap::after {
+    border-radius: 28px; }
 
 .sp-summer-money__photo,
 .sp-summer-money__preview-slider,
-.sp-summer-money__preview-slider .slide,
-.preview-slider__big-img-wrap::after {
+.sp-summer-money__preview-slider .slide {
   border-radius: 28px; }
 
 .preview-slider__big-img-wrap::after,
