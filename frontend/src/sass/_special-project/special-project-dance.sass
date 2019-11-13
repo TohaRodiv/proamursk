@@ -432,6 +432,21 @@
 .sp-dance-place-full__list
     padding: 0
     margin-bottom: 0
+    counter-reset: places-list
+
+.sp-dance-place-full__title
+    &::before
+        counter-increment: places-list
+        content: counter(places-list)
+        display: block
+        width: 64px
+        height: 64px
+        margin: 0 auto 30px
+        font-size: $huge-fz
+        line-height: 64px
+        color: $light-c
+        border-radius: 50%
+        background-color: $base-c
 
 .sp-dance-slider_small
     height: 380px
@@ -448,6 +463,9 @@
 
 .sp-dance-place2-feedback-slider
     height: 360px
+
+.sp-dance-place3-feedback-slider
+    height: 440px
 
 .sp-dance-direct-speech
     height: 100%
