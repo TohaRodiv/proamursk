@@ -196,6 +196,7 @@
     border-radius: 8px
     overflow: hidden
     cursor: pointer
+    background-color: $light-gray
 
     &::before
         content: ""
@@ -207,8 +208,8 @@
         background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(26, 54, 86, 0.02) 53.1%, rgba(34, 57, 85, 0.25) 77.4%, rgba(38, 43, 54, 0.8) 100%);
 
     &__img
-        display: block
         width: 100%
+        height: 288px
 
     &__title
         position: absolute
@@ -373,11 +374,14 @@
         text-align: center
 
         a
+            display: block
             color: $dark-c
             text-decoration: none
 
     &__img
         display: block
+        width: 220px
+        height: 220px
         margin: 0 auto 20px
 
     &__title
@@ -455,6 +459,11 @@
 
 .sp-dance-place-full__list_adult
     counter-reset: places-list 7
+
+.sp-dance-place-full__cover
+    display: block
+    height: 540px
+    background-color: $light-gray
 
 .sp-dance-place-full__title
     &::before
