@@ -8093,6 +8093,13 @@ function setSliderTimeline(slider, newActiveSlideIndex) {
 }
 "use strict";
 
+$('.js-sp-dance-style-slider-item').click(function () {
+  var clickedIndex = $(this).index();
+  var sliderBulletByIndex = $('.js-sp-dance-styles-slider .slider-circle-item').eq(clickedIndex);
+  sliderBulletByIndex.trigger('click');
+});
+"use strict";
+
 $('.subscribe-form').submit(function (event) {
   event.preventDefault();
   validateFormFields($(this));

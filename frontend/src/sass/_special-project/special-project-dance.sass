@@ -195,6 +195,7 @@
     position: relative
     border-radius: 8px
     overflow: hidden
+    cursor: pointer
 
     &::before
         content: ""
@@ -301,6 +302,9 @@
     border: 1px solid #d2d7dd
     border-radius: 4px
 
+    .slider-circles-container
+        display: none
+
     &__slide
         padding: 110px
 
@@ -367,6 +371,10 @@
         width: 222px
         margin: 0 32px 75px
         text-align: center
+
+        a
+            color: $dark-c
+            text-decoration: none
 
     &__img
         display: block

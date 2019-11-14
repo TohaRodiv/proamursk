@@ -6231,7 +6231,8 @@ footer {
 .sp-dance-style {
   position: relative;
   border-radius: 8px;
-  overflow: hidden; }
+  overflow: hidden;
+  cursor: pointer; }
   .sp-dance-style::before {
     content: "";
     position: absolute;
@@ -6344,6 +6345,8 @@ footer {
   background-color: #FFFFFF;
   border: 1px solid #d2d7dd;
   border-radius: 4px; }
+  .sp-dance-styles-slider .slider-circles-container {
+    display: none; }
   .sp-dance-styles-slider__slide {
     padding: 110px; }
   .sp-dance-styles-slider__content {
@@ -6406,6 +6409,9 @@ footer {
   width: 222px;
   margin: 0 32px 75px;
   text-align: center; }
+  .sp-dance-place-round__item a {
+    color: #000000;
+    text-decoration: none; }
 
 .sp-dance-place-round__img {
   display: block;
