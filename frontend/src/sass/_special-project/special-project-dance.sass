@@ -1,6 +1,5 @@
 .sp-dance
     padding-top: 0
-    overflow: hidden
 
     .slider
         &:hover
@@ -617,3 +616,48 @@
                 background-image: url(../images/special-projects/dance/youtube.svg)
                 background-repeat:
                 background-size: contain
+
+
+.sp-dance-plases-nav
+    position: sticky
+    top: 20px
+    left: calc((100vw - 1300px) / 2 + 1300px + 40px)
+    z-index: 10
+    width: 170px
+    margin-top: 20px
+    margin-bottom: 20px
+    padding: 30px
+    font-size: 14px
+    color: $light-c
+    background-color: $base-c
+    border-radius: 8px
+    counter-reset: places-nav
+
+    & + div
+        margin-top: -253px
+
+    &__title
+        margin-bottom: .5em
+        text-transform: uppercase
+
+    &__list
+        margin: 0
+        padding: 0
+
+        &:not(:last-child)
+            margin-bottom: 1em
+
+    &__item
+        line-height: $base-lh
+
+        &::before
+            counter-increment: places-nav
+            content: counter(places-nav) "."
+            margin-right: 10px
+
+    &__link
+        text-decoration: none
+        color: inherit
+
+        &:hover
+            text-decoration: underline

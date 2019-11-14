@@ -6043,8 +6043,7 @@ footer {
     margin-right: 15px; }
 
 .sp-dance {
-  padding-top: 0;
-  overflow: hidden; }
+  padding-top: 0; }
   .sp-dance .slider:hover .sp-dance-slider__thin-arrow-container {
     opacity: 1; }
   .sp-dance .slider .nav-wrapper {
@@ -6643,5 +6642,42 @@ footer {
     margin-right: -4px;
     background-image: url(../images/special-projects/dance/youtube.svg);
     background-size: contain; }
+
+.sp-dance-plases-nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  left: calc((100vw - 1300px) / 2 + 1300px + 40px);
+  z-index: 10;
+  width: 170px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 30px;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #0073FF;
+  border-radius: 8px;
+  counter-reset: places-nav; }
+  .sp-dance-plases-nav + div {
+    margin-top: -253px; }
+  .sp-dance-plases-nav__title {
+    margin-bottom: .5em;
+    text-transform: uppercase; }
+  .sp-dance-plases-nav__list {
+    margin: 0;
+    padding: 0; }
+    .sp-dance-plases-nav__list:not(:last-child) {
+      margin-bottom: 1em; }
+  .sp-dance-plases-nav__item {
+    line-height: 1.5; }
+    .sp-dance-plases-nav__item::before {
+      counter-increment: places-nav;
+      content: counter(places-nav) ".";
+      margin-right: 10px; }
+  .sp-dance-plases-nav__link {
+    text-decoration: none;
+    color: inherit; }
+    .sp-dance-plases-nav__link:hover {
+      text-decoration: underline; }
 
 /*# sourceMappingURL=main.min.css.map */
