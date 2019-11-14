@@ -4016,6 +4016,8 @@ footer {
     -webkit-box-flex: 0;
         -ms-flex-positive: 0;
             flex-grow: 0; }
+  .sp-9col_3-6 .sp-6col {
+    margin: 0; }
 
 .sp-9col_5-4 {
   display: -webkit-box;
@@ -4026,12 +4028,14 @@ footer {
           align-items: flex-start; }
   .sp-9col_5-4 .sp-5col {
     width: 530px;
-    margin-right: 60px;
+    margin-right: 70px;
     -ms-flex-negative: 0;
         flex-shrink: 0;
     -webkit-box-flex: 0;
         -ms-flex-positive: 0;
             flex-grow: 0; }
+    .sp-9col_5-4 .sp-5col + .sp-block {
+      width: 370px; }
 
 .sp-6col_4-2 {
   display: -webkit-box;
