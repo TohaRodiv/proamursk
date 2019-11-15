@@ -262,10 +262,10 @@
 .sp-dance-arrow-slider_outer
     .slider-arrow
         &-prev
-            left: -90px
+            left: -40px
 
         &-next
-            right: -90px
+            right: -40px
 
 .sp-dance-slider__thin-arrow-container
     position: absolute
@@ -496,22 +496,29 @@
     background-color: #FBFCFD
 
 .sp-dance-place1-feedback-slider
-    height: 500px
+    height: 600px
 
 .sp-dance-place2-feedback-slider
-    height: 360px
+    height: 460px
 
 .sp-dance-place3-feedback-slider
-    height: 440px
+    height: 540px
 
 .sp-dance-place7-feedback-slider
-    height: 330px
+    height: 430px
+
+.sp-dance-direct-speech-wrap
+    width: 1180px
+    margin-left: auto
+    margin-right: auto
 
 .sp-dance-direct-speech
-    height: 100%
+    height: calc(100% - 100px)
+    margin: 50px
     padding: 60px 110px
     background-color: $light-c
     border-radius: 56px
+    box-shadow: 0px 26px 28px #e1ecf7
 
 .sp-dance-direct-speech__author-description
     margin-bottom: 40px
@@ -552,7 +559,8 @@
         border-radius: 8px
 
     &__question
-        margin-bottom: 20px
+        height: 124px
+        margin: 0 20px 20px
         font-size: $big-fz
         font-family: $bold-f
         color: $base-c
@@ -638,7 +646,7 @@
 .sp-dance-plases-nav
     position: sticky
     top: 20px
-    left: calc((100vw - 1300px) / 2 + 1300px + 60px)
+    left: calc((100vw - 1300px) / 2 + 1300px + (((100vw - 1300px) / 4 - 85px))
     z-index: 10
     width: 170px
     margin-top: 20px
