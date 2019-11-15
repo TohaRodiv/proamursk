@@ -6,7 +6,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 SECRET_KEY = 'mv*#bsq_%91s(*zxmbg8n5_+ua4a_=!9621p0ocomd_r392&-d'
 
-DEBUG = False
+DEBUG = True
 
 ROOT_LINK = 'https://proamursk.ru'
 
