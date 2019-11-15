@@ -7509,7 +7509,7 @@ $(document).ready(function () {
         fixedTopOffset = 40;
     $('html, body').stop().animate({
       scrollTop: $(anchor.attr('href')).offset().top - fixedTopOffset
-    }, 100);
+    }, 300);
     e.preventDefault();
     return false;
   });
@@ -8091,6 +8091,13 @@ function setSliderTimeline(slider, newActiveSlideIndex) {
     }
   });
 }
+"use strict";
+
+$('.js-sp-dance-style-slider-item').click(function () {
+  var clickedIndex = $(this).index();
+  var sliderBulletByIndex = $('.js-sp-dance-styles-slider .slider-circle-item').eq(clickedIndex);
+  sliderBulletByIndex.trigger('click');
+});
 "use strict";
 
 $('.subscribe-form').submit(function (event) {

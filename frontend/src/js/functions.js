@@ -67,7 +67,6 @@ function resizeTextarea(visibleTextarea, minHeight, maxHeight) {
     }
 }
 
-
 Array.prototype.remove = function(value) {
     var idx = this.indexOf(value);
     if (idx != -1) {

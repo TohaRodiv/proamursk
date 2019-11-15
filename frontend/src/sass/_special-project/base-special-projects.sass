@@ -2,6 +2,9 @@
     display: block
 
 .sp-block
+    &_mt20
+        margin-top: 20px
+
     &_mt30
         margin-top: 30px
 
@@ -39,6 +42,32 @@
 
         & + .sp-3col
             margin-left: 20px
+
+.sp-9col_3-6
+    display: flex
+    align-items: flex-start
+
+    .sp-3col
+        width: 310px
+        margin-right: 20px
+        flex-shrink: 0
+        flex-grow: 0
+
+    .sp-6col
+        margin: 0
+
+.sp-9col_5-4
+    display: flex
+    align-items: flex-start
+
+    .sp-5col
+        width: 530px
+        margin-right: 70px
+        flex-shrink: 0
+        flex-grow: 0
+
+        & + .sp-block
+            width: 370px
 
 .sp-6col_4-2
     display: flex
@@ -148,3 +177,10 @@
         top: 8px
         background-color: $base-c
         border-radius: 50%
+
+.sp-mark-text
+    margin: 0
+    padding-left: 30px
+    font-family: $add-sb-it-f
+    font-size: $medium-fz
+    border-left: 2px solid $base-c
