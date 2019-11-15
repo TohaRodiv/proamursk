@@ -646,13 +646,12 @@
 
 .sp-dance-plases-nav
     position: sticky
-    top: 20px
+    top: calc(50vh - 155px)
     left: calc((100vw - 1300px) / 2 + 1300px + (((100vw - 1300px) / 4 - 85px))
     z-index: 10
     width: 170px
-    margin-top: 20px
     margin-right: 20px
-    margin-bottom: 20px
+    margin-bottom: 26px
     padding: 30px
     font-size: 14px
     color: $light-c
@@ -660,8 +659,8 @@
     border-radius: 8px
     counter-reset: places-nav
 
-    & + div
-        margin-top: -253px
+    & + *
+        margin-top: -310px
 
     &__title
         margin-bottom: .5em
@@ -672,10 +671,10 @@
         padding: 0
 
         &:not(:last-child)
-            margin-bottom: 1em
+            margin-bottom: 1.3em
 
     &__item
-        line-height: $base-lh
+        line-height: 2
 
         &::before
             counter-increment: places-nav
