@@ -188,15 +188,26 @@
     display: grid
     grid-template-columns: repeat(5, 1fr)
     grid-gap: 0 20px
-    margin: 100px 0 60px
+    margin: 60px 0 300px
+    padding: 0
     counter-reset: styles-list
 
 .sp-dance-style
     position: relative
-    border-radius: 8px
-    overflow: hidden
     cursor: pointer
     background-color: $light-gray
+
+    &_active
+        &::after
+            content: ""
+            display: block
+            width: 100%
+            height: 5px
+            position: absolute
+            left: 0
+            bottom: -20px
+            background-color: #0073FF
+            border-radius: 5px
 
     &::before
         content: ""
@@ -205,20 +216,22 @@
         z-index: 1
         width: 100%
         height: 100%
-        background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(26, 54, 86, 0.02) 53.1%, rgba(34, 57, 85, 0.25) 77.4%, rgba(38, 43, 54, 0.8) 100%);
+        background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(26, 54, 86, 0.02) 53.1%, rgba(34, 57, 85, 0.25) 77.4%, rgba(38, 43, 54, 0.8) 100%)
+        border-radius: 8px
 
     &__img
         width: 100%
-        height: 288px
+        height: 220px
+        border-radius: 8px
 
     &__title
         position: absolute
         bottom: 20px
-        left: 15px
-        right: 15px
+        left: 5px
+        right: 5px
         z-index: 2
         height: 90px
-        font-size: $medium-fz
+        font-size: 20px
         line-height: $micro-lh
         font-family: $bold-f
         color: $light-c
@@ -232,7 +245,7 @@
             height: 36px
             margin: 0 auto 10px
             font-size: $big-fz
-            line-height: 36px
+            line-height: 38px
             border-radius: 50%
             background-color: $base-c
 
@@ -298,13 +311,20 @@
 
 .sp-dance-styles-slider
     height: 690px
-    margin-bottom: 180px
     background-color: $light-c
     border: 1px solid #d2d7dd
     border-radius: 4px
+    box-shadow: 0px 26px 28px #e1ecf7;
 
     .slider-circles-container
         display: none
+
+    .slider-arrow
+        &-prev
+            left: -90px
+
+        &-next
+            right: -90px
 
     &__slide
         padding: 110px

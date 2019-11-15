@@ -7932,6 +7932,11 @@ $('.slider-arrow').on('click', function () {
     slider.find('.preview-slider__small-img-wrap .preview-slider__mini-btn').removeClass('active');
     slider.find('.preview-slider__small-img-wrap .preview-slider__mini-btn').eq(newActiveSlideIndex).addClass('active');
   }
+
+  if (slider.hasClass('js-sp-dance-styles-slider')) {
+    $('.js-sp-dance-style-slider-item').removeClass('sp-dance-style_active');
+    $('.js-sp-dance-style-slider-item').eq(newActiveSlideIndex).addClass('sp-dance-style_active');
+  }
 }); // Переключение слайдов по клику на слайд
 
 $('.post-editor__block_slider .slide').on('click', function () {
@@ -8097,6 +8102,8 @@ $('.js-sp-dance-style-slider-item').click(function () {
   var clickedIndex = $(this).index();
   var sliderBulletByIndex = $('.js-sp-dance-styles-slider .slider-circle-item').eq(clickedIndex);
   sliderBulletByIndex.trigger('click');
+  $('.js-sp-dance-style-slider-item').removeClass('sp-dance-style_active');
+  $(this).addClass('sp-dance-style_active');
 });
 "use strict";
 
