@@ -7509,7 +7509,7 @@ $(document).ready(function () {
         fixedTopOffset = 40;
     $('html, body').stop().animate({
       scrollTop: $(anchor.attr('href')).offset().top - fixedTopOffset
-    }, 500);
+    }, 1000);
     e.preventDefault();
     return false;
   });
