@@ -109,11 +109,11 @@ const state = {
                                 options: [
                                     {
                                         label: 'Обычная обложка',
-                                        codename: 'small',
+                                        value: 'small',
                                     },
                                     {
                                         label: 'Полноразмерная обложка',
-                                        codename: 'full',
+                                        value: 'full',
                                     },
                                 ],
                                 default: 'small',

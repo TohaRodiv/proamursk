@@ -1,5 +1,5 @@
 <template>
-    <!-- version 2-->
+    <!-- version 3-->
     <div
         id="form"
         class="forms"
@@ -8,8 +8,7 @@
             v-show="preloader"
             :loading="loading"
             :forceDisable="disablePreloader"
-            @enablePreloader="preloader = true"
-            @disablePreloader="preloader = false"
+            @preloader="preloader = $event"
             class="form__preloader"
         >
             <img
@@ -93,19 +92,6 @@
                     />
                 </div>
             </div>
-
-            <deletePopup
-                @closeDeletePopup="showDeletePopup = false"
-                v-if="showDeletePopup"
-                @onDelete="typeOfMove === 'onDelete'"
-            />
-            <unsavedPopup
-                @closePopup="showUnsavedPopup = false"
-                @continue="forceLeaveRoute"
-                :pathForRouter="unsavedPopupDaWae"
-                v-if="showUnsavedPopup"
-            />
-
             <div
                 class="forms-buttons-container"
             >
@@ -122,7 +108,7 @@
                             </button>
                             <button
                                 v-if="hasDelete"
-                                @click="showDeletePopup = true"
+                                @click="remove"
                                 :disabled="buttonsDisabled"
                                 class="button borderless-button forms-cancel-button"
                             >
@@ -163,7 +149,7 @@
 </template>
 
 <script>
-import source from '../../../cp_vue/frontend/vue/components/workzone/Forms.js';
+import source from '../../../cp_vue/frontend/vue/components/workzone/Forms.vue';
 import tab from './tab/Tab.vue';
 
 source.components.tab = tab;
