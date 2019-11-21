@@ -1,23 +1,11 @@
 <template>
-    <div
-        :class="{'popup-wrapper-transition': showTransition}"
-        class="popup-wrapper"
-        style="display: block;"
+    <cp-popup-wrap
+        @close="close"
+        disable-preloader
     >
-        <div
-            v-show="showTransition"
-            class="popup-container"
-            style="max-width: 780px;"
-        >
-            <div
-                @click="closePopup"
-                class="popup-close-icon icon-close"
-            />
-            <div class="popup-post-editor-forms-label">
-                Прямая речь
-            </div>
-            <div class="popup-post-editor-forms-wrapper">
-                <div style="display: flex; margin-bottom: 22px;">
+        <cp-popup-layout title="Прямая речь">
+            <template v-slot:body>
+                <cp-form-row>
                     <imageLoader
                         @change="onChange"
                         @setError="setError"
@@ -27,7 +15,7 @@
                         style="width: 340px;"
                         label-position="top"
                     />
-                    <div style="margin-left: 20px;">
+                    <cp-form-row column>
                         <cp-input
                             :value="fio"
                             @change="onChange"
@@ -44,71 +32,66 @@
                             style="width: 340px;"
                             label-position="top"
                         />
-                    </div>
-                </div>
-                <formatter
-                    :text="text"
-                    @change="onChange"
-                    @clearError="clearError"
-                    :config="textConfig"
-                    style="margin-bottom: 43px;"
-                    label-position="top"
-                />
-                <div class="popup-post-editor-forms-indents-wrapper">
-                    <div class="popup-post-editor-forms-indents-title">
-                        Отступы
-                    </div>
-                    <div class="popup-post-editor-forms-indents-container">
-                        <cp-select
-                            :value="marginTop"
-                            :config="marginTopConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="marginBottom"
-                            :config="marginBottomConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="paddingTop"
-                            :config="paddingTopConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="paddingBottom"
-                            :config="paddingBottomConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                    </div>
-                </div>
-            </div>
-            <div class="popup-buttons-wrapper">
-                <div class="popup-buttons-post-editor-container">
-                    <button
-                        @click="closePopup"
-                        class="button borderless-button forms-cancel-button"
-                        style="border-right: none !important;"
-                    >
-                        Отмена
-                    </button>
-                    <button
-                        @click="validate"
-                        class="button forms-save-button"
-                    >
-                        Сохранить
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </cp-form-row>
+                </cp-form-row>
+                <cp-form-row>
+                    <formatter
+                        :text="text"
+                        @change="onChange"
+                        @clearError="clearError"
+                        :config="textConfig"
+                        style="margin-bottom: 43px;"
+                        label-position="top"
+                    />
+                </cp-form-row>
+                <cp-legend>Отступы</cp-legend>
+                <cp-form-row>
+                    <cp-select
+                        :value="marginTop"
+                        :config="marginTopConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="marginBottom"
+                        :config="marginBottomConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="paddingTop"
+                        :config="paddingTopConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="paddingBottom"
+                        :config="paddingBottomConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                </cp-form-row>
+            </template>
+            <template v-slot:footer>
+                <cp-button
+                    @click="close"
+                    class="cp-button cp-button_transparent cp-button_font-red"
+                >
+                    Отмена
+                </cp-button>
+                <cp-button
+                    @click="validate"
+                    class="cp-button cp-button_green cp-button_br-pill"
+                >
+                    Сохранить
+                </cp-button>
+            </template>
+        </cp-popup-layout>
+    </cp-popup-wrap>
 </template>
 
 <script>
@@ -116,6 +99,12 @@ import CpInput from '../../../../../../../cp_vue/frontend/vue/components/workzon
 import CpSelect from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/CpSelectSwitcher.vue';
 import imageLoader from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/loaders/SingleImageLoader.vue';
 import formatter from '../../Formatter.vue';
+import CpPopupWrap from '../../../../../../../cp_vue/frontend/vue/components/popups/CpPopupWrap.vue';
+import CpPopupLayout from '../../../../../../../cp_vue/frontend/vue/components/popups/CpPopupLayout.vue';
+import CpButton from '../../../../../../../cp_vue/frontend/vue/components/buttons/CpButton.vue';
+import CpLegend from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/CpLegend.vue';
+import CpFormRow from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/CpFormRow.vue';
+import popupMixin from '../../../../../../../cp_vue/frontend/vue/components/popups/popupMixin';
 
 const marginOptions = [
     {
@@ -146,7 +135,14 @@ export default {
         imageLoader,
         CpInput,
         CpSelect,
+        CpPopupWrap,
+        CpPopupLayout,
+        CpButton,
+        CpLegend,
+        CpFormRow,
     },
+
+    mixins: [popupMixin,],
 
     props: {
         passedData: {
@@ -159,7 +155,6 @@ export default {
 
     data() {
         return {
-            showTransition: false,
             fioConfig: {
                 label: 'ФИО',
                 required: true,
@@ -230,14 +225,14 @@ export default {
             job: '',
             image: {},
             text: '',
-            marginTop: null,
-            marginBottom: null,
-            paddingTop: null,
-            paddingBottom: null,
+            marginTop: '',
+            marginBottom: '',
+            paddingTop: '',
+            paddingBottom: '',
         };
     },
+
     mounted() {
-        setTimeout(() => this.showTransition = true, 200);
         this.setData();
     },
         
@@ -247,10 +242,10 @@ export default {
             this.job = this.passedData.job || '';
             this.image = this.passedData.image || {};
             this.text = this.passedData.text || '';
-            this.marginTop = this.passedData.marginTop || null;
-            this.marginBottom = this.passedData.marginBottom || null;
-            this.paddingTop = this.passedData.paddingTop || null;
-            this.paddingBottom = this.passedData.paddingBottom || null;
+            this.marginTop = this.passedData.marginTop || '';
+            this.marginBottom = this.passedData.marginBottom || '';
+            this.paddingTop = this.passedData.paddingTop || '';
+            this.paddingBottom = this.passedData.paddingBottom || '';
         },
 
         validate(){
@@ -280,12 +275,17 @@ export default {
 
         saveForm(){
             const { text, image, fio, job, marginTop, marginBottom, paddingTop, paddingBottom, } = this;
-            const payload = { text, image, fio, job, marginTop, marginBottom, paddingTop, paddingBottom, };
-            this.$emit('changed', payload);
-        },
-
-        closePopup(){
-            this.$emit('closePopup');
+            const payload = {};
+            payload.text = text || '';
+            payload.image = image || {};
+            payload.fio = fio || '';
+            payload.job = job || '';
+            payload.marginTop = marginTop || null;
+            payload.marginBottom = marginBottom || null;
+            payload.paddingTop = paddingTop || null;
+            payload.paddingBottom = paddingBottom || null;
+            this.callback(payload);
+            this.close();
         },
 
         onChange(item) {
