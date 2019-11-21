@@ -114,10 +114,10 @@ const oneSelectorStructure = [
 const defaultItemConfig = {
     codename: 'item',
     widget: 'select',
-    label: '',
+    label: 'Анонс события',
     width: 12,
     required: true,
-    api: 'event-anouncements',
+    api: 'event-announcements',
     template: 'title',
 };
 
