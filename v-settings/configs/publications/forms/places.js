@@ -44,7 +44,7 @@ const state = {
                                 required: true,
                                 width: 4,
                                 codename: 'publication_date',
-                                widget: 'input',
+                                widget: 'inputDatetime',
                             },
                         ],
                     },
