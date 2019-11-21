@@ -297,20 +297,6 @@
                 </div>
             </div>
         </div>
-<!--        <addSectionPopup-->
-<!--            v-if="addSectionPopup !== false"-->
-<!--            @createSection="createSection"-->
-<!--            @closePopup="addSectionPopup = false"-->
-<!--            :placeIn="addSectionPopup !== false ? addSectionPopup : false"-->
-<!--            :config="editorConfig"-->
-<!--        />-->
-<!--        <changeSectionPopup-->
-<!--            v-if="changeSectionPopup !== false"-->
-<!--            :currentState="sectionForEdit"-->
-<!--            :config="editorConfig.sectionConfigs"-->
-<!--            @changes="changeSection"-->
-<!--            @closePopup="closeChangeSectionPopup"-->
-<!--        />-->
         <pickToCreatePopup
             v-if="createPicker.showPicker"
             :data="createPicker"
@@ -336,8 +322,6 @@
 
 <script>
 import vue from 'vue';
-// import addSectionPopup from './postEditorPopups/AddSectionPopup.vue';
-// import changeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
 import pickToCreatePopup from './postEditorPopups/CreateWidgetPopup.vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
 import formsComponent from './PostEditorForms.vue';
@@ -352,8 +336,6 @@ export default {
     name: 'PostEditor',
 
     components: {
-        // addSectionPopup,
-        // changeSectionPopup,
         postEditorWidgetWrapper,
         pickToCreatePopup,
         formsComponent,
@@ -380,11 +362,8 @@ export default {
                 widget: {},
             },
 
-            // addSectionPopup: false,
-            // changeSectionPopup: false,
             sectionHovered: '',
             mouseOverButton: '',
-            // sectionForEdit: {},
             content: [],
 
             sectionOnDrag: false,
@@ -1025,23 +1004,15 @@ export default {
                 }
             }
             this.$set(this.content, index, merged);
-            // this.closeChangeSectionPopup();
         },
 
         showChangeSectionPopup(index, currentState) {
-            // this.changeSectionPopup = index;
-            // this.sectionForEdit = section;
             const callback = payload => this.changeSection(payload, index);
             const config = this.editorConfig.sectionConfigs;
             const props = { currentState, config, callback, };
             const options = { props, };
             this.$popup.new(ChangeSectionPopup, options);
         },
-
-        // closeChangeSectionPopup(){
-        //     this.changeSectionPopup = false;
-        //     this.sectionForEdit = {};
-        // },
 
         copySection(section){
             this.$store.commit('postEditorCopySection', { config: !this.options.configCodename ? 'default' : this.options.configCodename, data: section, });
