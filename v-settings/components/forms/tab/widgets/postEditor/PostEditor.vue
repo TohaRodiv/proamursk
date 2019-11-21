@@ -297,10 +297,10 @@
                 </div>
             </div>
         </div>
-        <formsComponent
-            :data="widgetForm"
-            @clearStore="clearFormsConfig"
-        />
+<!--        <formsComponent-->
+<!--            :data="widgetForm"-->
+<!--            @clearStore="clearFormsConfig"-->
+<!--        />-->
         <div
             v-if="options.invalid && focusEmptyContainer"
             class="post-editor-error-empty-container"
@@ -316,7 +316,7 @@
 <script>
 import vue from 'vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
-import formsComponent from './PostEditorForms.vue';
+// import formsComponent from './PostEditorForms.vue';
 import wordFormHelper from '../../../../../../cp_vue/frontend/vue/helpers/wordForms';
 import { mapState, } from 'vuex';
 import AddSectionPopup from './postEditorPopups/AddSectionPopup.vue';
@@ -325,12 +325,32 @@ import throttle from '../../../../../../cp_vue/frontend/vue/helpers/throttle';
 import ChangeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
 import CreateWidgetPopup from './postEditorPopups/CreateWidgetPopup.vue';
 
+import image from './postEditorForms/Image.vue';
+import text from './postEditorForms/Text.vue';
+import directSpeech from './postEditorForms/DirectSpeech.vue';
+import slider from './postEditorForms/Slider.vue';
+import hr from './postEditorForms/HR.vue';
+import video from './postEditorForms/Video.vue';
+import quote from './postEditorForms/Quote.vue';
+import instagram from './postEditorForms/Instagram.vue';
+
+const popups = {
+    image,
+    text,
+    'direct-speech': directSpeech,
+    slider,
+    hr,
+    video,
+    quote,
+    instagram,
+};
+
 export default {
     name: 'PostEditor',
 
     components: {
         postEditorWidgetWrapper,
-        formsComponent,
+        // formsComponent,
     },
 
     props: {
@@ -340,13 +360,13 @@ export default {
 
     data(){
         return {
-            widgetForm: {
-                widgetIndex: '',
-                insertIndex: '',
-                popupType: false,
-                block: {},
-                widget: {},
-            },
+            // widgetForm: {
+            //     widgetIndex: '',
+            //     insertIndex: '',
+            //     popupType: false,
+            //     block: {},
+            //     widget: {},
+            // },
 
             sectionHovered: '',
             mouseOverButton: '',
@@ -469,7 +489,7 @@ export default {
         }.bind(this));
     },
 
-    mounted(){
+    mounted() {
         this.content = this.passedData || [];
     },
 
@@ -914,15 +934,15 @@ export default {
             return false;
         },
 
-        clearFormsConfig(){
-            this.widgetForm = {
-                widgetIndex: '',
-                popupType: false,
-                block: {},
-                widget: {},
-                insertIndex: '',
-            };
-        },
+        // clearFormsConfig(){
+        //     this.widgetForm = {
+        //         widgetIndex: '',
+        //         popupType: false,
+        //         block: {},
+        //         widget: {},
+        //         insertIndex: '',
+        //     };
+        // },
 
         copyWidget(widget){
             let width = [];
@@ -949,28 +969,55 @@ export default {
             this.mouseOverButton = '';
         },
 
-        editWidget(block, widget, index){
-            this.widgetForm = {
-                widgetIndex: index,
-                popupType: widget.type,
-                block,
-                widget,
+        openWidgetPopup({ block, widgetType, data = {}, widgetIndex, insertIndex, }) {
+            const callback = payload => {
+                let widget = {
+                    type: widgetType,
+                };
+                Object.assign(widget, payload);
+
+                if (!block.widgets) {
+                    this.$set(block, 'widgets', [widget,]);
+                } else if (insertIndex !== undefined && typeof insertIndex !== 'string') {
+                    block.widgets.splice(insertIndex, 0, widget);
+                } else if (widgetIndex === undefined && typeof widgetIndex !== 'string') {
+                    block.widgets.splice(block.widgets.length, 0, widget);
+                } else if (widgetIndex !== undefined && typeof widgetIndex !== 'string') {
+                    block.widgets.splice(widgetIndex, 1, widget);
+                }
             };
+            const props = { passedData: data, callback, };
+            const options = { props, };
+            this.$popup.new(popups[widgetType], options);
         },
 
-        callProperForm(e) {
-            this.widgetForm.popupType = e;
+        editWidget(block, data, widgetIndex){
+            // this.widgetForm = {
+            //     widgetIndex: index,
+            //     popupType: widget.type,
+            //     block,
+            //     widget,
+            // };
+
+            this.openWidgetPopup({ block, data, widgetIndex, widgetType: data.type, });
+        },
+
+        callProperForm(block, widgetType, insertIndex) {
+            // this.widgetForm.popupType = e;
+            this.openWidgetPopup({ block, insertIndex, widgetType, });
         },
 
         openCreateWidgetPopup(block, section, index){
-            this.widgetForm.block = block;
-            this.widgetForm.insertIndex = index + 1;
+            // this.widgetForm.block = block;
+            // this.widgetForm.insertIndex = index + 1;
             const data = {
                 width: block.width,
                 isPercentage: !!section.isPercentage,
             };
             const availableWidgets = this.editorConfig.widgets;
-            const callback = this.callProperForm;
+            const callback = widgetType => {
+                this.callProperForm(block, widgetType, index + 1);
+            };
             const props = { callback, data, availableWidgets, };
             const options = { props, };
             this.$popup.new(CreateWidgetPopup, options);
