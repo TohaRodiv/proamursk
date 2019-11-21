@@ -32,7 +32,7 @@
                         @setError="setError"
                         @clearError="clearError"
                         :config="signConfig"
-                        style="margin-top: 22px"
+                        style="margin-top: 20px"
                         label-position="top"
                     />
                 </cp-form-row>
@@ -42,7 +42,7 @@
                         @change="onChange"
                         @clearError="clearError"
                         :config="linkConfig"
-                        style="margin-top: 22px;"
+                        style="margin-top: 20px;"
                         label-position="top"
                     />
                 </cp-form-row>
@@ -52,7 +52,7 @@
                         @change="onChange"
                         @clearError="clearError"
                         :config="titleConfig"
-                        style="width: 340px; margin-right: 20px;"
+                        style="width: 340px; margin-right: 20px; margin-top: 20px;"
                         label-position="top"
                     />
                     <cp-input
@@ -60,7 +60,7 @@
                         @change="onChange"
                         @clearError="clearError"
                         :config="altConfig"
-                        style="width: 340px;"
+                        style="width: 340px; margin-top: 20px;"
                         label-position="top"
                     />
                 </cp-form-row>
@@ -70,7 +70,7 @@
                         @change="onChange"
                         @clearError="clearError"
                         :config="backgroundFlagConfig"
-                        style="margin-top: 22px;"
+                        style="margin-top: 20px;"
                         label-position="top"
                     />
                 </cp-form-row>
