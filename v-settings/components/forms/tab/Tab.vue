@@ -1,5 +1,5 @@
 <template>
-    <!-- version 4-->
+    <!-- version 5-->
     <div
         style="margin-top: 0"
         class="tab-wrapper"
@@ -79,7 +79,7 @@
 
                 <CpRadioTabs
                     v-if="element.widget === 'radioTabs'"
-                    :label-position="row.labelPosition"
+                    :label-position="block.labelPosition"
                     :value="formData[element.codename]"
                     :config="element"
                     @clearError="clearError"
@@ -196,8 +196,9 @@
 
                 <checkboxesGroup
                     v-if="element.widget === 'checkboxes'"
-                    :prop-config="element"
-                    :prop-data="formData[element.codename]"
+                    :label-position="block.labelPosition"
+                    :config="element"
+                    :values="formData[element.codename]"
                     @clearError="clearError"
                     @change="onChange"
                 />

@@ -44,7 +44,7 @@ const state = {
                                 required: true,
                                 width: 4,
                                 codename: 'publication_date',
-                                widget: 'input',
+                                widget: 'inputDatetime',
                             },
                         ],
                     },
@@ -145,11 +145,11 @@ const state = {
                                 options: [
                                     {
                                         label: 'Обычная обложка',
-                                        codename: 'small',
+                                        value: 'small',
                                     },
                                     {
                                         label: 'Полноразмерная обложка',
-                                        codename: 'full',
+                                        value: 'full',
                                     },
                                 ],
                                 default: 'small',
