@@ -1,55 +1,52 @@
 <template>
-    <div
-        :class="{'popup-wrapper-transition': showTransition}"
-        class="popup-wrapper"
+    <cp-popup-wrap
+        @close="close"
+        disable-preloader
     >
-        <div
-            v-show="showTransition"
-            class="popup-container"
-            style="max-width: 780px; display: block;"
-        >
-            <div
-                @click="closePopup"
-                class="popup-close-icon icon-close"
-            />
-            <div class="popup-post-editor-forms-label">
-                Изображение
-            </div>
-            <div class="popup-post-editor-forms-wrapper">
-                <imageLoader
-                    @change="onChange"
-                    @setError="setError"
-                    @clearError="clearError"
-                    :image="image"
-                    :config="imageConfig"
-                    style="width: 340px;"
-                    label-position="top"
-                />
-                <radioButtonGroup
-                    :config="alignConfig"
-                    :value="align"
-                    @change="onChange"
-                    @clearError="clearError"
-                    style="margin-top: 20px; margin-left: 15px;"
-                />
-                <textareaComp
-                    :value="sign"
-                    @change="onChange"
-                    @setError="setError"
-                    @clearError="clearError"
-                    :config="signConfig"
-                    style="margin-top: 22px"
-                    label-position="top"
-                />
-                <cp-input
-                    :value="link"
-                    @change="onChange"
-                    @clearError="clearError"
-                    :config="linkConfig"
-                    style="margin-top: 22px;"
-                    label-position="top"
-                />
-                <div style="display: flex; margin-top: 22px;">
+        <cp-popup-layout title="Изображение">
+            <template v-slot:body>
+                <cp-form-row>
+                    <imageLoader
+                        @change="onChange"
+                        @setError="setError"
+                        @clearError="clearError"
+                        :image="image"
+                        :config="imageConfig"
+                        style="width: 340px;"
+                        label-position="top"
+                    />
+                </cp-form-row>
+                <cp-form-row>
+                    <radioButtonGroup
+                        :config="alignConfig"
+                        :value="align"
+                        @change="onChange"
+                        @clearError="clearError"
+                        style="margin-top: 20px; margin-left: 15px;"
+                    />
+                </cp-form-row>
+                <cp-form-row>
+                    <textareaComp
+                        :value="sign"
+                        @change="onChange"
+                        @setError="setError"
+                        @clearError="clearError"
+                        :config="signConfig"
+                        style="margin-top: 22px"
+                        label-position="top"
+                    />
+                </cp-form-row>
+                <cp-form-row>
+                    <cp-input
+                        :value="link"
+                        @change="onChange"
+                        @clearError="clearError"
+                        :config="linkConfig"
+                        style="margin-top: 22px;"
+                        label-position="top"
+                    />
+                </cp-form-row>
+                <cp-form-row>
                     <cp-input
                         :value="title"
                         @change="onChange"
@@ -66,73 +63,199 @@
                         style="width: 340px;"
                         label-position="top"
                     />
-                </div>
-                <singleCheckbox
-                    :propData="backgroundFlag"
-                    @change="onChange"
-                    @clearError="clearError"
-                    :config="backgroundFlagConfig"
-                    style="margin-top: 22px;"
-                    label-position="top"
-                />
-                <div
-                    class="popup-post-editor-forms-indents-wrapper"
-                    style="margin-top: 50px;"
+                </cp-form-row>
+                <cp-form-row>
+                    <singleCheckbox
+                        :propData="backgroundFlag"
+                        @change="onChange"
+                        @clearError="clearError"
+                        :config="backgroundFlagConfig"
+                        style="margin-top: 22px;"
+                        label-position="top"
+                    />
+                </cp-form-row>
+                <cp-legend>Отступы</cp-legend>
+                <cp-form-row>
+                    <cp-select
+                        :value="marginTop"
+                        :config="marginTopConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="marginBottom"
+                        :config="marginBottomConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="paddingTop"
+                        :config="paddingTopConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="paddingBottom"
+                        :config="paddingBottomConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                </cp-form-row>
+            </template>
+            <template v-slot:footer>
+                <cp-button
+                    @click="close"
+                    class="cp-button cp-button_transparent cp-button_font-red"
                 >
-                    <div class="popup-post-editor-forms-indents-title">
-                        Отступы
-                    </div>
-                    <div class="popup-post-editor-forms-indents-container">
-                        <cp-select
-                            :value="marginTop"
-                            :config="marginTopConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="marginBottom"
-                            :config="marginBottomConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="paddingTop"
-                            :config="paddingTopConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="paddingBottom"
-                            :config="paddingBottomConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                    </div>
-                </div>
-            </div>
-            <div class="popup-buttons-wrapper">
-                <div class="popup-buttons-post-editor-container">
-                    <button
-                        @click="closePopup"
-                        class="button borderless-button forms-cancel-button"
-                        style="border-right: none !important;"
-                    >
-                        Отмена
-                    </button>
-                    <button
-                        @click="validate"
-                        class="button forms-save-button"
-                    >
-                        Сохранить
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+                    Отмена
+                </cp-button>
+                <cp-button
+                    @click="validate"
+                    class="cp-button cp-button_green cp-button_br-pill"
+                >
+                    Сохранить
+                </cp-button>
+            </template>
+        </cp-popup-layout>
+    </cp-popup-wrap>
+<!--    <div-->
+<!--        :class="{'popup-wrapper-transition': showTransition}"-->
+<!--        class="popup-wrapper"-->
+<!--    >-->
+<!--        <div-->
+<!--            v-show="showTransition"-->
+<!--            class="popup-container"-->
+<!--            style="max-width: 780px; display: block;"-->
+<!--        >-->
+<!--            <div-->
+<!--                @click="closePopup"-->
+<!--                class="popup-close-icon icon-close"-->
+<!--            />-->
+<!--            <div class="popup-post-editor-forms-label">-->
+<!--                Изображение-->
+<!--            </div>-->
+<!--            <div class="popup-post-editor-forms-wrapper">-->
+<!--                <imageLoader-->
+<!--                    @change="onChange"-->
+<!--                    @setError="setError"-->
+<!--                    @clearError="clearError"-->
+<!--                    :image="image"-->
+<!--                    :config="imageConfig"-->
+<!--                    style="width: 340px;"-->
+<!--                    label-position="top"-->
+<!--                />-->
+<!--                <radioButtonGroup-->
+<!--                    :config="alignConfig"-->
+<!--                    :value="align"-->
+<!--                    @change="onChange"-->
+<!--                    @clearError="clearError"-->
+<!--                    style="margin-top: 20px; margin-left: 15px;"-->
+<!--                />-->
+<!--                <textareaComp-->
+<!--                    :value="sign"-->
+<!--                    @change="onChange"-->
+<!--                    @setError="setError"-->
+<!--                    @clearError="clearError"-->
+<!--                    :config="signConfig"-->
+<!--                    style="margin-top: 22px"-->
+<!--                    label-position="top"-->
+<!--                />-->
+<!--                <cp-input-->
+<!--                    :value="link"-->
+<!--                    @change="onChange"-->
+<!--                    @clearError="clearError"-->
+<!--                    :config="linkConfig"-->
+<!--                    style="margin-top: 22px;"-->
+<!--                    label-position="top"-->
+<!--                />-->
+<!--                <div style="display: flex; margin-top: 22px;">-->
+<!--                    <cp-input-->
+<!--                        :value="title"-->
+<!--                        @change="onChange"-->
+<!--                        @clearError="clearError"-->
+<!--                        :config="titleConfig"-->
+<!--                        style="width: 340px; margin-right: 20px;"-->
+<!--                        label-position="top"-->
+<!--                    />-->
+<!--                    <cp-input-->
+<!--                        :value="alt"-->
+<!--                        @change="onChange"-->
+<!--                        @clearError="clearError"-->
+<!--                        :config="altConfig"-->
+<!--                        style="width: 340px;"-->
+<!--                        label-position="top"-->
+<!--                    />-->
+<!--                </div>-->
+<!--                <singleCheckbox-->
+<!--                    :propData="backgroundFlag"-->
+<!--                    @change="onChange"-->
+<!--                    @clearError="clearError"-->
+<!--                    :config="backgroundFlagConfig"-->
+<!--                    style="margin-top: 22px;"-->
+<!--                    label-position="top"-->
+<!--                />-->
+<!--                <div-->
+<!--                    class="popup-post-editor-forms-indents-wrapper"-->
+<!--                    style="margin-top: 50px;"-->
+<!--                >-->
+<!--                    <div class="popup-post-editor-forms-indents-title">-->
+<!--                        Отступы-->
+<!--                    </div>-->
+<!--                    <div class="popup-post-editor-forms-indents-container">-->
+<!--                        <cp-select-->
+<!--                            :value="marginTop"-->
+<!--                            :config="marginTopConfig"-->
+<!--                            @change="onChange"-->
+<!--                            @clearError="clearError"-->
+<!--                            label-position="top"-->
+<!--                        />-->
+<!--                        <cp-select-->
+<!--                            :value="marginBottom"-->
+<!--                            :config="marginBottomConfig"-->
+<!--                            @change="onChange"-->
+<!--                            @clearError="clearError"-->
+<!--                            label-position="top"-->
+<!--                        />-->
+<!--                        <cp-select-->
+<!--                            :value="paddingTop"-->
+<!--                            :config="paddingTopConfig"-->
+<!--                            @change="onChange"-->
+<!--                            @clearError="clearError"-->
+<!--                            label-position="top"-->
+<!--                        />-->
+<!--                        <cp-select-->
+<!--                            :value="paddingBottom"-->
+<!--                            :config="paddingBottomConfig"-->
+<!--                            @change="onChange"-->
+<!--                            @clearError="clearError"-->
+<!--                            label-position="top"-->
+<!--                        />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="popup-buttons-wrapper">-->
+<!--                <div class="popup-buttons-post-editor-container">-->
+<!--                    <button-->
+<!--                        @click="closePopup"-->
+<!--                        class="button borderless-button forms-cancel-button"-->
+<!--                        style="border-right: none !important;"-->
+<!--                    >-->
+<!--                        Отмена-->
+<!--                    </button>-->
+<!--                    <button-->
+<!--                        @click="validate"-->
+<!--                        class="button forms-save-button"-->
+<!--                    >-->
+<!--                        Сохранить-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </template>
 
 <script>
@@ -142,6 +265,12 @@ import CpSelect from '../../../../../../../cp_vue/frontend/vue/components/workzo
 import radioButtonGroup from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/RadioButtons.vue';
 import singleCheckbox from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/SingleCheckbox.vue';
 import imageLoader from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/loaders/SingleImageLoader.vue';
+import CpPopupWrap from '../../../../../../../cp_vue/frontend/vue/components/popups/CpPopupWrap.vue';
+import CpPopupLayout from '../../../../../../../cp_vue/frontend/vue/components/popups/CpPopupLayout.vue';
+import CpButton from '../../../../../../../cp_vue/frontend/vue/components/buttons/CpButton.vue';
+import CpLegend from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/CpLegend.vue';
+import CpFormRow from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/CpFormRow.vue';
+import popupMixin from '../../../../../../../cp_vue/frontend/vue/components/popups/popupMixin';
 
 const marginOptions = [
     {
@@ -167,6 +296,8 @@ const marginOptions = [
 ];
 
 export default {
+    name: 'PostEditorImagePopup',
+
     components: {
         CpSelect,
         imageLoader,
@@ -174,7 +305,14 @@ export default {
         CpInput,
         singleCheckbox,
         textareaComp,
+        CpPopupWrap,
+        CpPopupLayout,
+        CpButton,
+        CpLegend,
+        CpFormRow,
     },
+
+    mixins: [popupMixin,],
 
     props: {
         passedData: {
@@ -187,7 +325,6 @@ export default {
 
     data() {
         return {
-            showTransition: false,
             imageConfig: {
                 label: 'Фото',
                 codename: 'image',
@@ -283,15 +420,13 @@ export default {
             title: '',
             alt: '',
 
-            marginTop: null,
-            marginBottom: null,
-            paddingTop: null,
-            paddingBottom: null,
+            marginTop: '',
+            marginBottom: '',
+            paddingTop: '',
+            paddingBottom: '',
         };
     },
-    computed: {},
     mounted() {
-        setTimeout(() => this.showTransition = true, 200);
         this.setData();
     },
     methods: {
@@ -304,10 +439,10 @@ export default {
             this.backgroundFlag = this.passedData.backgroundFlag || false;
             this.title = this.passedData.title || '';
             this.alt = this.passedData.alt || '';
-            this.marginTop = this.passedData.marginTop || null;
-            this.marginBottom = this.passedData.marginBottom || null;
-            this.paddingTop = this.passedData.paddingTop || null;
-            this.paddingBottom = this.passedData.paddingBottom || null;
+            this.marginTop = this.passedData.marginTop || '';
+            this.marginBottom = this.passedData.marginBottom || '';
+            this.paddingTop = this.passedData.paddingTop || '';
+            this.paddingBottom = this.passedData.paddingBottom || '';
         },
 
         validate(){
@@ -335,25 +470,21 @@ export default {
                 paddingTop, 
                 paddingBottom,
             } = this;
-            const payload = { 
-                text,
-                image,
-                sign,
-                link,
-                align,
-                backgroundFlag,
-                title,
-                alt,
-                marginTop, 
-                marginBottom, 
-                paddingTop, 
-                paddingBottom,
-            };
-            this.$emit('changed', payload);
-        },
-
-        closePopup(){
-            this.$emit('closePopup');
+            const payload = {};
+            payload.text = text || '';
+            payload.image = image || {};
+            payload.fio = sign || '';
+            payload.job = link || '';
+            payload.job = align;
+            payload.job = backgroundFlag;
+            payload.job = title || '';
+            payload.job = alt || '';
+            payload.marginTop = marginTop || null;
+            payload.marginBottom = marginBottom || null;
+            payload.paddingTop = paddingTop || null;
+            payload.paddingBottom = paddingBottom || null;
+            this.callback(payload);
+            this.close();
         },
 
         onChange(item) {
@@ -370,7 +501,5 @@ export default {
             this[codename + 'Config'].invalid = false;
         },
     },
-
-        
 };
 </script>

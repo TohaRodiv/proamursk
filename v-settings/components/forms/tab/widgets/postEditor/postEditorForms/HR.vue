@@ -3,7 +3,7 @@
         @close="close"
         disable-preloader
     >
-        <cp-popup-layout title="Прямая речь">
+        <cp-popup-layout title="Разделитель">
             <template v-slot:body>
                 <cp-form-row>
                     <cp-select
