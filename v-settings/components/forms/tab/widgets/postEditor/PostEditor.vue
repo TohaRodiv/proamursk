@@ -297,13 +297,6 @@
                 </div>
             </div>
         </div>
-        <pickToCreatePopup
-            v-if="createPicker.showPicker"
-            :data="createPicker"
-            :available_widgets="editorConfig.widgets"
-            @createBlock="callProperForm"
-            @closePopup="closeCreateWidget"
-        />
         <formsComponent
             :data="widgetForm"
             @clearStore="clearFormsConfig"
@@ -322,7 +315,6 @@
 
 <script>
 import vue from 'vue';
-import pickToCreatePopup from './postEditorPopups/CreateWidgetPopup.vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
 import formsComponent from './PostEditorForms.vue';
 import wordFormHelper from '../../../../../../cp_vue/frontend/vue/helpers/wordForms';
@@ -331,13 +323,13 @@ import AddSectionPopup from './postEditorPopups/AddSectionPopup.vue';
 import deepClone from '../../../../../../cp_vue/frontend/vue/helpers/deepClone';
 import throttle from '../../../../../../cp_vue/frontend/vue/helpers/throttle';
 import ChangeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
+import CreateWidgetPopup from './postEditorPopups/CreateWidgetPopup.vue';
 
 export default {
     name: 'PostEditor',
 
     components: {
         postEditorWidgetWrapper,
-        pickToCreatePopup,
         formsComponent,
     },
 
@@ -348,12 +340,6 @@ export default {
 
     data(){
         return {
-            createPicker: {
-                showPicker: false,
-                width: '',
-                isPercentage: false,
-            },
-
             widgetForm: {
                 widgetIndex: '',
                 insertIndex: '',
@@ -482,8 +468,6 @@ export default {
             this.mouseEvent = e;
         }.bind(this));
     },
-
-
 
     mounted(){
         this.content = this.passedData || [];
@@ -951,7 +935,7 @@ export default {
                 }
             }
 
-            this.$store.commit('postEditorCopyWidget', { width, widget , });
+            this.$store.commit('postEditorCopyWidget', { width, widget, });
         },
 
         pasteWidget(secDex, blockDex, widgetIndex) {
@@ -975,25 +959,21 @@ export default {
         },
 
         callProperForm(e) {
-            //Даю время на закрытие попапа
-            setTimeout(() => this.widgetForm.popupType = e, 200);
+            this.widgetForm.popupType = e;
         },
 
         openCreateWidgetPopup(block, section, index){
-            if (section.isPercentage) this.createPicker.isPercentage = true;
-            this.createPicker.width = block.width;
-            this.createPicker.showPicker = true;
             this.widgetForm.block = block;
             this.widgetForm.insertIndex = index + 1;
-        },
-
-        closeCreateWidget(){
-            this.createPicker = {
-                showPicker: false,
-                indexWidget: '',
-                width: '',
-                isPercentage: false,
+            const data = {
+                width: block.width,
+                isPercentage: !!section.isPercentage,
             };
+            const availableWidgets = this.editorConfig.widgets;
+            const callback = this.callProperForm;
+            const props = { callback, data, availableWidgets, };
+            const options = { props, };
+            this.$popup.new(CreateWidgetPopup, options);
         },
 
         changeSection(payload, index){
