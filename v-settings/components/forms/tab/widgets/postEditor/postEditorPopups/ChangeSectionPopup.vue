@@ -116,7 +116,6 @@ export default {
     data() {
         return {
             collector: {},
-            // showTransition: false,
             marginTopConfig: {
                 codename: 'marginTop',
                 width: 4,
@@ -141,10 +140,10 @@ export default {
                 options: marginOptions,
                 label: 'Внутренний отступ снизу, em',
             },
-            marginTop: null,
-            marginBottom: null,
-            paddingTop: null,
-            paddingBottom: null,
+            marginTop: '',
+            marginBottom: '',
+            paddingTop: '',
+            paddingBottom: '',
         };
     },
 
@@ -154,15 +153,19 @@ export default {
 
     methods: {
         setData() {
-            this.marginTop = this.currentState.marginTop || null;
-            this.marginBottom = this.currentState.marginBottom || null;
-            this.paddingTop = this.currentState.paddingTop || null;
-            this.paddingBottom = this.currentState.paddingBottom || null;
+            this.marginTop = this.currentState.marginTop || '';
+            this.marginBottom = this.currentState.marginBottom || '';
+            this.paddingTop = this.currentState.paddingTop || '';
+            this.paddingBottom = this.currentState.paddingBottom || '';
         },
 
         saveForm() {
             const { marginTop, marginBottom, paddingTop, paddingBottom, } = this;
-            const payload = { marginTop, marginBottom, paddingTop, paddingBottom, };
+            const payload = {};
+            payload.marginTop = marginTop || null;
+            payload.marginBottom = marginBottom || null;
+            payload.paddingTop = paddingTop || null;
+            payload.paddingBottom = paddingBottom || null;
             this.callback(payload);
             this.close();
         },
