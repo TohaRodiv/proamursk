@@ -341,12 +341,11 @@ import changeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
 import pickToCreatePopup from './postEditorPopups/CreateWidgetPopup.vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
 import formsComponent from './PostEditorForms.vue';
-import throttle from 'lodash/throttle';
-// import cloneDeep from 'lodash/cloneDeep';
 import wordFormHelper from '../../../../../../cp_vue/frontend/vue/helpers/wordForms';
 import { mapState, } from 'vuex';
 import AddSectionPopup from './postEditorPopups/AddSectionPopup.vue';
 import deepClone from '../../../../../../cp_vue/frontend/vue/helpers/deepClone';
+import throttle from '../../../../../../cp_vue/frontend/vue/helpers/throttle';
 
 export default {
     name: 'PostEditor',
@@ -574,7 +573,7 @@ export default {
             this.lastKnownWidgetY = e.pageY;
         },
 
-        widgetHoverFunction: throttle (function (e) {
+        widgetHoverFunction: throttle(function (e) {
             this.mouseOverWidget = document.elementsFromPoint(e.pageX, e.pageY);
             if (this.widgetOnDrag) {
                 this.findWidgetDeltaYDirection(e);
