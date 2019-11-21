@@ -12,7 +12,7 @@
                         @clearError="clearError"
                         :image="image"
                         :config="imageConfig"
-                        style="width: 340px;"
+                        style="width: 340px; margin-right: 20px;"
                         label-position="top"
                     />
                     <cp-form-row column>
@@ -21,7 +21,7 @@
                             @change="onChange"
                             @clearError="clearError"
                             :config="fioConfig"
-                            style="width: 340px; margin-bottom: 22px;"
+                            style="width: 340px; margin-bottom: 20px;"
                             label-position="top"
                         />
                         <cp-input
@@ -273,7 +273,7 @@ export default {
             if (!hasError) this.saveForm();
         },
 
-        saveForm(){
+        saveForm() {
             const { text, image, fio, job, marginTop, marginBottom, paddingTop, paddingBottom, } = this;
             const payload = {};
             payload.text = text || '';
