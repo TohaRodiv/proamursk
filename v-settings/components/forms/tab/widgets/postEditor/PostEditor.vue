@@ -20,7 +20,7 @@
                     Пустая публикация. Чтобы добавить контент, создайте первую секцию
                 </div>
                 <button
-                    @click="addSectionPopup = true"
+                    @click="addSectionPopup(true)"
                     class="button post-editor-button"
                 >
                     <div class="icon-plus post-editor-button-icon" />
@@ -39,7 +39,7 @@
                 style="margin-left: 240px; margin-top: 0;"
             >
                 <div
-                    @click="addSectionPopup = 0"
+                    @click="addSectionPopup(0)"
                     class="post-editor-add-section"
                 >
                     <div class="icon-plus" />
@@ -82,7 +82,7 @@
                         class="post-editor-add-section-wrapper"
                     >
                         <div
-                            @click="addSectionPopup = secDex"
+                            @click="addSectionPopup(secDex)"
                             class="post-editor-add-section"
                         >
                             <div class="icon-plus" />
@@ -251,7 +251,7 @@
                         class="post-editor-add-section-wrapper"
                     >
                         <div
-                            @click="addSectionPopup = secDex + 1"
+                            @click="addSectionPopup(secDex + 1)"
                             class="post-editor-add-section"
                         >
                             <div class="icon-plus" />
@@ -277,7 +277,7 @@
                 style="margin-left: 240px; margin-bottom: 0;"
             >
                 <div
-                    @click="addSectionPopup = content.length"
+                    @click="addSectionPopup(content.length)"
                     class="post-editor-add-section"
                 >
                     <div class="icon-plus" />
@@ -297,13 +297,13 @@
                 </div>
             </div>
         </div>
-        <addSectionPopup
-            v-if="addSectionPopup !== false"
-            @createSection="createSection"
-            @closePopup="addSectionPopup = false"
-            :placeIn="addSectionPopup !== false ? addSectionPopup : false"
-            :config="editorConfig"
-        />
+<!--        <addSectionPopup-->
+<!--            v-if="addSectionPopup !== false"-->
+<!--            @createSection="createSection"-->
+<!--            @closePopup="addSectionPopup = false"-->
+<!--            :placeIn="addSectionPopup !== false ? addSectionPopup : false"-->
+<!--            :config="editorConfig"-->
+<!--        />-->
         <changeSectionPopup
             v-if="changeSectionPopup !== false"
             :currentState="sectionForEdit"
@@ -336,19 +336,29 @@
 
 <script>
 import vue from 'vue';
-
-import addSectionPopup from './postEditorPopups/AddSectionPopup.vue';
+// import addSectionPopup from './postEditorPopups/AddSectionPopup.vue';
 import changeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
 import pickToCreatePopup from './postEditorPopups/CreateWidgetPopup.vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
 import formsComponent from './PostEditorForms.vue';
-
 import throttle from 'lodash/throttle';
-import cloneDeep from 'lodash/cloneDeep';
+// import cloneDeep from 'lodash/cloneDeep';
 import wordFormHelper from '../../../../../../cp_vue/frontend/vue/helpers/wordForms';
 import { mapState, } from 'vuex';
+import AddSectionPopup from './postEditorPopups/AddSectionPopup.vue';
+import deepClone from '../../../../../../cp_vue/frontend/vue/helpers/deepClone';
 
 export default {
+    name: 'PostEditor',
+
+    components: {
+        // addSectionPopup,
+        changeSectionPopup,
+        postEditorWidgetWrapper,
+        pickToCreatePopup,
+        formsComponent,
+    },
+
     props: {
         options: Object,
         passedData: [Array, String,],
@@ -370,7 +380,7 @@ export default {
                 widget: {},
             },
 
-            addSectionPopup: false,
+            // addSectionPopup: false,
             changeSectionPopup: false,
             sectionHovered: '',
             mouseOverButton: '',
@@ -426,7 +436,7 @@ export default {
                 : this.options.configCodename);
         },
 
-        editorConfig(){
+        editorConfig() {
             if (this.options.configCodename)
                 return this.allConfigs[this.options.configCodename];
             else
@@ -452,7 +462,7 @@ export default {
         },
 
         isEmpty() {
-            return this.content == undefined || !this.content.length;
+            return this.content == null || !this.content.length;
         },
     },
 
@@ -494,8 +504,17 @@ export default {
         }.bind(this));
     },
 
+
+
     mounted(){
         this.content = this.passedData || [];
+    },
+
+    beforeDestroy(){
+        document.removeEventListener('mouseup', this.DragEnd);
+        document.removeEventListener('mousemove', function (e) {
+            this.sectionHoverFunction(e);
+        }.bind(this));
     },
 
     methods: {
@@ -957,7 +976,7 @@ export default {
         },
 
         pasteWidget(secDex, blockDex, widgetIndex) {
-            let copy = cloneDeep(this.widgetBuffer[0].widget);
+            let copy = deepClone(this.widgetBuffer[0].widget);
             if (typeof widgetIndex === 'undefined') {
                 vue.set(this.content[secDex].columns[blockDex], 'widgets', [copy,]);
             } else {
@@ -1034,7 +1053,7 @@ export default {
         },
 
         pasteSection(index) {
-            let clone = cloneDeep(this.sectionBuffer[0]);
+            let clone = deepClone(this.sectionBuffer[0]);
             this.content.splice(index, 0, clone);
             if (index + 1 === this.content.length) {
                 setTimeout(() => {
@@ -1091,21 +1110,16 @@ export default {
                 this.$emit('clearError', this.options.codename);
             }
         },
+
+        addSectionPopup(placeIn) {
+            const callback = this.createSection;
+            const config = this.editorConfig;
+            const props = { placeIn, callback, config, };
+            const options = { props, };
+            this.$popup.new(AddSectionPopup, options);
+        },
     },
 
-    components: {
-        addSectionPopup,
-        changeSectionPopup,
-        postEditorWidgetWrapper,
-        pickToCreatePopup,
-        formsComponent,
-    },
 
-    beforeDestroy(){
-        document.removeEventListener('mouseup', this.DragEnd);
-        document.removeEventListener('mousemove', function (e) {
-            this.sectionHoverFunction(e);
-        }.bind(this));
-    },
 };
 </script>
