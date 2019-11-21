@@ -304,19 +304,19 @@
 <!--            :placeIn="addSectionPopup !== false ? addSectionPopup : false"-->
 <!--            :config="editorConfig"-->
 <!--        />-->
-        <changeSectionPopup
-            v-if="changeSectionPopup !== false"
-            :currentState="sectionForEdit"
-            :config="editorConfig.sectionConfigs"
-            @changes="changeSection"
-            @closePopup="closeChangeSectionPopup"
-        />
+<!--        <changeSectionPopup-->
+<!--            v-if="changeSectionPopup !== false"-->
+<!--            :currentState="sectionForEdit"-->
+<!--            :config="editorConfig.sectionConfigs"-->
+<!--            @changes="changeSection"-->
+<!--            @closePopup="closeChangeSectionPopup"-->
+<!--        />-->
         <pickToCreatePopup
             v-if="createPicker.showPicker"
             :data="createPicker"
             :available_widgets="editorConfig.widgets"
             @createBlock="callProperForm"
-            @closePopup="closeCreateWidget()"
+            @closePopup="closeCreateWidget"
         />
         <formsComponent
             :data="widgetForm"
@@ -337,7 +337,7 @@
 <script>
 import vue from 'vue';
 // import addSectionPopup from './postEditorPopups/AddSectionPopup.vue';
-import changeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
+// import changeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
 import pickToCreatePopup from './postEditorPopups/CreateWidgetPopup.vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
 import formsComponent from './PostEditorForms.vue';
@@ -346,13 +346,14 @@ import { mapState, } from 'vuex';
 import AddSectionPopup from './postEditorPopups/AddSectionPopup.vue';
 import deepClone from '../../../../../../cp_vue/frontend/vue/helpers/deepClone';
 import throttle from '../../../../../../cp_vue/frontend/vue/helpers/throttle';
+import ChangeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
 
 export default {
     name: 'PostEditor',
 
     components: {
         // addSectionPopup,
-        changeSectionPopup,
+        // changeSectionPopup,
         postEditorWidgetWrapper,
         pickToCreatePopup,
         formsComponent,
@@ -380,10 +381,10 @@ export default {
             },
 
             // addSectionPopup: false,
-            changeSectionPopup: false,
+            // changeSectionPopup: false,
             sectionHovered: '',
             mouseOverButton: '',
-            sectionForEdit: {},
+            // sectionForEdit: {},
             content: [],
 
             sectionOnDrag: false,
@@ -1016,36 +1017,31 @@ export default {
             };
         },
 
-        changeSection(payload){
-            let merged = Object.assign(this.content[this.changeSectionPopup], payload);
+        changeSection(payload, index){
+            let merged = Object.assign(this.content[index], payload);
             for (let prop in merged) {
                 if (merged.hasOwnProperty(prop) && typeof merged[prop] === 'undefined') {
                     delete merged[prop];
                 }
             }
-            vue.set(this.content, this.changeSectionPopup, merged);
-            this.closeChangeSectionPopup();
+            this.$set(this.content, index, merged);
+            // this.closeChangeSectionPopup();
         },
 
-        showChangeSectionPopup(index, section) {
-            this.changeSectionPopup = index;
-            this.sectionForEdit = section;
+        showChangeSectionPopup(index, currentState) {
+            // this.changeSectionPopup = index;
+            // this.sectionForEdit = section;
+            const callback = payload => this.changeSection(payload, index);
+            const config = this.editorConfig.sectionConfigs;
+            const props = { currentState, config, callback, };
+            const options = { props, };
+            this.$popup.new(ChangeSectionPopup, options);
         },
 
-        closeChangeSectionPopup(){
-            this.changeSectionPopup = false;
-            this.sectionForEdit = {};
-        },
-
-        createSection(data){
-            if (typeof data.index !== 'undefined') {
-                let index = data.index;
-                delete data.index;
-                this.content.splice(index, 0, data);
-            } else {
-                this.content.push(data);
-            }
-        },
+        // closeChangeSectionPopup(){
+        //     this.changeSectionPopup = false;
+        //     this.sectionForEdit = {};
+        // },
 
         copySection(section){
             this.$store.commit('postEditorCopySection', { config: !this.options.configCodename ? 'default' : this.options.configCodename, data: section, });
@@ -1116,6 +1112,16 @@ export default {
             const props = { placeIn, callback, config, };
             const options = { props, };
             this.$popup.new(AddSectionPopup, options);
+        },
+
+        createSection(data){
+            if (typeof data.index !== 'undefined') {
+                let index = data.index;
+                delete data.index;
+                this.content.splice(index, 0, data);
+            } else {
+                this.content.push(data);
+            }
         },
     },
 
