@@ -57,6 +57,7 @@ urlpatterns += [
     path('api/site/place-review/', root_views.place_review, name='place-review'),
     path('api/site/feedback/', root_views.feedback, name='feedback'),
     path('api/site/announcements/', root_views.EventsListPastView.as_view(), name='ajax-announcements'),
+    path('api/site/future-announcements/', root_views.EventsListFutureView.as_view(), name='ajax-announcements'),
     path('api/site/reports/', root_views.ReportsListView.as_view(), name='ajax-reports'),
     path('api/site/persons/', root_views.PersonsListView.as_view(), name='ajax-persons'),
     path('api/site/places/', root_views.PlaceListView.as_view(), name='ajax-places'),
