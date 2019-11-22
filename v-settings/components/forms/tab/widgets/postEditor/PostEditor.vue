@@ -20,7 +20,7 @@
                     Пустая публикация. Чтобы добавить контент, создайте первую секцию
                 </div>
                 <button
-                    @click="addSectionPopup = true"
+                    @click="addSectionPopup(true)"
                     class="button post-editor-button"
                 >
                     <div class="icon-plus post-editor-button-icon" />
@@ -39,7 +39,7 @@
                 style="margin-left: 240px; margin-top: 0;"
             >
                 <div
-                    @click="addSectionPopup = 0"
+                    @click="addSectionPopup(0)"
                     class="post-editor-add-section"
                 >
                     <div class="icon-plus" />
@@ -82,7 +82,7 @@
                         class="post-editor-add-section-wrapper"
                     >
                         <div
-                            @click="addSectionPopup = secDex"
+                            @click="addSectionPopup(secDex)"
                             class="post-editor-add-section"
                         >
                             <div class="icon-plus" />
@@ -251,7 +251,7 @@
                         class="post-editor-add-section-wrapper"
                     >
                         <div
-                            @click="addSectionPopup = secDex + 1"
+                            @click="addSectionPopup(secDex + 1)"
                             class="post-editor-add-section"
                         >
                             <div class="icon-plus" />
@@ -277,7 +277,7 @@
                 style="margin-left: 240px; margin-bottom: 0;"
             >
                 <div
-                    @click="addSectionPopup = content.length"
+                    @click="addSectionPopup(content.length)"
                     class="post-editor-add-section"
                 >
                     <div class="icon-plus" />
@@ -297,31 +297,6 @@
                 </div>
             </div>
         </div>
-        <addSectionPopup
-            v-if="addSectionPopup !== false"
-            @createSection="createSection"
-            @closePopup="addSectionPopup = false"
-            :placeIn="addSectionPopup !== false ? addSectionPopup : false"
-            :config="editorConfig"
-        />
-        <changeSectionPopup
-            v-if="changeSectionPopup !== false"
-            :currentState="sectionForEdit"
-            :config="editorConfig.sectionConfigs"
-            @changes="changeSection"
-            @closePopup="closeChangeSectionPopup"
-        />
-        <pickToCreatePopup
-            v-if="createPicker.showPicker"
-            :data="createPicker"
-            :available_widgets="editorConfig.widgets"
-            @createBlock="callProperForm"
-            @closePopup="closeCreateWidget()"
-        />
-        <formsComponent
-            :data="widgetForm"
-            @clearStore="clearFormsConfig"
-        />
         <div
             v-if="options.invalid && focusEmptyContainer"
             class="post-editor-error-empty-container"
@@ -336,19 +311,42 @@
 
 <script>
 import vue from 'vue';
-
-import addSectionPopup from './postEditorPopups/AddSectionPopup.vue';
-import changeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
-import pickToCreatePopup from './postEditorPopups/CreateWidgetPopup.vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
-import formsComponent from './PostEditorForms.vue';
-
-import throttle from 'lodash/throttle';
-import cloneDeep from 'lodash/cloneDeep';
 import wordFormHelper from '../../../../../../cp_vue/frontend/vue/helpers/wordForms';
 import { mapState, } from 'vuex';
+import AddSectionPopup from './postEditorPopups/AddSectionPopup.vue';
+import deepClone from '../../../../../../cp_vue/frontend/vue/helpers/deepClone';
+import throttle from '../../../../../../cp_vue/frontend/vue/helpers/throttle';
+import ChangeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
+import CreateWidgetPopup from './postEditorPopups/CreateWidgetPopup.vue';
+import image from './postEditorForms/Image.vue';
+import text from './postEditorForms/Text.vue';
+import directSpeech from './postEditorForms/DirectSpeech.vue';
+import slider from './postEditorForms/Slider.vue';
+import hr from './postEditorForms/HR.vue';
+import video from './postEditorForms/Video.vue';
+import quote from './postEditorForms/Quote.vue';
+import instagram from './postEditorForms/Instagram.vue';
+
+const popups = {
+    image,
+    text,
+    'direct-speech': directSpeech,
+    slider,
+    hr,
+    video,
+    quote,
+    instagram,
+};
 
 export default {
+    name: 'PostEditor',
+
+    components: {
+        postEditorWidgetWrapper,
+        // formsComponent,
+    },
+
     props: {
         options: Object,
         passedData: [Array, String,],
@@ -356,25 +354,16 @@ export default {
 
     data(){
         return {
-            createPicker: {
-                showPicker: false,
-                width: '',
-                isPercentage: false,
-            },
+            // widgetForm: {
+            //     widgetIndex: '',
+            //     insertIndex: '',
+            //     popupType: false,
+            //     block: {},
+            //     widget: {},
+            // },
 
-            widgetForm: {
-                widgetIndex: '',
-                insertIndex: '',
-                popupType: false,
-                block: {},
-                widget: {},
-            },
-
-            addSectionPopup: false,
-            changeSectionPopup: false,
             sectionHovered: '',
             mouseOverButton: '',
-            sectionForEdit: {},
             content: [],
 
             sectionOnDrag: false,
@@ -426,7 +415,7 @@ export default {
                 : this.options.configCodename);
         },
 
-        editorConfig(){
+        editorConfig() {
             if (this.options.configCodename)
                 return this.allConfigs[this.options.configCodename];
             else
@@ -452,7 +441,7 @@ export default {
         },
 
         isEmpty() {
-            return this.content == undefined || !this.content.length;
+            return this.content == null || !this.content.length;
         },
     },
 
@@ -494,8 +483,15 @@ export default {
         }.bind(this));
     },
 
-    mounted(){
+    mounted() {
         this.content = this.passedData || [];
+    },
+
+    beforeDestroy(){
+        document.removeEventListener('mouseup', this.DragEnd);
+        document.removeEventListener('mousemove', function (e) {
+            this.sectionHoverFunction(e);
+        }.bind(this));
     },
 
     methods: {
@@ -555,7 +551,7 @@ export default {
             this.lastKnownWidgetY = e.pageY;
         },
 
-        widgetHoverFunction: throttle (function (e) {
+        widgetHoverFunction: throttle(function (e) {
             this.mouseOverWidget = document.elementsFromPoint(e.pageX, e.pageY);
             if (this.widgetOnDrag) {
                 this.findWidgetDeltaYDirection(e);
@@ -932,16 +928,6 @@ export default {
             return false;
         },
 
-        clearFormsConfig(){
-            this.widgetForm = {
-                widgetIndex: '',
-                popupType: false,
-                block: {},
-                widget: {},
-                insertIndex: '',
-            };
-        },
-
         copyWidget(widget){
             let width = [];
 
@@ -953,11 +939,11 @@ export default {
                 }
             }
 
-            this.$store.commit('postEditorCopyWidget', { width, widget , });
+            this.$store.commit('postEditorCopyWidget', { width, widget, });
         },
 
         pasteWidget(secDex, blockDex, widgetIndex) {
-            let copy = cloneDeep(this.widgetBuffer[0].widget);
+            let copy = deepClone(this.widgetBuffer[0].widget);
             if (typeof widgetIndex === 'undefined') {
                 vue.set(this.content[secDex].columns[blockDex], 'widgets', [copy,]);
             } else {
@@ -967,66 +953,66 @@ export default {
             this.mouseOverButton = '';
         },
 
-        editWidget(block, widget, index){
-            this.widgetForm = {
-                widgetIndex: index,
-                popupType: widget.type,
-                block,
-                widget,
+        openWidgetPopup({ block, widgetType, data = {}, widgetIndex, insertIndex, }) {
+            const callback = payload => {
+                let widget = {
+                    type: widgetType,
+                };
+                Object.assign(widget, payload);
+
+                if (!block.widgets) {
+                    this.$set(block, 'widgets', [widget,]);
+                } else if (insertIndex !== undefined && typeof insertIndex !== 'string') {
+                    block.widgets.splice(insertIndex, 0, widget);
+                } else if (widgetIndex === undefined && typeof widgetIndex !== 'string') {
+                    block.widgets.splice(block.widgets.length, 0, widget);
+                } else if (widgetIndex !== undefined && typeof widgetIndex !== 'string') {
+                    block.widgets.splice(widgetIndex, 1, widget);
+                }
             };
+            const props = { passedData: data, callback, };
+            const options = { props, };
+            this.$popup.new(popups[widgetType], options);
         },
 
-        callProperForm(e) {
-            //Даю время на закрытие попапа
-            setTimeout(() => this.widgetForm.popupType = e, 200);
+        editWidget(block, data, widgetIndex){
+            this.openWidgetPopup({ block, data, widgetIndex, widgetType: data.type, });
+        },
+
+        callProperForm(block, widgetType, insertIndex) {
+            this.openWidgetPopup({ block, insertIndex, widgetType, });
         },
 
         openCreateWidgetPopup(block, section, index){
-            if (section.isPercentage) this.createPicker.isPercentage = true;
-            this.createPicker.width = block.width;
-            this.createPicker.showPicker = true;
-            this.widgetForm.block = block;
-            this.widgetForm.insertIndex = index + 1;
-        },
-
-        closeCreateWidget(){
-            this.createPicker = {
-                showPicker: false,
-                indexWidget: '',
-                width: '',
-                isPercentage: false,
+            const data = {
+                width: block.width,
+                isPercentage: !!section.isPercentage,
             };
+            const availableWidgets = this.editorConfig.widgets;
+            const callback = widgetType => {
+                this.callProperForm(block, widgetType, index + 1);
+            };
+            const props = { callback, data, availableWidgets, };
+            const options = { props, };
+            this.$popup.new(CreateWidgetPopup, options);
         },
 
-        changeSection(payload){
-            let merged = Object.assign(this.content[this.changeSectionPopup], payload);
+        changeSection(payload, index){
+            let merged = Object.assign(this.content[index], payload);
             for (let prop in merged) {
                 if (merged.hasOwnProperty(prop) && typeof merged[prop] === 'undefined') {
                     delete merged[prop];
                 }
             }
-            vue.set(this.content, this.changeSectionPopup, merged);
-            this.closeChangeSectionPopup();
+            this.$set(this.content, index, merged);
         },
 
-        showChangeSectionPopup(index, section) {
-            this.changeSectionPopup = index;
-            this.sectionForEdit = section;
-        },
-
-        closeChangeSectionPopup(){
-            this.changeSectionPopup = false;
-            this.sectionForEdit = {};
-        },
-
-        createSection(data){
-            if (typeof data.index !== 'undefined') {
-                let index = data.index;
-                delete data.index;
-                this.content.splice(index, 0, data);
-            } else {
-                this.content.push(data);
-            }
+        showChangeSectionPopup(index, currentState) {
+            const callback = payload => this.changeSection(payload, index);
+            const config = this.editorConfig.sectionConfigs;
+            const props = { currentState, config, callback, };
+            const options = { props, };
+            this.$popup.new(ChangeSectionPopup, options);
         },
 
         copySection(section){
@@ -1034,7 +1020,7 @@ export default {
         },
 
         pasteSection(index) {
-            let clone = cloneDeep(this.sectionBuffer[0]);
+            let clone = deepClone(this.sectionBuffer[0]);
             this.content.splice(index, 0, clone);
             if (index + 1 === this.content.length) {
                 setTimeout(() => {
@@ -1091,21 +1077,26 @@ export default {
                 this.$emit('clearError', this.options.codename);
             }
         },
+
+        addSectionPopup(placeIn) {
+            const callback = this.createSection;
+            const config = this.editorConfig;
+            const props = { placeIn, callback, config, };
+            const options = { props, };
+            this.$popup.new(AddSectionPopup, options);
+        },
+
+        createSection(data){
+            if (typeof data.index !== 'undefined') {
+                let index = data.index;
+                delete data.index;
+                this.content.splice(index, 0, data);
+            } else {
+                this.content.push(data);
+            }
+        },
     },
 
-    components: {
-        addSectionPopup,
-        changeSectionPopup,
-        postEditorWidgetWrapper,
-        pickToCreatePopup,
-        formsComponent,
-    },
 
-    beforeDestroy(){
-        document.removeEventListener('mouseup', this.DragEnd);
-        document.removeEventListener('mousemove', function (e) {
-            this.sectionHoverFunction(e);
-        }.bind(this));
-    },
 };
 </script>

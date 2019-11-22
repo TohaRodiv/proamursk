@@ -1,22 +1,11 @@
 <template>
-    <div
-        :class="{'popup-wrapper-transition': showTransition}"
-        class="popup-wrapper"
+    <cp-popup-wrap
+        @close="close"
+        disable-preloader
     >
-        <div
-            v-show="showTransition"
-            class="popup-container"
-            style="max-width: 540px;"
-        >
-            <div
-                @click="closePopup"
-                class="popup-close-icon icon-close"
-            />
-            <div class="popup-post-editor-forms-label">
-                Instagram
-            </div>
-            <div class="popup-post-editor-forms-wrapper">
-                <div class="popup-post-editor-forms-indents-wrapper">
+        <cp-popup-layout title="Instagram">
+            <template v-slot:body>
+                <cp-form-row>
                     <textareaComp
                         :propData="link"
                         @change="onChange"
@@ -25,6 +14,8 @@
                         style="width: 460px;"
                         label-position="top"
                     />
+                </cp-form-row>
+                <cp-form-row>
                     <radioButtonGroup
                         :config="alignConfig"
                         :value="align"
@@ -32,67 +23,67 @@
                         @clearError="clearError"
                         style="margin-top: 20px; margin-bottom: 50px; margin-left: 15px;"
                     />
-                    <div class="popup-post-editor-forms-indents-container" style="margin-bottom: 20px;">
-                        <cp-select
-                            :value="marginTop"
-                            :config="marginTopConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            style="margin-right: 20px"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="marginBottom"
-                            :config="marginBottomConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                    </div>
-                    <div class="popup-post-editor-forms-indents-container">
-                        <cp-select
-                            :value="paddingTop"
-                            :config="paddingTopConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            style="margin-right: 20px"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="paddingBottom"
-                            :config="paddingBottomConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                    </div>
-                </div>
-            </div>
-            <div class="popup-buttons-wrapper">
-                <div class="popup-buttons-post-editor-container">
-                    <button
-                        @click="closePopup"
-                        class="button borderless-button forms-cancel-button"
-                        style="border-right: none !important;"
-                    >
-                        Отмена
-                    </button>
-                    <button
-                        @click="validate"
-                        class="button forms-save-button"
-                    >
-                        Сохранить
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+                </cp-form-row>
+                <cp-form-row>
+                    <cp-select
+                        :value="marginTop"
+                        :config="marginTopConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="marginBottom"
+                        :config="marginBottomConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                </cp-form-row>
+                <cp-form-row>
+                    <cp-select
+                        :value="paddingTop"
+                        :config="paddingTopConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="paddingBottom"
+                        :config="paddingBottomConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                </cp-form-row>
+            </template>
+            <template v-slot:footer>
+                <cp-button
+                    @click="close"
+                    class="cp-button cp-button_transparent cp-button_font-red"
+                >
+                    Отмена
+                </cp-button>
+                <cp-button
+                    @click="validate"
+                    class="cp-button cp-button_green cp-button_br-pill"
+                >
+                    Сохранить
+                </cp-button>
+            </template>
+        </cp-popup-layout>
+    </cp-popup-wrap>
 </template>
 
 <script>
 import CpSelect from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/selectors/CpSelectSwitcher.vue';
 import textarea from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/Textarea.vue';
 import radioButtonGroup from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/inputs/RadioButtons.vue';
+import CpPopupWrap from '../../../../../../../cp_vue/frontend/vue/components/popups/CpPopupWrap.vue';
+import CpPopupLayout from '../../../../../../../cp_vue/frontend/vue/components/popups/CpPopupLayout.vue';
+import CpButton from '../../../../../../../cp_vue/frontend/vue/components/buttons/CpButton.vue';
+import CpFormRow from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/CpFormRow.vue';
+import popupMixin from '../../../../../../../cp_vue/frontend/vue/components/popups/popupMixin';
 
 const marginOptions = [
     {
@@ -118,11 +109,19 @@ const marginOptions = [
 ];
 
 export default {
+    name: 'PostEditorInstagramPopup',
+
     components: {
         CpSelect,
         textareaComp: textarea,
         radioButtonGroup,
+        CpPopupWrap,
+        CpPopupLayout,
+        CpButton,
+        CpFormRow,
     },
+
+    mixins: [popupMixin,],
 
     props: {
         passedData: {
@@ -135,8 +134,6 @@ export default {
 
     data() {
         return {
-            showTransition: false,
-
             linkConfig: {
                 label: 'Embed код',
                 required: true,
@@ -195,10 +192,10 @@ export default {
             link: '',
             align: '',
 
-            marginTop: null,
-            marginBottom: null,
-            paddingTop: null,
-            paddingBottom: null,
+            marginTop: '',
+            marginBottom: '',
+            paddingTop: '',
+            paddingBottom: '',
         };
     },
     computed: {},
@@ -210,10 +207,10 @@ export default {
         setData() {
             this.link = this.passedData.link || '';
             this.align = this.passedData.align || 'left';
-            this.marginTop = this.passedData.marginTop || null;
-            this.marginBottom = this.passedData.marginBottom || null;
-            this.paddingTop = this.passedData.paddingTop || null;
-            this.paddingBottom = this.passedData.paddingBottom || null;
+            this.marginTop = this.passedData.marginTop || '';
+            this.marginBottom = this.passedData.marginBottom || '';
+            this.paddingTop = this.passedData.paddingTop || '';
+            this.paddingBottom = this.passedData.paddingBottom || '';
         },
 
         validate(){
@@ -235,19 +232,15 @@ export default {
                 paddingTop, 
                 paddingBottom,
             } = this;
-            const payload = {
-                link,
-                align,
-                marginTop, 
-                marginBottom, 
-                paddingTop, 
-                paddingBottom,
-            };
-            this.$emit('changed', payload);
-        },
-
-        closePopup(){
-            this.$emit('closePopup');
+            const payload = {};
+            payload.link = link || '';
+            payload.align = align;
+            payload.marginTop = marginTop || null;
+            payload.marginBottom = marginBottom || null;
+            payload.paddingTop = paddingTop || null;
+            payload.paddingBottom = paddingBottom || null;
+            this.callback(payload);
+            this.close();
         },
 
         onChange(item) {

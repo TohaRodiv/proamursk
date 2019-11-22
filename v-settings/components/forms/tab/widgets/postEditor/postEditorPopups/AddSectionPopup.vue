@@ -1,68 +1,67 @@
 <template>
-    <div
-        :class="{'popup-wrapper-transition': showTransition}"
-        @click.self="closePopup"
-        class="popup-wrapper"
+    <cp-popup-wrap
+        @close="close"
+        @clickaway="close"
+        disable-preloader
     >
-        <div
-            v-show="showTransition"
-            class="popup-container"
-            style="max-width: 700px;"
-        >
+        <div class="popup-post-editor-section-label">
+            Добавление секции
+        </div>
+        <div class="popup-post-editor-section-container">
             <div
-                @click="closePopup"
-                class="popup-close-icon icon-close"
-            />
-            <div class="popup-post-editor-section-label">
-                Добавление секции
-            </div>
-            <div class="popup-post-editor-section-container">
-                <div
-                    v-for="option in options"
-                    class="popup-post-editor-section-block"
-                >
-                    <span v-if="option.maxColumns !== '_isPercentage'">{{ option.name }} / {{ option.maxColumns }} {{ multiEnds(option.maxColumns) }}</span>
-                    <span v-else>{{ option.name }}</span>
-                    <div class="popup-post-editor-section-item-flex-wrapper">
+                v-for="option in options"
+                class="popup-post-editor-section-block"
+            >
+                <span v-if="option.maxColumns !== '_isPercentage'">{{ option.name }} / {{ option.maxColumns }} {{ multiEnds(option.maxColumns) }}</span>
+                <span v-else>{{ option.name }}</span>
+                <div class="popup-post-editor-section-item-flex-wrapper">
+                    <div
+                        v-for="column in option.columns"
+                        @click="pickSection(column, option.maxColumns)"
+                        class="popup-post-editor-section-item-container"
+                    >
                         <div
-                            v-for="column in option.columns"
-                            @click="pickSection(column, option.maxColumns)"
-                            class="popup-post-editor-section-item-container"
+                            :style="{flex: column}"
+                            v-if="!Array.isArray(column)"
+                            class="popup-post-editor-section-item"
+                        >
+                            {{ column }} {{ (option.maxColumns === '_isPercentage') ? '%' : '' }}
+                        </div>
+                        <div
+                            v-else
+                            class="popup-post-editor-section-item-nested"
                         >
                             <div
-                                :style="{flex: column}"
-                                v-if="!Array.isArray(column)"
+                                :style="{flex: innerColumn}"
+                                v-for="innerColumn in column"
                                 class="popup-post-editor-section-item"
                             >
-                                {{ column }} {{ (option.maxColumns === '_isPercentage') ? '%' : '' }}
-                            </div>
-                            <div
-                                v-else
-                                class="popup-post-editor-section-item-nested"
-                            >
-                                <div
-                                    :style="{flex: innerColumn}"
-                                    v-for="innerColumn in column"
-                                    class="popup-post-editor-section-item"
-                                >
-                                    {{ innerColumn }} {{ (option.maxColumns === '_isPercentage') ? '%' : '' }}
-                                </div>
+                                {{ innerColumn }} {{ (option.maxColumns === '_isPercentage') ? '%' : '' }}
                             </div>
                         </div>
                     </div>
-                    <!--Ниже псевдо элемент для кроссбраузерности. Так как падинги и маргины по разносу ведут себя в разных браузерах-->
-                    <div style="height: 4px;" />
                 </div>
+                <!--Ниже псевдо элемент для кроссбраузерности. Так как падинги и маргины по разносу ведут себя в разных браузерах-->
+                <div style="height: 4px;" />
             </div>
         </div>
-    </div>
+    </cp-popup-wrap>
 </template>
 
 <script>
+import CpPopupWrap from '../../../../../../../cp_vue/frontend/vue/components/popups/CpPopupWrap.vue';
+import popupMixin from '../../../../../../../cp_vue/frontend/vue/components/popups/popupMixin';
 import wordFormHelper from '../../../../../../../cp_vue/frontend/vue/helpers/wordForms';
 
 export default {
-    components: {},
+    name: 'AddSectionPopup',
+
+    components: {
+        CpPopupWrap,
+    },
+
+    mixins: [popupMixin,],
+
     props: {
         config: Object,
         placeIn: [Boolean, Number,],
@@ -70,18 +69,19 @@ export default {
 
     data() {
         return {
-            showTransition: false,
+            // showTransition: false,
             options: [],
         };
     },
-    computed: {},
+
     mounted(){
-        setTimeout(() => {
-            this.showTransition = true;
-        }, 200);
+        // setTimeout(() => {
+        //     this.showTransition = true;
+        // }, 200);
 
         this.findOptions();
     },
+
     methods: {
         findOptions(){
             let object = this.config.sections;
@@ -170,27 +170,33 @@ export default {
             });
 
             if (typeof this.placeIn === 'number') {
-                this.$emit('createSection', {
-                    'classSuffix': widthArray.join('-'),
+                // this.$emit('createSection', {
+                //     'classSuffix': widthArray.join('-'),
+                //     isPercentage: maxColumns === '_isPercentage',
+                //     columns,
+                //     index: this.placeIn,
+                // });
+                this.callback({
+                    classSuffix: widthArray.join('-'),
                     isPercentage: maxColumns === '_isPercentage',
                     columns,
                     index: this.placeIn,
                 });
 
-                this.closePopup();
+                this.close();
             } else {
-                this.$emit('createSection', {
-                    'classSuffix': widthArray.join('-'),
+                // this.$emit('createSection', {
+                //     'classSuffix': widthArray.join('-'),
+                //     isPercentage: maxColumns === '_isPercentage',
+                //     columns,
+                // });
+                this.callback({
+                    classSuffix: widthArray.join('-'),
                     isPercentage: maxColumns === '_isPercentage',
                     columns,
                 });
-
-                this.closePopup();
+                this.close();
             }
-        },
-
-        closePopup(){
-            this.$emit('closePopup');
         },
     },
 };
