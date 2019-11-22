@@ -12,7 +12,7 @@
                         @clearError="clearError"
                         :image="image"
                         :config="imageConfig"
-                        style="width: 340px;"
+                        style="width: 340px; margin-bottom: 20px;"
                         label-position="top"
                     />
                 </cp-form-row>
@@ -137,6 +137,7 @@ import CpButton from '../../../../../../../cp_vue/frontend/vue/components/button
 import CpLegend from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/widgets/CpLegend.vue';
 import CpFormRow from '../../../../../../../cp_vue/frontend/vue/components/workzone/forms/CpFormRow.vue';
 import popupMixin from '../../../../../../../cp_vue/frontend/vue/components/popups/popupMixin';
+import imagesOnload from '../../../../../../../cp_vue/frontend/vue/helpers/imagesOnload';
 
 const marginOptions = [
     {
@@ -191,6 +192,7 @@ export default {
 
     data() {
         return {
+            loading: false,
             imageConfig: {
                 label: 'Фото',
                 codename: 'image',
@@ -297,6 +299,10 @@ export default {
     },
     methods: {
         setData() {
+            // if (Object.keys(this.passedData).length) {
+            //     this.loading = true;
+            // }
+
             this.text = this.passedData.text || '';
             this.image = this.passedData.image || {};
             this.sign = this.passedData.sign || '';
@@ -309,6 +315,11 @@ export default {
             this.marginBottom = this.passedData.marginBottom || '';
             this.paddingTop = this.passedData.paddingTop || '';
             this.paddingBottom = this.passedData.paddingBottom || '';
+
+            // this.$nextTick(async () => {
+            //     await imagesOnload('.cp-popup-wrap__content');
+            //     this.loading = false;
+            // });
         },
 
         validate(){
@@ -339,7 +350,7 @@ export default {
             const payload = {};
             payload.text = text || '';
             payload.image = image || {};
-            payload.fio = sign || '';
+            payload.sign = sign || '';
             payload.link = link || '';
             payload.align = align;
             payload.backgroundFlag = backgroundFlag;
