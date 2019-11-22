@@ -350,7 +350,7 @@ export default {
             const payload = {};
             payload.text = text || '';
             payload.image = image || {};
-            payload.fio = sign || '';
+            payload.sign = sign || '';
             payload.link = link || '';
             payload.align = align;
             payload.backgroundFlag = backgroundFlag;
