@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="width: 100%;">
         <div
             v-if="widget.marginTop"
             :style="{ height: widget.marginTop + 'em' }"
