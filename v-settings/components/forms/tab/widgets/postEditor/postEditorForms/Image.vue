@@ -1,7 +1,7 @@
 <template>
     <cp-popup-wrap
         @close="close"
-        :loading="loading"
+        disable-preloader
     >
         <cp-popup-layout title="Изображение">
             <template v-slot:body>
@@ -299,9 +299,9 @@ export default {
     },
     methods: {
         setData() {
-            if (Object.keys(this.passedData).length) {
-                this.loading = true;
-            }
+            // if (Object.keys(this.passedData).length) {
+            //     this.loading = true;
+            // }
 
             this.text = this.passedData.text || '';
             this.image = this.passedData.image || {};
@@ -316,10 +316,10 @@ export default {
             this.paddingTop = this.passedData.paddingTop || '';
             this.paddingBottom = this.passedData.paddingBottom || '';
 
-            this.$nextTick(async () => {
-                await imagesOnload('.cp-popup-wrap__content');
-                this.loading = false;
-            });
+            // this.$nextTick(async () => {
+            //     await imagesOnload('.cp-popup-wrap__content');
+            //     this.loading = false;
+            // });
         },
 
         validate(){
