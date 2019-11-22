@@ -1,5 +1,5 @@
 <template>
-    <!-- version 2 -->
+    <!-- version 3 -->
     <div
         :class="{'col12': labelPosition === 'top', 'col16': labelPosition === 'left'}"
         :style="(labelPosition === 'left') ? {display: 'flex'} : false"
@@ -209,7 +209,7 @@ export default {
 
         text: {
             handler(value) {
-                if (value == undefined) {
+                if (value == null) {
                     this.clearFormatter();
                 } else {
                     this.ready = true;
@@ -276,6 +276,7 @@ export default {
                                 : "/static/cp_vue/css/formatter/formatter_content.css" + this.static_version,
                         width: 700,
                     });
+                    this.$emit('onload');
                 });
             }
         },
