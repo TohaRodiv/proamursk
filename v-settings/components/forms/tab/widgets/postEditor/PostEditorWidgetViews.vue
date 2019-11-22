@@ -4,12 +4,12 @@
             minHeight: widget.type === 'instagram'
                 ? '576px'
                 : null,
-            backgroundColor: widget.type === 'instagram'
+            backgroundColor: widget.type === 'instagram' || widget.type === 'video'
                 ? 'rgba(233, 243, 253, .2)'
-                : widget.type === 'video'
-                    ? 'rgba(233, 243, 253, .2)'
-                    : null,
-            borderRadius: '5px',
+                : null,
+            borderRadius: widget.type === 'instagram' || widget.type === 'video'
+                ? '5px'
+                : null,
         }"
     >
         <imageComponent
