@@ -3,7 +3,7 @@
         @close="close"
         disable-preloader
     >
-        <cp-popup-layout title="Instagram">
+        <cp-popup-layout title="Цитата">
             <template v-slot:body>
                 <cp-form-row>
                     <cp-input
