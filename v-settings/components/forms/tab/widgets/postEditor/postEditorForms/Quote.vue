@@ -219,8 +219,8 @@ export default {
                 paddingBottom,
             } = this;
             const payload = {};
-            payload.job = text || '';
-            payload.job = title || '';
+            payload.text = text || '';
+            payload.title = title || '';
             payload.marginTop = marginTop || null;
             payload.marginBottom = marginBottom || null;
             payload.paddingTop = paddingTop || null;

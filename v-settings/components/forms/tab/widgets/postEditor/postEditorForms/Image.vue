@@ -340,11 +340,11 @@ export default {
             payload.text = text || '';
             payload.image = image || {};
             payload.fio = sign || '';
-            payload.job = link || '';
-            payload.job = align;
-            payload.job = backgroundFlag;
-            payload.job = title || '';
-            payload.job = alt || '';
+            payload.link = link || '';
+            payload.align = align;
+            payload.backgroundFlag = backgroundFlag;
+            payload.title = title || '';
+            payload.alt = alt || '';
             payload.marginTop = marginTop || null;
             payload.marginBottom = marginBottom || null;
             payload.paddingTop = paddingTop || null;

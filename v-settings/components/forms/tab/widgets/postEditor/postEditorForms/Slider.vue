@@ -194,7 +194,7 @@ export default {
                 paddingBottom,
             } = this;
             const payload = {};
-            payload.job = slides || {};
+            payload.slides = slides || {};
             payload.marginTop = marginTop || null;
             payload.marginBottom = marginBottom || null;
             payload.paddingTop = paddingTop || null;

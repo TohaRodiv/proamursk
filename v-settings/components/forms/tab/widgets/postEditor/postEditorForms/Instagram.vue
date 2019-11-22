@@ -233,8 +233,8 @@ export default {
                 paddingBottom,
             } = this;
             const payload = {};
-            payload.job = link || '';
-            payload.job = align;
+            payload.link = link || '';
+            payload.align = align;
             payload.marginTop = marginTop || null;
             payload.marginBottom = marginBottom || null;
             payload.paddingTop = paddingTop || null;
