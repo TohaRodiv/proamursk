@@ -11,7 +11,7 @@
                         @change="onChange"
                         @clearError="clearError"
                         :config="linkConfig"
-                        style="width: 460px;"
+                        style="width: 460px; margin-bottom: 20px;"
                         label-position="top"
                     />
                 </cp-form-row>
@@ -21,7 +21,7 @@
                         @change="onChange"
                         @clearError="clearError"
                         :config="descriptionConfig"
-                        style="width: 460px; margin-bottom: 30px;"
+                        style="width: 460px; margin-bottom: 50px;"
                         label-position="top"
                     />
                 </cp-form-row>
