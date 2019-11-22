@@ -1,7 +1,7 @@
 <template>
     <cp-popup-wrap
         @close="close"
-        disable-preloader
+        :loading="loading"
     >
         <cp-popup-layout title="Прямая речь">
             <template v-slot:body>
@@ -12,7 +12,7 @@
                         @clearError="clearError"
                         :image="image"
                         :config="imageConfig"
-                        style="width: 340px; margin-right: 20px;"
+                        style="width: 340px; margin-right: 20px; margin-bottom: 20px;"
                         label-position="top"
                     />
                     <cp-form-row column>
@@ -40,6 +40,7 @@
                         @change="onChange"
                         @clearError="clearError"
                         :config="textConfig"
+                        @onload="formatterOnload"
                         style="margin-bottom: 43px;"
                         label-position="top"
                     />
@@ -155,6 +156,7 @@ export default {
 
     data() {
         return {
+            loading: true,
             fioConfig: {
                 label: 'ФИО',
                 required: true,
@@ -238,6 +240,7 @@ export default {
         
     methods: {
         setData() {
+            this.loading = true;
             this.fio = this.passedData.fio || '';
             this.job = this.passedData.job || '';
             this.image = this.passedData.image || {};
@@ -246,6 +249,10 @@ export default {
             this.marginBottom = this.passedData.marginBottom || '';
             this.paddingTop = this.passedData.paddingTop || '';
             this.paddingBottom = this.passedData.paddingBottom || '';
+        },
+
+        formatterOnload() {
+            this.loading = false;
         },
 
         validate(){
