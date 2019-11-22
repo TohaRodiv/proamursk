@@ -1,7 +1,7 @@
 <template>
     <cp-popup-wrap
         @close="close"
-        disable-preloader
+        :loading="loading"
     >
         <cp-popup-layout title="Текст">
             <template v-slot:body>
@@ -12,40 +12,39 @@
                     :config="textConfig"
                     style="margin-bottom: 50px; margin-right: 0"
                     label-position="top"
+                    @onload="formatterOnload"
                 />
-                <div class="popup-post-editor-forms-indents-wrapper">
-                    <cp-legend>Отступы</cp-legend>
-                    <cp-form-row>
-                        <cp-select
-                            :value="marginTop"
-                            :config="marginTopConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="marginBottom"
-                            :config="marginBottomConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="paddingTop"
-                            :config="paddingTopConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                        <cp-select
-                            :value="paddingBottom"
-                            :config="paddingBottomConfig"
-                            @change="onChange"
-                            @clearError="clearError"
-                            label-position="top"
-                        />
-                    </cp-form-row>
-                </div>
+                <cp-legend>Отступы</cp-legend>
+                <cp-form-row>
+                    <cp-select
+                        :value="marginTop"
+                        :config="marginTopConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="marginBottom"
+                        :config="marginBottomConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="paddingTop"
+                        :config="paddingTopConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                    <cp-select
+                        :value="paddingBottom"
+                        :config="paddingBottomConfig"
+                        @change="onChange"
+                        @clearError="clearError"
+                        label-position="top"
+                    />
+                </cp-form-row>
             </template>
             <template v-slot:footer>
                 <cp-button
@@ -122,6 +121,7 @@ export default {
 
     data() {
         return {
+            loading: true,
             marginTopConfig: {
                 codename: 'marginTop',
                 width: 3,
@@ -167,10 +167,19 @@ export default {
     },
 
     mounted() {
-        this.setData();
+        this.init();
     },
 
     methods: {
+        async init() {
+            this.loading = true;
+            this.setData();
+        },
+
+        formatterOnload() {
+            this.loading = false;
+        },
+
         setData() {
             this.text = this.passedData.text || '';
             this.marginTop = this.passedData.marginTop || '';
