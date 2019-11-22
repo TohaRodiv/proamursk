@@ -77,6 +77,9 @@ const state = {
                                                         marginLeft: '10px',
                                                         whiteSpace: 'normal',
                                                     },
+                                                    elStyle: {
+                                                        whiteSpace: 'normal',
+                                                    },
                                                 },
                                             ],
                                         },
