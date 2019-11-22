@@ -297,10 +297,6 @@
                 </div>
             </div>
         </div>
-<!--        <formsComponent-->
-<!--            :data="widgetForm"-->
-<!--            @clearStore="clearFormsConfig"-->
-<!--        />-->
         <div
             v-if="options.invalid && focusEmptyContainer"
             class="post-editor-error-empty-container"
@@ -316,7 +312,6 @@
 <script>
 import vue from 'vue';
 import postEditorWidgetWrapper from './PostEditorWidgetsWrapper.vue';
-// import formsComponent from './PostEditorForms.vue';
 import wordFormHelper from '../../../../../../cp_vue/frontend/vue/helpers/wordForms';
 import { mapState, } from 'vuex';
 import AddSectionPopup from './postEditorPopups/AddSectionPopup.vue';
@@ -324,7 +319,6 @@ import deepClone from '../../../../../../cp_vue/frontend/vue/helpers/deepClone';
 import throttle from '../../../../../../cp_vue/frontend/vue/helpers/throttle';
 import ChangeSectionPopup from './postEditorPopups/ChangeSectionPopup.vue';
 import CreateWidgetPopup from './postEditorPopups/CreateWidgetPopup.vue';
-
 import image from './postEditorForms/Image.vue';
 import text from './postEditorForms/Text.vue';
 import directSpeech from './postEditorForms/DirectSpeech.vue';
@@ -934,16 +928,6 @@ export default {
             return false;
         },
 
-        // clearFormsConfig(){
-        //     this.widgetForm = {
-        //         widgetIndex: '',
-        //         popupType: false,
-        //         block: {},
-        //         widget: {},
-        //         insertIndex: '',
-        //     };
-        // },
-
         copyWidget(widget){
             let width = [];
 
@@ -992,24 +976,14 @@ export default {
         },
 
         editWidget(block, data, widgetIndex){
-            // this.widgetForm = {
-            //     widgetIndex: index,
-            //     popupType: widget.type,
-            //     block,
-            //     widget,
-            // };
-
             this.openWidgetPopup({ block, data, widgetIndex, widgetType: data.type, });
         },
 
         callProperForm(block, widgetType, insertIndex) {
-            // this.widgetForm.popupType = e;
             this.openWidgetPopup({ block, insertIndex, widgetType, });
         },
 
         openCreateWidgetPopup(block, section, index){
-            // this.widgetForm.block = block;
-            // this.widgetForm.insertIndex = index + 1;
             const data = {
                 width: block.width,
                 isPercentage: !!section.isPercentage,
