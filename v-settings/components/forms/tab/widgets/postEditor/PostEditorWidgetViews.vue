@@ -1,5 +1,17 @@
 <template>
-    <div :style="[widget.type === 'instagram' ? {minHeight: '576px', backgroundColor: 'rgba(233, 243, 253, .2)', borderRadius: '5px'} : '', widget.type === 'video' ? {backgroundColor: 'rgba(233, 243, 253, .2)', borderRadius: '5px'} : '']">
+    <div
+        :style="{
+            minHeight: widget.type === 'instagram'
+                ? '576px'
+                : null,
+            backgroundColor: widget.type === 'instagram' || widget.type === 'video'
+                ? 'rgba(233, 243, 253, .2)'
+                : null,
+            borderRadius: widget.type === 'instagram' || widget.type === 'video'
+                ? '5px'
+                : null,
+        }"
+    >
         <imageComponent
             v-if="widget.type === 'image'"
             :data="widget"
@@ -14,7 +26,8 @@
             :widget="widget"
         />
         <separator
-            v-if="widget.type === 'hr'"/>
+            v-if="widget.type === 'hr'"
+        />
         <quote
             v-if="widget.type === 'quote'"
             :widget="widget"
@@ -47,6 +60,17 @@ import video from './postEditorWidgetViews/Video.vue';
 import instagram from './postEditorWidgetViews/Instagram.vue';
 
 export default {
+
+    components: {
+        imageComponent,
+        textComponent,
+        separator,
+        slider,
+        quote,
+        directSpeech,
+        videoComponent: video,
+        instagram,
+    },
     props: {
         widget: Object,
         isDragOn: Boolean,
@@ -65,17 +89,6 @@ export default {
                 this.instaReloader = true;
             }, 500);
         },
-    },
-
-    components: {
-        imageComponent,
-        textComponent,
-        separator,
-        slider,
-        quote,
-        directSpeech,
-        videoComponent: video,
-        instagram,
     },
 };
 </script>
