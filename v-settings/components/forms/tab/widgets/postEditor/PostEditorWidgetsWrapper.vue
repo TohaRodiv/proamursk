@@ -153,6 +153,12 @@ import vue from 'vue';
 import { mapState, } from 'vuex';
 
 export default {
+    name: 'PostEditorWidgetWrapper',
+
+    components: {
+        widgetLoader,
+    },
+
     props: {
         widgetsDragActivated: Boolean,
         thisWidgetOnDrag: Boolean,
@@ -161,12 +167,27 @@ export default {
         widget: Object,
         uniqKey: String,
     },
+
     data() {
         return {
             mouseOverButton: '',
             absoluteHeight: '',
             hovered: false,
         };
+    },
+
+    computed: {
+        ...mapState({
+            widgetBuffer: state => state.postEditorMain.postEditorWidgetBuffer,
+        }),
+
+        postEditorRenderWrapperClass: function() {
+            return {
+                'post-editor-render-wrapper-on-drag': this.thisWidgetOnDrag,
+                'text': this.widget.type === 'text',
+            };
+        },
+
     },
 
     watch: {
@@ -183,20 +204,6 @@ export default {
                 }
             }
         },
-    },
-
-    computed: {
-        ...mapState({
-            widgetBuffer: state => state.postEditorMain.postEditorWidgetBuffer,
-        }),
-
-        postEditorRenderWrapperClass: function() {
-            return {
-                'post-editor-render-wrapper-on-drag': this.thisWidgetOnDrag,
-                'text': this.widget.type == 'text',
-            };
-        },
-                
     },
 
     methods: {
@@ -225,8 +232,6 @@ export default {
             else if (this.widget.type === 'instagram') return 'Инстраграм';
         },
     },
-    components: {
-        widgetLoader,
-    },
+
 };
 </script>
