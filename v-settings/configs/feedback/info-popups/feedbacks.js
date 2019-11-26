@@ -56,9 +56,11 @@ const state = {
                     structure: [
                         {
                             type: 'link',
-                            codename: 'url',
-                            customName: 'name'
-                        }
+                            content: {
+                                codename: 'url',
+                                customName: 'name',
+                            },
+                        },
                     ],
                 },
                 {
