@@ -141,6 +141,7 @@
                 @change="changeValue($event)"
                 @click="clearError"
                 :ref="'formatter-' + config.codename"
+                :id="'formatter-' + config.codename"
             >{{ value ? value : '' }}</textarea>
             <div
                 v-if="config.invalid && hover"

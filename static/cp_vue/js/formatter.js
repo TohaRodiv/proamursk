@@ -734,6 +734,7 @@
             // Создает и добавляет iFrame
             self.formatterFrame = document.createElement('iframe');
             self.formatterFrame.className = 'formatter-content';
+            self.formatterFrame.id = 'formatter-content__' + element.id;
             self.formatterFrame.style.display = 'block';
             self.formatterFrame.addEventListener('load', function () {
                 _setIFrameDocument();
@@ -2047,20 +2048,7 @@
                 selection.addRange(range);
             }
 
-            var iframe;
-            var path = event.path || (event.composedPath && event.composedPath());
-            for (var i = 0; i < path.length; i++) {
-                var pathItem = path[i];
-                if (typeof pathItem == 'object') {
-                    let itemKeys = Object.keys(pathItem);
-                    itemKeys.find(elem => {
-                        if (elem == 'frameElement') {
-                            iframe = pathItem[elem];
-                        }
-                    })
-                }
-            };
-
+            var iframe = document.getElementById('formatter-content__' + element.id);
             var selection = self.iframeDocument.getSelection();
             var range = _getCurrentRange();
             var rootElement = _getRootElement();
