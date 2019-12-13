@@ -3102,6 +3102,8 @@ footer {
   margin-right: -25px; }
 
 .movie-posters-widget .slick-active .movie-posters-item__cover {
+  width: 220px;
+  height: 330px;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); }
 
@@ -3185,7 +3187,9 @@ footer {
         -ms-flex-pack: end;
             justify-content: flex-end; }
   .cinema-widget__slide-img {
-    display: block; }
+    display: block;
+    width: 228px;
+    height: 342px; }
   .cinema-widget__poster-wrap {
     margin-left: 20px;
     margin-right: 20px; }
@@ -3351,6 +3355,7 @@ footer {
 .film-cover {
   display: block;
   width: 240px;
+  height: 360px;
   margin-right: 40px;
   -ms-flex-negative: 0;
       flex-shrink: 0; }
