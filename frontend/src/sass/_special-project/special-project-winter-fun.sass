@@ -1,4 +1,5 @@
 .sp-winter-fun
+    margin-bottom: -40px
     padding-top: 0
     overflow: hidden
 
@@ -14,19 +15,51 @@
 .sp-winter-fun__preview-slider .slide
     overflow: hidden
 
-.sp-winter-fun-light-section
-    padding-top: 100px
-    padding-bottom: 100px
-    background-color: #FAFBFC
+.city-bg
+    position: relative
+    min-height: 2810px
+    background-image: url(../images/special-projects/winter-fun/illustration-city.jpg)
+    background-size: 100%
+    background-repeat: no-repeat
+    background-color: #0d2c80
+    overflow: hidden
 
-    &__title
-        position: relative
-        margin-bottom: 40px
-        font-family: $bold-f
-        font-size: 24px
-        letter-spacing: 0.02em
-        line-height: 24px
-        text-align: center
+    &::after
+        content: ""
+        position: absolute
+        bottom: -200px
+        left: -15%
+        z-index: 1
+        width: 130%
+        height: 480px
+        background-image: url(../images/special-projects/winter-fun/svg/snowdrift1.svg)
+        background-size: 100%
+        background-repeat: no-repeat
+
+.nature-bg
+    position: relative
+    min-height: 1820px
+    padding-top: 40px
+    background-image: url(../images/special-projects/winter-fun/illustration-nature.jpg)
+    background-size: cover
+    background-repeat: no-repeat
+    background-color: #70aafb
+    overflow: hidden
+
+    &::after
+        content: ""
+        position: absolute
+        bottom: -360px
+        left: -15%
+        z-index: 1
+        width: 130%
+        height: 480px
+        background-image: url(../images/special-projects/winter-fun/svg/snowdrift2.svg)
+        background-size: 100%
+        background-repeat: no-repeat
+        
+.blue-bg
+    background-color: #DDEFFF
 
 .sp-winter-fun-header
     position: relative
@@ -35,10 +68,9 @@
     align-items: center
     justify-content: flex-end
     text-align: center
-    padding-top: 120px
-    padding-bottom: 190px
+    padding-top: 130px
+    padding-bottom: 140px
     color: $light-c
-    background-color: #7CABF8
 
     &__title
         position: relative
@@ -46,8 +78,9 @@
         font-size: 76px
         line-height: $mini-lh
         font-family: $bold-f
+        letter-spacing: 0.02em
         color: $light-c
-        text-transform: uppercase
+
 
     &__description
         width: 590px
@@ -59,705 +92,357 @@
     &__wobbler
         margin-bottom: 60px
 
-.sp-winter-fun__statistics-wrap
-    display: flex
-    padding: 30px 60px 40px
-    background-color: $base-c
-    border-radius: 56px
-    box-shadow: 0px 2px 16px #e1effa
-    color: $light-c
 
-.sp-winter-fun-stat-item
-    flex: 1 1 33%
-
-    &:not(:last-child)
-        margin-right: 30px
-
-.sp-winter-fun-stat-item__icon-wrap
-    height: 65px
-    display: flex
-    align-items: flex-end
-    margin-bottom: 20px
-
-.sp-winter-fun-stat-item__icon
-    &_passport
-        width: 46px
-
-    &_man
-        width: 68px
-
-    &_coins
-        width: 72px
-
-.sp-winter-fun-stat-item__title
-    margin-bottom: 5px
-    font-size: 28px
-    font-family: $bold-f
-
-.sp-winter-fun-stat-item__description
-    font-size: $small-fz
-    line-height: $base-lh
-    letter-spacing: 0.08em
-
-.sp-winter-fun-img-title
+.sp-winter-fun-section
     position: relative
-    display: flex
-    align-items: flex-start
 
-    &_inverse
-        flex-direction: row-reverse
+    &__title
+        position: relative
+        font-size: 180px
+        font-family: $bold-f
+        letter-spacing: 0.02em
+        color: #fff
+        text-transform: uppercase
 
-.sp-winter-fun-img-title__illustration
-    flex-shrink: 0
+        &_left
+            left: -100px
 
-.sp-winter-fun__bubble-title
-    position: relative
-    padding: 30px 60px
+        &_right
+            text-align: right
+            margin-right: -100px
+
+    &__description
+        width: 530px
+        padding: 36px
+        font-family: $add-sb-it-f
+        font-size: 21px
+        line-height: 32px
+        color: #2e5194
+        background-color: $light-c
+        border-radius: 32px
+
+        &_right
+            margin-top: 30px
+            margin-left: auto
+            margin-right: 220px
+
+.sp-winter-fun-simple-section__title
+    width: 640px
+    margin-left: auto
+    margin-right: auto
+    margin-bottom: 75px
     font-size: 42px
+    line-height: 1.1
     font-family: $bold-f
-    line-height: $micro-lh
-    color: $light-c
-    background-color: $base-c
-    border-radius: 56px
-
-    &_left
-        &::before
-            content: ""
-            display: block
-            position: absolute
-            bottom: 0
-            left: -60px
-            width: 112px
-            height: 57px
-            background-image: url(../images/special-projects/winter-fun/svg/bubble-corner.svg)
-            background-size: contain
-            background-repeat: no-repeat
-
-    &_right
-        &::before
-            content: ""
-            display: block
-            position: absolute
-            bottom: 0
-            right: -60px
-            width: 112px
-            height: 57px
-            transform: scale(-1, 1)
-            background-image: url(../images/special-projects/winter-fun/svg/bubble-corner.svg)
-            background-size: contain
-            background-repeat: no-repeat
-
-.sp-winter-fun-illustr1
-    width: 385px
-    height: 458px
-
-.sp-winter-fun-illustr2
-    width: 580px
-    height: 542px
-    margin-right: -170px
-
-.sp-winter-fun-illustr3
-    width: 415px
-    height: 400px
-
-.sp-winter-fun-illustr4
-    position: relative
-    z-index: 1
-    width: 360px
-    height: 457px
-    margin-top: -20px
-    margin-left: 20px
-
-.sp-winter-fun-why-work-child
-    width: 640px
-    margin-top: -300px
-    margin-left: 440px
-    padding: 50px 110px
-    background-color: #fafbfc
-    border-radius: 56px
-
-.sp-winter-fun-why-work-child__item
-    &:not(:last-child)
-        margin-bottom: 40px
-        padding-bottom: 40px
-        border-bottom: 1px solid #D7DBE0
-
-.sp-winter-fun-why-work-child__head
-    height: 64px
-    display: flex
-    align-items: flex-start
-    justify-content: space-between
-    margin-bottom: 25px
-
-.sp-winter-fun-why-work-child__count
-    width: 64px
-    height: 64px
-    font-size: 40px
-    line-height: 64px
-    font-family: $bold-f
-    color: $light-c
+    letter-spacing: 0.02em
     text-align: center
-    border-radius: 50%
-    background-color: $base-c
+    color: #0b4965
 
-.sp-winter-fun-why-work-child__title
-    margin-bottom: 20px
-    font-size: $big-fz
-    font-family: $bold-f
+.sp-winter-fun-ball-btn
+    position: absolute
+    z-index: 10
+    display: block
+    width: 240px
+    height: 240px
 
-.sp-winter-fun-why-work-child__description
-    font-size: $base-fz
+    span
+        display: flex
+        flex-direction: column
+        justify-content: center
+        width: 180px
+        height: 180px
+        margin: auto
+        font-family: $bold-f
+        font-size: 21px
+        line-height: $mini-lh
+        letter-spacing: 0.02em
+        text-align: center
+        color: $light-c
+        background-color: #0073ff
+        border-radius: 50%
+        filter: drop-shadow(0px 12px 24px rgba(0, 115, 255, 0.8))
 
-.sp-winter-fun-why-work-parent
-    width: 640px
-    margin-top: -360px
-    margin-left: 220px
-    padding: 70px 110px
-    background-color: #fafbfc
-    border-radius: 56px
+        &::before
+            content: ""
+            display: block
+            margin: 0 auto 10px
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: 50%
 
-.sp-winter-fun-why-work-parent__description
-    font-size: $base-fz
-
-.sp-winter-fun-whom-work__row
-    display: flex
-
-    &_1
-        margin-left: 400px
-        margin-top: -250px
-        margin-bottom: 50px
-
-    &_2
-        margin-left: 110px
-
-.sp-winter-fun-whom-work
-    width: 900px
-
-.sp-winter-fun-whom-work__item
-    flex: 1 1 420px
-    padding: 70px 50px
-    background-color: #fafbfc
-    border-radius: 56px
-
-    &:not(:last-child)
-        margin-right: 60px
-
-.sp-winter-fun-whom-work__icon
-    margin-bottom: 35px
-
-    &_guide
-        width: 130px
-
-    &_promoter
-        width: 120px
-
-    &_freelance
-        width: 150px
-
-    &_handyman
-        width: 120px
-
-.sp-winter-fun-whom-work__title
-    margin-bottom: 20px
-    font-size: $big-fz
-    font-family: $bold-f
-
-.sp-winter-fun-whom-work__description
-    font-size: $base-fz
-
-.sp-winter-fun-direct-speech
-    display: flex
-    align-items: flex-start
-    background-color: $light-c
-    border-radius: 56px
-    box-shadow: 0px 26px 28px #e1ecf7
-
-    &_block
-        width: 1080px
-        margin-left: 50px
-        padding: 60px 90px
-
-    &_slide
-        height: 100%
-        padding: 90px
-
-.sp-winter-fun-direct-speech__speaker
-    width: 230px
-    flex-shrink: 0
-    margin-right: 50px
-    margin-top: -15px
-
-.sp-winter-fun-direct-speech__avatar
-    margin-bottom: 15px
-
-.sp-winter-fun-direct-speech__author-description
-    margin-bottom: 0
-
-.sp-winter-fun-direct-speech__text-wrap
-    position: relative
-    flex-grow: 1
+    &:hover,
+    &:focus
+        &::before
+            filter: drop-shadow(0px 24px 48px rgba(0, 115, 255, 0.8))
 
     &::before
         content: ""
-        display: block
-        width: 80px
-        height: 50px
-        position: absolute
-        top: -15px
-        left: -40px
-        z-index: 1
-        background-image: url(../images/special-projects/winter-fun/svg/quotes.svg)
-        background-size: contain
-        background-repeat: no-repeat
-
-.sp-winter-fun-direct-speech__text
-    position: relative
-    z-index: 2
-
-.sp-winter-fun-where-find
-    width: 822px
-    margin-top: -290px
-    margin-left: 440px
-    padding: 80px 70px
-    background-color: #fafbfc
-    border-radius: 56px
-
-.sp-winter-fun-where-find__item
-    display: flex
-    align-items: flex-start
-
-    &:not(:last-child)
-        margin-bottom: 100px
-
-    &_inverse
-        flex-direction: row-reverse
-
-        .sp-winter-fun-where-find__info
-            margin-left: 0
-            margin-right: 50px
-
-.sp-winter-fun-where-find__img
-    display: block
-    width: 460px
-    border-radius: 28px
-
-    &_1
-        margin-right: -200px
-        margin-top: -110px
-
-    &_2,
-    &_4
-        margin-left: -210px
-        margin-top: -30px
-
-    &_3
-        margin-right: -200px
-
-        & + .sp-winter-fun-where-find__info
-            align-self: flex-end
-
-.sp-winter-fun-where-find__info
-    width: 370px
-    flex-shrink: 0
-    margin-left: 60px
-
-.sp-winter-fun-where-find__count
-    width: 64px
-    height: 64px
-    margin-bottom: 30px
-    font-size: 40px
-    line-height: 64px
-    font-family: $bold-f
-    color: $light-c
-    text-align: center
-    background-color: $base-c
-    border-radius: 50%
-
-.sp-winter-fun-where-find__title
-    margin-bottom: 20px
-    font-size: $big-fz
-    font-family: $bold-f
-
-.sp-winter-fun-where-find__description
-    font-size: $base-fz
-
-.sp-winter-fun-where-find__table
-    font-size: $mini-fz
-
-    tr
-        &:not(:last-child)
-            td
-                padding-bottom: 10px
-
-    td
-        padding: 0
-        vertical-align: baseline
-
-        &:first-child
-            padding-right: 20px
-
-        [class^="icon-"]
-            display: inline-block
-            width: 18px
-            height: 20px
-            margin-right: 5px
-            font-size: 0
-            line-height: 20px
-            color: #0073FF
-            vertical-align: -2px
-            text-align: center
-
-            &::before
-                font-size: 17px
-
-        div
-            line-height: 1.5
-
-        a
-            color: $base-c
-            text-decoration: none
-
-            &:hover,
-            &:focus
-                text-decoration: underline
-
-.sp-winter-fun-slider
-    &:hover
-        .sp-winter-fun-slider__arrow-container
-            opacity: 1
-
-    .slider-container
-        height: 760px
-
-    img
-        width: 100%
-        height: 100%
-
-.sp-winter-fun-slider__arrow-container
-    position: absolute
-    width: 100%
-    height: 760px
-    top: 0
-    opacity: 0
-    transition: opacity 0.2s
-
-    .slider-arrow
-        display: flex
-        align-items: center
-        justify-content: center
         position: absolute
         top: 0
-        z-index: 2
-        width: 160px
-        height: 100%
-        font-size: 35px
-        color: $light-c
-        border-radius: 28px
+        display: block
+        width: 240px
+        height: 240px
+        background-color: #0073ff
+        opacity: 0.4
+        border-radius: 50%
+        filter: drop-shadow(0px 12px 24px rgba(0, 115, 255, 0.8))
 
-    .slider-arrow-prev
-        left: 0
-        background: linear-gradient(90deg, rgba(#4c607b, 0.55) 0%, rgba(#4c607b, 0) 100%)
+    &_city_1
+        left: 600px
+        top: 600px
 
-    .slider-arrow-next
-        right: 0
-        background: linear-gradient(90deg, rgba(#4c607b, 0) 0%, rgba(#4c607b, 0.55) 100%)
+        span::before
+            width: 33px
+            height: 43px
+            background-image: url(../images/special-projects/winter-fun/svg/christmastree.svg)
 
-.sp-winter-fun-working-conditions
-    display: flex
-    align-items: center
-    justify-content: center
-    width: 1080px
-    margin-left: auto
-    margin-right: auto
+    &_city_2
+        left: 140px
+        top: 800px
 
-.sp-winter-fun-working-conditions-section__title
-    margin-bottom: 40px
-    font-family: $bold-f
-    font-size: $huge-fz
-    letter-spacing: 0.02em
-    line-height: $micro-lh
-    text-align: center
-    text-transform: uppercase
+        span::before
+            width: 53px
+            height: 40px
+            background-image: url(../images/special-projects/winter-fun/svg/skates.svg)
 
-.sp-winter-fun-working-conditions__img
-    width: 225px
-    height: 388px
-    margin-left: 90px
-    margin-right: 90px
+    &_city_3
+        left: 820px
+        top: 1020px
 
-.sp-winter-fun-working-conditions__bubble
+        span::before
+            width: 56px
+            height: 25px
+            background-image: url(../images/special-projects/winter-fun/svg/slides.svg)
+
+    &_city_4
+        left: 280px
+        top: 1370px
+
+        span::before
+            width: 42px
+            height: 43px
+            background-image: url(../images/special-projects/winter-fun/svg/dendrarii.svg)
+
+    &_city_5
+        left: calc(50% - 120px)
+        top: 1850px
+
+        span::before
+            width: 40px
+            height: 35px
+            margin-top: -10px
+            background-image: url(../images/special-projects/winter-fun/svg/calendar.svg)
+
+    &_nature_1
+        left: 390px
+        top: 710px
+
+        span::before
+            width: 58px
+            height: 35px
+            background-image: url(../images/special-projects/winter-fun/svg/ski-resort.svg)
+
+    &_nature_2
+        left: 800px
+        top: 1040px
+
+        span::before
+            width: 48px
+            height: 40px
+            background-image: url(../images/special-projects/winter-fun/svg/recreation-center.svg)
+
+
+.sp-winter-fun-calendar-section
     position: relative
-    width: 340px
-    flex-shrink: 0
-    margin-top: -50px
-    padding: 40px
-    background-color: #FAFBFC
-    border-radius: 56px
+    z-index: 2
+    top: -100px
 
-    &_left
-        &::before
-            content: ""
-            display: block
-            position: absolute
-            top: 30px
-            right: -70px
-            width: 112px
-            height: 57px
-            background-image: url(../images/special-projects/winter-fun/svg/gray-corner.svg)
-            background-size: contain
-            background-repeat: no-repeat
+.sp-winter-fun-events-list
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-gap: 60px 30px
+    width: 970px
+    margin: 0 auto
+    padding: 0
+    list-style-type: none
 
-    &_right
-        &::before
-            content: ""
-            display: block
-            position: absolute
-            top: 30px
-            left: -70px
-            width: 112px
-            height: 57px
-            transform: scale(-1, 1)
-            background-image: url(../images/special-projects/winter-fun/svg/gray-corner.svg)
-            background-size: contain
-            background-repeat: no-repeat
-
-.sp-winter-fun-working-conditions__title
-    margin-bottom: 35px
-    font-size: $big-fz
-    font-family: $bold-f
-
-.sp-winter-fun-working-conditions__text-block
+.sp-winter-fun-event
     display: flex
-    align-items: flex-start
+    flex-direction: column
+    background-color: $light-gray
+    border-radius: 32px
+    overflow: hidden
+    box-shadow: 0 12px 24px #e1ecf7
+    cursor: pointer
 
-.sp-winter-fun-working-conditions__icon
-    flex-shrink: 0
-    width: 42px
-    margin-right: 20px
+    &:hover
+        box-shadow: 0 24px 48px #e1ecf7
 
-.sp-winter-fun-working-conditions__text
-    flex-grow: 1
-    font-size: $base-fz
-    line-height: $base-lh
+    &__cover
+        height: 180px
 
-.sp-winter-fun__info-sign
-    width: 48px
-    height: 48px
-    margin: 0 auto 10px
-    font-size: 36px
-    line-height: 44px
-    border: 2px solid #FF1800
-    flex-shrink: 0
-    color: #FF1800
-    text-align: center
-    border-radius: 50%
+    &__content
+        flex-grow: 1
+        display: flex
+        flex-direction: column
+        padding: 35px
+        background-color: $light-c
 
-.sp-winter-fun-working-conditions-section__subtitle
-    width: 335px
-    margin-left: auto
-    margin-right: auto
-    margin-bottom: 30px
-    font-size: $base-fz
-    font-family: $bold-f
-    text-align: center
-
-.sp-winter-fun-documents-grid
-    display: flex
-    flex-wrap: wrap
-    width: 750px
-    margin-top: 60px
-    margin-left: 330px
-
-.sp-winter-fun-documents__item
-    display: flex
-    align-items: center
-    flex: 0 1 43%
-
-    &:nth-child(1),
-    &:nth-child(2)
-        margin-bottom: 40px
-
-    &:nth-child(2n+1)
-        margin-right: 30px
-
-.sp-winter-fun-documents__icon
-    width: 46px
-    margin-right: 20px
-
-.sp-winter-fun-documents__text
-    font-size: $big-fz
-    font-family: $bold-f
-
-.sp-winter-fun-experience-grid
-    display: flex
-    flex-wrap: wrap
-
-.sp-winter-fun-experience-item
-    flex: 1 1 45%
-    padding: 65px 55px 55px
-    background-color: #FAFBFC
-    border-radius: 28px
-
-    &:nth-child(1),
-    &:nth-child(2)
+    &__title
+        margin-top: 0
         margin-bottom: 50px
+        font-family: $bold-f
+        font-size: 22px
+        line-height: 1.1
+        letter-spacing: 0.02em
+        text-align: center
 
-    &:nth-child(2n+1)
-        margin-right: 40px
+    &__links-wrap
+        margin-top: auto
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        margin-bottom: -8px
+        margin-right: -8px
 
-.sp-winter-fun-experience-item__head
-    display: flex
-    align-items: flex-start
-    margin-bottom: 35px
+    &__link
+        height: 26px
+        margin-bottom: 8px
+        margin-right: 8px
+        padding-left: 12px
+        padding-right: 12px
+        font-size: 12px
+        line-height: 24px
+        font-family: $bold-f
+        letter-spacing: 0.04em
+        color: $light-c
+        background-color: $base-c
+        border-radius: 13px
 
-.sp-winter-fun-experience-item__avatar
-    width: 96px
-    height: 96px
-    flex-shrink: 0
-    margin-right: 30px
-    border-radius: 50%
+.sp-winter-fun-simple-section__with-map
+    position: relative
+    margin-top: 70px
+    padding-bottom: 300px
+    overflow: hidden
 
-.sp-winter-fun-experience-item__person-info
-    flex-grow: 1
+    &::after
+        content: ""
+        position: absolute
+        bottom: -130px
+        left: -13%
+        z-index: 1
+        width: 130%
+        height: 320px
+        background-image: url(../images/special-projects/winter-fun/svg/snowdrift3.svg)
+        background-size: 100%
+        background-repeat: no-repeat
 
-.sp-winter-fun-experience-item__name
-    margin-bottom: 5px
-    font-size: $medium-fz
-    font-family: $bold-f
-    color: $base-c
-
-.sp-winter-fun-experience-item__description
-    font-size: $base-fz
-    font-family: $add-sb-it-f
-
-.sp-winter-fun-experience-item__text p
-    font-size: $mini-fz
-
-.sp-winter-fun-step-slider
-    width: 1080px
+.sp-winter-fun__map
+    width: 1240px
     height: 640px
     margin-left: auto
     margin-right: auto
-    background-color: $light-c
+    border: 1px solid #d7e3ef
+    box-shadow: 0 26px 28px #e1ecf7
     border-radius: 56px
-    box-shadow: 0px 26px 28px #e1ecf7
+    overflow: hidden
 
-    .sp-winter-fun-direct-speech
-        box-shadow: none
+.sp-winter-map-points__list
+    position: absolute
+    top: 50%
+    left: -70px
+    transform: translateY(-50%)
+    z-index: 2
+    margin: 0
+    padding: 30px 20px
+    background-color: $light-c
+    border-radius: 36px
+    box-shadow: 0 12px 24px #e1ecf7
 
-    .slider-arrow
-        display: block
-        width: 48px
-        height: 48px
-        border-radius: 50%
-        position: absolute
-        top: 50%
-        transform: translateY(-50%)
-        z-index: 2
-        font-size: 25px
-        line-height: 50px
-        color: $base-c
-        background-color: #EFF3F9
+.sp-winter-map-points__item
+    padding-top: 5px
+    padding-bottom: 5px
+    font-size: 16px
+    line-height: 1.5
+    letter-spacing: 0.02em
 
-        &:hover
-            background-color: #e1ecf7
-
-        &-prev
-            left: -70px
-            padding-right: 2px
-
-        &-next
-            right: -70px
-            padding-left: 5px
-
-    .slider-circles-container
-        bottom: -50px
-
-    .slider-circle-item
-        background-color: $light-c
-        border: 1px solid $base-c
-
-        &.active,
-        &:hover
-            background-color: $base-c
-
-.sp-winter-fun-expert-comments__item
+.sp-winter-fun-rules-section
     position: relative
-    width: 750px
+    top: -60px
+    z-index: 2
+    min-height: 930px
+    background-image: url(../images/special-projects/winter-fun/tips-illustration.png);
+    background-size: 1030px 675px
+    background-repeat: no-repeat
+    background-position: 50% 190px
 
-    &::before
-        content: ""
-        display: block
+.sp-winter-fun-rules
+    margin: 0
+    padding: 0
+
+.sp-winter-fun-rules__item
+    position: absolute
+    width: 260px
+    box-sizing: content-box
+    padding: 40px
+    border-radius: 32px
+    background-color: $light-c
+    font-size: 18px
+    letter-spacing: 0.02em
+
+    &_1
+        top: 150px
+        left: -50px
+
+    &_2
+        top: 220px
+        left: 600px
+
+    &_3
+        top: 220px
+        right: -140px
+
+    &_4
+        top: 630px
+        left: -50px
+
+    &_5
+        top: 750px
+        left: 490px
+
+    &_6
+        top: 480px
+        right: -80px
+
+.sp-winter-fun-make-photo-illustration
+    height: 930px
+    position: relative
+
+    img
         position: absolute
-        top: 50%
-        z-index: 1
-        transform: translateY(-50%)
-        background-repeat: no-repeat
-        background-size: contain
 
-    &:nth-child(1)::before
-        width: 430px
-        height: 355px
-        right: -360px
-        background-image: url(../images/special-projects/winter-fun/svg/expert-comments1.svg)
+    img:nth-child(1)
+        top: 160px
+        left: 37%
+        width: 120px
 
-    &:nth-child(2)::before
-        width: 380px
-        height: 320px
-        left: -330px
-        background-image: url(../images/special-projects/winter-fun/svg/expert-comments2.svg)
+    img:nth-child(2)
+        top: 120px
+        left: 47%
+        width: 140px
 
-    &:nth-child(3)::before
-        width: 320px
-        height: 320px
-        right: -300px
-        background-image: url(../images/special-projects/winter-fun/svg/expert-comments3.svg)
+    img:nth-child(3)
+        top: 140px
+        left: 59%
+        width: 120px
 
-    &:not(:last-child)
-        margin-bottom: 100px
+    img:nth-child(4)
+        top: 220px
+        left: 50%
+        transform: translateX(-50%)
+        min-height: 920px
+        object-fit: contain
 
-    &_right
-        margin-left: auto
-
-    .sp-winter-fun-direct-speech
-        display: block
-        position: relative
-        z-index: 2
-        padding: 80px 60px
-
-    .sp-winter-fun-direct-speech__speaker
-        display: flex
-        align-items: flex-start
-        width: 460px
-        margin-top: 0
-        margin-right: 0
-        margin-bottom: 50px
-
-    .sp-winter-fun-direct-speech__text-info-wrap
-        margin-top: 10px
-
-    .sp-winter-fun-direct-speech__text-wrap
-        margin-left: 30px
-        margin-right: 30px
-
-.sp-winter-fun__share-block
-    margin: 100px auto 50px
-
-    .share-widget
-        display: block
-        text-align: center
-
-    .share-widget__text
-        display: block
-        margin-bottom: 15px
-        margin-right: 0
-
-    .share-widget__links-wrap
-        justify-content: center
-
-    .share-widget__link-img
-        width: 37px
-        height: 37px
-
-    .share-widget__link:not(:last-child)
-        margin-right: 15px
+.sp-winter-fun-gallery
+    margin-top: 110px

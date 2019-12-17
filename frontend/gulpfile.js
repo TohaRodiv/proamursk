@@ -40,7 +40,7 @@ const gulp = require('gulp'),
     // settings plumber
     settingsPlumber = {
         errorHandler: function(error) {
-            console.log('\n\tError'.red+' in plugin `'+error.plugin.cyan+'`\n\t'+error.message+' details: '+error);
+            console.log('\n\tError'.red+' in plugin `'+error.plugin+'`\n\t'+error.message+' details: '+error);
             this.emit('end');
         },
     },

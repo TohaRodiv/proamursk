@@ -1,10 +1,12 @@
 $(function () {
-    if ($('.map').length > 0) {
-        var map1, map2, map3;
-        ymaps.ready(initMap);
+    if ($('.map').length <= 0) {
+        return;
+    }
+    let map1, map2, map3, map4;
+    ymaps.ready(initMap);
 
-        // eslint-disable-next-line no-inner-declarations
-        function initMap() {
+    function initMap() {
+        if (document.querySelector('.sp-children-section_1__map')) {
             map1 = new ymaps.Map("sp-children-section_1__map", {
                 center: [50.231025, 136.886119,],
                 zoom: 14,
@@ -99,9 +101,9 @@ $(function () {
                 map1point.add(map1pointPlacemarks[i]);
             }
             map1.geoObjects.add(map1point);
+        }
 
-
-
+        if (document.querySelector('.sp-children-section_2__map')) {
             map2 = new ymaps.Map("sp-children-section_2__map", {
                 center: [50.231025, 136.886119,],
                 zoom: 14,
@@ -197,9 +199,9 @@ $(function () {
                 map2point.add(map2pointPlacemarks[i]);
             }
             map2.geoObjects.add(map2point);
+        }
 
-
-
+        if (document.querySelector('.sp-children-section_3__map')) {
             map3 = new ymaps.Map("sp-children-section_3__map", {
                 center: [50.231025, 136.886119,],
                 zoom: 14,
@@ -326,62 +328,128 @@ $(function () {
                 map3point.add(map3pointPlacemarks[i]);
             }
             map3.geoObjects.add(map3point);
-
-
-            $('body').on('click', '.sp-map-points__item-btn', function () {
-                var currentMapWrap = $(this).parents('.sp-map-wrap'),
-                    currentMap = currentMapWrap.find('.sp-map'),
-                    currentMapId = currentMap.attr('id');
-
-                currentMapWrap.find('.sp-map-points__item-btn').removeClass('active');
-                $(this).addClass('active');
-
-                if (currentMapId === 'sp-children-section_1__map') {
-                    var coord = $(this).data('coord');
-                    var index = $('.sp-children-section_1__map-wrap').find('.sp-map-points__item-btn').index($(this));
-
-                    map1.panTo(coord, {
-                        flying: 1,
-                    });
-                    for (var i = 0; i < map1Places.length; i++) {
-                        if (coord[0] === map1Places[i].coords[0] && coord[1] === map1Places[i].coords[1] && i === index) {
-                            map1pointPlacemarks[i].balloon.open();
-                            break;
-                        }
-                    }
-                    map1.container.fitToViewport();
-                }
-                else if (currentMapId === 'sp-children-section_2__map') {
-                    var coord = $(this).data('coord');
-                    var index = $('.sp-children-section_2__map-wrap').find('.sp-map-points__item-btn').index($(this));
-
-                    map2.panTo(coord, {
-                        flying: 1,
-                    });
-                    for (var i = 0; i < map2Places.length; i++) {
-                        if (coord[0] === map2Places[i].coords[0] && coord[1] === map2Places[i].coords[1] && i === index) {
-                            map2pointPlacemarks[i].balloon.open();
-                            break;
-                        }
-                    }
-                    map2.container.fitToViewport();
-                }
-                else if (currentMapId === 'sp-children-section_3__map') {
-                    var coord = $(this).data('coord');
-                    var index = $('.sp-children-section_3__map-wrap').find('.sp-map-points__item-btn').index($(this));
-
-                    map3.panTo(coord, {
-                        flying: 1,
-                    });
-                    for (var i = 0; i < map3Places.length; i++) {
-                        if (coord[0] === map3Places[i].coords[0] && coord[1] === map3Places[i].coords[1] && i === index) {
-                            map3pointPlacemarks[i].balloon.open();
-                            break;
-                        }
-                    }
-                    map3.container.fitToViewport();
-                }
-            });
         }
+
+        if (document.querySelector('.sp-winter-fun__map')) {
+            map4 = new ymaps.Map("sp-winter-fun__map", {
+                center: [50.711165, 137.302154,],
+                zoom: 14,
+                controls: [],
+            });
+
+            map4.controls.add(new ymaps.control.ZoomControl({
+                options: { position: { right: 20, bottom: 72 }}
+            }));
+
+            map4.behaviors.disable('scrollZoom');
+
+            var map4Places = [
+                {
+                    coords: [50.711165, 137.302154,],
+                    title: 'Горнолыжный курорт «Альмир»',
+                },
+                {
+                    coords: [50.741085, 136.569373,],
+                    title: 'Горнолыжная база «Холдоми»',
+                },
+                {
+                    coords: [50.819228, 136.400062,],
+                    title: 'Туристический комплекс «Амут сноу-лэйк»',
+                },
+                {
+                    coords: [50.427646, 136.790135,],
+                    title: 'Ферма "Мишкина берлога"',
+                },
+
+                {
+                    coords: [50.729631, 136.626935,],
+                    title: 'Дом отдыха «Пастораль»',
+                },
+                {
+                    coords: [50.563027, 137.041588,],
+                    title: 'Силинский парк',
+                },
+                {
+                    coords: [50.711336, 137.302705,],
+                    title: 'Дом отдыха «Шарголь»',
+                },
+            ];
+            var map4point = new ymaps.GeoObjectCollection(
+                {
+                    preset: 'islands#icon',
+                    iconColor: '#0073FF',
+                }
+            );
+
+            var map4pointPlacemarks = [];
+            for (var i = 0; i < map4Places.length; i++) {
+                map4pointPlacemarks.push(new ymaps.Placemark(map4Places[i].coords));
+                map4point.add(map4pointPlacemarks[i]);
+            }
+            map4.geoObjects.add(map4point);
+        }
+
+        $('body').on('click', '.sp-map-points__item-btn', function () {
+            var currentMapWrap = $(this).parents('.sp-map-wrap'),
+                currentMap = currentMapWrap.find('.sp-map'),
+                currentMapId = currentMap.attr('id');
+
+            currentMapWrap.find('.sp-map-points__item-btn').removeClass('active');
+            $(this).addClass('active');
+
+            if (currentMapId === 'sp-children-section_1__map') {
+                var coord = $(this).data('coord');
+                var index = $('.sp-children-section_1__map-wrap').find('.sp-map-points__item-btn').index($(this));
+
+                map1.panTo(coord, {
+                    flying: 1,
+                });
+                for (var i = 0; i < map1Places.length; i++) {
+                    if (coord[0] === map1Places[i].coords[0] && coord[1] === map1Places[i].coords[1] && i === index) {
+                        map1pointPlacemarks[i].balloon.open();
+                        break;
+                    }
+                }
+                map1.container.fitToViewport();
+            }
+            else if (currentMapId === 'sp-children-section_2__map') {
+                var coord = $(this).data('coord');
+                var index = $('.sp-children-section_2__map-wrap').find('.sp-map-points__item-btn').index($(this));
+
+                map2.panTo(coord, {
+                    flying: 1,
+                });
+                for (var i = 0; i < map2Places.length; i++) {
+                    if (coord[0] === map2Places[i].coords[0] && coord[1] === map2Places[i].coords[1] && i === index) {
+                        map2pointPlacemarks[i].balloon.open();
+                        break;
+                    }
+                }
+                map2.container.fitToViewport();
+            }
+            else if (currentMapId === 'sp-children-section_3__map') {
+                var coord = $(this).data('coord');
+                var index = $('.sp-children-section_3__map-wrap').find('.sp-map-points__item-btn').index($(this));
+
+                map3.panTo(coord, {
+                    flying: 1,
+                });
+                for (var i = 0; i < map3Places.length; i++) {
+                    if (coord[0] === map3Places[i].coords[0] && coord[1] === map3Places[i].coords[1] && i === index) {
+                        map3pointPlacemarks[i].balloon.open();
+                        break;
+                    }
+                }
+                map3.container.fitToViewport();
+            }
+            else if (currentMapId === 'sp-winter-fun__map') {
+                var coord = $(this).data('coord');
+
+                map4.panTo(coord, {
+                    flying: 1,
+                });
+                map4.container.fitToViewport();
+            }
+        });
     }
 });
