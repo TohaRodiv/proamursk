@@ -11,6 +11,14 @@
 .sp-winter-fun__preview-slider .slide
     border-radius: 36px
 
+.sp-winter-fun__preview-slider
+    width: 720px
+    height: 480px
+
+.sp-winter-fun-gallery .sp-winter-fun__preview-slider
+    width: 1080px
+    height: 760px
+
 .preview-slider__big-img-wrap::after,
 .sp-winter-fun__preview-slider .slide
     overflow: hidden
@@ -19,7 +27,8 @@
     position: relative
     min-height: 2810px
     background-image: url(../images/special-projects/winter-fun/illustration-city.jpg)
-    background-size: 100%
+    background-size: 1920px
+    background-position: center
     background-repeat: no-repeat
     background-color: #0d2c80
     overflow: hidden
@@ -39,11 +48,13 @@
 .nature-bg
     position: relative
     min-height: 1820px
+    margin-top: 60px
     padding-top: 40px
     background-image: url(../images/special-projects/winter-fun/illustration-nature.jpg)
-    background-size: cover
+    background-size: 1920px
+    background-position: center
     background-repeat: no-repeat
-    background-color: #70aafb
+    background-color: #b0d5fe
     overflow: hidden
 
     &::after
@@ -59,7 +70,25 @@
         background-repeat: no-repeat
         
 .blue-bg
+    position: relative
     background-color: #DDEFFF
+    background-image: url(../images/special-projects/winter-fun/tips-phone.jpg)
+    background-size: 1920px
+    background-repeat: no-repeat
+    background-position: center 130px
+
+    &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: -15%
+        z-index: 1
+        width: 130%
+        height: 280px
+        background-color: $light-c
+        background-image: url(../images/special-projects/winter-fun/svg/snowdrift3.svg)
+        background-size: 100%
+        background-repeat: no-repeat
 
 .sp-winter-fun-header
     position: relative
@@ -105,11 +134,13 @@
         text-transform: uppercase
 
         &_left
-            left: -100px
+            padding-left: calc((100vw - 1920px) / 2)
+            left: 130px
 
         &_right
             text-align: right
-            margin-right: -220px
+            padding-right: calc((100vw - 1920px) / 2)
+            right: 100px
 
     &__description
         width: 530px
@@ -122,9 +153,10 @@
         border-radius: 32px
 
         &_right
-            margin-top: 30px
+            width: 640px
+            margin-top: 10px
             margin-left: auto
-            margin-right: 220px
+            margin-right: 110px
 
 .sp-winter-fun-simple-section__title
     width: 640px
@@ -189,7 +221,7 @@
 
     &_city_1
         left: 600px
-        top: 600px
+        top: 360px
 
         span::before
             width: 33px
@@ -198,7 +230,7 @@
 
     &_city_2
         left: 140px
-        top: 800px
+        top: 570px
 
         span::before
             width: 53px
@@ -207,7 +239,7 @@
 
     &_city_3
         left: 820px
-        top: 1020px
+        top: 790px
 
         span::before
             width: 56px
@@ -216,7 +248,7 @@
 
     &_city_4
         left: 280px
-        top: 1370px
+        top: 1140px
 
         span::before
             width: 42px
@@ -225,7 +257,7 @@
 
     &_city_5
         left: calc(50% - 120px)
-        top: 1850px
+        top: 1670px
 
         span::before
             width: 40px
@@ -234,8 +266,8 @@
             background-image: url(../images/special-projects/winter-fun/svg/calendar.svg)
 
     &_nature_1
-        left: 390px
-        top: 710px
+        left: 400px
+        top: 310px
 
         span::before
             width: 58px
@@ -243,19 +275,36 @@
             background-image: url(../images/special-projects/winter-fun/svg/ski-resort.svg)
 
     &_nature_2
-        left: 800px
-        top: 1040px
+        left: 900px
+        top: 670px
 
         span::before
             width: 48px
             height: 40px
             background-image: url(../images/special-projects/winter-fun/svg/recreation-center.svg)
 
-
 .sp-winter-fun-calendar-section
     position: relative
     z-index: 2
-    top: -100px
+    top: -60px
+
+    &::before,
+    &::after
+        content: ""
+        position: absolute
+        top: -90px
+        width: 265px
+        height: 480px
+        background-repeat: no-repeat
+        background-size: contain
+
+    &::before
+        left: -250px
+        background-image: url(../images/special-projects/winter-fun/snowflakes1.jpg)
+
+    &::after
+        right: -250px
+        background-image: url(../images/special-projects/winter-fun/snowflakes2.jpg)
 
 .sp-winter-fun-events-list
     display: grid
@@ -322,21 +371,21 @@
 
 .sp-winter-fun-simple-section__with-map
     position: relative
-    margin-top: 70px
-    padding-bottom: 300px
+    margin-top: 60px
+    padding-bottom: 150px
     overflow: hidden
 
-    &::after
-        content: ""
-        position: absolute
-        bottom: -130px
-        left: -13%
-        z-index: 1
-        width: 130%
-        height: 320px
-        background-image: url(../images/special-projects/winter-fun/svg/snowdrift3.svg)
-        background-size: 100%
-        background-repeat: no-repeat
+    //&::after
+    //    content: ""
+    //    position: absolute
+    //    bottom: -130px
+    //    left: -13%
+    //    z-index: 1
+    //    width: 130%
+    //    height: 320px
+    //    background-image: url(../images/special-projects/winter-fun/svg/snowdrift3.svg)
+    //    background-size: 100%
+    //    background-repeat: no-repeat
 
 .sp-winter-fun__map
     width: 1240px
@@ -369,13 +418,14 @@
 
 .sp-winter-fun-rules-section
     position: relative
-    top: -60px
     z-index: 2
-    min-height: 930px
-    background-image: url(../images/special-projects/winter-fun/tips-illustration.png);
-    background-size: 1030px 675px
-    background-repeat: no-repeat
-    background-position: 50% 190px
+    min-height: 2400px
+    padding-top: 200px
+    //top: -60px
+    //background-image: url(../images/special-projects/winter-fun/tips-illustration.png);
+    //background-size: 1030px 675px
+    //background-repeat: no-repeat
+    //background-position: 50% 190px
 
 .sp-winter-fun-rules
     margin: 0
@@ -384,65 +434,35 @@
 .sp-winter-fun-rules__item
     position: absolute
     width: 260px
-    box-sizing: content-box
-    padding: 40px
-    border-radius: 32px
-    background-color: $light-c
     font-size: 18px
     letter-spacing: 0.02em
 
     &_1
-        top: 150px
-        left: -50px
+        top: 385px
+        left: 5px
 
     &_2
-        top: 220px
-        left: 600px
+        top: 460px
+        left: 650px
 
     &_3
-        top: 220px
-        right: -140px
+        top: 470px
+        right: -100px
 
     &_4
-        top: 630px
-        left: -50px
+        top: 885px
+        left: 0
 
     &_5
-        top: 750px
-        left: 490px
+        top: 1000px
+        left: 530px
 
     &_6
-        top: 480px
-        right: -80px
+        top: 720px
+        right: -35px
 
-.sp-winter-fun-make-photo-illustration
-    height: 930px
-    position: relative
-
-    img
-        position: absolute
-
-    img:nth-child(1)
-        top: 160px
-        left: 37%
-        width: 120px
-
-    img:nth-child(2)
-        top: 120px
-        left: 47%
-        width: 140px
-
-    img:nth-child(3)
-        top: 140px
-        left: 59%
-        width: 120px
-
-    img:nth-child(4)
-        top: 220px
-        left: 50%
-        transform: translateX(-50%)
-        min-height: 920px
-        object-fit: contain
+.sp-winter-fun-make-photo-section
+    margin-top: -310px
 
 .sp-winter-fun-gallery
     margin-top: 110px
@@ -466,8 +486,11 @@
     backdrop-filter: blur(7px)
 
 .sp-winter-fun-pop-up-close
+    position: sticky
+    display: block
     width: 40px
     height: 40px
+    margin-left: auto
     font-size: 40px
     top: 40px
     right: 40px
@@ -482,19 +505,35 @@
 
 .sp-winter-fun-pop-up-content
     width: 970px
+    margin-top: -40px
     margin-left: auto
     padding-top: 70px
     padding-right: 110px
     padding-bottom: 70px
     padding-left: 110px
 
+.sp-winter-fun-pop-up__supertitle
+    margin-left: -150px
+    margin-bottom: 60px
+    font-family: $bold-f
+    font-size: 76px
+    line-height: $micro-lh
+    letter-spacing: 0.08em
+    color: $base-c
+
 .sp-winter-fun-pop-up__title
     margin-bottom: 35px
     font-family: $bold-f
     font-size: 48px
+    line-height: $mini-lh
     letter-spacing: 0.06em
-    line-height: 34px
-    color: #0073ff
+    color: $base-c
+
+.sp-winter-fun-pop-up__cover
+    display: block
+    width: 920px
+    max-width: initial
+    margin-left: -170px
 
 .sp-winter-fun-pop-up__text
     width: 640px
@@ -515,9 +554,6 @@
     width: 720px
     margin-left: -40px
     margin-top: 60px
-
-.sp-winter-fun-pop-up__slider
-    height: 480px
 
 .sp-winter-fun-event-section
     margin-top: 120px

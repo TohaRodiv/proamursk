@@ -1,7 +1,6 @@
 $('.show-pop-up').on('click', function () {
     var popUp = $(this).data('pop-up');
 
-    console.log(popUp)
     showPopUp(popUp);
 });
 

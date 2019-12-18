@@ -7628,23 +7628,20 @@ $('body').on('click', '.body-cover .back, .js-pop-up__close', function () {
   if (!$(this).hasClass('always-visible')) {
     hidePopUps();
   }
-}); // Проверка на существование видимого поп-апа
+});
 
 function popUpDetected() {
   return $('.body-cover').hasClass('visible') && $('.pop-up-wrapper.visible').length > 0 ? true : false;
-} // Показывает поп-ап
-
+}
 
 function showPopUp(popUpName) {
   var popUpOuterWrap = $('.pop-up-wrapper.' + popUpName);
   hidePopUps();
   showBodyCover();
   popUpOuterWrap.addClass('visible');
-  popUpAddBackImage();
   popUpAlwaysVisible();
   $('body').addClass('popup-open');
-} // Скрывает все поп-апы
-
+}
 
 function hidePopUps() {
   $('body').removeClass('popup-open');
@@ -7659,32 +7656,19 @@ function hidePopUps() {
   filesIdToSend.splice(0, filesIdToSend.length);
   abortAllFileUploading();
   if (formsAjaxQuery) formsAjaxQuery.abort();
-} // Показывает туман войны
-
+}
 
 function showBodyCover() {
   var cover = $('.body-cover');
   cover.addClass('visible');
-} // Скрывает туман войны
-
+}
 
 function hideBodyCover() {
   var cover = $('.body-cover');
   cover.removeClass('visible');
   cover.find('.pop-up-wrapper').removeClass('visible');
   cover.removeClass('body-cover_img');
-} // Добавляет фоновое изображение у поп-апа
-
-
-function popUpAddBackImage() {
-  var visiblePopUp = $('.pop-up-wrapper.visible');
-
-  if (visiblePopUp.hasClass('pop-up-wrapper_with-img') && !visiblePopUp.hasClass('pop-up-wrapper_without-img')) {
-    $('.body-cover').addClass('body-cover_img');
-    $('.body-cover .back').addClass('back_img');
-  }
-} // Всегда видимый поп-ап
-
+}
 
 function popUpAlwaysVisible() {
   var visiblePopUp = $('.pop-up-wrapper.visible');
@@ -8146,6 +8130,23 @@ $('.js-sp-dance-style-slider-item').click(function () {
   sliderBulletByIndex.trigger('click');
   $('.js-sp-dance-style-slider-item').removeClass('sp-dance-style_active');
   $(this).addClass('sp-dance-style_active');
+});
+$('.js-sp-winter-fun-event-card').click(function () {
+  var clickedEventId = $(this).data('id');
+  showPopUp('sp-winter-fun-city-5');
+  var event = $('.js-sp-winter-fun-event-place[data-event="' + clickedEventId + '"]')[0];
+  var eventPosition = event.offsetTop;
+  var eventContainer = $('.js-sp-winter-fun-event-container')[0];
+  eventContainer.scrollTop = eventPosition - 20;
+});
+$('.js-sp-winter-fun-event-date').click(function (event) {
+  event.stopPropagation();
+  var clickedEventId = $(this).data('id');
+  showPopUp('sp-winter-fun-city-5');
+  var eventItem = $('.js-sp-winter-fun-event-date[data-event="' + clickedEventId + '"]')[0];
+  var eventContainer = $('.js-sp-winter-fun-event-container')[0];
+  var eventPosition = eventItem.offsetTop;
+  eventContainer.scrollTop = eventPosition - 20;
 });
 "use strict";
 
