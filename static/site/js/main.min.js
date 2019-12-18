@@ -7394,7 +7394,7 @@ $(function () {
     if (document.querySelector('.sp-winter-fun__map')) {
       map4 = new ymaps.Map("sp-winter-fun__map", {
         center: [50.711165, 137.302154],
-        zoom: 14,
+        zoom: 12,
         controls: []
       });
       map4.controls.add(new ymaps.control.ZoomControl({
@@ -7407,25 +7407,25 @@ $(function () {
       }));
       map4.behaviors.disable('scrollZoom');
       var map4Places = [{
-        coords: [50.711165, 137.302154],
+        coords: [50.711316, 137.302480],
         title: 'Горнолыжный курорт «Альмир»'
       }, {
-        coords: [50.741085, 136.569373],
+        coords: [50.740469, 136.568572],
         title: 'Горнолыжная база «Холдоми»'
       }, {
-        coords: [50.819228, 136.400062],
+        coords: [50.819126, 136.400138],
         title: 'Туристический комплекс «Амут сноу-лэйк»'
       }, {
-        coords: [50.427646, 136.790135],
+        coords: [50.427673, 136.790306],
         title: 'Ферма "Мишкина берлога"'
       }, {
-        coords: [50.729631, 136.626935],
+        coords: [50.729504, 136.625140],
         title: 'Дом отдыха «Пастораль»'
       }, {
-        coords: [50.563027, 137.041588],
+        coords: [50.563005, 137.042653],
         title: 'Силинский парк'
       }, {
-        coords: [50.711336, 137.302705],
+        coords: [50.716290, 137.321974],
         title: 'Дом отдыха «Шарголь»'
       }];
       var map4point = new ymaps.GeoObjectCollection({
