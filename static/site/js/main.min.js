@@ -8167,6 +8167,44 @@ function setSliderTimeline(slider, newActiveSlideIndex) {
     }
   });
 }
+
+var previewSliderThumbArrow = document.querySelectorAll('.js-preview-slider-thumb-arrow');
+
+if (previewSliderThumbArrow) {
+  previewSliderThumbArrow.forEach(function (item) {
+    var slider = item.closest('.slider');
+    var sliderThumbsAmount = slider.querySelectorAll('.preview-slider__small-img-wrap .preview-slider__mini-btn').length;
+
+    if (sliderThumbsAmount > 5) {
+      slider.querySelector('.preview-slider__thumbs-arrow-container').classList.remove('hidden');
+      item.addEventListener('click', function (event) {
+        var thumbsSliderOuter = slider.querySelector('.preview-slider__thumbs-block');
+        var thumbsSliderInner = slider.querySelector('.preview-slider__small-img-wrap');
+        var currentImg = slider.querySelector('.preview-slider__small-img-wrap .preview-slider__mini-btn.active');
+        var thumbsSliderOuterPosition = {
+          left: thumbsSliderOuter.getBoundingClientRect().left,
+          right: thumbsSliderOuter.getBoundingClientRect().right
+        },
+            targetPosition = {
+          left: currentImg.getBoundingClientRect().left,
+          right: currentImg.getBoundingClientRect().right
+        };
+
+        if (targetPosition.right <= thumbsSliderOuterPosition.right && targetPosition.left >= thumbsSliderOuterPosition.left) {} else {
+          if (targetPosition.left > thumbsSliderOuterPosition.left) {
+            if (thumbsSliderInner.scrollLeft > currentImg.offsetLeft) {
+              thumbsSliderInner.scrollLeft = currentImg.offsetLeft;
+            } else {
+              thumbsSliderInner.scrollLeft = currentImg.offsetLeft;
+            }
+          } else {
+            thumbsSliderInner.scrollLeft = currentImg.offsetLeft;
+          }
+        }
+      });
+    }
+  });
+}
 "use strict";
 
 $('.js-sp-dance-style-slider-item').click(function () {
