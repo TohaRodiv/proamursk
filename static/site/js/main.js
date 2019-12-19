@@ -7397,6 +7397,12 @@ $(function () {
         zoom: 12,
         controls: []
       });
+      map4.margin.addArea({
+        top: 0,
+        left: 0,
+        width: '310px',
+        height: '100%'
+      });
       map4.controls.add(new ymaps.control.ZoomControl({
         options: {
           position: {
@@ -7408,25 +7414,46 @@ $(function () {
       map4.behaviors.disable('scrollZoom');
       var map4Places = [{
         coords: [50.711316, 137.302480],
-        title: 'Горнолыжный курорт «Альмир»'
+        title: 'Горнолыжный курорт «Альмир»',
+        address: 'Добраться до горнолыжного комплекса можно на своей машине или заказать такси из Комсомольска-на-Амуре.',
+        phone: '8 962 501-40-61',
+        site: 'almirdv.ru'
       }, {
         coords: [50.740469, 136.568572],
-        title: 'Горнолыжная база «Холдоми»'
+        title: 'Горнолыжная база «Холдоми»',
+        address: 'Попасть к&nbsp;склонам курорта можно на&nbsp;машине, такси или  автобусе &#8470;&nbsp;122 из&nbsp;Комсомольска-на-Амуре. В&nbsp;сезон из  Комсомольска также ходит специальный автобус с  наклейками &laquo;Холдоми&raquo; на&nbsp;бортах (отправляется от&nbsp;площади  Кирова ежедневно в&nbsp;10:00).',
+        phone: '8 (4217) 340-700',
+        site: 'holdomi.ru'
       }, {
         coords: [50.819126, 136.400138],
-        title: 'Туристический комплекс «Амут сноу-лэйк»'
+        title: 'Туристический комплекс «Амут сноу-лэйк»',
+        address: 'Добраться до горнолыжного комплекса можно на своей машине или заказать такси из Комсомольска-на-Амуре.',
+        phone: '8 914 540-77-76 <br>\n' + '8 914 179-19-46 <br>\n' + '8 (4217) 55-00-20 <br>\n' + '8 (4217) 59-26-83',
+        site: 'amutsnowlake.ru'
       }, {
         coords: [50.427673, 136.790306],
-        title: 'Ферма "Мишкина берлога"'
+        title: 'Ферма "Мишкина берлога"',
+        address: 'База &laquo;Мишкина берлога&raquo; расположена в&nbsp;30-ти километрах от&nbsp;Комсомольска-на-Амуре, недалеко от&nbsp;поселка Хурба. Добраться сюда можно на&nbsp;машине или такси.',
+        phone: '8 914 168-93-70',
+        site: 'мишкинаберлога.рф'
       }, {
         coords: [50.729504, 136.625140],
-        title: 'Дом отдыха «Пастораль»'
+        title: 'Дом отдыха «Пастораль»',
+        address: 'Добраться в&nbsp;&laquo;Пастораль&raquo; от&nbsp;Комсомольска-на-Амуре можно на&nbsp;машине. Заехав в&nbsp;поселок Солнечный, на&nbsp;втором большом перекрестке поверните налево. Дальше езжайте прямо по&nbsp;асфальтовой дороге, перед небольшим мостиком поверните направо и&nbsp;следуйте прямо вдоль жилых домов.',
+        phone: '8 (963) 823-70-00, <br>\n' + '8 (4217) 33-70-00',
+        site: 'pastoraldv.ru'
       }, {
         coords: [50.563005, 137.042653],
-        title: 'Силинский парк'
+        title: 'Силинский парк',
+        address: '&laquo;Силинский парк&raquo; расположен практически в&nbsp;самом  центре Комсомольска по&nbsp;адресу: Комсомольское шоссе,  57. Добраться сюда можно на&nbsp;машине&nbsp;&mdash; дорога из&nbsp;Амурска  займет всего около часа.',
+        phone: '8 (4217) 51-55-51, <br>\n' + '8 914 186-29-20 (WhatsApp)',
+        site: 'силинка.рф'
       }, {
         coords: [50.716290, 137.321974],
-        title: 'Дом отдыха «Шарголь»'
+        title: 'Дом отдыха «Шарголь»',
+        address: 'Добраться в&nbsp;дом отдыха можно на&nbsp;машине через Комсомольск-на-Амуре. Дорога займет примерно полтора часа.',
+        phone: '52-61-29',
+        site: 'shargol.my1.ru'
       }];
       var map4point = new ymaps.GeoObjectCollection({
         preset: 'islands#icon',
@@ -7435,7 +7462,16 @@ $(function () {
       var map4pointPlacemarks = [];
 
       for (var i = 0; i < map4Places.length; i++) {
-        map4pointPlacemarks.push(new ymaps.Placemark(map4Places[i].coords));
+        var balloonContent = "<div class='balloon'><div class='balloon__title'>" + map4Places[i].title + "</div><table class='sp-place__contacts-table sp-place__contacts-table_mini balloon__content'><tbody><tr><td><span class='icon-path'></span></td><td>" + map4Places[i].address + "</td></tr><tr><td><span class='icon-phone'></span></td><td>" + map4Places[i].phone + "</td></tr>";
+
+        if (map4Places[i].site) {
+          balloonContent += "<tr><td><span class='icon-web'></span></td><td><a href='http://" + map4Places[i].site + "' target='_blank'>" + map4Places[i].site + "</a></td></tr>";
+        }
+
+        balloonContent += "</tbody></table></div>";
+        map4pointPlacemarks.push(new ymaps.Placemark(map4Places[i].coords, {
+          balloonContent: balloonContent
+        }));
         map4point.add(map4pointPlacemarks[i]);
       }
 
@@ -7496,10 +7532,19 @@ $(function () {
         map3.container.fitToViewport();
       } else if (currentMapId === 'sp-winter-fun__map') {
         var coord = $(this).data('coord');
+        var index = $('.sp-winter-fun__map-wrap').find('.sp-map-points__item-btn').index($(this));
         map4.panTo(coord, {
           flying: 1
+        }, {
+          useMapMargin: true
         });
-        map4.container.fitToViewport();
+
+        for (var i = 0; i < map4Places.length; i++) {
+          if (coord[0] === map4Places[i].coords[0] && coord[1] === map4Places[i].coords[1] && i === index) {
+            map4pointPlacemarks[i].balloon.open();
+            break;
+          }
+        }
       }
     });
   }

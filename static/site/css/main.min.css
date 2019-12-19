@@ -5290,6 +5290,14 @@ footer {
     .sp-place__contacts-table td:first-child {
       min-width: 125px;
       padding-right: 20px; }
+  .sp-place__contacts-table_mini td {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    vertical-align: baseline; }
+    .sp-place__contacts-table_mini td:first-child {
+      min-width: 0;
+      padding-right: 0; }
 
 .sp-place__img {
   width: 420px; }
