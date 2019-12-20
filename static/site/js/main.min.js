@@ -7682,7 +7682,7 @@ function popUpDetected() {
 function showPopUp(popUpName) {
   var popUpOuterWrap = $('.pop-up-wrapper.' + popUpName);
   hidePopUps();
-  showBodyCover();
+  showBodyCover(popUpOuterWrap);
   popUpOuterWrap.addClass('visible');
   popUpAlwaysVisible();
   $('body').addClass('popup-open');
@@ -7703,8 +7703,8 @@ function hidePopUps() {
   if (formsAjaxQuery) formsAjaxQuery.abort();
 }
 
-function showBodyCover() {
-  var cover = $('.body-cover');
+function showBodyCover(popUpOuterWrap) {
+  var cover = popUpOuterWrap.parents('.body-cover').eq(0);
   cover.addClass('visible');
 }
 

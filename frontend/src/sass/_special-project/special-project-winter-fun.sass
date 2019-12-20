@@ -440,11 +440,31 @@
     margin-top: 110px
 
 .sp-winter-fun-pop-up-body-cover
+    display: block
+    z-index: -1
+    visibility: hidden
     overflow: hidden
+
+    &.visible
+        visibility: visible
+        z-index: 100
+
+.sp-winter-fun-pop-up-wrapper
+    display: block
+    position: absolute
+    width: 100%
+    visibility: hidden
 
 .sp-winter-fun-pop-up-wrapper.visible
     height: 100%
     justify-content: initial
+    visibility: visible
+
+    .sp-winter-fun-pop-up-container
+        transform: translateX(0)
+
+    .sp-winter-fun-pop-up-back
+        opacity: 1
 
 .sp-winter-fun-pop-up-back
     position: absolute
@@ -456,6 +476,8 @@
     cursor: pointer
     background-color: transparent
     backdrop-filter: blur(7px)
+    opacity: 0
+    transition: opacity ease-in $transition-time
 
 .sp-winter-fun-pop-up-close
     position: sticky
@@ -474,7 +496,10 @@
     min-width: 970px
     background-color: $light-c
     overflow: scroll
-    box-shadow: 0px 26px 28px #2e5194
+    box-shadow: 0 26px 28px #2e5194
+    transform: translateX(-100vw)
+    transition: transform ease-in $transition-time
+    will-change: left
 
 .sp-winter-fun-pop-up-content
     width: 970px
