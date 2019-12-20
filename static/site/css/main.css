@@ -7180,7 +7180,7 @@ footer {
   overflow: hidden; }
 
 .sp-winter-fun__map {
-  width: 1240px;
+  width: 1080px;
   height: 640px;
   margin-left: auto;
   margin-right: auto;
@@ -7193,7 +7193,7 @@ footer {
 .sp-winter-map-points__list {
   position: absolute;
   top: 50%;
-  left: -70px;
+  left: 10px;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -7235,16 +7235,17 @@ footer {
     left: 650px; }
   .sp-winter-fun-rules__item_3 {
     top: 470px;
-    right: -100px; }
+    right: -80px; }
   .sp-winter-fun-rules__item_4 {
-    top: 885px;
-    left: 0; }
+    top: 875px;
+    left: 10px; }
   .sp-winter-fun-rules__item_5 {
-    top: 1000px;
+    top: 990px;
     left: 530px; }
   .sp-winter-fun-rules__item_6 {
-    top: 720px;
-    right: -35px; }
+    width: 250px;
+    top: 705px;
+    right: -15px; }
 
 .sp-winter-fun-make-photo-section {
   margin-top: -310px; }
