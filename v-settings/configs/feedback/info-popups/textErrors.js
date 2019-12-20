@@ -8,7 +8,7 @@ const state = {
                     title: 'ID создания',
                     content: {
                         codename: 'id',
-                    }
+                    },
                 },
                 {
                     type: 'simpleRow',
@@ -16,15 +16,12 @@ const state = {
                     content: {
                         type: 'dateTime',
                         codename: 'create_date',
-                    }
+                    },
                 },
                 {
-                    type: 'simpleRow',
+                    type: 'link',
                     title: 'URL страницы',
-                    content: {
-                        type: 'link',
-                        codename: 'url'
-                    }
+                    codename: 'url',
                 },
                 {
                     type: 'hr',
@@ -34,13 +31,13 @@ const state = {
                     title: 'Блок текста с ошибкой',
                     content: {
                         codename: 'text',
-                    }
-                }
-            ]
-        }
+                    },
+                },
+            ],
+        },
     },
 };
 
 export default {
-    state
-}
+    state,
+};
