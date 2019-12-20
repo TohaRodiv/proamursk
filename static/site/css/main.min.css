@@ -905,10 +905,10 @@ textarea {
     .preview-slider__thumbs-arrow:hover {
       background-color: #BEE0FC; }
     .preview-slider__thumbs-arrow-prev {
-      left: -78px;
+      left: -68px;
       padding-right: 3px; }
     .preview-slider__thumbs-arrow-next {
-      right: -78px;
+      right: -68px;
       padding-left: 3px; }
 
 .slick-slider {
