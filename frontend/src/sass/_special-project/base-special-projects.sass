@@ -184,3 +184,84 @@
     font-family: $add-sb-it-f
     font-size: $medium-fz
     border-left: 2px solid $base-c
+
+.sp-preview-slider
+    &_12col
+        .slider-container
+            width: 1300px
+            height: 760px
+
+        .sp-preview-slider__arrow-container
+            height: 760px
+
+    &_10col
+        .slider-container
+            width: 1080px
+            height: 760px
+
+        .sp-preview-slider__arrow-container
+            height: 760px
+
+    &_6-7col
+        .slider-container
+            width: 720px
+            height: 480px
+
+        .sp-preview-slider__arrow-container
+            height: 480px
+
+    &_radius_4
+        .preview-slider__big-img-wrap,
+        .preview-slider__big-img-wrap::after,
+        .sp-preview-slider__arrow-container .slider-arrow
+            border-radius: 4px
+
+    &_radius_8
+        .preview-slider__big-img-wrap,
+        .preview-slider__big-img-wrap::after,
+        .sp-preview-slider__arrow-container .slider-arrow
+            border-radius: 8px
+
+    &_radius_28
+        .preview-slider__big-img-wrap,
+        .preview-slider__big-img-wrap::after,
+        .sp-preview-slider__arrow-container .slider-arrow
+            border-radius: 28px
+
+    &_radius_36
+        .preview-slider__big-img-wrap,
+        .preview-slider__big-img-wrap::after,
+        .sp-preview-slider__arrow-container .slider-arrow
+            border-radius: 36px
+
+    &:hover
+        .sp-preview-slider__arrow-container
+            opacity: 1
+
+.sp-preview-slider__arrow-container
+    position: absolute
+    width: 100%
+    top: 0
+    opacity: 0
+    transition: opacity 0.2s
+
+    .slider-arrow
+        display: flex
+        align-items: center
+        justify-content: center
+        position: absolute
+        top: 0
+        z-index: 2
+        width: 160px
+        height: 100%
+        font-size: 35px
+        color: $light-c
+        border-radius: 4px
+
+    .slider-arrow-prev
+        left: 0
+        background: linear-gradient(90deg, rgba(#4c607b, 0.55) 0%, rgba(#4c607b, 0) 100%)
+
+    .slider-arrow-next
+        right: 0
+        background: linear-gradient(90deg, rgba(#4c607b, 0) 0%, rgba(#4c607b, 0.55) 100%)

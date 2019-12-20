@@ -1,0 +1,634 @@
+.sp-winter-fun
+    margin-bottom: -40px
+    padding-top: 0
+    overflow: hidden
+    background-image: url(../images/special-projects/winter-fun/pattern-bg.jpg)
+    background-repeat: repeat
+
+.sp-winter-fun-container
+    background-color: $light-c
+    width: 100%
+    max-width: 1920px
+    min-width: 1300px
+    margin-left: auto
+    margin-right: auto
+    box-shadow: 0px 26px 28px #2e5194
+
+.city-bg
+    position: relative
+    min-height: 2810px
+    background-image: url(../images/special-projects/winter-fun/illustration-city.jpg)
+    background-size: 1920px
+    background-position: center top
+    background-repeat: no-repeat
+    overflow: hidden
+
+    &::after
+        content: ""
+        position: absolute
+        bottom: -200px
+        left: -15%
+        z-index: 1
+        width: 130%
+        height: 480px
+        background-image: url(../images/special-projects/winter-fun/svg/snowdrift1.svg)
+        background-size: 100%
+        background-repeat: no-repeat
+
+.nature-bg
+    position: relative
+    min-height: 1820px
+    margin-top: 60px
+    padding-top: 40px
+    background-image: url(../images/special-projects/winter-fun/illustration-nature.jpg)
+    background-size: 1920px
+    background-position: center
+    background-repeat: no-repeat
+    overflow: hidden
+
+    &::after
+        content: ""
+        position: absolute
+        bottom: -360px
+        left: -15%
+        z-index: 1
+        width: 130%
+        height: 480px
+        background-image: url(../images/special-projects/winter-fun/svg/snowdrift2.svg)
+        background-size: 100%
+        background-repeat: no-repeat
+        
+.blue-bg
+    position: relative
+    background-color: #DDEFFF
+    background-image: url(../images/special-projects/winter-fun/tips-phone.jpg)
+    background-size: 1920px
+    background-repeat: no-repeat
+    background-position: center 130px
+    overflow: hidden
+
+    &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: -15%
+        z-index: 1
+        width: 130%
+        height: 100px
+        background-color: $light-c
+        background-image: url(../images/special-projects/winter-fun/svg/snowdrift3.svg)
+        background-size: 100%
+        background-repeat: no-repeat
+
+.sp-winter-fun-header
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-end
+    text-align: center
+    padding-top: 130px
+    padding-bottom: 140px
+    color: $light-c
+
+    &__title
+        position: relative
+        margin-bottom: 10px
+        font-size: 76px
+        line-height: $mini-lh
+        font-family: $bold-f
+        letter-spacing: 0.02em
+        color: $light-c
+
+
+    &__description
+        width: 590px
+        margin-top: 0
+        margin-bottom: 0
+        font-size: $medium-fz
+        font-family: $add-sb-it-f
+
+    &__wobbler
+        margin-bottom: 60px
+
+
+.sp-winter-fun-section
+    position: relative
+
+    &__title
+        position: relative
+        font-size: 180px
+        font-family: $bold-f
+        letter-spacing: 0.02em
+        color: #fff
+        text-transform: uppercase
+
+        &_left
+            padding-left: calc((100vw - 1920px) / 2)
+            left: 130px
+
+        &_right
+            text-align: right
+            padding-right: calc((100vw - 1920px) / 2 - 160px)
+
+    &__description
+        width: 530px
+        padding: 36px
+        font-family: $add-sb-it-f
+        font-size: 21px
+        line-height: 32px
+        color: #2e5194
+        background-color: $light-c
+        border-radius: 32px
+
+        &_right
+            width: 640px
+            margin-top: 10px
+            margin-left: auto
+            margin-right: 110px
+
+.sp-winter-fun-simple-section__title
+    width: 640px
+    margin-left: auto
+    margin-right: auto
+    margin-bottom: 75px
+    font-size: 42px
+    line-height: 1.1
+    font-family: $bold-f
+    letter-spacing: 0.02em
+    text-align: center
+    color: #0b4965
+
+.sp-winter-fun-ball-btn
+    position: absolute
+    z-index: 10
+    display: block
+    width: 240px
+    height: 240px
+
+    span
+        display: flex
+        flex-direction: column
+        justify-content: center
+        width: 180px
+        height: 180px
+        margin: auto
+        font-family: $bold-f
+        font-size: 21px
+        line-height: $mini-lh
+        letter-spacing: 0.02em
+        text-align: center
+        color: $light-c
+        background-color: #0073ff
+        border-radius: 50%
+        filter: drop-shadow(0px 12px 24px rgba(0, 115, 255, 0.8))
+
+        &::before
+            content: ""
+            display: block
+            margin: 0 auto 10px
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: 50%
+
+    &:hover,
+    &:focus
+        &::before
+            filter: drop-shadow(0px 24px 48px rgba(0, 115, 255, 0.8))
+
+    &::before
+        content: ""
+        position: absolute
+        top: 0
+        display: block
+        width: 240px
+        height: 240px
+        background-color: #0073ff
+        opacity: 0.4
+        border-radius: 50%
+        filter: drop-shadow(0px 12px 24px rgba(0, 115, 255, 0.8))
+
+    &_city_1
+        left: 600px
+        top: 360px
+
+        span::before
+            width: 33px
+            height: 43px
+            background-image: url(../images/special-projects/winter-fun/svg/christmastree.svg)
+
+    &_city_2
+        left: 140px
+        top: 570px
+
+        span::before
+            width: 53px
+            height: 40px
+            background-image: url(../images/special-projects/winter-fun/svg/skates.svg)
+
+    &_city_3
+        left: 820px
+        top: 790px
+
+        span::before
+            width: 56px
+            height: 25px
+            background-image: url(../images/special-projects/winter-fun/svg/slides.svg)
+
+    &_city_4
+        left: 280px
+        top: 1140px
+
+        span::before
+            width: 42px
+            height: 43px
+            background-image: url(../images/special-projects/winter-fun/svg/dendrarii.svg)
+
+    &_city_5
+        left: calc(50% - 120px)
+        top: 1670px
+
+        span::before
+            width: 40px
+            height: 35px
+            margin-top: -10px
+            background-image: url(../images/special-projects/winter-fun/svg/calendar.svg)
+
+    &_nature_1
+        left: 400px
+        top: 310px
+
+        span::before
+            width: 58px
+            height: 35px
+            background-image: url(../images/special-projects/winter-fun/svg/ski-resort.svg)
+
+    &_nature_2
+        left: 900px
+        top: 670px
+
+        span::before
+            width: 48px
+            height: 40px
+            background-image: url(../images/special-projects/winter-fun/svg/recreation-center.svg)
+
+.sp-winter-fun-calendar-section
+    position: relative
+    z-index: 2
+    top: -60px
+
+    &::before,
+    &::after
+        content: ""
+        position: absolute
+        top: -90px
+        width: 265px
+        height: 480px
+        background-repeat: no-repeat
+        background-size: contain
+
+    &::before
+        left: -250px
+        background-image: url(../images/special-projects/winter-fun/snowflakes1.jpg)
+
+    &::after
+        right: -250px
+        background-image: url(../images/special-projects/winter-fun/snowflakes2.jpg)
+
+.sp-winter-fun-events-list
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-gap: 60px 30px
+    width: 970px
+    margin: 0 auto
+    padding: 0
+    list-style-type: none
+
+.sp-winter-fun-event
+    display: flex
+    flex-direction: column
+    background-color: $light-gray
+    border-radius: 32px
+    overflow: hidden
+    box-shadow: 0 12px 24px #e1ecf7
+    cursor: pointer
+
+    &:hover
+        box-shadow: 0 24px 48px #e1ecf7
+
+    &__cover
+        height: 180px
+
+    &__content
+        flex-grow: 1
+        display: flex
+        flex-direction: column
+        padding: 35px
+        background-color: $light-c
+
+    &__title
+        margin-top: 0
+        margin-bottom: 50px
+        font-family: $bold-f
+        font-size: 22px
+        line-height: 1.1
+        letter-spacing: 0.02em
+        text-align: center
+
+    &__links-wrap
+        margin-top: auto
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        margin-bottom: -8px
+        margin-right: -8px
+
+    &__link
+        height: 26px
+        margin-bottom: 8px
+        margin-right: 8px
+        padding-left: 12px
+        padding-right: 12px
+        font-size: 12px
+        line-height: 24px
+        font-family: $bold-f
+        letter-spacing: 0.04em
+        color: $light-c
+        background-color: $base-c
+        border-radius: 13px
+
+.sp-winter-fun-simple-section__with-map
+    position: relative
+    margin-top: 60px
+    padding-bottom: 150px
+    overflow: hidden
+
+.sp-winter-fun__map
+    width: 1240px
+    height: 640px
+    margin-left: auto
+    margin-right: auto
+    border: 1px solid #d7e3ef
+    box-shadow: 0 26px 28px #e1ecf7
+    border-radius: 56px
+    overflow: hidden
+
+.sp-winter-map-points__list
+    position: absolute
+    top: 50%
+    left: -70px
+    transform: translateY(-50%)
+    z-index: 2
+    margin: 0
+    padding: 30px 20px
+    background-color: $light-c
+    border-radius: 36px
+    box-shadow: 0 12px 24px #e1ecf7
+
+.sp-winter-map-points__item
+    padding-top: 5px
+    padding-bottom: 5px
+    font-size: 16px
+    line-height: 1.5
+    letter-spacing: 0.02em
+
+.sp-winter-fun-rules-section
+    position: relative
+    z-index: 2
+    min-height: 2400px
+    padding-top: 200px
+
+.sp-winter-fun-rules
+    margin: 0
+    padding: 0
+
+.sp-winter-fun-rules__item
+    position: absolute
+    width: 260px
+    font-size: 18px
+    letter-spacing: 0.02em
+
+    &_1
+        top: 385px
+        left: 5px
+
+    &_2
+        top: 460px
+        left: 650px
+
+    &_3
+        top: 470px
+        right: -100px
+
+    &_4
+        top: 885px
+        left: 0
+
+    &_5
+        top: 1000px
+        left: 530px
+
+    &_6
+        top: 720px
+        right: -35px
+
+.sp-winter-fun-make-photo-section
+    margin-top: -310px
+
+.sp-winter-fun-gallery
+    margin-top: 110px
+
+.sp-winter-fun-pop-up-body-cover
+    display: block
+    z-index: -1
+    visibility: hidden
+    overflow: hidden
+
+    &.visible
+        visibility: visible
+        z-index: 100
+
+.sp-winter-fun-pop-up-wrapper
+    display: block
+    position: absolute
+    width: 100%
+    visibility: hidden
+
+.sp-winter-fun-pop-up-wrapper.visible
+    height: 100%
+    justify-content: initial
+    visibility: visible
+
+    .sp-winter-fun-pop-up-container
+        transform: translateX(0)
+
+    .sp-winter-fun-pop-up-back
+        opacity: 1
+
+.sp-winter-fun-pop-up-back
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    min-height: 100vh
+    cursor: pointer
+    background-color: transparent
+    backdrop-filter: blur(7px)
+    opacity: 0
+    transition: opacity ease-in $transition-time
+
+.sp-winter-fun-pop-up-close
+    position: sticky
+    display: block
+    width: 40px
+    height: 40px
+    margin-left: auto
+    font-size: 40px
+    top: 40px
+    right: 40px
+    color: $base-c
+
+.sp-winter-fun-pop-up-container
+    position: relative
+    width: calc((100vw - 1300px) / 2 + 970px)
+    min-width: 970px
+    background-color: $light-c
+    overflow: scroll
+    box-shadow: 0 26px 28px #2e5194
+    transform: translateX(-100vw)
+    transition: transform ease-in $transition-time
+    will-change: left
+
+.sp-winter-fun-pop-up-content
+    width: 970px
+    margin-top: -40px
+    margin-left: auto
+    padding-top: 70px
+    padding-right: 110px
+    padding-bottom: 70px
+    padding-left: 110px
+
+.sp-winter-fun-pop-up__supertitle
+    margin-left: -150px
+    margin-bottom: 60px
+    font-family: $bold-f
+    font-size: 76px
+    line-height: $micro-lh
+    letter-spacing: 0.08em
+    color: $base-c
+
+.sp-winter-fun-pop-up__title
+    margin-bottom: 35px
+    font-family: $bold-f
+    font-size: 48px
+    line-height: 1.2
+    letter-spacing: 0.06em
+    color: $base-c
+
+.sp-winter-fun-pop-up__cover
+    display: block
+    width: 920px
+    max-width: initial
+    margin-left: -170px
+    border-radius: 36px
+
+.sp-winter-fun-pop-up__text
+    width: 640px
+    font-size: 18px
+    line-height: 27px
+
+    & + .sp-winter-fun-pop-up__text
+        margin-top: 20px
+
+.sp-winter-fun-pop-up__subtitle
+    margin-bottom: 15px
+    font-family: $add-sb-it-f
+    font-size: 22px
+    line-height: $base-lh
+
+.sp-winter-fun-pop-up__gallery
+    width: 720px
+    margin-left: -40px
+    margin-top: 60px
+
+    + .sp-winter-fun-event-place__contacts
+        margin-top: 60px
+
+.sp-winter-fun-event-section
+    margin-top: 120px
+
+.sp-winter-fun-event-subsection
+    margin-top: 60px
+
+.sp-winter-fun-event-place
+    &__cover
+        width: 300px
+        height: 180px
+        margin-bottom: 20px
+        border-radius: 8px
+
+    &__name
+        margin-bottom: 30px
+        font-size: $big-fz
+        font-family: $bold-f
+
+    &__contacts
+        font-size: 16px
+        font-family: $base-f
+
+        [class^="icon-"]
+            display: inline-block
+            width: 18px
+            height: 20px
+            margin-right: 10px
+            font-size: 0
+            line-height: 20px
+            color: $base-c
+            vertical-align: -2px
+            text-align: center
+
+        [class^="icon-"]::before
+            font-size: 17px
+
+        .icon-mail::before
+            font-size: 13px
+
+        a
+            color: $base-c
+            text-decoration: none
+
+            &:hover,
+            &:focus
+                text-decoration: underline
+
+        tr:not(:last-child) td
+            padding-bottom: 10px
+
+        td
+            padding-top: 0
+            padding-left: 0
+            padding-right: 0
+            vertical-align: baseline
+
+            &:nth-child(2)
+                padding-left: 10px
+
+.sp-winter-fun-event
+    &__time
+        margin-bottom: 15px
+        font-size: 17px
+        font-family: $bold-f
+        color: $base-c
+
+        &::before
+            content: "\e911"
+            display: inline-block
+            width: 22px
+            height: 20px
+            margin-right: 12px
+            font-family: $icon-f
+            line-height: 20px
+            vertical-align: -2px
+            text-align: center

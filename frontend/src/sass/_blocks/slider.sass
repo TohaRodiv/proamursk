@@ -134,10 +134,13 @@
     text-align: center
 
 .preview-slider
+    display: flex
+    flex-direction: column
+    align-items: center
+    overflow: hidden
+
     &__big-img-wrap
         position: relative
-        border-radius: 4px
-        overflow: hidden
 
         &:not(.preview-slider_without-shadow)
             &::after
@@ -156,20 +159,29 @@
         height: 100%
 
     &__small-img-wrap
-        height: 100px
         display: flex
-        justify-content: center
         align-items: flex-start
+        max-width: 580px
         margin-top: 20px
+        margin-bottom: -40px
+        padding-bottom: 40px
+        overflow: scroll
 
     &__small-img
         display: block
-        width: 108px
+        width: 100px
+        height: 80px
         border-radius: 4px
 
     &__mini-btn
-        margin: 0 10px
         position: relative
+        flex-shrink: 0
+
+        &:not(:first-child)
+            margin-left: 10px
+
+        &:not(:last-child)
+            margin-right: 10px
 
         &.active,
         &:hover
@@ -178,9 +190,7 @@
                 display: block
                 width: 100%
                 height: 5px
-                position: absolute
-                left: 0
-                bottom: -20px
+                margin-top: 20px
                 background-color: $base-c
                 border-radius: 5px
 
@@ -193,3 +203,39 @@
         font-size: $base-fz
         color: $light-c
         text-align: center
+
+    &__thumbs-block
+        position: relative
+        text-align: center
+
+    &__thumbs-arrow
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        width: 48px
+        height: 48px
+        padding-top: 4px
+        font-size: 30px
+        border-radius: 50%
+
+        &_light
+            color: $base-c
+            background-color: $light-c
+
+            &:hover
+                background-color: #BEE0FC
+
+        &_blue
+            background-color: $base-c
+            color: $light-c
+
+            &:hover
+                color: #BEE0FC
+
+        &-prev
+            left: -68px
+            padding-right: 3px
+
+        &-next
+            right: -68px
+            padding-left: 3px

@@ -236,3 +236,43 @@ function setSliderTimeline(slider, newActiveSlideIndex) {
         }
     });
 }
+
+let previewSliderThumbArrow = document.querySelectorAll('.js-preview-slider-thumb-arrow');
+
+if (previewSliderThumbArrow) {
+    previewSliderThumbArrow.forEach(item => {
+        let slider = item.closest('.slider');
+        let sliderThumbsAmount = slider.querySelectorAll('.preview-slider__small-img-wrap .preview-slider__mini-btn').length;
+        if (sliderThumbsAmount > 5) {
+            slider.querySelector('.preview-slider__thumbs-arrow-container').classList.remove('hidden');
+
+            item.addEventListener('click', (event) => {
+                let thumbsSliderOuter = slider.querySelector('.preview-slider__thumbs-block');
+                let thumbsSliderInner = slider.querySelector('.preview-slider__small-img-wrap');
+                let currentImg = slider.querySelector('.preview-slider__small-img-wrap .preview-slider__mini-btn.active');
+
+                let thumbsSliderOuterPosition = {
+                        left: thumbsSliderOuter.getBoundingClientRect().left,
+                        right: thumbsSliderOuter.getBoundingClientRect().right,
+                    },
+                    targetPosition = {
+                        left: currentImg.getBoundingClientRect().left,
+                        right: currentImg.getBoundingClientRect().right,
+                    };
+
+                if (targetPosition.right <= thumbsSliderOuterPosition.right && targetPosition.left >= thumbsSliderOuterPosition.left) {
+                } else {
+                    if (targetPosition.left > thumbsSliderOuterPosition.left) {
+                        if (thumbsSliderInner.scrollLeft > currentImg.offsetLeft) {
+                            thumbsSliderInner.scrollLeft = currentImg.offsetLeft;
+                        } else {
+                            thumbsSliderInner.scrollLeft = currentImg.offsetLeft;
+                        }
+                    } else {
+                        thumbsSliderInner.scrollLeft = currentImg.offsetLeft;
+                    }
+                }
+            })
+        }
+    })
+}
