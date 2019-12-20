@@ -215,13 +215,22 @@
         width: 48px
         height: 48px
         padding-top: 4px
-        color: $base-c
         font-size: 30px
-        background: $light-c
         border-radius: 50%
 
-        &:hover
-            background-color: #BEE0FC
+        &_light
+            color: $base-c
+            background-color: $light-c
+
+            &:hover
+                background-color: #BEE0FC
+
+        &_blue
+            background-color: $base-c
+            color: $light-c
+
+            &:hover
+                color: #BEE0FC
 
         &-prev
             left: -68px
