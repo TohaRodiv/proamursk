@@ -849,7 +849,7 @@ textarea {
     margin-top: 20px;
     margin-bottom: -40px;
     padding-bottom: 40px;
-    overflow: scroll; }
+    overflow: auto; }
   .preview-slider__small-img {
     display: block;
     width: 100px;
@@ -885,10 +885,7 @@ textarea {
     text-align: center; }
   .preview-slider__thumbs-arrow {
     position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+    top: 36px;
     width: 48px;
     height: 48px;
     padding-top: 4px;
@@ -1169,12 +1166,12 @@ textarea {
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  background-color: rgba(127, 141, 164, 0.9);
   background-position: center center;
   background-repeat: no-repeat;
-  cursor: pointer;
-  background-color: rgba(127, 141, 164, 0.9);
   -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px); }
+          backdrop-filter: blur(2px);
+  cursor: pointer; }
 
 .pop-up__close {
   position: absolute;
@@ -5071,7 +5068,7 @@ footer {
   padding: 0 30px;
   height: calc(100% - 60px); }
   .sp-map-points-inner_all-scroll {
-    overflow: scroll;
+    overflow: auto;
     padding: 30px; }
 
 .sp-map-points__list-item_single {
@@ -5163,7 +5160,7 @@ footer {
   height: 100%;
   margin: 0 -30px;
   padding: 0 30px;
-  overflow: scroll; }
+  overflow: auto; }
   .sp-map-points__list_offset .sp-map-points__item {
     padding-left: 31px;
     padding-right: 25px; }
@@ -7288,14 +7285,17 @@ footer {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(7px);
-          backdrop-filter: blur(7px);
+  background-color: rgba(127, 141, 164, 0.9);
   opacity: 0;
+  cursor: pointer;
   -webkit-transition: opacity ease-in 0.3s;
   -o-transition: opacity ease-in 0.3s;
   transition: opacity ease-in 0.3s; }
+  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .sp-winter-fun-pop-up-back {
+      background-color: transparent;
+      -webkit-backdrop-filter: blur(7px);
+              backdrop-filter: blur(7px); } }
 
 .sp-winter-fun-pop-up-close {
   position: -webkit-sticky;
@@ -7312,9 +7312,9 @@ footer {
 .sp-winter-fun-pop-up-container {
   position: relative;
   width: calc((100vw - 1300px) / 2 + 970px);
-  min-width: 970px;
+  min-width: 990px;
   background-color: #FFFFFF;
-  overflow: scroll;
+  overflow: auto;
   -webkit-box-shadow: 0 26px 28px #2e5194;
           box-shadow: 0 26px 28px #2e5194;
   -webkit-transform: translateX(-100vw);
