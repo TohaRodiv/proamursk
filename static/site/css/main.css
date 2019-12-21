@@ -7312,9 +7312,9 @@ footer {
 .sp-winter-fun-pop-up-container {
   position: relative;
   width: calc((100vw - 1300px) / 2 + 970px);
-  min-width: 970px;
+  min-width: 990px;
   background-color: #FFFFFF;
-  overflow: scroll;
+  overflow: auto;
   -webkit-box-shadow: 0 26px 28px #2e5194;
           box-shadow: 0 26px 28px #2e5194;
   -webkit-transform: translateX(-100vw);
