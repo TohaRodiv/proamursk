@@ -849,7 +849,7 @@ textarea {
     margin-top: 20px;
     margin-bottom: -40px;
     padding-bottom: 40px;
-    overflow: scroll; }
+    overflow: auto; }
   .preview-slider__small-img {
     display: block;
     width: 100px;
@@ -5071,7 +5071,7 @@ footer {
   padding: 0 30px;
   height: calc(100% - 60px); }
   .sp-map-points-inner_all-scroll {
-    overflow: scroll;
+    overflow: auto;
     padding: 30px; }
 
 .sp-map-points__list-item_single {
@@ -5163,7 +5163,7 @@ footer {
   height: 100%;
   margin: 0 -30px;
   padding: 0 30px;
-  overflow: scroll; }
+  overflow: auto; }
   .sp-map-points__list_offset .sp-map-points__item {
     padding-left: 31px;
     padding-right: 25px; }

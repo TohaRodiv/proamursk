@@ -474,11 +474,14 @@
     width: 100%
     height: 100%
     min-height: 100vh
-    cursor: pointer
-    background-color: transparent
-    backdrop-filter: blur(7px)
+    background-color: rgba(#7F8DA4, .9)
     opacity: 0
+    cursor: pointer
     transition: opacity ease-in $transition-time
+
+    @supports (backdrop-filter: none)
+        background-color: transparent
+        backdrop-filter: blur(7px)
 
 .sp-winter-fun-pop-up-close
     position: sticky
