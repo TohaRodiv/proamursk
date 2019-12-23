@@ -83,6 +83,7 @@ const state = {
                                 codename: 'text',
                                 widget: 'textarea',
                                 show: false,
+                                hint: '',
                             },
                         ],
                     },

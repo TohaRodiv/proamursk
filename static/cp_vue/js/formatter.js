@@ -734,6 +734,7 @@
             // Создает и добавляет iFrame
             self.formatterFrame = document.createElement('iframe');
             self.formatterFrame.className = 'formatter-content';
+            self.formatterFrame.id = 'formatter-content__' + element.id;
             self.formatterFrame.style.display = 'block';
             self.formatterFrame.addEventListener('load', function () {
                 _setIFrameDocument();
@@ -1928,16 +1929,19 @@
             }
             var cleanClasses;
             html = html.replace(/\s*class="[a-zA-Z0-9_\-\s]*"/ig, function (str) {
-                var classesRe = new RegExp('(?:' + availableClasses.join('|') + ')', 'ig');
-                cleanClasses = str.match(classesRe);
-                if (cleanClasses) {
-                    cleanClasses = ' class="' + cleanClasses.join(' ') + '"';
+
+                if (availableClasses.length) {
+                    var classesRe = new RegExp('(?:' + availableClasses.join('|') + ')', 'ig');
+                    cleanClasses = str.match(classesRe);
                 }
-                else {
-                    cleanClasses = ''
-                }
-                return cleanClasses
-            });
+                    if (cleanClasses) {
+                        cleanClasses = ' class="' + cleanClasses.join(' ') + '"';
+                    }
+                    else {
+                        cleanClasses = ''
+                    }
+                    return cleanClasses
+                });
             html = html.replace(/\s*class=""/ig, '');
             return html
         }
@@ -2030,6 +2034,7 @@
 
 
         function _onpaste(event) {
+
             _showPreloader();
             event.preventDefault();
 
@@ -2043,7 +2048,7 @@
                 selection.addRange(range);
             }
 
-            var iframe = document.getElementsByClassName('formatter-content')[0];
+            var iframe = document.getElementById('formatter-content__' + element.id);
             var selection = self.iframeDocument.getSelection();
             var range = _getCurrentRange();
             var rootElement = _getRootElement();
@@ -2139,9 +2144,10 @@
                 }
             }
             else if (startContainer.nodeName == 'P') {
-                _replace(currentRange.startContainer, fragment);
+                currentRange.insertNode(fragment);
                 _normalizeHTML(parentParagraph);
                 parentParagraph.normalize();
+                selection.removeAllRanges();
                 selection.addRange(currentRange);
             }
             else if (startContainer.nodeName == 'LI') {
