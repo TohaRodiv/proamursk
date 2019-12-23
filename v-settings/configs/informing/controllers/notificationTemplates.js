@@ -63,7 +63,7 @@ export default {
             if (channel && channel.id) {
                 recipientsConfig.params.channel_id__in = channel.id;
                 recipients = data.recipients
-                    ? data.recipients.filter(recipient => recipient.channel == channel.id)
+                    ? data.recipients.filter(recipient => recipient.channel === channel.id)
                     : [];
             } else {
                 recipientsConfig.params.channel_id__in = '';
@@ -109,8 +109,7 @@ export default {
             const varsHtml = this._generateHtmlVars(vars);
             const tagsHtml = this._generateHtmlTags(tags);
             const defaultTagsHtml = this._generateHtmlDefaultTags(defaultTags);
-            const html = varsHtml + tagsHtml + defaultTagsHtml;
-            return html;
+            return varsHtml + tagsHtml + defaultTagsHtml;
         },
 
         _generateHtmlVars(items) {
@@ -186,19 +185,19 @@ export default {
 
             items.map(item => {
                 const construction = item.construction_type;
-                if (construction == 'var') {
+                if (construction === 'var') {
                     vars.push(item);
                     const content = item.content_type;
 
-                    if (content == 'email') {
+                    if (content === 'email') {
                         email.push(Object.assign({}, item, { prefix: 'email', }));
                         email.push(Object.assign({}, item, { prefix: 'link', }));
                         email.push(Object.assign({}, item, { prefix: 'button', }));
-                    } else if (content == 'link') {
+                    } else if (content === 'link') {
                         link.push(Object.assign({}, item, { prefix: 'link', }));
                         link.push(Object.assign({}, item, { prefix: 'button', }));
                     }
-                } else if (construction == 'tag') {
+                } else if (construction === 'tag') {
                     tags.push(item);
                 }
             });
@@ -216,7 +215,7 @@ export default {
                 <ul>`;
                 list += array
                     .map((item, index) => {
-                        if (index == array.length - 1) {
+                        if (index === array.length - 1) {
                             return `
                             <li>${ item }.</li>`;
                         } else {
