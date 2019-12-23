@@ -7400,7 +7400,7 @@ $(function () {
       map4.margin.addArea({
         top: 0,
         left: 0,
-        width: '310px',
+        width: '50%',
         height: '100%'
       });
       map4.controls.add(new ymaps.control.ZoomControl({

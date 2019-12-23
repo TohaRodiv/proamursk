@@ -340,7 +340,7 @@ $(function () {
             map4.margin.addArea({
                 top: 0,
                 left: 0,
-                width: '310px',
+                width: '50%',
                 height: '100%'
             });
 

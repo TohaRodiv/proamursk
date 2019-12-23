@@ -61,24 +61,11 @@
 .blue-bg
     position: relative
     background-color: #DDEFFF
-    background-image: url(../images/special-projects/winter-fun/tips-phone.jpg)
+    background-image: url(../images/special-projects/winter-fun/snow-angels.jpg), url(../images/special-projects/winter-fun/tips-phone.jpg)
     background-size: 1920px
     background-repeat: no-repeat
-    background-position: center 130px
+    background-position: top center, center 1730px
     overflow: hidden
-
-    &::before
-        content: ""
-        position: absolute
-        top: 0
-        left: -15%
-        z-index: 1
-        width: 130%
-        height: 100px
-        background-color: $light-c
-        background-image: url(../images/special-projects/winter-fun/svg/snowdrift3.svg)
-        background-size: 100%
-        background-repeat: no-repeat
 
 .sp-winter-fun-header
     position: relative
@@ -124,8 +111,7 @@
         text-transform: uppercase
 
         &_left
-            padding-left: calc((100vw - 1920px) / 2)
-            left: 130px
+            padding-left: calc((100% - 1300px) / 2 - 130px)
 
         &_right
             text-align: right
@@ -364,21 +350,21 @@
     padding-bottom: 150px
     overflow: hidden
 
+.sp-winter-fun__map-wrap
+    position: relative
+    height: 720px
+
 .sp-winter-fun__map
-    width: 1080px
-    height: 640px
+    width: 100%
+    height: 720px
     margin-left: auto
     margin-right: auto
-    border: 1px solid #d7e3ef
-    box-shadow: 0 26px 28px #e1ecf7
-    border-radius: 56px
     overflow: hidden
 
 .sp-winter-map-points__list
     position: absolute
-    top: 50%
-    left: 10px
-    transform: translateY(-50%)
+    top: 150px
+    left: 0
     z-index: 2
     margin: 0
     padding: 30px 20px
@@ -397,45 +383,55 @@
     position: relative
     z-index: 2
     min-height: 2400px
-    padding-top: 200px
+    padding-top: 120px
+
+    &::before,
+    &::after
+        content: ""
+        position: absolute
+        background-repeat: no-repeat
+        background-size: contain
+
+    &::before
+        width: 390px
+        height: 1445px
+        top: 200px
+        left: -300px
+        background-image: url(../images/special-projects/winter-fun/svg/snowflake-left.svg)
+
+    &::after
+        width: 350px
+        height: 1540px
+        top: 150px
+        right: -300px
+        background-image: url(../images/special-projects/winter-fun/svg/snowflake-right.svg)
 
 .sp-winter-fun-rules
-    margin: 0
+    display: flex
+    flex-wrap: wrap
+    width: 930px
+    margin: 850px auto 0
     padding: 0
 
 .sp-winter-fun-rules__item
-    position: absolute
-    width: 260px
+    width: calc((100% - 50px) / 3)
+    padding: 40px
     font-size: 18px
     letter-spacing: 0.02em
+    background-color: $light-c
+    border-radius: 32px
 
-    &_1
-        top: 385px
-        left: 5px
+    &:not(:nth-child(3)):not(:nth-child(6))
+        margin-right: 25px
 
-    &_2
-        top: 460px
-        left: 650px
+    &:nth-child(-n+3)
+        margin-bottom: 25px
 
-    &_3
-        top: 470px
-        right: -80px
-
-    &_4
-        top: 875px
-        left: 10px
-
-    &_5
-        top: 990px
-        left: 530px
-
-    &_6
-        width: 250px
-        top: 705px
-        right: -15px
+    &:nth-child(n+4):nth-child(-n+6)
+        align-self: flex-start
 
 .sp-winter-fun-make-photo-section
-    margin-top: -310px
+    margin-top: 200px
 
 .sp-winter-fun-gallery
     margin-top: 110px
