@@ -7296,7 +7296,7 @@ footer {
   min-width: 100%;
   z-index: -1;
   visibility: hidden;
-  overflow: auto; }
+  overflow: auto hidden; }
   .sp-winter-fun-pop-up-body-cover.visible {
     visibility: visible;
     z-index: 100; }
