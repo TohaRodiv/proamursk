@@ -12,7 +12,7 @@
     min-width: 1300px
     margin-left: auto
     margin-right: auto
-    box-shadow: 0px 26px 28px #2e5194
+    box-shadow: 0 26px 28px #2e5194
 
 .city-bg
     position: relative
@@ -506,10 +506,7 @@
     width: 970px
     margin-top: -40px
     margin-left: auto
-    padding-top: 70px
-    padding-right: 110px
-    padding-bottom: 70px
-    padding-left: 110px
+    padding: 70px 220px 70px 110px
 
 .sp-winter-fun-pop-up__supertitle
     margin-left: -110px
@@ -555,9 +552,6 @@
     margin-left: -40px
     margin-top: 60px
 
-    + .sp-winter-fun-event-place__contacts
-        margin-top: 60px
-
 .sp-winter-fun-event-section
     margin-top: 120px
 
@@ -576,7 +570,7 @@
         font-size: $big-fz
         font-family: $bold-f
 
-    &__contacts
+    &__table
         font-size: 16px
         font-family: $base-f
 
@@ -613,9 +607,17 @@
             padding-left: 0
             padding-right: 0
             vertical-align: baseline
+            line-height: $base-lh
 
             &:nth-child(2)
                 padding-left: 10px
+
+        &_contacts
+            margin-top: 60px
+
+        &_info
+            td:nth-child(1)
+                width: 220px
 
 .sp-winter-fun-event
     &__time
@@ -634,3 +636,8 @@
             line-height: 20px
             vertical-align: -2px
             text-align: center
+
+.sp-winter-fun-direct-speech
+    margin-top: 80px
+    margin-bottom: 60px
+    margin-left: -20px

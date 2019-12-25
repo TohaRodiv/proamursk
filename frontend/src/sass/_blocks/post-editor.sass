@@ -82,7 +82,6 @@
     .slider-caption
         width: 100%
 
-
 .post-editor__block_image
     position: relative
 
@@ -141,7 +140,6 @@
             text-align: right
 
 .post-editor__block_slider
-
     .slide
         background-color: $light-gray
 
@@ -173,7 +171,6 @@
         width: 75%
 
 .post-editor__block_quote
-
     .quote
         padding-top: 10px
         padding-bottom: 10px
@@ -193,7 +190,6 @@
             font-family: $add-light-it-f
 
 .post-editor__block_video
-
     &-wrap
         position: relative
 
@@ -229,51 +225,102 @@
         &::after
             margin-left: 3px
 
-.direct-speech
-    display: flex
-    align-items: flex-start
-
+.direct-speech-author
     &__avatar
         display: block
         width: 110px
         height: 110px
-        margin-right: 15px
-        flex-shrink: 0
         border-radius: 50%
         border: 1px solid #C3CEDF
 
-        & + .direct-speech__text-wrap
-            margin-left: 35px
-
-            &::before
-                content: ""
-                display: block
-                width: 35px
-                height: 40px
-                position: absolute
-                left: -35px
-                top: 40px
-                background-image: url(../images/svg/direct-speech-triangle.svg)
-                background-repeat: no-repeat
-                background-size: contain
-
-    &__text-wrap
-        position: relative
-        padding: 15px 25px
-        background-color: #f5f6f7
-        border-radius: 4px
-
-    &__author
+    &__info-wrap
+    &__name
         margin-bottom: 5px
         font-family: $bold-f
         font-size: $medium-fz
         letter-spacing: 0.02em
         color: $base-c
 
-    &__author-description
-        margin-bottom: 10px
+    &__description
         font-size: $base-fz
         font-family: $add-sb-it-f
+
+.direct-speech__text_quotes
+    position: relative
+
+    & > *
+        position: relative
+        z-index: 2
+
+    &::before
+        content: ""
+        display: block
+        width: 80px
+        height: 50px
+        position: absolute
+        top: -20px
+        z-index: 1
+        background-image: url(../images/special-projects/summer-money/svg/quotes.svg)
+        background-size: contain
+        background-repeat: no-repeat
+
+.direct-speech_buble
+    display: flex
+    align-items: flex-start
+
+    .direct-speech-author
+        &__avatar
+            margin-right: 15px
+            flex-shrink: 0
+
+            & + .direct-speech__text-wrap
+                margin-left: 35px
+
+                &::before
+                    content: ""
+                    display: block
+                    width: 35px
+                    height: 40px
+                    position: absolute
+                    left: -35px
+                    top: 40px
+                    background-image: url(../images/svg/direct-speech-triangle.svg)
+                    background-repeat: no-repeat
+                    background-size: contain
+
+        &__description
+            margin-bottom: 10px
+
+    .direct-speech__text-wrap
+        position: relative
+        padding: 15px 25px
+        background-color: #f5f6f7
+        border-radius: 4px
+
+.direct-speech_base
+    .direct-speech-author
+        display: flex
+        align-items: center
+
+        &__avatar
+            margin-right: 20px
+
+    .direct-speech__text
+        margin-top: 40px
+        font-size: $mini-fz
+
+.direct-speech_base_with-avatar
+    .direct-speech__text
+        margin-left: 20px
+
+    .direct-speech__text_quotes
+        &::before
+            left: -20px
+
+.direct-speech_base_without-avatar
+    .direct-speech__text_quotes
+        &::before
+            left: -40px
 
 .img-shadow
     position: absolute
