@@ -3,14 +3,14 @@
 
 <div class="post-editor__block_direct-speech {{ element.element_content_format.id }}">
     <div class="indent-wrap {% if widget.marginTop %}indent-wrap_mt{{ widget.marginTop }}{% endif %} {% if widget.marginBottom %}indent-wrap_mb{{ widget.marginBottom }}{% endif %} {% if widget.paddingTop %}indent-wrap_pt{{ widget.paddingTop }}{% endif %} {% if widget.paddingBottom %}indent-wrap_pb{{ widget.paddingBottom }}{% endif %}">
-        <div class="direct-speech">
+        <div class="direct-speech direct-speech_buble">
             {% if widget.image.id %}
-                <img src="" data-src="{{ images|get_item:widget.image.id|get_thumbnail_url_by_name:"poste_ditor_direct_photo" }}" alt="" class="direct-speech__avatar lazyload">
+                <img src="" data-src="{{ images|get_item:widget.image.id|get_thumbnail_url_by_name:"poste_ditor_direct_photo" }}" alt="" class="direct-speech-author__avatar lazyload">
             {% endif %}
             <div class="direct-speech__text-wrap">
-                <div class="direct-speech__author">{{ widget.fio }}</div>
-                <div class="direct-speech__author-description">{{ widget.job }}</div>
-                <div class="direct-speech__text wysiwyg-container">{{ widget.text|safe }}</div>
+                <div class="direct-speech-author__name">{{ widget.fio }}</div>
+                <div class="direct-speech-author__description">{{ widget.job }}</div>
+                <div class="direct-speech__text">{{ widget.text|safe }}</div>
             </div>
         </div>
     </div>
