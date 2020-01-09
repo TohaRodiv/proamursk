@@ -6558,8 +6558,6 @@ function ajaxInfinityLoader(url, templateName, page) {
           $('.btn_more').addClass('hidden');
         }
 
-        console.log(url);
-
         if (url === 'news') {
           $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.news);
         } else if (url === 'announcements') {
@@ -6580,6 +6578,8 @@ function ajaxInfinityLoader(url, templateName, page) {
           $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.specialProjects);
         } else if (url === 'search-result') {
           $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.search_result);
+        } else if (url === 'selection') {
+          $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.selection);
         }
 
         var images = $('.lazyload');
@@ -6664,6 +6664,9 @@ $('body').on('click', '.js-btn_more', function () {
     } else if ($(this).hasClass('js-more-reviews')) {
       url = 'reviews';
       templateName = 'reviews';
+    } else if ($(this).hasClass('js-more-selection')) {
+      url = 'selection';
+      templateName = 'selection';
     }
 
     ajaxInfinityLoader(url, templateName, pageCount);

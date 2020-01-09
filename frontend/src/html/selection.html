@@ -1,0 +1,57 @@
+@@include("page-block/head.html")
+@@include("page-block/header.html", {
+    "page": "index"
+})
+
+<main>
+    <div class="container">
+        <div class="selection-head_page">
+            <p class="selection-head__subtitle icon-crown">Самое главное</p>
+            <h1 class="selection-head__title"><a href="selection.html">День Металлурга «Амурский драйв»</a></h1>
+        </div>
+
+        <div class="js-infinity-loader-wrap">
+            <div class="base-4items-grid js-infinity-loader-grid">
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base",
+                    "link": "people-details.html",
+                    "img": "images/grid-cover-3-base2.jpg",
+                    "title": "Амурские теплицы",
+                    "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
+                    "wobbler": "people"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base",
+                    "link": "people-details.html",
+                    "img": "images/grid-cover-3-base9.jpg",
+                    "title": "Я люблю Амурск спортивный!",
+                    "description": "Здесь рождается искусство",
+                    "wobbler": "people"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full",
+                    "link": "people-details.html",
+                    "img": "images/grid-cover-3-full2.jpg",
+                    "title": "Центральная городская библиотека",
+                    "description": "Место, где пахнет книгами",
+                    "wobbler": "people"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base",
+                    "link": "people-details.html",
+                    "img": "images/grid-cover-3-base4.jpg",
+                    "title": "Центр творчества «Темп»",
+                    "description": "Cамое крупное учреждение дополнительного образования в Амурском районе",
+                    "wobbler": "people"
+                })
+            </div>
+            <button class="btn btn_blue btn_more js-btn_more btn_center js-more-selection" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+        </div>
+    </div>
+</main>
+
+@@include('page-block/footer.html')
+@@include('page-block/page-end.html')
