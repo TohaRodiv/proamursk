@@ -23,13 +23,10 @@
 {% block content %}
     <main class="light-bg">
         <div class="container">
-            <div class="index-manage-grid">
-                {% last_news %}
-
+            <div class="index-manage-row">
                 {% for top_item in top_objects %}
-
                     {% if forloop.counter == 1 %}
-                        {% with item=top_item.get_object css_class='grid-publication_8-col' first_item=True cover_name="8_column_img" %}
+                        {% with item=top_item.get_object css_class='grid-publication_6-col' first_item=True cover_name="6_column_img_full" %}
                             {% if item %}
                                 {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
                                     {% include "site/modules/grid-event.html" %}
@@ -40,8 +37,7 @@
                                 <div class="grid-publication-placeholder"></div>
                             {% endif %}
                         {% endwith %}
-                    {% endif %}
-                    {% if forloop.counter == 2 %}
+                    {% else %}
                         {% with item=top_item.get_object %}
                             {% if item %}
                                 {% with cover_name="3_column_img_"|add:item.cover_format %}
@@ -56,8 +52,18 @@
                             {% endif %}
                         {% endwith %}
                     {% endif %}
-                    {% if forloop.counter == 3 %}
-                        {% with item=top_item.get_object  %}
+                {% endfor %}
+            </div>
+
+            <div class="index-selection">
+                <div class="index-selection__head">
+                    <p class="index-selection__subtitle icon-crown">Самое главное</p>
+                    <h2 class="index-selection__title"><a href="selection.html">День Металлурга «Амурский драйв»</a></h2>
+                </div>
+
+                <div class="index-selection-grid">
+                    {% for top_item in top_objects %}
+                        {% with item=top_item.get_object %}
                             {% if item %}
                                 {% with cover_name="3_column_img_"|add:item.cover_format %}
                                     {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
@@ -66,26 +72,33 @@
                                         {% include "site/modules/grid-publication.html" %}
                                     {% endif %}
                                 {% endwith %}
-                            {% else %}
-                                <div class="grid-publication-placeholder"></div>
                             {% endif %}
                         {% endwith %}
-                    {% endif %}
-                    {% if forloop.counter == 4 %}
-                        {% with css_class="grid-publication_6-col" item=top_item.get_object %}
-                            {% if item %}
-                                {% with cover_name="6_column_img_"|add:item.cover_format %}
-                                    {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
-                                        {% include "site/modules/grid-event.html" %}
-                                    {% else %}
-                                        {% include "site/modules/grid-publication.html" %}
-                                    {% endif %}
-                                {% endwith %}
-                            {% else %}
-                                <div class="grid-publication-placeholder"></div>
-                            {% endif %}
-                        {% endwith %}
-                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                {% if i > 4 %}
+                    <div class="index-selection__link-wrap">
+                        <a href="selection.html" class="btn btn_blue btn_size_big index-selection__link">Все материалы (5)</a>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="index-manage-row">
+                {% for top_item in top_objects %}
+                    {% with item=top_item.get_object %}
+                        {% if item %}
+                            {% with cover_name="3_column_img_"|add:item.cover_format %}
+                                {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
+                                    {% include "site/modules/grid-event.html" %}
+                                {% else %}
+                                    {% include "site/modules/grid-publication.html" %}
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            <div class="grid-publication-placeholder"></div>
+                        {% endif %}
+                    {% endwith %}
                 {% endfor %}
             </div>
         </div>
