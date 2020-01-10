@@ -262,15 +262,15 @@ class HistoryListView(InfinityLoaderListView):
 
         top_objects = page.top_items.all().order_by('weight') if page else []
         return History.objects.select_related('cover').filter(is_active=True,
-                                                              publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history'])[11:]
+                                                              publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history'])[15:]
 
     def get(self, request):
         page = get_page(request)
         top_objects = page.top_items.all().order_by('weight') if page else []
         items = History.objects.filter(is_active=True,
                                        publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
-        has_next = items.count() > 11
-        items = items[:11]
+        has_next = items.count() > 15
+        items = items[:15]
         return render(request, self.template_name, {self.context_list_name: items,
                                                     'top_objects': top_objects,
                                                     'has_next': has_next})
@@ -304,7 +304,7 @@ class PersonsListView(InfinityLoaderListView):
 
         top_objects = page.top_items.all().order_by('weight') if page else []
         return Person.objects.filter(is_active=True,
-                                     publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons'])[11:]
+                                     publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons'])[15:]
 
     def get(self, request):
         page = get_page(request)
@@ -312,8 +312,8 @@ class PersonsListView(InfinityLoaderListView):
 
         items = Person.objects.filter(is_active=True,
                                       publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('-publication_date')
-        has_next = items.count() > 11
-        items = items[:11]
+        has_next = items.count() > 15
+        items = items[:15]
         return render(request, self.template_name, {self.context_list_name: items,
                                                     'top_objects': top_objects,
                                                     'has_next': has_next})
