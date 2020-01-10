@@ -62,6 +62,7 @@ const state = {
                                 widget: 'childEntity',
                                 codename: 'items',
                                 label: 'Материалы',
+                                menu: ['edit', 'delete',],
                                 rows: [
                                     {
                                         map: {
