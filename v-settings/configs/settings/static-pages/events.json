@@ -1,1 +1,94 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "КОНТЕНТ",
+        "blocks": [
+            {
+                "labelPosition": "left",
+                "hasWideLabel": true,
+                "elements": [
+                    {
+                        "widget": "childEntity",
+                        "codename": "top_items",
+                        "label": "Избранные материалы",
+                        "noAddButton": false,
+                        "menu": ["edit", "delete"],
+                        "rows": [
+                            {
+                                "map": {
+                                    "layout": "column",
+                                    "elements": [
+                                        {
+                                            "codename": "item.title"
+                                        },
+                                        {
+                                            "codename": "entity",
+                                            "class": [
+                                                "halfTransparent"
+                                            ],
+                                            "dict": {
+                                                "event-announcements": "Анонс события",
+                                                "reports": "Репортаж о событии"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "popup": {
+                            "label": "Избранный материал",
+                            "disableClickaway": true,
+                            "config": [
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                        {
+                                            "labelPosition": "left",
+                                            "direction": "row",
+                                            "modClass": "marginBottom20",
+                                            "elements": [
+                                                {
+                                                    "widget": "radioButtons",
+                                                    "label": "Тип материала",
+                                                    "required": true,
+                                                    "codename": "entity",
+                                                    "default": "event-announcements",
+                                                    "borders": true,
+                                                    "width": 6,
+                                                    "options": [
+                                                        {
+                                                            "value": "event-announcements",
+                                                            "label": "Анонс события"
+                                                        },
+                                                        {
+                                                            "value": "reports",
+                                                            "label": "Репортаж о событии"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "labelPosition": "left",
+                                            "elements": [
+                                                {
+                                                    "widget": "select",
+                                                    "codename": "item",
+                                                    "label": "Публикация",
+                                                    "api": "event-announcements",
+                                                    "template": "title",
+                                                    "width": 8,
+                                                    "required": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

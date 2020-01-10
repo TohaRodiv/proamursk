@@ -8,3 +8,5 @@ export const publications = {
     'city-guides': 'Гид по городу',
     specials: 'Спецпроект',
 };
+
+export default {};

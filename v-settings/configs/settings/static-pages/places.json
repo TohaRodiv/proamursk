@@ -1,1 +1,58 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "КОНТЕНТ",
+        "blocks": [
+            {
+                "labelPosition": "left",
+                "hasWideLabel": true,
+                "elements": [
+                    {
+                        "widget": "childEntity",
+                        "codename": "top_items",
+                        "label": "Избранные материалы",
+                        "noAddButton": false,
+                        "menu": ["edit", "delete"],
+                        "rows": [
+                            {
+                                "map": {
+                                    "layout": "column",
+                                    "elements": [
+                                        {
+                                            "codename": "item.title"
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "popup": {
+                            "label": "Избранный материал",
+                            "disableClickaway": true,
+                            "config": [
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                        {
+                                            "labelPosition": "top",
+                                            "elements": [
+                                                {
+                                                    "widget": "select",
+                                                    "codename": "item",
+                                                    "label": "Статья о месте",
+                                                    "api": "places",
+                                                    "template": "title",
+                                                    "width": 12,
+                                                    "required": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]
