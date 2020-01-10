@@ -413,7 +413,7 @@ export default {
             const codename = fullData.codename;
             if (codename === 'index') {
                 fields.top_items.noAddButton = !!(topItems && topItems.length);
-            } else if (codename === 'events') {
+            } else if (codename === 'events-index') {
                 fields.top_items.noAddButton = !!(topItems && topItems.length > 3);
             }
         },
