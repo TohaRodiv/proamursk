@@ -1,6 +1,6 @@
 const state = {
     columnsConfig: {
-        'history-rubrics': [
+        compilation: [
             {
                 name: '',
                 type: 'flag',
@@ -38,6 +38,26 @@ const state = {
                 },
             },
             {
+                name: 'Ссылка',
+                type: 'link',
+                is_sortable: false,
+                align_text: 'left',
+                width: 120,
+                codename: 'site_url',
+                sort: 'none',
+            },
+            {
+                name: 'Кол-во материалов',
+                type: 'int',
+                is_sortable: true,
+                align_text: 'right',
+                width: 120,
+                codename: 'amount',
+                sort: {
+                    order_by: 'amount',
+                },
+            },
+            {
                 name: 'Комментарий',
                 type: 'comment',
                 is_sortable: false,
@@ -71,15 +91,24 @@ const state = {
         ],
     },
     actionsConfig: {
-        'history-rubrics': {
+        compilation: {
             addButton: true,
-            activationButtons: false,
+            activationButtons: true,
             deleteButton: true,
             duplicateButton: true,
         },
     },
     filterConfig: {
-        'history-rubrics': [
+        compilation: [
+            {
+                filterTitle: 'Кол-во материалов',
+                minMaxCodename: 'amount',
+                queryName: {
+                    min: 'amount__gte',
+                    max: 'amount__lte',
+                },
+                input_type: 'toFromInteger',
+            },
             {
                 filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',
@@ -99,6 +128,32 @@ const state = {
                 },
                 input_type: 'toFromDate',
                 type: 'date_time',
+            },
+            {
+                filterTitle: 'Состояние',
+                queryName: 'is_active',
+                input_type: 'radiobuttonsList',
+                callbackValue: 'value',
+                values: [
+                    {
+                        id: 2,
+                        name: 'Все записи',
+                        value: '',
+                        checked: true,
+                    },
+                    {
+                        id: 1,
+                        name: 'Активные записи',
+                        value: 'true',
+                        checked: false,
+                    },
+                    {
+                        id: 0,
+                        name: 'Неактивные записи',
+                        value: 'false',
+                        checked: false,
+                    },
+                ],
             },
         ],
     },
