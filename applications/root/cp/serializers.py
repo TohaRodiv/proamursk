@@ -581,7 +581,7 @@ class CompilationItemDetailSerializer(ModelSerializer):
 
     def get_object_data(self, obj):
         item = obj.get_object()
-        return dict(id=item.id, name=str(item))
+        return dict(id=item.id, title=str(item))
 
 
 class CompilationListSerializer(ModelSerializer):
