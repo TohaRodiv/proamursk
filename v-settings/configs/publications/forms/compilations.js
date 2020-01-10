@@ -1,6 +1,8 @@
+import { publications, } from '../../dicts';
+
 const state = {
     formsOptions: {
-        compilation: [
+        compilations: [
             {
                 id: 1,
                 title: 'ИНФОРМАЦИЯ',
@@ -58,18 +60,20 @@ const state = {
                         elements: [
                             {
                                 widget: 'childEntity',
-                                codename: 'compilation',
+                                codename: 'items',
+                                label: 'Материалы',
                                 rows: [
                                     {
                                         map: {
                                             layout: 'column',
                                             elements: [
                                                 {
-                                                    codename: 'publication.name',
+                                                    codename: 'object_data.title',
                                                 },
                                                 {
-                                                    codename: 'type.name',
+                                                    codename: 'entity',
                                                     class: ['halfTransparent',],
+                                                    dict: publications,
                                                 },
                                             ],
                                         },
@@ -89,11 +93,11 @@ const state = {
                                                         {
                                                             widget: 'radioButtons',
                                                             label: 'Тип материала',
-                                                            codename: 'type',
+                                                            codename: 'entity',
                                                             required: true,
                                                             default: 'news',
                                                             borders: true,
-                                                            direction: 'column',
+                                                            // direction: 'column',
                                                             width: 6,
                                                             options: [
                                                                 {
@@ -101,7 +105,7 @@ const state = {
                                                                     label: 'Новость',
                                                                 },
                                                                 {
-                                                                    value: 'event-announcement',
+                                                                    value: 'event-announcements',
                                                                     label: 'Анонс события',
                                                                 },
                                                                 {
@@ -133,8 +137,9 @@ const state = {
                                                             label: 'Публикация',
                                                             required: true,
                                                             api: 'news',
-                                                            codename: 'publication',
+                                                            codename: 'object_data',
                                                             width: 8,
+                                                            template: 'title',
                                                         },
                                                     ],
                                                 },
@@ -150,7 +155,6 @@ const state = {
             {
                 id: 3,
                 title: 'SEO и OG',
-                invalid: false,
                 blocks: [
                     {
                         labelPosition: 'left',
@@ -212,7 +216,7 @@ const state = {
         ],
     },
     activeFlag: {
-        compilation: {
+        compilations: {
             title: 'Активная подборка',
             hint: 'Неактивные подборки не отображаются на сайте',
         },

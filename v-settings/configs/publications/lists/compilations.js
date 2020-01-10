@@ -1,6 +1,6 @@
 const state = {
     columnsConfig: {
-        compilation: [
+        compilations: [
             {
                 name: '',
                 type: 'flag',
@@ -52,9 +52,9 @@ const state = {
                 is_sortable: true,
                 align_text: 'right',
                 width: 120,
-                codename: 'amount',
+                codename: 'items_amount',
                 sort: {
-                    order_by: 'amount',
+                    order_by: 'items_amount',
                 },
             },
             {
@@ -91,7 +91,7 @@ const state = {
         ],
     },
     actionsConfig: {
-        compilation: {
+        compilations: {
             addButton: true,
             activationButtons: true,
             deleteButton: true,
@@ -99,13 +99,13 @@ const state = {
         },
     },
     filterConfig: {
-        compilation: [
+        compilations: [
             {
                 filterTitle: 'Кол-во материалов',
-                minMaxCodename: 'amount',
+                minMaxCodename: 'items_amount',
                 queryName: {
-                    min: 'amount__gte',
-                    max: 'amount__lte',
+                    min: 'items_amount__gte',
+                    max: 'items_amount__lte',
                 },
                 input_type: 'toFromInteger',
             },

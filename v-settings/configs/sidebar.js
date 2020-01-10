@@ -67,6 +67,13 @@ const state = {
                     hasAddButton: true,
                 },
                 {
+                    name: 'Подборки материалов',
+                    view: 'compilations',
+                    formsName: 'Подборка материалов #',
+                    newFormName: 'Новая подборка материалов',
+                    hasAddButton: true,
+                },
+                {
                     name: 'Спецпроекты',
                     view: 'specials',
                     formsName: 'Спецпроект #',

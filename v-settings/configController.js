@@ -14,6 +14,7 @@ import historyRubricList from './configs/publications/lists/historyRubrics';
 import placesList from './configs/publications/lists/places';
 import personsList from './configs/publications/lists/persons';
 import cityGuidesList from './configs/publications/lists/cityGuides';
+import compilationsList from './configs/publications/lists/compilations';
 import specialsList from './configs/publications/lists/specials';
 import slidersList from './configs/companionContent/lists/sliders';
 import staticPagesList from './configs/companionContent/lists/staticPages';
@@ -51,6 +52,7 @@ import historyRubricForm from './configs/publications/forms/historyRubrics';
 import placesForm from './configs/publications/forms/places';
 import personsForm from './configs/publications/forms/persons';
 import cityGuidesForm from './configs/publications/forms/cityGuides';
+import compilationsForm from './configs/publications/forms/compilations';
 import specialsForm from './configs/publications/forms/specials';
 import slidersForm from './configs/companionContent/forms/sliders';
 import staticPagesForm from './configs/companionContent/forms/staticPages';
@@ -84,6 +86,7 @@ let lists = [
     placesList,
     personsList,
     cityGuidesList,
+    compilationsList,
     specialsList,
     slidersList,
     staticPagesList,
@@ -122,6 +125,7 @@ let forms = [
     placesForm,
     personsForm,
     cityGuidesForm,
+    compilationsForm,
     specialsForm,
     slidersForm,
     staticPagesForm,
