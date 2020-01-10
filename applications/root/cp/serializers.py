@@ -1,6 +1,3 @@
-# -*-coding: utf-8 -*-
-import os
-
 from rest_framework import serializers
 
 from applications.mediafiles.cp.serializers import ImageNestedSerializer
@@ -10,7 +7,8 @@ from applications.files.models import UserFile
 from cp_vue.api.fields import ObjectRelatedField
 from cp_vue.api.serializers import ModelSerializer
 from ..models import (News, Event, Report, History, Person, CityGuide, Place, Special, Film, FilmSession, SidebarBanner,
-                      WideBanner, PlaceReview, SliderItem, Slider, Feedback, TextError, HistoryRubric, CityGuideItem)
+                      WideBanner, PlaceReview, SliderItem, Slider, Feedback, TextError, HistoryRubric, CityGuideItem,
+                      Compilation, CompilationItem)
 
 
 class NewsListSerializer(ModelSerializer):
@@ -570,5 +568,55 @@ class CityGuidesDetailSerializer(ModelSerializer):
 
         instance.search_text = search_text
         instance.save()
+        return instance
+
+
+class CompilationItemDetailSerializer(ModelSerializer):
+    id = serializers.IntegerField(required=False)
+    object_data = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CompilationItem
+        fields = ('id', 'entity', 'object_id', 'object_data', 'weight')
+
+    def get_object_data(self, obj):
+        item = obj.get_object()
+        return dict(id=item.id, name=str(item))
+
+
+class CompilationListSerializer(ModelSerializer):
+    items_amount = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Compilation
+        fields = ('id', 'name', 'items_amount', 'comment', 'create_date', 'edit_date', 'is_active')
+
+    def get_items_amount(self, obj):
+        return obj.items_amount
+
+
+class CompilationDetailSerializer(ModelSerializer):
+    og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
+                                  required=False,
+                                  allow_null=True
+                                  )
+    items = CompilationItemDetailSerializer(many=True)
+
+    class Meta:
+        model = Compilation
+        fields = ('id', 'name', 'codename', 'items',
+                  'comment', 'is_active', 'create_date', 'edit_date',
+                  'meta_title', 'meta_description', 'meta_keywords', 'og_image')
+
+    def create(self, validated_data):
+        items = validated_data.pop('items') if 'items' in validated_data else []
+        instance = super().create(validated_data)
+        self.create_child_objects(items, CompilationItem, dict(compilation=instance))
+        return instance
+
+    def update(self, instance, validated_data):
+        items = validated_data.pop('items') if 'items' in validated_data else []
+        instance = super().update(instance, validated_data)
+        self.update_child_objects(items, CompilationItem, dict(compilation=instance))
         return instance
 

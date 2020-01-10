@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from ..models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview, Slider, \
-    Feedback, SidebarBanner, WideBanner, TextError, HistoryRubric
+from ..models import (
+    News, Event, Report, History, Person, CityGuide, Place, Special, Film, PlaceReview, Slider,
+    Feedback, SidebarBanner, WideBanner, TextError, HistoryRubric, Compilation
+)
 from cp_vue.api.filters import NumberInFilter, CharInFilter, SearchFilter
 from cp_vue.api.filterset import APIFilterSet
 from django_filters import rest_framework as filters
@@ -232,4 +234,19 @@ class TextErrorFilter(APIFilterSet):
         model = TextError
         fields = {
             'create_date': ['gte', 'lte'],
+        }
+
+
+class CompilationFilter(APIFilterSet):
+    q = SearchFilter(search_fields=['name', 'comment',])
+    instant_search = filters.CharFilter(field_name="name", lookup_expr="icontains")
+    is_active = filters.BooleanFilter(field_name='is_active', method='common_filter')
+    items_amount__lte = filters.NumberFilter(field_name='items_amount__lte', method='common_filter')
+    items_amount__gte = filters.NumberFilter(field_name='items_amount__gte', method='common_filter')
+
+    class Meta:
+        model = Compilation
+        fields = {
+            'create_date': ['gte', 'lte'],
+            'edit_date': ['gte', 'lte']
         }
