@@ -644,6 +644,9 @@ class Compilation(BaseModel, BaseSeoMixin, IsActiveMixin):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('compilation-detail', args=[self.codename])
+
 
 class CompilationItem(models.Model):
     ENTITIES = (

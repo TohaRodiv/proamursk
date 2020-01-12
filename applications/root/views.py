@@ -22,7 +22,9 @@ from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm, UploadForm
 from applications.files.utils import get_tags_id, get_file_data
 from applications.contentblocks.models import Page
-from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special, WideBanner
+from .models import (
+    News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special, WideBanner, Compilation
+)
 
 try:
     from applications.notifications.tasks import send_notification
@@ -674,6 +676,22 @@ class SearchView(View):
                                )
             )
             return HttpResponse(make_ajax_response(True, response))
+
+
+class CompilationDetailView(View):
+
+    def get(self, request, codename):
+        try:
+            compilation = Compilation.objects.get(codename=codename, is_active=True)
+        except:
+            raise Http404
+        else:
+            materials = compilation.items.all()[:24]
+            context = dict(
+                compilation=compilation,
+                materials=materials
+            )
+            return render(request, "site/selection.html", context)
 
 
 @require_POST

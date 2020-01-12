@@ -1,0 +1,9 @@
+{% for material in materials %}
+    {% with item=material.get_object %}
+        {% if item %}
+            {% with cover_name="3_column_img_"|add:item.cover_format %}
+                {% include "site/modules/grid-publication.html" %}
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
+{% endfor %}
