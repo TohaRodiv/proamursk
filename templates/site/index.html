@@ -37,7 +37,7 @@
                         {% endif %}
                     {% endwith %}
 
-                    {% for item in last_materials|slice:":3" %}
+                    {% for item in last_materials|slice:":2" %}
                         {% with cover_format=item.cover_format|default:"small" %}
                             {% with cover_name="3_column_img_"|add:cover_format %}
                                 {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
@@ -64,41 +64,76 @@
             </div>
 
             {% if content_page.compilation %}
-                <div class="index-selection">
-                    <div class="selection-head_index">
-                        <p class="selection-head__subtitle icon-crown">Самое главное</p>
-                        <h2 class="selection-head__title"><a href="selection.html">{{ content_page.compilation.name }}</a></h2>
-                    </div>
+                {% with length=content_page.compilation.items.all|length %}
+                    {% if length > 1 %}
+                        <div class="index-selection">
+                            <div class="selection-head_index">
+                                <p class="selection-head__subtitle icon-crown">Самое главное</p>
+                                <h2 class="selection-head__title"><a href="selection.html">{{ content_page.compilation.name }}</a></h2>
+                            </div>
 
-                    <div class="index-selection-grid">
-                        {% for obj in content_page.compilation.items.all|slice:":4" %}
-                            {% with item=obj.get_object %}
-                                {% if item %}
-                                    {% with cover_format=item.cover_format|default:"small" %}
-                                        {% with cover_name="3_column_img_"|add:cover_format%}
-                                            {% if obj.entity == 'event' or obj.entity == 'report' %}
-                                                {% include "site/modules/grid-event.html" %}
-                                            {% else %}
-                                                {% include "site/modules/grid-publication.html" %}
-                                            {% endif %}
-                                        {% endwith %}
+
+                            <div class="index-selection-grid">
+                                {% for obj in content_page.compilation.items.all|slice:":4" %}
+                                    {% with item=obj.get_object %}
+                                        {% if item %}
+                                            {% with cover_format=item.cover_format|default:"small" %}
+                                                {% if length == 2 %}
+                                                    {% with css_class="grid-publication_6-col" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
+                                                        {% if obj.entity == 'event' or obj.entity == 'report' %}
+                                                            {% include "site/modules/grid-event.html" %}
+                                                        {% else %}
+                                                            {% include "site/modules/grid-publication.html" %}
+                                                        {% endif %}
+                                                    {% endwith %}
+                                                {% elif length == 3 %}
+                                                    {% if forloop.counter == 2 %}
+                                                        {% with css_class="grid-publication_6-col" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
+                                                            {% if obj.entity == 'event' or obj.entity == 'report' %}
+                                                                {% include "site/modules/grid-event.html" %}
+                                                            {% else %}
+                                                                {% include "site/modules/grid-publication.html" %}
+                                                            {% endif %}
+                                                        {% endwith %}
+                                                    {% else %}
+                                                        {% with cover_name="3_column_img_"|add:cover_format%}
+                                                            {% if obj.entity == 'event' or obj.entity == 'report' %}
+                                                                {% include "site/modules/grid-event.html" %}
+                                                            {% else %}
+                                                                {% include "site/modules/grid-publication.html" %}
+                                                            {% endif %}
+                                                        {% endwith %}
+                                                    {% endif %}
+                                                {% else %}
+                                                    {% with cover_name="3_column_img_"|add:cover_format%}
+                                                        {% if obj.entity == 'event' or obj.entity == 'report' %}
+                                                            {% include "site/modules/grid-event.html" %}
+                                                        {% else %}
+                                                            {% include "site/modules/grid-publication.html" %}
+                                                        {% endif %}
+                                                    {% endwith %}
+                                                {% endif %}
+
+
+                                            {% endwith %}
+                                        {% endif %}
                                     {% endwith %}
-                                {% endif %}
-                            {% endwith %}
-                        {% endfor %}
-                    </div>
+                                {% endfor %}
+                            </div>
 
-                    {% if content_page.compilation.items.all|length > 4 %}
-                        <div class="index-selection__link-wrap">
-                            <a href="" class="btn btn_blue btn_size_big index-selection__link">Все материалы ({{ content_page.compilation.items.all|length }})</a>
+                            {% if length > 4 %}
+                                <div class="index-selection__link-wrap">
+                                    <a href="" class="btn btn_blue btn_size_big index-selection__link">Все материалы ({{ length }})</a>
+                                </div>
+                            {% endif %}
                         </div>
                     {% endif %}
-                </div>
+                {% endwith %}
             {% endif %}
 
             <div class="index-manage-row">
                 {% if pined_material %}
-                    {% for item in last_materials|slice:"4:" %}
+                    {% for item in last_materials|slice:"2:" %}
                         {% with cover_format=item.cover_format|default:"small" %}
                             {% with cover_name="3_column_img_"|add:cover_format %}
                                 {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
@@ -110,7 +145,7 @@
                         {% endwith %}
                     {% endfor %}
                 {% else %}
-                    {% for item in last_materials|slice:"3:" %}
+                    {% for item in last_materials|slice:"4:" %}
                         {% with cover_format=item.cover_format|default:"small" %}
                             {% with cover_name="3_column_img_"|add:cover_format %}
                                 {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}

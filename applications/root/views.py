@@ -109,7 +109,7 @@ class IndexView(View):
         result = list(events) + list(reports) + list(places) + list(news) + list(history) + list(persons)
         result = sorted(result, key=lambda x: x.publication_date, reverse=True)
         if pined_material:
-            result = result[:7]
+            result = result[:6]
         else:
             result = result[:8]
 
