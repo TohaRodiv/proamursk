@@ -584,6 +584,13 @@ class CompilationItemDetailSerializer(ModelSerializer):
         return dict(id=item.id, title=str(item))
 
 
+class CompilationSelectSerializer(ModelSerializer):
+
+    class Meta:
+        model = Compilation
+        fields = ('id', 'name', 'is_active')
+
+
 class CompilationListSerializer(ModelSerializer):
     items_amount = serializers.SerializerMethodField()
 

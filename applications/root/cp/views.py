@@ -25,7 +25,7 @@ from .serializers import (NewsListSerializer, NewsDetailSerializer, EventsListSe
                           PlaceReviewsListSerializer, PlaceReviewsDetailSerializer, SlidersDetailSerializer,
                           SlidersListSerializer, FeedbackDetailSerializer, FeedbackListSerializer, TextErrorDetailSerializer,
                           TextErrorListSerializer, HistoryRubricDetailSerializer, HistoryRubricListSerializer,
-                          CompilationListSerializer, CompilationDetailSerializer)
+                          CompilationListSerializer, CompilationDetailSerializer, CompilationSelectSerializer)
 
 from .filters import (NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter,
                       PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter, FeedbackFilter,
@@ -262,6 +262,7 @@ class CompilationCpViewSet(CpViewSet):
     available_actions = dict(activate='Активация и Деактивация',
                              delete='Удаление')
     serializer_class = CompilationDetailSerializer
+    select_serializer_class = CompilationSelectSerializer
     list_serializer_class = CompilationListSerializer
     filter_class = CompilationFilter
     ordering_fields = ('id', 'name', 'items_amount', 'edit_date', 'create_date')

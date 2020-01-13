@@ -24,82 +24,104 @@
     <main class="light-bg">
         <div class="container">
             <div class="index-manage-row">
-                {% for top_item in top_objects %}
-                    {% if forloop.counter == 1 %}
-                        {% with item=top_item.get_object css_class='grid-publication_6-col' first_item=True cover_name="6_column_img_full" %}
-                            {% if item %}
-                                {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
-                                    {% include "site/modules/grid-event.html" %}
-                                {% else %}
-                                    {% include "site/modules/grid-publication.html" %}
-                                {% endif %}
-                            {% else %}
-                                <div class="grid-publication-placeholder"></div>
-                            {% endif %}
-                        {% endwith %}
-                    {% else %}
-                        {% with item=top_item.get_object %}
-                            {% if item %}
-                                {% with cover_name="3_column_img_"|add:item.cover_format %}
-                                    {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
-                                        {% include "site/modules/grid-event.html" %}
-                                    {% else %}
-                                        {% include "site/modules/grid-publication.html" %}
-                                    {% endif %}
-                                {% endwith %}
-                            {% else %}
-                                <div class="grid-publication-placeholder"></div>
-                            {% endif %}
-                        {% endwith %}
-                    {% endif %}
-                {% endfor %}
-            </div>
-
-            <div class="index-selection">
-                <div class="selection-head_index">
-                    <p class="selection-head__subtitle icon-crown">Самое главное</p>
-                    <h2 class="selection-head__title"><a href="selection.html">День Металлурга «Амурский драйв»</a></h2>
-                </div>
-
-                <div class="index-selection-grid">
-                    {% for top_item in top_objects %}
-                        {% with item=top_item.get_object %}
-                            {% if item %}
-                                {% with cover_name="3_column_img_"|add:item.cover_format %}
-                                    {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
-                                        {% include "site/modules/grid-event.html" %}
-                                    {% else %}
-                                        {% include "site/modules/grid-publication.html" %}
-                                    {% endif %}
-                                {% endwith %}
-                            {% endif %}
-                        {% endwith %}
-                    {% endfor %}
-                </div>
-
-                {% if i > 4 %}
-                    <div class="index-selection__link-wrap">
-                        <a href="selection.html" class="btn btn_blue btn_size_big index-selection__link">Все материалы (5)</a>
-                    </div>
-                {% endif %}
-            </div>
-
-            <div class="index-manage-row">
-                {% for top_item in top_objects %}
-                    {% with item=top_item.get_object %}
+                {% if pined_material %}
+                    {% with item=pined_material.get_object css_class='grid-publication_6-col' first_item=True cover_name="6_column_img_full" %}
                         {% if item %}
-                            {% with cover_name="3_column_img_"|add:item.cover_format %}
-                                {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
+                            {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
+                                {% include "site/modules/grid-event.html" %}
+                            {% else %}
+                                {% include "site/modules/grid-publication.html" %}
+                            {% endif %}
+                        {% else %}
+                            <div class="grid-publication-placeholder"></div>
+                        {% endif %}
+                    {% endwith %}
+
+                    {% for item in last_materials|slice:":3" %}
+                        {% with cover_format=item.cover_format|default:"small" %}
+                            {% with cover_name="3_column_img_"|add:cover_format %}
+                                {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
                                 {% else %}
                                     {% include "site/modules/grid-publication.html" %}
                                 {% endif %}
                             {% endwith %}
-                        {% else %}
-                            <div class="grid-publication-placeholder"></div>
-                        {% endif %}
-                    {% endwith %}
-                {% endfor %}
+                        {% endwith %}
+                    {% endfor %}
+                {% else %}
+                    {% for item in last_materials|slice:":4" %}
+                        {% with cover_format=item.cover_format|default:"small" %}
+                            {% with cover_name="3_column_img_"|add:cover_format %}
+                                {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
+                                    {% include "site/modules/grid-event.html" %}
+                                {% else %}
+                                    {% include "site/modules/grid-publication.html" %}
+                                {% endif %}
+                            {% endwith %}
+                        {% endwith %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            {% if content_page.compilation %}
+                <div class="index-selection">
+                    <div class="selection-head_index">
+                        <p class="selection-head__subtitle icon-crown">Самое главное</p>
+                        <h2 class="selection-head__title"><a href="selection.html">{{ content_page.compilation.name }}</a></h2>
+                    </div>
+
+                    <div class="index-selection-grid">
+                        {% for obj in content_page.compilation.items.all|slice:":4" %}
+                            {% with item=obj.get_object %}
+                                {% if item %}
+                                    {% with cover_format=item.cover_format|default:"small" %}
+                                        {% with cover_name="3_column_img_"|add:cover_format%}
+                                            {% if obj.entity == 'event' or obj.entity == 'report' %}
+                                                {% include "site/modules/grid-event.html" %}
+                                            {% else %}
+                                                {% include "site/modules/grid-publication.html" %}
+                                            {% endif %}
+                                        {% endwith %}
+                                    {% endwith %}
+                                {% endif %}
+                            {% endwith %}
+                        {% endfor %}
+                    </div>
+
+                    {% if content_page.compilation.items.all|length > 4 %}
+                        <div class="index-selection__link-wrap">
+                            <a href="" class="btn btn_blue btn_size_big index-selection__link">Все материалы ({{ content_page.compilation.items.all|length }})</a>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <div class="index-manage-row">
+                {% if pined_material %}
+                    {% for item in last_materials|slice:"4:" %}
+                        {% with cover_format=item.cover_format|default:"small" %}
+                            {% with cover_name="3_column_img_"|add:cover_format %}
+                                {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
+                                    {% include "site/modules/grid-event.html" %}
+                                {% else %}
+                                    {% include "site/modules/grid-publication.html" %}
+                                {% endif %}
+                            {% endwith %}
+                        {% endwith %}
+                    {% endfor %}
+                {% else %}
+                    {% for item in last_materials|slice:"3:" %}
+                        {% with cover_format=item.cover_format|default:"small" %}
+                            {% with cover_name="3_column_img_"|add:cover_format %}
+                                {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
+                                    {% include "site/modules/grid-event.html" %}
+                                {% else %}
+                                    {% include "site/modules/grid-publication.html" %}
+                                {% endif %}
+                            {% endwith %}
+                        {% endwith %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
 

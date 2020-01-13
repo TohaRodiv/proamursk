@@ -7,7 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse, Http404, HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
-from django.db.models import Q
+from django.db.models import Q, F
 from django.template.loader import render_to_string
 from django.urls import resolve
 from django.views.decorators.http import require_POST
@@ -55,15 +55,99 @@ def get_page(request):
 
 class IndexView(View):
 
+    def get_last_materials(self, pined_material=None):
+        events = Event.objects.filter(
+            is_active=True,
+            start_event_date__gte=datetime.now()
+        ).order_by('start_event_date').annotate(publication_date=F('start_event_date'))
+        if pined_material and pined_material.entity == 'event-announcements':
+            events = events.exclude(id=pined_material.object_id)
+        events = events[:8]
+
+        reports = Report.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'reports':
+            reports = reports.exclude(id=pined_material.object_id)
+        reports = reports[:8]
+
+        places = Place.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'places':
+            places = places.exclude(id=pined_material.object_id)
+        places = places[:8]
+
+        news = News.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'news':
+            news = news.exclude(id=pined_material.object_id)
+        news = news[:8]
+
+        history = History.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'history':
+            history = history.exclude(id=pined_material.object_id)
+        history = history[:8]
+
+        persons = Person.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'persons':
+            persons = persons.exclude(id=pined_material.object_id)
+        persons = persons[:8]
+
+        result = list(events) + list(reports) + list(places) + list(news) + list(history) + list(persons)
+        result = sorted(result, key=lambda x: x.publication_date, reverse=True)
+        if pined_material:
+            result = result[:7]
+        else:
+            result = result[:8]
+
+        return result
+
     def get(self, request):
         current_date = date.today()
         page = get_page(request)
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        events = Event.objects.filter(is_active=True,
-                                      start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('start_event_date')[:2]
-        reports = Report.objects.filter(is_active=True,
-                                       publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')[:2]
-        places = Place.objects.filter(is_active=True, publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places']).order_by('-publication_date')[:(6-len(events)-len(reports))]
+        pined_material = page.top_items.all().order_by('weight').first() if page else None
+        last_materials = self.get_last_materials(pined_material=pined_material)
+        events = Event.objects.filter(
+            is_active=True,
+            start_event_date__gte=current_date
+        ).order_by('start_event_date').exclude(
+            id__in=[i.id for i in last_materials if i._meta.model_name == 'event']
+        )
+        if pined_material and pined_material.entity == 'event-announcements':
+            events = events.exclude(id=pined_material.object_id)
+        events = events[:2]
+
+        reports = Report.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date').exclude(
+            id__in=[i.id for i in last_materials if i._meta.model_name == 'report']
+        )
+        if pined_material and pined_material.entity == 'reports':
+            reports = reports.exclude(id=pined_material.object_id)
+        reports = reports[:2]
+
+        places = Place.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date').exclude(
+            id__in=[i.id for i in last_materials if i._meta.model_name == 'place']
+        )
+        if pined_material and pined_material.entity == 'places':
+            places = places.exclude(id=pined_material.object_id)
+        places = places[:(6-len(events)-len(reports))]
+
         what_to_do = list(events) + list(reports) + list(places)
         films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
@@ -74,11 +158,17 @@ class IndexView(View):
                                                 (Q(end_publication_date__isnull=True) | Q(end_publication_date__gte=datetime.now())),
                                                 is_active=True).order_by('?').first()
 
-        return render(request, 'site/index.html', dict(films=films,
-                                                       specials=specials,
-                                                       top_objects=top_objects,
-                                                       what_to_do=what_to_do,
-                                                       wide_banner=wide_banner))
+        return render(request,
+                      'site/index.html',
+                      dict(
+                          last_materials=last_materials,
+                          films=films,
+                          specials=specials,
+                          pined_material=pined_material,
+                          what_to_do=what_to_do,
+                          wide_banner=wide_banner,
+                      )
+                      )
 
 
 class NewsListView(InfinityLoaderListView):

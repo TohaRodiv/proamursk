@@ -24,6 +24,7 @@ class TopItem(models.Model):
 
     def get_model(self):
         model_names = {
+            "news": "news",
             "event-announcements": "event",
             "reports": "report",
             "persons": "person",
