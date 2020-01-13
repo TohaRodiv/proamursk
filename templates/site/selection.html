@@ -3,20 +3,16 @@
 {% load media_filters %}
 
 {% block title %}
-    {% if content_page %}
-        {{ content_page.meta_title|default:content_page.name }}
-    {% endif %}
+    {{ compilation.meta_title }}
 {% endblock %}
 
 {% block seo %}
-    <meta name="keywords" content="{{ content_page.meta_keywords }}">
-    <meta name="description" content="{{ content_page.meta_description }}">
+    <meta name="keywords" content="{{ compilation.meta_keywords }}">
+    <meta name="description" content="{{ compilation.meta_description }}">
 {% endblock %}
 
 {% block og %}
-    {% if content_page %}
-        {% og_meta_tags og_title=content_page.meta_title|default:content_page.name og_description=content_page.meta_description og_image=content_page.og_image|get_thumbnail_url_by_name:"og_image_default" %}
-    {% endif %}
+    {% og_meta_tags og_title=compilation.meta_title og_description=compilation.meta_description og_image=compilation.og_image|get_thumbnail_url_by_name:"og_image_default" %}
 {% endblock %}
 
 {% block content %}
@@ -24,18 +20,12 @@
         <div class="container">
             <div class="selection-head_page">
                 <p class="selection-head__subtitle icon-crown">Самое главное</p>
-                <h1 class="selection-head__title"><a href="selection.html">День Металлурга «Амурский драйв»</a></h1>
+                <h1 class="selection-head__title"><a href="{% url "compilation-detail" compilation.codename %}">День Металлурга «Амурский драйв»</a></h1>
             </div>
 
             <div class="js-infinity-loader-wrap">
                 <div class="base-4items-grid js-infinity-loader-grid">
-                    {% for item in persons|slice:"3:" %}
-                        {% if item %}
-                            {% with cover_name="3_column_img_"|add:item.cover_format %}
-                                {% include "site/modules/grid-publication.html" %}
-                            {% endwith %}
-                        {% endif %}
-                    {% endfor %}
+                    {% include "site/modules/selections-block.html" %}
                 </div>
                 {% if has_next %}
                     <button class="btn btn_blue btn_more js-btn_more btn_center js-more-selection" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>

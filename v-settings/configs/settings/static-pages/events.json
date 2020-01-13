@@ -27,8 +27,8 @@
                                                 "halfTransparent"
                                             ],
                                             "dict": {
-                                                "event-announcements": "Анонс события",
-                                                "reports": "Репортаж о событии"
+                                                "event": "Анонс события",
+                                                "report": "Репортаж о событии"
                                             }
                                         }
                                     ]
@@ -57,11 +57,11 @@
                                                     "width": 6,
                                                     "options": [
                                                         {
-                                                            "value": "event-announcements",
+                                                            "value": "event",
                                                             "label": "Анонс события"
                                                         },
                                                         {
-                                                            "value": "reports",
+                                                            "value": "report",
                                                             "label": "Репортаж о событии"
                                                         }
                                                     ]
