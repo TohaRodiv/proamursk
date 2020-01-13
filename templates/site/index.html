@@ -73,7 +73,7 @@
                             </div>
 
 
-                            <div class="index-selection-grid">
+                            <div class="index-selection-grid {% if length == 2 %}index-selection-grid_2{% elif length == 3 %}index-selection-grid_3{% else %}index-selection-grid_4{% endif %}">
                                 {% for obj in content_page.compilation.items.all|slice:":4" %}
                                     {% with item=obj.get_object %}
                                         {% if item %}
