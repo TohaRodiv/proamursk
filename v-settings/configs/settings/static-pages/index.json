@@ -29,11 +29,11 @@
                                             ],
                                             "dict": {
                                                 "news": "Новость",
-                                                "event": "Анонс события",
-                                                "report": "Репортаж о событии",
+                                                "event-announcements": "Анонс события",
+                                                "reports": "Репортаж о событии",
                                                 "history": "Историческая статья",
-                                                "person": "Статья о жителе Амурска",
-                                                "place": "Статья о месте"
+                                                "persons": "Статья о жителе Амурска",
+                                                "places": "Статья о месте"
                                             }
                                         }
                                     ]
@@ -66,11 +66,11 @@
                                                             "label": "Новость"
                                                         },
                                                         {
-                                                            "value": "event",
+                                                            "value": "event-announcements",
                                                             "label": "Анонс события"
                                                         },
                                                         {
-                                                            "value": "report",
+                                                            "value": "reports",
                                                             "label": "Репортаж о событии"
                                                         },
                                                         {
@@ -78,11 +78,11 @@
                                                             "label": "Историческая статья"
                                                         },
                                                         {
-                                                            "value": "person",
+                                                            "value": "persons",
                                                             "label": "Статья о жителе Амурска"
                                                         },
                                                         {
-                                                            "value": "place",
+                                                            "value": "places",
                                                             "label": "Статья о месте"
                                                         }
                                                     ]

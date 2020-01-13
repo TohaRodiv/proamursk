@@ -1,17 +1,8 @@
-const apis = {
-    event: 'event-announcements',
-    news: 'news',
-    report: 'reports',
-    history: 'history',
-    place: 'places',
-    person: 'persons',
-};
-
 export default {
     change: {
         entity(entity, { fields, formData, }) {
             if (entity) {
-                fields.item.api = apis[entity];
+                fields.item.api = entity;
             }
 
             formData.item = null;
