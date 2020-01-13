@@ -106,11 +106,11 @@ const state = {
                                                                     label: 'Новость',
                                                                 },
                                                                 {
-                                                                    value: 'event-announcements',
+                                                                    value: 'event',
                                                                     label: 'Анонс события',
                                                                 },
                                                                 {
-                                                                    value: 'reports',
+                                                                    value: 'report',
                                                                     label: 'Репортаж о событии',
                                                                 },
                                                                 {
@@ -118,11 +118,11 @@ const state = {
                                                                     label: 'Историческая статья',
                                                                 },
                                                                 {
-                                                                    value: 'persons',
+                                                                    value: 'person',
                                                                     label: 'Статья о жителе Амурска',
                                                                 },
                                                                 {
-                                                                    value: 'places',
+                                                                    value: 'place',
                                                                     label: 'Статья о месте',
                                                                 },
                                                             ],
