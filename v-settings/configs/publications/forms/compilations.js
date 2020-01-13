@@ -1,5 +1,3 @@
-import { publications, } from '../../dicts';
-
 const state = {
     formsOptions: {
         compilations: [
@@ -74,7 +72,14 @@ const state = {
                                                 {
                                                     codename: 'entity',
                                                     class: ['halfTransparent',],
-                                                    dict: publications,
+                                                    dict: {
+                                                        news: 'Новость',
+                                                        event: 'Анонс события',
+                                                        report: 'Репортаж о событии',
+                                                        person: 'Статья о жителе Амурска',
+                                                        history: 'Историческая статья',
+                                                        place: 'Статья о месте',
+                                                    },
                                                 },
                                             ],
                                         },

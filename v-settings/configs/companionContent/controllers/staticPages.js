@@ -1,5 +1,4 @@
 import seo from '../../../../cp_vue/frontend/vue/store/seoConfig';
-import { publications, } from '../../dicts';
 
 // const dict = {
 //     news: 'Новость',
@@ -97,7 +96,14 @@ const twoSelectorStructure = [
                 {
                     codename: 'entity',
                     class: ['halfTransparent',],
-                    dict: publications,
+                    dict: {
+                        event: 'event-announcements',
+                        news: 'news',
+                        report: 'reports',
+                        history: 'history',
+                        place: 'places',
+                        person: 'persons',
+                    },
                 },
             ],
         },
