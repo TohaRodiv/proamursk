@@ -16,7 +16,8 @@ export default {
         },
 
         object_data(objectData, { formData, }) {
-            formData.object_id = objectData.id || null;
+            formData.object_id = (objectData || {}).id || null;
+            formData.is_active = (objectData || {}).is_active;
         },
     },
 };
