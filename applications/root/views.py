@@ -304,25 +304,21 @@ class ReportsListView(InfinityLoaderListView):
     items_per_page = 24
 
     def get_queryset(self):
-        try:
-            page = Page.objects.select_related().get(codename="reports-list")
-        except:
-            page = None
-
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        return Report.objects.select_related('cover').filter(is_active=True,
-                                                             publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports'])[12:]
+        return Report.objects.select_related(
+            'cover'
+        ).filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')[12:]
 
     def get(self, request):
-        page = get_page(request)
-        top_objects = page.top_items.all().order_by('weight') if page else []
-
-        items = Report.objects.filter(is_active=True,
-                                      publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')
+        items = Report.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
         has_next = items.count() > 12
         items = items[:12]
         return render(request, self.template_name, {self.context_list_name: items,
-                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -347,24 +343,21 @@ class HistoryListView(InfinityLoaderListView):
     items_per_page = 24
 
     def get_queryset(self):
-        try:
-            page = Page.objects.select_related().get(codename="history-list")
-        except:
-            page = None
-
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        return History.objects.select_related('cover').filter(is_active=True,
-                                                              publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history'])[15:]
+        return History.objects.select_related(
+            'cover'
+        ).filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')[15:]
 
     def get(self, request):
-        page = get_page(request)
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        items = History.objects.filter(is_active=True,
-                                       publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
+        items = History.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
         has_next = items.count() > 15
         items = items[:15]
         return render(request, self.template_name, {self.context_list_name: items,
-                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -389,25 +382,19 @@ class PersonsListView(InfinityLoaderListView):
     items_per_page = 24
 
     def get_queryset(self):
-        try:
-            page = Page.objects.select_related().get(codename="persons-list")
-        except:
-            page = None
-
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        return Person.objects.filter(is_active=True,
-                                     publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons'])[15:]
+        return Person.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')[15:]
 
     def get(self, request):
-        page = get_page(request)
-        top_objects = page.top_items.all().order_by('weight') if page else []
-
-        items = Person.objects.filter(is_active=True,
-                                      publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('-publication_date')
+        items = Person.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
         has_next = items.count() > 15
         items = items[:15]
         return render(request, self.template_name, {self.context_list_name: items,
-                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -776,7 +763,7 @@ class CompilationDetailView(View):
         except:
             raise Http404
         else:
-            materials = compilation.items.all()[:24]
+            materials = compilation.get_active_items()
             context = dict(
                 compilation=compilation,
                 materials=materials

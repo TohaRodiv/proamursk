@@ -64,7 +64,7 @@
             </div>
 
             {% if content_page.compilation %}
-                {% with length=content_page.compilation.items.all|length %}
+                {% with length=content_page.compilation.get_active_items.count %}
                     {% if length > 1 %}
                         <div class="index-selection">
                             <div class="selection-head_index">
@@ -74,7 +74,7 @@
 
 
                             <div class="index-selection-grid {% if length == 2 %}index-selection-grid_2{% elif length == 3 %}index-selection-grid_3{% else %}index-selection-grid_4{% endif %}">
-                                {% for obj in content_page.compilation.items.all|slice:":4" %}
+                                {% for obj in content_page.compilation.get_active_items|slice:":4" %}
                                     {% with item=obj.get_object %}
                                         {% if item %}
                                             {% with cover_format=item.cover_format|default:"small" %}

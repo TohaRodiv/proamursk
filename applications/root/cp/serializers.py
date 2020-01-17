@@ -577,11 +577,12 @@ class CompilationItemDetailSerializer(ModelSerializer):
 
     class Meta:
         model = CompilationItem
-        fields = ('id', 'entity', 'object_id', 'object_data', 'weight')
+        fields = ('id', 'entity', 'object_id', 'object_data', 'weight', 'is_active')
+        read_only_fields = ('is_active',)
 
     def get_object_data(self, obj):
         item = obj.get_object()
-        return dict(id=item.id, title=str(item))
+        return dict(id=item.id, title=str(item), is_active=obj.is_active)
 
 
 class CompilationSelectSerializer(ModelSerializer):

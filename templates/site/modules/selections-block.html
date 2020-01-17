@@ -1,6 +1,6 @@
 {% for material in materials %}
     {% with item=material.get_object %}
-        {% if item %}
+        {% if item and item.is_active %}
             {% with cover_format=item.cover_format|default:"small" %}
                 {% with cover_name="3_column_img_"|add:cover_format %}
                     {% include "site/modules/grid-publication.html" %}

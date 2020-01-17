@@ -3,12 +3,13 @@ from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-from django.contrib.postgres.search import SearchVectorField
-from applications.tools.utils import clean_html, get_post_editor_text
-from django.contrib.contenttypes.models import ContentType
-from applications.contentblocks.models import Page
-from core.models import BaseModel, IsActiveMixin, BaseSeoMixin
 from django.apps import apps
+from django.contrib.postgres.search import SearchVectorField
+from django.contrib.contenttypes.models import ContentType
+from django.db.models.signals import post_delete
+from core.models import BaseModel, IsActiveMixin, BaseSeoMixin
+from applications.tools.utils import get_post_editor_text
+from applications.contentblocks.models import Page
 
 
 class TopItem(models.Model):
@@ -79,6 +80,7 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
         except Exception as e:
             pass
         super(News, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='news', object_id=self.id).update(is_active=self.is_active)
 
 
 class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -125,6 +127,7 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
         except Exception as e:
             pass
         super(Event, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='event', object_id=self.id).update(is_active=self.is_active)
 
 
 class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -168,6 +171,7 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
         except:
             pass
         super(Report, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='report', object_id=self.id).update(is_active=self.is_active)
 
 
 class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -237,6 +241,7 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
         except:
             pass
         super(Person, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='person', object_id=self.id).update(is_active=self.is_active)
 
 
 class HistoryRubric(BaseModel):
@@ -291,6 +296,7 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
         except:
             pass
         super(History, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='history', object_id=self.id).update(is_active=self.is_active)
 
 
 class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -340,6 +346,7 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
         except:
             pass
         super(Place, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='place', object_id=self.id).update(is_active=self.is_active)
 
 
 class PlaceReview(BaseModel):
@@ -645,6 +652,9 @@ class Compilation(BaseModel, BaseSeoMixin, IsActiveMixin):
     def __str__(self):
         return self.name
 
+    def get_active_items(self):
+        return self.items.filter(is_active=True).order_by('weight')
+
     def get_absolute_url(self):
         return reverse('compilation-detail', args=[self.codename])
 
@@ -663,6 +673,7 @@ class CompilationItem(models.Model):
     entity = models.CharField('Сущность', max_length=255, choices=ENTITIES)
     object_id = models.PositiveIntegerField()
     weight = models.PositiveIntegerField()
+    is_active = models.BooleanField(default=True, verbose_name=u'Состояние')
 
     class Meta:
         db_table = 'root_compilation_item'
@@ -684,3 +695,16 @@ class CompilationItem(models.Model):
             obj = model.objects.filter(id=self.object_id).first()
         return obj
 
+
+def delete_compilation_item(sender, **kwargs):
+    instance = kwargs.get('instance')
+    if instance.id:
+        CompilationItem.objects.filter(entity=sender._meta.model_name, object_id=instance.id).delete()
+
+
+post_delete.connect(delete_compilation_item, sender=News)
+post_delete.connect(delete_compilation_item, sender=Event)
+post_delete.connect(delete_compilation_item, sender=Report)
+post_delete.connect(delete_compilation_item, sender=History)
+post_delete.connect(delete_compilation_item, sender=Person)
+post_delete.connect(delete_compilation_item, sender=Place)
