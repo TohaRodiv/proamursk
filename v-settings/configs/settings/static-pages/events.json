@@ -57,7 +57,7 @@
                                                     "width": 6,
                                                     "options": [
                                                         {
-                                                            "value": "event-annnouncements",
+                                                            "value": "event-announcements",
                                                             "label": "Анонс события"
                                                         },
                                                         {
