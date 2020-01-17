@@ -186,7 +186,11 @@ class StaticPagesDetailSerializer(ModelSerializer):
     def validate_top_items(self, data):
         if self.instance.pk and self.instance.codename == 'index':
             if len(data) > 1:
-                raise serializers.ValidationError("Необходимо выбрать  не более одной записи")
+                raise serializers.ValidationError("Необходимо выбрать не более одной записи")
+
+        if self.instance.pk and self.instance.codename in ['events-index', 'places-list']:
+            if len(data) < 4:
+                raise serializers.ValidationError("Необходимо выбрать не менее четырех")
 
         return data
 

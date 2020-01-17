@@ -3,7 +3,7 @@
 {% load media_filters %}
 
 {% block title %}
-    {{ compilation.meta_title }}
+    {{ compilation.meta_title|default:compilation.name }}
 {% endblock %}
 
 {% block seo %}
@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block og %}
-    {% og_meta_tags og_title=compilation.meta_title og_description=compilation.meta_description og_image=compilation.og_image|get_thumbnail_url_by_name:"og_image_default" %}
+    {% og_meta_tags og_title=compilation.meta_title|default:compilation.name og_description=compilation.meta_description og_image=compilation.og_image|get_thumbnail_url_by_name:"og_image_default" %}
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
         <div class="container">
             <div class="selection-head_page">
                 <p class="selection-head__subtitle icon-crown">Самое главное</p>
-                <h1 class="selection-head__title"><a href="{% url "compilation-detail" compilation.codename %}">День Металлурга «Амурский драйв»</a></h1>
+                <h1 class="selection-head__title"><a href="{% url "compilation-detail" compilation.codename %}">{{ compilation.name }}</a></h1>
             </div>
 
             <div class="js-infinity-loader-wrap">
