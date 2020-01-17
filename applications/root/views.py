@@ -309,15 +309,15 @@ class ReportsListView(InfinityLoaderListView):
         ).filter(
             is_active=True,
             publication_date__lte=datetime.now()
-        ).order_by('-publication_date')[12:]
+        ).order_by('-publication_date')[16:]
 
     def get(self, request):
         items = Report.objects.filter(
             is_active=True,
             publication_date__lte=datetime.now()
         ).order_by('-publication_date')
-        has_next = items.count() > 12
-        items = items[:12]
+        has_next = items.count() > 16
+        items = items[:16]
         return render(request, self.template_name, {self.context_list_name: items,
                                                     'has_next': has_next})
 
