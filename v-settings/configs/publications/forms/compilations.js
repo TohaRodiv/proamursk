@@ -61,7 +61,6 @@ const state = {
                                 codename: 'items',
                                 label: 'Материалы',
                                 menu: ['edit', 'delete',],
-                                disableDraggable: true,
                                 rows: [
                                     {
                                         map: {
