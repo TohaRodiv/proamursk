@@ -13,7 +13,7 @@ from applications.mediafiles.models import MediaFile
 from applications.root.models import TopItem, Compilation
 from applications.root.cp.serializers import (EventsListSerializer, ReportsListSerializer, PersonsListSerializer,
                                               HistoryListSerializer, CityGuidesListSerializer, PlacesListSerializer,
-                                              SpecialsListSerializer, CompilationSelectSerializer)
+                                              SpecialsListSerializer, CompilationSelectSerializer, NewsSelectSerializer)
 from ..models import Page, ContentBlock
 
 
@@ -39,6 +39,7 @@ class TopItemSerializer(ModelSerializer):
             "history": HistoryListSerializer,
             "city-guides": CityGuidesListSerializer,
             "places": PlacesListSerializer,
+            "news": NewsSelectSerializer,
             "specials": SpecialsListSerializer
         }
 

@@ -11,6 +11,13 @@ from ..models import (News, Event, Report, History, Person, CityGuide, Place, Sp
                       Compilation, CompilationItem)
 
 
+class NewsSelectSerializer(ModelSerializer):
+
+    class Meta:
+        model = News
+        fields = ('id', 'title', 'is_active')
+
+
 class NewsListSerializer(ModelSerializer):
     cover = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer)
 

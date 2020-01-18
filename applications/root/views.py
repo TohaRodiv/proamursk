@@ -148,7 +148,7 @@ class IndexView(View):
         ).order_by('?')
         if pined_material and pined_material.entity == 'places':
             places = places.exclude(id=pined_material.object_id)
-        places = places[:(7-len(events)-len(reports))]
+        places = places[:(6-len(events)-len(reports))]
 
         what_to_do = list(events) + list(reports) + list(places)
         films = Film.objects.filter(is_active=True,

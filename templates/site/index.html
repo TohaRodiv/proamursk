@@ -27,7 +27,7 @@
                 {% if pined_material %}
                     {% with item=pined_material.get_object css_class='grid-publication_6-col' first_item=True cover_name="6_column_img_full" %}
                         {% if item %}
-                            {% if top_item.entity == 'event-announcements' or top_item.entity == 'reports' %}
+                            {% if pined_material.entity == 'event-announcements' or pined_material.entity == 'reports' %}
                                 {% include "site/modules/grid-event.html" %}
                             {% else %}
                                 {% include "site/modules/grid-publication.html" %}
@@ -40,7 +40,7 @@
                     {% for item in last_materials|slice:":2" %}
                         {% with cover_format=item.cover_format|default:"small" %}
                             {% with cover_name="3_column_img_"|add:cover_format %}
-                                {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
+                                {% if item|get_model_name == 'event' or item|get_model_name == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
                                 {% else %}
                                     {% include "site/modules/grid-publication.html" %}
@@ -52,7 +52,7 @@
                     {% for item in last_materials|slice:":4" %}
                         {% with cover_format=item.cover_format|default:"small" %}
                             {% with cover_name="3_column_img_"|add:cover_format %}
-                                {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
+                                {% if item|get_model_name == 'event' or item|get_model_name == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
                                 {% else %}
                                     {% include "site/modules/grid-publication.html" %}
@@ -134,7 +134,7 @@
                     {% for item in last_materials|slice:"2:" %}
                         {% with cover_format=item.cover_format|default:"small" %}
                             {% with cover_name="3_column_img_"|add:cover_format %}
-                                {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
+                                {% if item|get_model_name == 'event' or item|get_model_name == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
                                 {% else %}
                                     {% include "site/modules/grid-publication.html" %}
@@ -146,7 +146,7 @@
                     {% for item in last_materials|slice:"4:" %}
                         {% with cover_format=item.cover_format|default:"small" %}
                             {% with cover_name="3_column_img_"|add:cover_format %}
-                                {% if item.Meta.model_name == 'event' or item.Meta.model_name == 'report' %}
+                                {% if item|get_model_name == 'event' or item|get_model_name == 'report' %}
                                     {% include "site/modules/grid-event.html" %}
                                 {% else %}
                                     {% include "site/modules/grid-publication.html" %}
