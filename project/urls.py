@@ -19,6 +19,7 @@ sitemaps = {
     'specials': root_views.SpecialsSitemap,
     'films': root_views.FilmsSitemap,
     'places': root_views.PlacesSitemap,
+    'compilation': root_views.CompilationSitemap,
 }
 
 

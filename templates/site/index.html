@@ -63,7 +63,7 @@
                 {% endif %}
             </div>
 
-            {% if content_page.compilation %}
+            {% if content_page.compilation and content_page.compilation.is_active %}
                 {% with length=content_page.compilation.get_active_items.count %}
                     {% if length > 1 %}
                         <div class="index-selection">

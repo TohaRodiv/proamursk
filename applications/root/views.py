@@ -996,3 +996,11 @@ class FilmsSitemap(Sitemap):
     def lastmod(self, obj):
         return obj.edit_date
 
+
+class CompilationSitemap(Sitemap):
+
+    def items(self):
+        return Compilation.objects.filter(is_active=True)
+
+    def lastmod(self, obj):
+        return obj.edit_date
