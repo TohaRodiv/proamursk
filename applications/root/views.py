@@ -61,7 +61,7 @@ class IndexView(View):
         events = Event.objects.filter(
             is_active=True,
             start_event_date__gte=datetime.now()
-        ).order_by('start_event_date').annotate(publication_date=F('start_event_date'))
+        ).order_by('-publication_date')
         if pined_material and pined_material.entity == 'event-announcements':
             events = events.exclude(id=pined_material.object_id)
         events = events[:8]
@@ -123,7 +123,7 @@ class IndexView(View):
         events = Event.objects.filter(
             is_active=True,
             start_event_date__gte=current_date
-        ).order_by('start_event_date').exclude(
+        ).order_by('-publication_date').exclude(
             id__in=[i.id for i in last_materials if i._meta.model_name == 'event']
         )
         if pined_material and pined_material.entity == 'event-announcements':

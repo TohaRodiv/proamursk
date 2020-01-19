@@ -103,6 +103,7 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
 

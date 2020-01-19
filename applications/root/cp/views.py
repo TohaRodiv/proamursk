@@ -79,7 +79,7 @@ class EventsCpViewSet(CpViewSet):
     serializer_class = EventsDetailSerializer
     list_serializer_class = EventsListSerializer
     filter_class = EventsFilter
-    ordering_fields = ('id', 'title', 'place', 'start_event_date', 'edit_date', 'create_date')
+    ordering_fields = ('id', 'title', 'place', 'start_event_date', 'publication_date', 'edit_date', 'create_date')
 
     def activate_action(self, qs, data):
         action = data.get('action')
