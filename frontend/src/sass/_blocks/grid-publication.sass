@@ -71,7 +71,9 @@
         margin-top: auto
 
     &__link
-        position: relative
+        position: absolute
+        bottom: 20px
+        z-index: 4
         margin-left: 20px
         height: 26px
         font-size: 12px
@@ -81,9 +83,6 @@
         letter-spacing: 0.08em
         text-decoration: none
         transition: color $transition-time
-        position: absolute
-        bottom: 20px
-        z-index: 4
 
         &_reportage
             left: 160px
@@ -135,10 +134,12 @@
 
     &_6-col
         width: 640px
+        flex-shrink: 0
 
     &_8-col
         width: 860px
         height: 500px
+        flex-shrink: 0
 
         .grid-publication__text-wrap
             position: absolute
@@ -182,7 +183,6 @@
 
         .grid-publication
             &__cover-wrap
-                // position: absolute
                 position: relative
                 display: flex
                 flex-direction: column
@@ -204,9 +204,8 @@
                 flex-grow: 1
 
             &__text-wrap
-                // margin-top: 280px
-                position: absolute;
-                bottom: 0;
+                position: absolute
+                bottom: 0
 
             &__link
                 color: $light-c
@@ -231,7 +230,6 @@
         border: none
         border-radius: 0
 
-
 .grid-publication:not(.grid-publication_format-city-guide)
     &:hover,
     &:focus
@@ -246,7 +244,7 @@
             color: $base-c
 
 .read-also .grid-publication
-    border: 1px solid  lighten(#283349, 15%)
+    border: 1px solid lighten(#283349, 15%)
 
 .special-project
     &__cover-wrap

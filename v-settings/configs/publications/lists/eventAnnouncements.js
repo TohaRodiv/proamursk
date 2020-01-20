@@ -117,6 +117,17 @@ const state = {
                 },
             },
             {
+                name: 'Дата публикации',
+                type: 'date',
+                is_sortable: true,
+                align_text: 'left',
+                width: 180,
+                codename: 'publication_date',
+                sort: {
+                    order_by: 'publication_date',
+                },
+            },
+            {
                 name: 'Дата создания',
                 type: 'date',
                 is_sortable: true,
@@ -177,7 +188,16 @@ const state = {
                 input_type: 'toFromDate',
                 type: 'date_time',
             },
-
+            {
+                filterTitle: 'Дата публикации',
+                minMaxCodename: 'publication_date',
+                queryName: {
+                    min: 'publication_date__gte',
+                    max: 'publication_date__lte',
+                },
+                input_type: 'toFromDate',
+                type: 'date_time',
+            },
             {
                 filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',

@@ -1,0 +1,33 @@
+{% extends "site/base.html" %}
+{% load static static_version site_tags utils_tags %}
+{% load media_filters %}
+
+{% block title %}
+    {{ compilation.meta_title|default:compilation.name }}
+{% endblock %}
+
+{% block seo %}
+    <meta name="keywords" content="{{ compilation.meta_keywords }}">
+    <meta name="description" content="{{ compilation.meta_description }}">
+{% endblock %}
+
+{% block og %}
+    {% og_meta_tags og_title=compilation.meta_title|default:compilation.name og_description=compilation.meta_description og_image=compilation.og_image|get_thumbnail_url_by_name:"og_image_default" %}
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="selection-head_page">
+                <p class="selection-head__subtitle icon-crown">Самое главное</p>
+                <h1 class="selection-head__title">{{ compilation.name }}</h1>
+            </div>
+
+            <div class="js-infinity-loader-wrap">
+                <div class="base-4items-grid js-infinity-loader-grid">
+                    {% include "site/modules/selections-block.html" %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

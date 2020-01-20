@@ -10,10 +10,10 @@ from applications.mediafiles.cp.serializers import ImageNestedSerializer
 from cp_vue.api.serializers import ModelSerializer
 from cp_vue.api.fields import ObjectRelatedField
 from applications.mediafiles.models import MediaFile
-from applications.root.models import TopItem
+from applications.root.models import TopItem, Compilation
 from applications.root.cp.serializers import (EventsListSerializer, ReportsListSerializer, PersonsListSerializer,
                                               HistoryListSerializer, CityGuidesListSerializer, PlacesListSerializer,
-                                              SpecialsListSerializer)
+                                              SpecialsListSerializer, CompilationSelectSerializer, NewsSelectSerializer)
 from ..models import Page, ContentBlock
 
 
@@ -39,6 +39,7 @@ class TopItemSerializer(ModelSerializer):
             "history": HistoryListSerializer,
             "city-guides": CityGuidesListSerializer,
             "places": PlacesListSerializer,
+            "news": NewsSelectSerializer,
             "specials": SpecialsListSerializer
         }
 
@@ -169,6 +170,9 @@ class StaticPagesDetailSerializer(ModelSerializer):
         'bool': serializers.BooleanField,
     }
 
+    compilation = ObjectRelatedField(queryset=Compilation.objects.all(), serializer_class=CompilationSelectSerializer,
+                                     required=False, allow_null=True)
+
     og_image = ObjectRelatedField(queryset=MediaFile.objects.all(), serializer_class=ImageNestedSerializer,
                                   required=False, allow_null=True)
 
@@ -177,14 +181,17 @@ class StaticPagesDetailSerializer(ModelSerializer):
     class Meta:
         model = Page
         fields = ('id', 'name', 'admin_form_config', 'meta_title', 'meta_description', 'meta_keywords',
-                  'og_image', 'create_date', 'edit_date', 'top_items', 'codename')
+                  'og_image', 'create_date', 'edit_date', 'top_items', 'codename', 'compilation')
         read_only_fields = ('id', 'name', 'codename', 'create_date', 'edit_date', 'admin_form_config',)
 
     def validate_top_items(self, data):
-        if self.instance.pk and self.instance.codename in ['index', 'events-index', 'reports-list', 'history-list',
-                                                           'persons-list', 'places-list']:
-            if len(data) != 4:
-                raise serializers.ValidationError("Необходимо выбрать 4 записи")
+        if self.instance.pk and self.instance.codename == 'index':
+            if len(data) > 1:
+                raise serializers.ValidationError("Необходимо выбрать не более одной записи")
+
+        if self.instance.pk and self.instance.codename in ['events-index', 'places-list']:
+            if len(data) < 4:
+                raise serializers.ValidationError("Необходимо выбрать не менее четырех")
 
         return data
 

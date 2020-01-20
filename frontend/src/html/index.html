@@ -5,11 +5,9 @@
 
 <main class="light-bg">
     <div class="container">
-        <div class="index-manage-grid">
-            @@include("page-block/last-news-widget.html")
-
+        <div class="index-manage-row">
             @@include("modules/grid-publication.html", {
-                "class": "grid-publication_format-full grid-publication_8-col",
+                "class": "grid-publication_format-full grid-publication_6-col",
                 "link": "special-project-children.html",
                 "img": "images/publication-big1.jpg",
                 "title": "Проект «Дети»",
@@ -34,14 +32,145 @@
                 "description": "Звезды спорта, футбол и слезы радости",
                 "wobbler": "reportage"
             })
+        </div>
+
+        <div class="index-selection">
+            <div class="selection-head_index">
+                <p class="selection-head__subtitle icon-crown">Самое главное</p>
+                <h2 class="selection-head__title"><a href="selection.html">День Металлурга «Амурский драйв»</a></h2>
+            </div>
+
+            <div class="index-selection-grid index-selection-grid_4">
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base",
+                    "link": "place-details.html",
+                    "img": "images/grid-cover-3-base8.jpg",
+                    "title": "Брутальный драйв от клуба «Славяне»",
+                    "description": "Комсомольская площадь 20 июля, 15:00",
+                    "wobbler": "announcement"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full",
+                    "link": "people-details.html",
+                    "img": "images/grid-cover-3-full1.jpg",
+                    "title": "2500 порций мороженого",
+                    "description": "Съели на дне города",
+                    "wobbler": "news"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full",
+                    "link": "reportage-details.html",
+                    "img": "images/grid-cover-3-full2.jpg",
+                    "title": "Праздник к нам приходит",
+                    "description": "Амурчане готовятся к Дню Металлурга",
+                    "wobbler": "reportage"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base",
+                    "link": "place-details.html",
+                    "img": "images/grid-cover-3-base2.jpg",
+                    "title": "День металлурга отмечают в Амурске",
+                    "description": "Весело и с размахом",
+                    "wobbler": "news"
+                })
+            </div>
+
+            <div class="index-selection__link-wrap">
+                <a href="selection.html" class="btn btn_blue btn_size_big index-selection__link">Все материалы (5)</a>
+            </div>
+
+            <br><br>
+
+            <div class="index-selection-grid index-selection-grid_3">
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base",
+                    "link": "place-details.html",
+                    "img": "images/grid-cover-3-base8.jpg",
+                    "title": "Брутальный драйв от клуба «Славяне»",
+                    "description": "Комсомольская площадь 20 июля, 15:00",
+                    "wobbler": "announcement"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full grid-publication_6-col",
+                    "link": "people-details.html",
+                    "img": "images/grid-cover-6-full1.jpg",
+                    "title": "2500 порций мороженого",
+                    "description": "Съели на дне города",
+                    "wobbler": "news"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-base",
+                    "link": "reportage-details.html",
+                    "img": "images/grid-cover-3-base2.jpg",
+                    "title": "Праздник к нам приходит",
+                    "description": "Амурчане готовятся к Дню Металлурга",
+                    "wobbler": "reportage"
+                })
+            </div>
+
+            <br><br>
+
+            <div class="index-selection-grid index-selection-grid_2">
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full grid-publication_6-col",
+                    "link": "place-details.html",
+                    "img": "images/grid-cover-6-full1.jpg",
+                    "title": "Брутальный драйв от клуба «Славяне»",
+                    "description": "Комсомольская площадь 20 июля, 15:00",
+                    "wobbler": "announcement"
+                })
+
+                @@include("modules/grid-publication.html", {
+                    "class": "grid-publication_format-full grid-publication_6-col",
+                    "link": "people-details.html",
+                    "img": "images/grid-cover-6-full1.jpg",
+                    "title": "2500 порций мороженого",
+                    "description": "Съели на дне города",
+                    "wobbler": "news"
+                })
+            </div>
+        </div>
+
+        <div class="index-manage-row">
+            @@include("modules/grid-publication.html", {
+            "class": "grid-publication_format-base",
+            "link": "place-details.html",
+            "img": "images/grid-cover-3-base8.jpg",
+            "title": "Амурские теплицы",
+            "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
+            "wobbler": "place"
+            })
 
             @@include("modules/grid-publication.html", {
-                "class": "grid-publication_format-base grid-publication_6-col",
-                "link": "place-details.html",
-                "img": "images/grid-cover-6-base1.jpg",
-                "title": "Ботанический сад",
-                "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
-                "wobbler": "place"
+            "class": "grid-publication_format-base",
+            "link": "people-details.html",
+            "img": "images/grid-cover-3-base1.jpg",
+            "title": "Сильный телом и духом",
+            "description": "Олег Пермяков 20 лет выращивает чемпионов на татами",
+            "wobbler": "people"
+            })
+
+            @@include("modules/grid-publication.html", {
+            "class": "grid-publication_format-full",
+            "link": "reportage-details.html",
+            "img": "images/grid-cover-3-full1.jpg",
+            "title": "Я люблю Амурск спортивный!",
+            "description": "Звезды спорта, футбол и слезы радости",
+            "wobbler": "reportage"
+            })
+
+            @@include("modules/grid-publication.html", {
+            "class": "grid-publication_format-base",
+            "link": "place-details.html",
+            "img": "images/grid-cover-3-base2.jpg",
+            "title": "Ботанический сад",
+            "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
+            "wobbler": "place"
             })
         </div>
     </div>

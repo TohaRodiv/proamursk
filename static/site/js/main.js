@@ -6558,8 +6558,6 @@ function ajaxInfinityLoader(url, templateName, page) {
           $('.btn_more').addClass('hidden');
         }
 
-        console.log(url);
-
         if (url === 'news') {
           $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.news);
         } else if (url === 'announcements') {

@@ -19,6 +19,7 @@ sitemaps = {
     'specials': root_views.SpecialsSitemap,
     'films': root_views.FilmsSitemap,
     'places': root_views.PlacesSitemap,
+    'compilation': root_views.CompilationSitemap,
 }
 
 
@@ -53,6 +54,8 @@ urlpatterns += [
     path('search/', root_views.SearchView.as_view(), name='search'),
     path('films/', RedirectView.as_view(url='/')),
     path('films/<int:pk>/', root_views.FilmDetailView.as_view(), name='films-detail'),
+    path('compilations/', RedirectView.as_view(url='/')),
+    path('compilations/<str:codename>/', root_views.CompilationDetailView.as_view(), name='compilation-detail'),
     path('api/site/news/', root_views.NewsListView.as_view(), name='api-news'),
     path('api/site/place-review/', root_views.place_review, name='place-review'),
     path('api/site/feedback/', root_views.feedback, name='feedback'),

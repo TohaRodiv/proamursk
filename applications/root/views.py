@@ -7,7 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse, Http404, HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
-from django.db.models import Q
+from django.db.models import Q, F
 from django.template.loader import render_to_string
 from django.urls import resolve
 from django.views.decorators.http import require_POST
@@ -22,7 +22,9 @@ from applications.banrequest.views import check
 from applications.root.forms import FeedbackForm, PlaceReviewForm, TextErrorForm, UploadForm
 from applications.files.utils import get_tags_id, get_file_data
 from applications.contentblocks.models import Page
-from .models import News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special, WideBanner
+from .models import (
+    News, Event, Report, History, Person, CityGuide, Place, Special, Film, Special, WideBanner, Compilation
+)
 
 try:
     from applications.notifications.tasks import send_notification
@@ -55,15 +57,99 @@ def get_page(request):
 
 class IndexView(View):
 
+    def get_last_materials(self, pined_material=None):
+        events = Event.objects.filter(
+            is_active=True,
+            start_event_date__gte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'event-announcements':
+            events = events.exclude(id=pined_material.object_id)
+        events = events[:8]
+
+        reports = Report.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'reports':
+            reports = reports.exclude(id=pined_material.object_id)
+        reports = reports[:8]
+
+        places = Place.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'places':
+            places = places.exclude(id=pined_material.object_id)
+        places = places[:8]
+
+        news = News.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'news':
+            news = news.exclude(id=pined_material.object_id)
+        news = news[:8]
+
+        history = History.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'history':
+            history = history.exclude(id=pined_material.object_id)
+        history = history[:8]
+
+        persons = Person.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        if pined_material and pined_material.entity == 'persons':
+            persons = persons.exclude(id=pined_material.object_id)
+        persons = persons[:8]
+
+        result = list(events) + list(reports) + list(places) + list(news) + list(history) + list(persons)
+        result = sorted(result, key=lambda x: x.publication_date, reverse=True)
+        if pined_material:
+            result = result[:6]
+        else:
+            result = result[:8]
+
+        return result
+
     def get(self, request):
         current_date = date.today()
         page = get_page(request)
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        events = Event.objects.filter(is_active=True,
-                                      start_event_date__gte=current_date).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'event-announcements']).order_by('start_event_date')[:2]
-        reports = Report.objects.filter(is_active=True,
-                                       publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')[:2]
-        places = Place.objects.filter(is_active=True, publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'places']).order_by('-publication_date')[:(6-len(events)-len(reports))]
+        pined_material = page.top_items.all().order_by('weight').first() if page else None
+        last_materials = self.get_last_materials(pined_material=pined_material)
+        events = Event.objects.filter(
+            is_active=True,
+            start_event_date__gte=current_date
+        ).order_by('-publication_date').exclude(
+            id__in=[i.id for i in last_materials if i._meta.model_name == 'event']
+        )
+        if pined_material and pined_material.entity == 'event-announcements':
+            events = events.exclude(id=pined_material.object_id)
+        events = events[:2]
+
+        reports = Report.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date').exclude(
+            id__in=[i.id for i in last_materials if i._meta.model_name == 'report']
+        )
+        if pined_material and pined_material.entity == 'reports':
+            reports = reports.exclude(id=pined_material.object_id)
+        reports = reports[:2]
+
+        places = Place.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).exclude(
+            id__in=[i.id for i in last_materials if i._meta.model_name == 'place']
+        ).order_by('?')
+        if pined_material and pined_material.entity == 'places':
+            places = places.exclude(id=pined_material.object_id)
+        places = places[:(6-len(events)-len(reports))]
+
         what_to_do = list(events) + list(reports) + list(places)
         films = Film.objects.filter(is_active=True,
                                     sessions__session_time__gte=current_date,
@@ -74,11 +160,17 @@ class IndexView(View):
                                                 (Q(end_publication_date__isnull=True) | Q(end_publication_date__gte=datetime.now())),
                                                 is_active=True).order_by('?').first()
 
-        return render(request, 'site/index.html', dict(films=films,
-                                                       specials=specials,
-                                                       top_objects=top_objects,
-                                                       what_to_do=what_to_do,
-                                                       wide_banner=wide_banner))
+        return render(request,
+                      'site/index.html',
+                      dict(
+                          last_materials=last_materials,
+                          films=films,
+                          specials=specials,
+                          pined_material=pined_material,
+                          what_to_do=what_to_do,
+                          wide_banner=wide_banner,
+                      )
+                      )
 
 
 class NewsListView(InfinityLoaderListView):
@@ -212,25 +304,21 @@ class ReportsListView(InfinityLoaderListView):
     items_per_page = 24
 
     def get_queryset(self):
-        try:
-            page = Page.objects.select_related().get(codename="reports-list")
-        except:
-            page = None
-
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        return Report.objects.select_related('cover').filter(is_active=True,
-                                                             publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports'])[12:]
+        return Report.objects.select_related(
+            'cover'
+        ).filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')[16:]
 
     def get(self, request):
-        page = get_page(request)
-        top_objects = page.top_items.all().order_by('weight') if page else []
-
-        items = Report.objects.filter(is_active=True,
-                                      publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'reports']).order_by('-publication_date')
-        has_next = items.count() > 12
-        items = items[:12]
+        items = Report.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        has_next = items.count() > 16
+        items = items[:16]
         return render(request, self.template_name, {self.context_list_name: items,
-                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -255,24 +343,21 @@ class HistoryListView(InfinityLoaderListView):
     items_per_page = 24
 
     def get_queryset(self):
-        try:
-            page = Page.objects.select_related().get(codename="history-list")
-        except:
-            page = None
-
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        return History.objects.select_related('cover').filter(is_active=True,
-                                                              publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history'])[11:]
+        return History.objects.select_related(
+            'cover'
+        ).filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')[15:]
 
     def get(self, request):
-        page = get_page(request)
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        items = History.objects.filter(is_active=True,
-                                       publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'history']).order_by('-publication_date')
-        has_next = items.count() > 11
-        items = items[:11]
+        items = History.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        has_next = items.count() > 15
+        items = items[:15]
         return render(request, self.template_name, {self.context_list_name: items,
-                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -297,25 +382,19 @@ class PersonsListView(InfinityLoaderListView):
     items_per_page = 24
 
     def get_queryset(self):
-        try:
-            page = Page.objects.select_related().get(codename="persons-list")
-        except:
-            page = None
-
-        top_objects = page.top_items.all().order_by('weight') if page else []
-        return Person.objects.filter(is_active=True,
-                                     publication_date__lte=datetime.now()).order_by('-publication_date').exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons'])[11:]
+        return Person.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')[15:]
 
     def get(self, request):
-        page = get_page(request)
-        top_objects = page.top_items.all().order_by('weight') if page else []
-
-        items = Person.objects.filter(is_active=True,
-                                      publication_date__lte=datetime.now()).exclude(id__in=[i.object_id for i in top_objects if i.entity == 'persons']).order_by('-publication_date')
-        has_next = items.count() > 11
-        items = items[:11]
+        items = Person.objects.filter(
+            is_active=True,
+            publication_date__lte=datetime.now()
+        ).order_by('-publication_date')
+        has_next = items.count() > 15
+        items = items[:15]
         return render(request, self.template_name, {self.context_list_name: items,
-                                                    'top_objects': top_objects,
                                                     'has_next': has_next})
 
 
@@ -676,6 +755,22 @@ class SearchView(View):
             return HttpResponse(make_ajax_response(True, response))
 
 
+class CompilationDetailView(View):
+
+    def get(self, request, codename):
+        try:
+            compilation = Compilation.objects.get(codename=codename, is_active=True)
+        except:
+            raise Http404
+        else:
+            materials = compilation.get_active_items()
+            context = dict(
+                compilation=compilation,
+                materials=materials
+            )
+            return render(request, "site/selection.html", context)
+
+
 @require_POST
 def feedback(request):
     if request.is_ajax():
@@ -901,3 +996,11 @@ class FilmsSitemap(Sitemap):
     def lastmod(self, obj):
         return obj.edit_date
 
+
+class CompilationSitemap(Sitemap):
+
+    def items(self):
+        return Compilation.objects.filter(is_active=True)
+
+    def lastmod(self, obj):
+        return obj.edit_date

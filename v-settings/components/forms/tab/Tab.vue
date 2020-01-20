@@ -1,5 +1,5 @@
 <template>
-    <!-- version 5-->
+    <!-- version 6-->
     <div
         style="margin-top: 0"
         class="tab-wrapper"
@@ -178,7 +178,7 @@
                 <textareaPreviewLetter
                     v-if="element.widget === 'textareaPreviewLetter'"
                     :labelPosition="block.labelPosition"
-                    :propData="formData[element.codename]"
+                    :value="formData[element.codename]"
                     :config="element"
                     @clearError="clearError"
                     @change="onChange"

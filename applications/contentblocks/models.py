@@ -11,6 +11,8 @@ class Page(BaseModel, BaseSeoMixin):
     codename = models.CharField(u'Кодовое название страницы', max_length=255)
     have_content = models.BooleanField(u'Имеет контент для редактирования', default=False)
     admin_form_config = models.TextField(u'Конфиг формы для админки', blank=True)
+    compilation = models.ForeignKey('root.Compilation', verbose_name='Подборка', null=True,
+                                    on_delete=models.SET_NULL, related_name='pages')
     _field_blocks = []
 
     def __str__(self):

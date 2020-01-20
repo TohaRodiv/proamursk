@@ -81,7 +81,7 @@ const state = {
     filterConfig: {
         'history-rubrics': [
             {
-                filterTitle: 'Дата регистрации',
+                filterTitle: 'Дата создания',
                 minMaxCodename: 'create_date',
                 queryName: {
                     min: 'create_date__gte',

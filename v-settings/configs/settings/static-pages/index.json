@@ -1,1 +1,141 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "КОНТЕНТ",
+        "blocks": [
+            {
+                "labelPosition": "left",
+                "hasWideLabel": true,
+                "modClass": "marginBottom50",
+                "elements": [
+                    {
+                        "widget": "childEntity",
+                        "codename": "top_items",
+                        "label": "Закрепленная запись",
+                        "noAddButton": false,
+                        "menu": ["edit", "delete"],
+                        "rows": [
+                            {
+                                "map": {
+                                    "layout": "column",
+                                    "elements": [
+                                        {
+                                            "codename": "item.title"
+                                        },
+                                        {
+                                            "codename": "entity",
+                                            "class": [
+                                                "halfTransparent"
+                                            ],
+                                            "dict": {
+                                                "news": "Новость",
+                                                "event-announcements": "Анонс события",
+                                                "reports": "Репортаж о событии",
+                                                "history": "Историческая статья",
+                                                "persons": "Статья о жителе Амурска",
+                                                "places": "Статья о месте"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "popup": {
+                            "label": "Закрепленная запись",
+                            "disableClickaway": true,
+                            "config": [
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                        {
+                                            "labelPosition": "left",
+                                            "direction": "row",
+                                            "modClass": "marginBottom20",
+                                            "elements": [
+                                                {
+                                                    "widget": "radioButtons",
+                                                    "label": "Тип материала",
+                                                    "required": true,
+                                                    "codename": "entity",
+                                                    "default": "news",
+                                                    "borders": true,
+                                                    "width": 6,
+                                                    "options": [
+                                                        {
+                                                            "value": "news",
+                                                            "label": "Новость"
+                                                        },
+                                                        {
+                                                            "value": "event-announcements",
+                                                            "label": "Анонс события"
+                                                        },
+                                                        {
+                                                            "value": "reports",
+                                                            "label": "Репортаж о событии"
+                                                        },
+                                                        {
+                                                            "value": "history",
+                                                            "label": "Историческая статья"
+                                                        },
+                                                        {
+                                                            "value": "persons",
+                                                            "label": "Статья о жителе Амурска"
+                                                        },
+                                                        {
+                                                            "value": "places",
+                                                            "label": "Статья о месте"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "labelPosition": "left",
+                                            "elements": [
+                                                {
+                                                    "widget": "select",
+                                                    "codename": "item",
+                                                    "label": "Публикация",
+                                                    "api": "news",
+                                                    "template": "title",
+                                                    "width": 8,
+                                                    "required": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "labelPosition": "left",
+                "direction": "row",
+                "modClass": "marginBottom20",
+                "elements": [
+                    {
+                        "widget": "select",
+                        "label": "Подборка материалов",
+                        "api": "compilations",
+                        "width": 12,
+                        "codename": "compilation"
+                    }
+                ]
+            },
+            {
+                "labelPosition": "left",
+                "direction": "row",
+                "elements": [
+                    {
+                        "widget": "singleCheckbox",
+                        "label": "",
+                        "name": "Показывать на Главной странице баннер-растяжку вместо слайдера со спецпроектами",
+                        "codename": "show_banner"
+                    }
+                ]
+            }
+        ]
+    }
+]

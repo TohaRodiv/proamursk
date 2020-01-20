@@ -24,14 +24,15 @@ from .serializers import (NewsListSerializer, NewsDetailSerializer, EventsListSe
                           FilmsDetailSerializer, FilmsListSerializer, SidebarBannerSerializer, WideBannerSerializer,
                           PlaceReviewsListSerializer, PlaceReviewsDetailSerializer, SlidersDetailSerializer,
                           SlidersListSerializer, FeedbackDetailSerializer, FeedbackListSerializer, TextErrorDetailSerializer,
-                          TextErrorListSerializer, HistoryRubricDetailSerializer, HistoryRubricListSerializer)
+                          TextErrorListSerializer, HistoryRubricDetailSerializer, HistoryRubricListSerializer,
+                          CompilationListSerializer, CompilationDetailSerializer, CompilationSelectSerializer)
 
 from .filters import (NewsFilter, EventsFilter, ReportsFilter, HistoryFilter, PersonsFilter, CityGuidesFilter,
                       PlacesFilter, SpecialsFilter, FilmsFilter, PlaceReviewsFilter, SlidersFilter, FeedbackFilter,
-                      SidebarBannersFilter, WideBannersFilter, TextErrorFilter, HistoryRubricFilter)
+                      SidebarBannersFilter, WideBannersFilter, TextErrorFilter, HistoryRubricFilter, CompilationFilter)
 
 from ..models import (News, Event, Report, History, Person, Place, CityGuide, Special, Film, SidebarBanner, WideBanner,
-                      PlaceReview, Slider, Feedback, TextError, HistoryRubric)
+                      PlaceReview, Slider, Feedback, TextError, HistoryRubric, Compilation)
 
 try:
     from applications.notifications.tasks import send_notification
@@ -53,6 +54,22 @@ class NewsCpViewSet(CpViewSet):
     filter_class = NewsFilter
     ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
 
+    def activate_action(self, qs, data):
+        action = data.get('action')
+        errors = []
+        for i in qs:
+            if action == 'activate':
+                i.is_active=True
+                i.save()
+            elif action == 'deactivate':
+                i.is_active = False
+                i.save()
+
+        if not errors:
+            return Response(status=200)
+        else:
+            return Response(status=400, data=dict())
+
 
 class EventsCpViewSet(CpViewSet):
     path = 'event-announcements'
@@ -62,7 +79,23 @@ class EventsCpViewSet(CpViewSet):
     serializer_class = EventsDetailSerializer
     list_serializer_class = EventsListSerializer
     filter_class = EventsFilter
-    ordering_fields = ('id', 'title', 'place', 'start_event_date', 'edit_date', 'create_date')
+    ordering_fields = ('id', 'title', 'place', 'start_event_date', 'publication_date', 'edit_date', 'create_date')
+
+    def activate_action(self, qs, data):
+        action = data.get('action')
+        errors = []
+        for i in qs:
+            if action == 'activate':
+                i.is_active=True
+                i.save()
+            elif action == 'deactivate':
+                i.is_active = False
+                i.save()
+
+        if not errors:
+            return Response(status=200)
+        else:
+            return Response(status=400, data=dict())
 
 
 class ReportsCpViewSet(CpViewSet):
@@ -74,6 +107,22 @@ class ReportsCpViewSet(CpViewSet):
     list_serializer_class = ReportsListSerializer
     filter_class = ReportsFilter
     ordering_fields = ('id', 'title', 'place', 'start_event_date', 'publications_date', 'edit_date', 'create_date')
+
+    def activate_action(self, qs, data):
+        action = data.get('action')
+        errors = []
+        for i in qs:
+            if action == 'activate':
+                i.is_active=True
+                i.save()
+            elif action == 'deactivate':
+                i.is_active = False
+                i.save()
+
+        if not errors:
+            return Response(status=200)
+        else:
+            return Response(status=400, data=dict())
 
 
 class HistoryRubricCpViewSet(CpViewSet):
@@ -97,6 +146,22 @@ class HistoryCpViewSet(CpViewSet):
     filter_class = HistoryFilter
     ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
 
+    def activate_action(self, qs, data):
+        action = data.get('action')
+        errors = []
+        for i in qs:
+            if action == 'activate':
+                i.is_active=True
+                i.save()
+            elif action == 'deactivate':
+                i.is_active = False
+                i.save()
+
+        if not errors:
+            return Response(status=200)
+        else:
+            return Response(status=400, data=dict())
+
 
 class PersonsCpViewSet(CpViewSet):
     path = 'persons'
@@ -107,6 +172,22 @@ class PersonsCpViewSet(CpViewSet):
     list_serializer_class = PersonsListSerializer
     filter_class = PersonsFilter
     ordering_fields = ('id', 'title', 'publications_date', 'edit_date', 'create_date')
+
+    def activate_action(self, qs, data):
+        action = data.get('action')
+        errors = []
+        for i in qs:
+            if action == 'activate':
+                i.is_active=True
+                i.save()
+            elif action == 'deactivate':
+                i.is_active = False
+                i.save()
+
+        if not errors:
+            return Response(status=200)
+        else:
+            return Response(status=400, data=dict())
 
 
 class CityGuidesCpViewSet(CpViewSet):
@@ -129,6 +210,22 @@ class PlacesCpViewSet(CpViewSet):
     list_serializer_class = PlacesListSerializer
     filter_class = PlacesFilter
     ordering_fields = ('id', 'title', 'address', 'reviews_count', 'publications_date', 'edit_date', 'create_date')
+
+    def activate_action(self, qs, data):
+        action = data.get('action')
+        errors = []
+        for i in qs:
+            if action == 'activate':
+                i.is_active=True
+                i.save()
+            elif action == 'deactivate':
+                i.is_active = False
+                i.save()
+
+        if not errors:
+            return Response(status=200)
+        else:
+            return Response(status=400, data=dict())
 
 
 class SpecialsCpViewSet(CpViewSet):
@@ -254,6 +351,20 @@ class TextErrorCpViewSet(CpViewSet):
     detail_http_method_names = ['get', 'head', 'options', 'trace']
 
 
+class CompilationCpViewSet(CpViewSet):
+    path = 'compilations'
+    model = Compilation
+    queryset = Compilation.objects.all().annotate(items_amount=Count('items'))
+    available_actions = dict(activate='Активация и Деактивация',
+                             delete='Удаление')
+    serializer_class = CompilationDetailSerializer
+    select_serializer_class = CompilationSelectSerializer
+    list_serializer_class = CompilationListSerializer
+    filter_class = CompilationFilter
+    ordering_fields = ('id', 'name', 'items_amount', 'edit_date', 'create_date')
+
+
+cp_api.register(CompilationCpViewSet)
 cp_api.register(NewsCpViewSet)
 cp_api.register(EventsCpViewSet)
 cp_api.register(ReportsCpViewSet)

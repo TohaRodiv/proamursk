@@ -3,12 +3,13 @@ from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-from django.contrib.postgres.search import SearchVectorField
-from applications.tools.utils import clean_html, get_post_editor_text
-from django.contrib.contenttypes.models import ContentType
-from applications.contentblocks.models import Page
-from core.models import BaseModel, IsActiveMixin, BaseSeoMixin
 from django.apps import apps
+from django.contrib.postgres.search import SearchVectorField
+from django.contrib.contenttypes.models import ContentType
+from django.db.models.signals import post_delete
+from core.models import BaseModel, IsActiveMixin, BaseSeoMixin
+from applications.tools.utils import get_post_editor_text
+from applications.contentblocks.models import Page
 
 
 class TopItem(models.Model):
@@ -24,6 +25,7 @@ class TopItem(models.Model):
 
     def get_model(self):
         model_names = {
+            "news": "news",
             "event-announcements": "event",
             "reports": "report",
             "persons": "person",
@@ -56,7 +58,7 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
@@ -78,6 +80,7 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
         except Exception as e:
             pass
         super(News, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='news', object_id=self.id).update(is_active=self.is_active)
 
 
 class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -98,8 +101,9 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     event_date_text = models.CharField('Дата проведения', max_length=255)
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
 
@@ -124,6 +128,7 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
         except Exception as e:
             pass
         super(Event, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='event', object_id=self.id).update(is_active=self.is_active)
 
 
 class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -145,7 +150,7 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
     coordinates = models.CharField('Координаты', max_length=255, blank=True)
     event_date_text = models.CharField('Дата проведения', max_length=255)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
@@ -167,6 +172,7 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
         except:
             pass
         super(Report, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='report', object_id=self.id).update(is_active=self.is_active)
 
 
 class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -182,7 +188,7 @@ class Special(BaseModel, BaseSeoMixin, IsActiveMixin):
     descriptor = models.TextField('Подзаголовок')
     codename = models.CharField('URL (кодовое название)', max_length=255, unique=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
 
@@ -214,7 +220,7 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
@@ -236,11 +242,12 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
         except:
             pass
         super(Person, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='person', object_id=self.id).update(is_active=self.is_active)
 
 
 class HistoryRubric(BaseModel):
     name = models.CharField('Заголовок', max_length=255)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
 
     class Meta:
         verbose_name = 'Рубрика исторических статей'
@@ -268,7 +275,7 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
     cover_author = models.CharField('Автор обложки', max_length=255, blank=True)
     content_author = models.CharField('Автор материала', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
@@ -290,6 +297,7 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
         except:
             pass
         super(History, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='history', object_id=self.id).update(is_active=self.is_active)
 
 
 class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
@@ -314,7 +322,7 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
     site = models.URLField('Сайт', max_length=255, blank=True)
     instagram = models.URLField('Профиль в Instagram', max_length=255, blank=True)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
@@ -339,6 +347,7 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
         except:
             pass
         super(Place, self).save(*args, **kwargs)
+        CompilationItem.objects.filter(entity='place', object_id=self.id).update(is_active=self.is_active)
 
 
 class PlaceReview(BaseModel):
@@ -349,7 +358,7 @@ class PlaceReview(BaseModel):
     text = models.TextField('Текст отзыва')
     is_agree = models.BooleanField('Согласие с правилами обработки данных', default=False)
     is_active = models.BooleanField('Статус', default=False)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
 
     class Meta:
         verbose_name = 'Отзыв о местах'
@@ -377,7 +386,7 @@ class CityGuide(BaseModel, BaseSeoMixin, IsActiveMixin):
     guide_format = models.CharField('Форматы контента', choices=GUIDE_FORMATS, max_length=45)
     title = models.CharField('Заголовок', max_length=255)
     descriptor = models.TextField('Подзаголовок')
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
@@ -444,7 +453,7 @@ class Film(BaseModel, BaseSeoMixin, IsActiveMixin):
     is_3d = models.BooleanField('3D', default=False)
     trailer = models.URLField('Ссылка на трейлер в YouTube')
     purchase_link = models.URLField('Ссылка на страницу фильма на сайте кинотеатра "Молодость"')
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
 
     class Meta:
@@ -525,7 +534,7 @@ class SidebarBanner(BaseModel, IsActiveMixin):
     link = models.CharField('Ссылка', max_length=255)
     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
 
     class Meta:
         verbose_name = 'Баннер в сайдбаре'
@@ -538,7 +547,7 @@ class WideBanner(BaseModel, IsActiveMixin):
     link = models.CharField('Ссылка', max_length=255)
     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
 
     class Meta:
         verbose_name = 'Баннер-растяжка'
@@ -556,7 +565,7 @@ class Slider(BaseModel, IsActiveMixin):
     format = models.CharField('Формат слайдера', choices=FORMATS, max_length=45)
     start_publication_date = models.DateTimeField('Дата и время начала публикации', null=True)
     end_publication_date = models.DateTimeField('Дата и время окончания публикации', null=True)
-    comment = models.CharField('Комментарий', max_length=255, blank=True, default='')
+    comment = models.TextField('Комментарий', blank=True, default='')
 
     class Meta:
         verbose_name = 'Слайдер'
@@ -630,3 +639,73 @@ class TextError(models.Model):
     def __str__(self):
         return 'Сообщение об ошибке id{}'.format(self.id)
 
+
+class Compilation(BaseModel, BaseSeoMixin, IsActiveMixin):
+    name = models.CharField('Название', max_length=255)
+    codename = models.CharField('Кодовое название', max_length=255, unique=True)
+    comment = models.TextField('Комментарий', blank=True)
+
+    class Meta:
+        verbose_name = 'Подборка материалов'
+        verbose_name_plural = 'Подборки материалов'
+        ordering = '-id',
+
+    def __str__(self):
+        return self.name
+
+    def get_active_items(self):
+        return self.items.filter(is_active=True).order_by('weight')
+
+    def get_absolute_url(self):
+        return reverse('compilation-detail', args=[self.codename])
+
+
+class CompilationItem(models.Model):
+    ENTITIES = (
+        ('news', 'Новость'),
+        ('event', 'Анонс события'),
+        ('report', 'Репортаж о событии'),
+        ('history', 'Историческая статья'),
+        ('person', 'Статья о жителе Амурска'),
+        ('place', 'Статья о месте'),
+    )
+    compilation = models.ForeignKey('Compilation', verbose_name='Подборка', on_delete=models.CASCADE,
+                                    related_name='items')
+    entity = models.CharField('Сущность', max_length=255, choices=ENTITIES)
+    object_id = models.PositiveIntegerField()
+    weight = models.PositiveIntegerField()
+    is_active = models.BooleanField(default=True, verbose_name=u'Состояние')
+
+    class Meta:
+        db_table = 'root_compilation_item'
+        verbose_name = 'Состав подборки'
+        verbose_name_plural = 'Состав подборки'
+        ordering = ('weight',)
+
+    def __str__(self):
+        return str(self.id)
+
+    def get_model(self):
+        model_name = self.entity
+        return apps.get_model('root', model_name)
+
+    def get_object(self):
+        obj = None
+        model = self.get_model()
+        if model:
+            obj = model.objects.filter(id=self.object_id).first()
+        return obj
+
+
+def delete_compilation_item(sender, **kwargs):
+    instance = kwargs.get('instance')
+    if instance.id:
+        CompilationItem.objects.filter(entity=sender._meta.model_name, object_id=instance.id).delete()
+
+
+post_delete.connect(delete_compilation_item, sender=News)
+post_delete.connect(delete_compilation_item, sender=Event)
+post_delete.connect(delete_compilation_item, sender=Report)
+post_delete.connect(delete_compilation_item, sender=History)
+post_delete.connect(delete_compilation_item, sender=Person)
+post_delete.connect(delete_compilation_item, sender=Place)
