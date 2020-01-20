@@ -26,6 +26,20 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
+                                label: 'Дата и время публикации',
+                                required: true,
+                                width: 4,
+                                codename: 'publication_date',
+                                widget: 'inputDatetime',
+                            },
+                        ],
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom20',
+                        direction: 'row',
+                        elements: [
+                            {
                                 label: 'Дата и время начала события<br>(для сортировки на сайте)',
                                 required: true,
                                 width: 4,
