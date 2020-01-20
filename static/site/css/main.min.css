@@ -2389,11 +2389,11 @@ footer {
 
 .selection-head_page {
   margin-top: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   text-align: center; }
 
 .selection-head_index {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-align: center; }
 
 .selection-head__subtitle {
@@ -2412,8 +2412,7 @@ footer {
   margin-bottom: 0;
   font-size: 46px;
   letter-spacing: 0.02em;
-  font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
-  font-weight: normal; }
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
   .selection-head__title a {
     color: inherit;
     text-decoration: none; }
@@ -2421,18 +2420,16 @@ footer {
       color: #0073FF; }
 
 .index-selection {
-  margin-top: 60px;
-  margin-left: -80px;
-  margin-right: -80px;
-  padding: 60px 80px;
+  margin-top: 40px;
+  margin-left: -40px;
+  margin-right: -40px;
+  padding: 40px;
   background-color: #FFFFFF;
-  border-radius: 60px;
+  border-radius: 30px;
   -webkit-box-shadow: 0 12px 28px #e1ecf7;
           box-shadow: 0 12px 28px #e1ecf7; }
   .index-selection:not(:last-child) {
-    margin-bottom: 60px; }
-  .index-selection:last-child {
-    margin-bottom: 20px; }
+    margin-bottom: 40px; }
   .index-selection__link-wrap {
     margin-top: 40px;
     text-align: center; }
