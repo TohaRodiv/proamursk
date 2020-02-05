@@ -761,6 +761,9 @@
                 }
             });
             self.workSpace.appendChild(self.formatterFrame);
+            self.formatterFrame.onload = function() {
+                _addClass(self.formatterFrame.contentWindow.document.body, 'formatter-body');
+            }
         }
 
 
