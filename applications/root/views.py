@@ -57,13 +57,18 @@ def get_page(request):
 
 class IndexView(View):
 
-    def get_last_materials(self, pined_material=None):
+    def get_last_materials(self, pined_material=None, compilation_items=None):
         events = Event.objects.filter(
             is_active=True,
             start_event_date__gte=datetime.now()
         ).order_by('-publication_date')
         if pined_material and pined_material.entity == 'event-announcements':
             events = events.exclude(id=pined_material.object_id)
+
+        if compilation_items:
+            events = events.exclude(
+                id__in=[i.object_id for i in compilation_items if i.entity == 'event']
+            )
         events = events[:8]
 
         reports = Report.objects.filter(
@@ -72,6 +77,11 @@ class IndexView(View):
         ).order_by('-publication_date')
         if pined_material and pined_material.entity == 'reports':
             reports = reports.exclude(id=pined_material.object_id)
+
+        if compilation_items:
+            reports = reports.exclude(
+                id__in=[i.object_id for i in compilation_items if i.entity == 'report']
+            )
         reports = reports[:8]
 
         places = Place.objects.filter(
@@ -80,6 +90,11 @@ class IndexView(View):
         ).order_by('-publication_date')
         if pined_material and pined_material.entity == 'places':
             places = places.exclude(id=pined_material.object_id)
+
+        if compilation_items:
+            places = places.exclude(
+                id__in=[i.object_id for i in compilation_items if i.entity == 'place']
+            )
         places = places[:8]
 
         news = News.objects.filter(
@@ -88,6 +103,11 @@ class IndexView(View):
         ).order_by('-publication_date')
         if pined_material and pined_material.entity == 'news':
             news = news.exclude(id=pined_material.object_id)
+
+        if compilation_items:
+            news = news.exclude(
+                id__in=[i.object_id for i in compilation_items if i.entity == 'news']
+            )
         news = news[:8]
 
         history = History.objects.filter(
@@ -96,6 +116,12 @@ class IndexView(View):
         ).order_by('-publication_date')
         if pined_material and pined_material.entity == 'history':
             history = history.exclude(id=pined_material.object_id)
+
+        if compilation_items:
+            history = history.exclude(
+                id__in=[i.object_id for i in compilation_items if i.entity == 'history']
+            )
+
         history = history[:8]
 
         persons = Person.objects.filter(
@@ -104,6 +130,12 @@ class IndexView(View):
         ).order_by('-publication_date')
         if pined_material and pined_material.entity == 'persons':
             persons = persons.exclude(id=pined_material.object_id)
+
+        if compilation_items:
+            persons = persons.exclude(
+                id__in=[i.object_id for i in compilation_items if i.entity == 'person']
+            )
+
         persons = persons[:8]
 
         result = list(events) + list(reports) + list(places) + list(news) + list(history) + list(persons)
@@ -119,7 +151,12 @@ class IndexView(View):
         current_date = date.today()
         page = get_page(request)
         pined_material = page.top_items.all().order_by('weight').first() if page else None
-        last_materials = self.get_last_materials(pined_material=pined_material)
+        compilation = page.compilation
+        compilation_items = []
+        if compilation:
+            compilation_items = list(compilation.get_active_items()[:4])
+
+        last_materials = self.get_last_materials(pined_material=pined_material, compilation_items=compilation_items)
         events = Event.objects.filter(
             is_active=True,
             start_event_date__gte=current_date
@@ -128,6 +165,10 @@ class IndexView(View):
         )
         if pined_material and pined_material.entity == 'event-announcements':
             events = events.exclude(id=pined_material.object_id)
+        if compilation_items:
+            events = events.exclude(
+                id__in=[i.object_id for i in compilation_items if i.entity == 'event']
+            )
         events = events[:2]
 
         reports = Report.objects.filter(
@@ -138,6 +179,10 @@ class IndexView(View):
         )
         if pined_material and pined_material.entity == 'reports':
             reports = reports.exclude(id=pined_material.object_id)
+        if compilation_items:
+            reports = reports.exclude(
+                id__in=[i.object_id for i in compilation_items if i.entity == 'report']
+            )
         reports = reports[:2]
 
         places = Place.objects.filter(
@@ -148,6 +193,11 @@ class IndexView(View):
         ).order_by('?')
         if pined_material and pined_material.entity == 'places':
             places = places.exclude(id=pined_material.object_id)
+        if compilation_items:
+            places = places.exclude(
+                id__in=[i.object_id for i in compilation_items if i.entity == 'place']
+            )
+
         places = places[:(6-len(events)-len(reports))]
 
         what_to_do = list(events) + list(reports) + list(places)
