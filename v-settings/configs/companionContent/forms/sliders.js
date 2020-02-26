@@ -74,7 +74,7 @@ const state = {
                                                     codename: 'description',
                                                     empty: '',
                                                     style: {
-                                                        marginLeft: '10px',
+                                                        marginLeft: '20px',
                                                         whiteSpace: 'normal',
                                                     },
                                                     elStyle: {
