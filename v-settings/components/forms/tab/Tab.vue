@@ -1,5 +1,5 @@
 <template>
-    <!-- version 6-->
+    <!-- version 7-->
     <div
         style="margin-top: 0"
         class="tab-wrapper"
@@ -7,7 +7,9 @@
         <div
             v-for="(block, blockDex) in options.blocks"
             :key="blockDex"
-            :style="calculateFlexDirection(block)"
+            :style="{
+                flexDirection: block.direction ? block.direction : 'row',
+            }"
             :class="block.modClass"
             class="tab-row"
         >
@@ -187,11 +189,12 @@
 
                 <input-datetime
                     v-if="element.widget === 'inputDatetime'"
-                    :prop-data="formData[element.codename]"
+                    :value="formData[element.codename]"
                     :config="element"
                     :label-position="block.labelPosition"
                     @clearError="clearError"
                     @change="onChange"
+                    @setError="setError"
                 />
 
                 <checkboxesGroup
@@ -256,6 +259,18 @@
                     :value="formData[element.codename]"
                     @change="onChange"
                 />
+
+                <Layouter
+                    v-if="element.widget === 'layouter'"
+                    :prop-map="element"
+                    :prop-item="formData"
+                ></Layouter>
+
+                <CpButtonField
+                    v-if="element.widget === 'button'"
+                    :config="element"
+                    @click="$emit('clickButtonField', $event)"
+                ></CpButtonField>
             </div>
         </div>
     </div>
