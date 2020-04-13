@@ -849,7 +849,7 @@ textarea {
   overflow: hidden; }
   .preview-slider__big-img-wrap {
     position: relative; }
-    .preview-slider__big-img-wrap:not(.preview-slider_without-shadow)::after {
+    .preview-slider__big-img-wrap:not(.preview-slider_without-shadow) .slide::after {
       content: "";
       display: block;
       width: 100%;
