@@ -1,24 +1,21 @@
-@@include("page-block/head.html")
-@@include("page-block/header.html", {
-    "page": "special-projects"
-})
-
+{% load static static_version %}
 <main class="sp sp-birthday">
     <section class="sp-birthday-header">
         <div class="container sp-birthday-header__container">
             <div class="sp-birthday-header__content">
                 <h1 class="sp-birthday-header__title">Пишем <br>#ПроАмурск</h1>
                 <div class="sp-birthday-header__wobbler">
-                    @@include('modules/wobbler.html', {
-                        "wobbler": "special-project"
-                    })
+                    <div class="wobbler">
+                        <span class="wobbler__icon icon-star-sharp"></span>
+                        <span class="wobbler__text">Спецпроект</span>
+                    </div>
                 </div>
 
                 <p class="sp-birthday-header__description">1 апреля нашему сайту исполнился один год. Он был очень продуктивным: мы рассказывали о самых ярких моментах жизни Амурска, знакомились с интересными людьми, радовали вас хорошими новостями.<br> Обещаем продолжать в том же духе. </p>
             </div>
 
             <div class="sp-birthday-header__img-container">
-                <img src="" data-src="images/special-projects/birthday/header-img.jpg" alt="Амурск танцевальный" class="sp-birthday-header__img lazyload">
+                <img src="" data-src="{% static "site/images/special-projects/birthday/header-img.jpg" %}{% static_version %}" alt="Амурск танцевальный" class="sp-birthday-header__img lazyload">
             </div>
         </div>
     </section>
@@ -33,7 +30,7 @@
         <section class="sp-birthday-materials-1 js-fade">
             <div>
                 <h3 class="sp-birthday-materials__title sp-birthday-h3">Опубликовали <span class="accent_blue">659</span> материалов</h3>
-                <img src="" data-src="images/special-projects/birthday/svg/materials.svg" alt="" class="sp-birthday-materials__img lazyload">
+                <img src="" data-src="{% static "site/images/special-projects/birthday/svg/materials.svg" %}{% static_version %}" alt="" class="sp-birthday-materials__img lazyload">
             </div>
 
             <ul class="sp-birthday-materials-grid">
@@ -42,6 +39,11 @@
                         <span class="sp-birthday-material-item__amount">160</span>
                         <span class="sp-birthday-material-item__name">репортажей</span>
                         <div class="sp-birthday-material-item__wobbler">
+
+                            {% with model_name="reportage" %}
+                                {% include "site/modules/wobbler.html" %}
+                            {% endwith %}
+
                             @@include('modules/wobbler.html', {
                                 "wobbler": "reportage"
                             })
@@ -109,7 +111,7 @@
         <section class="sp-birthday-materials-2 js-fade">
             <div class="sp-birthday-materials-2__head">
                 <h3 class="sp-birthday-materials__title sp-birthday-h3">Запостили <span class="accent_blue">567</span> публикаций в Инстаграме</h3>
-                <img src="" data-src="images/special-projects/birthday/insta.svg" alt="" class="sp-birthday-materials__img lazyload">
+                <img src="" data-src="{% static "site/images/special-projects/birthday/insta.svg" %}{% static_version %}" alt="" class="sp-birthday-materials__img lazyload">
             </div>
 
             <script async src="//www.instagram.com/embed.js"></script>
@@ -168,7 +170,7 @@
                 </div>
             </div>
 
-            <img src="" data-src="images/special-projects/birthday/maffin.svg" alt="" class="sp-birthday-materials__img-2 lazyload">
+            <img src="" data-src="{% static "site/images/special-projects/birthday/maffin.svg" %}{% static_version %}" alt="" class="sp-birthday-materials__img-2 lazyload">
         </section>
 
         <section class="sp-birthday-materials-3 sp-block_mt100 js-fade">
@@ -177,27 +179,27 @@
             <div class="gift-photos-grid">
                 <img src=""
                      alt=""
-                     data-src="images/special-projects/birthday/gifts/gift-1.jpg"
+                     data-src="{% static "site/images/special-projects/birthday/gifts/gift-1.jpg" %}{% static_version %}"
                      class="gift-photo-item lazyload">
                 <img src=""
                      alt=""
-                     data-src="images/special-projects/birthday/gifts/gift-2.jpg"
+                     data-src="{% static "site/images/special-projects/birthday/gifts/gift-2.jpg" %}{% static_version %}"
                      class="gift-photo-item lazyload">
                 <img src=""
                      alt=""
-                     data-src="images/special-projects/birthday/gifts/gift-3.jpg"
+                     data-src="{% static "site/images/special-projects/birthday/gifts/gift-3.jpg" %}{% static_version %}"
                      class="gift-photo-item lazyload">
                 <img src=""
                      alt=""
-                     data-src="images/special-projects/birthday/gifts/gift-4.jpg"
+                     data-src="{% static "site/images/special-projects/birthday/gifts/gift-4.jpg" %}{% static_version %}"
                      class="gift-photo-item lazyload">
                 <img src=""
                      alt=""
-                     data-src="images/special-projects/birthday/gifts/gift-5.jpg"
+                     data-src="{% static "site/images/special-projects/birthday/gifts/gift-5.jpg" %}{% static_version %}"
                      class="gift-photo-item lazyload">
                 <img src=""
                      alt=""
-                     data-src="images/special-projects/birthday/gifts/gift-6.jpg"
+                     data-src="{% static "site/images/special-projects/birthday/gifts/gift-6.jpg" %}{% static_version %}"
                      class="gift-photo-item lazyload">
             </div>
         </section>
@@ -217,7 +219,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-1.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-1.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Детский сад № 9</div>
@@ -227,7 +229,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-2.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-2.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Дендрарий</div>
@@ -237,7 +239,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-3.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-3.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Детский сад № 48 «Амурчонок»</div>
@@ -247,7 +249,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-4.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-4.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Дом молодежи</div>
@@ -257,7 +259,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-5.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-5.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Центральная библиотека Амурского района</div>
@@ -267,7 +269,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-6.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-6.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Дворец культуры</div>
@@ -277,7 +279,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-7.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-7.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Краеведческий музей
@@ -288,7 +290,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-8.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-8.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Болоньский заповедник</div>
@@ -298,7 +300,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-9.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-9.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Детский эколого-биологический центр «Натуралист»</div>
@@ -308,7 +310,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-10.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-10.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Ботанический сад</div>
@@ -318,7 +320,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-11.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-11.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Детско-юношеская спортивная школа</div>
@@ -328,7 +330,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-12.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-12.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Центр творчества«Темп»</div>
@@ -338,7 +340,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-13.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-13.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Школа № 2</div>
@@ -348,7 +350,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-14.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-14.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Школа № 5</div>
@@ -358,7 +360,7 @@
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/place-15.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/place-15.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-place-name">Школа № 6</div>
@@ -376,50 +378,50 @@
             </div>
 
             <div class="sp-birthday-events-grid sp-birthday-circle-items-grid sp-block_mt100">
-                <a href="https://proamursk.ru/reports/75/" class="sp-birthday-event" target="_blank">
-                    <img src="" data-src="images/special-projects/birthday/event-1.jpg" alt="" class="sp-birthday-event__cover lazyload">
+                <a href="https://proamursk.ru/compilations/den_goroda/" class="sp-birthday-event" target="_blank">
+                    <img src="" data-src="{% static "site/images/special-projects/birthday/event-1.jpg" %}{% static_version %}" alt="" class="sp-birthday-event__cover lazyload">
                     <span class="sp-birthday-event__counter">1</span>
                     <span class="sp-birthday-event__name">Фестиваль красок холи</span>
                     <span class="sp-birthday-event__link">смотреть</span>
                 </a>
-                <a href="https://proamursk.ru/compilations/den_goroda" class="sp-birthday-event" target="_blank">
-                    <img src="" data-src="images/special-projects/birthday/event-2.jpg" alt="" class="sp-birthday-event__cover lazyload">
+                <a href="https://proamursk.ru/admin/compilations/3" class="sp-birthday-event" target="_blank">
+                    <img src="" data-src="{% static "site/images/special-projects/birthday/event-2.jpg" %}{% static_version %}" alt="" class="sp-birthday-event__cover lazyload">
                     <span class="sp-birthday-event__counter">6</span>
                     <span class="sp-birthday-event__name">День города</span>
                     <span class="sp-birthday-event__link">смотреть</span>
                 </a>
-                <a href="https://proamursk.ru/compilations/novaya_molodost" class="sp-birthday-event" target="_blank">
-                    <img src="" data-src="images/special-projects/birthday/event-3.jpg" alt="" class="sp-birthday-event__cover lazyload">
+                <a href="https://proamursk.ru/compilations/rollerdrom/" class="sp-birthday-event" target="_blank">
+                    <img src="" data-src="{% static "site/images/special-projects/birthday/event-3.jpg" %}{% static_version %}" alt="" class="sp-birthday-event__cover lazyload">
                     <span class="sp-birthday-event__counter">2</span>
                     <span class="sp-birthday-event__name">Обновление кинотеатра «Молодость»</span>
                     <span class="sp-birthday-event__link">смотреть</span>
                 </a>
-                <a href="https://proamursk.ru/reports/" class="sp-birthday-event" target="_blank">
-                    <img src="" data-src="images/special-projects/birthday/event-4.jpg" alt="" class="sp-birthday-event__cover lazyload">
+                <a href="https://proamursk.ru/reports/75/" class="sp-birthday-event" target="_blank">
+                    <img src="" data-src="{% static "site/images/special-projects/birthday/event-4.jpg" %}{% static_version %}" alt="" class="sp-birthday-event__cover lazyload">
                     <span class="sp-birthday-event__counter">6</span>
                     <span class="sp-birthday-event__name">Спартакиада 2019</span>
                     <span class="sp-birthday-event__link">смотреть</span>
                 </a>
-                <a href="https://proamursk.ru/compilations/" class="sp-birthday-event" target="_blank">
-                    <img src="" data-src="images/special-projects/birthday/event-5.jpg" alt="" class="sp-birthday-event__cover lazyload">
+                <a href="https://proamursk.ru/compilations/novaya_molodost/" class="sp-birthday-event" target="_blank">
+                    <img src="" data-src="{% static "site/images/special-projects/birthday/event-5.jpg" %}{% static_version %}" alt="" class="sp-birthday-event__cover lazyload">
                     <span class="sp-birthday-event__counter">6</span>
                     <span class="sp-birthday-event__name">День металлурга «Амурский драйв»</span>
                     <span class="sp-birthday-event__link">смотреть</span>
                 </a>
-                <a href="https://proamursk.ru/compilations/rollerdrom" class="sp-birthday-event" target="_blank">
-                    <img src="" data-src="images/special-projects/birthday/event-6.jpg" alt="" class="sp-birthday-event__cover lazyload">
+                <a href="https://proamursk.ru/compilations/remont_avtovokzala/" class="sp-birthday-event" target="_blank">
+                    <img src="" data-src="{% static "site/images/special-projects/birthday/event-6.jpg" %}{% static_version %}" alt="" class="sp-birthday-event__cover lazyload">
                     <span class="sp-birthday-event__counter">2</span>
                     <span class="sp-birthday-event__name">Открытие роллердрома</span>
                     <span class="sp-birthday-event__link">смотреть</span>
                 </a>
-                <a href="https://proamursk.ru/compilations/remont_avtovokzala" class="sp-birthday-event" target="_blank">
-                    <img src="" data-src="images/special-projects/birthday/event-7.jpg" alt="" class="sp-birthday-event__cover lazyload">
+                <a href="https://proamursk.ru/compilations/jenzkaya_consultatsiya/" class="sp-birthday-event" target="_blank">
+                    <img src="" data-src="{% static "site/images/special-projects/birthday/event-7.jpg" %}{% static_version %}" alt="" class="sp-birthday-event__cover lazyload">
                     <span class="sp-birthday-event__counter">3</span>
                     <span class="sp-birthday-event__name">Ремонт автовокзала</span>
                     <span class="sp-birthday-event__link">смотреть</span>
                 </a>
-                <a href="https://proamursk.ru/compilations/jenzkaya_consultatsiya" class="sp-birthday-event" target="_blank">
-                    <img src="" data-src="images/special-projects/birthday/event-8.jpg" alt="" class="sp-birthday-event__cover lazyload">
+                <a href="https://proamursk.ru/compilations/noviy_god/" class="sp-birthday-event" target="_blank">
+                    <img src="" data-src="{% static "site/images/special-projects/birthday/event-8.jpg" %}{% static_version %}" alt="" class="sp-birthday-event__cover lazyload">
                     <span class="sp-birthday-event__counter">2</span>
                     <span class="sp-birthday-event__name">Ремонт женской консультации</span>
                     <span class="sp-birthday-event__link">смотреть</span>
@@ -442,7 +444,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-1.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-1.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Олег Пермяков </div>
@@ -453,7 +455,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-2.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-2.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Виталий Несис</div>
@@ -464,7 +466,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-3.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-3.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Сергей Семенов</div>
@@ -475,7 +477,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-4.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-4.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Алла Зайцева</div>
@@ -486,7 +488,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-5.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-5.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Роман Морозов</div>
@@ -497,7 +499,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-6.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-6.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Татьяна Квашнина</div>
@@ -508,7 +510,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-7.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-7.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Владимир Иванов</div>
@@ -519,7 +521,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-8.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-8.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Марина Берестовая</div>
@@ -530,7 +532,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-9.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-9.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Галина Мягкова</div>
@@ -541,7 +543,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-10.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-10.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Сергей Анашкевич</div>
@@ -552,7 +554,7 @@
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
                              class="sp-birthday-circle-item__img lazyload"
-                             data-src="images/special-projects/birthday/person-11.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/person-11.jpg" %}{% static_version %}"
                              alt="">
                     </div>
                     <div class="sp-birthday-person-name">Владимир Бабенко </div>
@@ -576,7 +578,7 @@
                         <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                             <img src=""
                                  class="sp-birthday-circle-item__img lazyload"
-                                 data-src="images/special-projects/birthday/worker-1.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/worker-1.jpg" %}{% static_version %}"
                                  alt="">
                         </div>
                         <div class="sp-birthday-worker-name">Вероника Шабунина</div>
@@ -586,7 +588,7 @@
                         <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                             <img src=""
                                  class="sp-birthday-circle-item__img lazyload"
-                                 data-src="images/special-projects/birthday/worker-2.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/worker-2.jpg" %}{% static_version %}"
                                  alt="">
                         </div>
                         <div class="sp-birthday-worker-name">Екатерина Касаткина</div>
@@ -596,7 +598,7 @@
                         <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                             <img src=""
                                  class="sp-birthday-circle-item__img lazyload"
-                                 data-src="images/special-projects/birthday/worker-3.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/worker-3.jpg" %}{% static_version %}"
                                  alt="">
                         </div>
                         <div class="sp-birthday-worker-name">Мария Сидоренко</div>
@@ -606,7 +608,7 @@
                         <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                             <img src=""
                                  class="sp-birthday-circle-item__img lazyload"
-                                 data-src="images/special-projects/birthday/worker-4.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/worker-4.jpg" %}{% static_version %}"
                                  alt="">
                         </div>
                         <div class="sp-birthday-worker-name">Татьяна Серебренникова</div>
@@ -616,7 +618,7 @@
                         <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                             <img src=""
                                  class="sp-birthday-circle-item__img lazyload"
-                                 data-src="images/special-projects/birthday/worker-5.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/worker-5.jpg" %}{% static_version %}"
                                  alt="">
                         </div>
                         <div class="sp-birthday-worker-name">Артем Паймуллин</div>
@@ -626,7 +628,7 @@
                         <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                             <img src=""
                                  class="sp-birthday-circle-item__img lazyload"
-                                 data-src="images/special-projects/birthday/worker-6.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/worker-6.jpg" %}{% static_version %}"
                                  alt="">
                         </div>
                         <div class="sp-birthday-worker-name">Валентина Видяева</div>
@@ -657,13 +659,13 @@
                     <div class="slider-container">
                         <div class="slide">
                             <img src=""
-                                 data-src="images/special-projects/birthday/incident-photo-1.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/incident-photo-1.jpg" %}{% static_version %}"
                                  class="lazyload"
                                  alt="">
                         </div>
                         <div class="slide">
                             <img src=""
-                                 data-src="images/special-projects/birthday/incident-photo-2.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/incident-photo-2.jpg" %}{% static_version %}"
                                  class="lazyload"
                                  alt="">
                         </div>
@@ -694,13 +696,13 @@
                     <div class="slider-container">
                         <div class="slide">
                             <img src=""
-                                 data-src="images/special-projects/birthday/incident-photo-3.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/incident-photo-3.jpg" %}{% static_version %}"
                                  class="lazyload"
                                  alt="">
                         </div>
                         <div class="slide">
                             <img src=""
-                                 data-src="images/special-projects/birthday/incident-photo-4.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/incident-photo-4.jpg" %}{% static_version %}"
                                  class="lazyload"
                                  alt="">
                         </div>
@@ -733,7 +735,7 @@
                 <div class="slider sp-block sp-birthday-slider sp-birthday-reviews-slider">
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-1.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-1.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Екатерина Названова</div>
                         <div class="sp-birthday-review__description">педагог-организатор центра детского творчества «Темп»</div>
@@ -746,7 +748,7 @@
                     </div>
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-2.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-2.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Марина Евстифеева</div>
                         <div class="sp-birthday-review__description">ведущий библиограф Межпоселенческой центральной библиотеки Амурского района</div>
@@ -760,7 +762,7 @@
 
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-3.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-3.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Анна Жеревчук</div>
                         <div class="sp-birthday-review__description">заведующая художественным отделом Дворца культуры</div>
@@ -771,7 +773,7 @@
                     </div>
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-4.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-4.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Марина Берестовая</div>
                         <div class="sp-birthday-review__description">заведующая Центром туризма и экскурсий</div>
@@ -783,7 +785,7 @@
 
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-placeholder.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-placeholder.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Мария Карпова</div>
                         <div class="sp-birthday-review__description">специалист первой категории сектора по молодежной политике администрации города Амурска</div>
@@ -794,7 +796,7 @@
                     </div>
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-5.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-5.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Алексей Емельянов</div>
                         <div class="sp-birthday-review__description">начальник бюро охраны труда патронного завода «Вымпел»</div>
@@ -806,7 +808,7 @@
 
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-6.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-6.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Яна Кобрушко</div>
                         <div class="sp-birthday-review__description">журналист телеканала «Амурск»</div>
@@ -817,7 +819,7 @@
                     </div>
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-7.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-7.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Александр и Светлана Сидоровы</div>
                         <div class="sp-birthday-review__description">амурчане</div>
@@ -829,7 +831,7 @@
 
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-placeholder.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-placeholder.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Екатерина Киле</div>
                         <div class="sp-birthday-review__description">амурчанка</div>
@@ -839,7 +841,7 @@
                     </div>
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-8.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-8.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Сергей Провозин</div>
                         <div class="sp-birthday-review__description">депутат Собрания депутатов Амурского района</div>
@@ -851,7 +853,7 @@
 
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-9.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-9.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Владимир Бабенко</div>
                         <div class="sp-birthday-review__description">руководитель мужского квартета «Триумф»</div>
@@ -861,7 +863,7 @@
                     </div>
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-10.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-10.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Илья Торопов</div>
                         <div class="sp-birthday-review__description">ведущий специалист управления ЖКХ, экологии, транспорта и связи администрации Амурского района </div>
@@ -874,7 +876,7 @@
 
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-11.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-11.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Александр Горбунов</div>
                         <div class="sp-birthday-review__description">инструктор-методист ЛФК АЦСПСиД</div>
@@ -885,7 +887,7 @@
                     </div>
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-placeholder.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-placeholder.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Сотрудники ДЭБЦ «Натуралист»</div>
                         <div class="sp-birthday-review__text-wrap">
@@ -898,7 +900,7 @@
 
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-12.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-12.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Александр Соколов</div>
                         <div class="sp-birthday-review__description">инженер отдела эксплуатации ООО «САТ-ДВ»</div>
@@ -910,7 +912,7 @@
                     </div>
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-13.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-13.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Светлана Леонова</div>
                         <div class="sp-birthday-review__description">педагог дополнительного образования детского центра «Натуралист» </div>
@@ -923,7 +925,7 @@
 
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-placeholder.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-placeholder.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Татьяна Бабенко</div>
                         <div class="sp-birthday-review__description">амурчанка</div>
@@ -935,7 +937,7 @@
                     </div>
                     <div class="sp-birthday-review">
                         <img src=""
-                             data-src="images/special-projects/birthday/review-avatar-14.jpg"
+                             data-src="{% static "site/images/special-projects/birthday/review-avatar-14.jpg" %}{% static_version %}"
                              alt="" class="sp-birthday-review__avatar lazyload">
                         <div class="sp-birthday-review__name">Елена Скромова</div>
                         <div class="sp-birthday-review__description">экскурсовод Ботанического сада </div>
@@ -949,7 +951,7 @@
 
                     <div class="sp-birthday-review">
                             <img src=""
-                                 data-src="images/special-projects/birthday/review-avatar-15.jpg"
+                                 data-src="{% static "site/images/special-projects/birthday/review-avatar-15.jpg" %}{% static_version %}"
                                  alt="" class="sp-birthday-review__avatar lazyload">
                             <div class="sp-birthday-review__name">Зоя Былкова </div>
                             <div class="sp-birthday-review__description">председатель Совета депутатов администрации города </div>
@@ -966,7 +968,7 @@
 
     <section class="sp-birthday-section-thanks js-fade">
         <h2 class="sp-birthday-section-thanks__title">Спасибо,что читаете!</h2>
-        <img src="images/special-projects/birthday/svg/thanks.svg"
+        <img src="{% static "site/images/special-projects/birthday/svg/thanks.svg" %}{% static_version %}"
              alt="" class="sp-birthday-section-thanks__img">
     </section>
 
@@ -977,8 +979,3 @@
         </div>
     </div>
 </main>
-
-
-@@include("page-block/read-also.html")
-@@include('page-block/footer.html')
-@@include('page-block/page-end.html')
