@@ -94,11 +94,7 @@ function devSass() {
             indentedSyntax: true,
         }))
         .pipe(concat('main.css'))
-        .pipe(autoprefixer({
-            browsers: ['last 4 versions',],
-            grid: 'autoplace',
-            flexbox: true,
-        }))
+        .pipe(autoprefixer())
         .pipe(rename({ suffix: '.min', }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('static/css/'))

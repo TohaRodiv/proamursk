@@ -2043,12 +2043,14 @@
 
 
             function __setCursorToEnd(element){
-                var range = document.createRange();
-                var selection = self.iframeDocument.getSelection();
-                range.setStart(element, 1);
-                range.collapse(true);
-                selection.removeAllRanges();
-                selection.addRange(range);
+                if (element.innerHTML || element.innerText || element.nodeValue) {
+                    var range = document.createRange();
+                    var selection = self.iframeDocument.getSelection();
+                    range.setStart(element, 1);
+                    range.collapse(true);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
             }
 
             var iframe = document.getElementById('formatter-content__' + element.id);
@@ -2139,7 +2141,7 @@
                     }
 
                     var iframeMarker = iframe.contentWindow.document.getElementById(markerNode.id);
-                    __setCursorToEnd(iframeMarker.previousSibling)
+                    __setCursorToEnd(iframeMarker.previousSibling);
                     iframeMarker.remove();
                 }
                 else if (contentTypeIndex < 2) { //если вставляется текст или строчный элемент, то текст встает на место курсора

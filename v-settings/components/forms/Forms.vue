@@ -1,5 +1,5 @@
 <template>
-    <!-- version 3-->
+    <!-- version 4-->
     <div
         id="form"
         class="forms"
@@ -70,6 +70,7 @@
                                         @clearError="clearError"
                                         @change="setNewValues"
                                         @setError="setError"
+                                        @clickButtonField="onClickButtonField"
                                     />
                                 </div>
                             </div>
@@ -116,7 +117,7 @@
                             </button>
                             <button
                                 v-if="duplicateAction"
-                                @click="actionHandler(duplicateAction.method)"
+                                @click="actionHandler(duplicateAction)"
                                 :disabled="buttonsDisabled"
                                 class="button borderless-button forms-save-and-add-button"
                             >

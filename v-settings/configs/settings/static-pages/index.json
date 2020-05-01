@@ -18,6 +18,9 @@
                             {
                                 "map": {
                                     "layout": "column",
+                                    "style": {
+                                        "width": "620px"
+                                    },
                                     "elements": [
                                         {
                                             "codename": "item.title"

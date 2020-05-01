@@ -1,0 +1,856 @@
+.sp-birthday
+    padding-top: 0
+
+    a:visited
+        color: inherit
+
+.sp-birthday-slider
+    .slider-circles-container
+        display: none
+
+    .slider-arrow
+        &-prev
+            left: -90px
+
+        &-next
+            right: -90px
+
+    .slider-arrow-container
+        position: absolute
+        left: 50%
+        bottom: -100px
+        transform: translateX(-50%)
+        display: flex
+        align-items: center
+
+    .slider-arrow
+        display: block
+        width: 52px
+        height: 52px
+        border-radius: 50%
+        position: relative
+        left: 0
+        right: 0
+        font-size: 25px
+        line-height: 56px
+        color: $base-c
+        background-color: $light-c
+        opacity: 0.8
+        box-shadow: 0 8px 16px #e1ecf7
+
+        &:hover
+            box-shadow: 0 16px 24px #cfdfef
+
+    .slide-nav-counter
+        display: block
+        width: 100px
+        margin-right: 30px
+        margin-left: 30px
+        font-size: 24px
+        line-height: 56px
+        color: $base-c
+
+    img
+        min-height: 100%
+
+.sp-birthday__share-block
+    margin: 100px auto 50px
+
+    .share-widget
+        display: block
+        text-align: center
+
+    .share-widget__text
+        display: block
+        margin-bottom: 15px
+        margin-right: 0
+
+    .share-widget__links-wrap
+        justify-content: center
+
+    .share-widget__link-img
+        width: 37px
+        height: 37px
+
+    .share-widget__link:not(:last-child)
+        margin-right: 15px
+
+.sp-birthday-header
+    position: relative
+    margin-bottom: 60px
+
+    &__container
+        display: flex
+
+    &__content
+        width: 530px
+        margin-top: 100px
+
+    &__title
+        margin-bottom: 20px
+        font-size: 76px
+        line-height: $micro-lh
+        font-family: $bold-f
+
+    &__description
+        width: 450px
+        margin-top: 60px
+        margin-bottom: 0
+        font-size: $big-fz
+
+    &__wobbler
+        display: inline-block
+
+    &__img-container
+        position: relative
+        margin-top: 70px
+        right: -70px
+
+    &__img
+        display: block
+        width: 740px
+        height: 590px
+        margin-left: auto
+        position: relative
+        z-index: 2
+
+.sp-birthday-section-head
+    margin-bottom: 120px
+    text-align: center
+
+    &__title
+        font-size: 42px
+        font-family: $bold-f
+        text-transform: uppercase
+
+        &::before
+            content: ""
+            display: block
+            margin: 0 auto 30px
+            background-repeat: no-repeat
+            background-size: contain
+
+        &[data-icon="star"]::before
+            width: 50px
+            height: 50px
+            background-image: url(../images/special-projects/birthday/svg/star.svg)
+
+        &[data-icon="friends"]::before
+            width: 74px
+            height: 52px
+            background-image: url(../images/special-projects/birthday/svg/friends.svg)
+
+        &[data-icon="crown"]::before
+            width: 66px
+            height: 52px
+            background-image: url(../images/special-projects/birthday/svg/crown.svg)
+
+        &[data-icon="dialog"]
+            width: 650px
+            margin-left: auto
+            margin-right: auto
+
+            &::before
+                width: 72px
+                height: 60px
+                background-image: url(../images/special-projects/birthday/svg/dialog.svg)
+
+        &[data-icon="work"]::before
+            width: 60px
+            height: 68px
+            background-image: url(../images/special-projects/birthday/svg/work.svg)
+
+        &[data-icon="smile"]::before
+            width: 75px
+            height: 65px
+            background-image: url(../images/special-projects/birthday/svg/smile.svg)
+
+
+    &__description
+        margin-top: 20px
+        margin-left: auto
+        margin-right: auto
+        font-size: 18px
+
+        &_1
+            width: 550px
+
+        &_2
+            width: 810px
+
+        &_3
+            width: 760px
+
+        &_4
+            width: 860px
+
+        &_5
+            width: 760px
+
+        &_6
+            width: 760px
+
+.sp-birthday-h3
+    font-size: 48px
+    font-family: $bold-f
+
+.sp-birthday-materials-1
+    display: flex
+    align-items: flex-start
+    margin-bottom: 60px
+
+    .sp-birthday-materials
+        &__title
+            width: 390px
+            margin-bottom: 60px
+
+        &__img
+            position: relative
+            width: 490px
+            height: 324px
+            left: -20px
+
+.sp-birthday-materials-grid
+    width: 640px
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    flex-shrink: 0
+    margin-left: auto
+    margin-bottom: -45px
+    padding: 0
+
+.sp-birthday-material-item
+    position: relative
+    width: 200px
+    flex-grow: 0
+    flex-shrink: 0
+    margin-bottom: 45px
+    padding: 15px 15px 30px
+    border: 1px solid #E1ECF7
+    border-radius: 8px
+    background-color: $light-c
+    box-shadow: 0px 16px 48px rgba(144, 181, 227, 0.3)
+
+    &::after,
+    &::before
+        content: ""
+        position: absolute
+        height: 100%
+        border: 1px solid #E1ECF7
+        border-radius: 8px
+        background-color: $light-c
+
+    &::before
+        width: 192px
+        top: 4px
+        left: 4px
+        z-index: -1
+
+    &::after
+        width: 186px
+        top: 7px
+        left: 7px
+        z-index: -2
+
+    &__link
+        height: 100%
+        display: flex
+        flex-direction: column
+        align-items: center
+        text-align: center
+        color: $dark-c
+        text-decoration: none
+
+    &__amount
+        font-size: 56px
+        font-family: $bold-f
+        color: $base-c
+
+    &__name
+        margin-bottom: 20px
+        font-size: 24px
+        font-family: $bold-f
+        line-height: 1
+
+    &__wobbler
+        margin-top: auto
+
+.sp-birthday-materials-2
+    &__head
+        display: flex
+        align-items: flex-start
+        margin-bottom: 90px
+
+    .sp-birthday-materials
+        &__title
+            width: 650px
+            flex-shrink: 0
+            margin-top: 150px
+            margin-right: 130px
+
+        &__img
+            position: relative
+            width: 360px
+            height: 376px
+            flex-shrink: 0
+
+        &__img-2
+            width: 245px
+            height: 310px
+            margin-top: -75px
+            position: relative
+            z-index: 2
+
+.sp-birthday-insta-slider
+    height: 530px
+    margin-bottom: 150px
+
+    &__slide
+        display: flex
+        justify-content: space-between
+
+    &::before
+        content: ""
+        display: block
+        width: 1430px
+        height: 270px
+        position: relative
+        top: -130px
+        left: -175px
+        background-image: url(../images/special-projects/birthday/svg/decor-insta.svg)
+        background-repeat: no-repeat
+        background-size: contain
+
+
+.sp-birthday-insta-widget
+    width: 326px
+
+.sp-birthday-materials-3
+    .sp-birthday-materials
+        &__title
+            width: 530px
+            margin-bottom: 70px
+
+.gift-photos-grid
+    display: flex
+    flex-wrap: wrap
+    align-items: flex-end
+    margin-top: -130px
+    margin-right: -40px
+    margin-bottom: -40px
+
+.gift-photo-item
+    margin-right: 40px
+    margin-bottom: 40px
+    border-radius: 16px
+    box-shadow: 0px 16px 32px #e1ecf7
+
+
+    &:nth-child(1)
+        width: 340px
+        height: 297px
+
+    &:nth-child(2)
+        width: 210px
+        height: 297px
+
+    &:nth-child(3)
+        width: 670px
+        height: 427px
+
+    &:nth-child(4)
+        width: 340px
+        height: 377px
+
+    &:nth-child(5)
+        width: 590px
+        height: 377px
+
+    &:nth-child(6)
+        width: 290px
+        height: 377px
+
+.sp-birthday-section-friendship
+    position: relative
+    margin-top: 230px
+
+    &::before
+        content: ""
+        display: block
+        width: 100%
+        height: 162px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: -60px
+        background-image: url(../images/special-projects/birthday/svg/decor-path.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+.sp-birthday-circle-items-grid
+    display: flex
+    flex-wrap: wrap
+    align-items: flex-start
+    justify-content: center
+
+.sp-birthday-circle-item
+    position: relative
+    margin-left: auto
+    margin-right: auto
+    border: 2px solid #0073ff
+    box-shadow: 0 16px 32px #e1ecf7
+    border-radius: 50%
+    overflow: hidden
+
+    &_big
+        width: 240px
+        height: 240px
+
+    &_small
+        width: 220px
+        height: 220px
+
+    &__back
+        position: absolute
+        width: 100%
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        font-size: 20px
+        font-family: $add-sb-it-f
+        color: $light-c
+        background-color: rgba($base-c, .7)
+        opacity: 0
+        text-decoration: underline
+
+.sp-birthday-place-grid
+    margin-right: -110px
+    margin-bottom: -30px
+
+.sp-birthday-place
+    display: block
+    width: 240px
+    flex-shrink: 0
+    flex-grow: 0
+    text-decoration: none
+    margin-right: 110px
+    margin-bottom: 30px
+    cursor: pointer
+
+    &:hover,
+    &:focus
+        color: $base-c
+        text-decoration: underline
+
+        .sp-birthday-circle-item__back
+            opacity: 1
+
+.sp-birthday-place-name
+    margin-top: 20px
+    font-size: 20px
+    font-family: $add-sb-it-f
+    text-align: center
+
+.sp-birthday-section-events
+    position: relative
+    margin-top: -50px
+
+    &::before
+        content: ""
+        display: block
+        width: 100%
+        height: 380px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: -80px
+        background-image: url(../images/special-projects/birthday/svg/decor-plane.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+.sp-birthday-events-grid
+    margin-right: -20px
+    margin-bottom: -25px
+
+.sp-birthday-event
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    width: 310px
+    height: 420px
+    flex-shrink: 0
+    margin-right: 20px
+    margin-bottom: 25px
+    padding: 20px
+    border-radius: 8px
+    overflow: hidden
+    text-decoration: none
+
+    &__cover
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: 1
+
+    &__counter
+        position: absolute
+        top: 20px
+        left: 20px
+        z-index: 3
+        width: 29px
+        height: 33px
+        font-size: 24px
+        color: $base-c
+        text-align: center
+        background-color: $light-c
+        border-radius: 6px
+
+        &::after
+            content: ""
+            display: block
+            width: 26px
+            height: 32px
+            position: absolute
+            right: -6px
+            bottom: -4px
+            background-image: url(../images/special-projects/birthday/svg/counter-shadow.svg)
+
+    &__name
+        height: 120px
+        font-size: 32px
+        line-height: $micro-lh
+        font-family: $bold-f
+        color: $light-c
+        position: relative
+        z-index: 3
+
+    &__link
+        text-decoration: underline
+        font-family: $add-sb-it-f
+        font-size: 20px
+        color: $light-c
+        position: relative
+        z-index: 3
+
+    &::after
+        content: ""
+        position: absolute
+        display: block
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        z-index: 2
+        background: linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 46.85%, rgba(0, 115, 255, 0.6) 74.33%, rgba(0, 115, 255, 0.95) 100%)
+
+.sp-birthday-section-people
+    position: relative
+    margin-top: 70px
+
+    &::before
+        content: ""
+        display: block
+        width: 100%
+        height: 180px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: -20px
+        background-image: url(../images/special-projects/birthday/svg/decor-star.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+.sp-birthday-people-grid
+    margin-right: -60px
+    margin-bottom: -60px
+
+.sp-birthday-person
+    display: block
+    width: 255px
+    flex-shrink: 0
+    flex-grow: 0
+    text-decoration: none
+    margin-right: 60px
+    margin-bottom: 60px
+    cursor: pointer
+    text-align: center
+
+    &:hover,
+    &:focus
+        .sp-birthday-person-name
+            color: $base-c
+            text-decoration: underline
+
+        .sp-birthday-circle-item__back
+            opacity: 1
+
+.sp-birthday-person-name
+    margin-top: 20px
+    font-size: 20px
+    font-family: $add-sb-it-f
+
+.sp-birthday-person-description
+    margin-top: 10px
+    font-size: 16px
+    font-family: $add-sb-it-f
+    text-decoration: none
+
+.sp-birthday-section-workers
+    margin-top: 160px
+
+.sp-birthday-workers-grid_outer
+    width: 960px
+    margin-left: auto
+    margin-right: auto
+
+.sp-birthday-workers-grid
+    position: relative
+    margin-bottom: -90px
+
+    &::before
+        content: ""
+        position: absolute
+        top: -40px
+        left: -80px
+        width: 1120px
+        height: 675px
+        background-repeat: no-repeat
+        background-size: contain
+        background-image: url(../images/special-projects/birthday/svg/decor-workers.svg)
+
+.sp-birthday-worker
+    position: relative
+    display: block
+    width: 300px
+    flex-shrink: 0
+    flex-grow: 0
+    text-decoration: none
+    margin-bottom: 90px
+    cursor: pointer
+    text-align: center
+
+.sp-birthday-worker-name
+    margin-top: 20px
+    font-size: 24px
+    font-family: $bold-f
+    color: $base-c
+
+.sp-birthday-worker-description
+    margin-top: 5px
+    font-size: 18px
+    font-family: $add-sb-it-f
+    text-decoration: none
+
+.sp-birthday-section-incident
+    position: relative
+    margin-top: 80px
+
+    &::before
+        content: ""
+        display: block
+        width: 100%
+        height: 125px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: -20px
+        background-image: url(../images/special-projects/birthday/svg/decor-clouds.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+.sp-birthday-incident-wrap
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+
+    &_reverse
+        flex-direction: row-reverse
+
+    &:not(:last-child)
+        margin-bottom: 150px
+
+.sp-birthday-incident
+    &__name
+        font-size: 24px
+        font-family: $bold-f
+        color: $base-c
+
+    &__description
+        margin-top: 5px
+        font-size: 18px
+        font-family: $add-sb-it-f
+        text-decoration: none
+
+    &__text-wrap
+        margin-top: 60px
+        width: 530px
+
+        p:not(:last-child)
+            margin-bottom: 10px
+
+    &__slider
+        width: 540px
+        height: 380px
+        margin-top: 120px
+
+.sp-birthday-section-reviews
+    margin-top: 270px
+    margin-bottom: 120px
+    padding-top: 270px
+    padding-bottom: 200px
+
+
+.sp-birthday-reviews-slider_outer
+    position: relative
+    padding-bottom: 100px
+
+    &::before,
+    &::after
+        content: ""
+        position: absolute
+        z-index: 1
+        background-repeat: no-repeat
+        background-size: contain
+
+    &::before
+        width: 260px
+        height: 700px
+        top: -40px
+        left: -170px
+        background-image: url(../images/special-projects/birthday/svg/reviews-left.svg)
+
+    &::after
+        width: 240px
+        height: 730px
+        top: -110px
+        right: -150px
+        background-image: url(../images/special-projects/birthday/svg/reviews-right.svg)
+
+
+    .slide-nav-counter
+        width: 100px
+        position: absolute
+        bottom: -4px
+        left: 50%
+        transform: translateX(-50%)
+        font-size: 24px
+        line-height: 56px
+        color: $base-c
+
+.sp-birthday-reviews-slider
+    position: relative
+    z-index: 2
+
+    .slide
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+
+    .slider-arrow
+        position: absolute
+        top: auto
+        bottom: -100px
+        transform: translateX(-50%)
+
+    .slider-arrow-prev
+        left: calc(50% - 100px)
+
+    .slider-arrow-next
+        left: auto
+        right: calc(50% - 150px)
+
+.sp-birthday-review-wrap
+    padding-left: 30px
+    padding-right: 30px
+    padding-bottom: 40px
+
+.sp-birthday-review
+    padding: 30px 60px 60px
+    border-radius: 56px
+    background: $light-c
+    box-shadow: 0 16px 30px #e1ecf7
+
+    &__avatar
+        width: 176px
+        height: 176px
+        margin-left: auto
+        margin-right: auto
+        border-radius: 50%
+
+    &__name
+        margin-top: 20px
+        font-size: 24px
+        font-family: $bold-f
+        color: $base-c
+        text-align: center
+
+    &__description
+        margin-top: 5px
+        font-size: 18px
+        font-family: $add-sb-it-f
+        text-decoration: none
+        text-align: center
+
+    &__text-wrap
+        margin-top: 30px
+
+        p:not(:last-child)
+            margin-bottom: 10px
+
+.sp-birthday-section-thanks
+    position: relative
+    margin-bottom: 150px
+
+    &__title
+        position: absolute
+        top: 135px
+        left: 50%
+        transform: translateX(-50%)
+        width: 290px
+        font-size: 48px
+        line-height: 1.1
+        font-family: $bold-f
+        text-align: center
+
+    &__img
+        position: relative
+        left: -36px
+        width: 725px
+        height: 330px
+        margin-left: auto
+        margin-right: auto
+
+
+.wave-section
+    position: relative
+    background-color: #FAFBFC
+
+.wave-top
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+.wave-bottom
+    width: 100%
+    position: absolute
+    bottom: 0
+    left: 0
+
+.wave_reverse
+    transform: scale(-1, 1)
+
+.pre-wave-section_first
+    position: relative
+    z-index: 2
+
+.wave-section_first
+    z-index: 1
+    margin-top: -200px
+    padding-top: 200px
+    padding-bottom: 50px
