@@ -7991,8 +7991,13 @@ $('.slider-arrow').on('click', function () {
     sliderCaption.html(newDescription);
   } else sliderCaption.removeClass('active');
 
-  var newActiveSlideIndexText = newActiveSlideIndex + 1 > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
-  sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+  if (sliderNavCounter.hasClass('js-slide-nav-counter-without-zero')) {
+    sliderNavCounter.find('span').eq(0).html(newActiveSlideIndex + 1);
+  } else {
+    var newActiveSlideIndexText = newActiveSlideIndex + 1 > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
+    sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+  }
+
   sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
   sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
   setSliderTimeline(slider, newActiveSlideIndex + 1);
@@ -8037,8 +8042,14 @@ $('.slider-circles-container').on('click', '.slider-circle-item', function () {
     }, animateSpeed, "linear", function () {
       $(this).addClass('active');
     });
-    var newActiveSlideIndexText = newActiveSlideIndex + 1 > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
-    sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+
+    if (sliderNavCounter.hasClass('js-slide-nav-counter-without-zero')) {
+      sliderNavCounter.find('span').eq(0).html(newActiveSlideIndex + 1);
+    } else {
+      var newActiveSlideIndexText = newActiveSlideIndex + 1 > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
+      sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+    }
+
     sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
     sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
     setSliderTimeline(slider, newActiveSlideIndex + 1);
@@ -8074,8 +8085,15 @@ function sliderInit() {
     if (slidesAmount > 1) {
       sliderNav.addClass('active');
       sliderNavCounter.addClass('active');
-      sliderNavCounter.find('span').eq(0).html('01');
-      sliderNavCounter.find('span').eq(1).html(slidesAmountText);
+
+      if (sliderNavCounter.hasClass('js-slide-nav-counter-without-zero')) {
+        sliderNavCounter.find('span').eq(0).html('1');
+        sliderNavCounter.find('span').eq(1).html(slidesAmount);
+      } else {
+        sliderNavCounter.find('span').eq(0).html('01');
+        sliderNavCounter.find('span').eq(1).html(slidesAmountText);
+      }
+
       sliderCircles.addClass('active');
 
       if (sliderCircles.length > 0 && sliderCircles.hasClass('active')) {
@@ -8116,8 +8134,14 @@ $('.timeline-step').click(function () {
     }, animateSpeed, "linear", function () {
       $(this).addClass('active');
     });
-    var newActiveSlideIndexText = newActiveSlideIndex + 1 > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
-    sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+
+    if (sliderNavCounter.hasClass('js-slide-nav-counter-without-zero')) {
+      sliderNavCounter.find('span').eq(0).html(newActiveSlideIndex + 1);
+    } else {
+      var newActiveSlideIndexText = newActiveSlideIndex + 1 > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
+      sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+    }
+
     sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
     sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
     setSliderTimeline(slider, newActiveSlideIndex + 1);
@@ -8146,8 +8170,14 @@ $('.preview-slider__mini-btn').click(function () {
     }, animateSpeed, "linear", function () {
       $(this).addClass('active');
     });
-    var newActiveSlideIndexText = newActiveSlideIndex + 1 > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
-    sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+
+    if (sliderNavCounter.hasClass('js-slide-nav-counter-without-zero')) {
+      sliderNavCounter.find('span').eq(0).html(newActiveSlideIndex + 1);
+    } else {
+      var newActiveSlideIndexText = newActiveSlideIndex + 1 > 9 ? newActiveSlideIndex + 1 : '0' + (newActiveSlideIndex + 1);
+      sliderNavCounter.find('span').eq(0).html(newActiveSlideIndexText);
+    }
+
     sliderCircleItems.eq(currentActiveSlideIndex).removeClass('active');
     sliderCircleItems.eq(newActiveSlideIndex).addClass('active');
   }
@@ -8203,6 +8233,23 @@ if (previewSliderThumbArrow) {
     }
   });
 }
+
+$('.sp-birthday-reviews-slider').on('init', function (event, slick) {
+  if (slick.currentSlide + 1 === slick.slideCount) $('.sp-birthday-reviews-slider_outer .slide-nav-counter').html(slick.currentSlide + 1 + ' из ' + slick.slideCount);else $('.sp-birthday-reviews-slider_outer .slide-nav-counter').html(slick.currentSlide + 2 + ' из ' + slick.slideCount);
+});
+$('.sp-birthday-reviews-slider').on('afterChange', function (event, slick, currentSlide) {
+  if (slick.currentSlide + 1 === slick.slideCount) $('.sp-birthday-reviews-slider_outer .slide-nav-counter').html(slick.currentSlide + 1 + ' из ' + slick.slideCount);else $('.sp-birthday-reviews-slider_outer .slide-nav-counter').html(slick.currentSlide + 2 + ' из ' + slick.slideCount);
+});
+$('.sp-birthday-reviews-slider').slick({
+  infinite: true,
+  slidesToShow: 2,
+  slidesToScroll: 2,
+  arrows: true,
+  adaptiveHeight: true,
+  lazyLoad: 'ondemand',
+  prevArrow: '<button class="slider-arrow slider-arrow-prev icon-arrow-left active"></button>',
+  nextArrow: '<button class="slider-arrow slider-arrow-next icon-arrow-right active"></button>'
+});
 "use strict";
 
 $('.js-sp-dance-style-slider-item').click(function () {
@@ -8251,8 +8298,6 @@ function updateSubscribeWidget() {
 }
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function setFirstTabsVisible() {
   $('.tabs-wrap').each(function () {
     $(this).find('.tab__btn').eq(0).addClass('active');
@@ -8274,12 +8319,12 @@ function switchTab(elem) {
 
 $(function () {
   setFirstTabsVisible();
-  $('.movie-posters-slider').slick(_defineProperty({
+  $('.movie-posters-slider').slick({
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
     arrows: true
-  }, "infinite", true));
+  });
 });
 $('body').on('click', '.js-tab__btn', function () {
   switchTab($(this));

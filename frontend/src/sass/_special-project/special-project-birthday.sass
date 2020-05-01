@@ -1,15 +1,53 @@
-.sp-dance
+.sp-birthday
     padding-top: 0
 
-    .slider
+.sp-birthday-slider
+    .slider-circles-container
+        display: none
+
+    .slider-arrow
+        &-prev
+            left: -90px
+
+        &-next
+            right: -90px
+
+    .slider-arrow-container
+        position: absolute
+        left: 50%
+        bottom: -100px
+        transform: translateX(-50%)
+        display: flex
+        align-items: center
+
+    .slider-arrow
+        display: block
+        width: 52px
+        height: 52px
+        border-radius: 50%
+        position: relative
+        left: 0
+        right: 0
+        font-size: 25px
+        line-height: 56px
+        color: $base-c
+        background-color: $light-c
+        opacity: 0.8
+        box-shadow: 0 8px 16px #e1ecf7
+
         &:hover
-            .sp-dance-slider__thin-arrow-container
-                opacity: 1
+            box-shadow: 0 16px 24px #cfdfef
 
-        .nav-wrapper
-            left: 0
+    .slide-nav-counter
+        display: block
+        width: 100px
+        margin-right: 30px
+        margin-left: 30px
+        font-size: 24px
+        line-height: 56px
+        color: $base-c
 
-.sp-dance__share-block
+.sp-birthday__share-block
     margin: 100px auto 50px
 
     .share-widget
@@ -30,23 +68,6 @@
 
     .share-widget__link:not(:last-child)
         margin-right: 15px
-
-.sp-dance__photo,
-.sp-dance__preview-slider,
-.sp-dance__preview-slider .slide,
-.preview-slider__big-img-wrap::after
-    border-radius: 8px
-
-.preview-slider__big-img-wrap::after,
-.sp-dance__preview-slider .slide
-    overflow: hidden
-
-.sp-dance-light-section
-    padding-top: 110px
-    padding-bottom: 170px
-    background-color: #fbfcfd
-    border-top: 1px solid #d7dbe0
-    border-bottom: 1px solid #d7dbe0
 
 .sp-birthday-header
     position: relative
@@ -92,13 +113,76 @@
     text-align: center
 
     &__title
-        margin-bottom: 20px
         font-size: 42px
         font-family: $bold-f
         text-transform: uppercase
 
+        &::before
+            content: ""
+            display: block
+            margin: 0 auto 30px
+            background-repeat: no-repeat
+            background-size: contain
+
+        &[data-icon="star"]::before
+            width: 50px
+            height: 50px
+            background-image: url(../images/special-projects/birthday/svg/star.svg)
+
+        &[data-icon="friends"]::before
+            width: 74px
+            height: 52px
+            background-image: url(../images/special-projects/birthday/svg/friends.svg)
+
+        &[data-icon="crown"]::before
+            width: 66px
+            height: 52px
+            background-image: url(../images/special-projects/birthday/svg/crown.svg)
+
+        &[data-icon="dialog"]
+            width: 650px
+            margin-left: auto
+            margin-right: auto
+
+            &::before
+                width: 72px
+                height: 60px
+                background-image: url(../images/special-projects/birthday/svg/dialog.svg)
+
+        &[data-icon="work"]::before
+            width: 60px
+            height: 68px
+            background-image: url(../images/special-projects/birthday/svg/work.svg)
+
+        &[data-icon="smile"]::before
+            width: 75px
+            height: 65px
+            background-image: url(../images/special-projects/birthday/svg/smile.svg)
+
+
     &__description
+        margin-top: 20px
+        margin-left: auto
+        margin-right: auto
         font-size: 18px
+
+        &_1
+            width: 550px
+
+        &_2
+            width: 810px
+
+        &_3
+            width: 760px
+
+        &_4
+            width: 860px
+
+        &_5
+            width: 760px
+
+        &_6
+            width: 760px
 
 .sp-birthday-h3
     font-size: 48px
@@ -117,6 +201,7 @@
         &__img
             position: relative
             width: 490px
+            height: 324px
             left: -20px
 
 .sp-birthday-materials-grid
@@ -213,539 +298,494 @@
     height: 530px
     margin-bottom: 150px
 
-    .slider-circles-container
-        display: none
-
-    .slider-arrow
-        &-prev
-            left: -90px
-
-        &-next
-            right: -90px
-
     &__slide
         display: flex
         justify-content: space-between
 
-    .slider-arrow
+    &::before
+        content: ""
         display: block
-        width: 52px
-        height: 52px
-        border-radius: 50%
-        position: absolute
-        bottom: -150px
-        transform: translateY(-50%)
-        z-index: 2
-        font-size: 25px
-        line-height: 56px
-        color: $base-c
-        background-color: $light-c
-        box-shadow: 0px 8px 16px #e1ecf7
+        width: 1430px
+        height: 270px
+        position: relative
+        top: -130px
+        left: -175px
+        background-image: url(../images/special-projects/birthday/svg/decor-insta.svg)
+        background-repeat: no-repeat
+        background-size: contain
 
-        &-prev
-            left: calc(50% - 64px)
-            padding-right: 2px
-
-        &-next
-            right: calc(50% - 64px)
-            padding-left: 5px
 
 .sp-birthday-insta-widget
-    width: calc((100% - 150px) / 3)
+    width: 326px
+
+.sp-birthday-materials-3
+    .sp-birthday-materials
+        &__title
+            width: 530px
+            margin-bottom: 70px
+
+.gift-photos-grid
+    display: flex
+    flex-wrap: wrap
+    align-items: flex-end
+    margin-top: -130px
+    margin-right: -40px
+    margin-bottom: -40px
+
+.gift-photo-item
+    margin-right: 40px
+    margin-bottom: 40px
+    border-radius: 16px
+    box-shadow: 0px 16px 32px #e1ecf7
 
 
+    &:nth-child(1)
+        width: 340px
+        height: 297px
 
+    &:nth-child(2)
+        width: 210px
+        height: 297px
 
+    &:nth-child(3)
+        width: 670px
+        height: 427px
 
+    &:nth-child(4)
+        width: 340px
+        height: 377px
 
+    &:nth-child(5)
+        width: 590px
+        height: 377px
 
+    &:nth-child(6)
+        width: 290px
+        height: 377px
 
-.sp-dance-title
-    &_base
-        margin-bottom: 40px
+.sp-birthday-section-friendship
+    position: relative
+    margin-top: 230px
 
-    &_line
+    &::before
+        content: ""
+        display: block
+        width: 100%
+        height: 162px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: -60px
+        background-image: url(../images/special-projects/birthday/svg/decor-path.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+.sp-birthday-circle-items-grid
+    display: flex
+    flex-wrap: wrap
+    align-items: flex-start
+    justify-content: center
+
+.sp-birthday-circle-item
+    position: relative
+    margin-left: auto
+    margin-right: auto
+    border: 2px solid #0073ff
+    box-shadow: 0 16px 32px #e1ecf7
+    border-radius: 50%
+    overflow: hidden
+
+    &_big
+        width: 240px
+        height: 240px
+
+    &_small
+        width: 220px
+        height: 220px
+
+    &__back
+        position: absolute
+        width: 100%
+        height: 100%
         display: flex
         align-items: center
+        justify-content: center
+        font-size: 20px
+        font-family: $add-sb-it-f
+        color: $light-c
+        background-color: rgba($base-c, .7)
+        opacity: 0
+        text-decoration: underline
 
-        &::before
-            content: ""
-            display: block
-            flex-grow: 1
-            height: 1px
-            background-color: #7a8ba1
-            margin-right: 20px
+.sp-birthday-place-grid
+    margin-right: -110px
+    margin-bottom: -30px
 
-        &::after
-            content: ""
-            display: block
-            flex-grow: 1
-            height: 1px
-            background-color: #7a8ba1
-            margin-left: 20px
-
-    &_icon
-        &::before
-            content: ""
-            display: block
-            margin: 0 auto 40px
-            background-repeat: no-repeat
-
-        &_where-to-go
-            &::before
-                width: 140px
-                height: 132px
-                background-image: url(../images/special-projects/dance/svg/where-to-go.svg)
-
-        &_children
-            &::before
-                width: 108px
-                height: 94px
-                background-image: url(../images/special-projects/dance/svg/children.svg)
-
-        &_adult
-            &::before
-                width: 156px
-                height: 122px
-                background-image: url(../images/special-projects/dance/svg/adult.svg)
-
-        &_circus
-            &::before
-                width: 160px
-                height: 120px
-                background-image: url(../images/special-projects/dance/svg/circus.svg)
-
-.sp-dance-h2-title
-    font-size: 42px
-    line-height: 1.2
-    font-family: $bold-f
-    letter-spacing: 0.02em
-    text-transform: uppercase
-    text-align: center
-
-.sp-dance-h3-title
-    font-size: $medium-fz
-    line-height: 1.2
-    font-family: $bold-f
-    letter-spacing: 0.02em
-    text-transform: uppercase
-    text-align: center
-
-.sp-dance-title-subtext
-    margin-top: -10px
-    font-size: 18px
-    text-align: center
-
-.sp-dance-styles-list
-    display: grid
-    grid-template-columns: repeat(5, 1fr)
-    grid-gap: 0 20px
-    margin: 60px 0 300px
-    padding: 0
-    counter-reset: styles-list
-
-.sp-dance-style
-    position: relative
+.sp-birthday-place
+    display: block
+    width: 240px
+    flex-shrink: 0
+    flex-grow: 0
+    text-decoration: none
+    margin-right: 110px
+    margin-bottom: 30px
     cursor: pointer
-    background-color: $light-gray
 
-    &_active
+    &:hover,
+    &:focus
+        color: $base-c
+        text-decoration: underline
+
+        .sp-birthday-circle-item__back
+            opacity: 1
+
+.sp-birthday-place-name
+    margin-top: 20px
+    font-size: 20px
+    font-family: $add-sb-it-f
+    text-align: center
+
+.sp-birthday-section-events
+    position: relative
+    margin-top: -50px
+
+    &::before
+        content: ""
+        display: block
+        width: 100%
+        height: 380px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: -80px
+        background-image: url(../images/special-projects/birthday/svg/decor-plane.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+.sp-birthday-events-grid
+    margin-right: -20px
+    margin-bottom: -25px
+
+.sp-birthday-event
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    width: 310px
+    height: 420px
+    flex-shrink: 0
+    margin-right: 20px
+    margin-bottom: 25px
+    padding: 20px
+    border-radius: 8px
+    overflow: hidden
+    text-decoration: none
+
+    &__cover
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: 1
+
+    &__counter
+        position: absolute
+        top: 20px
+        left: 20px
+        z-index: 3
+        width: 29px
+        height: 33px
+        font-size: 24px
+        color: $base-c
+        text-align: center
+        background-color: $light-c
+        border-radius: 6px
+
         &::after
             content: ""
             display: block
-            width: 100%
-            height: 5px
+            width: 26px
+            height: 32px
             position: absolute
-            left: 0
-            bottom: -20px
-            background-color: #0073FF
-            border-radius: 5px
+            right: -6px
+            bottom: -4px
+            background-image: url(../images/special-projects/birthday/svg/counter-shadow.svg)
+
+    &__name
+        height: 120px
+        font-size: 32px
+        line-height: $micro-lh
+        font-family: $bold-f
+        color: $light-c
+        position: relative
+        z-index: 3
+
+    &__link
+        text-decoration: underline
+        font-family: $add-sb-it-f
+        font-size: 20px
+        color: $light-c
+        position: relative
+        z-index: 3
+
+    &::after
+        content: ""
+        position: absolute
+        display: block
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        background: linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 46.85%, rgba(0, 115, 255, 0.6) 74.33%, rgba(0, 115, 255, 0.95) 100%)
+
+.sp-birthday-section-people
+    position: relative
+    margin-top: 70px
+
+    &::before
+        content: ""
+        display: block
+        width: 100%
+        height: 180px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: -20px
+        background-image: url(../images/special-projects/birthday/svg/decor-star.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+.sp-birthday-people-grid
+    margin-right: -60px
+    margin-bottom: -60px
+
+.sp-birthday-person
+    display: block
+    width: 255px
+    flex-shrink: 0
+    flex-grow: 0
+    text-decoration: none
+    margin-right: 60px
+    margin-bottom: 60px
+    cursor: pointer
+    text-align: center
+
+    &:hover,
+    &:focus
+        .sp-birthday-person-name
+            color: $base-c
+            text-decoration: underline
+
+        .sp-birthday-circle-item__back
+            opacity: 1
+
+.sp-birthday-person-name
+    margin-top: 20px
+    font-size: 20px
+    font-family: $add-sb-it-f
+
+.sp-birthday-person-description
+    margin-top: 10px
+    font-size: 16px
+    font-family: $add-sb-it-f
+    text-decoration: none
+
+.sp-birthday-section-workers
+    margin-top: 160px
+
+.sp-birthday-workers-grid_outer
+    width: 960px
+    margin-left: auto
+    margin-right: auto
+
+.sp-birthday-workers-grid
+    position: relative
+    margin-bottom: -90px
 
     &::before
         content: ""
         position: absolute
-        top: 0
-        z-index: 1
-        width: 100%
-        height: 100%
-        background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(26, 54, 86, 0.02) 53.1%, rgba(34, 57, 85, 0.25) 77.4%, rgba(38, 43, 54, 0.8) 100%)
-        border-radius: 8px
+        top: -40px
+        left: -80px
+        width: 1120px
+        height: 675px
+        background-repeat: no-repeat
+        background-size: contain
+        background-image: url(../images/special-projects/birthday/svg/decor-workers.svg)
 
-    &__img
-        width: 100%
-        height: 220px
-        border-radius: 8px
+.sp-birthday-worker
+    position: relative
+    display: block
+    width: 300px
+    flex-shrink: 0
+    flex-grow: 0
+    text-decoration: none
+    margin-bottom: 90px
+    cursor: pointer
+    text-align: center
 
-    &__title
-        position: absolute
-        bottom: 20px
-        left: 5px
-        right: 5px
-        z-index: 2
-        height: 90px
-        font-size: 20px
-        line-height: $micro-lh
-        font-family: $bold-f
-        color: $light-c
-        text-align: center
+.sp-birthday-worker-name
+    margin-top: 20px
+    font-size: 24px
+    font-family: $bold-f
+    color: $base-c
 
-        &::before
-            counter-increment: styles-list
-            content: counter(styles-list)
-            display: block
-            width: 36px
-            height: 36px
-            margin: 0 auto 10px
-            font-size: $big-fz
-            line-height: 38px
-            border-radius: 50%
-            background-color: $base-c
+.sp-birthday-worker-description
+    margin-top: 5px
+    font-size: 18px
+    font-family: $add-sb-it-f
+    text-decoration: none
 
+.sp-birthday-section-incident
+    position: relative
+    margin-top: 80px
 
-
-.sp-dance-arrow-slider_outer
-    .slider-arrow
-        &-prev
-            left: -40px
-
-        &-next
-            right: -40px
-
-.sp-dance-slider__thin-arrow-container
-    position: absolute
-    width: 100%
-    height: 760px
-    top: 0
-    opacity: 0
-    transition: opacity 0.2s
-
-    .slider-arrow
-        display: flex
-        align-items: center
-        justify-content: center
-        position: absolute
-        top: 0
-        z-index: 2
-        width: 160px
-        height: 100%
-        font-size: 35px
-        color: $light-c
-        border-radius: 8px
-
-    .slider-arrow-prev
-        left: 0
-        background: linear-gradient(90deg, rgba(#4c607b, 0.55) 0%, rgba(#4c607b, 0) 100%)
-
-    .slider-arrow-next
-        right: 0
-        background: linear-gradient(90deg, rgba(#4c607b, 0) 0%, rgba(#4c607b, 0.55) 100%)
-
-
-
-.sp-dance-section-where-to-go
-    background-image: url(../images/special-projects/dance/svg/decor-left.svg), url(../images/special-projects/dance/svg/decor-right.svg)
-    background-position: calc(50vw - 900px) center, calc(50vw + 450px) center
-    background-repeat: no-repeat
-
-    &_children
-        margin-bottom: 120px
-
-.sp-dance-place-round
-    &__list
-        display: flex
-        flex-wrap: wrap
-        justify-content: center
-        align-items: flex-start
-        margin: 0 -32px -75px
-        padding: 0
-
-    &__item
-        width: 222px
-        margin: 0 32px 75px
-        text-align: center
-
-        a
-            display: block
-            color: $dark-c
-            text-decoration: none
-
-    &__img
+    &::before
+        content: ""
         display: block
-        width: 220px
-        height: 220px
-        margin: 0 auto 20px
-        border-radius: 50%
+        width: 100%
+        height: 125px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: -20px
+        background-image: url(../images/special-projects/birthday/svg/decor-clouds.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
 
-    &__title
-        margin-bottom: 5px
-        font-size: $medium-fz
-        font-family: $add-sb-it-f
+.sp-birthday-incident-wrap
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+
+    &_reverse
+        flex-direction: row-reverse
+
+    &:not(:last-child)
+        margin-bottom: 150px
+
+.sp-birthday-incident
+    &__name
+        font-size: 24px
+        font-family: $bold-f
+        color: $base-c
 
     &__description
-        font-size: $mini-fz
-        font-style: italic
-
-.sp-dance__contacts-table
-    font-size: 16px
-    font-family: $base-f
-
-    [class^="icon-"]
-        display: inline-block
-        width: 18px
-        height: 20px
-        margin-right: 10px
-        font-size: 0
-        line-height: 20px
-        color: $base-c
-        vertical-align: -2px
-        text-align: center
-
-    [class^="icon-"]::before
-        font-size: 17px
-
-    .icon-mail::before
-        font-size: 13px
-
-    a
-        color: $base-c
+        margin-top: 5px
+        font-size: 18px
+        font-family: $add-sb-it-f
         text-decoration: none
 
-        &:hover,
-        &:focus
-            text-decoration: underline
+    &__text-wrap
+        margin-top: 60px
+        width: 530px
 
-    tr:not(:last-child) td
-        padding-bottom: 10px
+        p:not(:last-child)
+            margin-bottom: 10px
 
-    td
-        padding-top: 0
-        padding-left: 0
-        padding-right: 0
-        vertical-align: baseline
+    &__slider
+        width: 540px
+        height: 380px
+        margin-top: 120px
 
-.sp-dance-person
-    &__photo
-        display: block
-        width: 106px
-        height: 106px
-        margin-bottom: 35px
+.sp-birthday-section-reviews
+    margin-top: 270px
+    margin-bottom: 120px
+    padding-top: 270px
+    padding-bottom: 200px
+
+
+.sp-birthday-reviews-slider_outer
+    margin: -30px -15px
+
+    .slick-list
+        padding: 30px 15px 100px
+
+    .slide-nav-counter
+        width: 100px
+        position: absolute
+        bottom: -4px
+        left: 50%
+        transform: translateX(-50%)
+        font-size: 24px
+        line-height: 56px
+        color: $base-c
+
+.sp-birthday-reviews-slider
+    .slide
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+
+    .slider-arrow
+        position: absolute
+        top: auto
+        bottom: 0
+        transform: translateX(-50%)
+
+    .slider-arrow-prev
+        left: calc(50% - 100px)
+
+    .slider-arrow-next
+        left: auto
+        right: calc(50% - 150px)
+
+.sp-birthday-review
+    max-width: 620px
+    min-width: 620px
+    margin-left: 15px
+    margin-right: 15px
+    padding: 30px 60px 60px
+    border-radius: 56px
+    background: $light-c
+    box-shadow: 0 16px 30px #e1ecf7
+
+    &__avatar
+        width: 176px
+        height: 176px
+        margin-left: auto
+        margin-right: auto
         border-radius: 50%
 
     &__name
-        display: block
-        font-size: $medium-fz
-        font-family: $bold-f
-        color: $base-c
-
-    &__work
-        display: block
-        font-size: $base-fz
-        font-family: $add-sb-it-f
-
-.sp-dance-place-full__list
-    padding: 0
-    margin-bottom: 0
-
-.sp-dance-place-full__list_children
-    counter-reset: places-list
-
-.sp-dance-place-full__list_adult
-    counter-reset: places-list 7
-
-.sp-dance-place-full__cover
-    display: block
-    height: 540px
-    background-color: $light-gray
-
-.sp-dance-place-full__title
-    &::before
-        counter-increment: places-list
-        content: counter(places-list)
-        display: block
-        width: 64px
-        height: 64px
-        margin: 0 auto 30px
-        font-size: $huge-fz
-        line-height: 64px
-        color: $light-c
-        border-radius: 50%
-        background-color: $base-c
-
-.sp-dance-place-full__pretext
-    width: 500px
-    margin-left: auto
-    margin-right: auto
-
-.sp-dance-slider_small
-    height: 380px
-
-.sp-dance-slider_big
-    height: 760px
-
-.sp-dance-feedback-section
-    padding: 40px 0 60px
-    background-color: #FBFCFD
-
-.sp-dance-place1-feedback-slider
-    height: 640px
-
-.sp-dance-place2-feedback-slider
-    height: 490px
-
-.sp-dance-place3-feedback-slider
-    height: 580px
-
-.sp-dance-place7-feedback-slider
-    height: 460px
-
-.sp-dance-direct-speech-wrap
-    width: 1180px
-    margin-left: auto
-    margin-right: auto
-
-.sp-dance-direct-speech
-    height: calc(100% - 100px)
-    margin: 50px
-    padding: 60px 110px
-    background-color: $light-c
-    border-radius: 56px
-    box-shadow: 0 26px 28px #e1ecf7
-
-.sp-dance-qa
-    &-list
-        display: flex
-        justify-content: space-between
-        margin: 0
-        padding: 0
-
-    &-item
-        width: 370px
-        padding: 40px 40px 60px
-        background-color: $light-c
-        border-radius: 28px
-        box-shadow: 0 26px 28px #e1ecf7
-
-    &__question
-        height: 124px
-        margin: 0 20px 20px
-        font-size: $big-fz
+        font-size: 24px
         font-family: $bold-f
         color: $base-c
         text-align: center
 
-.sp-dance-splash
-    padding: 70px 0 50px
-    background-color: $dark-c
-    background-size: cover
-    background-position: center
-    background-repeat: no-repeat
-    text-align: center
-    color: $light-c
-
-    &__title
-        width: 480px
-        margin: 0 auto 30px
-
     &__description
-        width: 575px
-        margin: 0 auto 20px
-        font-size: $medium-fz
+        margin-top: 5px
+        font-size: 18px
         font-family: $add-sb-it-f
+        text-decoration: none
+        text-align: center
 
-.sp-dance-online
-    &-list
-        margin: 0
-        padding: 0
+    &__text-wrap
+        margin-top: 30px
 
-    &-item
-        display: flex
-        align-items: flex-start
+        p:not(:last-child)
+            margin-bottom: 10px
 
-        &:not(:first-child)
-            padding-top: 60px
-
-        &:not(:last-child)
-            padding-bottom: 60px
-            border-bottom: 1px solid #7a8ba1
-
-    &__cover
-        width: 320px
-        height: 200px
-        flex-shrink: 0
-        margin-right: 65px
-        background-color: $light-gray
-
-    &__content
-        flex-grow: 1
+.sp-birthday-section-thanks
+    position: relative
+    margin-bottom: 150px
 
     &__title
-        margin-bottom: 20px
-        text-align: left
+        position: absolute
+        top: 135px
+        left: 50%
+        transform: translateX(-50%)
+        width: 290px
+        font-size: 48px
+        line-height: 1.1
+        font-family: $bold-f
+        text-align: center
 
-    &__site
-        display: inline-block
-        margin-top: 20px
-        color: $base-c
-        text-decoration: none
-
-        &:hover span
-            text-decoration: underline
-
-        span
-            margin-left: 20px
-            vertical-align: 2px
-
-        &_youtube
-            &::before
-                content: ""
-                display: inline-block
-                width: 22px
-                height: 18px
-                margin-right: -4px
-                background-image: url(../images/special-projects/dance/svg/youtube.svg)
-                background-repeat:
-                background-size: contain
-
-.sp-dance-plases-nav
-    position: sticky
-    top: calc(50vh - 190px)
-    left: calc((100vw - 1300px) / 2 + 1300px + ((100vw - 1300px) / 4 - 85px))
-    z-index: 10
-    width: 170px
-    margin-right: 20px
-    margin-bottom: 26px
-    padding: 30px
-    font-size: 14px
-    color: $light-c
-    background-color: $base-c
-    border-radius: 8px
-    counter-reset: places-nav
-
-    & + *
-        margin-top: -310px
-
-    &__title
-        margin-bottom: .5em
-        text-transform: uppercase
-
-    &__list
-        margin: 0
-        padding: 0
-
-        &:not(:last-child)
-            margin-bottom: 1.3em
-
-    &__item
-        line-height: 2
-
-        &::before
-            counter-increment: places-nav
-            content: counter(places-nav) "."
-            margin-right: 10px
-
-    &__link
-        text-decoration: none
-        color: inherit
-
-        &:hover
-            text-decoration: underline
+    &__img
+        position: relative
+        left: -36px
+        width: 725px
+        height: 330px
+        margin-left: auto
+        margin-right: auto

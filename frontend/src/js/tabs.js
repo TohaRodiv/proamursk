@@ -27,10 +27,9 @@ $(function () {
         slidesToShow: 5,
         slidesToScroll: 1,
         arrows: true,
-        infinite: true
     });
-})
+});
 
 $('body').on('click', '.js-tab__btn', function () {
     switchTab($(this));
-})
+});
