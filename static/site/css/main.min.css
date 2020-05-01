@@ -7535,6 +7535,9 @@ footer {
   line-height: 56px;
   color: #0073FF; }
 
+.sp-birthday-slider img {
+  min-height: 100%; }
+
 .sp-birthday__share-block {
   margin: 100px auto 50px; }
   .sp-birthday__share-block .share-widget {
@@ -8023,6 +8026,7 @@ footer {
     height: 100%;
     top: 0;
     left: 0;
+    z-index: 2;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 115, 255, 0.02)), color-stop(46.85%, rgba(0, 115, 255, 0.02)), color-stop(74.33%, rgba(0, 115, 255, 0.6)), to(rgba(0, 115, 255, 0.95)));
     background: -o-linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 46.85%, rgba(0, 115, 255, 0.6) 74.33%, rgba(0, 115, 255, 0.95) 100%);
     background: linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 46.85%, rgba(0, 115, 255, 0.6) 74.33%, rgba(0, 115, 255, 0.95) 100%); }
@@ -8246,6 +8250,7 @@ footer {
     margin-right: auto;
     border-radius: 50%; }
   .sp-birthday-review__name {
+    margin-top: 20px;
     font-size: 24px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     color: #0073FF;
