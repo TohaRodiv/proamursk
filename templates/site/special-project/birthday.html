@@ -39,14 +39,10 @@
                         <span class="sp-birthday-material-item__amount">160</span>
                         <span class="sp-birthday-material-item__name">репортажей</span>
                         <div class="sp-birthday-material-item__wobbler">
-
-                            {% with model_name="reportage" %}
-                                {% include "site/modules/wobbler.html" %}
-                            {% endwith %}
-
-                            @@include('modules/wobbler.html', {
-                                "wobbler": "reportage"
-                            })
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-reportage"></span>
+                                <div class="wobbler__text">Репортаж</div>
+                            </div>
                         </div>
                     </a>
                 </li>
@@ -55,9 +51,10 @@
                         <span class="sp-birthday-material-item__amount">191</span>
                         <span class="sp-birthday-material-item__name">новость</span>
                         <div class="sp-birthday-material-item__wobbler">
-                            @@include('modules/wobbler.html', {
-                                "wobbler": "news"
-                            })
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-news-stroke"></span>
+                                <div class="wobbler__text">Новости</div>
+                            </div>
                         </div>
                     </a>
                 </li>
@@ -66,9 +63,10 @@
                         <span class="sp-birthday-material-item__amount">259</span>
                         <span class="sp-birthday-material-item__name">анонсов событий</span>
                         <div class="sp-birthday-material-item__wobbler">
-                            @@include('modules/wobbler.html', {
-                                "wobbler": "announcement"
-                            })
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-megafon-stroke"></span>
+                                <div class="wobbler__text">Анонс</div>
+                            </div>
                         </div>
                     </a>
                 </li>
@@ -77,9 +75,10 @@
                         <span class="sp-birthday-material-item__amount">29</span>
                         <span class="sp-birthday-material-item__name">интервью</span>
                         <div class="sp-birthday-material-item__wobbler">
-                            @@include('modules/wobbler.html', {
-                                "wobbler": "people"
-                            })
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-people"></span>
+                                <div class="wobbler__text">Люди</div>
+                            </div>
                         </div>
                     </a>
                 </li>
@@ -88,9 +87,10 @@
                         <span class="sp-birthday-material-item__amount">16</span>
                         <span class="sp-birthday-material-item__name">исторических материалов</span>
                         <div class="sp-birthday-material-item__wobbler">
-                            @@include('modules/wobbler.html', {
-                                "wobbler": "history"
-                            })
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-history"></span>
+                                <div class="wobbler__text">История</div>
+                            </div>
                         </div>
                     </a>
                 </li>
@@ -99,9 +99,10 @@
                         <span class="sp-birthday-material-item__amount">4</span>
                         <span class="sp-birthday-material-item__name">спецпроекта</span>
                         <div class="sp-birthday-material-item__wobbler">
-                            @@include('modules/wobbler.html', {
-                                "wobbler": "special-project"
-                            })
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-star-sharp"></span>
+                                <span class="wobbler__text">Спецпроект</span>
+                            </div>
                         </div>
                     </a>
                 </li>
@@ -111,7 +112,7 @@
         <section class="sp-birthday-materials-2 js-fade">
             <div class="sp-birthday-materials-2__head">
                 <h3 class="sp-birthday-materials__title sp-birthday-h3">Запостили <span class="accent_blue">567</span> публикаций в Инстаграме</h3>
-                <img src="" data-src="{% static "site/images/special-projects/birthday/insta.svg" %}{% static_version %}" alt="" class="sp-birthday-materials__img lazyload">
+                <img src="" data-src="{% static "site/images/special-projects/birthday/svg/insta.svg" %}{% static_version %}" alt="" class="sp-birthday-materials__img lazyload">
             </div>
 
             <script async src="//www.instagram.com/embed.js"></script>
@@ -170,7 +171,7 @@
                 </div>
             </div>
 
-            <img src="" data-src="{% static "site/images/special-projects/birthday/maffin.svg" %}{% static_version %}" alt="" class="sp-birthday-materials__img-2 lazyload">
+            <img src="" data-src="{% static "site/images/special-projects/birthday/svg/maffin.svg" %}{% static_version %}" alt="" class="sp-birthday-materials__img-2 lazyload">
         </section>
 
         <section class="sp-birthday-materials-3 sp-block_mt100 js-fade">
@@ -214,7 +215,7 @@
             </div>
 
             <div class="sp-birthday-place-grid sp-birthday-circle-items-grid">
-                <a class="sp-birthday-place">
+                <a href="" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -224,7 +225,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Детский сад № 9</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="https://proamursk.ru/places/2/" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -234,7 +235,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Дендрарий</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -244,7 +245,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Детский сад № 48 «Амурчонок»</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="https://proamursk.ru/places/5/" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -254,7 +255,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Дом молодежи</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="https://proamursk.ru/places/9/" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -264,7 +265,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Центральная библиотека Амурского района</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="https://proamursk.ru/places/4/" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -274,7 +275,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Дворец культуры</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="https://proamursk.ru/places/21/" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -285,7 +286,7 @@
                     <div class="sp-birthday-place-name">Краеведческий музей
                     </div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -295,7 +296,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Болоньский заповедник</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="https://proamursk.ru/places/16/" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -305,7 +306,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Детский эколого-биологический центр «Натуралист»</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="https://proamursk.ru/places/1/" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -315,7 +316,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Ботанический сад</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="https://proamursk.ru/places/6/" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -325,7 +326,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Детско-юношеская спортивная школа</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="https://proamursk.ru/places/12/" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -335,7 +336,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Центр творчества«Темп»</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -345,7 +346,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Школа № 2</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -355,7 +356,7 @@
                     </div>
                     <div class="sp-birthday-place-name">Школа № 5</div>
                 </a>
-                <a class="sp-birthday-place">
+                <a href="" target="_blank" class="sp-birthday-place">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_big">
                         <span class="sp-birthday-circle-item__back">Смотреть</span>
                         <img src=""
@@ -439,7 +440,7 @@
             </div>
 
             <div class="sp-birthday-people-grid sp-birthday-circle-items-grid">
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/3" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -450,7 +451,7 @@
                     <div class="sp-birthday-person-name">Олег Пермяков </div>
                     <p class="sp-birthday-person-description">Посвятил жизнь карате.Растит чемпионов, почитает наставников, знает сложные слова на японском</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/23" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -461,7 +462,7 @@
                     <div class="sp-birthday-person-name">Виталий Несис</div>
                     <p class="sp-birthday-person-description">Всегда на связи с амурчанами, помогает городу, уверенно смотрит в будущее</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/27" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -472,7 +473,7 @@
                     <div class="sp-birthday-person-name">Сергей Семенов</div>
                     <p class="sp-birthday-person-description">Не стал мэром и не жалеет, победил рак, помогает другим</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/32" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -483,7 +484,7 @@
                     <div class="sp-birthday-person-name">Алла Зайцева</div>
                     <p class="sp-birthday-person-description"> Воспитывает амурчат, имеет диплом тренера по&nbsp;стрельбе, советует отдавать в&nbsp;садик с&nbsp;года</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/7" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -494,7 +495,7 @@
                     <div class="sp-birthday-person-name">Роман Морозов</div>
                     <p class="sp-birthday-person-description">Мог стать программистом, но стал хирургом, смеется над фильмами про врачей, гордится званием «Лучший папа»</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/28" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -505,7 +506,7 @@
                     <div class="sp-birthday-person-name">Татьяна Квашнина</div>
                     <p class="sp-birthday-person-description">Приняла больше 300 родов, знает, как взвесить счастье, любит собак</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/4" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -516,7 +517,7 @@
                     <div class="sp-birthday-person-name">Владимир Иванов</div>
                     <p class="sp-birthday-person-description">Последователь Даррелла, посадил не одно дерево, приручил воробья Пашку</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/31" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -527,7 +528,7 @@
                     <div class="sp-birthday-person-name">Марина Берестовая</div>
                     <p class="sp-birthday-person-description">Почетная Снегурочка Амурска, исполняет желания, не любит валенки</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/19" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -538,7 +539,7 @@
                     <div class="sp-birthday-person-name">Галина Мягкова</div>
                     <p class="sp-birthday-person-description">Воспитывает сложных детей, найдет подход к любому, любит песни Пугачевой</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/20" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -549,7 +550,7 @@
                     <div class="sp-birthday-person-name">Сергей Анашкевич</div>
                     <p class="sp-birthday-person-description">Объехал весь мир, кроме Антарктиды, бросил бизнес ради блога, заразился «Амурским драйвом»</p>
                 </a>
-                <a class="sp-birthday-person">
+                <a href="https://proamursk.ru/persons/25" target="_blank" class="sp-birthday-person">
                     <div class="sp-birthday-circle-item sp-birthday-circle-item_small">
                         <span class="sp-birthday-circle-item__back">Читать</span>
                         <img src=""
@@ -975,7 +976,7 @@
 
     <div class="js-fade container">
         <div class="sp-birthday__share-block">
-            @@include('page-block/share-widget.html')
+            {% include "site/page-block/share-widget.html" %}
         </div>
     </div>
 </main>

@@ -7483,6 +7483,8 @@ footer {
 
 .sp-birthday {
   padding-top: 0; }
+  .sp-birthday a:visited {
+    color: inherit; }
 
 .sp-birthday-slider .slider-circles-container {
   display: none; }
