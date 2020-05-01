@@ -704,10 +704,31 @@
 
 
 .sp-birthday-reviews-slider_outer
-    margin: -30px -15px
+    position: relative
+    padding-bottom: 100px
 
-    .slick-list
-        padding: 30px 15px 100px
+    &::before,
+    &::after
+        content: ""
+        position: absolute
+        z-index: 1
+        background-repeat: no-repeat
+        background-size: contain
+
+    &::before
+        width: 260px
+        height: 700px
+        top: -40px
+        left: -170px
+        background-image: url(../images/special-projects/birthday/svg/reviews-left.svg)
+
+    &::after
+        width: 240px
+        height: 730px
+        top: -110px
+        right: -150px
+        background-image: url(../images/special-projects/birthday/svg/reviews-right.svg)
+
 
     .slide-nav-counter
         width: 100px
@@ -720,6 +741,9 @@
         color: $base-c
 
 .sp-birthday-reviews-slider
+    position: relative
+    z-index: 2
+
     .slide
         display: flex
         align-items: flex-start
@@ -728,7 +752,7 @@
     .slider-arrow
         position: absolute
         top: auto
-        bottom: 0
+        bottom: -100px
         transform: translateX(-50%)
 
     .slider-arrow-prev
@@ -738,11 +762,12 @@
         left: auto
         right: calc(50% - 150px)
 
+.sp-birthday-review-wrap
+    padding-left: 30px
+    padding-right: 30px
+    padding-bottom: 40px
+
 .sp-birthday-review
-    max-width: 620px
-    min-width: 620px
-    margin-left: 15px
-    margin-right: 15px
     padding: 30px 60px 60px
     border-radius: 56px
     background: $light-c

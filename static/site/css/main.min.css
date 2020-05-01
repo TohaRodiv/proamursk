@@ -8194,9 +8194,26 @@ footer {
   padding-bottom: 200px; }
 
 .sp-birthday-reviews-slider_outer {
-  margin: -30px -15px; }
-  .sp-birthday-reviews-slider_outer .slick-list {
-    padding: 30px 15px 100px; }
+  position: relative;
+  padding-bottom: 100px; }
+  .sp-birthday-reviews-slider_outer::before, .sp-birthday-reviews-slider_outer::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: contain; }
+  .sp-birthday-reviews-slider_outer::before {
+    width: 260px;
+    height: 700px;
+    top: -40px;
+    left: -170px;
+    background-image: url(../images/special-projects/birthday/svg/reviews-left.svg); }
+  .sp-birthday-reviews-slider_outer::after {
+    width: 240px;
+    height: 730px;
+    top: -110px;
+    right: -150px;
+    background-image: url(../images/special-projects/birthday/svg/reviews-right.svg); }
   .sp-birthday-reviews-slider_outer .slide-nav-counter {
     width: 100px;
     position: absolute;
@@ -8209,37 +8226,38 @@ footer {
     line-height: 56px;
     color: #0073FF; }
 
-.sp-birthday-reviews-slider .slide {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
+.sp-birthday-reviews-slider {
+  position: relative;
+  z-index: 2; }
+  .sp-birthday-reviews-slider .slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .sp-birthday-reviews-slider .slider-arrow {
+    position: absolute;
+    top: auto;
+    bottom: -100px;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%); }
+  .sp-birthday-reviews-slider .slider-arrow-prev {
+    left: calc(50% - 100px); }
+  .sp-birthday-reviews-slider .slider-arrow-next {
+    left: auto;
+    right: calc(50% - 150px); }
 
-.sp-birthday-reviews-slider .slider-arrow {
-  position: absolute;
-  top: auto;
-  bottom: 0;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%); }
-
-.sp-birthday-reviews-slider .slider-arrow-prev {
-  left: calc(50% - 100px); }
-
-.sp-birthday-reviews-slider .slider-arrow-next {
-  left: auto;
-  right: calc(50% - 150px); }
+.sp-birthday-review-wrap {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 40px; }
 
 .sp-birthday-review {
-  max-width: 620px;
-  min-width: 620px;
-  margin-left: 15px;
-  margin-right: 15px;
   padding: 30px 60px 60px;
   border-radius: 56px;
   background: #FFFFFF;
