@@ -6229,7 +6229,7 @@ var IntersectionObserverImageCallback = function IntersectionObserverImageCallba
       if (image.classList.contains('lazyload-inline-bg')) {
         image.style.backgroundImage = 'url(' + image.getAttribute('data-src') + ')';
         setTimeout(function () {
-          item.classList.remove('lazyload', 'js-fade', 'js-fade_animate');
+          image.classList.remove('lazyload', 'js-fade', 'js-fade_animate');
         }, 300);
       } else if (image.getAttribute('srcset')) {
         image.srcset = image.getAttribute('data-src');
