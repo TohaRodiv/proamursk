@@ -8008,9 +8008,11 @@ footer {
     background: -o-linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 50%, rgba(0, 115, 255, 0.6) 75%, rgba(0, 115, 255, 0.95) 100%);
     background: linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 50%, rgba(0, 115, 255, 0.6) 75%, rgba(0, 115, 255, 0.95) 100%); }
   .sp-birthday-event:hover::after, .sp-birthday-event:focus::after {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 115, 255, 0.02)), color-stop(25%, rgba(0, 115, 255, 0.02)), color-stop(75%, rgba(0, 115, 255, 0.6)), to(rgba(0, 115, 255, 0.95)));
-    background: -o-linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 25%, rgba(0, 115, 255, 0.6) 75%, rgba(0, 115, 255, 0.95) 100%);
-    background: linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 25%, rgba(0, 115, 255, 0.6) 75%, rgba(0, 115, 255, 0.95) 100%); }
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 115, 255, 0.02)), color-stop(15%, rgba(0, 115, 255, 0.02)), color-stop(75%, rgba(0, 115, 255, 0.6)), to(rgba(0, 115, 255, 0.95)));
+    background: -o-linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 15%, rgba(0, 115, 255, 0.6) 75%, rgba(0, 115, 255, 0.95) 100%);
+    background: linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 15%, rgba(0, 115, 255, 0.6) 75%, rgba(0, 115, 255, 0.95) 100%); }
+  .sp-birthday-event:hover .sp-birthday-event__link, .sp-birthday-event:focus .sp-birthday-event__link {
+    text-decoration: underline; }
   .sp-birthday-event__cover {
     position: absolute;
     top: 0;
@@ -8055,8 +8057,6 @@ footer {
     font-family: "SegoeUI Semibold It", Arial, Helvetica, sans-serif;
     color: #FFFFFF;
     text-decoration: none; }
-    .sp-birthday-event__link:hover, .sp-birthday-event__link:focus {
-      text-decoration: underline; }
 
 .sp-birthday-section-people {
   position: relative;
