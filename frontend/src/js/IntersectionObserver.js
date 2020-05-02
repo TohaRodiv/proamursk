@@ -1,27 +1,32 @@
-let images = document.querySelectorAll('.lazyload');
-let fadeBlocks = document.querySelectorAll('.js-fade');
+var images = [...document.querySelectorAll('.lazyload')];
+var fadeBlocks = [...document.querySelectorAll('.js-fade')];
 var IntersectionObserverOptions = {
-    root: document.querySelector('main')[0],
+    root: document.querySelector('body')[0],
     // threshold: 0.5,
 };
 
-
 var IntersectionObserverImageCallback = function(entries) {
-    for (var i = 0, max = entries.length; i < max; i++) {
-        var entry = entries[i];
+    entries.forEach(item => {
+        const entry = item;
         if (entry && entry.isIntersecting) {
-            var image = entry.target;
+            const image = entry.target;
+            image.onload = () => imageOnLoad(image);
+
 
             if (image.classList.contains('lazyload-inline-bg')) {
                 image.style.backgroundImage = 'url(' + image.getAttribute('data-src') + ')';
+                setTimeout(function() {
+                    image.classList.remove('lazyload', 'js-fade', 'js-fade_animate');
+                }, 300);
+            }
+            else if (image.getAttribute('srcset')) {
+                image.srcset = image.getAttribute('data-src');
             }
             else {
                 image.src = image.getAttribute('data-src');
             }
-
-            image.onload = imageOnLoad(image);
         }
-    }
+    });
 };
 
 var imageObserver = new IntersectionObserver(
@@ -35,14 +40,13 @@ images.forEach( item => {
 
 
 var IntersectionObserverBlockCallback = function(entries) {
-    for (var i=0, max= entries.length; i < max; i++) {
-        var entry = entries[i];
+    entries.forEach(item => {
+        const entry = item;
         if (entry && entry.isIntersecting) {
-
-            var fadeBlock = entry.target;
+            const fadeBlock = entry.target;
             showWithFade(fadeBlock);
         }
-    }
+    });
 };
 
 var blockObserver = new IntersectionObserver(

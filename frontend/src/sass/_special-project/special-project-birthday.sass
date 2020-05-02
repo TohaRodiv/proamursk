@@ -349,6 +349,7 @@
     margin-bottom: 40px
     border-radius: 16px
     box-shadow: 0px 16px 32px #e1ecf7
+    background-color: $light-gray
 
     &:nth-child(1)
         width: 340px
@@ -419,6 +420,9 @@
         width: 220px
         height: 220px
 
+    &__img
+        border-radius: 50%
+
     &__back
         position: absolute
         width: 100%
@@ -445,8 +449,8 @@
     text-decoration: none
     margin-right: 110px
     margin-bottom: 30px
-    color: $dark-c
     cursor: pointer
+    color: $base-c
 
     &:hover,
     &:focus
@@ -461,6 +465,7 @@
     margin-top: 20px
     font-size: 20px
     font-family: $add-sb-it-f
+    color: $dark-c
     text-align: center
 
 .sp-birthday-section-events
@@ -500,6 +505,26 @@
     overflow: hidden
     text-decoration: none
 
+    &::after
+        content: ""
+        position: absolute
+        display: block
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        z-index: 2
+        border-radius: 8px
+        background: linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 50%, rgba(0, 115, 255, 0.6) 75%, rgba(0, 115, 255, 0.95) 100%)
+
+    &:hover,
+    &:focus
+        &::after
+            background: linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 15%, rgba(0, 115, 255, 0.6) 75%, rgba(0, 115, 255, 0.95) 100%)
+
+        .sp-birthday-event__link
+            text-decoration: underline
+
     &__cover
         position: absolute
         top: 0
@@ -507,6 +532,7 @@
         width: 100%
         height: 100%
         z-index: 1
+        border-radius: 8px
 
     &__counter
         position: absolute
@@ -547,21 +573,6 @@
         font-family: $add-sb-it-f
         color: $light-c
         text-decoration: none
-
-        &:hover,
-        &:focus
-            text-decoration: underline
-
-    &::after
-        content: ""
-        position: absolute
-        display: block
-        width: 100%
-        height: 100%
-        top: 0
-        left: 0
-        z-index: 2
-        background: linear-gradient(rgba(0, 115, 255, 0.02) 0%, rgba(0, 115, 255, 0.02) 46.85%, rgba(0, 115, 255, 0.6) 74.33%, rgba(0, 115, 255, 0.95) 100%)
 
 .sp-birthday-section-people
     position: relative
@@ -725,6 +736,10 @@
         width: 540px
         height: 380px
         margin-top: 120px
+
+        .slide
+            border-radius: 32px
+            background-color: $light-gray
 
 .sp-birthday-section-reviews
     margin-top: 270px

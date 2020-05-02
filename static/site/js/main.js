@@ -6198,29 +6198,46 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 });
 "use strict";
 
-var images = document.querySelectorAll('.lazyload');
-var fadeBlocks = document.querySelectorAll('.js-fade');
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var images = _toConsumableArray(document.querySelectorAll('.lazyload'));
+
+var fadeBlocks = _toConsumableArray(document.querySelectorAll('.js-fade'));
+
 var IntersectionObserverOptions = {
-  root: document.querySelector('main')[0] // threshold: 0.5,
+  root: document.querySelector('body')[0] // threshold: 0.5,
 
 };
 
 var IntersectionObserverImageCallback = function IntersectionObserverImageCallback(entries) {
-  for (var i = 0, max = entries.length; i < max; i++) {
-    var entry = entries[i];
+  entries.forEach(function (item) {
+    var entry = item;
 
     if (entry && entry.isIntersecting) {
       var image = entry.target;
 
+      image.onload = function () {
+        return imageOnLoad(image);
+      };
+
       if (image.classList.contains('lazyload-inline-bg')) {
         image.style.backgroundImage = 'url(' + image.getAttribute('data-src') + ')';
+        setTimeout(function () {
+          image.classList.remove('lazyload', 'js-fade', 'js-fade_animate');
+        }, 300);
+      } else if (image.getAttribute('srcset')) {
+        image.srcset = image.getAttribute('data-src');
       } else {
         image.src = image.getAttribute('data-src');
       }
-
-      image.onload = imageOnLoad(image);
     }
-  }
+  });
 };
 
 var imageObserver = new IntersectionObserver(IntersectionObserverImageCallback, IntersectionObserverOptions);
@@ -6229,14 +6246,14 @@ images.forEach(function (item) {
 });
 
 var IntersectionObserverBlockCallback = function IntersectionObserverBlockCallback(entries) {
-  for (var i = 0, max = entries.length; i < max; i++) {
-    var entry = entries[i];
+  entries.forEach(function (item) {
+    var entry = item;
 
     if (entry && entry.isIntersecting) {
       var fadeBlock = entry.target;
       showWithFade(fadeBlock);
     }
-  }
+  });
 };
 
 var blockObserver = new IntersectionObserver(IntersectionObserverBlockCallback, IntersectionObserverOptions);
