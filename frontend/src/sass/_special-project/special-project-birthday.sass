@@ -1,8 +1,6 @@
 .sp-birthday
     padding-top: 0
-
-    a:visited
-        color: inherit
+    overflow: hidden
 
 .sp-birthday-slider
     .slider-circles-container
@@ -115,7 +113,7 @@
         z-index: 2
 
 .sp-birthday-section-head
-    margin-bottom: 120px
+    margin-bottom: 80px
     text-align: center
 
     &__title
@@ -232,6 +230,10 @@
     background-color: $light-c
     box-shadow: 0px 16px 48px rgba(144, 181, 227, 0.3)
 
+    &:hover,
+    &:focus
+        box-shadow: 0 16px 48px #cfdfef
+
     &::after,
     &::before
         content: ""
@@ -327,6 +329,8 @@
     width: 326px
 
 .sp-birthday-materials-3
+    margin-top: 50px
+
     .sp-birthday-materials
         &__title
             width: 530px
@@ -345,7 +349,6 @@
     margin-bottom: 40px
     border-radius: 16px
     box-shadow: 0px 16px 32px #e1ecf7
-
 
     &:nth-child(1)
         width: 340px
@@ -373,7 +376,7 @@
 
 .sp-birthday-section-friendship
     position: relative
-    margin-top: 230px
+    margin-top: 150px
 
     &::before
         content: ""
@@ -403,6 +406,11 @@
     border-radius: 50%
     overflow: hidden
 
+    &:hover,
+    &:focus
+        .sp-birthday-circle-item__back
+            text-decoration: underline
+
     &_big
         width: 240px
         height: 240px
@@ -423,7 +431,7 @@
         color: $light-c
         background-color: rgba($base-c, .7)
         opacity: 0
-        text-decoration: underline
+        text-decoration: none
 
 .sp-birthday-place-grid
     margin-right: -110px
@@ -437,15 +445,17 @@
     text-decoration: none
     margin-right: 110px
     margin-bottom: 30px
+    color: $dark-c
     cursor: pointer
 
     &:hover,
     &:focus
-        color: $base-c
-        text-decoration: underline
-
         .sp-birthday-circle-item__back
             opacity: 1
+
+        .sp-birthday-place-name
+            color: $base-c
+            text-decoration: underline
 
 .sp-birthday-place-name
     margin-top: 20px
@@ -479,6 +489,7 @@
     display: flex
     flex-direction: column
     justify-content: flex-end
+    align-items: flex-start
     width: 310px
     height: 420px
     flex-shrink: 0
@@ -530,12 +541,16 @@
         z-index: 3
 
     &__link
-        text-decoration: underline
-        font-family: $add-sb-it-f
-        font-size: 20px
-        color: $light-c
         position: relative
         z-index: 3
+        font-size: 20px
+        font-family: $add-sb-it-f
+        color: $light-c
+        text-decoration: none
+
+        &:hover,
+        &:focus
+            text-decoration: underline
 
     &::after
         content: ""
@@ -566,8 +581,21 @@
         background-position: center
 
 .sp-birthday-people-grid
+    position: relative
     margin-right: -60px
     margin-bottom: -60px
+
+    &::before
+        content: ""
+        position: absolute
+        top: -240px
+        left: -125px
+        width: 1610px
+        height: 980px
+        background-image: url(../images/special-projects/birthday/svg/decor-people.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
 
 .sp-birthday-person
     display: block
@@ -577,6 +605,7 @@
     text-decoration: none
     margin-right: 60px
     margin-bottom: 60px
+    color: $dark-c
     cursor: pointer
     text-align: center
 
@@ -631,7 +660,6 @@
     flex-grow: 0
     text-decoration: none
     margin-bottom: 90px
-    cursor: pointer
     text-align: center
 
 .sp-birthday-worker-name
@@ -746,10 +774,8 @@
     position: relative
     z-index: 2
 
-    .slide
-        display: flex
-        align-items: flex-start
-        justify-content: space-between
+    .slick-list
+        transition: height .2s
 
     .slider-arrow
         position: absolute
@@ -829,21 +855,26 @@
 .wave-section
     position: relative
     background-color: #FAFBFC
+    overflow: hidden
 
 .wave-top
     width: 100%
+    min-width: 1920px
     position: absolute
     top: 0
-    left: 0
+    left: 50%
+    transform: translateX(-50%)
 
 .wave-bottom
     width: 100%
+    min-width: 1920px
     position: absolute
     bottom: 0
-    left: 0
+    left: 50%
+    transform: translateX(-50%)
 
 .wave_reverse
-    transform: scale(-1, 1)
+    transform: translateX(-50%) scale(-1, 1)
 
 .pre-wave-section_first
     position: relative

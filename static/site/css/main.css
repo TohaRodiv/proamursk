@@ -732,6 +732,7 @@ textarea {
   padding: 0;
   opacity: 0;
   z-index: 1;
+  cursor: pointer;
   -webkit-transition: opacity 300ms linear, z-index 300ms linear;
   -o-transition: opacity 300ms linear, z-index 300ms linear;
   transition: opacity 300ms linear, z-index 300ms linear; }
@@ -7482,9 +7483,8 @@ footer {
   margin-left: -20px; }
 
 .sp-birthday {
-  padding-top: 0; }
-  .sp-birthday a:visited {
-    color: inherit; }
+  padding-top: 0;
+  overflow: hidden; }
 
 .sp-birthday-slider .slider-circles-container {
   display: none; }
@@ -7594,7 +7594,7 @@ footer {
     z-index: 2; }
 
 .sp-birthday-section-head {
-  margin-bottom: 120px;
+  margin-bottom: 80px;
   text-align: center; }
   .sp-birthday-section-head__title {
     font-size: 42px;
@@ -7704,6 +7704,9 @@ footer {
   background-color: #FFFFFF;
   -webkit-box-shadow: 0px 16px 48px rgba(144, 181, 227, 0.3);
           box-shadow: 0px 16px 48px rgba(144, 181, 227, 0.3); }
+  .sp-birthday-material-item:hover, .sp-birthday-material-item:focus {
+    -webkit-box-shadow: 0 16px 48px #cfdfef;
+            box-shadow: 0 16px 48px #cfdfef; }
   .sp-birthday-material-item::after, .sp-birthday-material-item::before {
     content: "";
     position: absolute;
@@ -7803,9 +7806,11 @@ footer {
 .sp-birthday-insta-widget {
   width: 326px; }
 
-.sp-birthday-materials-3 .sp-birthday-materials__title {
-  width: 530px;
-  margin-bottom: 70px; }
+.sp-birthday-materials-3 {
+  margin-top: 50px; }
+  .sp-birthday-materials-3 .sp-birthday-materials__title {
+    width: 530px;
+    margin-bottom: 70px; }
 
 .gift-photos-grid {
   display: -webkit-box;
@@ -7847,7 +7852,7 @@ footer {
 
 .sp-birthday-section-friendship {
   position: relative;
-  margin-top: 230px; }
+  margin-top: 150px; }
   .sp-birthday-section-friendship::before {
     content: "";
     display: block;
@@ -7883,6 +7888,8 @@ footer {
           box-shadow: 0 16px 32px #e1ecf7;
   border-radius: 50%;
   overflow: hidden; }
+  .sp-birthday-circle-item:hover .sp-birthday-circle-item__back, .sp-birthday-circle-item:focus .sp-birthday-circle-item__back {
+    text-decoration: underline; }
   .sp-birthday-circle-item_big {
     width: 240px;
     height: 240px; }
@@ -7907,7 +7914,7 @@ footer {
     color: #FFFFFF;
     background-color: rgba(0, 115, 255, 0.7);
     opacity: 0;
-    text-decoration: underline; }
+    text-decoration: none; }
 
 .sp-birthday-place-grid {
   margin-right: -110px;
@@ -7924,12 +7931,13 @@ footer {
   text-decoration: none;
   margin-right: 110px;
   margin-bottom: 30px;
+  color: #000000;
   cursor: pointer; }
-  .sp-birthday-place:hover, .sp-birthday-place:focus {
+  .sp-birthday-place:hover .sp-birthday-circle-item__back, .sp-birthday-place:focus .sp-birthday-circle-item__back {
+    opacity: 1; }
+  .sp-birthday-place:hover .sp-birthday-place-name, .sp-birthday-place:focus .sp-birthday-place-name {
     color: #0073FF;
     text-decoration: underline; }
-    .sp-birthday-place:hover .sp-birthday-circle-item__back, .sp-birthday-place:focus .sp-birthday-circle-item__back {
-      opacity: 1; }
 
 .sp-birthday-place-name {
   margin-top: 20px;
@@ -7969,6 +7977,9 @@ footer {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   width: 310px;
   height: 420px;
   -ms-flex-negative: 0;
@@ -8016,12 +8027,14 @@ footer {
     position: relative;
     z-index: 3; }
   .sp-birthday-event__link {
-    text-decoration: underline;
-    font-family: "SegoeUI Semibold It", Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    color: #FFFFFF;
     position: relative;
-    z-index: 3; }
+    z-index: 3;
+    font-size: 20px;
+    font-family: "SegoeUI Semibold It", Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    text-decoration: none; }
+    .sp-birthday-event__link:hover, .sp-birthday-event__link:focus {
+      text-decoration: underline; }
   .sp-birthday-event::after {
     content: "";
     position: absolute;
@@ -8052,8 +8065,20 @@ footer {
     background-position: center; }
 
 .sp-birthday-people-grid {
+  position: relative;
   margin-right: -60px;
   margin-bottom: -60px; }
+  .sp-birthday-people-grid::before {
+    content: "";
+    position: absolute;
+    top: -240px;
+    left: -125px;
+    width: 1610px;
+    height: 980px;
+    background-image: url(../images/special-projects/birthday/svg/decor-people.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center; }
 
 .sp-birthday-person {
   display: block;
@@ -8066,6 +8091,7 @@ footer {
   text-decoration: none;
   margin-right: 60px;
   margin-bottom: 60px;
+  color: #000000;
   cursor: pointer;
   text-align: center; }
   .sp-birthday-person:hover .sp-birthday-person-name, .sp-birthday-person:focus .sp-birthday-person-name {
@@ -8118,7 +8144,6 @@ footer {
           flex-grow: 0;
   text-decoration: none;
   margin-bottom: 90px;
-  cursor: pointer;
   text-align: center; }
 
 .sp-birthday-worker-name {
@@ -8231,16 +8256,10 @@ footer {
 .sp-birthday-reviews-slider {
   position: relative;
   z-index: 2; }
-  .sp-birthday-reviews-slider .slide {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+  .sp-birthday-reviews-slider .slick-list {
+    -webkit-transition: height .2s;
+    -o-transition: height .2s;
+    transition: height .2s; }
   .sp-birthday-reviews-slider .slider-arrow {
     position: absolute;
     top: auto;
@@ -8313,24 +8332,33 @@ footer {
 
 .wave-section {
   position: relative;
-  background-color: #FAFBFC; }
+  background-color: #FAFBFC;
+  overflow: hidden; }
 
 .wave-top {
   width: 100%;
+  min-width: 1920px;
   position: absolute;
   top: 0;
-  left: 0; }
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%); }
 
 .wave-bottom {
   width: 100%;
+  min-width: 1920px;
   position: absolute;
   bottom: 0;
-  left: 0; }
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%); }
 
 .wave_reverse {
-  -webkit-transform: scale(-1, 1);
-      -ms-transform: scale(-1, 1);
-          transform: scale(-1, 1); }
+  -webkit-transform: translateX(-50%) scale(-1, 1);
+      -ms-transform: translateX(-50%) scale(-1, 1);
+          transform: translateX(-50%) scale(-1, 1); }
 
 .pre-wave-section_first {
   position: relative;
