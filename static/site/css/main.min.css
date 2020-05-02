@@ -7830,7 +7830,8 @@ footer {
   margin-bottom: 40px;
   border-radius: 16px;
   -webkit-box-shadow: 0px 16px 32px #e1ecf7;
-          box-shadow: 0px 16px 32px #e1ecf7; }
+          box-shadow: 0px 16px 32px #e1ecf7;
+  background-color: #DFDFDF; }
   .gift-photo-item:nth-child(1) {
     width: 340px;
     height: 297px; }
@@ -8222,6 +8223,9 @@ footer {
   width: 540px;
   height: 380px;
   margin-top: 120px; }
+  .sp-birthday-incident__slider .slide {
+    border-radius: 32px;
+    background-color: #DFDFDF; }
 
 .sp-birthday-section-reviews {
   margin-top: 270px;
