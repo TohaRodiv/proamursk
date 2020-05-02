@@ -7931,7 +7931,8 @@ footer {
   text-decoration: none;
   margin-right: 110px;
   margin-bottom: 30px;
-  cursor: pointer; }
+  cursor: pointer;
+  color: #0073FF; }
   .sp-birthday-place:hover .sp-birthday-circle-item__back, .sp-birthday-place:focus .sp-birthday-circle-item__back {
     opacity: 1; }
   .sp-birthday-place:hover .sp-birthday-place-name, .sp-birthday-place:focus .sp-birthday-place-name {
