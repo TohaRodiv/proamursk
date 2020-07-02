@@ -133,13 +133,15 @@
         z-index: 2
 
     &_6-col
-        width: 640px
-        flex-shrink: 0
+        +media(d)
+            width: 640px
+            flex-shrink: 0
 
     &_8-col
-        width: 860px
-        height: 500px
-        flex-shrink: 0
+        +media(d)
+            width: 860px
+            height: 500px
+            flex-shrink: 0
 
         .grid-publication__text-wrap
             position: absolute
@@ -165,7 +167,8 @@
 
         .grid-publication
             &__cover-wrap
-                height: 278px
+                +media(d)
+                    height: 278px
 
             &__cover
                 border-bottom: 1px solid $border-c

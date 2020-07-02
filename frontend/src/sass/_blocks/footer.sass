@@ -8,6 +8,9 @@ footer
     background-position: center bottom
     color: $light-c
 
+    +media(m)
+        text-align: center
+
 .additional-block + footer
     margin-top: 0
     padding-top: 0
@@ -21,41 +24,91 @@ footer
 
     &__logo-img
         display: block
-        width: 147px
+
+        +media(m)
+            width: 165px
+            margin: 0 auto 20px
+
+        +media(d)
+            width: 147px
+
+    &__nav
+        +media(m)
+            display: none
 
 .footer-top
-    display: flex
-    align-items: center
-    justify-content: space-between
-    padding-bottom: 15px
-    border-bottom: 1px solid #ECEEF1
+    +media(d)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding-bottom: 15px
+        border-bottom: 1px solid #ECEEF1
 
 .footer-bottom
-    display: flex
-    align-items: center
-    padding-top: 15px
-    font-size: 14px
+    +media(d)
+        display: flex
+        align-items: center
+        padding-top: 15px
+        font-size: 14px
 
 .footer__copyright-text
-    width: 640px
+    max-width: 640px
     margin-bottom: 0
     line-height: 1.5
 
+    +media(m)
+        font-size: 12px
+
 .footer__editor-text
-    width: 250px
+    max-width: 250px
     margin-left: 130px
     line-height: 1.5
 
+    +media(m)
+        display: none
+
 .footer__social-wrap
-    margin-left: auto
+    +media(m)
+        margin-top: 30px
+
+    +media(d)
+        margin-left: auto
 
 .footer__copyright-section
-    display: flex
-    align-items: center
-    justify-content: space-between
     margin-top: 30px
-    font-size: 14px
     color: #7A8BA1
+
+    +media(m)
+        font-size: 16px
+
+    +media(d)
+        font-size: 14px
+
+    +media(m)
+        & > *
+            display: block
+            margin: 0 auto 20px
+            text-align: center
+
+    +media(d)
+        display: flex
+        align-items: center
+
+        *:nth-child(1)
+            margin-left: 86px
+            margin-right: 86px
+
+        *:nth-child(2)
+            margin-right: auto
+
+        *:nth-child(3)
+            margin-left: auto
+
+        *:nth-child(4)
+            margin-left: 25px
+
+        *:last-child
+            order: -1
 
     a, button
         color: inherit
@@ -65,10 +118,11 @@ footer
             text-decoration: none
 
 .footer__copyright-subblock
-    display: flex
-    justify-content: space-between
-    align-items: center
-    width: 640px
+    +media(d)
+        display: flex
+        justify-content: space-between
+        align-items: center
+        width: 640px
 
 .footer__copyrights-wrap
     display: flex

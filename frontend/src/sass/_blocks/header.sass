@@ -1,7 +1,11 @@
 header
-    border-bottom: 1px solid #D7DBE0
-    color: $dark-c
-    height: 100px
+    +media(m)
+        height: 70px
+        box-shadow: 0 1px 5px #d7e2ee
+
+    +media(d)
+        height: 100px
+        border-bottom: 1px solid #D7DBE0
 
 .header-container
     height: 100%
@@ -10,8 +14,6 @@ header
 
 .header
     &__logo-link
-        margin-bottom: 24px
-        height: 67px
         display: flex
         flex-direction: column
         justify-content: flex-end
@@ -19,12 +21,24 @@ header
         z-index: 2
         text-decoration: none
 
+        +media(m)
+            height: 45px
+            align-self: flex-start
+            margin-top: 5px
+
+        +media(d)
+            height: 67px
+            margin-bottom: 24px
+
     &__logo-subtext
         margin-top: 6px
         font-size: 11px
         line-height: $micro-lh
         letter-spacing: 0.07em
         color: #242434
+
+        +media(m)
+            display: none
 
     &__logo-img
         display: block
@@ -36,10 +50,15 @@ header
         font-size: 0
 
         &.icon-logo-sign
-            bottom: 39px
             right: 19px
             &::before
                 font-size: 8px
+
+            +media(m)
+                bottom: 20px
+
+            +media(d)
+                bottom: 40px
 
         &.icon-logo-news
             bottom: 40px
@@ -77,16 +96,25 @@ header
             &::before
                 font-size: 22px
 
-    &__nav
+    &__nav-wrap
         margin-left: auto
         margin-right: 30px
 
+        +media(m)
+            display: none
+
     &__search-btn
         display: block
-        width: 43px
-        height: 18px
+        width: 42px
+        height: 42px
         color: $dark-c
-        font-size: $base-fz
+
+        +media(m)
+            margin-left: auto
+            font-size: 22px
+
+        +media(d)
+            font-size: $base-fz
 
     &__close-search-btn
         position: absolute
@@ -97,6 +125,14 @@ header
         height: 46px
         font-size: 14px
 
+    &__menu-toggler
+        width: 42px
+        height: 42px
+        margin-left: 8px
+
+        +media(d)
+            display: none
+
     &__weather-widget
         position: absolute
         top: 40px
@@ -105,9 +141,24 @@ header
         font-family: $bold-f
         color: $dark-c
 
+        +media(m)
+            display: none
+
     &__pattern
-        position: absolute
-        width: 540px
-        left: 0
-        bottom: 10px
-        z-index: 1
+        +media(m)
+            width: 355px
+            height: 80px
+
+            &_desktop
+                display: none
+
+        +media(d)
+            position: absolute
+            width: 540px
+            left: 0
+            bottom: 10px
+            z-index: 1
+
+.header-mobile-nav
+    +media(d)
+        display: none
