@@ -1133,26 +1133,26 @@ textarea {
 
 @-webkit-keyframes notificationFadeIn {
   0% {
-    z-index: 200; }
+    z-index: 9999; }
   1% {
     top: 0;
     opacity: 0;
-    z-index: 200; }
+    z-index: 9999; }
   100% {
     top: 30px;
-    z-index: 200;
+    z-index: 9999;
     opacity: 1; } }
 
 @keyframes notificationFadeIn {
   0% {
-    z-index: 200; }
+    z-index: 9999; }
   1% {
     top: 0;
     opacity: 0;
-    z-index: 200; }
+    z-index: 9999; }
   100% {
     top: 30px;
-    z-index: 200;
+    z-index: 9999;
     opacity: 1; } }
 
 @-webkit-keyframes notificationFadeOut {
@@ -1205,10 +1205,12 @@ textarea {
   top: 0;
   left: 0;
   width: 100%;
-  min-width: 1340px;
   height: 100%;
   z-index: 100;
   overflow: auto; }
+  @media (min-width: 1024px) {
+    .body-cover {
+      min-width: 1340px; } }
   .body-cover.visible {
     display: block; }
 
@@ -1219,12 +1221,17 @@ textarea {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: rgba(127, 141, 164, 0.9);
   background-position: center center;
   background-repeat: no-repeat;
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   cursor: pointer; }
+  @media (max-width: 1023px) {
+    .back {
+      background-color: #FFFFFF; } }
+  @media (min-width: 1024px) {
+    .back {
+      background-color: rgba(127, 141, 164, 0.9); } }
 
 .pop-up__close {
   position: absolute;
@@ -1261,9 +1268,17 @@ textarea {
       -webkit-animation: zoomIn 0.3s ease-out forwards;
               animation: zoomIn 0.3s ease-out forwards; }
   .pop-up-wrapper.search .pop-up-inner-container {
-    margin-top: 180px;
     -ms-flex-item-align: start;
         align-self: flex-start; }
+    @media (max-width: 1023px) {
+      .pop-up-wrapper.search .pop-up-inner-container {
+        width: 100%;
+        margin-top: 100px;
+        margin-left: 0;
+        margin-right: 0; } }
+    @media (min-width: 1024px) {
+      .pop-up-wrapper.search .pop-up-inner-container {
+        margin-top: 180px; } }
 
 .pop-up-content {
   position: relative;
@@ -2004,16 +2019,18 @@ input.btn_preloader {
   .indent-wrap_pb5 {
     padding-bottom: 5em; }
 
-@media (max-width: 1023px) {
-  header {
-    height: 70px;
-    -webkit-box-shadow: 0 1px 5px #d7e2ee;
-            box-shadow: 0 1px 5px #d7e2ee; } }
-
-@media (min-width: 1024px) {
-  header {
-    height: 100px;
-    border-bottom: 1px solid #D7DBE0; } }
+header {
+  position: relative;
+  z-index: 999; }
+  @media (max-width: 1023px) {
+    header {
+      height: 70px;
+      -webkit-box-shadow: 0 1px 5px #d7e2ee;
+              box-shadow: 0 1px 5px #d7e2ee; } }
+  @media (min-width: 1024px) {
+    header {
+      height: 100px;
+      border-bottom: 1px solid #D7DBE0; } }
 
 .header-container {
   height: 100%;
@@ -2129,13 +2146,15 @@ input.btn_preloader {
       font-size: 18px; } }
 
 .header__close-search-btn {
-  position: absolute;
-  z-index: 100;
-  top: 28px;
-  right: 0;
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   font-size: 14px; }
+  @media (min-width: 1024px) {
+    .header__close-search-btn {
+      position: absolute;
+      z-index: 100;
+      top: 28px;
+      right: 0; } }
 
 .header__menu-toggler {
   width: 42px;
@@ -2415,8 +2434,9 @@ footer {
     font-size: 18px;
     color: #7A8BA1; }
 
-.search-pop-up-content {
-  width: 640px; }
+@media (min-width: 1024px) {
+  .search-pop-up-content {
+    width: 640px; } }
 
 .search__result-block {
   position: relative; }
@@ -2471,13 +2491,18 @@ footer {
     letter-spacing: 0.08em;
     color: #0073FF; }
   .search-item__title {
-    font-size: 18px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     color: #000000;
     white-space: nowrap;
     overflow: hidden;
     -o-text-overflow: ellipsis;
        text-overflow: ellipsis; }
+    @media (max-width: 1023px) {
+      .search-item__title {
+        font-size: 16px; } }
+    @media (min-width: 1024px) {
+      .search-item__title {
+        font-size: 18px; } }
 
 .search-result_empty {
   margin-top: -5px;
@@ -2489,6 +2514,9 @@ footer {
   border-top: none;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px; }
+
+.instant-search-form {
+  position: relative; }
 
 @media (max-width: 1023px) {
   .index-manage-row > .grid-publication:not(:last-child) {

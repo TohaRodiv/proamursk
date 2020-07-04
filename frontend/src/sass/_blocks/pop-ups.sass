@@ -17,10 +17,12 @@
     top: 0
     left: 0
     width: 100%
-    min-width: 1340px
     height: 100%
     z-index: 100
     overflow: auto
+
+    +media(d)
+        min-width: 1340px
 
     &.visible
         display: block
@@ -32,11 +34,16 @@
     width: 100%
     height: 100%
     min-height: 100vh
-    background-color: rgba(#7F8DA4, .9)
     background-position: center center
     background-repeat: no-repeat
     backdrop-filter: blur(2px)
     cursor: pointer
+
+    +media(m)
+        background-color: $light-c
+
+    +media(d)
+        background-color: rgba(#7F8DA4, .9)
 
 .pop-up__close
     position: absolute
@@ -74,8 +81,16 @@
             animation: zoomIn $transition-time ease-out forwards
 
     &.search .pop-up-inner-container
-        margin-top: 180px
         align-self: flex-start
+
+        +media(m)
+            width: 100%
+            margin-top: 100px
+            margin-left: 0
+            margin-right: 0
+
+        +media(d)
+            margin-top: 180px
 
 .pop-up-content
     position: relative
@@ -161,7 +176,6 @@
         flex-shrink: 0
 
 .attachment
-
     &-btn
         width: 100%
         display: flex
