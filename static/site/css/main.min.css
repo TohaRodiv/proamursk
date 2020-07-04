@@ -1900,7 +1900,7 @@ input.btn_preloader {
     position: absolute;
     top: -20px;
     z-index: 1;
-    background-image: url(../images/special-projects/summer-money/svg/quotes.svg);
+    background-image: url(../images/local/special-projects/summer-money/svg/quotes.svg);
     background-size: contain;
     background-repeat: no-repeat; }
 
@@ -2615,11 +2615,6 @@ footer {
     text-align: center; }
   .index-selection__link {
     display: inline-block; }
-    @media (max-width: 1023px) {
-      .index-selection__link {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0; } }
 
 @media (max-width: 1023px) {
   .index-selection-grid > .grid-publication:not(:last-child) {
@@ -5622,16 +5617,16 @@ footer {
       background-repeat: no-repeat;
       background-color: #0073FF; }
     .sp-map-points__title_icon-sport::before {
-      background-image: url(../images/special-projects/children/svg/sport-white.svg);
+      background-image: url(../images/local/special-projects/children/svg/sport-white.svg);
       background-size: 24px; }
     .sp-map-points__title_icon-art::before {
-      background-image: url(../images/special-projects/children/svg/art-white.svg);
+      background-image: url(../images/local/special-projects/children/svg/art-white.svg);
       background-size: 20px; }
     .sp-map-points__title_icon-languages::before {
-      background-image: url(../images/special-projects/children/svg/languages-white.svg);
+      background-image: url(../images/local/special-projects/children/svg/languages-white.svg);
       background-size: 24px; }
     .sp-map-points__title_icon-compass::before {
-      background-image: url(../images/special-projects/children/svg/compass-white.svg);
+      background-image: url(../images/local/special-projects/children/svg/compass-white.svg);
       background-size: 24px; }
 
 .sp-map-points__list-wrap {
@@ -5841,7 +5836,7 @@ footer {
   margin-bottom: 100px;
   color: #FFFFFF;
   background-color: rgba(23, 33, 54, 0.5);
-  background-image: url(../images/special-projects/summer-money/sp-summer-money-header-img.jpg);
+  background-image: url(../images/local/special-projects/summer-money/sp-summer-money-header-img.jpg);
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat; }
@@ -5897,7 +5892,7 @@ footer {
       position: absolute;
       top: 10px;
       right: 55px;
-      background-image: url(../images/special-projects/summer-money/svg/strikethrough.svg);
+      background-image: url(../images/local/special-projects/summer-money/svg/strikethrough.svg);
       background-size: contain;
       background-repeat: no-repeat; }
   .sp-summer-money-header__description {
@@ -5995,7 +5990,7 @@ footer {
     left: -60px;
     width: 112px;
     height: 57px;
-    background-image: url(../images/special-projects/summer-money/svg/bubble-corner.svg);
+    background-image: url(../images/local/special-projects/summer-money/svg/bubble-corner.svg);
     background-size: contain;
     background-repeat: no-repeat; }
   .sp-summer-money__bubble-title_right::before {
@@ -6009,7 +6004,7 @@ footer {
     -webkit-transform: scale(-1, 1);
         -ms-transform: scale(-1, 1);
             transform: scale(-1, 1);
-    background-image: url(../images/special-projects/summer-money/svg/bubble-corner.svg);
+    background-image: url(../images/local/special-projects/summer-money/svg/bubble-corner.svg);
     background-size: contain;
     background-repeat: no-repeat; }
 
@@ -6350,7 +6345,7 @@ footer {
     right: -70px;
     width: 112px;
     height: 57px;
-    background-image: url(../images/special-projects/summer-money/svg/gray-corner.svg);
+    background-image: url(../images/local/special-projects/summer-money/svg/gray-corner.svg);
     background-size: contain;
     background-repeat: no-repeat; }
   .sp-summer-money-working-conditions__bubble_right::before {
@@ -6364,7 +6359,7 @@ footer {
     -webkit-transform: scale(-1, 1);
         -ms-transform: scale(-1, 1);
             transform: scale(-1, 1);
-    background-image: url(../images/special-projects/summer-money/svg/gray-corner.svg);
+    background-image: url(../images/local/special-projects/summer-money/svg/gray-corner.svg);
     background-size: contain;
     background-repeat: no-repeat; }
 
@@ -6521,17 +6516,17 @@ footer {
     width: 430px;
     height: 355px;
     right: -360px;
-    background-image: url(../images/special-projects/summer-money/svg/expert-comments1.svg); }
+    background-image: url(../images/local/special-projects/summer-money/svg/expert-comments1.svg); }
   .sp-summer-money-expert-comments__item:nth-child(2)::before {
     width: 380px;
     height: 320px;
     left: -330px;
-    background-image: url(../images/special-projects/summer-money/svg/expert-comments2.svg); }
+    background-image: url(../images/local/special-projects/summer-money/svg/expert-comments2.svg); }
   .sp-summer-money-expert-comments__item:nth-child(3)::before {
     width: 320px;
     height: 320px;
     right: -300px;
-    background-image: url(../images/special-projects/summer-money/svg/expert-comments3.svg); }
+    background-image: url(../images/local/special-projects/summer-money/svg/expert-comments3.svg); }
   .sp-summer-money-expert-comments__item:not(:last-child) {
     margin-bottom: 100px; }
   .sp-summer-money-expert-comments__item_right {
@@ -6609,7 +6604,7 @@ footer {
   position: relative;
   padding-top: 100px;
   padding-bottom: 160px;
-  background-image: url(../images/special-projects/dance/svg/header-decor.svg);
+  background-image: url(../images/local/special-projects/dance/svg/header-decor.svg);
   background-size: 1430px;
   background-position: center 80px;
   background-repeat: no-repeat; }
@@ -6701,22 +6696,22 @@ footer {
 .sp-dance-title_icon_where-to-go::before {
   width: 140px;
   height: 132px;
-  background-image: url(../images/special-projects/dance/svg/where-to-go.svg); }
+  background-image: url(../images/local/special-projects/dance/svg/where-to-go.svg); }
 
 .sp-dance-title_icon_children::before {
   width: 108px;
   height: 94px;
-  background-image: url(../images/special-projects/dance/svg/children.svg); }
+  background-image: url(../images/local/special-projects/dance/svg/children.svg); }
 
 .sp-dance-title_icon_adult::before {
   width: 156px;
   height: 122px;
-  background-image: url(../images/special-projects/dance/svg/adult.svg); }
+  background-image: url(../images/local/special-projects/dance/svg/adult.svg); }
 
 .sp-dance-title_icon_circus::before {
   width: 160px;
   height: 120px;
-  background-image: url(../images/special-projects/dance/svg/circus.svg); }
+  background-image: url(../images/local/special-projects/dance/svg/circus.svg); }
 
 .sp-dance-h2-title {
   font-size: 42px;
@@ -6916,7 +6911,7 @@ footer {
       right: 110px; }
 
 .sp-dance-section-where-to-go {
-  background-image: url(../images/special-projects/dance/svg/decor-left.svg), url(../images/special-projects/dance/svg/decor-right.svg);
+  background-image: url(../images/local/special-projects/dance/svg/decor-left.svg), url(../images/local/special-projects/dance/svg/decor-right.svg);
   background-position: calc(50vw - 900px) center, calc(50vw + 450px) center;
   background-repeat: no-repeat; }
   .sp-dance-section-where-to-go_children {
@@ -7172,7 +7167,7 @@ footer {
     width: 22px;
     height: 18px;
     margin-right: -4px;
-    background-image: url(../images/special-projects/dance/svg/youtube.svg);
+    background-image: url(../images/local/special-projects/dance/svg/youtube.svg);
     background-size: contain; }
 
 .sp-dance-plases-nav {
@@ -7216,7 +7211,7 @@ footer {
   margin-bottom: -40px;
   padding-top: 0;
   overflow: hidden;
-  background-image: url(../images/special-projects/winter-fun/pattern-bg.jpg);
+  background-image: url(../images/local/special-projects/winter-fun/pattern-bg.jpg);
   background-repeat: repeat; }
 
 .sp-winter-fun-container {
@@ -7232,7 +7227,7 @@ footer {
 .city-bg {
   position: relative;
   min-height: 2810px;
-  background-image: url(../images/special-projects/winter-fun/illustration-city.jpg);
+  background-image: url(../images/local/special-projects/winter-fun/illustration-city.jpg);
   background-size: 1920px;
   background-position: center top;
   background-repeat: no-repeat;
@@ -7245,7 +7240,7 @@ footer {
     z-index: 1;
     width: 130%;
     height: 480px;
-    background-image: url(../images/special-projects/winter-fun/svg/snowdrift1.svg);
+    background-image: url(../images/local/special-projects/winter-fun/svg/snowdrift1.svg);
     background-size: 100%;
     background-repeat: no-repeat; }
 
@@ -7254,7 +7249,7 @@ footer {
   min-height: 1820px;
   margin-top: 60px;
   padding-top: 40px;
-  background-image: url(../images/special-projects/winter-fun/illustration-nature.jpg);
+  background-image: url(../images/local/special-projects/winter-fun/illustration-nature.jpg);
   background-size: 1920px;
   background-position: center;
   background-repeat: no-repeat;
@@ -7267,14 +7262,14 @@ footer {
     z-index: 1;
     width: 130%;
     height: 480px;
-    background-image: url(../images/special-projects/winter-fun/svg/snowdrift2.svg);
+    background-image: url(../images/local/special-projects/winter-fun/svg/snowdrift2.svg);
     background-size: 100%;
     background-repeat: no-repeat; }
 
 .blue-bg {
   position: relative;
   background-color: #DDEFFF;
-  background-image: url(../images/special-projects/winter-fun/snow-angels.jpg), url(../images/special-projects/winter-fun/tips-phone.jpg);
+  background-image: url(../images/local/special-projects/winter-fun/snow-angels.jpg), url(../images/local/special-projects/winter-fun/tips-phone.jpg);
   background-size: 1920px;
   background-repeat: no-repeat;
   background-position: top center, center 1730px;
@@ -7415,28 +7410,28 @@ footer {
     .sp-winter-fun-ball-btn_city_1 span::before {
       width: 33px;
       height: 43px;
-      background-image: url(../images/special-projects/winter-fun/svg/christmastree.svg); }
+      background-image: url(../images/local/special-projects/winter-fun/svg/christmastree.svg); }
   .sp-winter-fun-ball-btn_city_2 {
     left: 140px;
     top: 570px; }
     .sp-winter-fun-ball-btn_city_2 span::before {
       width: 53px;
       height: 40px;
-      background-image: url(../images/special-projects/winter-fun/svg/skates.svg); }
+      background-image: url(../images/local/special-projects/winter-fun/svg/skates.svg); }
   .sp-winter-fun-ball-btn_city_3 {
     left: 820px;
     top: 790px; }
     .sp-winter-fun-ball-btn_city_3 span::before {
       width: 56px;
       height: 25px;
-      background-image: url(../images/special-projects/winter-fun/svg/slides.svg); }
+      background-image: url(../images/local/special-projects/winter-fun/svg/slides.svg); }
   .sp-winter-fun-ball-btn_city_4 {
     left: 280px;
     top: 1140px; }
     .sp-winter-fun-ball-btn_city_4 span::before {
       width: 42px;
       height: 43px;
-      background-image: url(../images/special-projects/winter-fun/svg/dendrarii.svg); }
+      background-image: url(../images/local/special-projects/winter-fun/svg/dendrarii.svg); }
   .sp-winter-fun-ball-btn_city_5 {
     left: calc(50% - 120px);
     top: 1670px; }
@@ -7444,21 +7439,21 @@ footer {
       width: 40px;
       height: 35px;
       margin-top: -10px;
-      background-image: url(../images/special-projects/winter-fun/svg/calendar.svg); }
+      background-image: url(../images/local/special-projects/winter-fun/svg/calendar.svg); }
   .sp-winter-fun-ball-btn_nature_1 {
     left: 400px;
     top: 310px; }
     .sp-winter-fun-ball-btn_nature_1 span::before {
       width: 58px;
       height: 35px;
-      background-image: url(../images/special-projects/winter-fun/svg/ski-resort.svg); }
+      background-image: url(../images/local/special-projects/winter-fun/svg/ski-resort.svg); }
   .sp-winter-fun-ball-btn_nature_2 {
     left: 900px;
     top: 670px; }
     .sp-winter-fun-ball-btn_nature_2 span::before {
       width: 48px;
       height: 40px;
-      background-image: url(../images/special-projects/winter-fun/svg/recreation-center.svg); }
+      background-image: url(../images/local/special-projects/winter-fun/svg/recreation-center.svg); }
 
 .sp-winter-fun-calendar-section {
   position: relative;
@@ -7474,10 +7469,10 @@ footer {
     background-size: contain; }
   .sp-winter-fun-calendar-section::before {
     left: -250px;
-    background-image: url(../images/special-projects/winter-fun/snowflakes1.jpg); }
+    background-image: url(../images/local/special-projects/winter-fun/snowflakes1.jpg); }
   .sp-winter-fun-calendar-section::after {
     right: -250px;
-    background-image: url(../images/special-projects/winter-fun/snowflakes2.jpg); }
+    background-image: url(../images/local/special-projects/winter-fun/snowflakes2.jpg); }
 
 .sp-winter-fun-events-list {
   display: grid;
@@ -7608,13 +7603,13 @@ footer {
     height: 1445px;
     top: 200px;
     left: -300px;
-    background-image: url(../images/special-projects/winter-fun/svg/snowflake-left.svg); }
+    background-image: url(../images/local/special-projects/winter-fun/svg/snowflake-left.svg); }
   .sp-winter-fun-rules-section::after {
     width: 350px;
     height: 1540px;
     top: 150px;
     right: -300px;
-    background-image: url(../images/special-projects/winter-fun/svg/snowflake-right.svg); }
+    background-image: url(../images/local/special-projects/winter-fun/svg/snowflake-right.svg); }
 
 .sp-winter-fun-rules {
   display: -webkit-box;
@@ -7976,15 +7971,15 @@ footer {
     .sp-birthday-section-head__title[data-icon="star"]::before {
       width: 50px;
       height: 50px;
-      background-image: url(../images/special-projects/birthday/svg/star.svg); }
+      background-image: url(../images/local/special-projects/birthday/svg/star.svg); }
     .sp-birthday-section-head__title[data-icon="friends"]::before {
       width: 74px;
       height: 52px;
-      background-image: url(../images/special-projects/birthday/svg/friends.svg); }
+      background-image: url(../images/local/special-projects/birthday/svg/friends.svg); }
     .sp-birthday-section-head__title[data-icon="crown"]::before {
       width: 66px;
       height: 52px;
-      background-image: url(../images/special-projects/birthday/svg/crown.svg); }
+      background-image: url(../images/local/special-projects/birthday/svg/crown.svg); }
     .sp-birthday-section-head__title[data-icon="dialog"] {
       width: 650px;
       margin-left: auto;
@@ -7992,15 +7987,15 @@ footer {
       .sp-birthday-section-head__title[data-icon="dialog"]::before {
         width: 72px;
         height: 60px;
-        background-image: url(../images/special-projects/birthday/svg/dialog.svg); }
+        background-image: url(../images/local/special-projects/birthday/svg/dialog.svg); }
     .sp-birthday-section-head__title[data-icon="work"]::before {
       width: 60px;
       height: 68px;
-      background-image: url(../images/special-projects/birthday/svg/work.svg); }
+      background-image: url(../images/local/special-projects/birthday/svg/work.svg); }
     .sp-birthday-section-head__title[data-icon="smile"]::before {
       width: 75px;
       height: 65px;
-      background-image: url(../images/special-projects/birthday/svg/smile.svg); }
+      background-image: url(../images/local/special-projects/birthday/svg/smile.svg); }
   .sp-birthday-section-head__description {
     margin-top: 20px;
     margin-left: auto;
@@ -8166,7 +8161,7 @@ footer {
     position: relative;
     top: -130px;
     left: -175px;
-    background-image: url(../images/special-projects/birthday/svg/decor-insta.svg);
+    background-image: url(../images/local/special-projects/birthday/svg/decor-insta.svg);
     background-repeat: no-repeat;
     background-size: contain; }
 
@@ -8229,7 +8224,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: -60px;
-    background-image: url(../images/special-projects/birthday/svg/decor-path.svg);
+    background-image: url(../images/local/special-projects/birthday/svg/decor-path.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center; }
@@ -8327,7 +8322,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: -80px;
-    background-image: url(../images/special-projects/birthday/svg/decor-plane.svg);
+    background-image: url(../images/local/special-projects/birthday/svg/decor-plane.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center; }
@@ -8408,7 +8403,7 @@ footer {
       position: absolute;
       right: -6px;
       bottom: -4px;
-      background-image: url(../images/special-projects/birthday/svg/counter-shadow.svg); }
+      background-image: url(../images/local/special-projects/birthday/svg/counter-shadow.svg); }
   .sp-birthday-event__name {
     height: 120px;
     font-size: 32px;
@@ -8436,7 +8431,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: -20px;
-    background-image: url(../images/special-projects/birthday/svg/decor-star.svg);
+    background-image: url(../images/local/special-projects/birthday/svg/decor-star.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center; }
@@ -8452,7 +8447,7 @@ footer {
     left: -125px;
     width: 1610px;
     height: 980px;
-    background-image: url(../images/special-projects/birthday/svg/decor-people.svg);
+    background-image: url(../images/local/special-projects/birthday/svg/decor-people.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center; }
@@ -8508,7 +8503,7 @@ footer {
     height: 675px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(../images/special-projects/birthday/svg/decor-workers.svg); }
+    background-image: url(../images/local/special-projects/birthday/svg/decor-workers.svg); }
 
 .sp-birthday-worker {
   position: relative;
@@ -8546,7 +8541,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: -20px;
-    background-image: url(../images/special-projects/birthday/svg/decor-clouds.svg);
+    background-image: url(../images/local/special-projects/birthday/svg/decor-clouds.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center; }
@@ -8614,13 +8609,13 @@ footer {
     height: 700px;
     top: -40px;
     left: -170px;
-    background-image: url(../images/special-projects/birthday/svg/reviews-left.svg); }
+    background-image: url(../images/local/special-projects/birthday/svg/reviews-left.svg); }
   .sp-birthday-reviews-slider_outer::after {
     width: 240px;
     height: 730px;
     top: -110px;
     right: -150px;
-    background-image: url(../images/special-projects/birthday/svg/reviews-right.svg); }
+    background-image: url(../images/local/special-projects/birthday/svg/reviews-right.svg); }
   .sp-birthday-reviews-slider_outer .slide-nav-counter {
     width: 100px;
     position: absolute;

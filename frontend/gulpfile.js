@@ -79,7 +79,7 @@ function watch() {
     gulp.watch(['src/sass/**/*.sass',], devSass);
     gulp.watch(['src/sass/_short-styles/*.sass',], devShortStaticStyles);
     gulp.watch(['src/js/**/*.js',], devJS);
-    gulp.watch(['src/images/**/*.*',], devImages);
+    gulp.watch(['src/images/**/*.*',], gulp.parallel(devImages, devLocalImages));
     gulp.watch(['src/fonts/**/*.*',], devFonts);
     gulp.watch(['src/html/**/*.html',], devHtml);
     gulp.watch(['src/html/404.html', 'src/html/500.html',], gulp.parallel(frontendShortHtml));
@@ -119,10 +119,15 @@ function devJS() {
 }
 
 
-function devImages() {
-    return gulp.src('src/images/**/**/*.*')
+function devLocalImages() {
+    return gulp.src('src/images/local/**/**/*.*')
         .pipe(plumber(settingsPlumber))
-        .pipe(gulp.dest('static/images/'))
+        .pipe(gulp.dest('static/images/'));
+}
+
+function devImages() {
+    return gulp.src(['src/images/**/**/*.*', '!src/images/local/**/*.*'])
+        .pipe(plumber(settingsPlumber))
         .pipe(gulp.dest('./../static/site/images/'));
 }
 
@@ -150,6 +155,7 @@ exports.dev = dev;
 exports.watch = watch;
 exports.devSass = devSass;
 exports.devJS = devJS;
+exports.devLocalImages = devLocalImages;
 exports.devImages = devImages;
 exports.devFonts = devFonts;
 exports.devHtml = devHtml;
@@ -200,7 +206,7 @@ function prodJS() {
 
 
 function prodImages() {
-    return gulp.src('src/images/**/*.*')
+    return gulp.src(['src/images/**/*.*', '!src/images/local/**/*.*', '!src/images/email/local/**/*.*',])
         .pipe(plumber(settingsPlumber))
         .pipe(imagemin({
             progressive: true,
