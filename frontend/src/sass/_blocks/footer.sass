@@ -6,11 +6,18 @@ footer
     color: $light-c
 
     +media(m)
-        padding-bottom: 130px
-        background-image: url(../images/svg/footer-pattern-mobile.svg)
-        background-size: 95%
-        background-position: center calc(100% - 30px)
         text-align: center
+
+        &::after
+            content: ""
+            display: block
+            height: 80px
+            margin-top: -20px
+            margin-bottom: 30px
+            background-image: url(../images/svg/footer-pattern-mobile.svg)
+            background-size: contain
+            background-repeat: no-repeat
+            background-position: center
 
     +media(d)
         padding-bottom: 100px

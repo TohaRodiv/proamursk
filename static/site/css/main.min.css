@@ -2204,11 +2204,17 @@ footer {
   color: #FFFFFF; }
   @media (max-width: 1023px) {
     footer {
-      padding-bottom: 130px;
-      background-image: url(../images/svg/footer-pattern-mobile.svg);
-      background-size: 95%;
-      background-position: center calc(100% - 30px);
-      text-align: center; } }
+      text-align: center; }
+      footer::after {
+        content: "";
+        display: block;
+        height: 80px;
+        margin-top: -20px;
+        margin-bottom: 30px;
+        background-image: url(../images/svg/footer-pattern-mobile.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center; } }
   @media (min-width: 1024px) {
     footer {
       padding-bottom: 100px;
