@@ -52,9 +52,6 @@
 .slick-slide img
     display: block
 
-.slick-slide.slick-loading img
-    display: none
-
 .slick-slide.dragging img
     pointer-events: none
 
@@ -63,11 +60,6 @@
 
 .slick-loading .slick-slide
     visibility: hidden
-
-.slick-vertical .slick-slide
-    display: block
-    height: auto
-    border: 1px solid transparent
 
 .slick-arrow
     position: absolute
@@ -99,3 +91,32 @@
     &::before
         content: "\e902"
         font-family: $icon-f
+
+.slick-dots
+    margin: 0
+    padding: 0
+    list-style: none
+    text-align: center
+
+.slick-dots li
+    position: relative
+    display: inline-block
+
+.slick-dots li:not(:last-child) button
+    margin-right: 5px
+
+.slick-dots li button
+    display: inline-block
+    width: 9px
+    height: 9px
+    font-size: 0
+    line-height: 0
+    border-radius: 50%
+    cursor: pointer
+    background-color: #A1A3A3
+
+    &:hover
+        background-color: $light-c
+
+.slick-dots li.slick-active button
+    background-color: $light-c

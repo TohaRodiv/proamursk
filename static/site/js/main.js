@@ -8288,9 +8288,20 @@ $('.js-cinema-widget-slider').slick({
   arrows: true,
   dots: true,
   lazyLoad: 'progressive',
-  dotsClass: 'cinema-widget__circles-container',
+  dotsClass: 'slick-dots cinema-widget__dots-container',
   prevArrow: '<button class="cinema-widget__slider-arrow slider-arrow-prev icon-arrow-left"></button>',
   nextArrow: '<button class="cinema-widget__slider-arrow slider-arrow-next icon-arrow-right"></button>'
+});
+$('.js-specials-slider').slick({
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  dots: true,
+  lazyLoad: 'progressive',
+  dotsClass: 'slick-dots specials__dots-container',
+  prevArrow: '<button class="specials__slider-arrow slider-arrow-prev icon-arrow-left"></button>',
+  nextArrow: '<button class="specials__slider-arrow slider-arrow-next icon-arrow-right"></button>'
 });
 "use strict";
 

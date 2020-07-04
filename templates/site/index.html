@@ -162,23 +162,12 @@
                 <img src="{{ wide_banner.cover|get_thumbnail_url_by_name:"wide_banner" }}" alt="" class="banner__img">
             </a>
         {% else %}
-            <div class="layout-section slider full-width-slider">
-                <div class="slider-container">
-                    {% for item in specials %}
-                        <div class="slide">
-                            {% with cover_name="specials_index" class="grid-publication_full-width-slider" %}
-                                {% include "site/modules/special-project.html" %}
-                            {% endwith %}
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="slider-circles-container"></div>
-                {%  if specials|length > 1 %}
-                    <div class="slider-arrow-container">
-                        <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>
-                        <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>
-                    </div>
-                {% endif %}
+            <div class="layout-section specials-slider js-specials-slider">
+                {% for item in specials %}
+                    {% with cover_name="specials_index" %}
+                        {% include "site/modules/special-project.html" %}
+                    {% endwith %}
+                {% endfor %}
             </div>
         {% endif %}
 
