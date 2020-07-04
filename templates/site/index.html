@@ -100,14 +100,13 @@
                                 <h2 class="selection-head__title"><a href="{% url "compilation-detail" content_page.compilation.codename %}">{{ content_page.compilation.name }}</a></h2>
                             </div>
 
-
                             <div class="index-selection-grid {% if length == 2 %}index-selection-grid_2{% elif length == 3 %}index-selection-grid_3{% else %}index-selection-grid_4{% endif %}">
                                 {% for obj in content_page.compilation.get_active_items|slice:":4" %}
                                     {% with item=obj.get_object %}
                                         {% if item %}
                                             {% with cover_format=item.cover_format|default:"small" %}
                                                 {% if length == 2 %}
-                                                    {% with css_class="grid-publication_6-col" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
+                                                    {% with css_class="grid-publication_6-col grid-publication_format-mobile" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
                                                         {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                             {% include "site/modules/grid-event.html" %}
                                                         {% else %}
@@ -116,7 +115,7 @@
                                                     {% endwith %}
                                                 {% elif length == 3 %}
                                                     {% if forloop.counter == 2 %}
-                                                        {% with css_class="grid-publication_6-col" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
+                                                        {% with css_class="grid-publication_6-col grid-publication_format-mobile" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
                                                             {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                                 {% include "site/modules/grid-event.html" %}
                                                             {% else %}
@@ -124,7 +123,7 @@
                                                             {% endif %}
                                                         {% endwith %}
                                                     {% else %}
-                                                        {% with cover_name="3_column_img_"|add:cover_format%}
+                                                        {% with cover_name="3_column_img_"|add:cover_format% css_class="grid-publication_format-mobile"}
                                                             {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                                 {% include "site/modules/grid-event.html" %}
                                                             {% else %}
@@ -133,7 +132,7 @@
                                                         {% endwith %}
                                                     {% endif %}
                                                 {% else %}
-                                                    {% with cover_name="3_column_img_"|add:cover_format%}
+                                                    {% with cover_name="3_column_img_"|add:cover_format% css_class="grid-publication_format-mobile"}
                                                         {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                             {% include "site/modules/grid-event.html" %}
                                                         {% else %}
@@ -184,7 +183,7 @@
         {% endif %}
 
         <div class="container layout-section">
-            <h2 class="section__title">ЧЕМ ЗАНЯТЬСЯ В АМУРСКЕ?</h2>
+            <h2 class="section__title section__title_mobile-center">ЧЕМ ЗАНЯТЬСЯ В&nbsp;АМУРСКЕ?</h2>
             <div class="todo-layout">
                 {% include "site/page-block/cinema-widget.html" %}
 

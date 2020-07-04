@@ -68,12 +68,14 @@
     &.active
         display: block
 
+.cinema-widget__circles-container button,
 .slider-circle-item
     display: inline-block
     width: 9px
     height: 9px
     margin-right: 5px
     border-radius: 50%
+    font-size: 0
     cursor: pointer
     background-color: #A1A3A3
 
@@ -81,6 +83,7 @@
     &:hover
         background-color: $light-c
 
+.slider-circle-item
     &:last-child
         margin-right: 0
 
@@ -243,3 +246,7 @@
         &-next
             right: -68px
             padding-left: 3px
+
+.slick-dots
+    margin: 0
+    padding: 0

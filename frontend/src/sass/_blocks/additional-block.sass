@@ -8,12 +8,28 @@
         color: $light-c
         text-transform: uppercase
 
-.read-also
+        +media(m)
+            margin-bottom: 30px
+            text-align: center
+
+.additional-block
     .additional-block__title
         letter-spacing: 0.1em
 
-.movie-posters-widget
+    .grid-publication
+        +media(m)
+            background-color: transparent
+            color: $light-c
 
+            &:not(:last-child)
+                margin-bottom: 20px
+                padding-bottom: 20px
+                border-bottom: 1px solid #D7DBE0
+
+        +media(d)
+            border: 1px solid #B1C1D2
+
+.movie-posters-widget
     &__title-wrap
         display: flex
         align-items: center
@@ -51,9 +67,9 @@
         border-radius: 10px
 
     &__title
+        font-size: $base-fz
         font-family: $base-f
         font-weight: bold
-        font-size: $base-fz
         letter-spacing: 0.02em
         color: $light-c
 

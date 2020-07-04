@@ -27,7 +27,7 @@
         font-family: $bold-f
 
         +media(m)
-            font-size: 21px
+            font-size: $medium-fz
 
         +media(d)
             font-size: 46px
@@ -41,8 +41,16 @@
               color: $base-c
 
 .index-selection
+    margin-top: 40px
+
+    +media(m)
+        padding: 25px 15px
+        border-radius: 8px
+        background: #fff
+        border: 2px solid $base-c
+        box-shadow: 0 20px 24px #e1ecf7
+
     +media(d)
-        margin-top: 40px
         margin-left: -40px
         margin-right: -40px
         padding: 40px
@@ -60,15 +68,24 @@
     &__link
         display: inline-block
 
+        +media(m)
+            width: 100%
+            padding-left: 0
+            padding-right: 0
+
 .index-selection-grid
     +media(m)
         & > .grid-publication:not(:last-child)
             margin-bottom: 20px
+            padding-bottom: 20px
+            border-bottom: 1px solid #C3CEDF
+
+        .wobbler__text
+            color: $dark-c
 
     +media(d)
         display: flex
-        margin-left: -10px
-        margin-right: -10px
+        justify-content: space-between
 
         &_2 .grid-publication
             width: 640px
@@ -83,7 +100,3 @@
 
         &_4 .grid-publication
             width: 310px
-
-        .grid-publication
-            margin-left: 10px
-            margin-right: 10px

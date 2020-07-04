@@ -4,21 +4,12 @@
     <div class="cinema-widget">
         <div class="cinema-widget__title">Сегодня в кино</div>
 
-        <div class="slider cinema-widget__slider">
-            <div class="slider-container">
-                {% for film in films %}
-                    <a href="{% url "films-detail" film.id %}" class="slide cinema-widget__slide">
-                        <img src="" data-src="{{ film.cover|get_thumbnail_url_by_name:"film_banner" }}" alt="" class="cinema-widget__slide-img lazyload">
-                    </a>
-                {% endfor %}
-            </div>
-            <div class="slider-circles-container"></div>
-            {% if films|length > 1 %}
-                <div class="slider-arrow-container">
-                    <button class="slider-arrow slider-arrow-prev slider-arrow_base icon-arrow-left active"></button>
-                    <button class="slider-arrow slider-arrow-next slider-arrow_base icon-arrow-right active"></button>
-                </div>
-            {% endif %}
+        <div class="cinema-widget__slider js-cinema-widget-slider">
+            {% for film in films %}
+                <a href="{% url "films-detail" film.id %}" class="cinema-widget__slide">
+                    <img src="" data-lazy="{{ film.cover|get_thumbnail_url_by_name:"film_banner" }}" alt="" class="cinema-widget__slide-img">
+                </a>
+            {% endfor %}
         </div>
     </div>
 {% endif %}

@@ -8280,6 +8280,18 @@ var sliderAdaptiveHeight = function sliderAdaptiveHeight(showSlides) {
   });
   $('.slick-list').height(Math.max.apply(null, heights));
 };
+
+$('.js-cinema-widget-slider').slick({
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  dots: true,
+  lazyLoad: 'progressive',
+  dotsClass: 'cinema-widget__circles-container',
+  prevArrow: '<button class="cinema-widget__slider-arrow slider-arrow-prev icon-arrow-left"></button>',
+  nextArrow: '<button class="cinema-widget__slider-arrow slider-arrow-next icon-arrow-right"></button>'
+});
 "use strict";
 
 $('.js-sp-dance-style-slider-item').click(function () {

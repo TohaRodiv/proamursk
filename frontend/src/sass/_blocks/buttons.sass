@@ -75,10 +75,11 @@
 
     &_size
         &_big
-            height: 60px
-            padding: 18px 40px
-            font-size: $h4-fz
-            border-radius: 30px
+            +media(d)
+                height: 60px
+                padding: 18px 40px
+                font-size: $h4-fz
+                border-radius: 30px
 
 .btn__counter
     margin-left: 5px

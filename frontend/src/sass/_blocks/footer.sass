@@ -1,15 +1,21 @@
 footer
     margin-top: 40px
     padding-top: 40px
-    padding-bottom: 100px
     background-color: $base-dark-c
-    background-image: url(../images/svg/footer-pattern.svg)
     background-repeat: no-repeat
-    background-position: center bottom
     color: $light-c
 
     +media(m)
+        padding-bottom: 130px
+        background-image: url(../images/svg/footer-pattern-mobile.svg)
+        background-size: 95%
+        background-position: center calc(100% - 30px)
         text-align: center
+
+    +media(d)
+        padding-bottom: 100px
+        background-image: url(../images/svg/footer-pattern.svg)
+        background-position: center bottom
 
 .additional-block + footer
     margin-top: 0
