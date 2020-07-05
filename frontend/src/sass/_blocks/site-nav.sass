@@ -27,19 +27,53 @@
             &::after
                 display: block
 
+    &__mobile-icon
+        display: none
+
 .header__nav
     .site-nav
+        +media(m)
+            margin: 40px 0
+
         &__item
-            &:not(:last-child)
-                margin-right: 30px
+            +media(m)
+                display: block
+
+                &:not(:last-child)
+                    margin-bottom: 30px
+
+            +media(d)
+                &:not(:last-child)
+                    margin-right: 30px
 
         &__link
-            font-size: $small-fz
             font-family: $bold-f
+
+            +media(m)
+                padding: 0
+                font-size: $h4-fz
+
+            +media(d)
+                font-size: $small-fz
+
+            +media(m)
+                display: block
 
             &::after
                 height: 3px
                 bottom: -5px
+
+        &__mobile-icon
+            +media(m)
+                display: inline-block
+                width: 24px
+                margin-right: 18px
+                font-size: 20px
+                color: $base-c
+                text-align: center
+
+                &.icon-history
+                    font-size: 16px
 
 .footer__nav
     .site-nav
@@ -53,3 +87,8 @@
             &::after
                 height: 2px
                 bottom: -5px
+
+
+.mobile-menu-open
+    height: 100vh
+    overflow: hidden

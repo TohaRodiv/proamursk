@@ -105,6 +105,28 @@ header
 
         +media(m)
             display: none
+            position: fixed
+            top: 70px
+            left: 0
+            z-index: 999
+            width: 100%
+            height: calc(100% - 70px)
+            background-color: $light-c
+            overflow: auto
+
+            &_inner
+                display: flex
+                flex-direction: column
+                width: 100%
+                max-width: 600px
+                height: 100%
+                margin-left: auto
+                margin-right: auto
+                padding-left: 16px
+                padding-right: 16px
+
+            &.visible
+                display: block
 
     &__search-btn
         display: block
@@ -151,9 +173,6 @@ header
 
     &__pattern
         +media(m)
-            width: 355px
-            height: 80px
-
             &_desktop
                 display: none
 
@@ -164,6 +183,38 @@ header
             bottom: 10px
             z-index: 1
 
-.header-mobile-nav
+    &__social-wrap
+        margin-bottom: 25px
+
+        .social-link
+            color: $light-c
+            background-color: $base-c
+
+    &__mobile-actions
+        & > *
+            display: block
+            margin-top: 20px
+            color: #7A8BA1
+            font-size: 16px
+            text-decoration: underline
+
+    &__mobile-copyright
+        font-size: 14px
+        text-decoration: none
+
+.header-mobile-nav__bottom-section
+    margin-top: auto
+
+    &::after
+        content: ""
+        display: block
+        height: 80px
+        margin-top: 10px
+        margin-bottom: 20px
+        background-image: url(../images/svg/header-pattern-mobile.svg)
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+
     +media(d)
         display: none

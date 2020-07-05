@@ -123,7 +123,7 @@
                                                             {% endif %}
                                                         {% endwith %}
                                                     {% else %}
-                                                        {% with cover_name="3_column_img_"|add:cover_format% css_class="grid-publication_format-mobile"}
+                                                        {% with cover_name="3_column_img_"|add:cover_format css_class="grid-publication_format-mobile" %}
                                                             {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                                 {% include "site/modules/grid-event.html" %}
                                                             {% else %}
@@ -132,7 +132,7 @@
                                                         {% endwith %}
                                                     {% endif %}
                                                 {% else %}
-                                                    {% with cover_name="3_column_img_"|add:cover_format% css_class="grid-publication_format-mobile"}
+                                                    {% with cover_name="3_column_img_"|add:cover_format css_class="grid-publication_format-mobile" %}
                                                         {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                             {% include "site/modules/grid-event.html" %}
                                                         {% else %}

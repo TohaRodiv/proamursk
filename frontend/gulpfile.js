@@ -126,8 +126,9 @@ function devLocalImages() {
 }
 
 function devImages() {
-    return gulp.src(['src/images/**/**/*.*', '!src/images/local/**/*.*'])
+    return gulp.src(['src/images/**/**/*.*', '!src/images/local/**/*.*',])
         .pipe(plumber(settingsPlumber))
+        .pipe(gulp.dest('static/images/'))
         .pipe(gulp.dest('./../static/site/images/'));
 }
 
