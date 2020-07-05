@@ -79,34 +79,78 @@ header
                     font-size: 19px
 
         &.icon-logo-event
-            bottom: 37px
             right: 26px
-            &::before
-                font-size: 21px
+
+            +media(m)
+                bottom: 22px
+
+                &::before
+                    font-size: 19px
+
+            +media(d)
+                bottom: 37px
+
+                &::before
+                    font-size: 21px
 
         &.icon-logo-history
-            bottom: 37px
-            right: 16px
-            &::before
-                font-size: 18px
+            +media(m)
+                bottom: 21px
+                right: 17px
+
+                &::before
+                    font-size: 16px
+
+            +media(d)
+                bottom: 37px
+                right: 16px
+                &::before
+                    font-size: 18px
 
         &.icon-geo-stroke
-            bottom: 35px
-            right: 19px
-            &::before
-                font-size: 24px
+            +media(m)
+                bottom: 19px
+                right: 19px
+
+                &::before
+                    font-size: 22px
+
+            +media(d)
+                bottom: 35px
+                right: 19px
+
+                &::before
+                    font-size: 24px
 
         &.icon-logo-people
-            bottom: 35px
-            right: 17px
-            &::before
-                font-size: 25px
+            +media(m)
+                bottom: 22px
+                right: 18px
+
+                &::before
+                    font-size: 22px
+
+            +media(d)
+                bottom: 35px
+                right: 17px
+
+                &::before
+                    font-size: 25px
 
         &.icon-star-sharp
-            bottom: 37px
-            right: 23px
-            &::before
-                font-size: 22px
+            +media(m)
+                bottom: 22px
+                right: 10px
+
+                &::before
+                    font-size: 21px
+
+            +media(d)
+                bottom: 37px
+                right: 23px
+
+                &::before
+                    font-size: 22px
 
     &__nav-wrap
         margin-left: auto

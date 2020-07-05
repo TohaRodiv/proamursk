@@ -2127,30 +2127,65 @@ header {
       .header__logo-icon.icon-logo-news::before {
         font-size: 19px; } }
   .header__logo-icon.icon-logo-event {
-    bottom: 37px;
     right: 26px; }
-    .header__logo-icon.icon-logo-event::before {
-      font-size: 21px; }
-  .header__logo-icon.icon-logo-history {
-    bottom: 37px;
-    right: 16px; }
-    .header__logo-icon.icon-logo-history::before {
-      font-size: 18px; }
-  .header__logo-icon.icon-geo-stroke {
-    bottom: 35px;
-    right: 19px; }
-    .header__logo-icon.icon-geo-stroke::before {
-      font-size: 24px; }
-  .header__logo-icon.icon-logo-people {
-    bottom: 35px;
-    right: 17px; }
-    .header__logo-icon.icon-logo-people::before {
-      font-size: 25px; }
-  .header__logo-icon.icon-star-sharp {
-    bottom: 37px;
-    right: 23px; }
-    .header__logo-icon.icon-star-sharp::before {
-      font-size: 22px; }
+    @media (max-width: 1023px) {
+      .header__logo-icon.icon-logo-event {
+        bottom: 22px; }
+        .header__logo-icon.icon-logo-event::before {
+          font-size: 19px; } }
+    @media (min-width: 1024px) {
+      .header__logo-icon.icon-logo-event {
+        bottom: 37px; }
+        .header__logo-icon.icon-logo-event::before {
+          font-size: 21px; } }
+  @media (max-width: 1023px) {
+    .header__logo-icon.icon-logo-history {
+      bottom: 21px;
+      right: 17px; }
+      .header__logo-icon.icon-logo-history::before {
+        font-size: 16px; } }
+  @media (min-width: 1024px) {
+    .header__logo-icon.icon-logo-history {
+      bottom: 37px;
+      right: 16px; }
+      .header__logo-icon.icon-logo-history::before {
+        font-size: 18px; } }
+  @media (max-width: 1023px) {
+    .header__logo-icon.icon-geo-stroke {
+      bottom: 19px;
+      right: 19px; }
+      .header__logo-icon.icon-geo-stroke::before {
+        font-size: 22px; } }
+  @media (min-width: 1024px) {
+    .header__logo-icon.icon-geo-stroke {
+      bottom: 35px;
+      right: 19px; }
+      .header__logo-icon.icon-geo-stroke::before {
+        font-size: 24px; } }
+  @media (max-width: 1023px) {
+    .header__logo-icon.icon-logo-people {
+      bottom: 22px;
+      right: 18px; }
+      .header__logo-icon.icon-logo-people::before {
+        font-size: 22px; } }
+  @media (min-width: 1024px) {
+    .header__logo-icon.icon-logo-people {
+      bottom: 35px;
+      right: 17px; }
+      .header__logo-icon.icon-logo-people::before {
+        font-size: 25px; } }
+  @media (max-width: 1023px) {
+    .header__logo-icon.icon-star-sharp {
+      bottom: 22px;
+      right: 10px; }
+      .header__logo-icon.icon-star-sharp::before {
+        font-size: 21px; } }
+  @media (min-width: 1024px) {
+    .header__logo-icon.icon-star-sharp {
+      bottom: 37px;
+      right: 23px; }
+      .header__logo-icon.icon-star-sharp::before {
+        font-size: 22px; } }
 
 .header__nav-wrap {
   margin-left: auto;
@@ -2761,8 +2796,10 @@ footer {
   margin-bottom: 50px; }
   .publication__cover-wrap {
     position: relative;
-    height: 500px;
     background-color: #DFDFDF; }
+    @media (min-width: 1024px) {
+      .publication__cover-wrap {
+        height: 500px; } }
     .publication__cover-wrap::after {
       content: "";
       display: block;
@@ -4618,8 +4655,9 @@ footer {
     width: 380px;
     height: 500px; }
 
-.aside-instagram-widget {
-  height: 500px; }
+@media (min-width: 1024px) {
+  .aside-instagram-widget {
+    height: 500px; } }
 
 .sp img {
   display: block; }

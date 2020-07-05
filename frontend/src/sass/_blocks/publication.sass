@@ -3,8 +3,10 @@
 
     &__cover-wrap
         position: relative
-        height: 500px
         background-color: $light-gray
+
+        +media(d)
+            height: 500px
 
         &::after
             content: ""
