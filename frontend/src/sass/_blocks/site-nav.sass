@@ -15,12 +15,13 @@
         text-transform: uppercase
 
         &::after
-            content: ""
-            display: none
-            width: 100%
-            position: absolute
-            left: 0
-            background-color: $base-c
+            +media(d)
+                content: ""
+                display: none
+                width: 100%
+                position: absolute
+                left: 0
+                background-color: $base-c
 
         &:hover,
         &.active

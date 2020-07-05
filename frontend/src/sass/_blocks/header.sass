@@ -64,10 +64,19 @@ header
                 bottom: 40px
 
         &.icon-logo-news
-            bottom: 40px
-            right: 19px
-            &::before
-                font-size: 19px
+            +media(m)
+                right: 22px
+                bottom: 24px
+
+                &::before
+                    font-size: 17px
+
+            +media(d)
+                right: 19px
+                bottom: 40px
+
+                &::before
+                    font-size: 19px
 
         &.icon-logo-event
             bottom: 37px

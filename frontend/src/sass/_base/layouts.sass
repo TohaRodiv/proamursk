@@ -16,19 +16,24 @@
     margin-top: 40px
 
 .base-layout
-    display: flex
-    align-items: flex-start
+    +media(m)
+        .base-layout__aside
+            margin-top: 20px
 
-    &__main
-        width: 860px
-        flex-shrink: 0
-        margin-right: 20px
+    +media(d)
+        display: flex
+        align-items: flex-start
 
-    &__aside
-        width: 420px
-        margin-left: auto
-        padding-left: 40px
-        flex-shrink: 0
+        &__main
+            width: 860px
+            flex-shrink: 0
+            margin-right: 20px
+
+        &__aside
+            width: 420px
+            margin-left: auto
+            padding-left: 40px
+            flex-shrink: 0
 
 .aside-widget
     &:not(:last-child)
