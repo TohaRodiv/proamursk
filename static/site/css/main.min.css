@@ -3803,38 +3803,77 @@ footer {
     border: 1px solid #B1C1D2; } }
 
 .movie-posters-widget__title-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin-bottom: 40px; }
+  @media (min-width: 1024px) {
+    .movie-posters-widget__title-wrap {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; } }
   .movie-posters-widget__title-wrap .additional-block__title {
     letter-spacing: 0.02em; }
 
 .movie-posters-widget__btns {
-  margin-left: 50px;
   font-size: 0; }
+  @media (max-width: 1023px) {
+    .movie-posters-widget__btns {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; } }
+  @media (min-width: 1024px) {
+    .movie-posters-widget__btns {
+      margin-left: 50px; } }
 
-.movie-posters-widget__btn {
-  margin-right: 15px; }
+@media (max-width: 1023px) {
+  .movie-posters-widget__btn {
+    margin-left: 8px;
+    margin-right: 8px; } }
 
-.movie-posters-widget .slick-list {
-  margin-left: -25px;
-  margin-right: -25px; }
+@media (min-width: 1024px) {
+  .movie-posters-widget__btn {
+    margin-right: 15px; } }
 
-.movie-posters-widget .slick-active .movie-posters-item__cover {
-  width: 220px;
+@media (min-width: 1024px) {
+  .movie-posters-widget .slick-list {
+    margin-left: -25px;
+    margin-right: -25px; } }
+
+@media (max-width: 1023px) {
+  .movie-posters-widget .movie-posters-item_inner {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 220px; } }
+
+.movie-posters-widget .movie-posters-item__cover {
+  width: 100%;
   height: 330px;
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); }
 
+.movie-posters-widget .slick-prev {
+  left: -26px; }
+
+.movie-posters-widget .slick-next {
+  right: -26px; }
+
 .movie-posters-item {
   position: relative;
-  margin-left: 25px;
-  margin-right: 25px;
   text-decoration: none; }
+  @media (min-width: 1024px) {
+    .movie-posters-item {
+      margin-left: 25px;
+      margin-right: 25px; } }
   .movie-posters-item__cover {
     display: block;
     margin-bottom: 15px;

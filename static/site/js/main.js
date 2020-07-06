@@ -8421,7 +8421,22 @@ $(function () {
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
-    arrows: true
+    arrows: true,
+    responsive: [{
+      breakpoint: 1024,
+      settings: {
+        arrows: false,
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    }, {
+      breakpoint: 600,
+      settings: {
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
   });
 });
 $('body').on('click', '.js-tab__btn', function () {

@@ -2,7 +2,7 @@ function setFirstTabsVisible() {
     $('.tabs-wrap').each(function () {
         $(this).find('.tab__btn').eq(0).addClass('active');
         $(this).find('.tab__content').eq(0).addClass('visible');
-    })
+    });
 }
 
 function switchTab(elem) {
@@ -27,6 +27,24 @@ $(function () {
         slidesToShow: 5,
         slidesToScroll: 1,
         arrows: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     });
 });
 

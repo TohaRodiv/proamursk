@@ -24,15 +24,17 @@
                         <div class="movie-posters-slider">
                             {% for film in today_films %}
                                 <a href="{% url "films-detail" film.id %}" class="movie-posters-item">
-                                    <div class="movie-posters-item__icons-wrap">
-                                        {% if film.is_3d %}
-                                            <span class="movie-posters-item__icon round-rating">3D</span>
-                                        {% endif %}
-                                        <span class="movie-posters-item__icon round-rating">{{ film.age_restriction }}</span>
+                                    <div class="movie-posters-item_inner">
+                                        <div class="movie-posters-item__icons-wrap">
+                                            {% if film.is_3d %}
+                                                <span class="movie-posters-item__icon round-rating">3D</span>
+                                            {% endif %}
+                                            <span class="movie-posters-item__icon round-rating">{{ film.age_restriction }}</span>
+                                        </div>
+                                        <img src="" data-src="{{ film.cover|get_thumbnail_url_by_name:"films_list" }}" alt="" class="movie-posters-item__cover lazyload">
+                                        <div class="movie-posters-item__title">{{ film.title }}</div>
+                                        <div class="movie-posters-item__genre">{{ film.genre }}</div>
                                     </div>
-                                    <img src="" data-src="{{ film.cover|get_thumbnail_url_by_name:"films_list" }}" alt="" class="movie-posters-item__cover lazyload">
-                                    <div class="movie-posters-item__title">{{ film.title }}</div>
-                                    <div class="movie-posters-item__genre">{{ film.genre }}</div>
                                 </a>
                             {% endfor %}
                         </div>
@@ -43,15 +45,17 @@
                         <div class="movie-posters-slider">
                             {% for film in tomorrow_films %}
                                 <a href="{% url "films-detail" film.id %}" class="movie-posters-item">
-                                    <div class="movie-posters-item__icons-wrap">
-                                        {% if film.is_3d %}
-                                            <span class="movie-posters-item__icon round-rating">3D</span>
-                                        {% endif %}
-                                        <span class="movie-posters-item__icon round-rating">{{ film.age_restriction }}</span>
+                                    <div class="movie-posters-item_inner">
+                                        <div class="movie-posters-item__icons-wrap">
+                                            {% if film.is_3d %}
+                                                <span class="movie-posters-item__icon round-rating">3D</span>
+                                            {% endif %}
+                                            <span class="movie-posters-item__icon round-rating">{{ film.age_restriction }}</span>
+                                        </div>
+                                        <img src="{{ film.cover|get_thumbnail_url_by_name:"films_list" }}" alt="" class="movie-posters-item__cover">
+                                        <div class="movie-posters-item__title">{{ film.title }}</div>
+                                        <div class="movie-posters-item__genre">{{ film.genre }}</div>
                                     </div>
-                                    <img src="{{ film.cover|get_thumbnail_url_by_name:"films_list" }}" alt="" class="movie-posters-item__cover">
-                                    <div class="movie-posters-item__title">{{ film.title }}</div>
-                                    <div class="movie-posters-item__genre">{{ film.genre }}</div>
                                 </a>
                             {% endfor %}
                         </div>
@@ -62,15 +66,17 @@
                         <div class="movie-posters-slider">
                             {% for film in future_films %}
                                 <a href="{% url "films-detail" film.id %}" class="movie-posters-item">
-                                    <div class="movie-posters-item__icons-wrap">
-                                        {% if film.is_3d %}
-                                            <span class="movie-posters-item__icon round-rating">3D</span>
-                                        {% endif %}
-                                        <span class="movie-posters-item__icon round-rating">{{ film.age_restriction }}</span>
+                                    <div class="movie-posters-item_inner">
+                                        <div class="movie-posters-item__icons-wrap">
+                                            {% if film.is_3d %}
+                                                <span class="movie-posters-item__icon round-rating">3D</span>
+                                            {% endif %}
+                                            <span class="movie-posters-item__icon round-rating">{{ film.age_restriction }}</span>
+                                        </div>
+                                        <img src="{{ film.cover|get_thumbnail_url_by_name:"films_list" }}" alt="" class="movie-posters-item__cover">
+                                        <div class="movie-posters-item__title">{{ film.title }}</div>
+                                        <div class="movie-posters-item__genre">{{ film.genre }}</div>
                                     </div>
-                                    <img src="{{ film.cover|get_thumbnail_url_by_name:"films_list" }}" alt="" class="movie-posters-item__cover">
-                                    <div class="movie-posters-item__title">{{ film.title }}</div>
-                                    <div class="movie-posters-item__genre">{{ film.genre }}</div>
                                 </a>
                             {% endfor %}
                         </div>
