@@ -72,7 +72,7 @@ const gulp = require('gulp'),
 //   DEVELOPMENT TASKS
 // ---------------------
 
-const dev = gulp.parallel(devSass, devJS, devImages, devFonts, devHtml, devShortStaticStyles, frontendShortHtml);
+const dev = gulp.parallel(devSass, devJS, devImages, devLocalImages, devFonts, devHtml, devShortStaticStyles, frontendShortHtml);
 
 
 function watch() {
@@ -122,7 +122,7 @@ function devJS() {
 function devLocalImages() {
     return gulp.src('src/images/local/**/**/*.*')
         .pipe(plumber(settingsPlumber))
-        .pipe(gulp.dest('static/images/'));
+        .pipe(gulp.dest('static/images/local/'));
 }
 
 function devImages() {

@@ -213,11 +213,12 @@ main {
   .btn_center {
     margin-left: auto;
     margin-right: auto; }
-  .btn_size_big {
-    height: 60px;
-    padding: 18px 40px;
-    font-size: 20px;
-    border-radius: 30px; }
+  @media (min-width: 1024px) {
+    .btn_size_big {
+      height: 60px;
+      padding: 18px 40px;
+      font-size: 20px;
+      border-radius: 30px; } }
 
 .btn__counter {
   margin-left: 5px;
