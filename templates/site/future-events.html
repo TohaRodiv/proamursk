@@ -44,7 +44,7 @@
                 </aside>
             </div>
 
-            <div class="base-3items-grid">
+            <div class="base-3items-grid items-grid">
                 {% for item in events|slice:"1:4" %}
                     {% if item %}
                         {% if forloop.counter == 1 %}
@@ -66,7 +66,7 @@
                 {% endfor %}
             </div>
 
-            <div class="js-infinity-loader-wrap">
+            <div class="js-infinity-loader-wrap items-grid">
                 <div class="base-4items-grid js-infinity-loader-grid">
                     {% for item in events|slice:"4:" %}
                         {% if item %}

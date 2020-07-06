@@ -5,6 +5,14 @@
 
 <main class="light-bg">
     <div class="container">
+        <h1 class="page-title">События</h1>
+
+        <div class="mobile-events-sections-links">
+            @@include("modules/events-links-widget.html", {
+                "active": ""
+            })
+        </div>
+
         <div class="base-layout">
             <div class="base-layout__main">
                 @@include("modules/grid-event.html", {
@@ -19,8 +27,8 @@
                 })
             </div>
 
-            <aside class="base-layout__aside">
-                <div class="aside-widget">
+            <aside class="base-layout__aside base-layout__aside_desktop">
+                <div class="aside-widget aside-nav-widget">
                     @@include("modules/events-links-widget.html", {
                         "active": ""
                     })
@@ -36,7 +44,7 @@
             </aside>
         </div>
 
-        <div class="base-3items-grid">
+        <div class="base-3items-grid items-grid">
             @@include("modules/grid-event.html", {
                 "class": "grid-publication_format-base",
                 "link": "reportage-details.html",
@@ -71,7 +79,7 @@
             })
         </div>
 
-        <div class="base-4items-grid">
+        <div class="base-4items-grid items-grid">
             @@include("modules/grid-event.html", {
                 "class": "grid-publication_format-base",
                 "link": "reportage-details.html",
@@ -115,6 +123,16 @@
                 "wobbler": "announcement",
                 "addLink": false
             })
+        </div>
+
+        <div class="base-layout__aside base-layout__aside_mobile">
+            <div class="aside-widget">
+                @@include('modules/offer-widget.html', {
+                "class": "event",
+                "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                "btnText": "Поделиться событием"
+                })
+            </div>
         </div>
     </div>
 </main>

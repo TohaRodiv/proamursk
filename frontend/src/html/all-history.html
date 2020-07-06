@@ -5,6 +5,8 @@
 
 <main class="light-bg">
     <div class="container">
+        <h1 class="page-title">История</h1>
+
         <div class="base-layout">
             <div class="base-layout__main">
                 @@include("modules/grid-publication.html", {
@@ -17,7 +19,7 @@
                 })
             </div>
 
-            <aside class="base-layout__aside">
+            <aside class="base-layout__aside base-layout__aside_desktop">
                 <div class="aside-widget">
                     @@include('modules/offer-widget.html', {
                         "class": "history",
@@ -35,7 +37,7 @@
             </aside>
         </div>
 
-        <div class="base-3items-grid">
+        <div class="base-3items-grid items-grid">
             @@include("modules/grid-publication.html", {
                 "class": "grid-publication_format-base",
                 "link": "history-details.html",
@@ -64,7 +66,7 @@
             })
         </div>
 
-        <div class="base-3items-grid-inverse">
+        <div class="base-3items-grid-inverse items-grid">
             @@include("modules/grid-publication.html", {
                 "class": "grid-publication_format-base grid-publication_6-col",
                 "link": "history-details.html",
@@ -93,7 +95,7 @@
             })
         </div>
 
-        <div class="js-infinity-loader-wrap">
+        <div class="js-infinity-loader-wrap items-grid">
             <div class="base-4items-grid js-infinity-loader-grid">
                 @@include("modules/grid-publication.html", {
                     "class": "grid-publication_format-base",
@@ -132,6 +134,23 @@
                 })
             </div>
             <button class="btn btn_blue btn_more js-btn_more btn_center js-more-history" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+        </div>
+
+        <div class="base-layout__aside base-layout__aside_mobile">
+            <div class="aside-widget">
+                @@include('modules/offer-widget.html', {
+                "class": "history",
+                "text": "Любой житель Амурска может поделиться интересной историей с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                "btnText": "Поделиться историей"
+                })
+            </div>
+
+            <div class="aside-widget">
+                @@include("page-block/sidebar-banner.html", {
+                "link": "news-details.html",
+                "img": "images/local/aside-banner2.jpg"
+                })
+            </div>
         </div>
     </div>
 </main>
