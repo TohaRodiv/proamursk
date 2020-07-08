@@ -3052,7 +3052,8 @@ footer {
     @media (max-width: 1023px) {
       .news-list-item__img-wrap {
         width: 72px;
-        height: 52px; } }
+        height: 52px;
+        margin-left: 20px; } }
     @media (min-width: 1024px) {
       .news-list-item__img-wrap {
         width: 310px; } }
@@ -3977,10 +3978,17 @@ footer {
 
 .offer-widget {
   position: relative;
-  padding: 26px 60px 26px 30px;
   background-color: #FFFFFF;
-  border: 2px solid #0073FF;
-  border-radius: 4px; }
+  border: 2px solid #0073FF; }
+  @media (max-width: 1023px) {
+    .offer-widget {
+      margin-top: 40px;
+      padding: 30px 20px;
+      border-radius: 16px; } }
+  @media (min-width: 1024px) {
+    .offer-widget {
+      padding: 26px 60px 26px 30px;
+      border-radius: 4px; } }
   .offer-widget_news .offer-widget__icon::before {
     font-size: 90px; }
   .offer-widget_event .offer-widget__icon::before {
@@ -3995,15 +4003,34 @@ footer {
     margin-bottom: 20px;
     font-size: 16px;
     color: #000000; }
+    @media (max-width: 1023px) {
+      .offer-widget__text {
+        text-align: center; }
+        .offer-widget__text br {
+          display: none; } }
   .offer-widget__btn {
     color: #FFFFFF;
     letter-spacing: 0.04em; }
+    @media (max-width: 1023px) {
+      .offer-widget__btn {
+        display: block;
+        width: 100%;
+        max-width: 290px;
+        margin-left: auto;
+        margin-right: auto; } }
   .offer-widget__icon {
-    position: absolute;
-    bottom: 15px;
-    right: 20px;
     font-size: 0;
     color: rgba(0, 115, 255, 0.1); }
+    @media (max-width: 1023px) {
+      .offer-widget__icon {
+        display: block;
+        text-align: center;
+        margin-bottom: 15px; } }
+    @media (min-width: 1024px) {
+      .offer-widget__icon {
+        position: absolute;
+        bottom: 15px;
+        right: 20px; } }
 
 .banner {
   display: block;

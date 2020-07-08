@@ -22,6 +22,12 @@
 {% block content %}
     <main class="light-bg">
         <div class="container">
+            <h1 class="page-title">Репортажи</h1>
+
+            <div class="mobile-events-sections-links">
+                {% include "site/modules/events-links-widget.html" %}
+            </div>
+
             <div class="base-layout">
                 <div class="base-layout__main">
                     {% with item=reports.0 css_class='grid-publication_8-col' first_item=True cover_name="8_column_img" wobler_type="reportage" %}
@@ -33,8 +39,8 @@
                     {% endwith %}
                 </div>
 
-                <aside class="base-layout__aside">
-                    <div class="aside-widget">
+                <aside class="base-layout__aside base-layout__aside_desktop">
+                    <div class="aside-widget aside-nav-widget">
                         {% include "site/modules/events-links-widget.html" %}
                     </div>
 
@@ -77,6 +83,14 @@
                 {% if has_next %}
                     <button class="btn btn_blue btn_more js-btn_more btn_center js-more-reportage" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
                 {% endif %}
+            </div>
+
+            <div class="base-layout__aside base-layout__aside_mobile">
+                <div class="aside-widget">
+                    {% with css_class="event" btn_text="Поделиться событием" offer_text="Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                        {% include "site/modules/offer-widget.html" %}
+                    {% endwith %}
+                </div>
             </div>
         </div>
     </main>
