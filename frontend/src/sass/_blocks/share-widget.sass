@@ -1,22 +1,45 @@
 .share-widget
-    display: flex
-    align-items: center
-    justify-content: flex-end
+    +media(m)
+        text-align: center
+
+    +media(d)
+        display: flex
+        align-items: center
+        justify-content: flex-end
 
     &__text
-        margin-right: 20px
         font-size: $mini-fz
         letter-spacing: 0.08em
+
+        +media(m)
+            display: block
+            margin-bottom: 20px
+
+        +media(d)
+            margin-right: 20px
 
     &__links-wrap
         display: flex
         align-items: center
 
+        +media(m)
+            justify-content: center
+
     &__link
         &:not(:last-child)
-            margin-right: 8px
+            +media(m)
+                margin-right: 20px
+
+            +media(d)
+                margin-right: 8px
 
     &__link-img
         display: block
-        width: 24px
-        height: 24px
+
+        +media(m)
+            width: 42px
+            height: 42px
+
+        +media(d)
+            width: 24px
+            height: 24px

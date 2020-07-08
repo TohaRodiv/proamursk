@@ -10,7 +10,6 @@
         margin-left: auto
         margin-right: auto
 
-
 .post-editor__block_image.right
     .lazy-image-outer
         margin-left: auto
@@ -19,6 +18,23 @@
     width: 100%
 
     .post-editor__block_text
+        +media(d)
+            width: 640px
+            margin-right: auto
+            margin-left: auto
+
+    .slider-caption
+        width: 100%
+
+    .post-editor__block_video-wrap
+        height: 490px
+
+    .post-editor__block_direct-speech
+        +media(d)
+            margin-left: 110px
+
+.post-editor__section_6
+    +media(d)
         width: 640px
         margin-right: auto
         margin-left: auto
@@ -26,58 +42,42 @@
     .slider-caption
         width: 100%
 
-    .post-editor__block_slider
-        .slider_format_2x1
-            height: 430px
-
-        .slider_format_3x2
-            height: 572px
-
-    .post-editor__block_video-wrap
-        height: 490px
-
-    .post-editor__block_direct-speech
-        margin-left: 110px
-
-.post-editor__section_6
-    width: 640px
-    margin-right: auto
-    margin-left: auto
-
-    .slider-caption
-        width: 100%
-
-    .post-editor__block_slider
-        .slider_format_2x1
-            height: 320px
-
-        .slider_format_3x2
-            height: 427px
-
     .post-editor__block_video-wrap
         height: 360px
 
 .post-editor__section_4-4
-    display: flex
-    justify-content: space-between
+    +media(d)
+        display: flex
+        justify-content: space-between
 
     .post-editor-column
-        width: calc(50% - 10px)
-        flex-shrink: 0
+        +media(m)
+            &:nth-child(1)
+                margin-bottom: 20px
+
+        +media(d)
+            width: calc(50% - 10px)
+            flex-shrink: 0
 
     .slider-caption
         width: 100%
 
 .post-editor__section_3-3
-    display: flex
-    justify-content: space-between
-    width: 640px
-    margin-right: auto
-    margin-left: auto
+    +media(d)
+        display: flex
+        justify-content: space-between
+        width: 640px
+        margin-right: auto
+        margin-left: auto
 
     .post-editor-column
-        width: calc(50% - 10px)
-        flex-shrink: 0
+        +media(m)
+            &:nth-child(1)
+                margin-bottom: 20px
+
+        +media(d)
+            width: calc(50% - 10px)
+            flex-shrink: 0
 
     .slider-caption
         width: 100%
@@ -140,6 +140,12 @@
             text-align: right
 
 .post-editor__block_slider
+    .slider_format_2x1
+        padding-bottom: 50%
+
+    .slider_format_3x2
+        padding-bottom: 66.666%
+
     .slide
         background-color: $light-gray
 
@@ -233,7 +239,6 @@
         border-radius: 50%
         border: 1px solid #C3CEDF
 
-    &__info-wrap
     &__name
         margin-bottom: 5px
         font-family: $bold-f
