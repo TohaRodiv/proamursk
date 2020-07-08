@@ -4129,12 +4129,12 @@ footer {
   .aside-nav__icon.icon-phones {
     font-size: 17px; }
 
-.mobile-events-sections-links {
+.mobile-sections-links {
   overflow: hidden; }
   @media (min-width: 1024px) {
-    .mobile-events-sections-links {
+    .mobile-sections-links {
       display: none; } }
-  .mobile-events-sections-links .aside-nav__list {
+  .mobile-sections-links .aside-nav__list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4142,21 +4142,21 @@ footer {
     overflow: auto;
     padding-bottom: 40px;
     margin-bottom: -40px; }
-  .mobile-events-sections-links .aside-nav__item {
+  .mobile-sections-links .aside-nav__item {
     -ms-flex-negative: 0;
         flex-shrink: 0; }
-    .mobile-events-sections-links .aside-nav__item:not(:last-child) {
+    .mobile-sections-links .aside-nav__item:not(:last-child) {
       margin-right: 16px; }
-    .mobile-events-sections-links .aside-nav__item:first-child .aside-nav__text {
-      width: 70px;
-      overflow: hidden;
-      white-space: nowrap; }
-  .mobile-events-sections-links .aside-nav__link {
+  .mobile-sections-links .aside-nav__text_mobile-crop {
+    width: 70px;
+    overflow: hidden;
+    white-space: nowrap; }
+  .mobile-sections-links .aside-nav__link {
     padding: 5px 15px;
     font-size: 18px;
     background-color: #FFFFFF;
     border-radius: 20px; }
-  .mobile-events-sections-links .aside-nav__icon {
+  .mobile-sections-links .aside-nav__icon {
     width: 20px;
     height: auto;
     line-height: 0;

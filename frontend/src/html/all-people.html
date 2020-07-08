@@ -5,6 +5,8 @@
 
 <main class="light-bg">
     <div class="container">
+        <h1 class="page-title">Люди</h1>
+
         <div class="base-layout">
             <div class="base-layout__main">
                 @@include("modules/grid-publication.html", {
@@ -17,7 +19,7 @@
                 })
             </div>
 
-            <aside class="base-layout__aside">
+            <aside class="base-layout__aside base-layout__aside_desktop">
                 <div class="aside-widget">
                     @@include('modules/offer-widget.html', {
                         "class": "people",
@@ -132,6 +134,16 @@
                 })
             </div>
             <button class="btn btn_blue btn_more js-btn_more btn_center js-more-people" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+        </div>
+
+        <div class="base-layout__aside base-layout__aside_mobile">
+            <div class="aside-widget">
+                @@include('modules/offer-widget.html', {
+                    "class": "people",
+                    "text": "Любой житель Амурска может поделиться информацией об интересном человеке с&nbsp;редакцией сайта. Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                    "btnText": "Предложить героя"
+                })
+            </div>
         </div>
     </div>
 </main>

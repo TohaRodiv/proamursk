@@ -4,7 +4,7 @@
     <li class="aside-nav__item">
         <a href="{% url "events-list-future" %}" class="aside-nav__link {% if request.resolver_match.url_name == "events-list-future" %}active{% endif %}">
             <span class="aside-nav__icon icon-megafon-fill"></span>
-            <span class="aside-nav__text">Анонсы ближайших событий</span>
+            <span class="aside-nav__text aside-nav__text_mobile-crop">Анонсы ближайших событий</span>
         </a>
     </li>
     <li class="aside-nav__item">

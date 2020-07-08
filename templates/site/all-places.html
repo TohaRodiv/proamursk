@@ -22,6 +22,12 @@
 {% block content %}
     <main class="light-bg">
         <div class="container">
+            <h1 class="page-title">Места</h1>
+
+            <div class="mobile-sections-links">
+                {% include "site/modules/place-links-widget.html" %}
+            </div>
+
             <div class="base-layout">
                 {% if top_objects %}
                     <div class="base-layout__main">
@@ -35,8 +41,8 @@
                     </div>
                 {% endif %}
 
-                <aside class="base-layout__aside">
-                    <div class="aside-widget">
+                <aside class="base-layout__aside base-layout__aside_desktop">
+                    <div class="aside-widget aside-nav-widget">
                         {% include "site/modules/place-links-widget.html" %}
                     </div>
                 </aside>
