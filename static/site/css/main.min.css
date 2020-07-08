@@ -3733,6 +3733,11 @@ footer {
   background-color: #DFDFDF; }
   .special-projects-list__item:not(:last-child) {
     margin-bottom: 20px; }
+  @media (max-width: 1023px) {
+    .special-projects-list__item .special-project__cover {
+      height: 475px; }
+    .special-projects-list__item .special-project__text-wrap {
+      padding-bottom: 30px; } }
 
 .specials-slider {
   width: 100%;
