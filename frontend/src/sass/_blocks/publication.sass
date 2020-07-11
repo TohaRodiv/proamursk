@@ -5,6 +5,10 @@
         position: relative
         background-color: $light-gray
 
+        +media(m)
+            margin-left: -16px
+            margin-right: -16px
+
         +media(d)
             height: 500px
 
@@ -64,11 +68,12 @@
         font-size: $mini-fz
 
         &_row
-            display: flex
-            align-items: center
+            +media(d)
+                display: flex
+                align-items: center
 
-            & *:not(:last-child)
-                margin-right: 50px
+                & *:not(:last-child)
+                    margin-right: 50px
 
         [class^="icon-"]
             display: inline-block
@@ -134,14 +139,25 @@
 
     &__title
         margin-bottom: 20px
-        font-size: $huge-fz
         font-family: $bold-f
 
+        +media(m)
+            font-size: $big-fz
+
+        +media(d)
+            font-size: $huge-fz
+
     &__lead
-        margin-bottom: 40px
-        font-size: $medium-fz
         font-family: $add-sb-it-f
         line-height: $mini-lh
+
+        +media(m)
+            margin-bottom: 30px
+            font-size: $base-fz
+
+        +media(d)
+            margin-bottom: 40px
+            font-size: $medium-fz
 
     &__footer
         margin-top: 40px

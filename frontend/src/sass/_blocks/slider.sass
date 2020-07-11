@@ -29,6 +29,10 @@
     &.active
         z-index: 2
 
+.slider-arrow-container
+    display: flex
+    align-items: center
+
 .slider-arrow
     display: none
     cursor: pointer
@@ -48,10 +52,16 @@
 
 .slide-nav-counter
     display: none
-    width: 60px
-    font-size: 15px
     line-height: $micro-lh
     text-align: center
+
+    +media(m)
+        min-width: 40px
+        font-size: 12px
+
+    +media(d)
+        min-width: 60px
+        font-size: $small-fz
 
     &.active,
     span

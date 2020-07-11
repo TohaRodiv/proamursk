@@ -12,20 +12,38 @@
         text-align: center
 
     [class*="wysiwyg-h"]
-        margin-top: 40px !important
         margin-bottom: 20px !important
         font-family: $bold-f !important
         line-height: $mini-lh !important
 
+        +media(m)
+            margin-top: 30px !important
+
+        +media(d)
+            margin-top: 40px !important
+
         &.wysiwyg-h1
-            font-size: 26px !important
             text-transform: uppercase
 
+            +media(m)
+                font-size: 24px !important
+
+            +media(d)
+                font-size: 26px !important
+
         &.wysiwyg-h2
-            font-size: 22px !important
+            +media(m)
+                font-size: 20px !important
+
+            +media(d)
+                font-size: 22px !important
 
         &.wysiwyg-h3
-            font-size: 20px !important
+            +media(m)
+                font-size: 18px !important
+
+            +media(d)
+                font-size: 20px !important
 
         &:first-child
             margin-top: 0 !important
@@ -59,10 +77,15 @@
 
     ul,
     ol
-        margin: 20px 0 40px 40px !important
         padding-left: 0 !important
         font-size: $base-fz !important
         line-height: $base-lh !important
+
+        +media(m)
+            margin: 20px 0 20px 20px !important
+
+        +media(d)
+            margin: 20px 0 40px 40px !important
 
         li
             margin-top: .5em !important
@@ -73,7 +96,11 @@
 
         ul,
         ol
-            margin: 20px 0 40px 40px  !important
+            +media(m)
+                margin: 20px 0 20px 20px !important
+
+            +media(d)
+                margin: 20px 0 40px 40px !important
 
     & > ul,
     & > ol
