@@ -92,6 +92,9 @@ textarea
         cursor: pointer
         outline: none
 
+        +media(m)
+            font-size: 16px
+
         &_hidden
             display: none !important
 
@@ -124,6 +127,9 @@ textarea
         padding: 10px 15px
         cursor: pointer
 
+        +media(m)
+            font-size: 16px
+
         &:hover,
         &_choosen
             background-color: #F6F7F8
@@ -142,9 +148,14 @@ textarea
     &.focus,
     &.fill
         & ~ .label-base
-            top: -20px
             font-size: 13px
             color: #C7C8C8
+
+            +media(m)
+                top: -12px
+
+            +media(d)
+                top: -20px
 
 .variable-height-textarea_hidden
     position: absolute !important

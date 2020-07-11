@@ -118,3 +118,30 @@
 
 .instant-search-form
     position: relative
+
+.close-search-popup-btn-wrap
+    position: absolute
+    left: 50%
+    z-index: 100
+    transform: translateX(-50%)
+
+    +media(m)
+        width: 100vw
+        max-width: 600px
+        top: 15px
+
+    +media(d)
+        width: 1300px
+        top: 30px
+
+.close-search-popup-btn
+    position: absolute
+    width: 42px
+    height: 42px
+    font-size: 14px
+
+    +media(m)
+        right: 16px
+
+    +media(d)
+        right: 0
