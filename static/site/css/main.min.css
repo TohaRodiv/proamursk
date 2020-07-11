@@ -4801,14 +4801,30 @@ footer {
   @media (min-width: 1024px) {
     .city-guide__cover-icon.icon-hotel {
       font-size: 48px; } }
-  .city-guide__cover-icon.icon-food {
-    font-size: 38px; }
-  .city-guide__cover-icon.icon-activities {
-    font-size: 32px; }
-  .city-guide__cover-icon.icon-transport {
-    font-size: 45px; }
-  .city-guide__cover-icon.icon-phones {
-    font-size: 45px; }
+  @media (max-width: 1023px) {
+    .city-guide__cover-icon.icon-food {
+      font-size: 26px; } }
+  @media (min-width: 1024px) {
+    .city-guide__cover-icon.icon-food {
+      font-size: 38px; } }
+  @media (max-width: 1023px) {
+    .city-guide__cover-icon.icon-activities {
+      font-size: 24px; } }
+  @media (min-width: 1024px) {
+    .city-guide__cover-icon.icon-activities {
+      font-size: 32px; } }
+  @media (max-width: 1023px) {
+    .city-guide__cover-icon.icon-transport {
+      font-size: 30px; } }
+  @media (min-width: 1024px) {
+    .city-guide__cover-icon.icon-transport {
+      font-size: 45px; } }
+  @media (max-width: 1023px) {
+    .city-guide__cover-icon.icon-phones {
+      font-size: 30px; } }
+  @media (min-width: 1024px) {
+    .city-guide__cover-icon.icon-phones {
+      font-size: 45px; } }
 
 .city-guide__img-figcaption {
   height: 100%;
@@ -4850,8 +4866,10 @@ footer {
   margin-top: 60px;
   margin-bottom: 60px; }
 
-.city-guide-item__section + .city-guide-item__section {
-  margin-top: 90px; }
+.city-guide-item__section {
+  margin-top: 40px; }
+  .city-guide-item__section + .city-guide-item__section {
+    margin-top: 90px; }
 
 .city-guide-item__cover {
   margin-bottom: 30px; }
@@ -4863,15 +4881,29 @@ footer {
 .city-guide-item__title {
   position: relative;
   margin-bottom: 20px;
-  font-size: 36px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  @media (max-width: 1023px) {
+    .city-guide-item__title {
+      font-size: 22px; } }
+  @media (min-width: 1024px) {
+    .city-guide-item__title {
+      font-size: 36px; } }
 
-.city-guide-item__title-icon {
-  position: absolute;
-  left: -110px;
-  top: -12px;
-  width: 70px;
-  height: 70px; }
+@media (max-width: 1023px) {
+  .city-guide-item__title-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+    vertical-align: -9px; } }
+
+@media (min-width: 1024px) {
+  .city-guide-item__title-icon {
+    position: absolute;
+    left: -110px;
+    top: -12px;
+    width: 70px;
+    height: 70px; } }
 
 .city-guide-item__subtitle {
   margin-bottom: 20px;
@@ -4902,10 +4934,30 @@ footer {
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 18px; }
-  .city-guide-table__tr {
-    border-bottom: 1px solid #7a8ba1; }
+  @media (max-width: 1023px) {
+    .city-guide-table {
+      display: block;
+      width: 100vw;
+      max-width: 600px;
+      margin-left: -16px;
+      margin-right: -16px; } }
+  @media (max-width: 1023px) and (max-width: 1023px) {
+    .city-guide-table tbody, .city-guide-table th, .city-guide-table tr, .city-guide-table td {
+      display: block; } }
+  @media (max-width: 1023px) {
+    .city-guide-table__tr {
+      border-bottom: 1px solid #D7DBE0; } }
+  @media (min-width: 1024px) {
+    .city-guide-table__tr {
+      border-bottom: 1px solid #7a8ba1; } }
+  @media (min-width: 1024px) {
     .city-guide-table__tr:first-child {
-      border-top: 1px solid #7a8ba1; }
+      border-top: 1px solid #7a8ba1; } }
+  @media (max-width: 1023px) {
+    .city-guide-table__tr_th {
+      display: none !important; }
+      .city-guide-table__tr_th + tr {
+        border-top: 1px solid #D7DBE0; } }
   .city-guide-table__th {
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     text-align: left; }
@@ -4930,77 +4982,169 @@ footer {
       margin-left: 30px;
       margin-right: 10px; }
 
-.city-guide-table_emergency tr td:nth-child(2),
-.city-guide-table_repairs tr td:nth-child(2) {
-  width: 330px;
-  padding-left: 20px; }
+@media (max-width: 1023px) {
+  .city-guide-table_emergency tr,
+  .city-guide-table_repairs tr {
+    padding-left: 16px;
+    padding-right: 16px; }
+    .city-guide-table_emergency tr:first-child,
+    .city-guide-table_repairs tr:first-child {
+      border-top: 1px solid #D7DBE0; }
+  .city-guide-table_emergency td:nth-child(2),
+  .city-guide-table_repairs td:nth-child(2) {
+    padding-top: 0; } }
 
-.city-guide-table_bus-inner-city tr td:nth-child(1),
-.city-guide-table_bus-inner-city tr th:nth-child(1) {
-  width: 110px; }
+@media (min-width: 1024px) {
+  .city-guide-table_emergency tr td:nth-child(2),
+  .city-guide-table_repairs tr td:nth-child(2) {
+    width: 330px;
+    padding-left: 20px; } }
 
-.city-guide-table_bus-inner-city tr td:nth-child(1) {
-  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+@media (max-width: 1023px) {
+  .city-guide-table_bus-inner-city tr,
+  .city-guide-table_bus-outer-city tr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .city-guide-table_bus-inner-city td:nth-child(1),
+  .city-guide-table_bus-outer-city td:nth-child(1) {
+    width: 60px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    padding-left: 16px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #d7e2ee; }
+  .city-guide-table_bus-inner-city td:nth-child(2),
+  .city-guide-table_bus-outer-city td:nth-child(2) {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #d7e2ee; }
+  .city-guide-table_bus-inner-city td:nth-child(3), .city-guide-table_bus-inner-city td:nth-child(4),
+  .city-guide-table_bus-outer-city td:nth-child(3),
+  .city-guide-table_bus-outer-city td:nth-child(4) {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: #F5F6F7; } }
 
-.city-guide-table_bus-inner-city tr td:nth-child(2),
-.city-guide-table_bus-inner-city tr th:nth-child(2) {
-  width: 300px;
-  padding-left: 20px;
-  padding-right: 30px; }
-
-.city-guide-table_bus-inner-city tr td:nth-child(3),
-.city-guide-table_bus-inner-city tr th:nth-child(3) {
-  text-align: center; }
-
-.city-guide-table_bus-outer-city tr td:nth-child(1),
-.city-guide-table_bus-outer-city tr th:nth-child(1) {
-  width: 110px; }
-
-.city-guide-table_bus-outer-city tr td:nth-child(1) {
-  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
-
-.city-guide-table_bus-outer-city tr td:nth-child(2),
-.city-guide-table_bus-outer-city tr th:nth-child(2) {
-  width: 270px;
-  padding-left: 20px;
-  padding-right: 30px; }
-
-.city-guide-table_bus-outer-city tr td:nth-child(3),
-.city-guide-table_bus-outer-city tr th:nth-child(3) {
-  width: 170px;
-  padding-right: 20px; }
-
-.city-guide-table_bus-outer-city tr td:nth-child(4),
-.city-guide-table_bus-outer-city tr th:nth-child(4) {
-  text-align: center; }
-
-.city-guide-item__taxi-grid {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: -10px;
-  margin-right: -10px; }
-
-.taxi-grid-item {
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center; }
-  .taxi-grid-item__img {
-    display: block;
-    margin-bottom: 20px; }
-  .taxi-grid-item__title {
-    margin-bottom: 15px;
+@media (min-width: 1024px) {
+  .city-guide-table_bus-inner-city tr td:nth-child(1),
+  .city-guide-table_bus-inner-city tr th:nth-child(1) {
+    width: 110px; }
+  .city-guide-table_bus-inner-city tr td:nth-child(1) {
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
-  .taxi-grid-item__phone {
+  .city-guide-table_bus-inner-city tr td:nth-child(2),
+  .city-guide-table_bus-inner-city tr th:nth-child(2) {
+    width: 300px;
+    padding-left: 20px;
+    padding-right: 30px; }
+  .city-guide-table_bus-inner-city tr td:nth-child(3),
+  .city-guide-table_bus-inner-city tr th:nth-child(3) {
+    text-align: center; } }
+
+@media (max-width: 1023px) {
+  .city-guide-table_bus-outer-city td:nth-child(3)::before {
+    content: "Расписание";
     display: block;
-    text-decoration: none;
-    color: #000000; }
-    .taxi-grid-item__phone:hover {
-      color: #0073FF; }
-    .taxi-grid-item__phone .icon-phone {
-      margin-right: 5px;
-      color: #0073FF;
-      vertical-align: middle; }
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #283348; }
+  .city-guide-table_bus-outer-city td:nth-child(4) {
+    padding-top: 0; }
+    .city-guide-table_bus-outer-city td:nth-child(4)::before {
+      content: "Цена билета";
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #283348; } }
+
+@media (min-width: 1024px) {
+  .city-guide-table_bus-outer-city tr td:nth-child(1),
+  .city-guide-table_bus-outer-city tr th:nth-child(1) {
+    width: 110px; }
+  .city-guide-table_bus-outer-city tr td:nth-child(1) {
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .city-guide-table_bus-outer-city tr td:nth-child(2),
+  .city-guide-table_bus-outer-city tr th:nth-child(2) {
+    width: 270px;
+    padding-left: 20px;
+    padding-right: 30px; }
+  .city-guide-table_bus-outer-city tr td:nth-child(3),
+  .city-guide-table_bus-outer-city tr th:nth-child(3) {
+    width: 170px;
+    padding-right: 20px; }
+  .city-guide-table_bus-outer-city tr td:nth-child(4),
+  .city-guide-table_bus-outer-city tr th:nth-child(4) {
+    text-align: center; } }
+
+@media (max-width: 1023px) {
+  .city-guide-item__taxi-grid {
+    margin-top: 30px; } }
+
+@media (min-width: 1024px) {
+  .city-guide-item__taxi-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: 40px; } }
+
+@media (max-width: 1023px) {
+  .taxi-grid-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+    .taxi-grid-item:not(:last-child) {
+      margin-bottom: 20px; } }
+
+@media (min-width: 1024px) {
+  .taxi-grid-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center; } }
+
+.taxi-grid-item__img {
+  display: block; }
+  @media (max-width: 1023px) {
+    .taxi-grid-item__img {
+      width: 80px;
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2;
+      margin-left: 20px; } }
+  @media (min-width: 1024px) {
+    .taxi-grid-item__img {
+      margin-bottom: 20px; } }
+
+@media (max-width: 1023px) {
+  .taxi-grid-item__text-wrap {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; } }
+
+.taxi-grid-item__title {
+  margin-bottom: 15px;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+
+.taxi-grid-item__phone {
+  display: block;
+  text-decoration: none;
+  color: #000000; }
+  .taxi-grid-item__phone:hover {
+    color: #0073FF; }
+  .taxi-grid-item__phone .icon-phone {
+    margin-right: 5px;
+    color: #0073FF;
+    vertical-align: middle; }
 
 @media (max-width: 1023px) {
   .footer__instagram-banner-link {

@@ -59,13 +59,28 @@
                 font-size: 48px
 
         &.icon-food
-            font-size: 38px
+            +media(m)
+                font-size: 26px
+            +media(d)
+                font-size: 38px
+
         &.icon-activities
-            font-size: 32px
+            +media(m)
+                font-size: 24px
+            +media(d)
+                font-size: 32px
+
         &.icon-transport
-            font-size: 45px
+            +media(m)
+                font-size: 30px
+            +media(d)
+                font-size: 45px
+
         &.icon-phones
-            font-size: 45px
+            +media(m)
+                font-size: 30px
+            +media(d)
+                font-size: 45px
 
     &__img-figcaption
         height: 100%
@@ -102,6 +117,8 @@
 
 .city-guide-item
     &__section
+        margin-top: 40px
+
         & + .city-guide-item__section
             margin-top: 90px
 
@@ -115,15 +132,28 @@
     &__title
         position: relative
         margin-bottom: 20px
-        font-size: 36px
         font-family: $bold-f
 
+        +media(m)
+            font-size: $medium-fz
+
+        +media(d)
+            font-size: 36px
+
     &__title-icon
-        position: absolute
-        left: -110px
-        top: -12px
-        width: 70px
-        height: 70px
+        +media(m)
+            display: inline-block
+            width: 32px
+            height: 32px
+            margin-right: 16px
+            vertical-align: -9px
+
+        +media(d)
+            position: absolute
+            left: -110px
+            top: -12px
+            width: 70px
+            height: 70px
 
     &__subtitle
         margin-bottom: 20px
@@ -153,11 +183,34 @@
     border-spacing: 0
     font-size: $base-fz
 
+    +media(m)
+        display: block
+        width: 100vw
+        max-width: 600px
+        margin-left: -16px
+        margin-right: -16px
+
+        & tbody, th, tr, td
+            +media(m)
+                display: block
+
     &__tr
-        border-bottom: 1px solid #7a8ba1
+        +media(m)
+            border-bottom: 1px solid #D7DBE0
+
+        +media(d)
+            border-bottom: 1px solid #7a8ba1
 
         &:first-child
-            border-top: 1px solid #7a8ba1
+            +media(d)
+                border-top: 1px solid #7a8ba1
+
+        &_th
+            +media(m)
+                display: none !important
+
+                & + tr
+                    border-top: 1px solid #D7DBE0
 
     &__th
         font-family: $bold-f
@@ -192,67 +245,153 @@
 
 .city-guide-table_emergency,
 .city-guide-table_repairs
-    tr
+    +media(m)
+        tr
+            padding-left: 16px
+            padding-right: 16px
+
+            &:first-child
+                border-top: 1px solid #D7DBE0
+
         td:nth-child(2)
-            width: 330px
-            padding-left: 20px
+            padding-top: 0
+
+    +media(d)
+        tr
+            td:nth-child(2)
+                width: 330px
+                padding-left: 20px
+
+.city-guide-table_bus-inner-city,
+.city-guide-table_bus-outer-city
+    +media(m)
+        tr
+            display: flex
+            flex-wrap: wrap
+
+        td
+            &:nth-child(1)
+                width: 60px
+                flex-shrink: 0
+                padding-left: 16px
+                font-family: $bold-f
+                background-color: $light-c
+                border-bottom: 1px solid #d7e2ee
+
+            &:nth-child(2)
+                flex-grow: 1
+                background-color: $light-c
+                border-bottom: 1px solid #d7e2ee
+
+            &:nth-child(3),
+            &:nth-child(4)
+                width: 100%
+                padding-left: 60px
+                padding-right: 60px
+                background-color: #F5F6F7
 
 .city-guide-table_bus-inner-city
-    tr
-        td:nth-child(1),
-        th:nth-child(1)
-            width: 110px
+    +media(d)
+        tr
+            td:nth-child(1),
+            th:nth-child(1)
+                width: 110px
 
-        td:nth-child(1)
-            font-family: $bold-f
+            td:nth-child(1)
+                font-family: $bold-f
 
-        td:nth-child(2),
-        th:nth-child(2)
-            width: 300px
-            padding-left: 20px
-            padding-right: 30px
+            td:nth-child(2),
+            th:nth-child(2)
+                width: 300px
+                padding-left: 20px
+                padding-right: 30px
 
-        td:nth-child(3),
-        th:nth-child(3)
-            text-align: center
+            td:nth-child(3),
+            th:nth-child(3)
+                text-align: center
 
 .city-guide-table_bus-outer-city
-    tr
-        td:nth-child(1),
-        th:nth-child(1)
-            width: 110px
+    +media(m)
+        td
+            &:nth-child(3)
+                &::before
+                    content: "Расписание"
+                    display: block
+                    margin-bottom: 8px
+                    font-size: 14px
+                    color: #283348
 
-        td:nth-child(1)
-            font-family: $bold-f
+            &:nth-child(4)
+                padding-top: 0
 
-        td:nth-child(2),
-        th:nth-child(2)
-            width: 270px
-            padding-left: 20px
-            padding-right: 30px
+                &::before
+                    content: "Цена билета"
+                    display: block
+                    margin-bottom: 8px
+                    font-size: 14px
+                    color: #283348
 
-        td:nth-child(3),
-        th:nth-child(3)
-            width: 170px
-            padding-right: 20px
+    +media(d)
+        tr
+            td:nth-child(1),
+            th:nth-child(1)
+                width: 110px
 
-        td:nth-child(4),
-        th:nth-child(4)
-            text-align: center
+            td:nth-child(1)
+                font-family: $bold-f
+
+            td:nth-child(2),
+            th:nth-child(2)
+                width: 270px
+                padding-left: 20px
+                padding-right: 30px
+
+            td:nth-child(3),
+            th:nth-child(3)
+                width: 170px
+                padding-right: 20px
+
+            td:nth-child(4),
+            th:nth-child(4)
+                text-align: center
 
 .city-guide-item__taxi-grid
-    display: flex
-    margin-left: -10px
-    margin-right: -10px
+    +media(m)
+        margin-top: 30px
+
+    +media(d)
+        display: flex
+        margin-left: -10px
+        margin-right: -10px
+        margin-top: 40px
 
 .taxi-grid-item
-    margin-left: 10px
-    margin-right: 10px
-    text-align: center
+    +media(m)
+        display: flex
+        align-items: flex-start
+
+        &:not(:last-child)
+            margin-bottom: 20px
+
+    +media(d)
+        margin-left: 10px
+        margin-right: 10px
+        text-align: center
 
     &__img
         display: block
-        margin-bottom: 20px
+
+        +media(m)
+            width: 80px
+            order: 2
+            margin-left: 20px
+
+        +media(d)
+            margin-bottom: 20px
+
+    &__text-wrap
+        +media(m)
+            flex-grow: 1
 
     &__title
         margin-bottom: 15px
