@@ -58,8 +58,13 @@
 
     &__title
         margin-bottom: 5px
-        font-size: $medium-fz
         font-family: $bold-f
+
+        +media(m)
+            font-size: 21px
+
+        +media(d)
+            font-size: $medium-fz
 
         a
             color: currentColor
@@ -254,16 +259,6 @@
             .grid-publication__text-wrap
                 position: relative
                 padding: 0
-
-            .grid-publication__wobbler
-                margin-top: -10px
-
-            .wobbler
-                padding: 0
-                background-color: transparent
-
-            .wobbler__icon
-                color: $base-c
 
 .grid-publication:not(.grid-publication_format-city-guide)
     &:hover,

@@ -68,11 +68,21 @@
         font-size: $mini-fz
 
         &_row
-            +media(d)
-                display: flex
-                align-items: center
+            display: flex
+            align-items: center
 
-                & *:not(:last-child)
+            +media(m)
+                flex-wrap: wrap
+
+            & *
+                flex-shrink: 0
+
+            & *:not(:last-child)
+
+                +media(m)
+                    margin-right: 20px
+
+                +media(d)
                     margin-right: 50px
 
         [class^="icon-"]
@@ -111,7 +121,7 @@
         margin-bottom: 20px
 
     &__place-info-wrap
-        width: 640px
+        max-width: 640px
         margin-left: auto
         margin-right: auto
 

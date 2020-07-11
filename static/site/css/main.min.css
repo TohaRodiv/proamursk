@@ -3007,14 +3007,24 @@ footer {
     color: #7A7A7A; }
   .publication__additional-info-wrap {
     font-size: 16px; }
-    @media (min-width: 1024px) {
-      .publication__additional-info-wrap_row {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center; }
+    .publication__additional-info-wrap_row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      @media (max-width: 1023px) {
+        .publication__additional-info-wrap_row {
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; } }
+      .publication__additional-info-wrap_row * {
+        -ms-flex-negative: 0;
+            flex-shrink: 0; }
+      @media (max-width: 1023px) {
+        .publication__additional-info-wrap_row *:not(:last-child) {
+          margin-right: 20px; } }
+      @media (min-width: 1024px) {
         .publication__additional-info-wrap_row *:not(:last-child) {
           margin-right: 50px; } }
     .publication__additional-info-wrap [class^="icon-"] {
@@ -3045,7 +3055,7 @@ footer {
   .publication__event-info {
     margin-bottom: 20px; }
   .publication__place-info-wrap {
-    width: 640px;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto; }
     .publication__place-info-wrap_top {
@@ -3324,17 +3334,28 @@ footer {
     left: 0; }
 
 .aside-subscribe-widget {
-  height: 500px;
-  padding: 40px 50px;
   background-color: #0073FF;
   text-align: center; }
+  @media (max-width: 1023px) {
+    .aside-subscribe-widget {
+      padding: 30px 20px;
+      border-radius: 16px; } }
+  @media (min-width: 1024px) {
+    .aside-subscribe-widget {
+      height: 500px;
+      padding: 40px 50px; } }
   .aside-subscribe-widget .subscribe-img {
     display: block;
     height: 80px;
     margin: 0 auto 20px; }
-  .aside-subscribe-widget .subscribe-title {
-    margin-bottom: 40px;
-    font-size: 28px; }
+  @media (max-width: 1023px) {
+    .aside-subscribe-widget .subscribe-title {
+      margin-bottom: 30px;
+      font-size: 22px; } }
+  @media (min-width: 1024px) {
+    .aside-subscribe-widget .subscribe-title {
+      margin-bottom: 40px;
+      font-size: 28px; } }
   .aside-subscribe-widget .subscribe-form {
     width: 240px;
     margin-left: auto;
@@ -3357,8 +3378,17 @@ footer {
           -webkit-box-shadow: 0 0 0 1000px transparent inset; }
     .aside-subscribe-widget .subscribe-form__submit {
       display: block;
-      width: 150px;
-      margin: 50px auto 0; }
+      margin-left: auto;
+      margin-right: auto; }
+      @media (max-width: 1023px) {
+        .aside-subscribe-widget .subscribe-form__submit {
+          width: 100%;
+          max-width: 290px;
+          margin-top: 30px; } }
+      @media (min-width: 1024px) {
+        .aside-subscribe-widget .subscribe-form__submit {
+          width: 150px;
+          margin-top: 50px; } }
       .aside-subscribe-widget .subscribe-form__submit.btn_preloader {
         background-color: #FFFFFF; }
     .aside-subscribe-widget .subscribe-form__submited {
@@ -3601,8 +3631,13 @@ footer {
         padding: 20px; } }
   .grid-publication__title {
     margin-bottom: 5px;
-    font-size: 22px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+    @media (max-width: 1023px) {
+      .grid-publication__title {
+        font-size: 21px; } }
+    @media (min-width: 1024px) {
+      .grid-publication__title {
+        font-size: 22px; } }
     .grid-publication__title a {
       color: currentColor;
       text-decoration: none; }
@@ -3771,14 +3806,7 @@ footer {
         display: none; }
       .grid-publication_format-mobile .grid-publication__text-wrap {
         position: relative;
-        padding: 0; }
-      .grid-publication_format-mobile .grid-publication__wobbler {
-        margin-top: -10px; }
-      .grid-publication_format-mobile .wobbler {
-        padding: 0;
-        background-color: transparent; }
-      .grid-publication_format-mobile .wobbler__icon {
-        color: #0073FF; } }
+        padding: 0; } }
 
 .grid-publication:not(.grid-publication_format-city-guide):hover .grid-publication__bg-gradient, .grid-publication:not(.grid-publication_format-city-guide):focus .grid-publication__bg-gradient {
   display: block; }
