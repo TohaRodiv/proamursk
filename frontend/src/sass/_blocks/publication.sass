@@ -125,6 +125,12 @@
         margin-left: auto
         margin-right: auto
 
+        +media(m)
+            display: block
+        & *
+            +media(m)
+                display: block
+
         &_top
             margin-bottom: 40px
 
@@ -133,9 +139,20 @@
             margin-bottom: 40px
 
         tr
-            &:not(:last-child)
-                td
+            +media(m)
+                margin-bottom: 16px
+
+            td
+                +media(m)
+                    padding-bottom: 5px
+
+                +media(d)
                     padding-bottom: 10px
+
+            &:last-child
+                +media(m)
+                    td:last-child
+                        padding-bottom: 0
 
         td
             padding-top: 0
@@ -144,8 +161,13 @@
             vertical-align: baseline
 
             &:first-child
-                width: 210px
-                padding-right: 20px
+                +media(d)
+                    width: 210px
+                    padding-right: 20px
+
+            &:last-child
+                +media(m)
+                    padding-left: 28px
 
     &__title
         margin-bottom: 20px

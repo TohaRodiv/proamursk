@@ -3058,21 +3058,41 @@ footer {
     max-width: 640px;
     margin-left: auto;
     margin-right: auto; }
+    @media (max-width: 1023px) {
+      .publication__place-info-wrap {
+        display: block; } }
+    @media (max-width: 1023px) {
+      .publication__place-info-wrap * {
+        display: block; } }
     .publication__place-info-wrap_top {
       margin-bottom: 40px; }
     .publication__place-info-wrap_bottom {
       margin-top: 40px;
       margin-bottom: 40px; }
-    .publication__place-info-wrap tr:not(:last-child) td {
-      padding-bottom: 10px; }
+    @media (max-width: 1023px) {
+      .publication__place-info-wrap tr {
+        margin-bottom: 16px; } }
+    @media (max-width: 1023px) {
+      .publication__place-info-wrap tr td {
+        padding-bottom: 5px; } }
+    @media (min-width: 1024px) {
+      .publication__place-info-wrap tr td {
+        padding-bottom: 10px; } }
+    @media (max-width: 1023px) {
+      .publication__place-info-wrap tr:last-child td:last-child {
+        padding-bottom: 0; } }
     .publication__place-info-wrap td {
       padding-top: 0;
       padding-left: 0;
       padding-right: 0;
       vertical-align: baseline; }
-      .publication__place-info-wrap td:first-child {
-        width: 210px;
-        padding-right: 20px; }
+      @media (min-width: 1024px) {
+        .publication__place-info-wrap td:first-child {
+          width: 210px;
+          padding-right: 20px; } }
+      @media (max-width: 1023px) {
+        .publication__place-info-wrap td:last-child {
+          padding-left: 28px; } }
   .publication__title {
     margin-bottom: 20px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
@@ -4352,6 +4372,9 @@ footer {
   .aside-nav__icon.icon-phones {
     font-size: 17px; }
 
+.light-bg .mobile-sections-links .aside-nav__link {
+  background-color: #FFFFFF; }
+
 .mobile-sections-links {
   overflow: hidden; }
   @media (min-width: 1024px) {
@@ -4377,8 +4400,14 @@ footer {
   .mobile-sections-links .aside-nav__link {
     padding: 5px 15px;
     font-size: 18px;
-    background-color: #FFFFFF;
+    background-color: #F5F6F7;
     border-radius: 20px; }
+    @media (max-width: 1023px) {
+      .mobile-sections-links .aside-nav__link.active {
+        background-color: #0073FF;
+        color: #FFFFFF; }
+        .mobile-sections-links .aside-nav__link.active .aside-nav__icon {
+          color: #FFFFFF; } }
   .mobile-sections-links .aside-nav__icon {
     width: 20px;
     height: auto;
@@ -4718,9 +4747,15 @@ footer {
 
 .city-guide__cover-wrap {
   position: relative;
-  height: 150px;
-  padding: 10px 40px;
   background-color: #0073FF; }
+  @media (max-width: 1023px) {
+    .city-guide__cover-wrap {
+      padding: 16px 10px;
+      border-radius: 8px; } }
+  @media (min-width: 1024px) {
+    .city-guide__cover-wrap {
+      height: 150px;
+      padding: 10px 40px; } }
 
 .city-guide__cover {
   display: block;
@@ -4729,6 +4764,9 @@ footer {
   bottom: 15px;
   width: 390px;
   height: 70px; }
+  @media (max-width: 1023px) {
+    .city-guide__cover {
+      display: none; } }
 
 .city-guide__cover-wobbler {
   width: 160px;
@@ -4739,17 +4777,30 @@ footer {
 
 .city-guide__cover-icon {
   position: absolute;
-  top: 25px;
-  right: 110px;
-  width: 85px;
-  height: 85px;
   color: #0073FF;
-  line-height: 85px;
   background-color: #FFFFFF;
   border-radius: 50%;
   text-align: center; }
-  .city-guide__cover-icon.icon-hotel {
-    font-size: 48px; }
+  @media (max-width: 1023px) {
+    .city-guide__cover-icon {
+      width: 56px;
+      height: 56px;
+      top: 10px;
+      left: 16px;
+      line-height: 56px; } }
+  @media (min-width: 1024px) {
+    .city-guide__cover-icon {
+      width: 85px;
+      height: 85px;
+      top: 25px;
+      right: 110px;
+      line-height: 85px; } }
+  @media (max-width: 1023px) {
+    .city-guide__cover-icon.icon-hotel {
+      font-size: 32px; } }
+  @media (min-width: 1024px) {
+    .city-guide__cover-icon.icon-hotel {
+      font-size: 48px; } }
   .city-guide__cover-icon.icon-food {
     font-size: 38px; }
   .city-guide__cover-icon.icon-activities {
@@ -4771,14 +4822,22 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
+  @media (max-width: 1023px) {
+    .city-guide__img-figcaption {
+      padding-left: 80px; } }
 
 .city-guide__title {
-  max-width: 350px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
-  font-size: 36px;
   line-height: 1.1;
   letter-spacing: 0.02em;
   color: #FFFFFF; }
+  @media (max-width: 1023px) {
+    .city-guide__title {
+      font-size: 20px; } }
+  @media (min-width: 1024px) {
+    .city-guide__title {
+      max-width: 350px;
+      font-size: 36px; } }
 
 .city-guide__image {
   margin-top: 40px; }

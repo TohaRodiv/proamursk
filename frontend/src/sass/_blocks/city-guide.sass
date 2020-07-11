@@ -1,9 +1,15 @@
 .city-guide
     &__cover-wrap
         position: relative
-        height: 150px
-        padding: 10px 40px
         background-color: $base-c
+
+        +media(m)
+            padding: 16px 10px
+            border-radius: 8px
+
+        +media(d)
+            height: 150px
+            padding: 10px 40px
 
     &__cover
         display: block
@@ -12,6 +18,9 @@
         bottom: 15px
         width: 390px
         height: 70px
+
+        +media(m)
+            display: none
 
     &__cover-wobbler
         width: 160px
@@ -23,18 +32,32 @@
 
     &__cover-icon
         position: absolute
-        top: 25px
-        right: 110px
-        width: 85px
-        height: 85px
         color: $base-c
-        line-height: 85px
         background-color: $light-c
         border-radius: 50%
         text-align: center
 
+        +media(m)
+            width: 56px
+            height: 56px
+            top: 10px
+            left: 16px
+            line-height: 56px
+
+        +media(d)
+            width: 85px
+            height: 85px
+            top: 25px
+            right: 110px
+            line-height: 85px
+
         &.icon-hotel
-            font-size: 48px
+            +media(m)
+                font-size: 32px
+
+            +media(d)
+                font-size: 48px
+
         &.icon-food
             font-size: 38px
         &.icon-activities
@@ -50,13 +73,21 @@
         flex-direction: column
         justify-content: center
 
+        +media(m)
+            padding-left: 80px
+
     &__title
-        max-width: 350px
         font-family: $bold-f
-        font-size: 36px
         line-height: 1.1
         letter-spacing: 0.02em
         color: $light-c
+
+        +media(m)
+            font-size: 20px
+
+        +media(d)
+            max-width: 350px
+            font-size: 36px
 
     &__image
         margin-top: 40px

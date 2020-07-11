@@ -23,6 +23,12 @@
 {% block content %}
     <main>
         <div class="container">
+            <h2 class="page-title">Места</h2>
+
+            <div class="mobile-sections-links">
+                {% include "site/modules/place-links-widget.html" %}
+            </div>
+
             <div class="base-layout">
                 <div class="base-layout__main">
                     <article class="publication">
@@ -164,8 +170,8 @@
                     </article>
                 </div>
 
-                <aside class="base-layout__aside">
-                    <div class="aside-widget">
+                <aside class="base-layout__aside base-layout__aside_desktop">
+                    <div class="aside-widget aside-nav-widget">
                        {% include "site/modules/place-links-widget.html" %}
                     </div>
                     <div class="aside-widget">

@@ -61,6 +61,10 @@
         &.icon-phones
             font-size: 17px
 
+
+.light-bg .mobile-sections-links .aside-nav__link
+    background-color: $light-c
+
 .mobile-sections-links
     overflow: hidden
 
@@ -89,8 +93,16 @@
         &__link
             padding: 5px 15px
             font-size: 18px
-            background-color: $light-c
+            background-color: #F5F6F7
             border-radius: 20px
+
+            &.active
+                +media(m)
+                    background-color: $base-c
+                    color: $light-c
+
+                    .aside-nav__icon
+                        color: $light-c
 
         &__icon
             width: 20px

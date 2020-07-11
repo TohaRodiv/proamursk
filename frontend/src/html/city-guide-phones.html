@@ -5,6 +5,14 @@
 
 <main>
     <div class="container">
+        <h2 class="page-title">Места</h2>
+
+        <div class="mobile-sections-links">
+            @@include("modules/place-links-widget.html", {
+                "active": "phones"
+            })
+        </div>
+
         <div class="base-layout">
             <div class="base-layout__main">
                 <article class="publication">
@@ -101,8 +109,8 @@
                 </article>
             </div>
 
-            <aside class="base-layout__aside">
-                <div class="aside-widget">
+            <aside class="base-layout__aside base-layout__aside_desktop">
+                <div class="aside-widget aside-nav-widget">
                     @@include("modules/place-links-widget.html", {
                         "active": "phones"
                     })
