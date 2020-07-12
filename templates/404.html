@@ -6,9 +6,9 @@
 {% block content %}
     <main class="container page-error-404">
         <div class="page-error-404__text-wrap">
+            <img src="{% static "site/images/svg/404.svg" %}{% static_version %}" alt="Ошибка 404" class="page-error-404__img">
             <h1 class="page-error__title page-error-404__title">Что-то пошло не так</h1>
             <div class="page-error__subtitle page-error-404__subtitle">Извините, такой страницы не существует</div>
-            <img src="{% static "site/images/svg/404.svg" %}{% static_version %}" alt="Ошибка 404" class="page-error-404__img">
         </div>
     </main>
 {% endblock %}
