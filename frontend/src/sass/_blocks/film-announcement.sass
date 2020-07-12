@@ -1,10 +1,13 @@
 .film
-    margin-left: 110px
+    +media(d)
+        margin-left: 110px
 
 .film-header
-    display: flex
-    align-items: flex-start
     margin-bottom: 20px
+
+    +media(d)
+        display: flex
+        align-items: flex-start
 
 .film-cover
     display: block
@@ -12,6 +15,9 @@
     height: 360px
     margin-right: 40px
     flex-shrink: 0
+
+    +media(m)
+        display: none
 
 .film-info
     flex-grow: 1
@@ -25,6 +31,15 @@
     line-height: $micro-lh
 
 .film-info-table
+    +media(m)
+        display: block
+
+        tbody, tr, th, td
+            display: block
+
+        tr:not(:last-child)
+            margin-bottom: 10px
+
     td
         padding: 5px 0
 
@@ -41,14 +56,18 @@
         padding-bottom: 0
 
     td:nth-child(1)
-        width: 170px
         font-size: 15px
         line-height: $base-lh
 
+        +media(d)
+            width: 170px
+
     td:nth-child(2)
-        width: 250px
         font-size: $base-fz
         line-height: $mini-lh
+
+        +media(d)
+            width: 250px
 
 .film-timetable
     margin-bottom: 40px
@@ -85,8 +104,8 @@
     margin-bottom: 20px
 
 .film-treiler
-    height: 420px
     position: relative
+    padding-bottom: calc(100% * 9 / 16)
 
     iframe
         position: absolute

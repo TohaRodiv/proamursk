@@ -86,7 +86,6 @@
         position: absolute
         bottom: 20px
         z-index: 4
-        margin-left: 20px
         height: 26px
         font-size: 12px
         line-height: 22px
@@ -95,6 +94,12 @@
         letter-spacing: 0.08em
         text-decoration: none
         transition: color $transition-time
+
+        +media(m)
+            margin-left: 10px
+
+        +media(d)
+            margin-left: 20px
 
         &_reportage
             left: 160px
@@ -239,6 +244,7 @@
 
         .grid-publication__cover-wrap
             height: 280px
+            background-color: $base-dark-c
 
         .grid-publication__cover
             width: 260px

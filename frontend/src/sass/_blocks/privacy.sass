@@ -4,15 +4,25 @@
 .privacy-page__aside
     align-self: stretch
 
+    +media(m)
+        display: none
+
 .privacy
-    width: 640px
-    margin-left: auto
-    margin-right: auto
+    +media(d)
+        width: 640px
+        margin-left: auto
+        margin-right: auto
 
     &__title
-        margin-bottom: 40px
-        font-size: 36px
         font-family: $bold-f
+
+        +media(m)
+            margin-bottom: 30px
+            font-size: 24px
+
+        +media(d)
+            margin-bottom: 40px
+            font-size: 36px
 
     &__list
         position: sticky
