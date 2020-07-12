@@ -1,3 +1,49 @@
+.sp-desktop
+    +media(m)
+        display: none
+
+.sp-mobile
+    margin-top: 50px
+    text-align: center
+
+    &::after
+        content: ""
+        display: block
+        height: 80px
+        margin-top: 90px
+        margin-bottom: 30px
+        background-image: url(../images/svg/header-pattern-mobile.svg)
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+
+    +media(d)
+        display: none
+
+    &__title
+        margin-bottom: 30px
+        font-size: 42px
+        line-height: 1.2
+        font-family: $bold-f
+
+    &__wobbler
+        width: max-content
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: 20px
+
+    &__text
+        max-width: 270px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: 60px
+
+    &__btn
+        display: block
+        width: 146px
+        margin-left: auto
+        margin-right: auto
+
 .sp img
     display: block
 
