@@ -1,0 +1,715 @@
+{% load static static_version site_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="yandex-tableau-widget" content="logo={{ ROOT_LINK }}{% static "site/images/favicons/tableau-logo.png" %}{% static_version %}, color=#ffffff" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="address=no" />
+        <meta name="theme-color" content="#0073FF">
+
+        {% block seo %}
+        {% endblock %}
+
+        {{ request.SETTINGS.meta_tags|safe }}
+
+        {% block og %}
+        {% endblock %}
+
+        <title>{% block title %}Про Амурск{% endblock %}</title>
+
+        <link href="{% static "site/images/favicons/120.png" %}{% static_version %}" rel="apple-touch-icon" sizes="120x120"/>
+        <link href="{% static "site/images/favicons/152.png" %}{% static_version %}" rel="apple-touch-icon" sizes="152x152"/>
+        <link href="{% static "site/images/favicons/180.png" %}{% static_version %}" rel="apple-touch-icon" sizes="180x180"/>
+        <link href="{% static "site/images/favicons/32.png" %}{% static_version %}" rel="icon" sizes="32x32"/>
+        <link href="{% static "site/images/favicons/57.png" %}{% static_version %}" rel="icon" sizes="57x57"/>
+        <link href="{% static "site/images/favicons/76.png" %}{% static_version %}" rel="icon" sizes="76x76"/>
+        <link href="{% static "site/images/favicons/128.png" %}{% static_version %}" rel="icon" sizes="128x128"/>
+        <link href="{% static "site/images/favicons/192.png" %}{% static_version %}" rel="icon" sizes="192x192"/>
+
+        <link rel="stylesheet" href="{% static "site/css/special-projects/sp-summer-money-styles.min.css" %}{% static_version %}">
+    </head>
+
+    <body>
+        <main class="sp sp-summer-money">
+            <div class="sp-summer-money-header">
+                <img src="{% static "site/images/special-projects/summer-money/svg/pattern-left.svg" %}{% static_version %}"
+                    alt="" class="sp-summer-money-header__pattern sp-summer-money-header__pattern_left">
+                <img src="{% static "site/images/special-projects/summer-money/svg/pattern-right.svg" %}{% static_version %}"
+                    alt="" class="sp-summer-money-header__pattern sp-summer-money-header__pattern_right">
+
+                <div class="container sp-summer-money-header__container">
+
+                    <h1 class="sp-summer-money-header__title">Летние деньки</h1>
+
+                    <p class="sp-summer-money-header__description">Лето для школьника&nbsp;&mdash; это не&nbsp;только солнце,
+                        отдых и&nbsp;друзья, но&nbsp;и&nbsp;возможность заработать первые деньги. А&nbsp;в&nbsp;процессе,
+                        возможно, научиться чему-то новому и&nbsp;полезному. О&nbsp;том, как подростку официально
+                        трудоустроиться, работать и&nbsp;получать зарплату&nbsp;&mdash; наш второй спецпроект.</p>
+
+                    <div class="sp-summer-money-header__wobbler">
+                        <div class="wobbler">
+                            <span class="wobbler__icon icon-star-sharp"></span>
+                            <span class="wobbler__text">Спецпроект</span>
+                        </div>
+                    </div>
+
+                    <img src="{% static "site/images/special-projects/summer-money/svg/round-arrow-down.svg" %}{% static_version %}"
+                        alt="" class="sp-summer-money-header__arrow-down">
+                </div>
+            </div>
+
+            <div class="js-fade container">
+                <div class="sp-8col">
+                    <div class="sp-summer-money__statistics-wrap">
+                        <div class="sp-summer-money-stat-item">
+                            <div class="sp-summer-money-stat-item__icon-wrap">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-passport-white.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-stat-item__icon sp-summer-money-stat-item__icon_passport">
+                            </div>
+                            <div class="sp-summer-money-stat-item__title">14 лет</div>
+                            <div class="sp-summer-money-stat-item__description">С&nbsp;этого возраста, согласно трудовому
+                                кодексу&nbsp;РФ, с&nbsp;подростком можно заключить официальный трудовой
+                                договор</div>
+                        </div>
+                        <div class="sp-summer-money-stat-item">
+                            <div class="sp-summer-money-stat-item__icon-wrap">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-school-child.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-stat-item__icon sp-summer-money-stat-item__icon_man">
+                            </div>
+                            <div class="sp-summer-money-stat-item__title">230 школьников</div>
+                            <div class="sp-summer-money-stat-item__description">участвуют в&nbsp;программе летнего
+                                трудоустройства в&nbsp;Амурске в&nbsp;2019 году</div>
+                        </div>
+                        <div class="sp-summer-money-stat-item">
+                            <div class="sp-summer-money-stat-item__icon-wrap">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-coins.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-stat-item__icon sp-summer-money-stat-item__icon_coins">
+                            </div>
+                            <div class="sp-summer-money-stat-item__title">> 7000 ₽</div>
+                            <div class="sp-summer-money-stat-item__description">в&nbsp;среднем может заработать подросток
+                                в&nbsp;Амурске за&nbsp;месяц</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="sp-block sp-block_mt80">
+                    <div class="sp-summer-money-section__img-title">
+                        <div class="js-fade sp-summer-money-img-title">
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/svg/illustr1.svg" %}{% static_version %}"
+                                alt="" class="sp-summer-money-img-title__illustration sp-summer-money-illustr1 lazyload">
+                            <h2
+                                class="sp-summer-money-img-title__title sp-summer-money__bubble-title sp-summer-money__bubble-title_left">
+                                Зачем мне работать?</h2>
+                        </div>
+                    </div>
+
+                    <div class="sp-summer-money-why-work-child">
+                        <div class="js-fade sp-summer-money-why-work-child__item">
+                            <div class="sp-summer-money-why-work-child__head">
+                                <div class="sp-summer-money-why-work-child__count">1</div>
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-money.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-why-work-child__icon">
+                            </div>
+                            <div class="sp-summer-money-why-work-child__title">Собственные деньги</div>
+                            <p class="sp-summer-money-why-work-child__description">Потому что собственные деньги&nbsp;&mdash;
+                                заработанные, а&nbsp;не&nbsp;выпрошенные у&nbsp;родителей или подаренные
+                                на&nbsp;праздники,&nbsp;&mdash; это здорово. Их&nbsp;жаль тратить на&nbsp;ерунду, поэтому
+                                ты&nbsp;учишься планировать траты наперед, а&nbsp;это очень пригодится в&nbsp;будущей взрослой
+                                жизни.</p>
+                        </div>
+                        <div class="js-fade sp-summer-money-why-work-child__item">
+                            <div class="sp-summer-money-why-work-child__head">
+                                <div class="sp-summer-money-why-work-child__count">2</div>
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-experience.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-why-work-child__icon">
+                            </div>
+                            <div class="sp-summer-money-why-work-child__title">Новые знания и&nbsp;навыки</div>
+                            <p class="sp-summer-money-why-work-child__description">Ты&nbsp;обязательно научишься чему-то новому:
+                                например, узнаешь, как организовать толпу дошколят, как принять заказ в&nbsp;кафе и&nbsp;ничего
+                                не&nbsp;забыть. Даже работа расклейщиком объявлений или курьером может быть полезной, потому что
+                                помогает лучше узнать город. Возможно, первая летняя работа натолкнет тебя на&nbsp;мысль, чем
+                                ты&nbsp;на&nbsp;самом деле хочешь заниматься в&nbsp;жизни.</p>
+                        </div>
+                        <div class="js-fade sp-summer-money-why-work-child__item">
+                            <div class="sp-summer-money-why-work-child__head">
+                                <div class="sp-summer-money-why-work-child__count">3</div>
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-contacts.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-why-work-child__icon">
+                            </div>
+                            <div class="sp-summer-money-why-work-child__title">Полезные знакомства</div>
+                            <p class="sp-summer-money-why-work-child__description">Возможно, на&nbsp;первой работе
+                                ты&nbsp;встретишь людей, которые в&nbsp;дальнейшем помогут с&nbsp;постоянным трудоустройством
+                                после окончания школы. Почему&nbsp;бы и&nbsp;нет? К&nbsp;тому&nbsp;же, если
+                                ты&nbsp;зарекомендуешь себя, как хороший работник, тебя с&nbsp;радостью примут
+                                на&nbsp;то&nbsp;же место следующим летом.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="js-fade sp-block sp-block_mt100">
+                    <div class="sp-summer-money-section__img-title">
+                        <div class="sp-summer-money-img-title sp-summer-money-img-title_inverse">
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/svg/illustr2.svg" %}{% static_version %}"
+                                alt="" class="sp-summer-money-img-title__illustration sp-summer-money-illustr2 lazyload">
+                            <h2
+                                class="sp-summer-money-img-title__title sp-summer-money__bubble-title sp-summer-money__bubble-title_right">
+                                Зачем работа моему ребенку?</h2>
+                        </div>
+                        <div class="sp-summer-money-why-work-parent">
+                            <p class="sp-summer-money-why-work-parent__description">Потому что это позволит ему стать более
+                                самостоятельным, научиться ценить деньги, узнать, как они зарабатываются, принимать решения.
+                                А&nbsp;еще,&nbsp;&mdash; что очень важно&nbsp;&mdash; работа позволит подростку почувствовать
+                                свою значимость, ощутить себя важным членом семьи наравне с&nbsp;родителями. Это как
+                                раз&nbsp;то, чего может не&nbsp;хватать человеку, когда он&nbsp;уже не&nbsp;ребенок, но&nbsp;еще
+                                не&nbsp;взрослый.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sp-block sp-block_mt100">
+                    <div class="sp-summer-money-section__img-title">
+                        <div class="js-fade sp-summer-money-img-title">
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/svg/illustr3.svg" %}{% static_version %}"
+                                alt="" class="sp-summer-money-img-title__illustration sp-summer-money-illustr3 lazyload">
+                            <h2
+                                class="sp-summer-money-img-title__title sp-summer-money__bubble-title sp-summer-money__bubble-title_left">
+                                И кем я могу работать?</h2>
+                        </div>
+
+                        <div class="js-fade sp-summer-money-whom-work sp-summer-money-whom-work__row sp-summer-money-whom-work__row_1">
+                            <div class="sp-summer-money-whom-work__item">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-guide.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-whom-work__icon sp-summer-money-whom-work__icon_guide">
+                                <div class="sp-summer-money-whom-work__title">Вожатый или помощник воспитателя
+                                    на&nbsp;пришкольной площадке, в&nbsp;летнем лагере</div>
+                                <p class="sp-summer-money-whom-work__description">Если любишь общаться с&nbsp;детьми
+                                    и&nbsp;легко находишь общий язык с&nbsp;младшими&nbsp;&mdash; эта работа для тебя.</p>
+                            </div>
+                            <div class="sp-summer-money-whom-work__item">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-promoter.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-whom-work__icon sp-summer-money-whom-work__icon_promoter">
+                                <div class="sp-summer-money-whom-work__title">Промоутер или расклейщик объявлений</div>
+                                <p class="sp-summer-money-whom-work__description">Работа не&nbsp;для робких, но&nbsp;если твоя
+                                    цель&nbsp;&mdash; преодолеть смущение в&nbsp;общении с&nbsp;людьми, то&nbsp;все получится.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="js-fade sp-summer-money-whom-work sp-summer-money-whom-work__row sp-summer-money-whom-work__row_2">
+                            <div class="sp-summer-money-whom-work__item">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-freelance.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-whom-work__icon sp-summer-money-whom-work__icon_freelance">
+                                <div class="sp-summer-money-whom-work__title">Работа на&nbsp;фрилансе через интернет</div>
+                                <p class="sp-summer-money-whom-work__description">Умеешь рисовать в&nbsp;графических редакторах,
+                                    здорово пишешь тексты или ведешь аккаунт с&nbsp;парой тысяч подписчиков? Попробуй поискать
+                                    работу в&nbsp;интернете. Но&nbsp;помни&nbsp;&mdash; всегда есть риск, что тебе
+                                    не&nbsp;заплатят, потому что оформить трудоустройство официально вряд&nbsp;ли получится.</p>
+                            </div>
+                            <div class="sp-summer-money-whom-work__item">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-handyman.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-whom-work__icon sp-summer-money-whom-work__icon_handyman">
+                                <div class="sp-summer-money-whom-work__title">Разнорабочий или уборщик территории</div>
+                                <p class="sp-summer-money-whom-work__description">Для тех, кто любит работать руками. Тут можно
+                                    научиться многим полезным вещам: красить стены, менять замки, чинить мебель, ухаживать
+                                    за&nbsp;растениями. В&nbsp;жизни все пригодится!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-fade sp-summer-money-light-section sp-block_mt100">
+                <div class="container">
+                    <div class="direct-speech direct-speech_base direct-speech_base_with-avatar sp-summer-money-direct-speech sp-summer-money-direct-speech_row">
+                        <div class="direct-speech-author">
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-person-lapaeva.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                            <div class="direct-speech-author__info">
+                                <div class="direct-speech-author__name">Ярослава Лапаева</div>
+                                <div class="direct-speech-author__description">специалист отдела трудоустройства Центра занятости:</div>
+                            </div>
+                        </div>
+
+                        <div class="direct-speech__text direct-speech__text_quotes">
+                            <p><i>&mdash;&nbsp;В&nbsp;этом году летом школьники могут официально трудоустроиться подсобными
+                                    рабочими или уборщиками
+                                    территории.</i></p>
+                            <p><i>Средняя заработная плата за&nbsp;месяц составляет около 7612&nbsp;рублей. В&nbsp;этот
+                                    расчет входят три выплаты: единая фиксированная выплата от&nbsp;центра занятости
+                                    в&nbsp;размере 1800&nbsp;рублей, доплата от&nbsp;администрации города в&nbsp;размере
+                                    1300&nbsp;рублей, и&nbsp;еще одна выплата&nbsp;&mdash; от&nbsp;предприятия. Например,
+                                    школа, в&nbsp;которой работает подросток, может выплатить около 5100&nbsp;рублей.</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-fade sp-block sp-block_mt100">
+                <div class="sp-full_4-4-4 container">
+                    <figure class="sp-full_4-4-4__item">
+                        <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture1.jpg" %}{% static_version %}"
+                            alt="" class="sp-summer-money__photo lazyload">
+                    </figure>
+                    <figure class="sp-full_4-4-4__item">
+                        <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture2.jpg" %}{% static_version %}"
+                            alt="" class="sp-summer-money__photo lazyload">
+                    </figure>
+                    <figure class="sp-full_4-4-4__item">
+                        <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture3.jpg" %}{% static_version %}"
+                            alt="" class="sp-summer-money__photo lazyload">
+                    </figure>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="sp-block sp-block_mt80">
+                    <div class="js-fade sp-summer-money-section__img-title">
+                        <div class="sp-summer-money-img-title">
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/svg/illustr4.svg" %}{% static_version %}"
+                                alt="" class="sp-summer-money-img-title__illustration sp-summer-money-illustr4 lazyload">
+                            <h2
+                                class="sp-summer-money-img-title__title sp-summer-money__bubble-title sp-summer-money__bubble-title_left">
+                                А где искать работу?</h2>
+                        </div>
+                    </div>
+
+                    <div class="sp-summer-money-where-find">
+                        <div class="js-fade sp-summer-money-where-find__item sp-summer-money-where-find__item_inverse">
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture4.jpg" %}{% static_version %}"
+                                alt="" class="sp-summer-money-where-find__img sp-summer-money-where-find__img_1 lazyload">
+                            <div class="sp-summer-money-where-find__info">
+                                <div class="sp-summer-money-where-find__count">1</div>
+                                <div class="sp-summer-money-where-find__title">Центр занятости</div>
+                                <p class="sp-summer-money-where-find__description">Самый простой вариант&nbsp;&mdash; обратиться
+                                    в&nbsp;Центр занятости населения. Там помогут подобрать подходящие
+                                    вакансии.</p>
+                                <table class="sp-summer-money-where-find__table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="icon-geo-stroke"></span>
+                                                Адрес:
+                                            </td>
+                                            <td>
+                                                г. Амурск, Октябрьский пр., 18
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="icon-phone"></span>
+                                                Телефон:
+                                            </td>
+                                            <td>
+                                                8 (914) 170-65-81
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="js-fade sp-summer-money-where-find__item">
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture5.jpg" %}{% static_version %}"
+                                alt="" class="sp-summer-money-where-find__img sp-summer-money-where-find__img_2 lazyload">
+                            <div class="sp-summer-money-where-find__info">
+                                <div class="sp-summer-money-where-find__count">2</div>
+                                <div class="sp-summer-money-where-find__title">Школы и&nbsp;учреждения дополнительного
+                                    образования</div>
+                                <p class="sp-summer-money-where-find__description">Школы и&nbsp;внешкольные учреждения часто
+                                    организуют летние площадки,&nbsp;&mdash; например &laquo;Темп&raquo;
+                                    и&nbsp;&laquo;Натуралист&raquo;. Летний лагерь &laquo;Орбита&raquo; нанимает помощников
+                                    воспитателей каждую смену. Спроси в&nbsp;своей школе&nbsp;&mdash; возможно, там прямо сейчас
+                                    требуется помощник воспитателя или вожатый.</p>
+                            </div>
+                        </div>
+
+                        <div class="js-fade sp-summer-money-where-find__item sp-summer-money-where-find__item_inverse">
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture6.jpg" %}{% static_version %}"
+                                alt="" class="sp-summer-money-where-find__img sp-summer-money-where-find__img_3 lazyload">
+                            <div class="sp-summer-money-where-find__info">
+                                <div class="sp-summer-money-where-find__count">3</div>
+                                <div class="sp-summer-money-where-find__title">Городские предприятия</div>
+                                <p class="sp-summer-money-where-find__description">Школьников берут на&nbsp;работу
+                                    не&nbsp;только образовательные учреждения, но&nbsp;производственные предприятия, управляющие
+                                    компании, предприниматели. Только один &laquo;Вымпел&raquo; каждый год трудоустраивает около
+                                    30&nbsp;подростков.</p>
+                            </div>
+                        </div>
+
+                        <div class="js-fade sp-summer-money-where-find__item">
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture7.jpg" %}{% static_version %}"
+                                alt="" class="sp-summer-money-where-find__img sp-summer-money-where-find__img_4 lazyload">
+                            <div class="sp-summer-money-where-find__info">
+                                <div class="sp-summer-money-where-find__count">4</div>
+                                <div class="sp-summer-money-where-find__title">Интернет</div>
+                                <p class="sp-summer-money-where-find__description">Используй сайты по&nbsp;поиску вакансий.
+                                    Обрати внимание на&nbsp;строку &laquo;без опыта работы&raquo;</p>
+                                <table class="sp-summer-money-where-find__table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="icon-web"></span>
+                                                Сайт:
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a href="https://www.farpost.ru/amursk/" target="_blank">farpost.ru</a>
+                                                </div>
+                                                <div>
+                                                    <a href="https://www.avito.ru/amursk/rabota?s_trg=3"
+                                                        target="_blank">avito.ru</a>
+                                                </div>
+                                                <div>
+                                                    <a href="https://joblab.ru/" target="_blank">joblab.ru</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-fade sp-summer-money-light-section sp-block sp-block_mt100">
+                <div class="container">
+                    <h3 class="sp-summer-money-working-conditions-section__title">КОММЕНТАРИИ СПЕЦИАЛИСТОВ:</h3>
+
+                    <div class="sp-summer-money-expert-comments-wrap">
+                        <div class="js-fade sp-summer-money-expert-comments__item">
+                            <div class="direct-speech direct-speech_base direct-speech_base_with-avatar sp-summer-money-direct-speech">
+                                <div class="direct-speech-author">
+                                    <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-person-melnichuk.jpg" %}{% static_version %}"
+                                        alt="" class="direct-speech-author__avatar lazyload">
+                                    <div class="direct-speech-author__info-wrap">
+                                        <div class="direct-speech-author__name">Ольга Мельничук</div>
+                                        <div class="direct-speech-author__description">социальный педагог школы № 2:</div>
+                                    </div>
+                                </div>
+
+                                <div class="direct-speech__text direct-speech__text_quotes">
+                                    <p><i>&mdash;&nbsp;В&nbsp;этом году на&nbsp;базе нашей школы трудоустроены 18&nbsp;школьников. В&nbsp;основном дети устраиваются подсобными рабочими. Также, на&nbsp;безвозмездной основе, ребята могут стать волонтерами и&nbsp;работать в&nbsp;лагере дневного пребывания. Чтобы туда попасть, нужно заявление от&nbsp;родителей о&nbsp;том, чтобы их&nbsp;детей включили в&nbsp;волонтерский отряд. А&nbsp;сами ребята должны иметь сертификат о&nbsp;прохождении школы вожатых, которая проводится на&nbsp;базе центра &laquo;Темп&raquo; в&nbsp;период весенних каникул.</i></p>
+                                    <p><i>Трудоустроиться на&nbsp;базе школы можно в&nbsp;июне и&nbsp;июле, в&nbsp;августе на&nbsp;работу школьников мы&nbsp;не&nbsp;принимаем. Следует отметить, что ребята проявляют очень высокую активность и&nbsp;желание работать. К&nbsp;сожалению, мест не&nbsp;хватает, поэтому при приеме на&nbsp;работу предпочтение отдается детям из&nbsp;малоимущих и&nbsp;многодетных семей. Заработная плата выплачивается за&nbsp;каждый отработанный месяц, и&nbsp;состоит из&nbsp;трех выплат: 5100 рублей от&nbsp;управления образования, 1800 рублей&nbsp;&mdash; материальная помощь от&nbsp;Центра занятости и&nbsp;1300 рублей от&nbsp;администрации города.</i></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="js-fade sp-summer-money-expert-comments__item sp-summer-money-expert-comments__item_right">
+                                <div class="direct-speech direct-speech_base direct-speech_base_with-avatar sp-summer-money-direct-speech">
+                                <div class="direct-speech-author">
+                                    <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-person-lukashova.jpg" %}{% static_version %}"
+                                        alt="" class="direct-speech-author__avatar lazyload">
+                                    <div class="direct-speech-author__info-wrap">
+                                        <div class="direct-speech-author__name">Марина Лукашова</div>
+                                        <div class="direct-speech-author__description">начальник отдела кадров Амурского политехнического техникума:</div>
+                                    </div>
+                                </div>
+
+                                <div class="direct-speech__text direct-speech__text_quotes">
+                                    <p><i>&mdash;&nbsp;Наши студенты от&nbsp;16&nbsp;до&nbsp;18&nbsp;лет летом работают подсобными рабочими в&nbsp;общежитии. Помогают делать ремонт, что-то принести, что-то подкрутить. Мы&nbsp;подписываем с&nbsp;ними трехсторонний договор в&nbsp;Центре занятости. Работать можно два месяца&nbsp;&mdash; июль и&nbsp;август, по&nbsp;4&nbsp;часа в&nbsp;день. Оплата&nbsp;&mdash; 8200&nbsp;рублей.</i></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="js-fade sp-summer-money-expert-comments__item">
+                            <div class="direct-speech direct-speech_base direct-speech_base_with-avatar sp-summer-money-direct-speech">
+                                <div class="direct-speech-author">
+                                    <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-person-zubanova.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                    <div class="direct-speech-author__info-wrap">
+                                        <div class="direct-speech-author__name">Людмила Зубанова</div>
+                                        <div class="direct-speech-author__description">заместитель начальника по&nbsp;подбору персонала завода &laquo;Вымпел&raquo;:</div>
+                                    </div>
+                                </div>
+
+                                <div class="direct-speech__text direct-speech__text_quotes">
+                                    <p><i>&mdash;&nbsp;Мы&nbsp;принимаем на&nbsp;работу школьников от&nbsp;14&nbsp;до&nbsp;16&nbsp;лет по&nbsp;целевой программе &laquo;Организация временного трудоустройства несовершеннолетних граждан в&nbsp;летний период&raquo;. Чтобы получить работу на&nbsp;заводе, подростку необходимо обратиться в&nbsp;Центр занятости населения и&nbsp;подписать трехсторонний договор. В&nbsp;летние каникулы на&nbsp;заводе &laquo;Вымпел&raquo; школьники могут работать уборщиками территории. Всем работникам мы&nbsp;обязательно выдаем униформу. </i></p>
+                                    <p><i>Кроме того, школьники могут познакомиться с&nbsp;нашим производством во&nbsp;время экскурсии по&nbsp;заводу. Это очень интересно!</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="sp-block sp-block_mt100">
+                    <div class="js-fade">
+                        <h3 class="sp-summer-money-working-conditions-section__title">УСЛОВИЯ РАБОТЫ</h3>
+                        <div class="sp-summer-money-working-conditions">
+                            <div class="sp-summer-money-working-conditions__bubble sp-summer-money-working-conditions__bubble_left">
+                                <div class="sp-summer-money-working-conditions__title">Для детей 14&ndash;16 лет</div>
+                                <div class="sp-summer-money-working-conditions__text-block">
+                                    <img src="{% static "site/images/special-projects/summer-money/svg/icon-time.svg" %}{% static_version %}"
+                                        alt="" class="sp-summer-money-working-conditions__icon">
+                                    <div class="sp-summer-money-working-conditions__text">24&nbsp;часа в&nbsp;неделю
+                                        <br>до&nbsp;5&nbsp;часов в&nbsp;день</div>
+                                </div>
+                            </div>
+
+                            <img src="" data-src="{% static "site/images/special-projects/summer-money/svg/illustr5.svg" %}{% static_version %}"
+                                alt="" class="sp-summer-money-working-conditions__img lazyload">
+
+                            <div
+                                class="sp-summer-money-working-conditions__bubble sp-summer-money-working-conditions__bubble_right">
+                                <div class="sp-summer-money-working-conditions__title">Для детей 16&ndash;17 лет</div>
+                                <div class="sp-summer-money-working-conditions__text-block">
+                                    <img src="{% static "site/images/special-projects/summer-money/svg/icon-time.svg" %}{% static_version %}"
+                                        alt="" class="sp-summer-money-working-conditions__icon">
+                                    <div class="sp-summer-money-working-conditions__text">24&nbsp;часа в&nbsp;неделю
+                                        <br>7&nbsp;часов в&nbsp;день</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="js-fade">
+                        <div class="sp-6col sp-block sp-block_mt40">
+                            <div class="sp-separator_line"></div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <div class="sp-summer-money__info-sign">!</div>
+                            <div class="sp-summer-money-working-conditions-section__subtitle">Согласно трудовому кодексу, ребенок
+                                не&nbsp;может работать там, где:</div>
+
+                            <div class="sp-8col">
+                                <div class="sp-full_2-2">
+                                    <ul class="sp-bullet-list">
+                                        <li class="sp-bullet-list__item sp-bullet-item">работа физически или морально тяжелая;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">работа проходит в&nbsp;ночное время,
+                                            праздничные или выходные дни;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">работа связана со&nbsp;спиртными напитками,
+                                            наркотическими веществами, токсичными препаратами, материалами эротического
+                                            содержания;</li>
+                                    </ul>
+                                    <ul class="sp-bullet-list">
+                                        <li class="sp-bullet-list__item sp-bullet-item">присутствуют опасные условия труда;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">работа связана с&nbsp;игорным бизнесом,
+                                            клубами, кабаре и&nbsp;так далее;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">работа идет вахтовым методом или
+                                            по&nbsp;совместительству;</li>
+                                        <li class="sp-bullet-list__item sp-bullet-item">требуются командировки.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="sp-block sp-block_mt100">
+                    <div class="js-fade">
+                        <h3 class="sp-summer-money-working-conditions-section__title">Какие документы нужны?</h3>
+
+                        <div class="sp-summer-money-documents-grid">
+                            <div class="sp-summer-money-documents__item">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-school-doc.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-documents__icon">
+                                <div class="sp-summer-money-documents__text">Справка из школы</div>
+                            </div>
+                            <div class="sp-summer-money-documents__item">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-employment-history.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-documents__icon">
+                                <div class="sp-summer-money-documents__text">Трудовая книжка (если уже есть)</div>
+                            </div>
+                            <div class="sp-summer-money-documents__item">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-passport.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-documents__icon">
+                                <div class="sp-summer-money-documents__text">Паспорт или свидетельство о&nbsp;рождении</div>
+                            </div>
+                            <div class="sp-summer-money-documents__item">
+                                <img src="{% static "site/images/special-projects/summer-money/svg/icon-parent-consent.svg" %}{% static_version %}"
+                                    alt="" class="sp-summer-money-documents__icon">
+                                <div class="sp-summer-money-documents__text">Письменное согласие от&nbsp;родителей</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="js-fade">
+                        <div class="sp-6col sp-block sp-block_mt60">
+                            <div class="sp-separator_line"></div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt60">
+                            <div class="sp-6col">
+                                <ul class="sp-bullet-list">
+                                    <li class="sp-bullet-list__item sp-bullet-item">Прием на&nbsp;работу должен сопровождаться
+                                        письменным трудовым договором и&nbsp;приказом о&nbsp;приеме на&nbsp;работу.</li>
+                                    <li class="sp-bullet-list__item sp-bullet-item">Работодатель должен оформить для ребенка
+                                        трудовую книжку. </li>
+                                    <li class="sp-bullet-list__item sp-bullet-item">Если от&nbsp;ребенка требуются результаты
+                                        медицинского обследования установленного образца, прохождение медосмотра оплачивает
+                                        работодатель</li>
+                                    <li class="sp-bullet-list__item sp-bullet-item">Работодатель не&nbsp;имеет права назначать
+                                        ребенку испытательный срок.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="js-fade sp-block sp-block_mt100">
+                    <h3 class="sp-summer-money-working-conditions-section__title">Личный опыт</h3>
+                    <div class="sp-10col">
+                        <div class="sp-summer-money-experience-grid">
+                            <div class="js-fade sp-summer-money-experience-item">
+                                <div class="sp-summer-money-experience-item__head">
+                                    <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-person-shahurov.jpg" %}{% static_version %}"
+                                        alt="" class="sp-summer-money-experience-item__avatar lazyload">
+                                    <div class="sp-summer-money-experience-item__person-info">
+                                        <div class="sp-summer-money-experience-item__name">Роман Шахуров</div>
+                                        <div class="sp-summer-money-experience-item__description">работает подсобным рабочим
+                                            и&nbsp;волонтером в&nbsp;школе &#8470;&nbsp;2:</div>
+                                    </div>
+                                </div>
+                                <div class="sp-summer-money-experience-item__text wysiwyg-container">
+                                    <p><i>&mdash;&nbsp;Это не&nbsp;первая моя работа&nbsp;&mdash; до&nbsp;этого я&nbsp;работал
+                                            расклейщиком объявлений. Тружусь всегда с&nbsp;удовольствием&nbsp;&mdash; могу
+                                            и&nbsp;коробки носить, и&nbsp;с&nbsp;детьми что-то интересное придумать. Сейчас
+                                            работаю подсобным рабочим и&nbsp;волонтером в&nbsp;лагере дневного пребывания.</i>
+                                    </p>
+                                    <p><i>Если&nbsp;бы у&nbsp;нас в&nbsp;городе могли выделить больше рабочих мест для детей,
+                                            думаю, каждый школьник мог&nbsp;бы устроиться на&nbsp;работу во&nbsp;время каникул.
+                                            Потому что летом очень много свободного времени, а&nbsp;возможность
+                                            работать&nbsp;&mdash; это помощь родителям, шаг приблизиться к&nbsp;взрослой жизни,
+                                            получить собственные карманные деньги.</i></p>
+                                    <p><i>Свою зарплату я&nbsp;получить еще не&nbsp;успел, но&nbsp;по&nbsp;договору должны
+                                            заплатить 8200&nbsp;рублей.</i></p>
+                                </div>
+                            </div>
+                            <div class="js-fade sp-summer-money-experience-item">
+                                <div class="sp-summer-money-experience-item__head">
+                                    <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-person-volosuhina.jpg" %}{% static_version %}"
+                                        alt="" class="sp-summer-money-experience-item__avatar lazyload">
+                                    <div class="sp-summer-money-experience-item__person-info">
+                                        <div class="sp-summer-money-experience-item__name">Анастасия Волосухина</div>
+                                        <div class="sp-summer-money-experience-item__description">работает вожатой
+                                            на&nbsp;площадке школы &#8470;&nbsp;3:</div>
+                                    </div>
+                                </div>
+                                <div class="sp-summer-money-experience-item__text wysiwyg-container">
+                                    <p><i>&mdash;&nbsp;Я&nbsp;работаю вожатой первый раз. До&nbsp;этого никогда нигде
+                                            не&nbsp;работала. Решила попробовать, потому что нужны деньги поддержать семью.
+                                            А&nbsp;еще хотела узнать, как это&nbsp;&mdash; работать с&nbsp;детьми, потому что
+                                            хочу в&nbsp;дальнейшем быть воспитателем. Работодатель обещает заплатить
+                                            6000&ndash;7000 за&nbsp;смену. Деньги отдам бабушке.</i></p>
+                                    <p><i>Работа не&nbsp;сложная, но&nbsp;бывает тяжело, когда дети не&nbsp;слушаются. Рано
+                                            вставать я&nbsp;уже привыкла&nbsp;&mdash; то&nbsp;же самое, что в&nbsp;школе.</i>
+                                    </p>
+                                    <p><i>Работать летом стоит, чтобы постепенно приучать себя ко&nbsp;взрослой жизни, иметь
+                                            свои деньги, помогать родителям, если нужно.</i></p>
+                                </div>
+                            </div>
+                            <div class="js-fade sp-summer-money-experience-item">
+                                <div class="sp-summer-money-experience-item__head">
+                                    <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-person-sheremetova.jpg" %}{% static_version %}"
+                                        alt="" class="sp-summer-money-experience-item__avatar lazyload">
+                                    <div class="sp-summer-money-experience-item__person-info">
+                                        <div class="sp-summer-money-experience-item__name">Ульяна Шереметова</div>
+                                        <div class="sp-summer-money-experience-item__description">работает вожатой
+                                            на&nbsp;площадке школы &#8470;&nbsp;3:</div>
+                                    </div>
+                                </div>
+                                <div class="sp-summer-money-experience-item__text wysiwyg-container">
+                                    <p><i>&mdash;&nbsp;Я&nbsp;пошла работать, потому что нужны деньги для поступления
+                                            в&nbsp;институт. Решила попробовать себя вожатой. Работаю уже третий год. Зарплата
+                                            все это время одинаковая&nbsp;&mdash; около 6000&nbsp;рублей. Не&nbsp;сказать, что
+                                            эти деньги даются легко&nbsp;&mdash; с&nbsp;детьми бывает довольно-таки
+                                            сложно,&nbsp;&mdash; но&nbsp;и&nbsp;не&nbsp;очень тяжело. Работодатель меня никогда
+                                            не&nbsp;обманывал, платили вовремя.</i></p>
+                                    <p><i>Я&nbsp;думаю, что всем подросткам стоит работать летом. Это такая тренировка взрослой
+                                            жизни&nbsp;&mdash; ты&nbsp;понимаешь, что такое работа, приучаешься рано вставать.
+                                            Да&nbsp;и&nbsp;на&nbsp;каникулах все равно времени много, чем еще заниматься.</i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="js-fade sp-summer-money-experience-item">
+                                <div class="sp-summer-money-experience-item__head">
+                                    <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-person-gornishkova.jpg" %}{% static_version %}"
+                                        alt="" class="sp-summer-money-experience-item__avatar lazyload">
+                                    <div class="sp-summer-money-experience-item__person-info">
+                                        <div class="sp-summer-money-experience-item__name">Алина Горнышкова</div>
+                                        <div class="sp-summer-money-experience-item__description">работает подсобным рабочим
+                                            и&nbsp;волонтером в&nbsp;центре &laquo;Темп&raquo;:</div>
+                                    </div>
+                                </div>
+                                <div class="sp-summer-money-experience-item__text wysiwyg-container">
+                                    <p><i>&mdash;&nbsp;Я&nbsp;работаю подсобным рабочим&nbsp;и, в&nbsp;свободное
+                                            время,&nbsp;&mdash; волонтером в&nbsp;лагере с&nbsp;дневным пребыванием. Так как
+                                            семья у&nbsp;нас большая, я&nbsp;поняла, что нужно помогать родителям. Вообще
+                                            работаю я&nbsp;всего неделю, и&nbsp;это мой первый опыт в&nbsp;трудоустройстве,
+                                            но&nbsp;мне очень нравиться. Работа не&nbsp;сложная, я&nbsp;справляюсь с&nbsp;любым
+                                            заданием. Особенно нравиться проводить с&nbsp;детьми зарядку, разучивать кричалки
+                                            и&nbsp;устраивать конкурсы.</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="js-fade sp-block sp-block_mt80">
+                    <div class="preview-slider slider sp-summer-money-slider">
+                        <div class="sp-summer-money__preview-slider preview-slider__big-img-wrap slider-container">
+                            <div class="slide">
+                                <img data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture8.jpg" %}{% static_version %}"
+                                    alt="" class="preview-slider__big-img lazyload">
+                                <div class="preview-slider__caption">Ульяна Шереметова с&nbsp;ребятами из&nbsp;своего отряда
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <img data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture9.jpg" %}{% static_version %}"
+                                    alt="" class="preview-slider__big-img lazyload">
+                                <div class="preview-slider__caption">Анастасия Волосухина играет с&nbsp;девочками из&nbsp;отряда
+                                    на&nbsp;площадке школы &#8470;&nbsp;3</div>
+                            </div>
+                            <div class="slide">
+                                <img data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture10.jpg" %}{% static_version %}"
+                                    alt="" class="preview-slider__big-img lazyload">
+                                <div class="preview-slider__caption">Алина Горнышкова с&nbsp;воспитанницами центра
+                                    &laquo;Темп&raquo;</div>
+                            </div>
+                        </div>
+
+                        <div class="preview-slider__small-img-wrap">
+                            <button class="preview-slider__mini-btn">
+                                <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture8-mini.jpg" %}{% static_version %}"
+                                    alt="" class="preview-slider__small-img lazyload">
+                            </button>
+                            <button class="preview-slider__mini-btn">
+                                <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture9-mini.jpg" %}{% static_version %}"
+                                    alt="" class="preview-slider__small-img lazyload">
+                            </button>
+                            <button class="preview-slider__mini-btn">
+                                <img src="" data-src="{% static "site/images/special-projects/summer-money/sp-summer-money-picture10-mini.jpg" %}{% static_version %}"
+                                    alt="" class="preview-slider__small-img lazyload">
+                            </button>
+                        </div>
+
+                        <div class="slider-arrow-container sp-summer-money-slider__arrow-container">
+                            <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                            <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-fade container">
+                <div class="sp-summer-money__share-block">
+                    {% include "site/page-block/share-widget.html" %}
+                </div>
+            </div>
+        </main>
+
+        <script src="{% static "site/js/sp-main.min.js" %}{% static_version %}"></script>
+    </body>
+</html>

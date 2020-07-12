@@ -361,3 +361,63 @@ exports.devShortStaticStyles = devShortStaticStyles;
 exports.prodShortStaticStyles = prodShortStaticStyles;
 exports.frontendShortHtml = frontendShortHtml;
 exports.templatesShortHtml = templatesShortHtml;
+
+
+
+// ----------------------
+//   SPECIAL PROJECTS STATIC TASKS
+// ----------------------
+
+const specials = gulp.parallel(spStyles, spJS);
+
+
+function spStyles() {
+    return gulp.src([
+        'src/sass/sp-birthday-styles.sass',
+        'src/sass/sp-children-styles.sass',
+        'src/sass/sp-dance-styles.sass',
+        'src/sass/sp-summer-money-styles.sass',
+        'src/sass/sp-winter-fun-styles.sass',
+    ])
+        .pipe(plumber(settingsPlumber))
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            indentedSyntax: true,
+        }))
+        .pipe(autoprefixer())
+        .pipe(rename({ suffix: '.min' , }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('static/css/special-projects'))
+        .pipe(gzip())
+        .pipe(gulp.dest('./../static/site/css/special-projects'));
+}
+
+
+const spJSFiles = [
+    jquery,
+    slickCarousel,
+    'src/js/map.js',
+    'src/js/pop-ups.js',
+    'src/js/sliders.js',
+];
+
+function spJS() {
+    return gulp.src(spJSFiles)
+        .pipe(plumber(settingsPlumber))
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env',],
+        }))
+        .pipe(concat('sp-main.js'))
+        .pipe(gulp.dest('./../static/site/js/'))
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min', }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('./../static/site/js/'))
+        .pipe(gzip())
+        .pipe(gulp.dest('./../static/site/js/'));
+}
+
+exports.spStyles = spStyles;
+exports.spJS = spJS;
+exports.specials = specials;

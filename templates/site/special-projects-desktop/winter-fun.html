@@ -1,0 +1,1940 @@
+{% load static static_version site_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="yandex-tableau-widget" content="logo={{ ROOT_LINK }}{% static "site/images/favicons/tableau-logo.png" %}{% static_version %}, color=#ffffff" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="address=no" />
+        <meta name="theme-color" content="#0073FF">
+
+        {% block seo %}
+        {% endblock %}
+
+        {{ request.SETTINGS.meta_tags|safe }}
+
+        {% block og %}
+        {% endblock %}
+
+        <title>{% block title %}Про Амурск{% endblock %}</title>
+
+        <link href="{% static "site/images/favicons/120.png" %}{% static_version %}" rel="apple-touch-icon" sizes="120x120"/>
+        <link href="{% static "site/images/favicons/152.png" %}{% static_version %}" rel="apple-touch-icon" sizes="152x152"/>
+        <link href="{% static "site/images/favicons/180.png" %}{% static_version %}" rel="apple-touch-icon" sizes="180x180"/>
+        <link href="{% static "site/images/favicons/32.png" %}{% static_version %}" rel="icon" sizes="32x32"/>
+        <link href="{% static "site/images/favicons/57.png" %}{% static_version %}" rel="icon" sizes="57x57"/>
+        <link href="{% static "site/images/favicons/76.png" %}{% static_version %}" rel="icon" sizes="76x76"/>
+        <link href="{% static "site/images/favicons/128.png" %}{% static_version %}" rel="icon" sizes="128x128"/>
+        <link href="{% static "site/images/favicons/192.png" %}{% static_version %}" rel="icon" sizes="192x192"/>
+
+        <link rel="stylesheet" href="{% static "site/css/special-projects/sp-birthday-styles.min.css" %}{% static_version %}">
+    </head>
+
+    <body>
+        <main class="sp sp-winter-fun">
+            <div class="sp-winter-fun-container">
+                <div class="city-bg">
+                    <section class="sp-winter-fun-header">
+                        <h1 class="sp-winter-fun-header__title">Зимние забавы</h1>
+
+                        <div class="sp-winter-fun-header__wobbler">
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-star-sharp"></span>
+                                <span class="wobbler__text">Спецпроект</span>
+                            </div>
+                        </div>
+
+                        <p class="sp-winter-fun-header__description">Зимы в Амурске суровые, но это не повод засесть дома. Мы расскажем, как и где весело провести время всей семьей. Летом будет что вспомнить!</p>
+                    </section>
+
+                    <section class="sp-winter-fun-section">
+                        <h2 class="sp-winter-fun-section__title sp-winter-fun-section__title_left">В Городе</h2>
+
+                        <div class="container">
+                            <p class="sp-winter-fun-section__description">Одевайтесь потеплее, садите детей на санки и бегом на улицу — кататься с горок, играть в снежки, плясать с Дедушкой Морозом под елкой и дышать свежим воздухом!</p>
+
+                            <button class="sp-winter-fun-ball-btn sp-winter-fun-ball-btn_city_1 show-pop-up" data-pop-up="sp-winter-fun-city-1"><span>Новогодние<br>елки</span></button>
+                            <button class="sp-winter-fun-ball-btn sp-winter-fun-ball-btn_city_2 show-pop-up" data-pop-up="sp-winter-fun-city-2"><span>Городские<br>катки</span></button>
+                            <button class="sp-winter-fun-ball-btn sp-winter-fun-ball-btn_city_3 show-pop-up" data-pop-up="sp-winter-fun-city-3"><span>Детские<br>горки</span></button>
+                            <button class="sp-winter-fun-ball-btn sp-winter-fun-ball-btn_city_4 show-pop-up" data-pop-up="sp-winter-fun-city-4"><span>Прогулки<br>в&nbsp;дендрарии</span></button>
+                            <button class="sp-winter-fun-ball-btn sp-winter-fun-ball-btn_city_5 show-pop-up" data-pop-up="sp-winter-fun-city-5"><span>Календарь<br>событий</span></button>
+                        </div>
+                    </section>
+                </div>
+
+                <section class="container sp-winter-fun-calendar-section">
+                    <h2 class="sp-winter-fun-simple-section__title">Где и какие мероприятия пройдут в Амурске?</h2>
+
+                    <ul class="sp-winter-fun-events-list">
+                        <li class="sp-winter-fun-event js-sp-winter-fun-event-card" data-id="1">
+                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-3.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event__cover lazyload">
+                            <div class="sp-winter-fun-event__content">
+                                <h3 class="sp-winter-fun-event__title">Дворец культуры</h3>
+                                <div class="sp-winter-fun-event__links-wrap">
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-1-2">22 дек.</button>
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-1-3">24 дек.</button>
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-1-4">24–30 дек.</button>
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-1-5">3 янв.</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="sp-winter-fun-event js-sp-winter-fun-event-card" data-id="2">
+                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-2.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event__cover lazyload">
+                            <div class="sp-winter-fun-event__content">
+                                <h3 class="sp-winter-fun-event__title">Городская библиотека</h3>
+                                <div class="sp-winter-fun-event__links-wrap">
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-2-2">19–31 дек.</button>
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-2-3">22 дек.</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="sp-winter-fun-event js-sp-winter-fun-event-card" data-id="3">
+                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-5.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event__cover lazyload">
+                            <div class="sp-winter-fun-event__content">
+                                <h3 class="sp-winter-fun-event__title">Краеведческий музей</h3>
+                                <div class="sp-winter-fun-event__links-wrap">
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-3-1">3-5, 8 янв.</button>
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-3-1">3-5, 8 янв.</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="sp-winter-fun-event js-sp-winter-fun-event-card" data-id="4">
+                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-1.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event__cover lazyload">
+                            <div class="sp-winter-fun-event__content">
+                                <h3 class="sp-winter-fun-event__title">Ботанический сад</h3>
+                                <div class="sp-winter-fun-event__links-wrap">
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-4-1">21–29 дек.</button>
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-4-2">4–11 янв.</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="sp-winter-fun-event js-sp-winter-fun-event-card" data-id="5">
+                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-6.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event__cover lazyload">
+                            <div class="sp-winter-fun-event__content">
+                                <h3 class="sp-winter-fun-event__title">Центральная библиотека Амурского района</h3>
+                                <div class="sp-winter-fun-event__links-wrap">
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-5-1">6 янв.</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="sp-winter-fun-event js-sp-winter-fun-event-card" data-id="6">
+                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-4.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event__cover lazyload">
+                            <div class="sp-winter-fun-event__content">
+                                <h3 class="sp-winter-fun-event__title">Дом молодежи</h3>
+                                <div class="sp-winter-fun-event__links-wrap">
+                                    <button class="sp-winter-fun-event__link js-sp-winter-fun-event-date" data-id="place-6-1">8 янв.</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <div class="nature-bg">
+                    <section class="sp-winter-fun-section">
+                        <h2 class="sp-winter-fun-section__title sp-winter-fun-section__title_right">За городом</h2>
+                        <div class="container">
+                            <p class="sp-winter-fun-section__description sp-winter-fun-section__description_right">Скатиться на лыжах с крутого склона. Выйти из бани, найти самый большой сугроб и упасть в него. Промчаться на санях с упряжкой лошадей. Все это, а также самые красивые елки, шашлык и шикарные зимние пейзажи ждут вас за городом. Прыгайте в машину – и вперед, навстречу приключениям!</p>
+
+                            <button class="sp-winter-fun-ball-btn sp-winter-fun-ball-btn_nature_1 show-pop-up" data-pop-up="sp-winter-fun-nature-1"><span>Лыжи<br>и сноуборд</span></button>
+                            <button class="sp-winter-fun-ball-btn sp-winter-fun-ball-btn_nature_2 show-pop-up" data-pop-up="sp-winter-fun-nature-2"><span>Базы<br>отдыха</span></button>
+                        </div>
+                    </section>
+                </div>
+
+                <section class="sp-winter-fun-simple-section__with-map">
+                    <h2 class="sp-winter-fun-simple-section__title">Как доехать?</h2>
+
+                    <div class="sp-map-wrap sp-winter-fun__map-wrap">
+                        <div class="container">
+                            <ul class="sp-winter-map-points__list">
+                                <li class="sp-winter-map-points__item"><button class="sp-map-points__item-btn active" data-coord="[50.711316, 137.302480]">Горнолыжный курорт «Альмир»</button></li>
+                                <li class="sp-winter-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.740469, 136.568572]">Горнолыжная база «Холдоми»</button></li>
+                                <li class="sp-winter-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.819126, 136.400138]">Туристический комплекс «Амут Сноу Лэйк»</button></li>
+                                <li class="sp-winter-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.427673, 136.790306]">Ферма «Мишкина берлога»</button></li>
+                                <li class="sp-winter-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.729504, 136.625140]">Дом отдыха «Пастораль»</button></li>
+                                <li class="sp-winter-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.563005, 137.042653]">Силинский парк</button></li>
+                                <li class="sp-winter-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.716290, 137.321974]">Дом отдыха «Шарголь»</button></li>
+                            </ul>
+                        </div>
+                        <div id="sp-winter-fun__map" class="sp-map map sp-winter-fun__map"></div>
+                    </div>
+                </section>
+
+                <div class="blue-bg">
+                    <section class="sp-winter-fun-rules-section container">
+                        <h2 class="sp-winter-fun-simple-section__title">Как вести себя на улице, чтобы не заболеть и ничего себе не отморозить?</h2>
+
+                        <ul class="sp-winter-fun-rules">
+                            <li class="sp-winter-fun-rules__item">Не носите тесную обувь – ноги в ней легко замерзают. И не надевайте три пары носков — лучше одну, но теплую. Между телом и ботинком обязательно должна быть воздушная прослойка.</li>
+                            <li class="sp-winter-fun-rules__item">Не пейте горячие напитки непосредственно перед выходом на улицу — это расширяет сосуды, тепло быстро теряется и наступает переохлаждение.</li>
+                            <li class="sp-winter-fun-rules__item">Если вы отморозили нос, уши или пальцы, не засовывайте сразу под горячую воду, не растирайте снегом или спиртом. Согревайте их постепенно.</li>
+                            <li class="sp-winter-fun-rules__item">За час-полтора до выхода нанесите на лицо и руки защитный питательный крем.</li>
+                            <li class="sp-winter-fun-rules__item">Вместо перчаток носите варежки – в них руки не замерзнут так быстро. Надевайте их в подъезде, а не на улице, чтобы сохранить больше тепла.</li>
+                            <li class="sp-winter-fun-rules__item">Перед выходом съешьте что-то калорийное — на морозе вы тратите больше энергии.</li>
+                        </ul>
+                    </section>
+
+                    <section class="sp-winter-fun-make-photo-section">
+                        <h2 class="sp-winter-fun-simple-section__title">Не забывайте<br> делать фото на&nbsp;память!<br> Пригодится для семейной хроники.</h2>
+
+                        <div class="container">
+                            <div class="js-fade sp-block sp-10col sp-winter-fun-gallery">
+                                <div class="preview-slider slider sp-preview-slider sp-preview-slider_10col sp-preview-slider_radius_36">
+                                    <div class="preview-slider__big-img-wrap slider-container">
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-6.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-7.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-8.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-9.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-10.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-11.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-12.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-13.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-14.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-15.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-16.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                    </div>
+
+                                    <div class="preview-slider__thumbs-block">
+                                        <div class="preview-slider__small-img-wrap">
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-7-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-8-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-9-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-10-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-11-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-12-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-13-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-14-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-15-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/gallery-16-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                        </div>
+                                        <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_light preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_light preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                        <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active js-preview-slider-thumb-arrow"></button>
+                                        <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active js-preview-slider-thumb-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="js-fade container">
+                        <div class="sp-summer-money__share-block">
+                            {% include "site/page-block/share-widget.html" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <div class="body-cover sp-winter-fun-pop-up-body-cover">
+            <div class="pop-up-wrapper sp-winter-fun-pop-up-wrapper sp-winter-fun-city-1">
+                <div class="sp-winter-fun-pop-up-back js-pop-up__close"></div>
+
+                <div class="sp-winter-fun-pop-up-container">
+                    <button class="sp-winter-fun-pop-up-close pop-up__close icon-close-thin js-pop-up__close"></button>
+
+                    <div class="sp-winter-fun-pop-up-content">
+                        <div class="sp-winter-fun-pop-up-main-content">
+                            <h3 class="sp-winter-fun-pop-up__title">Новогодние елки</h3>
+                            <p class="sp-winter-fun-pop-up__text">В&nbsp;этом году в&nbsp;Амурске их&nbsp;будет несколько: кроме главной елки на&nbsp;Комсомольской площади, одну зеленую красавицу установят на&nbsp;городской набережной и&nbsp;еще одну&nbsp;&mdash; в&nbsp;8-м микрорайоне, между домами по&nbsp;адресу: Комсомольский проспект, 63&nbsp;и&nbsp;65.</p>
+                            <p class="sp-winter-fun-pop-up__text">Их&nbsp;открытие состоится в&nbsp;конце декабря. Точные даты пока неизвестны, так что следите за&nbsp;нашими анонсами. Программу организаторы обещают скромную, но&nbsp;подвижные игры с&nbsp;Дедом Морозом и&nbsp;Снегурочкой детворе обеспечены.</p>
+                            <div class="sp-winter-fun-pop-up__gallery">
+                                <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                    <div class="preview-slider__big-img-wrap slider-container">
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-6.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-7.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                    </div>
+
+                                    <div class="preview-slider__thumbs-block">
+                                        <div class="preview-slider__small-img-wrap">
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-7-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                        </div>
+                                        <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                        <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                        <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pop-up-wrapper sp-winter-fun-pop-up-wrapper sp-winter-fun-city-2">
+                <div class="sp-winter-fun-pop-up-back js-pop-up__close"></div>
+
+                <div class="sp-winter-fun-pop-up-container">
+                    <button class="sp-winter-fun-pop-up-close pop-up__close icon-close-thin js-pop-up__close"></button>
+
+                    <div class="sp-winter-fun-pop-up-content">
+                        <div class="sp-winter-fun-pop-up-main-content">
+                            <h3 class="sp-winter-fun-pop-up__title">Городские катки</h3>
+
+                            <div class="sp-winter-fun-event-subsection">
+                                <div class="sp-winter-fun-pop-up__subtitle">На проспекте Мира, 40</div>
+                                <p class="sp-winter-fun-pop-up__text">Для любителей активного отдыха работает каток на&nbsp;спортивном поле возле бывшего ПУ-33. Вход свободный, каждый день с&nbsp;14:00 до&nbsp;18:00. Взрослый билет стоит 200&nbsp;рублей, детский&nbsp;&mdash; 150, билет для малышей до&nbsp;5&nbsp;лет&nbsp;&mdash; 100&nbsp;рублей. Если у&nbsp;вас нет своих коньков, их&nbsp;можно взять в&nbsp;прокат за&nbsp;небольшую плату. </p>
+                                <p class="sp-winter-fun-pop-up__text">Те, кто пока еще неуверенно чувствует себя на&nbsp;льду, могут поучиться кататься под руководством опытных инструкторов. Стоимость одного занятия&nbsp;&mdash; всего 100&nbsp;руб.</p>
+                                <p class="sp-winter-fun-pop-up__text">Рядом с&nbsp;катком установлен теплый вагончик, в&nbsp;котором можно переодеться, отдохнуть, выпить горячего чаю или кофе.</p>
+                            </div>
+
+                            <div class="sp-winter-fun-event-subsection">
+                                <div class="sp-winter-fun-pop-up__subtitle">На проспекте Строителей, 29</div>
+                                <p class="sp-winter-fun-pop-up__text">Каток на&nbsp;проспекте Строителей работает с&nbsp;14:00 до&nbsp;20:00 по&nbsp;будням и&nbsp;с&nbsp;12:00 до&nbsp;22:00 по&nbsp;выходным. Коньки можно взять в&nbsp;прокат бесплатно. В&nbsp;теплом помещении рядом с&nbsp;катком есть туалет с&nbsp;умывальником и&nbsp;горячий чай. Вечером каток освещается.</p>
+                            </div>
+
+                            <div class="sp-winter-fun-pop-up__gallery">
+                                <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                    <div class="preview-slider__big-img-wrap slider-container">
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-6.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-7.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-8.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-9.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                    </div>
+
+                                    <div class="preview-slider__thumbs-block">
+                                        <div class="preview-slider__small-img-wrap">
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-7-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-8-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-9-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-2-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                        </div>
+                                        <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                        <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                        <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pop-up-wrapper sp-winter-fun-pop-up-wrapper sp-winter-fun-city-3">
+                <div class="sp-winter-fun-pop-up-back js-pop-up__close"></div>
+
+                <div class="sp-winter-fun-pop-up-container">
+                    <button class="sp-winter-fun-pop-up-close pop-up__close icon-close-thin js-pop-up__close"></button>
+
+                    <div class="sp-winter-fun-pop-up-content">
+                        <div class="sp-winter-fun-pop-up-main-content">
+                            <h3 class="sp-winter-fun-pop-up__title">Детские горки</h3>
+                            <p class="sp-winter-fun-pop-up__text">С&nbsp;горки&nbsp;&mdash; ух! Во&nbsp;весь дух! Самые крутые и&nbsp;веселые горки в&nbsp;Амурске традиционно ищите на&nbsp;Комсомольской площади. </p>
+                            <p class="sp-winter-fun-pop-up__text">Первая&nbsp;&mdash; для любителей детского экстремального отдыха: ледяная высотой 4&nbsp;метра и&nbsp;длиной 16. Кататься на&nbsp;ней можно совершенно бесплатно (если, конечно, хватит смелости).</p>
+                            <p class="sp-winter-fun-pop-up__text">Вторая горка&nbsp;&mdash; надувная, резиновая. Скользить по&nbsp;ней&nbsp;&mdash; одно удовольствие. Такое развлечение понравится всем, даже малышам. Правда, за&nbsp;вход придется заплатить.</p>
+                            <p class="sp-winter-fun-pop-up__text">Отправляясь кататься, не&nbsp;забудьте взять санки-ледянки для всей семьи. А&nbsp;если дома таких не&nbsp;нашлось, новые можно купить совсем рядом, в&nbsp;магазинах &laquo;Эрудит&raquo; и&nbsp;&laquo;Галантерея&raquo;.</p>
+                            <p class="sp-winter-fun-pop-up__text">В&nbsp;центре площади, вокруг главной елки, расположится ледовый городок, созданный руками амурских умельцев в&nbsp;рамках конкурса ледовых скульптур &laquo;Волшебные узоры&raquo;. Здесь для малышей построят еще несколько небольших горок и&nbsp;лабиринт.</p>
+                            <p class="sp-winter-fun-pop-up__text">Чтобы никто не&nbsp;замерз и&nbsp;не&nbsp;запросился домой раньше срока, прихватите с&nbsp;собой термос с&nbsp;горячим чаем. Но&nbsp;даже если вы&nbsp;забудете о&nbsp;нем, одевая детей на&nbsp;горку, не&nbsp;беда&nbsp;&mdash; попить чайку с&nbsp;блинчиками и&nbsp;погреться можно в&nbsp;одном из&nbsp;кафе рядом с&nbsp;площадью&nbsp;&mdash; например, в&nbsp;&laquo;Мармеладе&raquo; или в&nbsp;новом заведении &laquo;Мука и&nbsp;мед&raquo;.</p>
+                            <div class="sp-winter-fun-pop-up__gallery">
+                                <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                    <div class="preview-slider__big-img-wrap slider-container">
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-6.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                    </div>
+
+                                    <div class="preview-slider__thumbs-block">
+                                        <div class="preview-slider__small-img-wrap">
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-3-6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                        </div>
+                                        <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                        <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                        <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pop-up-wrapper sp-winter-fun-pop-up-wrapper sp-winter-fun-city-4">
+                <div class="sp-winter-fun-pop-up-back js-pop-up__close"></div>
+
+                <div class="sp-winter-fun-pop-up-container">
+                    <button class="sp-winter-fun-pop-up-close pop-up__close icon-close-thin js-pop-up__close"></button>
+
+                    <div class="sp-winter-fun-pop-up-content">
+                        <div class="sp-winter-fun-pop-up-main-content">
+                            <h3 class="sp-winter-fun-pop-up__title">Прогулки в дендрарии</h3>
+                            <p class="sp-winter-fun-pop-up__text">В&nbsp;Амурском дендрарии тоже готовятся к&nbsp;новогодним праздникам&nbsp;&mdash; здесь специально для гостей нарядят красавицу-елку, а&nbsp;еще зальют небольшой тюбинг-спуск. Как следует накатавшись, подарите себе кусочек лета&nbsp;&mdash; экскурсию по&nbsp;оранжерее с&nbsp;тропическими растениями. А&nbsp;еще можно забронировать теплый павильон с&nbsp;поттером и&nbsp;с&nbsp;комфортом выпить чаю, любуясь из&nbsp;окна прекрасными заснеженными видами. Правда, чай и&nbsp;печенье к&nbsp;нему придется взять с&nbsp;собой&nbsp;&mdash; магазинов и&nbsp;кафе в&nbsp;дендрарии нет.</p>
+                            <div class="sp-winter-fun-pop-up__gallery">
+                                <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                    <div class="preview-slider__big-img-wrap slider-container">
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-6.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-7.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        </div>
+                                    </div>
+
+                                    <div class="preview-slider__thumbs-block">
+                                        <div class="preview-slider__small-img-wrap">
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-1-6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                            <button class="preview-slider__mini-btn">
+                                                <img src="" data-src="{% static "site/images/special-projects/winter-fun/city-slider-4-7-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                            </button>
+                                        </div>
+                                        <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                            <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                        <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                        <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pop-up-wrapper sp-winter-fun-pop-up-wrapper sp-winter-fun-city-5">
+                <div class="sp-winter-fun-pop-up-back js-pop-up__close"></div>
+
+                <div class="sp-winter-fun-pop-up-container js-sp-winter-fun-event-container">
+                    <button class="sp-winter-fun-pop-up-close pop-up__close icon-close-thin js-pop-up__close"></button>
+
+                    <div class="sp-winter-fun-pop-up-content">
+                        <div class="sp-winter-fun-pop-up-main-content">
+                            <h3 class="sp-winter-fun-pop-up__title">Мероприятия</h3>
+                            <p class="sp-winter-fun-pop-up__text">Декабрь&nbsp;&mdash; особый месяц, завершающий, подводящий итоги целого года, месяц-праздник. В&nbsp;городе столько всего происходит: детские утренники, дискотеки, концерты, выставки, спектакли! Чтобы вы&nbsp;ничего не&nbsp;пропустили и&nbsp;отлично провели время всей семьей, мы&nbsp;подготовили программу самых интересных мероприятий.</p>
+
+                            <div class="sp-winter-fun-event-section js-sp-winter-fun-event-place" data-event="2">
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event-place">
+                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-2.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event-place__cover lazyload">
+                                        <div class="sp-winter-fun-event-place__name">Городская библиотека</div>
+                                        <div class="sp-winter-fun-event-place__table">
+                                            <table class="publication__additional-info-wrap">
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-geo-stroke"></span>
+                                                        Адрес:
+                                                    </td>
+                                                    <td>Комсомольский пр-т, 63</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-phone"></span>
+                                                        Телефон:
+                                                    </td>
+                                                    <td>+7 (42142) 3-12-31</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-2-2">
+                                    <div class="sp-winter-fun-event__time">19—31 декабря</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Выставка «Все встречают Новый год»</div>
+                                    <p class="sp-winter-fun-pop-up__text">В&nbsp;преддверии праздника в&nbsp;городской библиотеке оформят книжные выставки для детей и&nbsp;взрослых. Из&nbsp;представленных на&nbsp;них журналов и&nbsp;книг можно будет почерпнуть много интересного: как украсить дом и&nbsp;нарядить елку, что подать к&nbsp;праздничному столу. А&nbsp;еще в&nbsp;библиотеке откроется фотовыставка зимних пейзажей.</p>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-2-3">
+                                    <div class="sp-winter-fun-event__time">22 декабря, 15:00</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Новогодний маскарад для взрослых «Веселый переполох»</div>
+                                    <p class="sp-winter-fun-pop-up__text">Гостей вечера ждет театрализованная программа&nbsp;&mdash; игры, танцы, песни и&nbsp;конкурсы. Возьмите с&nbsp;собой хорошее настроение и&nbsp;маскарадный костюм!</p>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section js-sp-winter-fun-event-place" data-event="4">
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event-place">
+                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-1.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event-place__cover lazyload">
+                                        <div class="sp-winter-fun-event-place__name">Ботанический сад</div>
+                                        <div class="sp-winter-fun-event-place__table">
+                                            <table class="publication__additional-info-wrap">
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-geo-stroke"></span>
+                                                        Адрес:
+                                                    </td>
+                                                    <td>ул. Школьная, 11</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-phone"></span>
+                                                        Телефон:
+                                                    </td>
+                                                    <td>+7 (42142) 9-97-85</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-4-1">
+                                    <div class="sp-winter-fun-event__time">21–29 декабря, по заявкам</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Праздник «Веселая Мышляндия»</div>
+                                    <p class="sp-winter-fun-pop-up__text">В&nbsp;программе знакомство с&nbsp;символом наступающего года Крысы, подвижные игры, конкурсы, загадки, эстафеты, квесты и&nbsp;изготовление елочной игрушки&nbsp;&mdash; мышки.</p>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-4-2">
+                                    <div class="sp-winter-fun-event__time">4–11 января, по заявкам</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Познавательное мероприятие для детей «Кто украл Рождество»</div>
+                                    <p class="sp-winter-fun-pop-up__text">Экскурсоводы расскажут ребятам об&nbsp;истории праздника, о&nbsp;том, как отмечают Рождество в&nbsp;разных странах, познакомят с&nbsp;его атрибутами и&nbsp;традициями. Также в&nbsp;программе рождественская викторина, колядки, квесты, зимние игры и&nbsp;танцы. Всех гостей ждут приятные сюрпризы и&nbsp;вкусные подарки.</p>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event__time">4–11 января, по заявкам</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Мастер-класс «Новогодняя игрушка»</div>
+                                    <p class="sp-winter-fun-pop-up__text">Создадим уникальные украшения своими руками!</p>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event__time">4–11 января, по заявкам</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Мероприятие для взрослых «Рождественские встречи»</div>
+                                    <p class="sp-winter-fun-pop-up__text">В&nbsp;программе интересные квесты, гадания, рождественская лотерея и&nbsp;приятные сюрпризы.</p>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section js-sp-winter-fun-event-place" data-event="1">
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event-place">
+                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-3.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event-place__cover lazyload">
+                                        <div class="sp-winter-fun-event-place__name">Дворец культуры</div>
+                                        <div class="sp-winter-fun-event-place__table">
+                                            <table class="publication__additional-info-wrap">
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-geo-stroke"></span>
+                                                        Адрес:
+                                                    </td>
+                                                    <td>Комсомольский пр., 48</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-phone"></span>
+                                                        Телефон:
+                                                    </td>
+                                                    <td>+7 (42142) 2-17-36</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-1-2">
+                                    <div class="sp-winter-fun-event__time">22 декабря, 12:00</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Новогодняя елка для детей-инвалидов с участием главы города</div>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event__time">22 декабря, 15:30</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Награждение победителей конкурса елочной игрушки «Новогодняя фантазия» и фотоконкурса «Новогодний калейдоскоп»</div>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event__time">22 декабря, 17:30</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Новый год на Комсомольской площади</div>
+                                    <p class="sp-winter-fun-pop-up__text">Театрализованное открытие зимнего городка на&nbsp;Комсомольской площади &laquo;Новогодний калейдоскоп&raquo;. В&nbsp;программе песни и&nbsp;танцы со&nbsp;сказочными героями, хоровод с&nbsp;Дедом Морозом и&nbsp;Снегурочкой&nbsp;и, конечно, праздничный фейерверк.</p>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-1-3">
+                                    <div class="sp-winter-fun-event__time">24 декабря, по заявкам с 12:00</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Детские новогодние утренники</div>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-1-4">
+                                    <div class="sp-winter-fun-event__time">С 24 до 30 декабря, по заявкам</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Дискотеки для старшеклассников</div>
+                                    <p class="sp-winter-fun-pop-up__text">Топовые хиты уходящего года, горячий танцпол и взрывные басы ждут вас!</p>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-1-5">
+                                    <div class="sp-winter-fun-event__time">3 января</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Новогодняя сказка «Переполох в тридевятом царстве»</div>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event__time">3 января, 13:15</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">«Новый год в Простоквашино»</div>
+                                    <p class="sp-winter-fun-pop-up__text">Встреча с Дедом Морозом и Снегурочкой, игровая программа для детей.</p>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section js-sp-winter-fun-event-place" data-event="5">
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event-place">
+                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-6.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event-place__cover lazyload">
+                                        <div class="sp-winter-fun-event-place__name">Центральная библиотека Амурского района</div>
+                                        <div class="sp-winter-fun-event-place__table">
+                                            <table class="publication__additional-info-wrap">
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-geo-stroke"></span>
+                                                        Адрес:
+                                                    </td>
+                                                    <td>Комсомольский пр., 13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-phone"></span>
+                                                        Телефон:
+                                                    </td>
+                                                    <td>+7 (42142) 9-97-41</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-5-1">
+                                    <div class="sp-winter-fun-event__time">6 января, 17:00</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Поэтический вечер «Рождественская СТИХиЯ»</div>
+                                    <p class="sp-winter-fun-pop-up__text">В&nbsp;читальном зале библиотеки будут звучать стихи о&nbsp;празднике, добре, любви известных авторов&nbsp;&mdash; Роберта Рождественского, Евгения Евтушенко, Давида Самойлова, Бориса Пастернака, Юрия Левитанского. А&nbsp;еще гостей ждут шуточные рождественские гадания.</p>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section js-sp-winter-fun-event-place" data-event="6">
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event-place">
+                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-4.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event-place__cover lazyload">
+                                        <div class="sp-winter-fun-event-place__name">Дом молодежи</div>
+                                        <div class="sp-winter-fun-event-place__table">
+                                            <table class="publication__additional-info-wrap">
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-geo-stroke"></span>
+                                                        Адрес:
+                                                    </td>
+                                                    <td>ул. Амурская, 8 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-phone"></span>
+                                                        Телефон:
+                                                    </td>
+                                                    <td>+7 (42142) 2-58-15</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-6-1">
+                                    <div class="sp-winter-fun-event__time">8 января 13:00</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">«Святочные посиделки»</div>
+                                    <p class="sp-winter-fun-pop-up__text">Это познавательное и&nbsp;веселое мероприятие сотрудники Центральной районной библиотеки организуют совместно с&nbsp;руководителем общественной организации &laquo;Родовичи&raquo; Добрыней Соловьевым из&nbsp;Комсомольска-на-Амуре. Вместе они расскажут гостям о&nbsp;традициях празднования Святок в&nbsp;России. В&nbsp;программе народные игры, выступление ряженых, рождественские песни-колядки.</p>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section js-sp-winter-fun-event-place" data-event="3">
+                                <div class="sp-winter-fun-event-subsection">
+                                    <div class="sp-winter-fun-event-place">
+                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/calendar-5.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-event-place__cover lazyload">
+                                        <div class="sp-winter-fun-event-place__name">Краеведческий музей</div>
+                                        <div class="sp-winter-fun-event-place__table">
+                                            <table class="publication__additional-info-wrap">
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-geo-stroke"></span>
+                                                        Адрес:
+                                                    </td>
+                                                    <td>Комсомольский пр., 9</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-phone"></span>
+                                                        Телефон:
+                                                    </td>
+                                                    <td>+7 (42142) 9-96-39</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-3-1">
+                                    <div class="sp-winter-fun-event__time">3, 4, 5 и 8 января</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Развлекательная программа «Новогодние гадания»</div>
+                                    <p class="sp-winter-fun-pop-up__text">Экскурсоводы расскажут гостям о&nbsp;традициях и&nbsp;обычаях встречи Рождества. В&nbsp;программе также песни, частушки, колядки и&nbsp;гадание на&nbsp;суженого с&nbsp;валенком.</p>
+                                </div>
+                                <div class="sp-winter-fun-event-subsection js-sp-winter-fun-event-date" data-event="place-3-2">
+                                    <div class="sp-winter-fun-event__time">3, 4, 5 и 8 января</div>
+                                    <div class="sp-winter-fun-pop-up__subtitle">Мероприятие &laquo;Зимние забавы с&nbsp;историей в&nbsp;тысячу лет&raquo;</div>
+                                    <p class="sp-winter-fun-pop-up__text">Гости узнают, как встречали Новый год на&nbsp;Руси и&nbsp;какими были зимние забавы славян тысячу лет назад. В&nbsp;программе подвижные игры, театрализованные костюмы, традиционные славянские песни, и, конечно, народные пляски и&nbsp;хороводы.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pop-up-wrapper sp-winter-fun-pop-up-wrapper sp-winter-fun-nature-1">
+                <div class="sp-winter-fun-pop-up-back js-pop-up__close"></div>
+
+                <div class="sp-winter-fun-pop-up-container js-sp-winter-fun-event-container">
+                    <button class="sp-winter-fun-pop-up-close pop-up__close icon-close-thin js-pop-up__close"></button>
+
+                    <div class="sp-winter-fun-pop-up-content">
+                        <div class="sp-winter-fun-pop-up-main-content">
+                            <h3 class="sp-winter-fun-pop-up__supertitle">Лыжи и сноуборд</h3>
+                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-cover-1.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-pop-up__cover lazyload">
+
+                            <div class="sp-winter-fun-event-section">
+                                <div class="sp-winter-fun-event-place">
+                                    <div class="sp-winter-fun-pop-up__title">Горнолыжный курорт «Альмир»</div>
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_info">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-geo-stroke"></span>
+                                                    <b>Где находится:</b>
+                                                </td>
+                                                <td>На&nbsp;берегу протоки Шарголь, примерно в&nbsp;30&nbsp;км от&nbsp;Комсомольска-на-Амуре</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-clock"></span>
+                                                    <b>Время работы:</b>
+                                                </td>
+                                                <td>Ежедневно с 11:00 до 17:00 </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-skislope"></span>
+                                                    <b>Горнолыжные трассы:</b>
+                                                </td>
+                                                <td>Трасс здесь всего две. Одна проложена по&nbsp;пологим и&nbsp;крутым участкам, имеет полки-трамплины. Перепад высот&mdash; 202&nbsp;метра, уклон&nbsp;&mdash; от&nbsp;10&nbsp;до&nbsp;32&nbsp;градусов. Другая трасса&nbsp;&mdash; учебная, с&nbsp;уклоном всего 5&nbsp;градусов, оснащенная бугельным подъемником. На&nbsp;склоне также работает канатно-буксировочная дорога</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-entertainment"></span>
+                                                    <b>Другие развлечения:</b>
+                                                </td>
+                                                <td>Катание на&nbsp;сноубордах, тюбингах, коньках, снегоходах и&nbsp;на&nbsp;банане</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-rental"></span>
+                                                    <b>Прокат инвентаря:</b>
+                                                </td>
+                                                <td>Есть</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-house"></span>
+                                                    <b>Размещение:</b>
+                                                </td>
+                                                <td>Домик вагончик (до&nbsp;20&nbsp;человек)&nbsp;&mdash; 3000&nbsp;руб.&nbsp;в&nbsp;сутки <br>
+                                                    Домик с&nbsp;баней (на&nbsp;6&nbsp;человек)&nbsp;&mdash; 10&nbsp;000&nbsp;руб.&nbsp;в&nbsp;сутки</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-circle-plus"></span>
+                                                    <b>Инфрастурктура:</b>
+                                                </td>
+                                                <td>Русская баня, площадка для пикника, оборудованная мангалом</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div class="sp-winter-fun-direct-speech direct-speech direct-speech_base direct-speech_base_with-avatar">
+                                        <div class="direct-speech-author">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/people/skvorcov.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                            <div class="direct-speech-author__info-wrap">
+                                                <div class="direct-speech-author__name">Артем Скворцов</div>
+                                                <div class="direct-speech-author__description">амурчанин:</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="direct-speech__text direct-speech__text_quotes">
+                                            <p><i>&mdash;&nbsp;В&nbsp;прошлом году мы&nbsp;всей семьей отдыхали в&nbsp;&laquo;Альмире&raquo;. Отличный вариант для тех, кто хочет провести время с&nbsp;пользой и&nbsp;весело. Так как мы&nbsp;на&nbsp;лыжах кататься не&nbsp;умеем, то&nbsp;катались с&nbsp;горки на&nbsp;тюбингах. Его на&nbsp;базе можно взять в&nbsp;прокат, также как лыжи и&nbsp;коньки. На&nbsp;площадке для пикника мы&nbsp;жарили шашлыки и&nbsp;готовили сазана в&nbsp;шарабане, а&nbsp;вечером отправились в&nbsp;баню. В&nbsp;этом году решили, что поедем еще раз, только теперь будем учиться кататься на&nbsp;лыжах&nbsp;&mdash; для новичков в&nbsp;&laquo;Алмире&raquo; есть специальная трасса с&nbsp;низким уклоном и&nbsp;подъемником.</i></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-pop-up__gallery">
+                                        <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                            <div class="preview-slider__big-img-wrap slider-container">
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                            </div>
+
+                                            <div class="preview-slider__thumbs-block">
+                                                <div class="preview-slider__small-img-wrap">
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-1-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                </div>
+                                                <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_contacts">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-path"></span>
+                                                </td>
+                                                <td>Добраться до горнолыжного комплекса можно на своей <br>машине или заказать такси из Комсомольска-на-Амуре</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-phone"></span>
+                                                </td>
+                                                <td>8 962 501-40-61</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-web"></span>
+                                                </td>
+                                                <td><a href="http://almirdv.ru/">almirdv.ru</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section">
+                                <div class="sp-winter-fun-event-place">
+                                    <div class="sp-winter-fun-pop-up__title">Горнолыжная база «Холдоми»</div>
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_info">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-geo-stroke"></span>
+                                                    <b>Где находится:</b>
+                                                </td>
+                                                <td>В&nbsp;35&nbsp;км от&nbsp;Комсомольска-на-Амуре, между поселками Солнечным и&nbsp;Горным</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-clock"></span>
+                                                    <b>Время работы:</b>
+                                                </td>
+                                                <td>Ежедневно с&nbsp;10:00 до&nbsp;18:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-skislope"></span>
+                                                    <b>Горнолыжные трассы:</b>
+                                                </td>
+                                                <td>На&nbsp;территории комплекса 10&nbsp;трасс&nbsp;&mdash; от&nbsp;&laquo;зеленой&raquo; до&nbsp;&laquo;черной&raquo;&nbsp;&mdash; с&nbsp;перепадом высот около 400&nbsp;м. &laquo;Зеленая&raquo; трасса освещена и&nbsp;позволяет кататься в&nbsp;вечернее время. Протяженность самого длинного трека&nbsp;&mdash; 1850&nbsp;м. На&nbsp;склоне работают парнокресельный и&nbsp;несколько буксировочных подъемников</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-entertainment"></span>
+                                                    <b>Другие развлечения:</b>
+                                                </td>
+                                                <td>Сноуборд-парк, катание на&nbsp;тюбингах, веревочный парк, скалодром</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-rental"></span>
+                                                    <b>Прокат инвентаря:</b>
+                                                </td>
+                                                <td>Есть</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-house"></span>
+                                                    <b>Размещение:</b>
+                                                </td>
+                                                <td>Гостиница&nbsp;&mdash; от&nbsp;2900&nbsp;руб.&nbsp;в&nbsp;сутки <br>
+                                                    Коттеджи&nbsp;&mdash; от&nbsp;4200&nbsp;руб.&nbsp;в&nbsp;сутки</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-circle-plus"></span>
+                                                    <b>Инфрастурктура:</b>
+                                                </td>
+                                                <td>Кафе, магазин горнолыжного снаряжения, сервисный центр</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div class="sp-winter-fun-direct-speech direct-speech direct-speech_base direct-speech_base_with-avatar">
+                                        <div class="direct-speech-author">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/people/y-dryzhinina.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                            <div class="direct-speech-author__info-wrap">
+                                                <div class="direct-speech-author__name">Юлия Дружинина</div>
+                                                <div class="direct-speech-author__description">амурчанка:</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="direct-speech__text direct-speech__text_quotes">
+                                            <p><i>&mdash;&nbsp;В&nbsp;прошлом году на&nbsp;новогодних праздниках мы&nbsp;несколько дней отдыхали в&nbsp;&laquo;Холдоми&raquo;. Жили в&nbsp;коттедже с&nbsp;комфортными номерами. На&nbsp;территории базы есть большой пункт проката спортивного инвентаря&nbsp;&mdash; лыжи, сноуборды, тюбинги, поэтому не&nbsp;обязательно везти это все с&nbsp;собой. Подниматься на&nbsp;склон самостоятельно не&nbsp;нужно&nbsp;&mdash; для этого есть специальные подъемники. Есть трассы разных уровней&nbsp;&mdash; для новичков, любителей и&nbsp;опытных спортсменов. Отмечу, что все спуски хорошие и&nbsp;отлично обработаны ратраками. Самый легкий склон&nbsp;&mdash; для начинающих. Затем идет средний&nbsp;&mdash; для более опытных лыжников. Он&nbsp;довольно длинный, около 3&nbsp;км, но&nbsp;вдоль трассы установлено несколько скамеек для отдыха. Самый крутой спуск&nbsp;&mdash; для смелых и&nbsp;отчаянных. А&nbsp;еще есть специальные горки для катания на&nbsp;тюбингах и&nbsp;бананах.</i></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-pop-up__gallery">
+                                        <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                            <div class="preview-slider__big-img-wrap slider-container">
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-6.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-7.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                            </div>
+
+                                            <div class="preview-slider__thumbs-block">
+                                                <div class="preview-slider__small-img-wrap">
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-2-7-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                </div>
+                                                <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_contacts">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-path"></span>
+                                                </td>
+                                                <td>Попасть к&nbsp;склонам курорта можно на&nbsp;машине, такси или  автобусе &#8470;&nbsp;122 из&nbsp;Комсомольска-на-Амуре. В&nbsp;сезон из  Комсомольска также ходит специальный автобус с  наклейками &laquo;Холдоми&raquo; на&nbsp;бортах (отправляется от&nbsp;площади Кирова ежедневно в&nbsp;10:00)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-phone"></span>
+                                                </td>
+                                                <td>8 (4217) 340-700</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-web"></span>
+                                                </td>
+                                                <td><a href="http://holdomi.ru/">holdomi.ru</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section">
+                                <div class="sp-winter-fun-event-place">
+                                    <div class="sp-winter-fun-pop-up__title">Туристический комплекс «Амут Сноу Лэйк»</div>
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_info">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-geo-stroke"></span>
+                                                    <b>Где находится:</b>
+                                                </td>
+                                                <td>В&nbsp;10&nbsp;км от&nbsp;поселка Горного, у&nbsp;озера Амут</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-clock"></span>
+                                                    <b>Время работы:</b>
+                                                </td>
+                                                <td>Ежедневно с 14:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-skislope"></span>
+                                                    <b>Горнолыжные трассы:</b>
+                                                </td>
+                                                <td>Здесь есть две профессиональные трассы длиной 5&nbsp;и&nbsp;7,5&nbsp;км&nbsp;&mdash; для горных и&nbsp;беговых лыж, и&nbsp;трасса для туристов длиной 2&nbsp;км. Перепад высот составляет до&nbsp;70&nbsp;м</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-entertainment"></span>
+                                                    <b>Другие развлечения:</b>
+                                                </td>
+                                                <td>Катание на&nbsp;сноубордах, тюбингах, снегоходах и&nbsp;ледянках, караоке, бильярд</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-rental"></span>
+                                                    <b>Прокат инвентаря:</b>
+                                                </td>
+                                                <td>Есть</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-house"></span>
+                                                    <b>Размещение:</b>
+                                                </td>
+                                                <td>Вип-домик (на&nbsp;10&nbsp;человек)&nbsp;&mdash; 34&nbsp;500&nbsp;руб.&nbsp;в&nbsp;сутки <br>
+                                                    Коттедж экономкласса (на&nbsp;6&nbsp;человек)&nbsp;&mdash; 16&nbsp;200&nbsp;руб.&nbsp;в&nbsp;сутки <br>
+                                                    Гостиница&nbsp;&mdash; от&nbsp;1700&nbsp;руб.&nbsp;в&nbsp;сутки</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-circle-plus"></span>
+                                                    <b>Инфрастурктура:</b>
+                                                </td>
+                                                <td>Кафе, сауна с&nbsp;бассейном, комната отдыха</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div class="sp-winter-fun-direct-speech direct-speech direct-speech_base direct-speech_base_with-avatar">
+                                        <div class="direct-speech-author">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/people/trofimova.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                            <div class="direct-speech-author__info-wrap">
+                                                <div class="direct-speech-author__name">Татьяна Трофимова</div>
+                                                <div class="direct-speech-author__description">амурчанка:</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="direct-speech__text direct-speech__text_quotes">
+                                            <p><i>&mdash;&nbsp;Мы&nbsp;провели на&nbsp;&laquo;Амут Сноу Лэйк&raquo; несколько дней. Шикарная природа, фотографии получились просто фантастические. База подходит не&nbsp;только для профессиональных сноубордистов и&nbsp;лыжников, но&nbsp;и&nbsp;для активного отдыха с&nbsp;детьми. Отдыхать на&nbsp;Амуте можно круглый год. Зимой классно покататься на&nbsp;лыжах, ледянках и&nbsp;тюбингах. Все виды инвентаря можно взять в&nbsp;прокат. Для начинающих лыжников есть легкая трасса длиной примерно 800&nbsp;м. Здесь нет очереди на&nbsp;подъемник, поэтому спускаться с&nbsp;горы можно столько раз, сколько захочется. А&nbsp;еще на&nbsp;базе иногда проходят разные мероприятия&nbsp;&mdash; мы, например, попали на&nbsp;праздник Масленицы, и&nbsp;все вместе сжигали чучело.</i></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-pop-up__gallery">
+                                        <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                            <div class="preview-slider__big-img-wrap slider-container">
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-6.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                            </div>
+
+                                            <div class="preview-slider__thumbs-block">
+                                                <div class="preview-slider__small-img-wrap">
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-3-6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                </div>
+                                                <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_contacts">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-path"></span>
+                                                </td>
+                                                <td>Автобусы до&nbsp;&laquo;Амут Сноу Лэйк&raquo; не&nbsp;ходят, поэтому добраться сюда можно только на&nbsp;машине или заказав трансфер от&nbsp;базы.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-phone"></span>
+                                                </td>
+                                                <td>8&nbsp;914&nbsp;540-77-76 <br>
+                                                    8&nbsp;914&nbsp;179-19-46 <br>
+                                                    8 (4217) 55-00-20 <br>
+                                                    8 (4217) 59-26-83</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-web"></span>
+                                                </td>
+                                                <td><a href="http://amutsnowlake.ru/">amutsnowlake.ru</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pop-up-wrapper sp-winter-fun-pop-up-wrapper sp-winter-fun-nature-2">
+                <div class="sp-winter-fun-pop-up-back js-pop-up__close"></div>
+
+                <div class="sp-winter-fun-pop-up-container js-sp-winter-fun-event-container">
+                    <button class="sp-winter-fun-pop-up-close pop-up__close icon-close-thin js-pop-up__close"></button>
+
+                    <div class="sp-winter-fun-pop-up-content">
+                        <div class="sp-winter-fun-pop-up-main-content">
+                            <h3 class="sp-winter-fun-pop-up__supertitle">Базы отдыха</h3>
+                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-cover-2.jpg" %}{% static_version %}" alt="" class="sp-winter-fun-pop-up__cover lazyload">
+
+                            <div class="sp-winter-fun-event-section">
+                                <div class="sp-winter-fun-event-place">
+                                    <div class="sp-winter-fun-pop-up__title">«Мишкина берлога»</div>
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_info">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-geo-stroke"></span>
+                                                    <b>Где находится:</b>
+                                                </td>
+                                                <td>В&nbsp;30&nbsp;км от&nbsp;Комсомольска-на-Амуре, недалеко от&nbsp;поселка Хурба</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-clock"></span>
+                                                    <b>Время работы:</b>
+                                                </td>
+                                                <td>Ежедневно с&nbsp;10:00 до&nbsp;20:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-entertainment"></span>
+                                                    <b>Другие развлечения:</b>
+                                                </td>
+                                                <td>Мини-зоопарк, прогулки по&nbsp;лесу, пикники на&nbsp;свежем воздухе, катание на&nbsp;лыжах и&nbsp;коньках, зимняя рыбалка</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-house"></span>
+                                                    <b>Размещение:</b>
+                                                </td>
+                                                <td>Коттедж&nbsp;&mdash; от&nbsp;2000&nbsp;руб.&nbsp;в&nbsp;сутки</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-circle-plus"></span>
+                                                    <b>Инфрастурктура:</b>
+                                                </td>
+                                                <td>Площадка для пикника, русская баня</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div class="sp-winter-fun-direct-speech direct-speech direct-speech_base direct-speech_base_with-avatar">
+                                        <div class="direct-speech-author">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/people/ilina.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                            <div class="direct-speech-author__info-wrap">
+                                                <div class="direct-speech-author__name">Светлана Ильина</div>
+                                                <div class="direct-speech-author__description">амурчанка:</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="direct-speech__text direct-speech__text_quotes">
+                                            <p><i>&mdash;&nbsp;В&nbsp;первый раз мы&nbsp;съездили в&nbsp;&laquo;Мишкину берлогу&raquo; по&nbsp;совету знакомых, и&nbsp;просто взяли экскурсию за&nbsp;500&nbsp;рублей. Очень понравился мини-зоопарк&nbsp;&mdash; он&nbsp;в&nbsp;100 раз круче любого контактного зоопарка в&nbsp;городе. Там живут кролики, утки, лошади, овцы, коровы, куры, гуси, индюк, белки, и&nbsp;даже медведи. Все звери, кроме медведей, живут на&nbsp;воле. Их&nbsp;можно свободно кормить, гладить и&nbsp;общаться с&nbsp;ними. Ферма практически изолирована от&nbsp;внешнего мира, кругом лес и&nbsp;свежий воздух. В&nbsp;следующий приезд мы&nbsp;заселились в&nbsp;коттедж с&nbsp;необычным названием &laquo;Зайкин дом&raquo;. Зимой все домики очень теплые, есть печное отопление. А&nbsp;в&nbsp;&laquo;Харчевне&raquo; вам всегда предложат горячий чай с&nbsp;медом и&nbsp;продукцию собственного производства&nbsp;&mdash; масло, творог, молоко и&nbsp;сливки.</i></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-pop-up__gallery">
+                                        <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                            <div class="preview-slider__big-img-wrap slider-container">
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                            </div>
+
+                                            <div class="preview-slider__thumbs-block">
+                                                <div class="preview-slider__small-img-wrap">
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-4-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                </div>
+                                                <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_contacts">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-path"></span>
+                                                </td>
+                                                <td>Добраться до&nbsp;базы можно на&nbsp;машине или такси</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-phone"></span>
+                                                </td>
+                                                <td>8&nbsp;914&nbsp;168-93-70</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-web"></span>
+                                                </td>
+                                                <td><a href="http://мишкинаберлога.рф/">мишкинаберлога.рф</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section">
+                                <div class="sp-winter-fun-event-place">
+                                    <div class="sp-winter-fun-pop-up__title">Дом отдыха «Пастораль»</div>
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_info">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-geo-stroke"></span>
+                                                    <b>Где находится:</b>
+                                                </td>
+                                                <td>В&nbsp;поселке Солнечный, в&nbsp;5&nbsp;км от&nbsp;горнолыжного комплекса &laquo;Холдоми&raquo;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-clock"></span>
+                                                    <b>Время работы:</b>
+                                                </td>
+                                                <td>Ежедневно, круглосуточно</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-entertainment"></span>
+                                                    <b>Другие развлечения:</b>
+                                                </td>
+                                                <td>Бассейн, тир, скалодром, бильярд, аэрохоккей, детская игровая зона. Однодневные туры на&nbsp;снегоходах</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-house"></span>
+                                                    <b>Размещение:</b>
+                                                </td>
+                                                <td>Гостиница&nbsp;&mdash; от&nbsp;2500&nbsp;руб.&nbsp;в&nbsp;сутки <br>
+                                                    Хостел&nbsp;&mdash; 1000&nbsp;руб.&nbsp;в&nbsp;сутки</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-circle-plus"></span>
+                                                    <b>Инфрастурктура:</b>
+                                                </td>
+                                                <td>Кафе с&nbsp;банкетным залом, русская баня, финская сауна, японская купальня офуро, спортзал</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div class="sp-winter-fun-direct-speech direct-speech direct-speech_base direct-speech_base_with-avatar">
+                                        <div class="direct-speech-author">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/people/kruglova.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                            <div class="direct-speech-author__info-wrap">
+                                                <div class="direct-speech-author__name">Алла Круглова</div>
+                                                <div class="direct-speech-author__description">амурчанка, педагог дополнительного образования Центра туризма и&nbsp;экскурсий:</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="direct-speech__text direct-speech__text_quotes">
+                                            <p><i>&mdash;&nbsp;Отличное место отдыха для детей и&nbsp;молодежи, особенно на&nbsp;каникулах. Летом на&nbsp;улице можно поиграть в&nbsp;пейнтбол и&nbsp;бампербол, а&nbsp;зимой&nbsp;&mdash; покататься на&nbsp;банане или снегоходе. Среди наших коллег и&nbsp;воспитанников &laquo;Пастораль&raquo;, пользуется большой популярностью, так как там есть собственный скалодром и&nbsp;развивается экотуризм. Кроме того, там организуют однодневные туры на&nbsp;снегоходах в&nbsp;хребет Мяо-Чан и&nbsp;перевал Медвежий.</i></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-pop-up__gallery">
+                                        <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                            <div class="preview-slider__big-img-wrap slider-container">
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                            </div>
+
+                                            <div class="preview-slider__thumbs-block">
+                                                <div class="preview-slider__small-img-wrap">
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-5-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                </div>
+                                                <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_contacts">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-path"></span>
+                                                </td>
+                                                <td>Добраться в&nbsp;&laquo;Пастораль&raquo; от&nbsp;Комсомольска-на-Амуре можно на&nbsp;машине. Заехав в&nbsp;поселок Солнечный, на&nbsp;втором большом перекрестке поверните налево. Дальше езжайте прямо по&nbsp;асфальтовой дороге, перед небольшим мостиком поверните направо и&nbsp;следуйте прямо вдоль жилых домов</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-phone"></span>
+                                                </td>
+                                                <td>8&nbsp;963&nbsp;823-70-00 <br>
+                                                    8 (4217) 33-70-00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-web"></span>
+                                                </td>
+                                                <td><a href="http://pastoraldv.ru/">pastoraldv.ru</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section">
+                                <div class="sp-winter-fun-event-place">
+                                    <div class="sp-winter-fun-pop-up__title">«Силинский парк»</div>
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_info">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-geo-stroke"></span>
+                                                    <b>Где находится:</b>
+                                                </td>
+                                                <td>Практически в&nbsp;самом центре Комсомольска-на-Амуре по&nbsp;адресу: Комсомольское шоссе, 57</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-clock"></span>
+                                                    <b>Время работы:</b>
+                                                </td>
+                                                <td>Ежедневно, круглосуточно</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-entertainment"></span>
+                                                    <b>Другие развлечения:</b>
+                                                </td>
+                                                <td>Рыбалка на&nbsp;горной реке, катание на&nbsp;санях, прогулки в&nbsp;лесу</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-house"></span>
+                                                    <b>Размещение:</b>
+                                                </td>
+                                                <td>Домик (на&nbsp;15&ndash;20&nbsp;человек)&nbsp;&mdash; от&nbsp;750&nbsp;руб.&nbsp;в&nbsp;час или от&nbsp;8000&nbsp;руб.&nbsp;в&nbsp;сутки</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-circle-plus"></span>
+                                                    <b>Инфрастурктура:</b>
+                                                </td>
+                                                <td>Площадки для пикника, мангал, кафе</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div class="sp-winter-fun-direct-speech direct-speech direct-speech_base direct-speech_base_with-avatar">
+                                        <div class="direct-speech-author">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/people/artyhova.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                            <div class="direct-speech-author__info-wrap">
+                                                <div class="direct-speech-author__name">Мария Артюхова</div>
+                                                <div class="direct-speech-author__description">гостья города:</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="direct-speech__text direct-speech__text_quotes">
+                                            <p><i>&mdash;&nbsp;Мы&nbsp;сами из&nbsp;Комсомольска-на-Амуре, а&nbsp;в&nbsp;Амурск приехали погостить к&nbsp;родственникам. Нам нравится гулять в&nbsp;дендрарии&nbsp;&mdash; там красиво всегда, и&nbsp;летом и&nbsp;зимой. Ваш дендрарий похож на&nbsp;&laquo;Силинский парк&raquo; в&nbsp;Комсомольске. Мы&nbsp;ездим в&nbsp;&laquo;Силинку&raquo; отдыхать большой компанией вместе с&nbsp;детьми. Конечно, летом там больше развлечений и&nbsp;мероприятий, но&nbsp;зимой не&nbsp;менее интересно. Мы&nbsp;катаемся на&nbsp;санках, строим снежные крепости, жарим шашлыки. А&nbsp;чтобы не&nbsp;замерзнуть, снимаем теплый деревянный домик или юрту.</i></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-pop-up__gallery">
+                                        <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                            <div class="preview-slider__big-img-wrap slider-container">
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                            </div>
+
+                                            <div class="preview-slider__thumbs-block">
+                                                <div class="preview-slider__small-img-wrap">
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-6-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                </div>
+                                                <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_contacts">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-path"></span>
+                                                </td>
+                                                <td>Добраться до&nbsp;&laquo;Силинского парка&raquo; можно на&nbsp;машине&nbsp;&mdash; дорога из&nbsp;Амурска займет чуть больше часа</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-phone"></span>
+                                                </td>
+                                                <td>8 (4217) 51-55-51 <br>
+                                                    8&nbsp;914&nbsp;186-29-20 (WhatsApp)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-web"></span>
+                                                </td>
+                                                <td><a href="http://силинка.рф/">силинка.рф</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sp-winter-fun-event-section">
+                                <div class="sp-winter-fun-event-place">
+                                    <div class="sp-winter-fun-pop-up__title">Дом отдыха «Шарголь»</div>
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_info">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-geo-stroke"></span>
+                                                    <b>Где находится:</b>
+                                                </td>
+                                                <td>Недалеко от&nbsp;Комсомольска-на-Амуре, на&nbsp;берегу одноименной протоки</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-clock"></span>
+                                                    <b>Время работы:</b>
+                                                </td>
+                                                <td>Ежедневно, круглосуточно</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-entertainment"></span>
+                                                    <b>Другие развлечения:</b>
+                                                </td>
+                                                <td>Катание на&nbsp;лыжах, снегоходах и&nbsp;тюбингах, бильярд, настольный теннис</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-house"></span>
+                                                    <b>Размещение:</b>
+                                                </td>
+                                                <td>Гостиница&nbsp;&mdash; 2720&nbsp;руб.&nbsp;в&nbsp;сутки <br>
+                                                    Коттедж&nbsp;&mdash; от&nbsp;5100&nbsp;руб.&nbsp;в&nbsp;сутки</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-circle-plus"></span>
+                                                    <b>Инфрастурктура:</b>
+                                                </td>
+                                                <td>Кафе-бар с&nbsp;караоке, кинозал, площадки для пикника. Работает пункт проката горнолыжного инвентаря</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div class="sp-winter-fun-direct-speech direct-speech direct-speech_base direct-speech_base_with-avatar">
+                                        <div class="direct-speech-author">
+                                            <img src="" data-src="{% static "site/images/special-projects/winter-fun/people/k-dryzhinina.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                            <div class="direct-speech-author__info-wrap">
+                                                <div class="direct-speech-author__name">Ксения Дружина</div>
+                                                <div class="direct-speech-author__description">амурчанка:</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="direct-speech__text direct-speech__text_quotes">
+                                            <p><i>&mdash;&nbsp;&laquo;Шарголь&raquo; я&nbsp;помню еще с&nbsp;детства. До&nbsp;сих пор люблю там отдыхать. Мы&nbsp;берем в&nbsp;прокат лыжи, тюбинги, сноуборды и&nbsp;идем на&nbsp;соседнюю базу&nbsp;&mdash; &laquo;Альмир&raquo;, которая находится всего в&nbsp;1,5&nbsp;км от&nbsp;дома отдыха. А&nbsp;вечером можно поиграть в&nbsp;бильярд или теннис, сходить на&nbsp;дискотеку или просто расслабиться в&nbsp;джакузи.</i></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-pop-up__gallery">
+                                        <div class="preview-slider slider sp-preview-slider sp-preview-slider_6-7col sp-preview-slider_radius_36">
+                                            <div class="preview-slider__big-img-wrap slider-container">
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-3.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-4.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                                </div>
+                                            </div>
+
+                                            <div class="preview-slider__thumbs-block">
+                                                <div class="preview-slider__small-img-wrap">
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-3-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-4-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                    <button class="preview-slider__mini-btn">
+                                                        <img src="" data-src="{% static "site/images/special-projects/winter-fun/nature-slider-7-5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                                    </button>
+                                                </div>
+                                                <div class="slider-arrow-container preview-slider__thumbs-arrow-container hidden">
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-prev icon-arrow-left active slider-arrow slider-arrow-prev js-preview-slider-thumb-arrow"></button>
+                                                    <button class="preview-slider__thumbs-arrow preview-slider__thumbs-arrow_blue preview-slider__thumbs-arrow-next icon-arrow-right active slider-arrow slider-arrow-next js-preview-slider-thumb-arrow"></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="slider-arrow-container sp-preview-slider__arrow-container">
+                                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-winter-fun-event-place__table sp-winter-fun-event-place__table_contacts">
+                                        <table class="publication__additional-info-wrap">
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-path"></span>
+                                                </td>
+                                                <td>Добраться в&nbsp;дом отдыха можно на&nbsp;машине через Комсомольск-на-Амуре. Дорога займет примерно полтора часа</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-phone"></span>
+                                                </td>
+                                                <td>52-61-29</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="icon-web"></span>
+                                                </td>
+                                                <td><a href="http://shargol.my1.ru/">shargol.my1.ru</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+        <script src="{% static "site/js/sp-main.min.js" %}{% static_version %}"></script>
+    </body>
+</html>
