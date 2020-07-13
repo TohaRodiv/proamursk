@@ -32,6 +32,7 @@ $(function () {
                 breakpoint: 1024,
                 settings: {
                     arrows: false,
+                    dots: true,
                     slidesToShow: 2,
                     slidesToScroll: 1,
                 },
@@ -40,6 +41,7 @@ $(function () {
                 breakpoint: 600,
                 settings: {
                     arrows: false,
+                    dots: true,
                     slidesToShow: 1,
                     slidesToScroll: 1,
                 },
