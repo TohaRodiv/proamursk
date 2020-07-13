@@ -780,6 +780,11 @@ textarea {
           transform: rotate(180deg);
   color: #000000; }
 
+.js-accordion-content {
+  display: none; }
+  .js-accordion-content.active {
+    display: block; }
+
 .page-title {
   margin-bottom: 30px;
   font-size: 22px;
@@ -4631,26 +4636,28 @@ footer {
     margin-left: 110px; } }
 
 .film-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin-bottom: 20px; }
-  @media (min-width: 1024px) {
-    .film-header {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: start;
-          -ms-flex-align: start;
-              align-items: flex-start; } }
 
 .film-cover {
   display: block;
-  width: 240px;
-  height: 360px;
-  margin-right: 40px;
   -ms-flex-negative: 0;
       flex-shrink: 0; }
   @media (max-width: 1023px) {
     .film-cover {
-      display: none; } }
+      width: 120px;
+      height: 180px;
+      margin-right: 16px; } }
+  @media (min-width: 1024px) {
+    .film-cover {
+      width: 240px;
+      height: 360px;
+      margin-right: 40px; } }
 
 .film-info {
   -webkit-box-flex: 1;
@@ -4669,14 +4676,24 @@ footer {
   .film-info-table {
     display: block; }
     .film-info-table tbody, .film-info-table tr, .film-info-table th, .film-info-table td {
-      display: block; }
+      display: block; } }
+  @media (max-width: 1023px) and (max-width: 1023px) {
+    .film-info-table tr:not(:last-child) {
+      margin-bottom: 8px; } }
+  @media (max-width: 1023px) and (min-width: 1024px) {
     .film-info-table tr:not(:last-child) {
       margin-bottom: 10px; } }
 
-.film-info-table td {
-  padding: 5px 0; }
-  .film-info-table td .round-rating {
-    color: #7A8BA1; }
+@media (max-width: 1023px) {
+  .film-info-table td {
+    padding: 0; } }
+
+@media (min-width: 1024px) {
+  .film-info-table td {
+    padding: 5px 0; } }
+
+.film-info-table td .round-rating {
+  color: #7A8BA1; }
 
 .film-info-table tr:nth-child(1) td {
   padding-top: 0; }
@@ -4690,47 +4707,113 @@ footer {
 .film-info-table td:nth-child(1) {
   font-size: 15px;
   line-height: 1.5; }
+  @media (max-width: 1023px) {
+    .film-info-table td:nth-child(1) {
+      display: none; } }
   @media (min-width: 1024px) {
     .film-info-table td:nth-child(1) {
       width: 170px; } }
 
 .film-info-table td:nth-child(2) {
-  font-size: 18px;
   line-height: 1.3; }
+  @media (max-width: 1023px) {
+    .film-info-table td:nth-child(2) {
+      font-size: 16px; } }
   @media (min-width: 1024px) {
     .film-info-table td:nth-child(2) {
+      font-size: 18px;
       width: 250px; } }
 
 .film-timetable {
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #B1C1D2; }
+  margin-bottom: 40px; }
+  @media (min-width: 1024px) {
+    .film-timetable {
+      padding-bottom: 40px;
+      border-bottom: 1px solid #B1C1D2; } }
+  @media (min-width: 1024px) {
+    .film-timetable_mobile {
+      display: none; } }
+  @media (max-width: 1023px) {
+    .film-timetable_desktop {
+      display: none; } }
   .film-timetable__days {
     margin-bottom: 40px; }
-  .film-timetable__days, .film-timetable__times {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
-  .film-timetable__day-btn {
-    max-width: 120px;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-    padding: 20px 10px;
-    border-radius: 4px;
-    line-height: 1; }
-    .film-timetable__day-btn:not(:last-child) {
-      margin-right: 6px; }
-    .film-timetable__day-btn:hover {
-      color: #0073FF; }
-    .film-timetable__day-btn.active {
-      background-color: #0073FF;
-      color: #FFFFFF; }
+    @media (max-width: 1023px) {
+      .film-timetable__days {
+        margin-left: -16px;
+        margin-right: -16px; } }
+  @media (min-width: 1024px) {
+    .film-timetable__days, .film-timetable__times {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; } }
+  @media (max-width: 1023px) {
+    .film-timetable__day-btn {
+      display: block;
+      width: 100%;
+      position: relative;
+      padding: 20px 50px 20px 16px;
+      font-size: 18px;
+      text-align: left; }
+      .film-timetable__day-btn::after {
+        content: "";
+        position: absolute;
+        right: 16px;
+        top: 27px;
+        width: 18px;
+        height: 8px;
+        background-image: url(../images/svg/arrow-down-round.svg);
+        background-repeat: no-repeat;
+        background-size: contain; }
+      .film-timetable__day-btn.active::after {
+        background-image: url(../images/svg/arrow-up-round.svg); } }
+  @media (min-width: 1024px) {
+    .film-timetable__day-btn {
+      max-width: 120px;
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+      padding: 20px 10px;
+      border-radius: 4px;
+      line-height: 1; }
+      .film-timetable__day-btn:not(:last-child) {
+        margin-right: 6px; }
+      .film-timetable__day-btn:hover {
+        color: #0073FF; }
+      .film-timetable__day-btn.active {
+        background-color: #0073FF;
+        color: #FFFFFF; } }
+  .film-timetable__day-sessions {
+    padding: 20px 16px 30px;
+    background-color: #F5F6F7;
+    border-top: 1px solid #d7e2ee; }
+  .film-timetable__day {
+    border-bottom: 1px solid #D7DBE0; }
+    .film-timetable__day:first-child {
+      border-top: 1px solid #D7DBE0; }
+  .film-timetable__sessions-table {
+    width: 100%;
+    border-collapse: collapse; }
+    .film-timetable__sessions-table tr:last-child td {
+      border-bottom: 1px solid #D7DBE0; }
+    .film-timetable__sessions-table th {
+      font-size: 12px;
+      font-family: 18px;
+      font-weight: normal;
+      padding: 0 0 8px;
+      text-align: left; }
+    .film-timetable__sessions-table td {
+      padding: 8px 0;
+      font-size: 18px;
+      font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+      border-top: 1px solid #D7DBE0; }
+      .film-timetable__sessions-table td:nth-child(3) {
+        text-align: right; }
 
 .film-description {
   margin-bottom: 20px; }
@@ -4738,6 +4821,10 @@ footer {
 .film-treiler {
   position: relative;
   padding-bottom: calc(100% * 9 / 16); }
+  @media (max-width: 1023px) {
+    .film-treiler {
+      margin-left: -16px;
+      margin-right: -16px; } }
   .film-treiler iframe {
     position: absolute;
     left: 0;
@@ -4773,16 +4860,31 @@ footer {
     position: relative; }
     .film-seance_3d::after {
       content: url(../images/svg/3d-icon.svg);
-      display: block;
       width: 26px;
-      height: 20px;
-      position: absolute;
-      top: 0;
-      right: 8px; }
-  .film-seance__buy-btn {
-    margin-right: auto;
-    -ms-flex-negative: 0;
-        flex-shrink: 0; }
+      height: 20px; }
+      @media (max-width: 1023px) {
+        .film-seance_3d::after {
+          display: inline-block;
+          margin-left: 8px;
+          vertical-align: -4px; } }
+      @media (min-width: 1024px) {
+        .film-seance_3d::after {
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 8px; } }
+  @media (max-width: 1023px) {
+    .film-seance__buy-btn {
+      display: inline-block;
+      height: 32px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      font-size: 12px; } }
+  @media (min-width: 1024px) {
+    .film-seance__buy-btn {
+      margin-right: auto;
+      -ms-flex-negative: 0;
+          flex-shrink: 0; } }
   .film-seance__text {
     margin-left: 20px;
     -ms-flex-negative: 0;
@@ -4792,8 +4894,14 @@ footer {
     .film-seance__text :nth-child(1) {
       margin-bottom: 5px; }
   .film-seance__note {
-    margin-top: 30px;
     font-size: 12px; }
+    @media (max-width: 1023px) {
+      .film-seance__note {
+        max-width: 230px;
+        margin-top: 24px; } }
+    @media (min-width: 1024px) {
+      .film-seance__note {
+        margin-top: 30px; } }
 
 .round-rating {
   display: block;
@@ -5453,8 +5561,7 @@ footer {
   font-size: 18px; }
 
 .aside__instagram-banner-link {
-  display: block;
-  background-color: #DFDFDF; }
+  display: block; }
 
 .instagram-banner {
   display: block; }
@@ -5463,7 +5570,9 @@ footer {
     height: 120px; }
   .instagram-banner_aside {
     width: 380px;
-    height: 500px; }
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto; }
 
 @media (min-width: 1024px) {
   .aside-instagram-widget {

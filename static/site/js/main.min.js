@@ -6380,6 +6380,38 @@ lazyImageOuter.forEach(function (item) {
 });
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var accordionBtns = _toConsumableArray(document.querySelectorAll('.js-accordion-btn'));
+
+if (accordionBtns.length) {
+  accordionBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var currentAccordion = btn.closest('.js-accordion');
+      var activeAccordionBtn = currentAccordion.querySelector('.js-accordion-btn.active');
+      var activeAccordionContent = currentAccordion.querySelector('.js-accordion-content.active');
+      var currentAccordionContent = btn.nextElementSibling;
+
+      if (currentAccordionContent.classList.contains('active')) {
+        btn.classList.remove('active');
+        currentAccordionContent.classList.remove('active');
+      } else {
+        activeAccordionContent && activeAccordionContent.classList.remove('active');
+        currentAccordionContent.classList.add('active');
+        activeAccordionBtn && activeAccordionBtn.classList.remove('active');
+        btn.classList.add('active');
+      }
+    });
+  });
+}
+"use strict";
+
 function ajaxInstantSearch(q) {
   var csrfmiddlewaretoken = getCookie('csrftoken'),
       dataToSend;
@@ -6804,6 +6836,14 @@ function handleDrop(event) {
 }
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 $('.js-dropdown-section_show').click(function () {
   var currentDropdownBlock = $(this).parents('.dropdown-section'),
       currentDropdownBlockContent = currentDropdownBlock.find('.sp-dropdown-section__dropdown-content');
@@ -6817,6 +6857,18 @@ $('.js-dropdown-section_hide').click(function () {
   currentDropdownBlockContent.addClass('hidden');
   currentDropdownBlockShowBtn.removeClass('hidden');
 });
+
+var dropdownBtns = _toConsumableArray(document.querySelectorAll('.js-dropdown-btn'));
+
+if (dropdownBtns.length) {
+  dropdownBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var dropdownBlock = btn.parentNode;
+      var dropdownContent = dropdownBlock.querySelector('.js-dropdown-content');
+      dropdownContent.classList.toggle('visible');
+    });
+  });
+}
 "use strict";
 
 $('.attachment-input').on('click', function () {
