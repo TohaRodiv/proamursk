@@ -5250,7 +5250,22 @@ footer {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
+        flex-wrap: wrap;
+    position: relative; }
+    .city-guide-table_bus-inner-city tr::after,
+    .city-guide-table_bus-outer-city tr::after {
+      content: "";
+      position: absolute;
+      right: 30px;
+      top: 27px;
+      width: 18px;
+      height: 8px;
+      background-image: url(../images/svg/arrow-down-round.svg);
+      background-repeat: no-repeat;
+      background-size: contain; }
+    .city-guide-table_bus-inner-city tr.open::after,
+    .city-guide-table_bus-outer-city tr.open::after {
+      background-image: url(../images/svg/arrow-up-round.svg); }
   .city-guide-table_bus-inner-city td:nth-child(1),
   .city-guide-table_bus-outer-city td:nth-child(1) {
     width: 60px;
@@ -5258,8 +5273,7 @@ footer {
         flex-shrink: 0;
     padding-left: 16px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #d7e2ee; }
+    background-color: #FFFFFF; }
   .city-guide-table_bus-inner-city td:nth-child(2),
   .city-guide-table_bus-outer-city td:nth-child(2) {
     width: calc(100% - 60px);
@@ -5268,15 +5282,22 @@ footer {
             flex-grow: 0;
     -ms-flex-negative: 0;
         flex-shrink: 0;
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #d7e2ee; }
+    background-color: #FFFFFF; }
+  .city-guide-table_bus-inner-city td:nth-child(3),
+  .city-guide-table_bus-outer-city td:nth-child(3) {
+    border-top: 1px solid #d7e2ee; }
   .city-guide-table_bus-inner-city td:nth-child(3), .city-guide-table_bus-inner-city td:nth-child(4),
   .city-guide-table_bus-outer-city td:nth-child(3),
   .city-guide-table_bus-outer-city td:nth-child(4) {
     width: 100%;
     padding-left: 60px;
     padding-right: 60px;
-    background-color: #F5F6F7; } }
+    background-color: #F5F6F7;
+    display: none; }
+    .city-guide-table_bus-inner-city td:nth-child(3).visible, .city-guide-table_bus-inner-city td:nth-child(4).visible,
+    .city-guide-table_bus-outer-city td:nth-child(3).visible,
+    .city-guide-table_bus-outer-city td:nth-child(4).visible {
+      display: block; } }
 
 @media (min-width: 1024px) {
   .city-guide-table_bus-inner-city tr td:nth-child(1),

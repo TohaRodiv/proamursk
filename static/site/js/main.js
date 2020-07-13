@@ -8396,6 +8396,30 @@ function updateSubscribeWidget() {
 }
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var tablesToggleClickableTd = _toConsumableArray(document.querySelectorAll('.js-table-toggle td:first-child, .js-table-toggle td:nth-child(2)'));
+
+if (tablesToggleClickableTd.length) {
+  tablesToggleClickableTd.forEach(function (td) {
+    td.addEventListener('click', function () {
+      var parentTr = td.parentNode;
+      var thirdTd = parentTr.querySelector('td:nth-child(3)');
+      var fourthTd = parentTr.querySelector('td:nth-child(4)');
+      parentTr.classList.toggle('open');
+      if (thirdTd) thirdTd.classList.toggle('visible');
+      if (fourthTd) fourthTd.classList.toggle('visible');
+    });
+  });
+}
+"use strict";
+
 function setFirstTabsVisible() {
   $('.tabs-wrap').each(function () {
     $(this).find('.tab__btn').eq(0).addClass('active');

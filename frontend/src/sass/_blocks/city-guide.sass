@@ -268,6 +268,22 @@
         tr
             display: flex
             flex-wrap: wrap
+            position: relative
+
+            &::after
+                content: ""
+                position: absolute
+                right: 30px
+                top: 27px
+                width: 18px
+                height: 8px
+                background-image: url(../images/svg/arrow-down-round.svg)
+                background-repeat: no-repeat
+                background-size: contain
+
+            &.open
+                &::after
+                    background-image: url(../images/svg/arrow-up-round.svg)
 
         td
             &:nth-child(1)
@@ -276,14 +292,15 @@
                 padding-left: 16px
                 font-family: $bold-f
                 background-color: $light-c
-                border-bottom: 1px solid #d7e2ee
 
             &:nth-child(2)
                 width: calc(100% - 60px)
                 flex-grow: 0
                 flex-shrink: 0
                 background-color: $light-c
-                border-bottom: 1px solid #d7e2ee
+
+            &:nth-child(3)
+                border-top: 1px solid #d7e2ee
 
             &:nth-child(3),
             &:nth-child(4)
@@ -291,6 +308,10 @@
                 padding-left: 60px
                 padding-right: 60px
                 background-color: #F5F6F7
+                display: none
+
+                &.visible
+                    display: block
 
 .city-guide-table_bus-inner-city
     +media(d)
