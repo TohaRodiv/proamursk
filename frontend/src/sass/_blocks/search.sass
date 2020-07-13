@@ -50,15 +50,16 @@
 .search__result-block
     position: relative
 
-    &::after
-        content: ""
-        display: block
-        width: 100%
-        height: 1px
-        position: absolute
-        top: 5px
-        left: 0
-        background-color: #D7DBE0
+    +media(d)
+        &:not(:empty)::after
+            content: ""
+            display: block
+            width: 100%
+            height: 1px
+            position: absolute
+            top: 5px
+            left: 0
+            background-color: #D7DBE0
 
 .search-result_full
     margin-top: -5px
@@ -119,18 +120,40 @@
             font-size: $base-fz
 
 .search-result_empty
-    margin-top: -5px
-    padding: 48px 20px 20px
-    font-size: $base-fz
-    font-family: $bold-f
-    background-color: $light-c
-    border: 1px solid #D7DBE0
-    border-top: none
-    border-bottom-right-radius: 4px
-    border-bottom-left-radius: 4px
+    +media(m)
+        padding: 20px 12px
+        font-size: 16px
+        font-family: $bold-f
+
+        &::after
+            content: ""
+            display: block
+            padding-bottom: 40%
+            margin-top: 40px
+            margin-left: auto
+            margin-right: auto
+            background-image: url(../images/svg/search-ops.svg)
+            background-size: contain
+            background-repeat: no-repeat
+            background-position: center
+
+    +media(d)
+        margin-top: -5px
+        padding: 48px 20px 20px
+        font-size: $base-fz
+        font-family: $bold-f
+        background-color: $light-c
+        border: 1px solid #D7DBE0
+        border-top: none
+        border-bottom-right-radius: 4px
+        border-bottom-left-radius: 4px
 
 .instant-search-form
     position: relative
+
+.instant-search-form__input
+    +media(m)
+        padding-left: 12px
 
 .close-search-popup-btn-wrap
     position: absolute
