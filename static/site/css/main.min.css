@@ -294,7 +294,7 @@ ul, ol {
   content: "\e907"; }
 
 .icon-news-stroke:before {
-  content: "\e909"; }
+  content: "\e93c"; }
 
 .icon-news-fill:before {
   content: "\e90d"; }
@@ -4097,10 +4097,18 @@ footer {
     .special-project__cover-wrap::after {
       content: "";
       display: block;
-      z-index: 1;
-      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 51, 104, 0)), to(rgba(23, 33, 54, 0.6)));
-      background: -o-linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%);
-      background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%); }
+      z-index: 1; }
+      @media (max-width: 1023px) {
+        .special-project__cover-wrap::after {
+          opacity: 0.9;
+          background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 115, 255, 0)), color-stop(50.75%, rgba(0, 82, 181, 0.8)), to(#002553));
+          background: -o-linear-gradient(rgba(0, 115, 255, 0) 0%, rgba(0, 82, 181, 0.8) 50.75%, #002553 100%);
+          background: linear-gradient(rgba(0, 115, 255, 0) 0%, rgba(0, 82, 181, 0.8) 50.75%, #002553 100%); } }
+      @media (min-width: 1024px) {
+        .special-project__cover-wrap::after {
+          background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 51, 104, 0)), to(rgba(23, 33, 54, 0.6)));
+          background: -o-linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%);
+          background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%); } }
   .special-project__cover {
     display: block;
     width: 100%;
@@ -4132,9 +4140,10 @@ footer {
             -ms-transform: translateX(-50%);
                 transform: translateX(-50%);
         height: 100%;
-        -webkit-box-pack: end;
-            -ms-flex-pack: end;
-                justify-content: flex-end;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        padding-top: 40px;
         padding-bottom: 60px; } }
     @media (min-width: 1024px) {
       .special-project__text-wrap {
@@ -4148,6 +4157,7 @@ footer {
     text-transform: uppercase; }
     @media (max-width: 1023px) {
       .special-project__title {
+        margin-top: auto;
         font-size: 22px; } }
     @media (min-width: 1024px) {
       .special-project__title {
@@ -4169,6 +4179,7 @@ footer {
     display: inline-flex; }
     @media (max-width: 1023px) {
       .special-project .wobbler {
+        margin-top: auto;
         margin-left: auto;
         margin-right: auto; } }
     @media (min-width: 1024px) {
