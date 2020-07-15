@@ -25,12 +25,14 @@
     flex-grow: 1
 
 .film-title
-    margin-top: 20px
     margin-bottom: 20px
     font-size: $big-fz
     font-family: $bold-f
     letter-spacing: 0.02em
     line-height: $micro-lh
+
+    +media(d)
+        margin-top: 20px
 
 .film-info-table
     +media(m)
