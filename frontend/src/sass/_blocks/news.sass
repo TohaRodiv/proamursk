@@ -70,7 +70,6 @@
         text-transform: uppercase
         letter-spacing: 0.08em
 
-
 .news-list-page
     +media(d)
         padding-bottom: 40px
@@ -89,8 +88,8 @@
         border: none
 
         &:not(:last-child)
-            margin-bottom: 30px
-            padding-bottom: 30px
+            margin-bottom: 24px
+            padding-bottom: 24px
             border-bottom: 1px solid #C3CEDF
 
     +media(d)
@@ -134,31 +133,34 @@
 
     &__title
         display: block
-        font-size: $medium-fz
         font-family: $bold-f
         color: $dark-c
         text-decoration: none
 
         +media(m)
-            margin-bottom: 10px
+            margin-bottom: 8px
+            font-size: 20px
 
         +media(d)
             margin-bottom: 20px
+            font-size: $medium-fz
 
         &:hover
             color: $base-c
 
     &__text
-        font-size: $mini-fz
-
         +media(m)
-            margin-bottom: 20px
+            font-size: 14px
 
         +media(d)
             margin-bottom: 40px
+            font-size: $mini-fz
 
     &__date
         margin-top: auto
         font-size: 14px
         letter-spacing: 0.08em
         color: $base-gray
+
+        +media(m)
+            display: none

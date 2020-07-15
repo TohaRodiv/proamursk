@@ -173,7 +173,6 @@ function sliderInit() {
     });
 }
 
-
 $('.timeline-step').click(function () {
     var timeline = $(this).parents('.sp-slider-timeline'),
         slider = timeline.siblings('.slider'),
@@ -367,4 +366,54 @@ $('.js-specials-slider').slick({
     dotsClass: 'slick-dots specials__dots-container',
     prevArrow:'<button class="specials__slider-arrow slider-arrow-prev icon-arrow-left"></button>',
     nextArrow:'<button class="specials__slider-arrow slider-arrow-next icon-arrow-right"></button>',
+});
+
+
+$('.js-post-editor-slider-block').each(function () {
+    let amount = $(this).find('img').length;
+    if (amount > 1) $(this).find('.post-editor-slider-block__navigation-wrap').removeClass('hidden');
+    if (amount < 10) amount = '0' + amount;
+    $(this).find('.js-post-editor-slider-total').text(amount);
+    let slideDescriptionText = $(this).find('.post-editor-slider-block__slide')[0].dataset.description;
+    $(this).find('.post-editor-slider-block__caption').text(slideDescriptionText);
+});
+
+$('.js-post-editor-slider').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    fade: true,
+    responsive: [
+        {
+            breakpoint: 600,
+            settings: {
+                fade: false,
+            },
+        },
+    ],
+    lazyLoad: 'progressive',
+});
+
+$('.js-post-editor-slider')
+    .on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        let slideDescriptionText = slick.$slides[nextSlide].dataset.description;
+        $(this).next('.post-editor__block_caption').text(slideDescriptionText);
+
+        let amount = nextSlide + 1;
+        if (amount < 10) amount = '0' + amount;
+        $(this).parents('.js-post-editor-slider-block').find('.js-post-editor-slider-current').text(amount);
+    });
+
+$('.js-post-editor-slider').on('click', '.slick-slide', function() {
+    $('.js-post-editor-slider').slick('slickNext');
+});
+
+$('.js-post-editor-slider').on('click', '.post-editor-slider-block__arrow-prev', function() {
+    $('.js-post-editor-slider').slick('slickPrev');
+});
+
+$('.js-post-editor-slider').on('click', '.post-editor-slider-block__arrow-next', function() {
+    $('.js-post-editor-slider').slick('slickNext');
 });

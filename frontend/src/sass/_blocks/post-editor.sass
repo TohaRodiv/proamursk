@@ -141,18 +141,10 @@
 
 .post-editor__block_slider
     .slider_format_2x1
-        +media(m)
-            padding-bottom: calc(50% + 32px)
-
-        +media(d)
-            padding-bottom: 50%
+        padding-bottom: 50%
 
     .slider_format_3x2
-        +media(m)
-            padding-bottom: calc(66.666% + 32px)
-
-        +media(d)
-            padding-bottom: 66.666%
+        padding-bottom: 66.666%
 
     .slider
         +media(m)
@@ -163,15 +155,20 @@
     .slide
         background-color: $light-gray
 
-    img
+    .slider-container img
         display: block
         height: 100%
 
     .nav-wrapper
         position: absolute
-        right: 0
         bottom: -40px
         font-size: 0
+
+        +media(m)
+            right: 8px
+
+        +media(d)
+            right: 0
 
     .slide-nav-counter
         color: #242434
@@ -188,7 +185,69 @@
             border-radius: 50%
 
     .slider-caption
-        width: 75%
+        +media(m)
+            width: 65%
+
+        +media(d)
+            width: 75%
+
+
+.post-editor-slider-block
+    position: relative
+
+    &__slider
+        +media(m)
+            margin-left: -16px
+            margin-right: -16px
+
+    &__slide
+        cursor: pointer
+
+    &__footer
+        display: flex
+        align-items: baseline
+        margin-top: 20px
+
+    &__caption
+        margin-right: 24px
+        line-height: $mini-lh
+        letter-spacing: 0.08em
+        color: $base-dark-c
+        max-width: calc(100% - 140px)
+
+        +media(m)
+            font-size: 14px
+
+        +media(d)
+            font-size: 15px
+
+    &__navigation-wrap
+        display: flex
+        align-items: center
+        margin-left: auto
+        flex-shrink: 0
+
+    &__navigation
+        flex-shrink: 0
+        margin: 3px 0 0
+
+    &__arrow
+        width: 24px
+        height: 24px
+        font-size: 0
+        line-height: 24px
+        color: $dark-c
+        top: auto
+        bottom: -44px
+        right: 0
+        border: 1px solid transparent
+        border-radius: 50%
+
+        &:hover
+            border-color: #B1C1D2
+
+        &::before
+            font-size: 12px
 
 .post-editor__block_quote
     .quote
