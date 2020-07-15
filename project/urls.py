@@ -49,6 +49,8 @@ urlpatterns += [
     path('city-guides/<int:pk>/', root_views.CityGuidesDetailView.as_view(), name='city-guides-detail'),
     path('places/', root_views.PlaceListView.as_view(), name='places-list'),
     path('places/<int:pk>/', root_views.PlaceDetailView.as_view(), name='places-detail'),
+    path('s-specials/', RedirectView.as_view(url='/specials/'), name='s-specials-list'),
+    path('s-specials/<str:slug>/', root_views.SpecSpecialsDetailView.as_view(), name='s-specials-detail'),
     path('specials/', root_views.SpecialsListView.as_view(), name='specials-list'),
     path('specials/<str:slug>/', root_views.SpecialsDetailView.as_view(), name='specials-detail'),
     path('search/', root_views.SearchView.as_view(), name='search'),

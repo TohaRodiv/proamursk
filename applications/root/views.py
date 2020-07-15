@@ -583,6 +583,32 @@ class SpecialsDetailView(DetailView):
             return context
 
 
+class SpecSpecialsDetailView(DetailView):
+    model = Special
+    context_object_name = 'special'
+    template_name = 'site/special-project.html'
+    slug_field = 'codename'
+
+    def get_queryset(self):
+        qs = Special.objects.filter(is_active=True, publication_date__lte=timezone.now())
+        if self.request.user and self.request.user.is_staff:
+            qs = self.model.objects.select_related('cover').all()
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super(SpecSpecialsDetailView, self).get_context_data(**kwargs)
+
+        obj = context.get('object')
+        try:
+            template_name = 'site/special-projects-desktop/%s.html' % obj.codename
+            loader.get_template(template_name)
+        except Exception as e:
+            raise Http404
+        else:
+            context["template_name"] = template_name
+            return context
+
+
 class FilmDetailView(DetailView):
     model = Film
     context_object_name = 'film'
