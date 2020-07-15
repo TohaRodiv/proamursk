@@ -47,7 +47,12 @@
 
     &_more
         display: block
-        margin-top: 40px
+
+        +media(m)
+            margin-top: 32px
+
+        +media(d)
+            margin-top: 40px
 
         span
             margin-left: 10px
