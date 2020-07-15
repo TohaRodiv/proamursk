@@ -7685,6 +7685,8 @@ window.addEventListener('optimizedResize', function () {
     document.querySelector('body').classList.remove('mobile-menu-open');
   }
 });
+var publicationPage = document.querySelector('article.publication');
+if (publicationPage) document.querySelector('header').classList.add('no-shadow');
 "use strict";
 
 $(function () {

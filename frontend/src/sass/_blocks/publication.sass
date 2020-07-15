@@ -1,6 +1,9 @@
 .publication
     margin-bottom: 50px
 
+    +media(m)
+        margin-top: -32px
+
     &__cover-wrap
         position: relative
         background-color: $light-gray
@@ -112,6 +115,7 @@
         a
             color: $base-c
             text-decoration: none
+            word-break: break-word
 
             &:hover,
             &:focus
@@ -181,15 +185,16 @@
 
     &__lead
         font-family: $add-sb-it-f
-        line-height: $mini-lh
 
         +media(m)
             margin-bottom: 30px
             font-size: $base-fz
+            line-height: $base-lh
 
         +media(d)
             margin-bottom: 40px
             font-size: $medium-fz
+            line-height: $mini-lh
 
     &__footer
         margin-top: 40px

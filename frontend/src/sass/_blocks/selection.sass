@@ -1,7 +1,13 @@
 .selection-head_page
-    margin-top: 40px
-    margin-bottom: 40px
     text-align: center
+
+    +media(m)
+        margin-top: -8px
+        margin-bottom: 25px
+
+    +media(d)
+        margin-top: 40px
+        margin-bottom: 40px
 
 .selection-head_index
     margin-bottom: 30px
@@ -24,13 +30,14 @@
     &__title
         margin-bottom: 0
         letter-spacing: 0.02em
-        font-family: $bold-f
 
         +media(m)
             font-size: $medium-fz
+            font-weight: normal
 
         +media(d)
             font-size: 46px
+            font-family: $bold-f
 
         a
             color: inherit

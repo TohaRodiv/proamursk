@@ -186,11 +186,17 @@
     &_format-base
         .grid-publication
             &__cover-wrap
+                +media(m)
+                    padding-bottom: 76.3888889%
+
                 +media(d)
                     height: 278px
 
             &__cover
                 border-bottom: 1px solid $border-c
+
+                +media(m)
+                    position: absolute
 
             &__title
                 &:hover,

@@ -2919,7 +2919,7 @@ footer {
 .instant-search-form {
   position: relative; }
 
-.close-search-popup-btn-wrap {
+.close-popup-btn-wrap {
   position: absolute;
   left: 50%;
   z-index: 100;
@@ -2927,12 +2927,12 @@ footer {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%); }
   @media (max-width: 1023px) {
-    .close-search-popup-btn-wrap {
+    .close-popup-btn-wrap {
       width: 100vw;
       max-width: 600px;
       top: 15px; } }
   @media (min-width: 1024px) {
-    .close-search-popup-btn-wrap {
+    .close-popup-btn-wrap {
       width: 1300px;
       top: 30px; } }
 

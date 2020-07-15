@@ -70,7 +70,12 @@ textarea
     &__arrow
         margin-top: -3px
         right: 10px
-        font-size: 7px
+
+        +media(m)
+            font-size: 5px
+
+        +media(d)
+            font-size: 7px
 
     &__clear,
     &__arrow

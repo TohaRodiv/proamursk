@@ -67,6 +67,8 @@
 
 .mobile-sections-links
     overflow: hidden
+    margin-left: -16px
+    margin-right: -16px
 
     +media(d)
         display: none
@@ -81,9 +83,15 @@
 
         &__item
             flex-shrink: 0
+            margin-right: 16px
 
-            &:not(:last-child)
-                margin-right: 16px
+            &:last-child
+                margin-right: 0
+                & > *
+                    margin-right: 16px
+
+            &:first-child
+                margin-left: 16px
 
         &__text_mobile-crop
             width: 70px
