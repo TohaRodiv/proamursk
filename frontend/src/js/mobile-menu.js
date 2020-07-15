@@ -19,5 +19,9 @@ window.addEventListener('optimizedResize', function() {
     }
 });
 
-let publicationPage = document.querySelector('article.publication');
-if (publicationPage) document.querySelector('header').classList.add('no-shadow');
+let publicationPage = document.querySelector('article.publication .publication__cover');
+console.log(!!publicationPage)
+if (publicationPage) {
+    document.querySelector('header').classList.add('no-shadow');
+    document.querySelector('main').classList.add('no-offset');
+}

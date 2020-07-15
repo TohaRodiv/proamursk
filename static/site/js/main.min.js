@@ -7685,8 +7685,13 @@ window.addEventListener('optimizedResize', function () {
     document.querySelector('body').classList.remove('mobile-menu-open');
   }
 });
-var publicationPage = document.querySelector('article.publication');
-if (publicationPage) document.querySelector('header').classList.add('no-shadow');
+var publicationPage = document.querySelector('article.publication .publication__cover');
+console.log(!!publicationPage);
+
+if (publicationPage) {
+  document.querySelector('header').classList.add('no-shadow');
+  document.querySelector('main').classList.add('no-offset');
+}
 "use strict";
 
 $(function () {
@@ -8401,6 +8406,45 @@ $('.js-specials-slider').slick({
   dotsClass: 'slick-dots specials__dots-container',
   prevArrow: '<button class="specials__slider-arrow slider-arrow-prev icon-arrow-left"></button>',
   nextArrow: '<button class="specials__slider-arrow slider-arrow-next icon-arrow-right"></button>'
+});
+$('.js-post-editor-slider-block').each(function () {
+  var amount = $(this).find('img').length;
+  if (amount > 1) $(this).find('.post-editor-slider-block__navigation-wrap').removeClass('hidden');
+  if (amount < 10) amount = '0' + amount;
+  $(this).find('.js-post-editor-slider-total').text(amount);
+  var slideDescriptionText = $(this).find('.post-editor-slider-block__slide')[0].dataset.description;
+  $(this).find('.post-editor-slider-block__caption').text(slideDescriptionText);
+});
+$('.js-post-editor-slider').slick({
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  dots: false,
+  fade: true,
+  responsive: [{
+    breakpoint: 600,
+    settings: {
+      fade: false
+    }
+  }],
+  lazyLoad: 'progressive'
+});
+$('.js-post-editor-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+  var slideDescriptionText = slick.$slides[nextSlide].dataset.description;
+  $(this).next('.post-editor__block_caption').text(slideDescriptionText);
+  var amount = nextSlide + 1;
+  if (amount < 10) amount = '0' + amount;
+  $(this).parents('.js-post-editor-slider-block').find('.js-post-editor-slider-current').text(amount);
+});
+$('.js-post-editor-slider').on('click', '.slick-slide', function () {
+  $('.js-post-editor-slider').slick('slickNext');
+});
+$('.js-post-editor-slider').on('click', '.post-editor-slider-block__arrow-prev', function () {
+  $('.js-post-editor-slider').slick('slickPrev');
+});
+$('.js-post-editor-slider').on('click', '.post-editor-slider-block__arrow-next', function () {
+  $('.js-post-editor-slider').slick('slickNext');
 });
 "use strict";
 
