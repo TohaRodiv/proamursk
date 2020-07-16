@@ -2102,8 +2102,10 @@ input.btn_preloader {
         flex-shrink: 0; }
   .post-editor-slider-block__navigation {
     -ms-flex-negative: 0;
-        flex-shrink: 0;
-    margin: 3px 0 0; }
+        flex-shrink: 0; }
+    @media (min-width: 1024px) {
+      .post-editor-slider-block__navigation {
+        margin: 3px 0 0; } }
   .post-editor-slider-block__arrow {
     width: 24px;
     height: 24px;
@@ -2119,6 +2121,9 @@ input.btn_preloader {
       border-color: #B1C1D2; }
     .post-editor-slider-block__arrow::before {
       font-size: 12px; }
+    @media (max-width: 1023px) {
+      .post-editor-slider-block__arrow {
+        display: none; } }
 
 .post-editor__block_quote .quote {
   border-left: 4px solid #0073FF; }
@@ -3313,7 +3318,7 @@ footer {
         .publication__additional-info-wrap_row *:not(:last-child) {
           margin-right: 50px; } }
     .publication__additional-info-wrap [class^="icon-"] {
-      display: block;
+      display: inline-block;
       width: 24px;
       height: 20px;
       -ms-flex-negative: 0;
@@ -3335,7 +3340,8 @@ footer {
         font-size: 15px; }
     .publication__additional-info-wrap a {
       color: #0073FF;
-      text-decoration: none; }
+      text-decoration: none;
+      word-break: break-word; }
       .publication__additional-info-wrap a:hover, .publication__additional-info-wrap a:focus {
         text-decoration: underline; }
   .publication__event-info {
@@ -3346,45 +3352,41 @@ footer {
         -ms-flex-align: baseline;
             align-items: baseline;
     margin-bottom: 20px; }
-  .publication__place-info-wrap {
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto; }
-    @media (max-width: 1023px) {
-      .publication__place-info-wrap {
-        display: block; } }
-    @media (max-width: 1023px) {
-      .publication__place-info-wrap * {
-        display: block; } }
-    .publication__place-info-wrap_top {
-      margin-bottom: 40px; }
-    .publication__place-info-wrap_bottom {
-      margin-top: 40px;
-      margin-bottom: 40px; }
-    @media (max-width: 1023px) {
-      .publication__place-info-wrap tr {
-        margin-bottom: 16px; } }
-    @media (max-width: 1023px) {
-      .publication__place-info-wrap tr td {
-        padding-bottom: 5px; } }
+  @media (max-width: 1023px) {
+    .publication__place-info-wrap {
+      display: block; } }
+  @media (max-width: 1023px) {
+    .publication__place-info-wrap * {
+      display: block; } }
+  .publication__place-info-wrap_top {
+    margin-bottom: 40px; }
+  .publication__place-info-wrap_bottom {
+    margin-top: 40px;
+    margin-bottom: 40px; }
+  @media (max-width: 1023px) {
+    .publication__place-info-wrap tr {
+      margin-bottom: 16px; } }
+  @media (max-width: 1023px) {
+    .publication__place-info-wrap tr td {
+      padding-bottom: 5px; } }
+  @media (min-width: 1024px) {
+    .publication__place-info-wrap tr td {
+      padding-bottom: 10px; } }
+  @media (max-width: 1023px) {
+    .publication__place-info-wrap tr:last-child td:last-child {
+      padding-bottom: 0; } }
+  .publication__place-info-wrap td {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    vertical-align: baseline; }
     @media (min-width: 1024px) {
-      .publication__place-info-wrap tr td {
-        padding-bottom: 10px; } }
+      .publication__place-info-wrap td:first-child {
+        width: 220px;
+        padding-right: 20px; } }
     @media (max-width: 1023px) {
-      .publication__place-info-wrap tr:last-child td:last-child {
-        padding-bottom: 0; } }
-    .publication__place-info-wrap td {
-      padding-top: 0;
-      padding-left: 0;
-      padding-right: 0;
-      vertical-align: baseline; }
-      @media (min-width: 1024px) {
-        .publication__place-info-wrap td:first-child {
-          width: 210px;
-          padding-right: 20px; } }
-      @media (max-width: 1023px) {
-        .publication__place-info-wrap td:last-child {
-          padding-left: 28px; } }
+      .publication__place-info-wrap td:last-child {
+        padding-left: 36px; } }
   .publication__title {
     margin-bottom: 20px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }

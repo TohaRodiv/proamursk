@@ -82,7 +82,7 @@
                     margin-right: 50px
 
         [class^="icon-"]
-            display: block
+            display: inline-block
             width: 24px
             height: 20px
             flex-shrink: 0
@@ -97,17 +97,20 @@
 
         .icon-bed
             vertical-align: 0
+
             &::before
                 font-size: 14px
 
         .icon-star-round
             vertical-align: -1px
+
             &::before
                 font-size: 15px
 
         a
             color: $base-c
             text-decoration: none
+            word-break: break-word
 
             &:hover,
             &:focus
@@ -119,12 +122,9 @@
         margin-bottom: 20px
 
     &__place-info-wrap
-        max-width: 640px
-        margin-left: auto
-        margin-right: auto
-
         +media(m)
             display: block
+
         & *
             +media(m)
                 display: block
@@ -160,12 +160,12 @@
 
             &:first-child
                 +media(d)
-                    width: 210px
+                    width: 220px
                     padding-right: 20px
 
             &:last-child
                 +media(m)
-                    padding-left: 28px
+                    padding-left: 36px
 
     &__title
         margin-bottom: 20px
