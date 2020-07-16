@@ -7195,6 +7195,28 @@ Array.prototype.remove = function (value) {
 })();
 "use strict";
 
+var lastScrollTop = 0;
+var unfixedTimeout = null;
+window.addEventListener("scroll", function () {
+  var st = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (st > lastScrollTop || window.pageYOffset === 0) {
+    // downscroll code
+    document.querySelector('header').classList.remove('header_mobile-fixed');
+    document.querySelector('header').classList.add('header_mobile-unfixed');
+    clearTimeout(unfixedTimeout);
+    unfixedTimeout = setTimeout(function () {
+      document.querySelector('header').classList.remove('header_mobile-unfixed');
+    }, 300);
+  } else {
+    // upscroll code
+    document.querySelector('header').classList.add('header_mobile-fixed');
+  }
+
+  lastScrollTop = st <= 0 ? 0 : st;
+}, false);
+"use strict";
+
 $(function () {
   if ($('.map').length <= 0) {
     return;
@@ -7690,7 +7712,7 @@ window.addEventListener('optimizedResize', function () {
 var publicationPage = document.querySelector('article.publication .publication__cover');
 
 if (publicationPage) {
-  document.querySelector('header').classList.add('no-shadow');
+  document.querySelector('header').classList.add('header_no-shadow');
   document.querySelector('main').classList.add('no-offset');
 }
 "use strict";

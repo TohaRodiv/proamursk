@@ -21,6 +21,6 @@ window.addEventListener('optimizedResize', function() {
 
 let publicationPage = document.querySelector('article.publication .publication__cover');
 if (publicationPage) {
-    document.querySelector('header').classList.add('no-shadow');
+    document.querySelector('header').classList.add('header_no-shadow');
     document.querySelector('main').classList.add('no-offset');
 }
