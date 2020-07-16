@@ -7563,23 +7563,23 @@ footer {
   .sp-summer-money-expert-comments__item .direct-speech-author {
     width: 460px; }
 
-.sp-summer-money__share-block {
+.sp__share-block {
   margin: 100px auto 50px; }
-  .sp-summer-money__share-block .share-widget {
+  .sp__share-block .share-widget {
     display: block;
     text-align: center; }
-  .sp-summer-money__share-block .share-widget__text {
+  .sp__share-block .share-widget__text {
     display: block;
     margin-bottom: 15px;
     margin-right: 0; }
-  .sp-summer-money__share-block .share-widget__links-wrap {
+  .sp__share-block .share-widget__links-wrap {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
-  .sp-summer-money__share-block .share-widget__link-img {
+  .sp__share-block .share-widget__link-img {
     width: 37px;
     height: 37px; }
-  .sp-summer-money__share-block .share-widget__link:not(:last-child) {
+  .sp__share-block .share-widget__link:not(:last-child) {
     margin-right: 15px; }
 
 .sp-dance {
@@ -7589,23 +7589,23 @@ footer {
   .sp-dance .slider .nav-wrapper {
     left: 0; }
 
-.sp-dance__share-block {
+.sp__share-block {
   margin: 100px auto 50px; }
-  .sp-dance__share-block .share-widget {
+  .sp__share-block .share-widget {
     display: block;
     text-align: center; }
-  .sp-dance__share-block .share-widget__text {
+  .sp__share-block .share-widget__text {
     display: block;
     margin-bottom: 15px;
     margin-right: 0; }
-  .sp-dance__share-block .share-widget__links-wrap {
+  .sp__share-block .share-widget__links-wrap {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
-  .sp-dance__share-block .share-widget__link-img {
+  .sp__share-block .share-widget__link-img {
     width: 37px;
     height: 37px; }
-  .sp-dance__share-block .share-widget__link:not(:last-child) {
+  .sp__share-block .share-widget__link:not(:last-child) {
     margin-right: 15px; }
 
 .sp-dance__photo,
@@ -8927,23 +8927,23 @@ footer {
 .sp-birthday-slider img {
   min-height: 100%; }
 
-.sp-birthday__share-block {
+.sp__share-block {
   margin: 100px auto 50px; }
-  .sp-birthday__share-block .share-widget {
+  .sp__share-block .share-widget {
     display: block;
     text-align: center; }
-  .sp-birthday__share-block .share-widget__text {
+  .sp__share-block .share-widget__text {
     display: block;
     margin-bottom: 15px;
     margin-right: 0; }
-  .sp-birthday__share-block .share-widget__links-wrap {
+  .sp__share-block .share-widget__links-wrap {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
-  .sp-birthday__share-block .share-widget__link-img {
+  .sp__share-block .share-widget__link-img {
     width: 37px;
     height: 37px; }
-  .sp-birthday__share-block .share-widget__link:not(:last-child) {
+  .sp__share-block .share-widget__link:not(:last-child) {
     margin-right: 15px; }
 
 .sp-birthday-header {

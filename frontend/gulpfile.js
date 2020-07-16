@@ -388,17 +388,26 @@ function spStyles() {
         .pipe(rename({ suffix: '.min' , }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('static/css/special-projects'))
+        .pipe(gulp.dest('./../static/site/css'))
         .pipe(gzip())
-        .pipe(gulp.dest('./../static/site/css/special-projects'));
+        .pipe(gulp.dest('./../static/site/css'));
 }
 
 
 const spJSFiles = [
     jquery,
     slickCarousel,
+    'src/js/IntersectionObserver.js',
+    'src/js/ResizeObserver.js',
+    'src/js/special-projects.js',
+    'src/js/functions.js',
     'src/js/map.js',
     'src/js/pop-ups.js',
+    'src/js/select.js',
+    'src/js/fileLoader.js',
     'src/js/sliders.js',
+    'src/js/ajax.js',
+    'src/js/dropdown-section.js',
 ];
 
 function spJS() {

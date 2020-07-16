@@ -689,7 +689,7 @@
 
 
             <div class="js-fade container">
-                <div class="sp-summer-money__share-block">
+                <div class="sp__share-block">
                     {% include "site/page-block/share-widget.html" %}
                 </div>
             </div>
@@ -706,6 +706,6 @@
             </div>
         </div>
         <p class="sp-mobile__text">Страница спецпроекта доступна только в десктопной версии.</p>
-        <a href="{% url "s-specials-detail" "summer-money" %}" class="sp-mobile__btn btn btn_blue"target="_blank">Перейти</a>
+        <a href="{% url "s-specials-detail" object.codename %}" class="sp-mobile__btn btn btn_blue"target="_blank">Перейти</a>
     </div>
 </main>

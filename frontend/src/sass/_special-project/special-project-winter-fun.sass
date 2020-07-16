@@ -641,3 +641,85 @@
     margin-top: 80px
     margin-bottom: 60px
     margin-left: -20px
+
+.sp-place
+    &__title
+        margin-bottom: 50px
+        font-family: $bold-f
+        font-size: 24px
+        letter-spacing: 0.02em
+
+    &__subtitle
+        font-size: 18px
+        line-height: $base-lh
+        font-family: $bold-f
+
+    &__decription
+        margin-bottom: 50px
+        font-size: 18px
+        line-height: $base-lh
+
+    &__contacts-table
+        font-size: 16px
+        font-family: $base-f
+
+        [class^="icon-"]
+            display: inline-block
+            width: 18px
+            height: 20px
+            margin-right: 10px
+            font-size: 0
+            line-height: 20px
+            color: $base-c
+            vertical-align: -2px
+            text-align: center
+
+        [class^="icon-"]::before
+            font-size: 17px
+
+        .icon-mail::before
+            font-size: 13px
+
+        a
+            color: $base-c
+            text-decoration: none
+
+            &:hover,
+            &:focus
+                text-decoration: underline
+
+        tr:not(:last-child) td
+            padding-bottom: 10px
+
+        td
+            padding-top: 0
+            padding-left: 0
+            padding-right: 0
+            vertical-align: baseline
+
+            &:first-child
+                min-width: 125px
+                padding-right: 20px
+
+        &_mini
+            td
+                padding-top: 0
+                padding-left: 0
+                padding-right: 0
+                vertical-align: baseline
+
+                &:first-child
+                    min-width: 0
+                    padding-right: 0
+
+    &__img
+        width: 420px
+
+.balloon
+    margin: 30px
+
+    &__title
+        margin-bottom: 20px
+        font-size: 22px
+        line-height: 1.3
+        font-family: $bold-f
