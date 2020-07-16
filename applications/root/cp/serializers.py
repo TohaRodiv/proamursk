@@ -23,7 +23,7 @@ class NewsListSerializer(ModelSerializer):
 
     class Meta:
         model = News
-        fields = ('id', 'cover', 'title', 'comment', 'publication_date', 'create_date', 'edit_date', 'is_active')
+        fields = ('id', 'cover', 'hide_cover', 'title', 'comment', 'publication_date', 'create_date', 'edit_date', 'is_active')
 
 
 class NewsDetailSerializer(ModelSerializer):
@@ -35,8 +35,8 @@ class NewsDetailSerializer(ModelSerializer):
 
     class Meta:
         model = News
-        fields = ('id', 'cover', 'title', 'descriptor', 'lead', 'content', 'text', 'comment', 'publication_date',
-                  'create_date', 'edit_date',
+        fields = ('id', 'cover', 'hide_cover', 'title', 'descriptor', 'lead', 'content', 'text', 'comment',
+                  'publication_date', 'create_date', 'edit_date',
                   'meta_title', 'meta_description', 'meta_keywords', 'og_image', 'is_active', 'cover_author',
                   'content_author', 'show_two_banners')
 
@@ -55,7 +55,7 @@ class EventsListSerializer(ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('id', 'cover', 'title', 'place', 'coordinates', 'event_date_text', 'start_event_date', 'comment',
+        fields = ('id', 'cover', 'hide_cover', 'title', 'place', 'coordinates', 'event_date_text', 'start_event_date', 'comment',
                   'report', 'cover_format', 'cover_format_name', 'publication_date',
                   'create_date', 'edit_date', 'is_active')
 
@@ -75,7 +75,7 @@ class EventsDetailSerializer(ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
+        fields = ('id', 'cover', 'hide_cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text', 'start_event_date',
                   'cover_format', 'cover_format_name', 'comment', 'content', 'publication_date', 'create_date',
                   'report', 'edit_date', 'is_active', 'meta_title', 'meta_description',
                   'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
@@ -98,7 +98,7 @@ class ReportsListSerializer(ModelSerializer):
 
     class Meta:
         model = Report
-        fields = ('id', 'cover', 'title', 'place', 'event_date_text', 'comment', 'event',
+        fields = ('id', 'cover', 'hide_cover', 'title', 'place', 'event_date_text', 'comment', 'event',
                   'cover_format', 'cover_format_name', 'publication_date', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
@@ -117,7 +117,7 @@ class ReportsDetailSerializer(ModelSerializer):
 
     class Meta:
         model = Report
-        fields = ('id', 'cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text',
+        fields = ('id', 'cover', 'hide_cover', 'title', 'lead', 'place', 'coordinates', 'event_date_text',
                   'cover_format', 'cover_format_name', 'comment', 'content', 'publication_date', 'event',
                   'create_date', 'edit_date', 'is_active', 'meta_title', 'meta_description',
                   'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
@@ -165,7 +165,7 @@ class HistoryListSerializer(ModelSerializer):
 
     class Meta:
         model = History
-        fields = ('id', 'cover', 'cover_format', 'rubric', 'cover_format_name', 'title', 'comment', 'publication_date',
+        fields = ('id', 'cover', 'hide_cover', 'cover_format', 'rubric', 'cover_format_name', 'title', 'comment', 'publication_date',
                   'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
@@ -186,7 +186,7 @@ class HistoryDetailSerializer(ModelSerializer):
 
     class Meta:
         model = History
-        fields = ('id', 'cover', 'cover_format', 'rubric', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
+        fields = ('id', 'cover', 'hide_cover', 'cover_format', 'rubric', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
                   'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
 
@@ -200,7 +200,7 @@ class PersonsListSerializer(ModelSerializer):
 
     class Meta:
         model = Person
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'comment',
+        fields = ('id', 'cover', 'hide_cover', 'cover_format', 'cover_format_name', 'title', 'comment',
                   'publication_date', 'create_date', 'edit_date', 'is_active')
 
     def get_cover_format_name(self, instance):
@@ -217,7 +217,7 @@ class PersonsDetailSerializer(ModelSerializer):
 
     class Meta:
         model = Person
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
+        fields = ('id', 'cover', 'hide_cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'comment', 'publication_date', 'create_date', 'edit_date', 'is_active', 'meta_title',
                   'meta_description', 'meta_keywords', 'og_image', 'cover_author', 'content_author', 'show_two_banners')
 
@@ -239,7 +239,7 @@ class PlacesListSerializer(ModelSerializer):
 
     class Meta:
         model = Place
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'address', 'comment',
+        fields = ('id', 'cover', 'hide_cover', 'cover_format', 'cover_format_name', 'title', 'address', 'comment',
                   'publication_date', 'create_date', 'edit_date', 'is_active', 'reviews_count')
 
     def get_cover_format_name(self, instance):
@@ -259,7 +259,7 @@ class PlacesDetailSerializer(ModelSerializer):
 
     class Meta:
         model = Place
-        fields = ('id', 'cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
+        fields = ('id', 'cover', 'hide_cover', 'cover_format', 'cover_format_name', 'title', 'lead', 'descriptor', 'content',
                   'address', 'coordinates', 'schedule', 'contacts', 'site',  'instagram', 'comment',
                   'publication_date', 'meta_title', 'meta_description',
                   'meta_keywords', 'og_image', 'create_date', 'edit_date', 'is_active', 'cover_author',
