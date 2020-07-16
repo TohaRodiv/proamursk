@@ -353,7 +353,7 @@
                     _showVariants(event)
                 },
                 func: function (actionName, event) {
-                    var isToolbarClick = !event;
+                    var isToolbarClick = event ? event.target.getAttribute('data-action') === 'insertOrderedList' : '';
                     var listStyleType = event ? event.target.getAttribute('data-value') : '';
                     listStyleType = listStyleType ? listStyleType : '';
                     if (_actionState(actionName)) {
@@ -386,11 +386,12 @@
                     _showVariants(event)
                 },
                 func: function (actionName, event) {
-                    var isToolbarClick = !event;
+                    var isToolbarClick = event ? event.target.getAttribute('data-action') === 'insertUnorderedList' : '';
                     var listStyleType = event ? event.target.getAttribute('data-value') : '';
                     listStyleType = listStyleType ? listStyleType : '';
                     if (_actionState(actionName)) {
                         var actionElement = _findParentActionElement(actionName, _getCursorNode());
+
                         if (isToolbarClick && actionElement) {
                             _unlistSelected(actionName)
                         }
@@ -1320,6 +1321,7 @@
 
 
         function _insertList(listStyleType, isUnordered) {
+            console.log('_insertList');
             // Добавляет список
             var listItem;
             var tagName = isUnordered ? 'UL' : 'OL';
