@@ -115,6 +115,9 @@
         margin-bottom: 60px
 
 .city-guide-item
+    &_phones + .city-guide-item_phones
+        margin-top: 60px
+
     &__section
         margin-top: 40px
 
@@ -123,6 +126,11 @@
 
     &__cover
         margin-bottom: 30px
+
+        +media(m)
+            width: 100vw
+            max-width: 600px
+            margin-left: -16px
 
     &__text-wrap
         max-width: 640px

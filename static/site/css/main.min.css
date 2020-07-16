@@ -5492,6 +5492,9 @@ footer {
   margin-top: 60px;
   margin-bottom: 60px; }
 
+.city-guide-item_phones + .city-guide-item_phones {
+  margin-top: 60px; }
+
 .city-guide-item__section {
   margin-top: 40px; }
   .city-guide-item__section + .city-guide-item__section {
@@ -5499,6 +5502,11 @@ footer {
 
 .city-guide-item__cover {
   margin-bottom: 30px; }
+  @media (max-width: 1023px) {
+    .city-guide-item__cover {
+      width: 100vw;
+      max-width: 600px;
+      margin-left: -16px; } }
 
 .city-guide-item__text-wrap {
   max-width: 640px;
