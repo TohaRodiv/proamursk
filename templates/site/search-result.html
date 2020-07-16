@@ -19,14 +19,16 @@
                 </div>
             </div>
         {% else %}
-            <div class="tabs-wrap search-result-page" data-search-query="">
+            <div class="search-result-page" data-search-query="">
                 <div class="container">
-                    <div class="buttons-panel search-result-page__btns-panel">
-                        {% for tab, tab_data in result.items %}
-                            {% if tab_data.count > 0 %}
-                                <a href="{{ request.path_info }}?q={{ search_text }}&section={{ tab }}" class="btn btn_white-active search-result-page__btn {% if section == tab %}active{% endif %}" data-section="{{ tab }}">{{ tab_data.name }}<span class="btn__counter">{{ tab_data.count }}</span></a>
-                            {% endif %}
-                        {% endfor %}
+                    <div class="search-result-page__btns-panel-wrap">
+                        <div class="buttons-panel search-result-page__btns-panel js-scroll-to-active">
+                            {% for tab, tab_data in result.items %}
+                                {% if tab_data.count > 0 %}
+                                    <a href="{{ request.path_info }}?q={{ search_text }}&section={{ tab }}" class="btn btn_white-active search-result-page__btn {% if section == tab %}active{% endif %}" data-section="{{ tab }}">{{ tab_data.name }}<span class="btn__counter">{{ tab_data.count }}</span></a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <div class="layout-section">

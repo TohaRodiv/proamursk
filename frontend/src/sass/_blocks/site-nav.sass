@@ -69,12 +69,17 @@
                 display: inline-block
                 width: 24px
                 margin-right: 18px
-                font-size: 20px
+                font-size: 0
                 color: $base-c
                 text-align: center
+                vertical-align: -2px
 
+                &.icon-megafon-stroke,
                 &.icon-history
-                    font-size: 16px
+                    vertical-align: -4px
+
+                &::before
+                    font-size: 22px
 
 .footer__nav
     .site-nav

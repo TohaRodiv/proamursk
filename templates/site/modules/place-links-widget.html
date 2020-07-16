@@ -1,4 +1,4 @@
-<ul class="aside-nav__list">
+<ul class="aside-nav__list js-scroll-to-active">
     {% for item in guides %}
         <li class="aside-nav__item">
             <a href="{% url "city-guides-detail" item.id %}" class="aside-nav__link {% if item.id == guide.id %}active{% endif %}">

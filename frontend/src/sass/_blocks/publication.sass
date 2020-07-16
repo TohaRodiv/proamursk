@@ -74,11 +74,7 @@
             +media(m)
                 flex-wrap: wrap
 
-            & *
-                flex-shrink: 0
-
             & *:not(:last-child)
-
                 +media(m)
                     margin-right: 20px
 
@@ -87,13 +83,13 @@
 
         [class^="icon-"]
             display: inline-block
-            width: 18px
+            width: 24px
             height: 20px
-            margin-right: 5px
+            flex-shrink: 0
+            margin-right: 8px
             font-size: 0
             line-height: 20px
             color: $base-c
-            vertical-align: -2px
             text-align: center
 
             &::before
@@ -101,11 +97,13 @@
 
         .icon-bed
             vertical-align: 0
+
             &::before
                 font-size: 14px
 
         .icon-star-round
             vertical-align: -1px
+
             &::before
                 font-size: 15px
 
@@ -119,15 +117,14 @@
                 text-decoration: underline
 
     &__event-info
+        display: flex
+        align-items: baseline
         margin-bottom: 20px
 
     &__place-info-wrap
-        max-width: 640px
-        margin-left: auto
-        margin-right: auto
-
         +media(m)
             display: block
+
         & *
             +media(m)
                 display: block
@@ -163,12 +160,12 @@
 
             &:first-child
                 +media(d)
-                    width: 210px
+                    width: 220px
                     padding-right: 20px
 
             &:last-child
                 +media(m)
-                    padding-left: 28px
+                    padding-left: 36px
 
     &__title
         margin-bottom: 20px

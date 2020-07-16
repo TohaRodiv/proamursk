@@ -228,7 +228,9 @@
 
     &__navigation
         flex-shrink: 0
-        margin: 3px 0 0
+
+        +media(d)
+            margin: 3px 0 0
 
     &__arrow
         width: 24px
@@ -247,6 +249,9 @@
 
         &::before
             font-size: 12px
+
+        +media(m)
+            display: none
 
 .post-editor__block_quote
     .quote
