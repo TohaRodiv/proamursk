@@ -7872,6 +7872,20 @@ function hideBtnPreloader() {
 }
 "use strict";
 
+var scrollList = document.querySelectorAll('.js-scroll-to-active');
+
+if (scrollList.length) {
+  scrollList.forEach(function (item) {
+    var activeEl = item.querySelector('.active');
+
+    if (activeEl) {
+      var activeElLeft = activeEl.offsetLeft;
+      item.scrollLeft = activeElLeft - 16;
+    }
+  });
+}
+"use strict";
+
 function hideSearch() {
   $('.js-close-search').addClass('hidden');
   $('.header__search-btn').removeClass('visually-hidden');

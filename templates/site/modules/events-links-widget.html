@@ -1,6 +1,6 @@
 {% load static static_version %}
 
-<ul class="aside-nav__list">
+<ul class="aside-nav__list js-scroll-to-active">
     <li class="aside-nav__item">
         <a href="{% url "events-list-future" %}" class="aside-nav__link {% if request.resolver_match.url_name == "events-list-future" %}active{% endif %}">
             <span class="aside-nav__icon icon-megafon-fill"></span>

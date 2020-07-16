@@ -15,209 +15,169 @@
 
     <div class="tabs-wrap search-result-page" data-search-query="">
         <div class="container">
-            <div class="tab__btns-wrap buttons-panel search-result-page__btns-panel">
-                <button class="btn btn_white-active tab__btn js-tab__btn search-result-page__btn">Все<span class="btn__counter">168</span></button>
-                <button class="btn btn_white-active tab__btn js-tab__btn search-result-page__btn">Новости<span class="btn__counter">2</span></button>
-                <button class="btn btn_white-active tab__btn js-tab__btn search-result-page__btn">События<span class="btn__counter">4</span></button>
-                <button class="btn btn_white-active tab__btn js-tab__btn search-result-page__btn">История<span class="btn__counter">5</span></button>
-                <button class="btn btn_white-active tab__btn js-tab__btn search-result-page__btn">Места<span class="btn__counter">8</span></button>
-                <button class="btn btn_white-active tab__btn js-tab__btn search-result-page__btn">Гид по городу<span class="btn__counter">10</span></button>
-                <button class="btn btn_white-active tab__btn js-tab__btn search-result-page__btn">Люди<span class="btn__counter">7</span></button>
-                <button class="btn btn_white-active tab__btn js-tab__btn search-result-page__btn">Спецпроекты<span class="btn__counter">1</span></button>
+            <div class="search-result-page__btns-panel-wrap">
+                <div class="buttons-panel search-result-page__btns-panel js-scroll-to-active">
+                    <div class="buttons-panel search-result-page__btns-panel js-scroll-to-active">
+                        <a href="search-result.html?q=амур&amp;section=news" class="btn btn_white-active search-result-page__btn" data-section="news">Новости<span class="btn__counter">211</span></a>
+                        <a href="search-result.html?q=амур&amp;section=events" class="btn btn_white-active search-result-page__btn" data-section="events">События<span class="btn__counter">167</span></a>
+                        <a href="search-result.html?q=амур&amp;section=reports" class="btn btn_white-active search-result-page__btn active" data-section="reports">Репортажи<span class="btn__counter">153</span></a>
+                        <a href="search-result.html?q=амур&amp;section=history" class="btn btn_white-active search-result-page__btn" data-section="history">История<span class="btn__counter">18</span></a>
+                        <a href="search-result.html?q=амур&amp;section=place" class="btn btn_white-active search-result-page__btn" data-section="place">Места<span class="btn__counter">10</span></a>
+                        <a href="search-result.html?q=амур&amp;section=guides" class="btn btn_white-active search-result-page__btn" data-section="guides">Гид по городу<span class="btn__counter">4</span></a>
+                        <a href="search-result.html?q=амур&amp;section=persons" class="btn btn_white-active search-result-page__btn" data-section="persons">Люди<span class="btn__counter">32</span></a>
+                        <a href="search-result.html?q=амур&amp;section=specials" class="btn btn_white-active search-result-page__btn" data-section="specials">Спецпроекты<span class="btn__counter">3</span></a
+                    </div>
+                </div>
             </div>
 
             <div class="layout-section">
-                <div class="tab__content-wrap">
-                    <div class="tab__content">
-                        <div class="js-infinity-loader-wrap items-grid">
-                            <div class="base-4items-grid js-infinity-loader-grid">
-                                @@include("modules/grid-publication.html", {
-                                    "class": "grid-publication_format-base",
-                                    "link": "people-details.html",
-                                    "img": "images/local/grid-cover-3-base1.jpg",
-                                    "title": "Амурские теплицы",
-                                    "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
-                                    "wobbler": "people"
-                                })
+                <div class="js-infinity-loader-wrap items-grid">
+                    <div class="base-4items-grid js-infinity-loader-grid">
+                        @@include("modules/grid-publication.html", {
+                            "class": "grid-publication_format-base",
+                            "link": "people-details.html",
+                            "img": "images/local/grid-cover-3-base1.jpg",
+                            "title": "Амурские теплицы",
+                            "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
+                            "wobbler": "people"
+                        })
 
-                                @@include("modules/grid-publication.html", {
-                                    "class": "grid-publication_format-base",
-                                    "link": "people-details.html",
-                                    "img": "images/local/grid-cover-3-base2.jpg",
-                                    "title": "Я люблю Амурск спортивный!",
-                                    "description": "Здесь рождается искусство",
-                                    "wobbler": "news"
-                                })
+                        @@include("modules/grid-publication.html", {
+                            "class": "grid-publication_format-base",
+                            "link": "people-details.html",
+                            "img": "images/local/grid-cover-3-base2.jpg",
+                            "title": "Я люблю Амурск спортивный!",
+                            "description": "Здесь рождается искусство",
+                            "wobbler": "news"
+                        })
 
-                                @@include("modules/grid-city-guide.html", {
-                                    "link": "city-guide-transport.html",
-                                    "img": "images/svg/city-guide-cover-transport.svg",
-                                    "title": "Как перемещаться по городу?",
-                                    "description": "Все маршруты городского и пригородного транспорта"
-                                })
+                        @@include("modules/grid-city-guide.html", {
+                            "link": "city-guide-transport.html",
+                            "img": "images/svg/city-guide-cover-transport.svg",
+                            "title": "Как перемещаться по городу?",
+                            "description": "Все маршруты городского и пригородного транспорта"
+                        })
 
-                                @@include("modules/grid-city-guide.html", {
-                                    "link": "city-guide-activities.html",
-                                    "img": "images/svg/city-guide-cover-activities.svg",
-                                    "title": "Что посмотреть?",
-                                    "description": "Краткий гид для прогулок"
-                                })
+                        @@include("modules/grid-city-guide.html", {
+                            "link": "city-guide-activities.html",
+                            "img": "images/svg/city-guide-cover-activities.svg",
+                            "title": "Что посмотреть?",
+                            "description": "Краткий гид для прогулок"
+                        })
 
-                                @@include("modules/grid-city-guide.html", {
-                                    "link": "city-guide-food.html",
-                                    "img": "images/svg/city-guide-cover-food.svg",
-                                    "title": "Где поесть?",
-                                    "description": "Самые вкусные заведения Амурска"
-                                })
+                        @@include("modules/grid-city-guide.html", {
+                            "link": "city-guide-food.html",
+                            "img": "images/svg/city-guide-cover-food.svg",
+                            "title": "Где поесть?",
+                            "description": "Самые вкусные заведения Амурска"
+                        })
 
-                                @@include("modules/grid-city-guide.html", {
-                                    "link": "city-guide-phones.html",
-                                    "img": "images/svg/city-guide-cover-phones.svg",
-                                    "title": "Куда звонить в Амурске?",
-                                    "description": "Если что-то пошло не так"
-                                })
+                        @@include("modules/grid-city-guide.html", {
+                            "link": "city-guide-phones.html",
+                            "img": "images/svg/city-guide-cover-phones.svg",
+                            "title": "Куда звонить в Амурске?",
+                            "description": "Если что-то пошло не так"
+                        })
 
-                                @@include("modules/grid-city-guide.html", {
-                                    "link": "city-guide-hotel.html",
-                                    "img": "images/svg/city-guide-cover-hotel.svg",
-                                    "title": "Где остановиться?",
-                                    "description": "Если вы еще не живете в Амурске"
-                                })
+                        @@include("modules/grid-city-guide.html", {
+                            "link": "city-guide-hotel.html",
+                            "img": "images/svg/city-guide-cover-hotel.svg",
+                            "title": "Где остановиться?",
+                            "description": "Если вы еще не живете в Амурске"
+                        })
 
 
-                                @@include("page-block/search-cinema-widget.html")
+                        @@include("page-block/search-cinema-widget.html")
 
-                                @@include("modules/grid-publication.html", {
-                                    "class": "grid-publication_format-full",
-                                    "link": "people-details.html",
-                                    "img": "images/local/grid-cover-3-full1.jpg",
-                                    "title": "Центральная городская библиотека",
-                                    "description": "Место, где пахнет книгами",
-                                    "wobbler": "place"
-                                })
+                        @@include("modules/grid-publication.html", {
+                            "class": "grid-publication_format-full",
+                            "link": "people-details.html",
+                            "img": "images/local/grid-cover-3-full1.jpg",
+                            "title": "Центральная городская библиотека",
+                            "description": "Место, где пахнет книгами",
+                            "wobbler": "place"
+                        })
 
-                                @@include("modules/grid-publication.html", {
-                                    "class": "grid-publication_format-base",
-                                    "link": "people-details.html",
-                                    "img": "images/local/grid-cover-3-base3.jpg",
-                                    "title": "Центр творчества «Темп»",
-                                    "description": "Cамое крупное учреждение дополнительного образования в Амурском районе",
-                                    "wobbler": "reportage"
-                                })
-                                @@include("modules/grid-event.html", {
-                                    "class": "grid-publication_format-base",
-                                    "link": "reportage-details.html",
-                                    "img": "images/local/grid-cover-3-base2.jpg",
-                                    "title": "Музей природы Приамурья",
-                                    "place": "Дворец культуры",
-                                    "date": "20 октября",
-                                    "wobbler": "past-event",
-                                    "addLink": true
-                                })
+                        @@include("modules/grid-publication.html", {
+                            "class": "grid-publication_format-base",
+                            "link": "people-details.html",
+                            "img": "images/local/grid-cover-3-base3.jpg",
+                            "title": "Центр творчества «Темп»",
+                            "description": "Cамое крупное учреждение дополнительного образования в Амурском районе",
+                            "wobbler": "reportage"
+                        })
+                        @@include("modules/grid-event.html", {
+                            "class": "grid-publication_format-base",
+                            "link": "reportage-details.html",
+                            "img": "images/local/grid-cover-3-base2.jpg",
+                            "title": "Музей природы Приамурья",
+                            "place": "Дворец культуры",
+                            "date": "20 октября",
+                            "wobbler": "past-event",
+                            "addLink": true
+                        })
 
-                                @@include("modules/grid-event.html", {
-                                    "class": "grid-publication_format-full",
-                                    "link": "film-announcement.html",
-                                    "img": "images/local/grid-cover-3-full2.jpg",
-                                    "title": "Ночь кино в Амурске!",
-                                    "place": "Кинотеатр «Молодость»",
-                                    "date": "3 февраля, 18.00",
-                                    "wobbler": "announcement",
-                                    "addLink": true
-                                })
+                        @@include("modules/grid-event.html", {
+                            "class": "grid-publication_format-full",
+                            "link": "film-announcement.html",
+                            "img": "images/local/grid-cover-3-full2.jpg",
+                            "title": "Ночь кино в Амурске!",
+                            "place": "Кинотеатр «Молодость»",
+                            "date": "3 февраля, 18.00",
+                            "wobbler": "announcement",
+                            "addLink": true
+                        })
 
-                                @@include("modules/grid-event.html", {
-                                    "class": "grid-publication_format-base",
-                                    "link": "reportage-details.html",
-                                    "img": "images/local/grid-cover-3-base4.jpg",
-                                    "title": "Я люблю Амурск спортивный!",
-                                    "place": "ДЮСШ",
-                                    "date": "3 февраля, 18.00",
-                                    "wobbler": "past-event",
-                                    "addLink": false
-                                })
+                        @@include("modules/grid-event.html", {
+                            "class": "grid-publication_format-base",
+                            "link": "reportage-details.html",
+                            "img": "images/local/grid-cover-3-base4.jpg",
+                            "title": "Я люблю Амурск спортивный!",
+                            "place": "ДЮСШ",
+                            "date": "3 февраля, 18.00",
+                            "wobbler": "past-event",
+                            "addLink": false
+                        })
 
-                                @@include("modules/grid-event.html", {
-                                    "class": "grid-publication_format-base",
-                                    "link": "event-announcement.html",
-                                    "img": "images/local/grid-cover-3-base5.jpg",
-                                    "title": "Фестиваль «Станица»",
-                                    "place": "Дворец культуры",
-                                    "date": "17 февраля, 14:00",
-                                    "wobbler": "announcement",
-                                    "addLink": false
-                                })
-                                @@include("modules/grid-publication.html", {
-                                    "class": "grid-publication_format-base",
-                                    "link": "reportage-details.html",
-                                    "img": "images/local/grid-cover-3-base6.jpg",
-                                    "title": "Я люблю Амурск спортивный!",
-                                    "description": "ДЮСШ",
-                                    "wobbler": "news"
-                                })
+                        @@include("modules/grid-event.html", {
+                            "class": "grid-publication_format-base",
+                            "link": "event-announcement.html",
+                            "img": "images/local/grid-cover-3-base5.jpg",
+                            "title": "Фестиваль «Станица»",
+                            "place": "Дворец культуры",
+                            "date": "17 февраля, 14:00",
+                            "wobbler": "announcement",
+                            "addLink": false
+                        })
+                        @@include("modules/grid-publication.html", {
+                            "class": "grid-publication_format-base",
+                            "link": "reportage-details.html",
+                            "img": "images/local/grid-cover-3-base6.jpg",
+                            "title": "Я люблю Амурск спортивный!",
+                            "description": "ДЮСШ",
+                            "wobbler": "news"
+                        })
 
-                                @@include("modules/grid-publication.html", {
-                                    "class": "grid-publication_format-base",
-                                    "link": "event-announcement.html",
-                                    "img": "images/local/grid-cover-3-base7.jpg",
-                                    "title": "Фестиваль «Станица»",
-                                    "description": "Дворец культуры",
-                                    "wobbler": "place"
-                                })
-                                @@include("modules/grid-event.html", {
-                                    "class": "grid-publication_format-full",
-                                    "link": "film-announcement.html",
-                                    "img": "images/local/grid-cover-3-full5.jpg",
-                                    "title": "Ночь кино в Амурске!",
-                                    "place": "Кинотеатр «Молодость»",
-                                    "date": "3 февраля, 18.00",
-                                    "wobbler": "announcement",
-                                    "addLink": false
-                                })
-                            </div>
-                            <button class="btn btn_blue btn_more js-btn_more btn_center js-more-search-result" data-page-count="2">Показать еще <span class="icon-arrow-down-dir"></span></button>
-                        </div>
+                        @@include("modules/grid-publication.html", {
+                            "class": "grid-publication_format-base",
+                            "link": "event-announcement.html",
+                            "img": "images/local/grid-cover-3-base7.jpg",
+                            "title": "Фестиваль «Станица»",
+                            "description": "Дворец культуры",
+                            "wobbler": "place"
+                        })
+                        @@include("modules/grid-event.html", {
+                            "class": "grid-publication_format-full",
+                            "link": "film-announcement.html",
+                            "img": "images/local/grid-cover-3-full5.jpg",
+                            "title": "Ночь кино в Амурске!",
+                            "place": "Кинотеатр «Молодость»",
+                            "date": "3 февраля, 18.00",
+                            "wobbler": "announcement",
+                            "addLink": false
+                        })
                     </div>
-
-                    <div class="tab__content">
-                        <div class="base-4items-grid items-grid">
-                            @@include("modules/grid-publication.html", {
-                                "class": "grid-publication_format-base",
-                                "link": "people-details.html",
-                                "img": "images/local/grid-cover-3-base2.jpg",
-                                "title": "Амурские теплицы",
-                                "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
-                                "wobbler": "news"
-                            })
-
-                            @@include("modules/grid-publication.html", {
-                                "class": "grid-publication_format-base",
-                                "link": "people-details.html",
-                                "img": "images/local/grid-cover-3-base9.jpg",
-                                "title": "Я люблю Амурск спортивный!",
-                                "description": "Здесь рождается искусство",
-                                "wobbler": "news"
-                            })
-
-                            @@include("modules/grid-publication.html", {
-                                "class": "grid-publication_format-full",
-                                "link": "people-details.html",
-                                "img": "images/local/grid-cover-3-full2.jpg",
-                                "title": "Центральная городская библиотека",
-                                "description": "Место, где пахнет книгами",
-                                "wobbler": "news"
-                            })
-
-                            @@include("modules/grid-publication.html", {
-                                "class": "grid-publication_format-base",
-                                "link": "people-details.html",
-                                "img": "images/local/grid-cover-3-base4.jpg",
-                                "title": "Центр творчества «Темп»",
-                                "description": "Cамое крупное учреждение дополнительного образования в Амурском районе",
-                                "wobbler": "news"
-                            })
-                        </div>
-                    </div>
+                    <button class="btn btn_blue btn_more js-btn_more btn_center js-more-search-result" data-page-count="2">Показать еще <span class="icon-arrow-down-dir"></span></button>
                 </div>
             </div>
         </div>
