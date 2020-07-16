@@ -49,7 +49,7 @@
                 <a href="{% url "index" %}" class="header__logo-link">
                     <img src="{% static "site/images/svg/logo-header.svg" %}{% static_version %}" alt="проАмурск" class="header__logo-img">
                     {% with url_name=request.resolver_match.url_name %}
-                        {% if url_name == 'index' or url_name == 'policy' %}
+                        {% if url_name == 'index' or url_name == 'policy' or url_name == 'search' %}
                             <span class="header__logo-icon icon-logo-sign"></span>
                         {% endif %}
 
@@ -57,7 +57,7 @@
                             <span class="header__logo-icon icon-logo-news"></span>
                         {% endif %}
 
-                        {% if url_name == 'events-index' or url_name == 'events-list-future' or url_name == 'events-list-past' or url_name == 'events-detail' or url_name == 'reports-list' or url_name == 'films-detail' %}
+                        {% if url_name == 'events-index' or url_name == 'events-list-future' or url_name == 'events-list-past' or url_name == 'events-detail' or url_name == 'reports-list' or url_name == 'reports-detail' or url_name == 'films-detail' %}
                             <span class="header__logo-icon icon-logo-event"></span>
                         {% endif %}
 
@@ -65,7 +65,7 @@
                             <span class="header__logo-icon icon-logo-history"></span>
                         {% endif %}
 
-                        {% if url_name == 'places-list' or url_name == 'places-detail' %}
+                        {% if url_name == 'places-list' or url_name == 'places-detail' or url_name == 'city-guides-detail' %}
                             <span class="header__logo-icon icon-geo-stroke"></span>
                         {% endif %}
 
