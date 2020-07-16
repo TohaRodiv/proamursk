@@ -48,6 +48,15 @@ const state = {
                 },
             },
             {
+                type: 'bool',
+                codename: 'hide_cover',
+                is_sortable: false,
+                sort: {},
+                align_text: 'center',
+                name: 'Обложка на моб. устр.',
+                width: 150,
+            },
+            {
                 name: 'Ссылка',
                 type: 'link',
                 is_sortable: false,
@@ -120,6 +129,32 @@ const state = {
                 },
                 input_type: 'toFromDate',
                 type: 'date_time',
+            },
+            {
+                filterTitle: 'Обложки на моб. устр.',
+                queryName: 'hide_cover',
+                input_type: 'radiobuttonsList',
+                callbackValue: 'value',
+                values: [
+                    {
+                        id: 2,
+                        name: 'Все новости',
+                        value: '',
+                        checked: true,
+                    },
+                    {
+                        id: 1,
+                        name: 'Только с обложкой',
+                        value: 'true',
+                        checked: false,
+                    },
+                    {
+                        id: 0,
+                        name: 'Только без обложки',
+                        value: 'false',
+                        checked: false,
+                    },
+                ],
             },
             {
                 filterTitle: 'Дата создания',
