@@ -5111,9 +5111,15 @@ footer {
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #7A8BA1; }
+          align-items: center; }
+  @media (max-width: 1023px) {
+    .reviews__title-wrap {
+      padding-bottom: 24px;
+      border-bottom: 1px solid #D7DBE0; } }
+  @media (min-width: 1024px) {
+    .reviews__title-wrap {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #7A8BA1; } }
 
 .reviews__title {
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
@@ -5121,7 +5127,7 @@ footer {
   @media (max-width: 1023px) {
     .reviews__title {
       margin-right: 10px;
-      font-size: 22px; } }
+      font-size: 24px; } }
   @media (min-width: 1024px) {
     .reviews__title {
       margin-right: 20px;
@@ -5134,20 +5140,21 @@ footer {
   color: #FFFFFF;
   letter-spacing: 0.02em;
   text-align: center;
-  background-color: #0073FF;
-  border-radius: 24px; }
+  background-color: #0073FF; }
   @media (max-width: 1023px) {
     .reviews__counter {
-      min-width: 32px;
-      height: 32px;
-      line-height: 34px;
-      font-size: 18px; } }
+      min-width: 36px;
+      height: 36px;
+      line-height: 38px;
+      font-size: 24px;
+      border-radius: 18px; } }
   @media (min-width: 1024px) {
     .reviews__counter {
       min-width: 48px;
       height: 48px;
       line-height: 50px;
-      font-size: 36px; } }
+      font-size: 36px;
+      border-radius: 24px; } }
 
 .reviews__btns-wrap {
   display: -webkit-box;
@@ -5179,35 +5186,69 @@ footer {
   letter-spacing: 0.02em;
   color: #0073FF; }
 
-.reviews-list {
-  margin-top: 20px; }
+@media (max-width: 1023px) {
+  .reviews-list {
+    margin-top: 16px; } }
 
-.review:not(:last-child) {
-  margin-bottom: 40px; }
+@media (min-width: 1024px) {
+  .reviews-list {
+    margin-top: 20px; } }
+
+@media (max-width: 1023px) {
+  .review:not(:last-child) {
+    margin-bottom: 32px; } }
+
+@media (min-width: 1024px) {
+  .review:not(:last-child) {
+    margin-bottom: 40px; } }
 
 .review__head {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 20px; }
+          align-items: center; }
+  @media (max-width: 1023px) {
+    .review__head {
+      margin-bottom: 8px; } }
+  @media (min-width: 1024px) {
+    .review__head {
+      margin-bottom: 20px; } }
 
 .review__date {
   margin-right: 20px;
-  font-size: 14px;
   letter-spacing: 0.08em;
   color: #7A7A7A; }
+  @media (max-width: 1023px) {
+    .review__date {
+      margin-bottom: 8px;
+      font-size: 12px; } }
+  @media (min-width: 1024px) {
+    .review__date {
+      font-size: 14px; } }
 
 .review__name {
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
-  font-size: 14px;
   letter-spacing: 0.02em; }
+  @media (max-width: 1023px) {
+    .review__name {
+      margin-bottom: 8px;
+      font-size: 12px; } }
+  @media (min-width: 1024px) {
+    .review__name {
+      font-size: 14px; } }
 
 .review__text {
-  font-size: 16px;
   line-height: 1.5; }
+  @media (max-width: 1023px) {
+    .review__text {
+      font-size: 18px; } }
+  @media (min-width: 1024px) {
+    .review__text {
+      font-size: 16px; } }
 
 @media (min-width: 1024px) {
   .privacy-page {
