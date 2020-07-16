@@ -288,8 +288,13 @@ main {
       background-color: #3a4961;
       text-decoration: none; }
   .btn_more {
-    display: block;
-    margin-top: 40px; }
+    display: block; }
+    @media (max-width: 1023px) {
+      .btn_more {
+        margin-top: 32px; } }
+    @media (min-width: 1024px) {
+      .btn_more {
+        margin-top: 40px; } }
     .btn_more span {
       margin-left: 10px;
       font-size: 0; }
