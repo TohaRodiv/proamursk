@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after
+    box-sizing: border-box
+
+body
+    position: relative
+    min-width: 1380px
+    min-height: 100vh
+    margin: 0
+    padding: 0
+    font-family: $base-f
+    font-size: $base-fz
+    line-height: $mini-lh
+    color: $dark-c
+    -webkit-text-size-adjust: none
+    -webkit-overflow-scrolling: touch
+    text-rendering: optimizeLegibility
+    -moz-osx-font-smoothing: grayscale
+    font-smoothing: antialiased
+    -webkit-font-smoothing: antialiased
+
+img
+    max-width: 100%
+
+b, strong
+    font-family: $bold-f
+
+a,
+button
+    &:focus,
+    &:active
+        outline: none
+
+button
+    margin: 0
+    padding: 0
+    font-size: inherit
+    line-height: inherit
+    font-family: inherit
+    color: inherit
+    background-color: transparent
+    border: none
+    box-shadow: none
+    cursor: pointer
+
+h1
+    margin: 0
+    font-size: $h1-fz
+
+h2
+    margin: 0
+    font-size: $h2-fz
+
+h3
+    margin: 0
+    font-size: $h3-fz
+
+h4
+    margin: 0
+    font-size: $h4-fz
+
+h5
+    margin: 0
+    font-size: $h5-fz
+
+h6
+    margin: 0
+    font-size: $h6-fz
+
+figure, figcaption
+    margin: 0
+
+p
+    margin-top: 0
+    margin-bottom: 0
+    line-height: $base-lh
+
+ul, ol
+    list-style: none
+
+[hidden],
+.hidden
+    display: none !important
+
+.disabled,
+*:disabled
+    pointer-events: none
+    cursor: default
+
+.visually-hidden
+    visibility: hidden
+
+.no-action
+    pointer-events: none
+    cursor: default
+
+.body-overlay
+    position: absolute
+    top: 0
+    z-index: 10
+    width: 100%
+    height: 100%
+    background: rgba($dark-c, .3)
+    cursor: pointer
+
+.lazy-image-outer
+    background-color: $light-gray
+
+.accent_blue
+    color: $base-c
+
+.container
+    position: relative
+    width: 1300px
+    margin-right: auto
+    margin-left: auto
+
+.layout-section
+    margin-top: 40px
+
+.light-bg
+    background-color: #F5F6F7
+    padding-bottom: 40px
+
+.light-bg + .layout-section
+    margin-top: 0

@@ -121,6 +121,19 @@ const state = {
                         direction: 'row',
                         elements: [
                             {
+                                widget: 'singleCheckbox',
+                                label: '',
+                                name: 'Скрывать обложку в списке публикаций на мобильных устройствах',
+                                codename: 'hide_cover',
+                            },
+                        ],
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom20',
+                        direction: 'row',
+                        elements: [
+                            {
                                 label: 'Автор обложки или источник',
                                 width: 8,
                                 codename: 'cover_author',

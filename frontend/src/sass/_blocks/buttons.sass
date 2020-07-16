@@ -47,7 +47,12 @@
 
     &_more
         display: block
-        margin-top: 40px
+
+        +media(m)
+            margin-top: 32px
+
+        +media(d)
+            margin-top: 40px
 
         span
             margin-left: 10px
@@ -75,10 +80,11 @@
 
     &_size
         &_big
-            height: 60px
-            padding: 18px 40px
-            font-size: $h4-fz
-            border-radius: 30px
+            +media(d)
+                height: 60px
+                padding: 18px 40px
+                font-size: $h4-fz
+                border-radius: 30px
 
 .btn__counter
     margin-left: 5px

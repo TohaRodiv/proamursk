@@ -1,7 +1,6 @@
 {% load static static_version site_tags %}
 <!DOCTYPE html>
 <html lang="ru">
-
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes" />
@@ -82,18 +81,41 @@
                     <span class="header__logo-subtext">МЕСТА, СОБЫТИЯ, ЛЮДИ</span>
                 </a>
 
-                <img src="{% static "site/images/svg/header-pattern.svg" %}{% static_version %}" alt="" class="header__pattern">
+                <img src="{% static "site/images/svg/header-pattern.svg" %}{% static_version %}" alt="" class="header__pattern header__pattern_desktop">
 
                 {% get_weather as temp %}
                 <div class="header__weather-widget">{% if temp %}{{ temp }} C°{% endif %}</div>
 
-                <div class="header__nav">
-                    {% include "site/page-block/site-nav.html" %}
+                <div class="header__nav-wrap js-mobile-menu">
+                    <div class="header__nav-wrap_inner">
+                        <div class="header__nav">
+                            {% include "site/page-block/site-nav.html" %}
+                        </div>
+                        <div class="header-mobile-nav__bottom-section">
+                            <div class="header__social-wrap">
+                                <div class="social-wrap">
+                                    {% if request.SETTINGS.instagram %}
+                                        <a href="{{ request.SETTINGS.instagram }}" class="social-link icon-instagram" alt="Инстаграм" target="_blank"></a>
+                                    {% endif %}
+                                    {% if request.SETTINGS.odnoklassniki %}
+                                        <a href="{{ request.SETTINGS.odnoklassniki }}" class="social-link icon-odnoklassniki" alt="Одноклассники" target="_blank"></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="header__mobile-actions">
+                                <button class="show-pop-up" data-pop-up="to-editor">Написать в редакцию</button>
+                                <a href="{% url "policy" %}">Политика конфиденциальности</a>
+                                <a href="http://piligrims.ru/" target="_blank" class="footer__copyright">Нарисовано в студии «Пилигрим»</a>
+                                <a href="http://perfectura.ru/" target="_blank" class="footer__copyright">Сделано в студии «Перфектура»</a>
+                                <div class="header__mobile-copyright">© 2019, ПроАмурск </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <button class="header__search-btn icon-search"></button>
-                <button class="header__close-search-btn js-close-search icon-close hidden"></button>
-            </div>
+                <button class="header__menu-toggler js-mobile-menu-toggler icon-menu"></button>
         </header>
 
 
@@ -121,6 +143,11 @@
     {#            </div>#}
 
                 <a href="{{ request.SETTINGS.instagram }}" class="footer__instagram-banner-link" target="_blank"><img src="" data-src="{% static "site/images/instagram-footer.jpg" %}{% static_version %}" alt="" class="instagram-banner instagram-banner_footer lazyload"></a>
+                <a href="{{ request.SETTINGS.instagram }}" class="footer__instagram-mobile-block" target="_blank">
+                    <span class="icon-instagram"></span>
+                    <h3>Вся интересная жизнь Амурска в&nbsp;вашем телефоне</h3>
+                    <p>Подписывайтесь на&nbsp;нас в&nbsp;«Инстаграме» @proamursk.ru</p>
+                </a>
 
                 <div class="footer__main">
                     <div class="footer-top">
@@ -150,16 +177,11 @@
                 </div>
 
                 <div class="footer__copyright-section">
-                    <div class="footer__copyright-subblock">
-                        <div class="footer__company-copyright">© 2019, ПроАмурск </div>
-                        <button class="show-pop-up" data-pop-up="to-editor">Написать в редакцию</button>
-                        <a href="{% url "policy" %}">Политика конфиденциальности</a>
-                    </div>
-
-                    <div class="footer__copyrights-wrap">
-                        <a href="http://piligrims.ru/" target="_blank" class="footer__copyright">Нарисовано в студии «Пилигрим»</a>
-                        <a href="http://perfectura.ru/" target="_blank" class="footer__copyright">Сделано в студии «Перфектура»</a>
-                    </div>
+                    <button class="show-pop-up" data-pop-up="to-editor">Написать в редакцию</button>
+                    <a href="{% url "policy" %}">Политика конфиденциальности</a>
+                    <a href="http://piligrims.ru/" target="_blank" class="footer__copyright">Нарисовано в студии «Пилигрим»</a>
+                    <a href="http://perfectura.ru/" target="_blank" class="footer__copyright">Сделано в студии «Перфектура»</a>
+                    <div class="footer__company-copyright">© {% now "Y" %}, ПроАмурск</div>
                 </div>
             </div>
         </footer>
@@ -168,6 +190,5 @@
 
         {{ request.SETTINGS.google_count|safe }}
         {{ request.SETTINGS.yandex_count|safe }}
-
     </body>
 </html>

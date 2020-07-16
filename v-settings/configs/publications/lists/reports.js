@@ -88,6 +88,15 @@ const state = {
                 sort: 'none',
             },
             {
+                type: 'bool',
+                codename: 'hide_cover',
+                is_sortable: false,
+                sort: {},
+                align_text: 'center',
+                name: 'Скрытая обл. на моб.',
+                width: 150,
+            },
+            {
                 name: 'Ссылка',
                 type: 'link',
                 is_sortable: false,
@@ -164,6 +173,32 @@ const state = {
                     {
                         codename: 'full',
                         name: 'Полноразмерная обложка',
+                    },
+                ],
+            },
+            {
+                filterTitle: 'Скрытая обл. на моб.',
+                queryName: 'hide_cover',
+                input_type: 'radiobuttonsList',
+                callbackValue: 'value',
+                values: [
+                    {
+                        id: 2,
+                        name: 'Все репортажи',
+                        value: '',
+                        checked: true,
+                    },
+                    {
+                        id: 1,
+                        name: 'Только с обложкой',
+                        value: 'false',
+                        checked: false,
+                    },
+                    {
+                        id: 0,
+                        name: 'Только без обложки',
+                        value: 'true',
+                        checked: false,
                     },
                 ],
             },

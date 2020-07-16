@@ -1,13 +1,12 @@
-<div class="aside-nav-widget">
-    <ul class="aside-nav__list">
-        {% for item in guides %}
-            <li class="aside-nav__item">
-                <a href="{% url "city-guides-detail" item.id %}" class="aside-nav__link {% if item.id == guide.id %}active{% endif %}">
-                    <span class="aside-nav__icon icon-{{ item.guide_format }}"></span>
-                    <span class="aside-nav__text">{{ item.title }}</span>
-                </a>
-            </li>
-        {% endfor %}
+<ul class="aside-nav__list">
+    {% for item in guides %}
+        <li class="aside-nav__item">
+            <a href="{% url "city-guides-detail" item.id %}" class="aside-nav__link {% if item.id == guide.id %}active{% endif %}">
+                <span class="aside-nav__icon icon-{{ item.guide_format }}"></span>
+                <span class="aside-nav__text">{{ item.title }}</span>
+            </a>
+        </li>
+    {% endfor %}
 
 {#        <li class="aside-nav__item">#}
 {#            <a href="city-guide-transport.html" class="aside-nav__link @@if (active === 'transport') {active}">#}
@@ -22,5 +21,4 @@
 {#                <span class="aside-nav__text">Полезные телефоны</span>#}
 {#            </a>#}
 {#        </li>#}
-    </ul>
-</div>
+</ul>

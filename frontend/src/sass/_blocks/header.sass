@@ -1,7 +1,17 @@
 header
-    border-bottom: 1px solid #D7DBE0
-    color: $dark-c
-    height: 100px
+    position: relative
+    z-index: 999
+
+    +media(m)
+        height: 70px
+        box-shadow: 0 1px 5px #d7e2ee
+
+        &.no-shadow
+            box-shadow: none
+
+    +media(d)
+        height: 100px
+        border-bottom: 1px solid #D7DBE0
 
 .header-container
     height: 100%
@@ -10,8 +20,6 @@ header
 
 .header
     &__logo-link
-        margin-bottom: 24px
-        height: 67px
         display: flex
         flex-direction: column
         justify-content: flex-end
@@ -19,12 +27,24 @@ header
         z-index: 2
         text-decoration: none
 
+        +media(m)
+            height: 45px
+            align-self: flex-start
+            margin-top: 5px
+
+        +media(d)
+            height: 67px
+            margin-bottom: 24px
+
     &__logo-subtext
         margin-top: 6px
         font-size: 11px
         line-height: $micro-lh
         letter-spacing: 0.07em
         color: #242434
+
+        +media(m)
+            display: none
 
     &__logo-img
         display: block
@@ -36,66 +56,155 @@ header
         font-size: 0
 
         &.icon-logo-sign
-            bottom: 39px
             right: 19px
             &::before
                 font-size: 8px
 
+            +media(m)
+                bottom: 20px
+
+            +media(d)
+                bottom: 40px
+
         &.icon-logo-news
-            bottom: 40px
-            right: 19px
-            &::before
-                font-size: 19px
+            +media(m)
+                right: 22px
+                bottom: 24px
+
+                &::before
+                    font-size: 17px
+
+            +media(d)
+                right: 19px
+                bottom: 40px
+
+                &::before
+                    font-size: 19px
 
         &.icon-logo-event
-            bottom: 37px
             right: 26px
-            &::before
-                font-size: 21px
+
+            +media(m)
+                bottom: 22px
+
+                &::before
+                    font-size: 19px
+
+            +media(d)
+                bottom: 37px
+
+                &::before
+                    font-size: 21px
 
         &.icon-logo-history
-            bottom: 37px
-            right: 16px
-            &::before
-                font-size: 18px
+            +media(m)
+                bottom: 21px
+                right: 17px
+
+                &::before
+                    font-size: 16px
+
+            +media(d)
+                bottom: 37px
+                right: 16px
+                &::before
+                    font-size: 18px
 
         &.icon-geo-stroke
-            bottom: 35px
-            right: 19px
-            &::before
-                font-size: 24px
+            +media(m)
+                bottom: 19px
+                right: 19px
+
+                &::before
+                    font-size: 22px
+
+            +media(d)
+                bottom: 35px
+                right: 19px
+
+                &::before
+                    font-size: 24px
 
         &.icon-logo-people
-            bottom: 35px
-            right: 17px
-            &::before
-                font-size: 25px
+            +media(m)
+                bottom: 22px
+                right: 18px
+
+                &::before
+                    font-size: 22px
+
+            +media(d)
+                bottom: 35px
+                right: 17px
+
+                &::before
+                    font-size: 25px
 
         &.icon-star-sharp
-            bottom: 37px
-            right: 23px
-            &::before
-                font-size: 22px
+            +media(m)
+                bottom: 22px
+                right: 10px
 
-    &__nav
+                &::before
+                    font-size: 21px
+
+            +media(d)
+                bottom: 37px
+                right: 23px
+
+                &::before
+                    font-size: 22px
+
+    &__nav-wrap
         margin-left: auto
         margin-right: 30px
 
+        +media(m)
+            display: none
+            position: fixed
+            top: 70px
+            left: 0
+            z-index: 999
+            width: 100%
+            height: calc(100% - 70px)
+            background-color: $light-c
+            overflow: auto
+
+            &_inner
+                display: flex
+                flex-direction: column
+                width: 100%
+                max-width: 600px
+                height: 100%
+                margin-left: auto
+                margin-right: auto
+                padding-left: 16px
+                padding-right: 16px
+
+            &.visible
+                display: block
+
     &__search-btn
         display: block
-        width: 43px
-        height: 18px
+        width: 42px
+        height: 42px
         color: $dark-c
-        font-size: $base-fz
 
-    &__close-search-btn
-        position: absolute
-        z-index: 100
-        top: 28px
-        right: 0
-        width: 46px
-        height: 46px
-        font-size: 14px
+        +media(m)
+            margin-left: auto
+            font-size: 22px
+
+        +media(d)
+            font-size: $base-fz
+
+    &__menu-toggler
+        width: 42px
+        height: 42px
+        margin-left: 8px
+        font-size: 18px
+
+        +media(d)
+            display: none
 
     &__weather-widget
         position: absolute
@@ -105,9 +214,53 @@ header
         font-family: $bold-f
         color: $dark-c
 
+        +media(m)
+            display: none
+
     &__pattern
-        position: absolute
-        width: 540px
-        left: 0
-        bottom: 10px
-        z-index: 1
+        +media(m)
+            &_desktop
+                display: none
+
+        +media(d)
+            position: absolute
+            width: 540px
+            left: 0
+            bottom: 10px
+            z-index: 1
+
+    &__social-wrap
+        margin-bottom: 25px
+
+        .social-link
+            color: $light-c
+            background-color: $base-c
+
+    &__mobile-actions
+        & > *
+            display: block
+            margin-top: 20px
+            color: #7A8BA1
+            font-size: 16px
+            text-decoration: underline
+
+    &__mobile-copyright
+        font-size: 14px
+        text-decoration: none
+
+.header-mobile-nav__bottom-section
+    margin-top: auto
+
+    &::after
+        content: ""
+        display: block
+        height: 80px
+        margin-top: 10px
+        margin-bottom: 20px
+        background-image: url(../images/svg/header-pattern-mobile.svg)
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+
+    +media(d)
+        display: none

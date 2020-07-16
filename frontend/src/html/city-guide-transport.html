@@ -5,6 +5,14 @@
 
 <main>
     <div class="container">
+        <h2 class="page-title">Места</h2>
+
+        <div class="mobile-sections-links">
+            @@include("modules/place-links-widget.html", {
+                "active": "transport"
+            })
+        </div>
+
         <div class="base-layout">
             <div class="base-layout__main">
                 <article class="publication">
@@ -34,8 +42,8 @@
                                 <section class="city-guide-item__section">
                                     <h3 class="city-guide-item__subtitle">Городские маршруты:</h3>
 
-                                    <table class="city-guide-table city-guide-table_bus-inner-city">
-                                        <tr class="city-guide-table__tr">
+                                    <table class="city-guide-table city-guide-table_bus-inner-city js-table-toggle">
+                                        <tr class="city-guide-table__tr city-guide-table__tr_th">
                                             <th class="city-guide-table__td city-guide-table__th">№ автобуса</th>
                                             <th class="city-guide-table__td city-guide-table__th">Маршрут</th>
                                             <th class="city-guide-table__td city-guide-table__th city-guide-table__th_center">Начало и конец движения</th>
@@ -76,8 +84,8 @@
                                 <section class="city-guide-item__section">
                                     <h3 class="city-guide-item__subtitle">Междугородние и пригородные маршруты:</h3>
 
-                                    <table class="city-guide-table city-guide-table_bus-outer-city">
-                                        <tr class="city-guide-table__tr">
+                                    <table class="city-guide-table city-guide-table_bus-outer-city js-table-toggle">
+                                        <tr class="city-guide-table__tr city-guide-table__tr_th">
                                             <th class="city-guide-table__td city-guide-table__th">№ автобуса</th>
                                             <th class="city-guide-table__td city-guide-table__th">Маршрут</th>
                                             <th class="city-guide-table__td city-guide-table__th">Расписание</th>
@@ -140,27 +148,33 @@
                                 <div class="city-guide-item__taxi-grid">
                                     <div class="taxi-grid-item">
                                         <img src="" data-src="images/city-guide-taxi1.jpg" alt="" class="taxi-grid-item__img lazyload">
-                                        <div class="taxi-grid-item__title">Такси Maxim</div>
-                                        <a href="tel:999000" class="taxi-grid-item__phone">
-                                            <span class="icon-phone"></span>
-                                            999-000
-                                        </a>
+                                        <div class="taxi-grid-item__text-wrap">
+                                            <div class="taxi-grid-item__title">Такси Maxim</div>
+                                            <a href="tel:999000" class="taxi-grid-item__phone">
+                                                <span class="icon-phone"></span>
+                                                999-000
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="taxi-grid-item">
                                         <img src="" data-src="images/city-guide-taxi2.jpg" alt="" class="taxi-grid-item__img lazyload">
-                                        <div class="taxi-grid-item__title">Такси «Аист»</div>
-                                        <a href="tel:901901" class="taxi-grid-item__phone">
-                                            <span class="icon-phone"></span>
-                                            901-901
-                                        </a>
+                                        <div class="taxi-grid-item__text-wrap">
+                                            <div class="taxi-grid-item__title">Такси «Аист»</div>
+                                            <a href="tel:901901" class="taxi-grid-item__phone">
+                                                <span class="icon-phone"></span>
+                                                901-901
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="taxi-grid-item">
                                         <img src="" data-src="images/city-guide-taxi3.jpg" alt="" class="taxi-grid-item__img lazyload">
-                                        <div class="taxi-grid-item__title">Такси «Наш город»</div>
-                                        <a href="tel:+74214225555" class="taxi-grid-item__phone">
-                                            <span class="icon-phone"></span>
-                                            +7 (4214) 22-55-55
-                                        </a>
+                                        <div class="taxi-grid-item__text-wrap">
+                                            <div class="taxi-grid-item__title">Такси «Наш город»</div>
+                                            <a href="tel:+74214225555" class="taxi-grid-item__phone">
+                                                <span class="icon-phone"></span>
+                                                +7 (4214) 22-55-55
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -173,8 +187,8 @@
                 </article>
             </div>
 
-            <aside class="base-layout__aside">
-                <div class="aside-widget">
+            <aside class="base-layout__aside base-layout__aside_desktop">
+                <div class="aside-widget aside-nav-widget">
                     @@include("modules/place-links-widget.html", {
                         "active": "transport"
                     })
@@ -185,13 +199,13 @@
                 <div class="aside-widget">
                     @@include("page-block/sidebar-banner.html", {
                         "link": "news-details.html",
-                        "img": "images/aside-banner2.jpg"
+                        "img": "images/local/aside-banner2.jpg"
                     })
                 </div>
                 <div class="aside-widget">
                     @@include("page-block/sidebar-banner.html", {
                         "link": "news-details.html",
-                        "img": "images/aside-banner3.jpg"
+                        "img": "images/local/aside-banner3.jpg"
                     })
                 </div>
             </aside>

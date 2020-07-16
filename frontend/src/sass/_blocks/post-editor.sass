@@ -10,15 +10,26 @@
         margin-left: auto
         margin-right: auto
 
-
 .post-editor__block_image.right
     .lazy-image-outer
         margin-left: auto
 
 .post-editor__section_8
-    width: 100%
-
     .post-editor__block_text
+        +media(d)
+            width: 640px
+            margin-right: auto
+            margin-left: auto
+
+    .slider-caption
+        width: 100%
+
+    .post-editor__block_direct-speech
+        +media(d)
+            margin-left: 110px
+
+.post-editor__section_6
+    +media(d)
         width: 640px
         margin-right: auto
         margin-left: auto
@@ -26,58 +37,39 @@
     .slider-caption
         width: 100%
 
-    .post-editor__block_slider
-        .slider_format_2x1
-            height: 430px
-
-        .slider_format_3x2
-            height: 572px
-
-    .post-editor__block_video-wrap
-        height: 490px
-
-    .post-editor__block_direct-speech
-        margin-left: 110px
-
-.post-editor__section_6
-    width: 640px
-    margin-right: auto
-    margin-left: auto
-
-    .slider-caption
-        width: 100%
-
-    .post-editor__block_slider
-        .slider_format_2x1
-            height: 320px
-
-        .slider_format_3x2
-            height: 427px
-
-    .post-editor__block_video-wrap
-        height: 360px
-
 .post-editor__section_4-4
-    display: flex
-    justify-content: space-between
+    +media(d)
+        display: flex
+        justify-content: space-between
 
     .post-editor-column
-        width: calc(50% - 10px)
-        flex-shrink: 0
+        +media(m)
+            &:nth-child(1)
+                margin-bottom: 20px
+
+        +media(d)
+            width: calc(50% - 10px)
+            flex-shrink: 0
 
     .slider-caption
         width: 100%
 
 .post-editor__section_3-3
-    display: flex
-    justify-content: space-between
-    width: 640px
-    margin-right: auto
-    margin-left: auto
+    +media(d)
+        display: flex
+        justify-content: space-between
+        width: 640px
+        margin-right: auto
+        margin-left: auto
 
     .post-editor-column
-        width: calc(50% - 10px)
-        flex-shrink: 0
+        +media(m)
+            &:nth-child(1)
+                margin-bottom: 20px
+
+        +media(d)
+            width: calc(50% - 10px)
+            flex-shrink: 0
 
     .slider-caption
         width: 100%
@@ -85,12 +77,20 @@
 .post-editor__block_image
     position: relative
 
+    +media(m)
+        margin-left: -16px
+        margin-right: -16px
+
+    .post-editor__block_caption
+        +media(m)
+            margin-left: 16px
+            margin-right: 16px
+
     .post-editor__img-wrap
         display: block
         position: relative
 
         &.hoverable
-
             &::after
                 content: ' ' attr(href) ' '
                 position: absolute
@@ -140,18 +140,35 @@
             text-align: right
 
 .post-editor__block_slider
+    .slider_format_2x1
+        padding-bottom: 50%
+
+    .slider_format_3x2
+        padding-bottom: 66.666%
+
+    .slider
+        +media(m)
+            width: 100vw
+            max-width: 600px
+            margin-left: -16px
+
     .slide
         background-color: $light-gray
 
-    img
+    .slider-container img
         display: block
         height: 100%
 
     .nav-wrapper
         position: absolute
-        right: 0
         bottom: -40px
         font-size: 0
+
+        +media(m)
+            right: 8px
+
+        +media(d)
+            right: 0
 
     .slide-nav-counter
         color: #242434
@@ -168,30 +185,110 @@
             border-radius: 50%
 
     .slider-caption
-        width: 75%
+        +media(m)
+            width: 65%
+
+        +media(d)
+            width: 75%
+
+.post-editor-slider-block
+    position: relative
+
+    &__slider
+        +media(m)
+            margin-left: -16px
+            margin-right: -16px
+
+    &__slide
+        cursor: pointer
+
+    &__footer
+        display: flex
+        align-items: baseline
+        margin-top: 20px
+
+    &__caption
+        margin-right: 24px
+        line-height: $mini-lh
+        letter-spacing: 0.08em
+        color: $base-dark-c
+        max-width: calc(100% - 140px)
+
+        +media(m)
+            font-size: 14px
+
+        +media(d)
+            font-size: 15px
+
+    &__navigation-wrap
+        display: flex
+        align-items: center
+        margin-left: auto
+        flex-shrink: 0
+
+    &__navigation
+        flex-shrink: 0
+        margin: 3px 0 0
+
+    &__arrow
+        width: 24px
+        height: 24px
+        font-size: 0
+        line-height: 24px
+        color: $dark-c
+        top: auto
+        bottom: -44px
+        right: 0
+        border: 1px solid transparent
+        border-radius: 50%
+
+        &:hover
+            border-color: #B1C1D2
+
+        &::before
+            font-size: 12px
 
 .post-editor__block_quote
     .quote
-        padding-top: 10px
-        padding-bottom: 10px
-        padding-left: 25px
         border-left: 4px solid $base-c
 
+        +media(m)
+            padding-top: 5px
+            padding-bottom: 5px
+            padding-left: 16px
+
+        +media(d)
+            padding-top: 10px
+            padding-bottom: 10px
+            padding-left: 25px
+
         &__title
-            font-size: 42px
+            margin-bottom: 5px
             line-height: 1.2
             font-family: $bold-f
             color: $base-c
 
+            +media(m)
+                font-size: 36px
+
+            +media(d)
+                font-size: 42px
+
         &__text
             margin-bottom: 0
-            font-size: 26px
             line-height: $mini-lh
             font-family: $add-light-it-f
+
+            +media(m)
+                font-size: 22px
+
+            +media(d)
+                font-size: 26px
 
 .post-editor__block_video
     &-wrap
         position: relative
+        padding-bottom: calc(100% * 9 / 16)
 
     iframe
         position: absolute
@@ -201,10 +298,15 @@
 
 .post-editor__block_caption
     margin-top: 20px !important
-    font-size: 15px
     line-height: $mini-lh
     letter-spacing: 0.08em
     color: $base-dark-c
+
+    +media(m)
+        font-size: 14px
+
+    +media(d)
+        font-size: 15px
 
 .post-editor__block_separator
     .line
@@ -228,12 +330,17 @@
 .direct-speech-author
     &__avatar
         display: block
-        width: 110px
-        height: 110px
         border-radius: 50%
         border: 1px solid #C3CEDF
 
-    &__info-wrap
+        +media(m)
+            width: 64px
+            height: 64px
+
+        +media(d)
+            width: 110px
+            height: 110px
+
     &__name
         margin-bottom: 5px
         font-family: $bold-f
@@ -265,37 +372,56 @@
         background-repeat: no-repeat
 
 .direct-speech_buble
-    display: flex
-    align-items: flex-start
+    +media(m)
+        margin-left: -16px
+        margin-right: -16px
+        padding: 24px 16px
+        background-color: #f5f6f7
+        border-radius: 4px
+
+    +media(d)
+        display: flex
+        align-items: flex-start
 
     .direct-speech-author
         &__avatar
-            margin-right: 15px
-            flex-shrink: 0
+            +media(m)
+                margin-right: 16px
+                margin-bottom: 16px
 
-            & + .direct-speech__text-wrap
-                margin-left: 35px
+            +media(d)
+                margin-right: 15px
+                flex-shrink: 0
 
-                &::before
-                    content: ""
-                    display: block
-                    width: 35px
-                    height: 40px
-                    position: absolute
-                    left: -35px
-                    top: 40px
-                    background-image: url(../images/svg/direct-speech-triangle.svg)
-                    background-repeat: no-repeat
-                    background-size: contain
+                & + .direct-speech__text-wrap
+                    margin-left: 35px
+
+                    &::before
+                        content: ""
+                        display: block
+                        width: 35px
+                        height: 40px
+                        position: absolute
+                        left: -35px
+                        top: 40px
+                        background-image: url(../images/svg/direct-speech-triangle.svg)
+                        background-repeat: no-repeat
+                        background-size: contain
 
         &__description
             margin-bottom: 10px
 
+            +media(m)
+                margin-bottom: 24px
+                font-size: 16px
+
     .direct-speech__text-wrap
         position: relative
-        padding: 15px 25px
-        background-color: #f5f6f7
-        border-radius: 4px
+
+        +media(d)
+            padding: 15px 25px
+            background-color: #f5f6f7
+            border-radius: 4px
 
 .direct-speech_base
     .direct-speech-author

@@ -1,24 +1,24 @@
 <div class="offer-widget offer-widget_@@class">
-    <p class="offer-widget__text">@@text</p>
-    <button class="btn btn_blue offer-widget__btn show-pop-up" data-pop-up="share-@@class">@@btnText</button>
-
     @@if (context.class === "event") {
-        <span class="offer-widget__icon icon-megafon-stroke-lines"></span>
+        <span class="offer-widget__icon icon-megafon-stroke-lines" aria-hidden="true"></span>
     }
 
     @@if (context.class === "history") {
-        <span class="offer-widget__icon icon-history"></span>
+        <span class="offer-widget__icon icon-history" aria-hidden="true"></span>
     }
 
     @@if (context.class === "people") {
-        <span class="offer-widget__icon icon-people"></span>
+        <span class="offer-widget__icon icon-people" aria-hidden="true"></span>
     }
 
     @@if (context.class === "place") {
-        <span class="offer-widget__icon icon-geo-fill"></span>
+        <span class="offer-widget__icon icon-geo-fill" aria-hidden="true"></span>
     }
 
     @@if (context.class === "news") {
-        <span class="offer-widget__icon icon-news-fill"></span>
+        <span class="offer-widget__icon icon-news-fill" aria-hidden="true"></span>
     }
+
+    <p class="offer-widget__text">@@text</p>
+    <button class="btn btn_blue offer-widget__btn show-pop-up" data-pop-up="share-@@class">@@btnText</button>
 </div>

@@ -22,6 +22,8 @@
 {% block content %}
     <main class="light-bg">
         <div class="container">
+            <h1 class="page-title">Люди</h1>
+
             <div class="base-layout">
                 <div class="base-layout__main">
                     {% with item=persons.0 css_class='grid-publication_8-col' first_item=True cover_name="8_column_img"  %}
@@ -33,7 +35,7 @@
                     {% endwith %}
                 </div>
 
-                <aside class="base-layout__aside">
+                <aside class="base-layout__aside base-layout__aside_desktop">
                     <div class="aside-widget">
                         {% with css_class="people" btn_text="Предложить героя" offer_text="Любой житель Амурска может поделиться информацией об интересном человеке с&nbsp;редакцией сайта. Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
                             {% include "site/modules/offer-widget.html" %}
@@ -45,7 +47,7 @@
                 </aside>
             </div>
 
-            <div class="base-3items-grid">
+            <div class="base-3items-grid items-grid">
                 {% for item in persons|slice:"1:4" %}
                     {% if forloop.counter == 1 %}
                         {% with cover_name="3_column_img_"|add:item.cover_format %}
@@ -65,7 +67,7 @@
                 {% endfor %}
             </div>
 
-            <div class="base-3items-grid-inverse">
+            <div class="base-3items-grid-inverse items-grid">
                 {% for item in persons|slice:"4:7" %}
                     {% if forloop.counter == 1 %}
                         {% with css_class='grid-publication_6-col' cover_name="6_column_img_"|add:item.cover_format %}
@@ -85,7 +87,7 @@
                 {% endfor %}
             </div>
 
-            <div class="js-infinity-loader-wrap">
+            <div class="js-infinity-loader-wrap items-grid">
                 <div class="base-4items-grid js-infinity-loader-grid">
                     {% for item in persons|slice:"7:" %}
                         {% if item %}
@@ -98,6 +100,14 @@
                 {% if has_next %}
                     <button class="btn btn_blue btn_more js-btn_more btn_center js-more-people" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
                 {% endif %}
+            </div>
+
+            <div class="base-layout__aside base-layout__aside_mobile">
+                <div class="aside-widget">
+                    {% with css_class="people" btn_text="Предложить героя" offer_text="Любой житель Амурска может поделиться информацией об интересном человеке с&nbsp;редакцией сайта. Для нас очень важно участие амурчан в&nbsp;жизни своего города." %}
+                        {% include "site/modules/offer-widget.html" %}
+                    {% endwith %}
+                </div>
             </div>
         </div>
     </main>

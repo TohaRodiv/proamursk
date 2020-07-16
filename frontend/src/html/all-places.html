@@ -5,20 +5,28 @@
 
 <main class="light-bg">
     <div class="container">
+        <h1 class="page-title">Места</h1>
+
+        <div class="mobile-sections-links">
+            @@include("modules/place-links-widget.html", {
+                "active": ""
+            })
+        </div>
+
         <div class="base-layout">
             <div class="base-layout__main">
                 @@include("modules/grid-publication.html", {
                     "class": "grid-publication_format-full grid-publication_8-col",
                     "link": "place-details.html",
-                    "img": "images/publication-big5.jpg",
+                    "img": "images/local/publication-big5.jpg",
                     "title": "Дендрарий",
                     "description": "Лучшие дни для посещения дендрария — с начала августа до середины сентября. В это время большинство растений еще цветет, а деревья уже начинают золотиться.",
                     "wobbler": "place"
                 })
             </div>
 
-            <aside class="base-layout__aside">
-                <div class="aside-widget">
+            <aside class="base-layout__aside base-layout__aside_desktop">
+                <div class="aside-widget aside-nav-widget">
                     @@include("modules/place-links-widget.html", {
                         "active": ""
                     })
@@ -26,11 +34,11 @@
             </aside>
         </div>
 
-        <div class="base-3items-grid">
+        <div class="base-3items-grid items-grid">
             @@include("modules/grid-publication.html", {
                 "class": "grid-publication_format-base",
                 "link": "place-details.html",
-                "img": "images/grid-cover-3-base1.jpg",
+                "img": "images/local/grid-cover-3-base1.jpg",
                 "title": "Лингвистическая школа",
                 "description": "Одна из лучших на Дальнем Востоке",
                 "wobbler": "place"
@@ -39,7 +47,7 @@
             @@include("modules/grid-publication.html", {
                 "class": "grid-publication_format-full",
                 "link": "film-announcement.html",
-                "img": "images/grid-cover-3-full2.jpg",
+                "img": "images/local/grid-cover-3-full2.jpg",
                 "title": "Детско-юношеская спортивная школа",
                 "description": "Одна из самых крупных школ Хабаровского края",
                 "wobbler": "place"
@@ -48,18 +56,18 @@
             @@include("modules/grid-publication.html", {
                 "class": "grid-publication_format-base grid-publication_6-col",
                 "link": "place-details.html",
-                "img": "images/grid-cover-6-base1.jpg",
+                "img": "images/local/grid-cover-6-base1.jpg",
                 "title": "Ботанический сад",
                 "description": "Под крышей его оранжереи собраны растения со всего мира, в том числе редкие эндемики. Здесь можно увидеть, как растут ананасы и папайя...",
                 "wobbler": "place"
             })
         </div>
 
-        <div class="base-3items-grid-inverse">
+        <div class="base-3items-grid-inverse items-grid">
             @@include("modules/grid-publication.html", {
                 "class": "grid-publication_format-base grid-publication_6-col",
                 "link": "history-details.html",
-                "img": "images/grid-cover-6-base1.jpg",
+                "img": "images/local/grid-cover-6-base1.jpg",
                 "title": "Прошла выставка художника Владимира Копанова",
                 "description": "Детская художественная школа",
                 "wobbler": "place"
@@ -68,7 +76,7 @@
             @@include("modules/grid-publication.html", {
                 "class": "grid-publication_format-full",
                 "link": "film-announcement.html",
-                "img": "images/grid-cover-3-full4.jpg",
+                "img": "images/local/grid-cover-3-full4.jpg",
                 "title": "Ночь кино в Амурске!",
                 "description": "Кинотеатр «Молодость»",
                 "wobbler": "place"
@@ -77,19 +85,19 @@
             @@include("modules/grid-publication.html", {
                 "class": "grid-publication_format-base",
                 "link": "history-details.html",
-                "img": "images/grid-cover-3-base6.jpg",
+                "img": "images/local/grid-cover-3-base6.jpg",
                 "title": "Ольга Петровна Киршова",
                 "description": "Экскурсовод Амурского краеведческого музея",
                 "wobbler": "place"
             })
         </div>
 
-        <div class="js-infinity-loader-wrap">
+        <div class="js-infinity-loader-wrap items-grid">
             <div class="base-4items-grid js-infinity-loader-grid">
                 @@include("modules/grid-publication.html", {
                     "class": "grid-publication_format-base",
                     "link": "place-details.html",
-                    "img": "images/grid-cover-3-base2.jpg",
+                    "img": "images/local/grid-cover-3-base2.jpg",
                     "title": "Амурские теплицы",
                     "description": "Шимпанзе, павлины, орхидеи и прочие чудеса",
                     "wobbler": "place"
@@ -98,7 +106,7 @@
                 @@include("modules/grid-publication.html", {
                     "class": "grid-publication_format-base",
                     "link": "place-details.html",
-                    "img": "images/grid-cover-3-base9.jpg",
+                    "img": "images/local/grid-cover-3-base9.jpg",
                     "title": "Я люблю Амурск спортивный!",
                     "description": "Здесь рождается искусство",
                     "wobbler": "place"
@@ -107,7 +115,7 @@
                 @@include("modules/grid-publication.html", {
                     "class": "grid-publication_format-full",
                     "link": "film-announcement.html",
-                    "img": "images/grid-cover-3-full2.jpg",
+                    "img": "images/local/grid-cover-3-full2.jpg",
                     "title": "Центральная городская библиотека",
                     "description": "Место, где пахнет книгами",
                     "wobbler": "place"
@@ -116,7 +124,7 @@
                 @@include("modules/grid-publication.html", {
                     "class": "grid-publication_format-base",
                     "link": "place-details.html",
-                    "img": "images/grid-cover-3-base4.jpg",
+                    "img": "images/local/grid-cover-3-base4.jpg",
                     "title": "Центр творчества «Темп»",
                     "description": "Cамое крупное учреждение дополнительного образования в Амурском районе",
                     "wobbler": "place"
