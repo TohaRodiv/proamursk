@@ -53,7 +53,7 @@ const state = {
                 is_sortable: false,
                 sort: {},
                 align_text: 'center',
-                name: 'Обложка на моб. устр.',
+                name: 'Скрытая обл. на моб.',
                 width: 150,
             },
             {
@@ -131,7 +131,7 @@ const state = {
                 type: 'date_time',
             },
             {
-                filterTitle: 'Обложки на моб. устр.',
+                filterTitle: 'Скрытая обл. на моб.',
                 queryName: 'hide_cover',
                 input_type: 'radiobuttonsList',
                 callbackValue: 'value',
@@ -145,13 +145,13 @@ const state = {
                     {
                         id: 1,
                         name: 'Только с обложкой',
-                        value: 'true',
+                        value: 'false',
                         checked: false,
                     },
                     {
                         id: 0,
                         name: 'Только без обложки',
-                        value: 'false',
+                        value: 'true',
                         checked: false,
                     },
                 ],
