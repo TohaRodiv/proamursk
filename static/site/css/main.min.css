@@ -247,17 +247,17 @@ ul, ol {
   [class^="icon-"]::before, [class^="icon-"]::after, [class*=" icon-"]::before, [class*=" icon-"]::after {
     font-family: "proamursk" !important; }
 
-.icon-logo-event:before {
-  content: "\e92c"; }
-
 .icon-logo-history:before {
   content: "\e92d"; }
 
-.icon-logo-news:before {
-  content: "\e92e"; }
+.icon-history:before {
+  content: "\e906"; }
 
 .icon-logo-people:before {
   content: "\e92f"; }
+
+.icon-people:before {
+  content: "\e908"; }
 
 .icon-logo-sign:before {
   content: "\e930"; }
@@ -298,32 +298,35 @@ ul, ol {
 .icon-news-stroke:before {
   content: "\e93c"; }
 
+.icon-news-menu:before {
+  content: "\e909"; }
+
+.icon-logo-news:before {
+  content: "\e92e"; }
+
 .icon-news-fill:before {
   content: "\e90d"; }
 
 .icon-news-cut:before {
   content: "\e90e"; }
 
-.icon-history:before {
-  content: "\e906"; }
+.icon-logo-event:before {
+  content: "\e92c"; }
 
 .icon-megafon-fill:before {
   content: "\e924"; }
 
-.icon-megafon-stroke-lines:before {
-  content: "\e90b"; }
-
 .icon-megafon-stroke:before {
   content: "\e913"; }
+
+.icon-megafon-stroke-lines:before {
+  content: "\e90b"; }
 
 .icon-geo-fill:before {
   content: "\e928"; }
 
 .icon-geo-stroke:before {
   content: "\e929"; }
-
-.icon-people:before {
-  content: "\e908"; }
 
 .icon-calendar-fill:before {
   content: "\e922"; }
@@ -2906,11 +2909,14 @@ footer {
     display: inline-block;
     width: 24px;
     margin-right: 18px;
-    font-size: 20px;
+    font-size: 0;
     color: #0073FF;
-    text-align: center; }
-    .header__nav .site-nav__mobile-icon.icon-history {
-      font-size: 16px; } }
+    text-align: center;
+    vertical-align: -2px; }
+    .header__nav .site-nav__mobile-icon.icon-megafon-stroke, .header__nav .site-nav__mobile-icon.icon-history {
+      vertical-align: -4px; }
+    .header__nav .site-nav__mobile-icon::before {
+      font-size: 22px; } }
 
 .footer__nav .site-nav {
   width: 530px;

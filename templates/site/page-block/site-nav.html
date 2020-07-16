@@ -2,7 +2,7 @@
     {% with url_name=request.resolver_match.url_name %}
         <li class="site-nav__item">
             <a href="{% url "news-list" %}" class="site-nav__link {% if url_name == 'news-list' or url_name == 'news-detail' %}active{% endif %}">
-                <span class="site-nav__mobile-icon icon-news-stroke"></span>
+                <span class="site-nav__mobile-icon icon-news-menu"></span>
                 Новости
             </a>
         </li>
