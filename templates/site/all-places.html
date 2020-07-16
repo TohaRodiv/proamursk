@@ -22,6 +22,12 @@
 {% block content %}
     <main class="light-bg">
         <div class="container">
+            <h1 class="page-title">Места</h1>
+
+            <div class="mobile-sections-links">
+                {% include "site/modules/place-links-widget.html" %}
+            </div>
+
             <div class="base-layout">
                 {% if top_objects %}
                     <div class="base-layout__main">
@@ -35,14 +41,14 @@
                     </div>
                 {% endif %}
 
-                <aside class="base-layout__aside">
-                    <div class="aside-widget">
+                <aside class="base-layout__aside base-layout__aside_desktop">
+                    <div class="aside-widget aside-nav-widget">
                         {% include "site/modules/place-links-widget.html" %}
                     </div>
                 </aside>
             </div>
 
-            <div class="base-3items-grid">
+            <div class="base-3items-grid items-grid">
                 {% for top_item in top_objects|slice:"1:4" %}
                     {% with item=top_item.get_object %}
                         {% if item %}
@@ -68,7 +74,7 @@
                 {% endfor %}
             </div>
 
-            <div class="base-3items-grid-inverse">
+            <div class="base-3items-grid-inverse items-grid">
                 {% for item in places|slice:":3" %}
                     {% if item %}
                         {% if forloop.counter == 1 %}
@@ -90,7 +96,7 @@
                 {% endfor %}
             </div>
 
-            <div class="js-infinity-loader-wrap">
+            <div class="js-infinity-loader-wrap items-grid">
                 <div class="base-4items-grid js-infinity-loader-grid">
                     {% for item in places|slice:"3:" %}
                         {% if item %}

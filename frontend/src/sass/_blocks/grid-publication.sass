@@ -1,6 +1,6 @@
 .grid-publication-placeholder
-    @extend %border
     background-color: $light-c
+    @extend %border
 
     &_top1
         height: 500px
@@ -12,11 +12,13 @@
     position: relative
     display: flex
     flex-direction: column
-    min-height: 460px
     background-color: $light-c
     text-decoration: none
     color: inherit
     @extend %border
+
+    +media(d)
+        min-height: 460px
 
     a
         text-decoration: none
@@ -37,6 +39,7 @@
         position: relative
         display: block
         width: 100%
+        height: 100%
         object-fit: cover
         object-position: center
 
@@ -46,12 +49,22 @@
         display: flex
         flex-direction: column
         flex-grow: 1
-        padding: 20px
+
+        +media(m)
+            padding: 20px 15px
+
+        +media(d)
+            padding: 20px
 
     &__title
         margin-bottom: 5px
-        font-size: $medium-fz
         font-family: $bold-f
+
+        +media(m)
+            font-size: 21px
+
+        +media(d)
+            font-size: $medium-fz
 
         a
             color: currentColor
@@ -63,7 +76,6 @@
 
     &__text
         font-size: $mini-fz
-        line-height: $base-lh
 
     &__wobbler
         display: flex
@@ -74,7 +86,6 @@
         position: absolute
         bottom: 20px
         z-index: 4
-        margin-left: 20px
         height: 26px
         font-size: 12px
         line-height: 22px
@@ -83,6 +94,12 @@
         letter-spacing: 0.08em
         text-decoration: none
         transition: color $transition-time
+
+        +media(m)
+            margin-left: 10px
+
+        +media(d)
+            margin-left: 20px
 
         &_reportage
             left: 160px
@@ -131,15 +148,18 @@
         width: 100%
         height: 100%
         z-index: 2
+        background-color: rgba(#4c607b, .1)
 
     &_6-col
-        width: 640px
-        flex-shrink: 0
+        +media(d)
+            width: 640px
+            flex-shrink: 0
 
     &_8-col
-        width: 860px
-        height: 500px
-        flex-shrink: 0
+        +media(d)
+            width: 860px
+            height: 500px
+            flex-shrink: 0
 
         .grid-publication__text-wrap
             position: absolute
@@ -148,27 +168,35 @@
 
     &_6-col,
     &_8-col
-
         &.grid-publication_format-full
 
             .grid-publication__title
-                font-size: 36px
+                +media(d)
+                    font-size: 36px
 
             .grid-publication__text
-                font-size: 20px
+                +media(d)
+                    font-size: 20px
 
             .grid-publication__description,
             .grid-publication__date
-                margin-bottom: 40px
+                +media(d)
+                    margin-bottom: 40px
 
     &_format-base
-
         .grid-publication
             &__cover-wrap
-                height: 278px
+                +media(m)
+                    padding-bottom: 76.3888889%
+
+                +media(d)
+                    height: 278px
 
             &__cover
                 border-bottom: 1px solid $border-c
+
+                +media(m)
+                    position: absolute
 
             &__title
                 &:hover,
@@ -180,6 +208,9 @@
 
     &_format-full
         color: $light-c
+
+        +media(m)
+            min-height: 460px
 
         .grid-publication
             &__cover-wrap
@@ -219,81 +250,48 @@
 
         .grid-publication__cover-wrap
             height: 280px
+            background-color: $base-dark-c
 
         .grid-publication__cover
             width: 260px
             height: 220px
             margin: 50px auto 0
 
-    &_full-width-slider
-        height: 100%
-        border: none
-        border-radius: 0
+    &_format-mobile
+        +media(m)
+            min-height: 0
+            padding: 0
+            color: $dark-c
+            border: none
+            border-radius: 0
+
+            .grid-publication__cover-wrap
+                display: none
+
+            .grid-publication__text-wrap
+                position: relative
+                padding: 0
+
+    &_hide-cover
+        +media(m)
+            min-height: 0
+            height: auto
+            color: $dark-c
+
+            .grid-publication__cover-wrap
+                display: none
+
+            .grid-publication__text-wrap
+                position: relative
 
 .grid-publication:not(.grid-publication_format-city-guide)
     &:hover,
     &:focus
         .grid-publication__bg-gradient
             display: block
-            background-color: rgba(#4c607b, .1)
 
 .grid-publication_format-city-guide
     &:hover,
     &:focus
         .grid-publication__title
             color: $base-c
-
-.read-also .grid-publication
-    border: 1px solid lighten(#283349, 15%)
-
-.special-project
-    &__cover-wrap
-        display: block
-        height: 100%
-        position: relative
-
-        &::after
-            content: ""
-            display: block
-            position: absolute
-            top: 0
-            left: 0
-            width: 100%
-            height: 100%
-            background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%)
-
-    &__cover
-        height: 520px
-
-    &__text-wrap
-        position: absolute
-        top: 50%
-        left: 50%
-        transform: translate(-50%, -50%)
-        display: flex
-        flex-direction: column
-        width: 840px
-        text-align: center
-        color: $light-c
-
-    &__title
-        margin-bottom: 20px
-        font-size: 56px
-        text-transform: uppercase
-
-    &__text
-        margin-bottom: 20px
-        font-size: 20px
-        flex-grow: 1
-
-    &__wobbler
-        .wobbler
-            margin: auto
-
-.special-projects-list__item
-    background-color: $light-gray
-    .grid-publication
-        background-color: transparent
-
-    &:not(:last-child)
-        margin-bottom: 20px

@@ -1,74 +1,31 @@
 <div class="body-cover">
     <div class="pop-up-wrapper search">
+        <div class="close-popup-btn-wrap">
+            <button class="close-search-popup-btn js-close-search icon-close hidden"></button>
+        </div>
+
         <div class="back"></div>
         <div class="pop-up-inner-container">
 
-            <div class="pop-up-content search-pop-up-content">
+            <div class="pop-up-content search-pop-up-content container">
                 <form class="instant-search-form">
                     <input type="text" name="search" class="search-form__input instant-search-form__input input-big" placeholder="Поиск" autocomplete="off">
                     <button type="submit" class="search-form__submit icon-search"></button>
                 </form>
 
-                <div class="search__result-block hidden">
-                    <div class="search-result_full">
-                        <ul class="search-result-list">
-                            <li class="search-result-item">
-                                <a href="news-details.html" class="search-item">
-                                    <span class="search-item__category">Новости</span>
-                                    <div class="search-item__title">В Амурске появится роллердром</div>
-                                </a>
-                            </li>
-                            <li class="search-result-item">
-                                <a href="people-details.html" class="search-item">
-                                    <span class="search-item__category">Люди</span>
-                                    <div class="search-item__title">Сильный телом и духом</div>
-                                </a>
-                            </li>
-                            <li class="search-result-item">
-                                <a href="reportage-details.html" class="search-item">
-                                    <span class="search-item__category">Репортаж</span>
-                                    <div class="search-item__title">Я люблю Амурск спортивный!</div>
-                                </a>
-                            </li>
-                            <li class="search-result-item">
-                                <a href="event-announcement.html" class="search-item">
-                                    <span class="search-item__category">Анонс</span>
-                                    <div class="search-item__title">Концерт «Амурск в моем сердце»</div>
-                                </a>
-                            </li>
-                            <li class="search-result-item">
-                                <a href="place-details.html" class="search-item">
-                                    <span class="search-item__category">Место</span>
-                                    <div class="search-item__title">Музей природы Приамурья</div>
-                                </a>
-                            </li>
-                            <li class="search-result-item">
-                                <a href="news-details.html" class="search-item">
-                                    <span class="search-item__category">Новости</span>
-                                    <div class="search-item__title">Встреча с мэром без формальностей</div>
-                                </a>
-                            </li>
-                            <li class="search-result-item">
-                                <a href="reportage-details.html" class="search-item">
-                                    <span class="search-item__category">Репортаж</span>
-                                    <div class="search-item__title">Фестиваль «Станица» в ДК</div>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <a href="search-result.html" class="search__all-result-link">Показать все результаты <span>(13 материалов)</span></a>
-                    </div>
-
-                    <div class="search-result_empty">По вашему запросу ничего не найдено</div>
-                </div>
+                <div class="search__result-block hidden"></div>
             </div>
         </div>
     </div>
 
     <div class="pop-up-wrapper to-editor">
+        <div class="close-popup-btn-wrap">
+            <button class="pop-up__close pop-up__close_mobile pop-up__close_outer icon-close js-pop-up__close"></button>
+        </div>
+
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
+            <button class="pop-up__close pop-up__close_desktop pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Письмо в редакцию</div>
@@ -127,8 +84,8 @@
                         </div>
 
                         <div class="pop-up__btns-wrap">
-                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                             <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с&nbsp;нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                         </div>
                     </form>
 
@@ -145,9 +102,13 @@
     </div>
 
     <div class="pop-up-wrapper share-news">
+        <div class="close-popup-btn-wrap">
+            <button class="pop-up__close pop-up__close_mobile pop-up__close_outer icon-close js-pop-up__close"></button>
+        </div>
+
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
+            <button class="pop-up__close pop-up__close_desktop pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Поделится хорошей новостью</div>
@@ -187,8 +148,8 @@
                         </div>
 
                         <div class="pop-up__btns-wrap">
-                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                             <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с&nbsp;нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                         </div>
                     </form>
 
@@ -205,9 +166,13 @@
     </div>
 
     <div class="pop-up-wrapper share-event">
+        <div class="close-popup-btn-wrap">
+            <button class="pop-up__close pop-up__close_mobile pop-up__close_outer icon-close js-pop-up__close"></button>
+        </div>
+
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
+            <button class="pop-up__close pop-up__close_desktop pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Поделится событием</div>
@@ -247,8 +212,8 @@
                         </div>
 
                         <div class="pop-up__btns-wrap">
-                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                             <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с&nbsp;нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                         </div>
                     </form>
 
@@ -265,9 +230,13 @@
     </div>
 
     <div class="pop-up-wrapper share-history">
+        <div class="close-popup-btn-wrap">
+            <button class="pop-up__close pop-up__close_mobile pop-up__close_outer icon-close js-pop-up__close"></button>
+        </div>
+
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
+            <button class="pop-up__close pop-up__close_desktop pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Поделится своей историей</div>
@@ -307,8 +276,8 @@
                         </div>
 
                         <div class="pop-up__btns-wrap">
-                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                             <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с&nbsp;нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                         </div>
                     </form>
 
@@ -325,9 +294,13 @@
     </div>
 
     <div class="pop-up-wrapper share-people">
+        <div class="close-popup-btn-wrap">
+            <button class="pop-up__close pop-up__close_mobile pop-up__close_outer icon-close js-pop-up__close"></button>
+        </div>
+
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
+            <button class="pop-up__close pop-up__close_desktop pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Предложить героя</div>
@@ -367,8 +340,8 @@
                         </div>
 
                         <div class="pop-up__btns-wrap">
-                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                             <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="to-editor">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с&nbsp;нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                         </div>
                     </form>
 
@@ -385,9 +358,13 @@
     </div>
 
     <div class="pop-up-wrapper share-place">
+        <div class="close-popup-btn-wrap">
+            <button class="pop-up__close pop-up__close_mobile pop-up__close_outer icon-close js-pop-up__close"></button>
+        </div>
+
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
+            <button class="pop-up__close pop-up__close_desktop pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content drop-area js-drop-area">
                 <div class="pop-up__title">Добавить отзыв о месте</div>
@@ -417,8 +394,8 @@
                         </div>
 
                         <div class="pop-up__btns-wrap">
-                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                             <input type="submit" class="btn btn_blue pop-up-form__submit" value="Отправить" data-request="place-review">
+                            <div class="pop-up-form__agrement">Нажимая «Отправить», вы соглашаетесь с&nbsp;нашей <a href="{% url "policy" %}" target="_blank">политикой конфиденциальности</a>.</div>
                         </div>
                     </form>
 
@@ -435,9 +412,13 @@
     </div>
 
     <div class="pop-up-wrapper bugreport">
+        <div class="close-popup-btn-wrap">
+            <button class="pop-up__close pop-up__close_mobile pop-up__close_outer icon-close js-pop-up__close"></button>
+        </div>
+
         <div class="back"></div>
         <div class="pop-up-inner-container">
-            <button class="pop-up__close pop-up__close_inner icon-close js-pop-up__close"></button>
+            <button class="pop-up__close pop-up__close_desktop pop-up__close_inner icon-close js-pop-up__close"></button>
 
             <div class="pop-up-content pop-up-form-content js-drop-area">
                 <div class="pop-up__title">Сообщение об ошибке</div>

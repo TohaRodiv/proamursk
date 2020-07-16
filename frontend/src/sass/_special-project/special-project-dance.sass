@@ -9,28 +9,6 @@
         .nav-wrapper
             left: 0
 
-.sp-dance__share-block
-    margin: 100px auto 50px
-
-    .share-widget
-        display: block
-        text-align: center
-
-    .share-widget__text
-        display: block
-        margin-bottom: 15px
-        margin-right: 0
-
-    .share-widget__links-wrap
-        justify-content: center
-
-    .share-widget__link-img
-        width: 37px
-        height: 37px
-
-    .share-widget__link:not(:last-child)
-        margin-right: 15px
-
 .sp-dance__photo,
 .sp-dance__preview-slider,
 .sp-dance__preview-slider .slide,
@@ -372,9 +350,32 @@
             right: 110px
 
 .sp-dance-section-where-to-go
-    background-image: url(../images/special-projects/dance/svg/decor-left.svg), url(../images/special-projects/dance/svg/decor-right.svg)
-    background-position: calc(50vw - 900px) center, calc(50vw + 450px) center
-    background-repeat: no-repeat
+    position: relative
+    overflow: hidden
+
+    .container::before
+        content: ""
+        position: absolute
+        top: 50%
+        left: -290px
+        transform: translateY(-50%)
+        width: 567px
+        height: 275px
+        background-size: contain
+        background-repeat: no-repeat
+        background-image: url(../images/special-projects/dance/svg/decor-left.svg)
+
+    .container::after
+        content: ""
+        position: absolute
+        top: 50%
+        right: -290px
+        transform: translateY(-50%)
+        width: 524px
+        height: 275px
+        background-size: contain
+        background-repeat: no-repeat
+        background-image: url(../images/special-projects/dance/svg/decor-right.svg)
 
     &_children
         margin-bottom: 120px
@@ -638,7 +639,6 @@
 .sp-dance-plases-nav
     position: sticky
     top: calc(50vh - 190px)
-    left: calc((100vw - 1300px) / 2 + 1300px + ((100vw - 1300px) / 4 - 85px))
     z-index: 10
     width: 170px
     margin-right: 20px
@@ -649,6 +649,12 @@
     background-color: $base-c
     border-radius: 8px
     counter-reset: places-nav
+
+    +media(m)
+        left: calc(100% - 186px)
+
+    +media(d)
+        left: calc((100vw - 1300px) / 2 + 1300px + ((100vw - 1300px) / 4 - 85px))
 
     & + *
         margin-top: -310px

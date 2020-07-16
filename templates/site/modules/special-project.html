@@ -1,25 +1,19 @@
 {% load media_filters %}
 {% load static static_version %}
 
-<a href="{% url "specials-detail" item.codename %}" class="grid-publication {{ class }} special-project">
-
-    <div class="special-project__cover-wrap grid-publication__cover-wrap">
-        <div class="grid-publication__bg-gradient"></div>
-        <img src="" data-src="{{ item.cover|get_thumbnail_url_by_name:cover_name|default:"specials_feed" }}" alt="" class="special-project__cover grid-publication__cover lazyload">
+<a href="{% url "specials-detail" item.codename %}" class="special-project">
+    <div class="special-project__cover-wrap">
+        <img src="" data-src="{{ item.cover|get_thumbnail_url_by_name:cover_name|default:"specials_feed" }}" alt="" class="special-project__cover lazyload">
     </div>
 
-    <div class="special-project__text-wrap grid-publication__text-wrap">
-        <h2 class="special-project__title grid-publication__title">{{ item.title }}</h2>
+    <div class="special-project__text-wrap">
+        <h2 class="special-project__title">{{ item.title }}</h2>
 
-        <p class="special-project__text grid-publication__text special-project__description grid-publication__description">
-            {{ item.descriptor }}
-        </p>
+        <p class="special-project__text">{{ item.descriptor }}</p>
 
-        <div class="special-project__wobbler grid-publication__wobbler">
-            <div class="wobbler">
-                <span class="wobbler__icon icon-star-sharp"></span>
-                <div class="wobbler__text">Спецпроект</div>
-            </div>
+        <div class="wobbler">
+            <span class="wobbler__icon icon-star-sharp"></span>
+            <div class="wobbler__text">Спецпроект</div>
         </div>
     </div>
 </a>

@@ -30,18 +30,39 @@
             <span class="header__logo-subtext">МЕСТА, СОБЫТИЯ, ЛЮДИ</span>
         </a>
 
-        <img src="images/svg/header-pattern.svg" alt="" class="header__pattern">
+        <img src="images/svg/header-pattern.svg" alt="" class="header__pattern header__pattern_desktop">
 
         <div class="header__weather-widget">-24 C°</div>
 
-        <div class="header__nav">
-            @@include('page-block/site-nav.html', {
-                "active": "@@page"
-            })
+        <div class="header__nav-wrap js-mobile-menu">
+            <div class="header__nav-wrap_inner">
+                <div class="header__nav">
+                    @@include('page-block/site-nav.html', {
+                        "active": "@@page"
+                    })
+                </div>
+
+                <div class="header-mobile-nav__bottom-section">
+                    <div class="header__social-wrap">
+                        <div class="social-wrap">
+                            <a href="" class="social-link icon-instagram" alt="Инстаграм" target="_blank"></a>
+                            <a href="" class="social-link icon-odnoklassniki" alt="Одноклассники" target="_blank"></a>
+                        </div>
+                    </div>
+
+                    <div class="header__mobile-actions">
+                        <button class="show-pop-up" data-pop-up="to-editor">Написать в редакцию</button>
+                        <a href="privacy.html">Политика конфиденциальности</a>
+                        <a href="http://piligrims.ru/" target="_blank" class="footer__copyright">Нарисовано в студии «Пилигрим»</a>
+                        <a href="http://perfectura.ru/" target="_blank" class="footer__copyright">Сделано в студии «Перфектура»</a>
+                        <div class="header__mobile-copyright">© 2019, ПроАмурск </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <button class="header__search-btn icon-search"></button>
-        <button class="header__close-search-btn js-close-search icon-close hidden"></button>
+        <button class="header__menu-toggler js-mobile-menu-toggler icon-menu"></button>
     </div>
 </header>
 

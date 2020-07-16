@@ -63,43 +63,73 @@
                             </div>
                         </div>
 
-                        <div class="film-timetable tabs-wrap">
-                            <div class="film-timetable__days tab__btns-wrap">
-                                {% for day in film.get_weekdays %}
-                                    <button class="tab__btn js-tab__btn film-timetable__day-btn">
-                                        <div class="day-btn__week-day">{{ day|ru_strftime:"%A"|capfirst }}</div>
-                                        <div class="day-btn__day">{{ day|ru_strftime:"%d" }}</div>
-                                        <div class="day-btn__month">{{ day|ru_strftime:"%B" }}</div>
-                                    </button>
-                                {% endfor %}
-                            </div>
-
-                            <div class="film-timetable__times">
-                                <a href="{{ film.purchase_link }}" target="_blank" class="btn btn_blue film-seance__buy-btn">Купить билет</a>
-
-                                <div class="film-seance__text">
-                                    <div>Время сеанса:</div>
-                                    <div>Стоимость:</div>
-                                </div>
-
-                                <div class="tab__content-wrap">
-                                    {% for day in film.get_sessions_by_day %}
-                                        <div class="tab__content">
-                                            <div class="film-seance-wrap">
-                                                {% for i in day %}
-                                                    <div class="film-seance">
-                                                        <div class="film-seance__time">{{ i.session_time|ru_strftime:"%H:%M" }}</div>
-                                                        <div class="film-seance__price">{{ i.price }} р.</div>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
+                        {% if film.get_weekdays %}
+                            <div class="film-timetable film-timetable_desktop tabs-wrap">
+                                <div class="film-timetable__days tab__btns-wrap">
+                                    {% for day in film.get_weekdays %}
+                                        <button class="tab__btn js-tab__btn film-timetable__day-btn">
+                                            <div class="day-btn__week-day">{{ day|ru_strftime:"%A"|capfirst }}</div>
+                                            <div class="day-btn__day">{{ day|ru_strftime:"%d" }}</div>
+                                            <div class="day-btn__month">{{ day|ru_strftime:"%B" }}</div>
+                                        </button>
                                     {% endfor %}
                                 </div>
+
+                                <div class="film-timetable__times">
+                                    <a href="{{ film.purchase_link }}" target="_blank" class="btn btn_blue film-seance__buy-btn">Купить билет</a>
+
+                                    <div class="film-seance__text">
+                                        <div>Время сеанса:</div>
+                                        <div>Стоимость:</div>
+                                    </div>
+
+                                    <div class="tab__content-wrap">
+                                        {% for day in film.get_sessions_by_day %}
+                                            <div class="tab__content">
+                                                <div class="film-seance-wrap">
+                                                    {% for i in day %}
+                                                        <div class="film-seance">
+                                                            <div class="film-seance__time">{{ i.session_time|ru_strftime:"%H:%M" }}</div>
+                                                            <div class="film-seance__price">{{ i.price }} р.</div>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <div class="film-seance__note">Возможны изменения, расписание уточняйте по телефону: 8 (42142) 999-53</div>
                             </div>
 
-                            <div class="film-seance__note">Возможны изменения, расписание уточняйте по телефону: 8 (42142) 999-53</div>
-                        </div>
+                            <div class="film-timetable film-timetable_mobile">
+                                <div class="film-timetable__days js-accordion">
+                                    {% for day in film.get_weekdays %}{% for session in film.get_sessions_by_day %}
+                                        {% if forloop.counter == forloop.parentloop.counter %}
+                                            <div class="film-timetable__day js-accordion-block">
+                                                <button class="js-accordion-btn film-timetable__day-btn">{{ day|ru_strftime:"%A"|capfirst }}, {{ day|ru_strftime:"%d" }} {{ day|ru_strftime:"%B" }}</button>
+                                                <div class="film-timetable__day-sessions js-accordion-content">
+                                                    <table class="film-timetable__sessions-table">
+                                                        <tr>
+                                                            <th>Время сеанса:</th>
+                                                            <th colspan="2">Стоимость:</th>
+                                                        </tr>
+                                                        {% for i in session %}
+                                                            <tr>
+                                                                <td class="film-seance_3d">{{ i.session_time|ru_strftime:"%H:%M" }}</td>
+                                                                <td>{{ i.price }} р.</td>
+                                                                <td><a href="{{ film.purchase_link }}" target="_blank" class="btn btn_blue film-seance__buy-btn">Купить билет</a></td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </table>
+                                                    <div class="film-seance__note">Возможны изменения, расписание уточняйте по телефону: 8 (42142) 999-53</div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}{% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
 
                         <div class="film-description wysiwyg-container">
                             {{ film.description|safe }}

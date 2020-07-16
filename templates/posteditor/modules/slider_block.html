@@ -1,22 +1,21 @@
-
 {% if slider %}
-    <div class="slider slider_{{ slider_obj.format }}">
-        <div class="slider-container">
-            {% for slide in slider %}
-                <div class="slide" data-description="{{ slide.description }}">
-                    <img src="" data-src="{{ slide.img }}" alt="{{ slide.description }}" class="lazyload">
-                </div>
-            {% endfor %}
-        </div>
-        {% if slider|length > 1 %}
-            <div class="slider-arrow-container nav-wrapper">
-                <button class="slider-arrow slider-arrow-prev slider-arrow_simple icon-arrow-left-thin active"></button>
-                <div class="slide-nav-counter active">
-                    <span></span>&nbsp;/&nbsp;<span></span>
-                </div>
-                <button class="slider-arrow slider-arrow-next slider-arrow_simple icon-arrow-right-thin active"></button>
-            </div>
-        {% endif %}
+    <div class="post-editor-slider-block__slider js-post-editor-slider">
+        {% for slide in slider %}
+            <img src=""
+                 data-lazy="{{ slide.img }}"
+                 alt="{{ slide.description }}"
+                 data-description="{{ slide.description }}"
+                 class="post-editor-slider-block__slide">
+        {% endfor %}
     </div>
-    <div class="post-editor__block_caption slider-caption"></div>
+    <div class="post-editor-slider-block__footer">
+        <div class="post-editor-slider-block__caption"></div>
+        <div class="post-editor-slider-block__navigation-wrap hidden">
+            <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
+            <div class="post-editor-slider-block__navigation slide-nav-counter active">
+                <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total"></span>
+            </div>
+            <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
+        </div>
+    </div>
 {% endif %}

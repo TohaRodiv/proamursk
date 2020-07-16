@@ -5,6 +5,14 @@
 
 <main>
     <div class="container">
+        <h2 class="page-title">Места</h2>
+
+        <div class="mobile-sections-links">
+            @@include("modules/place-links-widget.html", {
+                "active": "food"
+            })
+        </div>
+
         <div class="base-layout">
             <div class="base-layout__main">
                 <article class="publication">
@@ -107,30 +115,34 @@
                             </div>
 
                             <div class="city-guide__slider post-editor__section_8">
-                                <div class="post-editor__block_slider">
-                                    <div class="slider slider_format_3x2">
-                                        <div class="slider-container">
-                                            <div class="slide" data-description="На юбилеи, свадьбы и другие праздники гости получают в подарок от шеф-повара Шах-плов — экзотический плов в пироге с мясом и фруктами.">
-                                                <img src="" data-src="images/slider-3-2-7.jpg" alt="Подпись к изображению, задается в админке" title="Подпись к изображению, задается в админке" class="lazyload">
+                                <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
+                                    <div class="post-editor-slider-block__slider js-post-editor-slider">
+                                        <img src=""
+                                             data-lazy="images/local/slider-3-2-7.jpg"
+                                             data-description="На юбилеи, свадьбы и другие праздники гости получают в подарок от шеф-повара Шах-плов — экзотический плов в пироге с мясом и фруктами."
+                                             alt="На юбилеи, свадьбы и другие праздники гости получают в подарок от шеф-повара Шах-плов — экзотический плов в пироге с мясом и фруктами."
+                                             class="post-editor-slider-block__slide">
+                                        <img src=""
+                                             data-lazy="images/local/slider-3-2-5.jpg"
+                                             data-description=""
+                                             alt=""
+                                             class="post-editor-slider-block__slide">
+                                    </div>
+                                    <div class="post-editor-slider-block__footer">
+                                        <div class="post-editor-slider-block__caption">Подпись к изображению</div>
+                                        <div class="post-editor-slider-block__navigation-wrap hidden">
+                                            <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
+                                            <div class="post-editor-slider-block__navigation slide-nav-counter active">
+                                                <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total"></span>
                                             </div>
-                                            <div class="slide" data-description="">
-                                                <img src="" data-src="images/slider-3-2-5.jpg" alt="Подпись к изображению, задается в админке" title="Подпись к изображению, задается в админке" class="lazyload">
-                                            </div>
-                                        </div>
-                                        <div class="slider-arrow-container nav-wrapper">
-                                            <button class="slider-arrow slider-arrow-prev slider-arrow_simple icon-arrow-left-thin"></button>
-                                            <div class="slide-nav-counter">
-                                                <span></span>&nbsp;/&nbsp;<span></span>
-                                            </div>
-                                            <button class="slider-arrow slider-arrow-next slider-arrow_simple icon-arrow-right-thin"></button>
+                                            <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
                                         </div>
                                     </div>
-                                    <div class="post-editor__block_caption slider-caption"></div>
                                 </div>
                             </div>
 
                             <figure class="city-guide__image post-editor__block_image center">
-                                <img src="" data-src="images/slider-3-2-5.jpg" alt="Подпись к изображению, задается в админке" title="Подпись к изображению" class="lazyload">
+                                <img src="" data-src="images/local/slider-3-2-5.jpg" alt="Подпись к изображению, задается в админке" title="Подпись к изображению" class="lazyload">
                                 <figcaption class="post-editor__block_caption">Единственный большой ресторан в Амурске расположен прямо в центре</figcaption>
                             </figure>
                         </div>
@@ -222,22 +234,26 @@
                             </div>
 
                             <div class="city-guide__slider post-editor__section_8">
-                                <div class="post-editor__block_slider">
-                                    <div class="slider slider_format_3x2">
-                                        <div class="slider-container">
-                                            <div class="slide" data-description="Большую пиццу можно купить в пределах 300 руб. Говорят, некоторые любители приезжают за ней даже из Комсомольска-на-Амуре.">
-                                                <img src="" data-src="images/slider-3-2-8.jpg" alt="Подпись к изображению, задается в админке" title="Подпись к изображению, задается в админке" class="lazyload">
-                                            </div>
+                                <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
+                                    <div class="indent-wrap indent-wrap_mt2 indent-wrap_mb2 indent-wrap_pt2 indent-wrap_pb2">
+                                        <div class="post-editor-slider-block__slider js-post-editor-slider">
+                                            <img src=""
+                                                 data-lazy="images/local/slider-3-2-8.jpg"
+                                                 data-description="Большую пиццу можно купить в пределах 300 руб. Говорят, некоторые любители приезжают за ней даже из Комсомольска-на-Амуре."
+                                                 alt="Большую пиццу можно купить в пределах 300 руб. Говорят, некоторые любители приезжают за ней даже из Комсомольска-на-Амуре."
+                                                 class="post-editor-slider-block__slide">
                                         </div>
-                                        <div class="slider-arrow-container nav-wrapper">
-                                            <button class="slider-arrow slider-arrow-prev slider-arrow_simple icon-arrow-left-thin"></button>
-                                            <div class="slide-nav-counter">
-                                                <span></span>&nbsp;/&nbsp;<span></span>
+                                        <div class="post-editor-slider-block__footer">
+                                            <div class="post-editor-slider-block__caption">Подпись к изображению</div>
+                                            <div class="post-editor-slider-block__navigation-wrap hidden">
+                                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
+                                                <div class="post-editor-slider-block__navigation slide-nav-counter active">
+                                                    <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total"></span>
+                                                </div>
+                                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
                                             </div>
-                                            <button class="slider-arrow slider-arrow-next slider-arrow_simple icon-arrow-right-thin"></button>
                                         </div>
                                     </div>
-                                    <div class="post-editor__block_caption slider-caption"></div>
                                 </div>
                             </div>
                         </div>
@@ -319,22 +335,24 @@
                             </div>
 
                             <div class="city-guide__slider post-editor__section_8">
-                                <div class="post-editor__block_slider">
-                                    <div class="slider slider_format_3x2">
-                                        <div class="slider-container">
-                                            <div class="slide" data-description="Ассортимент того, что можно приготовить на гриле, очень велик: стейки из мяса, птицы и рыбы, овощи, морепродукты. ">
-                                                <img src="" data-src="images/slider-3-2-9.jpg" alt="Подпись к изображению, задается в админке" title="Подпись к изображению, задается в админке" class="lazyload">
+                                <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
+                                    <div class="post-editor-slider-block__slider js-post-editor-slider">
+                                        <img src=""
+                                             data-lazy="images/local/slider-3-2-9.jpg"
+                                             data-description="Ассортимент того, что можно приготовить на гриле, очень велик: стейки из мяса, птицы и рыбы, овощи, морепродукты."
+                                             alt="Ассортимент того, что можно приготовить на гриле, очень велик: стейки из мяса, птицы и рыбы, овощи, морепродукты."
+                                             class="post-editor-slider-block__slide">
+                                    </div>
+                                    <div class="post-editor-slider-block__footer">
+                                        <div class="post-editor-slider-block__caption">Подпись к изображению</div>
+                                        <div class="post-editor-slider-block__navigation-wrap hidden">
+                                            <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
+                                            <div class="post-editor-slider-block__navigation slide-nav-counter active">
+                                                <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total"></span>
                                             </div>
-                                        </div>
-                                        <div class="slider-arrow-container nav-wrapper">
-                                            <button class="slider-arrow slider-arrow-prev slider-arrow_simple icon-arrow-left-thin"></button>
-                                            <div class="slide-nav-counter">
-                                                <span></span>&nbsp;/&nbsp;<span></span>
-                                            </div>
-                                            <button class="slider-arrow slider-arrow-next slider-arrow_simple icon-arrow-right-thin"></button>
+                                            <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
                                         </div>
                                     </div>
-                                    <div class="post-editor__block_caption slider-caption"></div>
                                 </div>
                             </div>
                         </div>
@@ -506,8 +524,8 @@
                 </article>
             </div>
 
-            <aside class="base-layout__aside">
-                <div class="aside-widget">
+            <aside class="base-layout__aside base-layout__aside_desktop">
+                <div class="aside-widget aside-nav-widget">
                     @@include("modules/place-links-widget.html", {
                         "active": "food"
                     })
@@ -518,13 +536,13 @@
                 <div class="aside-widget">
                     @@include("page-block/sidebar-banner.html", {
                         "link": "news-details.html",
-                        "img": "images/aside-banner2.jpg"
+                        "img": "images/local/aside-banner2.jpg"
                     })
                 </div>
                 <div class="aside-widget">
                     @@include("page-block/sidebar-banner.html", {
                         "link": "news-details.html",
-                        "img": "images/aside-banner3.jpg"
+                        "img": "images/local/aside-banner3.jpg"
                     })
                 </div>
             </aside>

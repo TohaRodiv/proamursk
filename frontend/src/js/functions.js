@@ -48,22 +48,24 @@ $('body').on('paste cut', '.variable-height-textarea', function () {
 });
 
 function resizeTextarea(visibleTextarea, minHeight, maxHeight) {
-    if (visibleTextarea.val() == '') {
-        visibleTextarea.height(minHeight + 'px');
-    }
-    else {
-        var variableTextareaWrap = visibleTextarea.parent('.variable-height-textarea-wrap'),
-            hiddenTextarea = variableTextareaWrap.find('.variable-height-textarea_hidden'),
-            text = '';
+    if (visibleTextarea.length) {
+        if (visibleTextarea.val() === '') {
+            visibleTextarea.height(minHeight + 'px');
+        }
+        else {
+            var variableTextareaWrap = visibleTextarea.parent('.variable-height-textarea-wrap'),
+                hiddenTextarea = variableTextareaWrap.find('.variable-height-textarea_hidden'),
+                text = '';
 
-        visibleTextarea.val().replace(/[<>]/g, '_').split('\n').forEach(function (s) {
-            text = text + '<div>' + s.replace(/\s\s/g, ' &nbsp;') + '&nbsp;</div>' + '\n';
-        });
-        hiddenTextarea.html(text);
-        var hiddenTextareaHeight = hiddenTextarea.height();
-        hiddenTextareaHeight = Math.max(minHeight, hiddenTextareaHeight);
-        hiddenTextareaHeight = Math.min(maxHeight, hiddenTextareaHeight);
-        visibleTextarea.height(hiddenTextareaHeight + 'px');
+            visibleTextarea.val().replace(/[<>]/g, '_').split('\n').forEach(function (s) {
+                text = text + '<div>' + s.replace(/\s\s/g, ' &nbsp;') + '&nbsp;</div>' + '\n';
+            });
+            hiddenTextarea.html(text);
+            var hiddenTextareaHeight = hiddenTextarea.height();
+            hiddenTextareaHeight = Math.max(minHeight, hiddenTextareaHeight);
+            hiddenTextareaHeight = Math.min(maxHeight, hiddenTextareaHeight);
+            visibleTextarea.height(hiddenTextareaHeight + 'px');
+        }
     }
 }
 
@@ -74,3 +76,21 @@ Array.prototype.remove = function(value) {
     }
     return false;
 };
+
+(function() {
+    var throttle = function(type, name, obj) {
+        obj = obj || window;
+        var running = false;
+        var func = function() {
+            if (running) { return; }
+            running = true;
+            requestAnimationFrame(function() {
+                obj.dispatchEvent(new CustomEvent(name));
+                running = false;
+            });
+        };
+        obj.addEventListener(type, func);
+    };
+
+    throttle('resize', 'optimizedResize');
+})();

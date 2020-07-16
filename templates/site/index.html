@@ -100,14 +100,13 @@
                                 <h2 class="selection-head__title"><a href="{% url "compilation-detail" content_page.compilation.codename %}">{{ content_page.compilation.name }}</a></h2>
                             </div>
 
-
                             <div class="index-selection-grid {% if length == 2 %}index-selection-grid_2{% elif length == 3 %}index-selection-grid_3{% else %}index-selection-grid_4{% endif %}">
                                 {% for obj in content_page.compilation.get_active_items|slice:":4" %}
                                     {% with item=obj.get_object %}
                                         {% if item %}
                                             {% with cover_format=item.cover_format|default:"small" %}
                                                 {% if length == 2 %}
-                                                    {% with css_class="grid-publication_6-col" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
+                                                    {% with css_class="grid-publication_6-col grid-publication_format-mobile" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
                                                         {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                             {% include "site/modules/grid-event.html" %}
                                                         {% else %}
@@ -116,7 +115,7 @@
                                                     {% endwith %}
                                                 {% elif length == 3 %}
                                                     {% if forloop.counter == 2 %}
-                                                        {% with css_class="grid-publication_6-col" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
+                                                        {% with css_class="grid-publication_6-col grid-publication_format-mobile" model_name=item|get_model_name cover_name="6_column_img_"|add:cover_format %}
                                                             {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                                 {% include "site/modules/grid-event.html" %}
                                                             {% else %}
@@ -124,7 +123,7 @@
                                                             {% endif %}
                                                         {% endwith %}
                                                     {% else %}
-                                                        {% with cover_name="3_column_img_"|add:cover_format%}
+                                                        {% with cover_name="3_column_img_"|add:cover_format css_class="grid-publication_format-mobile" %}
                                                             {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                                 {% include "site/modules/grid-event.html" %}
                                                             {% else %}
@@ -133,7 +132,7 @@
                                                         {% endwith %}
                                                     {% endif %}
                                                 {% else %}
-                                                    {% with cover_name="3_column_img_"|add:cover_format%}
+                                                    {% with cover_name="3_column_img_"|add:cover_format css_class="grid-publication_format-mobile" %}
                                                         {% if obj.entity == 'event' or obj.entity == 'report' %}
                                                             {% include "site/modules/grid-event.html" %}
                                                         {% else %}
@@ -163,28 +162,17 @@
                 <img src="{{ wide_banner.cover|get_thumbnail_url_by_name:"wide_banner" }}" alt="" class="banner__img">
             </a>
         {% else %}
-            <div class="layout-section slider full-width-slider">
-                <div class="slider-container">
-                    {% for item in specials %}
-                        <div class="slide">
-                            {% with cover_name="specials_index" class="grid-publication_full-width-slider" %}
-                                {% include "site/modules/special-project.html" %}
-                            {% endwith %}
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="slider-circles-container"></div>
-                {%  if specials|length > 1 %}
-                    <div class="slider-arrow-container">
-                        <button class="slider-arrow slider-arrow-prev slider-arrow_round icon-arrow-left active"></button>
-                        <button class="slider-arrow slider-arrow-next slider-arrow_round icon-arrow-right active"></button>
-                    </div>
-                {% endif %}
+            <div class="layout-section specials-slider js-specials-slider">
+                {% for item in specials %}
+                    {% with cover_name="specials_index" %}
+                        {% include "site/modules/special-project.html" %}
+                    {% endwith %}
+                {% endfor %}
             </div>
         {% endif %}
 
         <div class="container layout-section">
-            <h2 class="section__title">ЧЕМ ЗАНЯТЬСЯ В АМУРСКЕ?</h2>
+            <h2 class="section__title section__title_mobile-center">ЧЕМ ЗАНЯТЬСЯ В&nbsp;АМУРСКЕ?</h2>
             <div class="todo-layout">
                 {% include "site/page-block/cinema-widget.html" %}
 

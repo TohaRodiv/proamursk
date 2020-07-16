@@ -6,7 +6,6 @@
     border: 1px solid #d2d7dd
 
 .aside-nav
-
     &__list
         margin: 0
         padding: 0
@@ -47,14 +46,75 @@
 
         &.icon-hotel
             font-size: 21px
+
         &.icon-food
             font-size: 16px
+
         &.icon-activities
             font-size: 14px
             line-height: 38px
+
         &.icon-transport
             font-size: 17px
             line-height: 38px
+
         &.icon-phones
             font-size: 17px
 
+
+.light-bg .mobile-sections-links .aside-nav__link
+    background-color: $light-c
+
+.mobile-sections-links
+    overflow: hidden
+    margin-left: -16px
+    margin-right: -16px
+
+    +media(d)
+        display: none
+
+    .aside-nav
+        &__list
+            display: flex
+            min-width: 0
+            overflow: auto
+            padding-bottom: 40px
+            margin-bottom: -40px
+
+        &__item
+            flex-shrink: 0
+            margin-right: 16px
+
+            &:last-child
+                margin-right: 0
+                & > *
+                    margin-right: 16px
+
+            &:first-child
+                margin-left: 16px
+
+        &__text_mobile-crop
+            width: 70px
+            overflow: hidden
+            white-space: nowrap
+
+        &__link
+            padding: 5px 15px
+            font-size: 18px
+            background-color: #F5F6F7
+            border-radius: 20px
+
+            &.active
+                +media(m)
+                    background-color: $base-c
+                    color: $light-c
+
+                    .aside-nav__icon
+                        color: $light-c
+
+        &__icon
+            width: 20px
+            height: auto
+            line-height: 0
+            color: $base-c
+            background-color: transparent

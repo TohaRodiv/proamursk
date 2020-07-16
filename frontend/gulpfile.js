@@ -72,14 +72,14 @@ const gulp = require('gulp'),
 //   DEVELOPMENT TASKS
 // ---------------------
 
-const dev = gulp.parallel(devSass, devJS, devImages, devFonts, devHtml, devShortStaticStyles, frontendShortHtml);
+const dev = gulp.parallel(devSass, devJS, devImages, devLocalImages, devFonts, devHtml, devShortStaticStyles, frontendShortHtml);
 
 
 function watch() {
     gulp.watch(['src/sass/**/*.sass',], devSass);
     gulp.watch(['src/sass/_short-styles/*.sass',], devShortStaticStyles);
     gulp.watch(['src/js/**/*.js',], devJS);
-    gulp.watch(['src/images/**/*.*',], devImages);
+    gulp.watch(['src/images/**/*.*',], gulp.parallel(devImages, devLocalImages));
     gulp.watch(['src/fonts/**/*.*',], devFonts);
     gulp.watch(['src/html/**/*.html',], devHtml);
     gulp.watch(['src/html/404.html', 'src/html/500.html',], gulp.parallel(frontendShortHtml));
@@ -119,8 +119,14 @@ function devJS() {
 }
 
 
+function devLocalImages() {
+    return gulp.src('src/images/local/**/**/*.*')
+        .pipe(plumber(settingsPlumber))
+        .pipe(gulp.dest('static/images/local/'));
+}
+
 function devImages() {
-    return gulp.src('src/images/**/**/*.*')
+    return gulp.src(['src/images/**/**/*.*', '!src/images/local/**/*.*',])
         .pipe(plumber(settingsPlumber))
         .pipe(gulp.dest('static/images/'))
         .pipe(gulp.dest('./../static/site/images/'));
@@ -150,6 +156,7 @@ exports.dev = dev;
 exports.watch = watch;
 exports.devSass = devSass;
 exports.devJS = devJS;
+exports.devLocalImages = devLocalImages;
 exports.devImages = devImages;
 exports.devFonts = devFonts;
 exports.devHtml = devHtml;
@@ -200,7 +207,7 @@ function prodJS() {
 
 
 function prodImages() {
-    return gulp.src('src/images/**/*.*')
+    return gulp.src(['src/images/**/*.*', '!src/images/local/**/*.*', '!src/images/email/local/**/*.*',])
         .pipe(plumber(settingsPlumber))
         .pipe(imagemin({
             progressive: true,
@@ -354,3 +361,72 @@ exports.devShortStaticStyles = devShortStaticStyles;
 exports.prodShortStaticStyles = prodShortStaticStyles;
 exports.frontendShortHtml = frontendShortHtml;
 exports.templatesShortHtml = templatesShortHtml;
+
+
+
+// ----------------------
+//   SPECIAL PROJECTS STATIC TASKS
+// ----------------------
+
+const specials = gulp.parallel(spStyles, spJS);
+
+
+function spStyles() {
+    return gulp.src([
+        'src/sass/sp-birthday-styles.sass',
+        'src/sass/sp-children-styles.sass',
+        'src/sass/sp-dance-styles.sass',
+        'src/sass/sp-summer-money-styles.sass',
+        'src/sass/sp-winter-fun-styles.sass',
+    ])
+        .pipe(plumber(settingsPlumber))
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            indentedSyntax: true,
+        }))
+        .pipe(autoprefixer())
+        .pipe(rename({ suffix: '.min' , }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('static/css/special-projects'))
+        .pipe(gulp.dest('./../static/site/css'))
+        .pipe(gzip())
+        .pipe(gulp.dest('./../static/site/css'));
+}
+
+
+const spJSFiles = [
+    jquery,
+    slickCarousel,
+    'src/js/IntersectionObserver.js',
+    'src/js/ResizeObserver.js',
+    'src/js/special-projects.js',
+    'src/js/functions.js',
+    'src/js/map.js',
+    'src/js/pop-ups.js',
+    'src/js/select.js',
+    'src/js/fileLoader.js',
+    'src/js/sliders.js',
+    'src/js/ajax.js',
+    'src/js/dropdown-section.js',
+];
+
+function spJS() {
+    return gulp.src(spJSFiles)
+        .pipe(plumber(settingsPlumber))
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env',],
+        }))
+        .pipe(concat('sp-main.js'))
+        .pipe(gulp.dest('./../static/site/js/'))
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min', }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('./../static/site/js/'))
+        .pipe(gzip())
+        .pipe(gulp.dest('./../static/site/js/'));
+}
+
+exports.spStyles = spStyles;
+exports.spJS = spJS;
+exports.specials = specials;

@@ -1,0 +1,1785 @@
+{% load static static_version site_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="yandex-tableau-widget" content="logo={{ ROOT_LINK }}{% static "site/images/favicons/tableau-logo.png" %}{% static_version %}, color=#ffffff" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="address=no" />
+        <meta name="theme-color" content="#0073FF">
+
+        {% block seo %}
+        {% endblock %}
+
+        {{ request.SETTINGS.meta_tags|safe }}
+
+        {% block og %}
+        {% endblock %}
+
+        <title>{% block title %}Про Амурск{% endblock %}</title>
+
+        <link href="{% static "site/images/favicons/120.png" %}{% static_version %}" rel="apple-touch-icon" sizes="120x120"/>
+        <link href="{% static "site/images/favicons/152.png" %}{% static_version %}" rel="apple-touch-icon" sizes="152x152"/>
+        <link href="{% static "site/images/favicons/180.png" %}{% static_version %}" rel="apple-touch-icon" sizes="180x180"/>
+        <link href="{% static "site/images/favicons/32.png" %}{% static_version %}" rel="icon" sizes="32x32"/>
+        <link href="{% static "site/images/favicons/57.png" %}{% static_version %}" rel="icon" sizes="57x57"/>
+        <link href="{% static "site/images/favicons/76.png" %}{% static_version %}" rel="icon" sizes="76x76"/>
+        <link href="{% static "site/images/favicons/128.png" %}{% static_version %}" rel="icon" sizes="128x128"/>
+        <link href="{% static "site/images/favicons/192.png" %}{% static_version %}" rel="icon" sizes="192x192"/>
+
+        <link rel="stylesheet" href="{% static "site/css/sp-children-styles.min.css" %}{% static_version %}">
+    </head>
+
+    <body>
+        <main class="sp sp-children">
+            <div class="sp-children-header">
+                <img src="{% static "site/images/special-projects/children/sp-children-header-img.jpg" %}{% static_version %}" alt="" class="sp-children-header__img">
+
+                <div class="container sp-children-header__container">
+                    <img src="{% static "site/images/special-projects/children/svg/pattern-left.svg" %}{% static_version %}" alt="" class="sp-children-header__pattern sp-children-header__pattern_left">
+                    <img src="{% static "site/images/special-projects/children/svg/pattern-right.svg" %}{% static_version %}" alt="" class="sp-children-header__pattern sp-children-header__pattern_right">
+
+                    <h1 class="sp-children__title">ЛУЧШЕЕ&nbsp;&mdash; ДЕТЯМ</h1>
+
+                    <div class="sp-children__wobbler">
+                        <div class="wobbler">
+                            <span class="wobbler__icon icon-star-sharp"></span>
+                            <span class="wobbler__text">Спецпроект</span>
+                        </div>
+                    </div>
+
+                    <h2 class="sp-children__subtitle">Как воспитывают, учат и&nbsp;развивают детей в&nbsp;Амурске</h2>
+
+                    <img src="{% static "site/images/special-projects/children/svg/round-arrow-down.svg" %}{% static_version %}" alt="" class="sp-children__arrow-down">
+
+                    <div class="sp-children__description">
+                        <p>Амурские школьники регулярно становятся призерами краевых и&nbsp;всероссийских конкурсов, а&nbsp;выпускники поступают в&nbsp;вузы Дальнего Востока, Санкт-Петербурга и&nbsp;Москвы.</p>
+                        <p>Все дело в&nbsp;качестве образования, которое в&nbsp;нашем городе остается стабильно высоким. О&nbsp;том, как воспитывают и&nbsp;развивают детей в&nbsp;Амурске&nbsp;&mdash; в&nbsp;нашем первом спецпроекте.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="sp-children-section sp-children-section_1">
+                <div class="js-fade sp-children-section__cover-wrap lazyload lazyload-inline-bg" data-src="{% static "site/images/special-projects/children/section1-cover.jpg" %}{% static_version %}">
+                    <div class="sp-children-section__title-wrap">
+                        <h2 class="sp-children-section__title">Все начинается в&nbsp;детском саду</h2>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="js-fade sp-6col">
+                        <div class="sp-children-section__description">Детский сад&nbsp;&mdash; не&nbsp;просто место, где за&nbsp;ребенком присматривают, пока родители на&nbsp;работе. В&nbsp;саду он&nbsp;получает знания, учится работать в&nbsp;группе и&nbsp;соблюдать режим. Именно здесь происходит основная подготовка к&nbsp;школе. В&nbsp;детских садах Амурска дети занимаются музыкой и&nbsp;творчеством, изучают счет, развивают речь и&nbsp;приобщаются к&nbsp;труду.</div>
+
+                        <div class="sp-fact-wrap">
+                            <div class="sp-fact sp-fact_center">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/kindergarden.svg" %}{% static_version %}" alt="" class="sp-children__icon_kindergarden lazyload">
+                                </div>
+                                <div class="sp-fact__title sp-fact__title_italic">8</div>
+                                <div class="sp-fact__subtext sp-fact__subtext_limited">детских садов в&nbsp;Амурске</div>
+                            </div>
+                            <div class="sp-fact sp-fact_center">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/children-in-kindergarden.svg" %}{% static_version %}" alt="" class="sp-children__icon_children-in-kindergarden lazyload">
+                                </div>
+                                <div class="sp-fact__title sp-fact__title_italic">> 1600</div>
+                                <div class="sp-fact__subtext sp-fact__subtext_limited">детей ходят в&nbsp;детский сад</div>
+                            </div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <div class="sp-separator_line"></div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <p>В&nbsp;детском саду &#8470;&nbsp;9&nbsp;двенадцать групп, в&nbsp;которых учится около 280&nbsp;детей. Работают три группы раннего возраста для детей от&nbsp;1,5 до&nbsp;3&nbsp;лет и&nbsp;9&nbsp;групп дошкольного возраста с&nbsp;3&nbsp;до&nbsp;7&nbsp;лет. Также есть две группы компенсирующей направленности для детей с&nbsp;тяжелым нарушением речи. <br>
+                            Педагоги проводят с&nbsp;детьми обучающие игры, направленные на&nbsp;познавательное, сенсорное, интеллектуальное и&nbsp;речевое развитие. Ведется начальное обучение грамоте, развитие фонематического слуха.</p>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <div class="sp-children-direct-speech">
+                                <div class="direct-speech direct-speech_buble">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-person-fomina.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                    <div class="direct-speech__text-wrap">
+                                        <div class="direct-speech-author__name">Юлия Фомина</div>
+                                        <div class="direct-speech-author__description">и.о. заведующего детским садом № 9:</div>
+                                        <div class="direct-speech__text">
+                                            <p><i>Одна из&nbsp;функций садика&nbsp;&mdash; всестороннее развитие. Его цель научить ребенка думать не&nbsp;по&nbsp;шаблону, а&nbsp;самостоятельно рассуждать и&nbsp;делать выводы. При этом все занятия проводятся в&nbsp;игровой форме, понятной дошкольнику. Таким образом, создаются предпосылки для формирования учебных навыков&nbsp;&mdash; &laquo;умения учиться&raquo;, и&nbsp;когда ребенок становится школьником, у&nbsp;него уже развиты внимание, восприятие, есть начальные представления о&nbsp;грамоте, счете.</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <div class="sp-fact sp-fact_in-column">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/rocking-horse.svg" %}{% static_version %}" alt="" class="sp-children__icon_rocking-horse lazyload">
+                                </div>
+                                <div class="sp-fact__text">Каждый день насыщен играми и&nbsp;занятиями. Дети в&nbsp;саду не&nbsp;смотрят мультики&nbsp;&mdash; хотя в&nbsp;группах есть экраны, они используются только в&nbsp;образовательных целях, например для показа видео и&nbsp;презентаций к&nbsp;занятиям.</div>
+                            </div>
+
+                            <div class="sp-fact sp-fact_in-column">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/globe.svg" %}{% static_version %}" alt="" class="sp-children__icon_globe lazyload">
+                                </div>
+                                <div class="sp-fact__text">Детский сад &#8470;&nbsp;9&nbsp;является апробационной площадкой для формирования географических представлений у&nbsp;детей старшего дошкольного возраста при изучении Дальнего Востока. Дети ходят на&nbsp;экскурсии в&nbsp;Краеведческий музей, в&nbsp;Ботанический сад, в&nbsp;Детскую библиотеку. Там они узнают о&nbsp;географии и&nbsp;природе своего края, о&nbsp;культуре и&nbsp;обычаях его коренных народов.</div>
+                            </div>
+
+                            <div class="sp-fact sp-fact_in-column">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/constructror.svg" %}{% static_version %}" alt="" class="sp-children__icon_constructor lazyload">
+                                </div>
+                                <div class="sp-fact__text">В&nbsp;саду есть дополнительные платные кружки и&nbsp;секции. Например, секция фитбол-гимнастики, кружки &laquo;Легоград&raquo; и&nbsp;&laquo;Тикоград&raquo;, в&nbsp;которых дети учатся создавать модели из&nbsp;конструкторов Lego и&nbsp;Тико.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="js-fade sp-block sp-block_mt80">
+                        <div class="preview-slider slider sp-children-slider">
+                            <div class="preview-slider__big-img-wrap slider-container">
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture1.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Для развития начальных математических представлений используются цветные блоки Дьенеша, палочки Кюизенера и&nbsp;другие пособия.</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture2.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Для детей от&nbsp;1,5 до&nbsp;двух лет работает предметно-игровая развивающая среда Воскобовича &laquo;Фиолетовый лес&raquo;. С&nbsp;помощью воспитателя дети разыгрывают сказки, учатся различать цвета и&nbsp;узнают новую информацию об&nbsp;окружающем мире.</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture41.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Занятие ведет Ольга Серегина&nbsp;&mdash; учитель-логопед высшей категории. В&nbsp;2017 году детский сад стал &#8470;&nbsp;9&nbsp;победителем Всероссийского конкурса на&nbsp;лучшую модель дошкольного образования в&nbsp;номинации &laquo;Логопедические игровые тренинги как средство речевого развития дошкольников&raquo;.</div>
+                                </div>
+                            </div>
+
+                            <div class="preview-slider__small-img-wrap">
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture1-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture2-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture41-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                            </div>
+
+                            <div class="slider-arrow-container sp-children-slider__arrow-container">
+                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="js-fade sp-block sp-block_mt80 sp-6col sp-6col_3-3">
+                        <div class="sp-3col">
+                            <div class="sp-3col__text">
+                                <p>В&nbsp;2016 году в&nbsp;саду появилась лекотека &quot;Добрая радуга&quot;&mdash; игровое образовательное пространство для детей с&nbsp;ограниченными возможностями здоровья. </p>
+                                <p>Занятия в&nbsp;лекотеке помогают снять нервное напряжение, развивают речь, навыки общения и&nbsp;мелкую моторику, помогают социализироваться.</p>
+                            </div>
+                            <img src="" data-src="{% static "site/images/special-projects/children/svg/boy-cubes.svg" %}{% static_version %}" alt="" class="sp-children__icon_boy-cubes lazyload">
+                        </div>
+
+                        <div class="sp-3col">
+                            <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture4.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-small-img sp-children__photo lazyload">
+                        </div>
+                    </div>
+
+                    <div class="js-fade sp-block sp-block_mt80">
+                        <div class="preview-slider slider sp-children-slider">
+                            <div class="preview-slider__big-img-wrap slider-container">
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture8.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Дети в&nbsp;игровой форме знакомятся с&nbsp;цифрами, изучают простые арифметические действия.</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture7.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">На&nbsp;таких стеклянных мольбертах можно рисовать вдвоем, дополняя рисунки друг друга. Сотворчество помогает закрытым стеснительным детям наладить общение.</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture6.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Рисование песком&nbsp;&mdash; увлекательный и&nbsp;познавательный процесс, который очень нравится детям.</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture5.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Из&nbsp;таких мягких блоков ребенок может самостоятельно построить дом или волшебный замок. Формирование чувства безопасности и&nbsp;уверенности в&nbsp;себе&nbsp;&mdash; важнейшие эффекты лекотеки.</div>
+                                </div>
+                            </div>
+
+                            <div class="preview-slider__small-img-wrap">
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture8-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture7-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture6-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture5-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                            </div>
+
+                            <div class="slider-arrow-container sp-children-slider__arrow-container">
+                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="js-fade">
+                        <div class="sp-6col sp-block sp-block_mt80">
+                            <div class="sp-6col_4-2">
+                                <div class="sp-4col">
+                                    <p>Большое внимание уделяется физическому развитию детей, приобщению их&nbsp;к&nbsp;здоровому образу жизни и&nbsp;спорту.</p>
+                                    <p>В&nbsp;саду действует программа внедрения ГТО для детей.&nbsp;13&nbsp;воспитанников выпуска 2018 года уже получили знаки отличия.</p>
+                                    <p>Кроме обязательных занятий физкультурой, многие воспитанники посещают секцию фитбол-гимнастики. Занятия на&nbsp;фитболах формируют хорошую осанку, помогают избежать плоскостопия.</p>
+                                </div>
+                                <img src="" data-src="{% static "site/images/special-projects/children/svg/fitball.svg" %}{% static_version %}" alt="" class="sp-children__icon_fitball lazyload">
+                            </div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt80 sp-6col sp-6col_3-3">
+                            <div class="sp-3col">
+                                <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture9.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-small-img sp-children__overflow-small-img_left sp-children__photo lazyload">
+                            </div>
+
+                            <div class="sp-3col">
+                                <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture10.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-small-img sp-children__photo lazyload">
+                            </div>
+                        </div>
+
+                        <div class="sp-6col sp-block sp-block_mt80">
+                            <p>На&nbsp;прогулке воспитатели организуют подвижные игры, наблюдение за&nbsp;природой, насекомыми и&nbsp;птицами. В&nbsp;теплое время года дети выполняют простые задания&nbsp;&mdash; например, полить растения, собрать опавшие листья&nbsp;&mdash; которые приучают их&nbsp;к&nbsp;труду. А&nbsp;еще на&nbsp;площадке есть маленький огород, где ребята учатся ухаживать за&nbsp;растениями.</p>
+                        </div>
+                    </div>
+
+                    <div class="js-fade sp-block sp-block_mt40">
+                        <div class="sp-12col_4-4-4">
+                            <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture11.jpg" %}{% static_version %}" alt="" class="sp-children__photo lazyload">
+                            <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture12.jpg" %}{% static_version %}" alt="" class="sp-children__photo lazyload">
+                            <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture13.jpg" %}{% static_version %}" alt="" class="sp-children__photo lazyload">
+                        </div>
+                    </div>
+
+                    <div class="js-fade sp-6col sp-block_mt80">
+                        <div class="sp-block">
+                            <p>Педагоги детского сада делают все, чтобы создать в&nbsp;группах домашнюю атмосферу, завоевать доверие и&nbsp;любовь воспитанников.</p>
+                            <p>Для детей, которые только начинают ходить в&nbsp;садик, работает адаптационная группа. В&nbsp;ней ребенок может остаться на&nbsp;два часа&nbsp;&mdash; один или с&nbsp;родителем, постепенно привыкая к&nbsp;новому окружению.</p>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <div class="sp-children-direct-speech">
+                                <div class="direct-speech direct-speech_buble">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-person-fomina.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                    <div class="direct-speech__text-wrap">
+                                        <div class="direct-speech-author__name">Юлия Фомина</div>
+                                        <div class="direct-speech-author__description">и.о. заведующего детским садом № 9:</div>
+                                        <div class="direct-speech__text">
+                                            <p><i>&mdash;&nbsp;Любовь к&nbsp;садику нужно закладывать в&nbsp;раннем возрасте, иначе ребенку будет неинтересно ходить туда на&nbsp;протяжении нескольких лет. Чтобы малыш в&nbsp;саду не&nbsp;испытывал стресса, условия должны быть максимально приближены к&nbsp;домашним. Он&nbsp;должен чувствовать, что воспитатель&nbsp;&mdash; это вторая мама, которая о&nbsp;нем заботится.</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="js-fade sp-light-section sp-block sp-block_mt100">
+                    <div class="container">
+                        <h3 class="sp-light-section__title">КАК ЗАПИСАТЬ РЕБЕНКА В САДИК В АМУРСКЕ?</h3>
+
+                        <div class="sp-block sp-slider-timeline-wrap">
+                            <div class="sp-slider-timeline sp-children-section_1__slider-timeline">
+                                <button class="timeline-step active" data-timeline-slide="1">
+                                    <div class="timeline-step__number-wrap">
+                                        <div class="timeline-step__number">1</div>
+                                    </div>
+                                    <div class="timeline-step__title">Встаньте в очередь</div>
+                                </button>
+                                <button class="timeline-step" data-timeline-slide="2">
+                                    <div class="timeline-step__number-wrap">
+                                        <div class="timeline-step__number">2</div>
+                                    </div>
+                                    <div class="timeline-step__title">Ждите</div>
+                                </button>
+                                <button class="timeline-step" data-timeline-slide="3">
+                                    <div class="timeline-step__number-wrap">
+                                        <div class="timeline-step__number">3</div>
+                                    </div>
+                                    <div class="timeline-step__title">Пройдите медосмотр</div>
+                                </button>
+                                <button class="timeline-step" data-timeline-slide="4">
+                                    <div class="timeline-step__number-wrap">
+                                        <div class="timeline-step__number">4</div>
+                                    </div>
+                                    <div class="timeline-step__title">Подайте заявление</div>
+                                </button>
+                            </div>
+
+                            <div class="slider sp-block sp-block_mt40 sp-children-step-slider sp-children-step-slider-1">
+                                <div class="slider-container sp-children-step-slider-container">
+                                    <div class="slide sp-children-step-slider__slide sp-children-step-slider-1__slide-1">
+                                        <div class="sp-children-step-slider__step-number">1</div>
+                                        <div class="sp-children-step-slider__step-title">Встаньте в очередь</div>
+                                        <div class="sp-children-step-slider__text">
+                                            <p>Чтобы получить место в&nbsp;муниципальном садике, нужно заранее встать в&nbsp;очередь (получить путевку).</p>
+                                        </div>
+                                        <div class="sp-block_mt80"><b>Сделать это можно тремя способами:</b></div>
+                                        <div class="sp-block_mt40">
+                                            <div class="sp-children-step-slider__fact-wrap sp-fact-wrap">
+                                                <div class="sp-fact sp-fact_center">
+                                                    <div class="sp-fact__icon sp-fact__icon_big">
+                                                        <img src="" data-src="{% static "site/images/special-projects/children/svg/uprobrz.svg" %}{% static_version %}" alt="" class="sp-children__icon_uprobrz lazyload">
+                                                    </div>
+                                                    <div class="sp-fact__title"><a href="https://upramr.ucoz.ru/" target="_blank">В Управлении образования Амурского района <span class="icon-round-arrow-right-dir"></span></a></div>
+                                                </div>
+                                                <div class="sp-fact sp-fact_center">
+                                                    <div class="sp-fact__icon sp-fact__icon_big">
+                                                        <img src="" data-src="{% static "site/images/special-projects/children/svg/mfc.svg" %}{% static_version %}" alt="" class="sp-children__icon_mfc lazyload">
+                                                    </div>
+                                                    <div class="sp-fact__title"><a href="https://mfcrus.ru/amursk" target="_blank">В МФЦ <span class="icon-round-arrow-right-dir"></span></a></div>
+                                                </div>
+                                                <div class="sp-fact sp-fact_center">
+                                                    <div class="sp-fact__icon sp-fact__icon_big">
+                                                        <img src="" data-src="{% static "site/images/special-projects/children/svg/gosuslugi.svg" %}{% static_version %}" alt="" class="sp-children__icon_gosuslugi lazyload">
+                                                    </div>
+                                                    <div class="sp-fact__title"><a href="https://www.gosuslugi.ru/" target="_blank">Онлайн на сайте Госуслуг <span class="icon-round-arrow-right-dir"></span></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="slide sp-children-step-slider-1__slide-5">
+                                        <div class="sp-children-step-slider__step-number">2</div>
+                                        <div class="sp-children-step-slider__step-title">Ждите</div>
+                                        <div class="sp-children-step-slider-1__content">
+                                            <p class="sp-children-step-slider-1__text">Желательно периодически проверять свою позицию в&nbsp;очереди&nbsp;&mdash; хотя&nbsp;бы раз в&nbsp;год. На&nbsp;сайте Госуслуг это можно сделать онлайн. Когда очередь подойдет, вам позвонят из&nbsp;садика.</p>
+                                            <img src="" data-src="{% static "site/images/special-projects/children/svg/slider-wait.svg" %}{% static_version %}" alt="" class="sp-children__icon_slider-wait lazyload">
+                                        </div>
+                                    </div>
+
+                                    <div class="slide sp-children-step-slider-1__slide-6">
+                                        <div class="sp-children-step-slider__step-number">3</div>
+                                        <div class="sp-children-step-slider__step-title">Пройдите медосмотр</div>
+                                        <div class="sp-children-step-slider-1__content">
+                                            <p class="sp-children-step-slider-1__text">Это можно сделать бесплатно в&nbsp;муниципальной поликлинике. Заключения специалистов годны 6&nbsp;месяцев, а&nbsp;вот срок годности анализов&nbsp;&mdash; всего месяц, так что их&nbsp;имеет смысл сдать непосредственно перед зачислением. Направления на&nbsp;прием специалистов выдаст медсестра в&nbsp;вашем детском саду.</p>
+                                            <img src="" data-src="{% static "site/images/special-projects/children/svg/slider-body-check.svg" %}{% static_version %}" alt="" class="sp-children__icon_slider-body-check lazyload">
+                                        </div>
+                                    </div>
+
+                                    <div class="slide sp-children-step-slider-1__slide-7">
+                                        <div class="sp-children-step-slider__step-number">4</div>
+                                        <div class="sp-children-step-slider__step-title">Подайте заявление</div>
+
+                                        <div class="sp-children-step-slider-1__subtitle"><b>Что взять с собой:</b></div>
+                                        <div class="sp-full_2-2">
+                                            <ul class="sp-bullet-list">
+                                                <li class="sp-bullet-list__item sp-bullet-item">Заявление на&nbsp;прием в&nbsp;дошкольную организацию (готовую форму можно взять в&nbsp;детском саду);</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">Документ, удостоверяющий личность заявителя;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">Медицинскую карту с&nbsp;результатами стандартного медосмотра. Она необходима, если ребенок поступает в&nbsp;дошкольную организацию впервые.</li>
+                                            </ul>
+                                            <ul class="sp-bullet-list">
+                                                <li class="sp-bullet-list__item sp-bullet-item">Оригинал свидетельства о&nbsp;рождении ребенка или документ, подтверждающий родство с&nbsp;заявителем;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">Свидетельство о&nbsp;регистрации ребенка по&nbsp;месту жительства или по&nbsp;месту пребывания на&nbsp;закрепленной за&nbsp;детским садом территории или документ, содержащий сведения о&nbsp;регистрации ребенка по&nbsp;месту жительства или по&nbsp;месту пребывания.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="sp-info-note sp-info-note_small">
+                                            <div class="sp-info-note__sign">!</div>
+                                            <div class="sp-info-note__text">Если у&nbsp;детей иностранное гражданство или нет гражданства, потребуется документ, подтверждающий родство заявителя и&nbsp;его право на&nbsp;пребывание в&nbsp;РФ. Иностранные граждане и&nbsp;лица без гражданства все документы представляют на&nbsp;русском языке или вместе с&nbsp;заверенным переводом на&nbsp;русский язык.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-arrow-container">
+                                    <button class="slider-arrow slider-arrow-prev icon-arrow-left active"></button>
+                                    <button class="slider-arrow slider-arrow-next icon-arrow-right active"></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt80">
+                            <div class="sp-base-subtitle">Важно знать:</div>
+                            <div class="sp-8col sp-flex-container">
+                                <div class="sp-grid__item_third">
+                                    <div class="sp-round-number">1</div>
+                                    <div class="sp-fact__text">Количество мест в&nbsp;садах ограничено, поэтому записываться лучше заранее &mdash; в&nbsp;идеале сразу после получения свидетельства о&nbsp;рождении ребенка.</div>
+                                </div>
+                                <div class="sp-grid__item_third">
+                                    <div class="sp-round-number">2</div>
+                                    <div class="sp-fact__text">При подаче заявления укажите желаемый год зачисления, наличие права на&nbsp;льготное зачисление и&nbsp;специфику группы (общая, оздоровительная, компенсирующая).</div>
+                                </div>
+                                <div class="sp-grid__item_third">
+                                    <div class="sp-round-number">3</div>
+                                    <div class="sp-fact__text">Чтобы увеличить шансы на&nbsp;поступление в&nbsp;срок, лучше занять очередь в&nbsp;нескольких (до&nbsp;трех) детских садах по&nbsp;месту жительства ребенка.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <div class="sp-dropdown-section dropdown-section">
+                                <div class="sp-dropdown-section__pretext">
+                                    <div class="sp-info-note sp-info-note_big">
+                                        <div class="sp-info-note__sign">!</div>
+                                        <div class="sp-info-note__text">Некоторые категории граждан имеют льготы&nbsp;&mdash; право на&nbsp;внеочередное, первооочередное и&nbsp;преимущественное поступление.</div>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn_blue btn_more btn_center js-dropdown-section_show">Подробнее <span class="icon-arrow-down-dir"></span></button>
+
+                                <div class="sp-block sp-block_mt40 sp-dropdown-section__dropdown-content hidden">
+                                    <div class="sp-bullet-list-wrap">
+                                        <div class="sp-bullet-list__title">Внеочередное право <br>поступления предоставляется:</div>
+                                        <div class="sp-full_2-2 sp-block sp-block_mt40">
+                                            <ul class="sp-bullet-list">
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям-сиротам, детям, оставшимся без родителей, детям, взятым под опеку или в&nbsp;приемную семью, а&nbsp;также усыновленным;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям, чьи родители&nbsp;&mdash; сироты или остались без попечения родителей (или одного родителя) в&nbsp;возрасте до&nbsp;18&nbsp;лет, а&nbsp;на&nbsp;данный момент их&nbsp;возраст находится в&nbsp;промежутке 18-23&nbsp;лет;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям, чьи родители подверглись воздействию радиации после аварии на&nbsp;Чернобыльской АЭС;</li>
+                                            </ul>
+                                            <ul class="sp-bullet-list">
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям из&nbsp;неблагополучных семей, состоящих на&nbsp;учете в&nbsp;комиссии по&nbsp;делам несовершеннолетних и&nbsp;защите их&nbsp;прав;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям судей, а&nbsp;также, прокуроров и&nbsp;следователей Следственного комитета при Прокуратуре&nbsp;РФ.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-bullet-list-wrap">
+                                        <div class="sp-bullet-list__title">ПЕРВООЧЕРЕДНОЕ ПРАВО ПОСТУПЛЕНИЯ <br>ПРЕДОСТАВЛЯЕТСЯ:</div>
+                                        <div class="sp-full_2-2 sp-block sp-block_mt40">
+                                            <ul class="sp-bullet-list">
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям из&nbsp;многодетных семей;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям сотрудников полиции;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям-инвалидам и&nbsp;детям, родители (или один родитель) которых являются инвалидами;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям-инвалидам и&nbsp;детям, родители (или один родитель) которых являются инвалидами;</li>
+                                            </ul>
+                                            <ul class="sp-bullet-list">
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям родителей-полицейских, которые погибли в ходе служебной деятельности или в течение года после увольнения со службы умерли из-за травм, полученных в период прохождения службы. Также детям, чьи родители получили на службе травмы или телесные повреждения, несовместимые с дальнейшей службой.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="sp-bullet-list-wrap">
+                                        <div class="sp-bullet-list__title">Преимущественное право поступления <br>(перед детьми, которые не&nbsp;имеют льгот) предоставляется:</div>
+                                        <div class="sp-full_2-2 sp-block sp-block_mt40">
+                                            <ul class="sp-bullet-list">
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям одиноких матерей;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям работников дошкольных образовательных учреждений;</li>
+                                            </ul>
+                                            <ul class="sp-bullet-list">
+                                                <li class="sp-bullet-list__item sp-bullet-item">детям, чьи родные братья или сестры уже посещают данное дошкольное учреждение.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn_blue btn_less btn_center js-dropdown-section_hide">Свернуть <span class="icon-arrow-down-dir"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="js-fade sp-map-wrap sp-children-section_1__map-wrap">
+                    <div class="container">
+                        <div class="sp-map-points-outer">
+                            <div class="sp-map-points-inner">
+                                <div class="sp-map-points__list-item sp-map-points__list-item_single">
+                                    <div class="sp-map-points__title">Детские сады Амурска</div>
+                                    <div class="sp-map-points__list-wrap sp-map-points__list-wrap_gradient sp-map-points__list-wrap_1line-title">
+                                        <ul class="sp-map-points__list">
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.218630, 136.906322]">МБДОУ Детский сад комбинированного вида № 9</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.225638, 136.905845]">МБДОУ Детский сад комбинированного вида № 14</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.215760, 136.894347]">МБДОУ Детский сад комбинированного вида № 15</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.232283, 136.910274]">МБДОУ Детский сад комбинированного вида № 17</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.240303, 136.908504]">МБДОУ Детский сад комбинированного вида № 21</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.239490, 136.908972]">МБДОУ Детский сад № 48</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.232346, 136.905136]">МБДОУ Детский сад комбинированного вида № 49</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sp-children-section_1__map" class="sp-map map"></div>
+                </div>
+            </section>
+
+
+            <section class="sp-children-section sp-children-section_2">
+                <div class="js-fade sp-children-section__cover-wrap lazyload lazyload-inline-bg" data-src="{% static "site/images/special-projects/children/section2-cover.jpg" %}{% static_version %}">
+                    <div class="sp-children-section__title-wrap">
+                        <h2 class="sp-children-section__title">Школа&nbsp;&mdash; второй дом</h2>
+                    </div>
+                </div>
+
+                <div class="js-fade container">
+                    <div class="sp-6col">
+                        <div class="sp-children-section__description">В&nbsp;Амурских школах работают грамотные и&nbsp;неравнодушные педагоги, которые много вкладывают в&nbsp;детей. Большое внимание уделяется внеклассным занятиям и&nbsp;спортивной подготовке школьников.</div>
+
+                        <div class="sp-fact-wrap">
+                            <div class="sp-fact sp-fact_center">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/school.svg" %}{% static_version %}" alt="" class="sp-children__icon_school lazyload">
+                                </div>
+                                <div class="sp-fact__title sp-fact__title_italic">6 школ</div>
+                                <div class="sp-fact__subtext">общеобразовательного типа работают в&nbsp;Амурске</div>
+                            </div>
+                            <div class="sp-fact sp-fact_center">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/schoolchild.svg" %}{% static_version %}" alt="" class="sp-children__icon_schoolchild lazyload">
+                                </div>
+                                <div class="sp-fact__title sp-fact__title_italic">> 4000 детей</div>
+                                <div class="sp-fact__subtext">от&nbsp;7&nbsp;до&nbsp;18&nbsp;лет учатся в&nbsp;них</div>
+                            </div>
+                            <div class="sp-fact sp-fact_center">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/medal.svg" %}{% static_version %}" alt="" class="sp-children__icon_medal lazyload">
+                                </div>
+                                <div class="sp-fact__title sp-fact__title_italic">21 медалиста</div>
+                                <div class="sp-fact__subtext">выпустили Амурские школы в&nbsp;2018 году</div>
+                            </div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt80">
+                            <div class="sp-separator_line"></div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <p>В&nbsp;школе &#8470;&nbsp;6&nbsp;двадцать пять классов, в&nbsp;которых обучаются 640&nbsp;детей. Система образования выстроена таким образом, чтобы обеспечить ученикам всестороннее развитие, помочь им&nbsp;выбрать свой путь в&nbsp;жизни и&nbsp;составить представление о&nbsp;будущей профессии.</p>
+                        </div>
+
+                        <div class="sp-6col_4-2 sp-block sp-block_mt60">
+                            <div class="sp-4col">
+                                <p>Для 5&ndash;6-х классов разработана программа ранней профориентации, в&nbsp;основном направленная на&nbsp;инженерные и&nbsp;технические профессии. На&nbsp;летних каникулах дети посещают занятия в&nbsp;Амурском политехническом техникуме. Там они знакомятся с&nbsp;работой лаборанта, электросварщика, водителя, автомеханика, электромонтера, повара. Помимо лекций есть и&nbsp;практические занятия. Ребятам очень нравится эта программа и&nbsp;по&nbsp;ее&nbsp;итогам многие выбирают для себя рабочие профессии.</p>
+                            </div>
+                            <img src="" data-src="{% static "site/images/special-projects/children/svg/techworker.svg" %}{% static_version %}" alt="" class="sp-children__icon_techworker lazyload">
+                        </div>
+
+                        <div class="sp-block sp-block_mt60">
+                            <div class="sp-6col_4-2">
+                                <div class="sp-2col">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/science.svg" %}{% static_version %}" alt="" class="sp-children__icon_science lazyload">
+                                </div>
+                                <div class="sp-4col">
+                                    <p>Для учеников 8&ndash;9-х классов также работает программа дуального обучения, когда дети четыре дня учатся в&nbsp;школе и&nbsp;два дня ходят на&nbsp;практические занятия в&nbsp;техникум. Таким образом, по&nbsp;итогам 9-го класса такие подростки уже имеют начальные профессиональные навыки.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sp-6col_4-2 sp-block sp-block_mt60">
+                            <div class="sp-4col">
+                                <p>Для десятых классов есть два профильных направления&nbsp;&mdash; социально-гуманитарное и&nbsp;экономическое. Социально-гуманитарные классы направлены на&nbsp;обучение будущих педагогов и&nbsp;готовят детей к&nbsp;поступлению в&nbsp;педагогические вузы. В&nbsp;экономических ведется углубленное изучение географии, экономики, математики.</p>
+                                <p>Во&nbsp;всех классах, начиная с&nbsp;пятого, углубленно изучаются математика и&nbsp;русский язык.</p>
+                            </div>
+                            <img src="" data-src="{% static "site/images/special-projects/children/svg/nerd.svg" %}{% static_version %}" alt="" class="sp-children__icon_nerd lazyload">
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <div class="sp-children-direct-speech">
+                                <div class="direct-speech direct-speech_buble">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-person-shevchenko.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                    <div class="direct-speech__text-wrap">
+                                        <div class="direct-speech-author__name">Нина Афанасьевна Шевченко </div>
+                                        <div class="direct-speech-author__description">директор МБОУ СОШ № 6:</div>
+                                        <div class="direct-speech__text">
+                                            <p><i>Вместе с&nbsp;политехническим техникумом, наша школа участвует в&nbsp;программе подготовки специалистов. Мы&nbsp;ставим своей целью не&nbsp;только дать образование, но&nbsp;и&nbsp;подготовить ребят к&nbsp;дальнейшей жизни, помочь выбрать профессию по&nbsp;душе.</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <div class="sp-separator_line"></div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt40">
+                            <h4 class="sp-title">Материально-техническая база</h4>
+                            <p>В&nbsp;школе есть все необходимое для занятий. В&nbsp;классах хороший ремонт, современное оборудование.</p>
+                        </div>
+                    </div>
+
+                    <div class="sp-block sp-block_mt80">
+                        <div class="preview-slider slider sp-children-slider">
+                            <div class="preview-slider__big-img-wrap slider-container">
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture14.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">В&nbsp;2016 году в&nbsp;школе появился мобильный лабораторный комплекс, с&nbsp;помощью которого дети могут самостоятельно проводить опыты по&nbsp;физике, химии, биологии и&nbsp;экологии. Например, измерить уровень загрязнения воздуха или кислотность почвы.</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture15.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Набор включает все необходимые инструменты, реагенты, лабораторный стол-шкаф на&nbsp;двух человек, микроскоп и&nbsp;ноутбук. С&nbsp;помощью такого мобильного комплекса ученик может самостоятельно провести более 100 разных лабораторных работ.</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture16.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Класс для занятий кулинарией. Готовить на&nbsp;такой кухне&nbsp;&mdash; одно удовольствие.</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture17.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Кроме привычного обучения плотницкому и&nbsp;слесарному делу, мальчики на&nbsp;уроках труда изучают графические программы.</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture18.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                    <div class="preview-slider__caption">Школьная столовая выиграла муниципальный конкурс на&nbsp;лучшую организацию питания обучающихся в&nbsp;2018/2019 учебном году.</div>
+                                </div>
+                            </div>
+
+                            <div class="preview-slider__small-img-wrap">
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture14-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture15-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture16-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture17-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                                <button class="preview-slider__mini-btn">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture18-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                </button>
+                            </div>
+
+                            <div class="slider-arrow-container sp-children-slider__arrow-container">
+                                <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="js-fade">
+                    <div class="container">
+                        <div class="sp-6col sp-block_mt80">
+                            <div class="sp-block">
+                                <div class="sp-separator_line"></div>
+                            </div>
+
+                            <div class="sp-block sp-block_mt40">
+                                <h4 class="sp-title">Школьный спецназ</h4>
+                                <p>В&nbsp;школе действует программа начальной военной подготовки и&nbsp;патриотического воспитания. Под руководством преподавателя ОБЖ Вячеслава работает военно-патриотическое объединение &laquo;Спецназ&raquo;.</p>
+                            </div>
+
+                            <div class="sp-block sp-block_mt40">
+                                <div class="sp-children-direct-speech">
+                                    <div class="direct-speech direct-speech_buble">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-person-lykashov.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                        <div class="direct-speech__text-wrap">
+                                            <div class="direct-speech-author__name">Вячеслав Лукашов</div>
+                                            <div class="direct-speech-author__description">преподаватель ОБЖ, руководитель военно-патриотического объединения &laquo;Спецназ&raquo;:</div>
+                                            <div class="direct-speech__text">
+                                                <p><i>&mdash;&nbsp;В&nbsp;программу патриотического воспитания входит объемная физподготовка, огневая подготовка&nbsp;&mdash; работа с&nbsp;различными видами пневматического оружия, туристические навыки, строевая подготовка и&nbsp;теоретические знания.</i></p>
+                                                <p><i>Все знания, полученные на&nbsp;уроках, в&nbsp;том числе, навыки первой помощи, мы&nbsp;стараемся отработать на&nbsp;практических занятиях и&nbsp;олимпиадах.</i></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sp-block sp-block_mt80">
+                        <div class="sp-full_4-4-4 container">
+                            <figure class="sp-full_4-4-4__item">
+                                <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture19.jpg" %}{% static_version %}" alt="" class="sp-children__photo lazyload">
+                                <figcaption>О&nbsp;качестве подготовки говорят награды, которые &laquo;Спецназ&raquo; ежегодно выигрывает на&nbsp;районной военно-спортивной игре &laquo;Патриот&raquo;</figcaption>
+                            </figure>
+                            <figure class="sp-full_4-4-4__item">
+                                <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture20.jpg" %}{% static_version %}" alt="" class="sp-children__photo lazyload">
+                                <figcaption>Юных &laquo;спецназовцев&raquo; хорошо знают в&nbsp;Амурске&nbsp;&mdash; они постоянно участвуют в&nbsp;почетных караулах &laquo;Вахта памяти&raquo; и&nbsp;мероприятиях, посвященных Дню Победы.</figcaption>
+                            </figure>
+                            <figure class="sp-full_4-4-4__item">
+                                <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture21.jpg" %}{% static_version %}" alt="" class="sp-children__photo lazyload">
+                                <figcaption>Кабинет начальной военной подготовки в&nbsp;школе &#8470;&nbsp;6&nbsp;признан лучшим в&nbsp;районе.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="js-fade">
+                        <div class="sp-block sp-block_mt80">
+                            <div class="sp-6col">
+                                <div class="sp-block">
+                                    <div class="sp-separator_line"></div>
+                                </div>
+
+                                <div class="sp-block sp-block_mt40">
+                                    <h4 class="sp-title">Жизнь в движении</h4>
+                                    <p>Физкультура&nbsp;&mdash; важный предмет в&nbsp;школе &#8470;&nbsp;6. Ученики регулярно сдают нормы ГТО, участвуют в&nbsp;городских и&nbsp;районных соревнованиях, эстафетах и&nbsp;туристических слетах. И&nbsp;неизменно занимают призовые места.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt80">
+                            <div class="preview-slider slider sp-children-slider">
+                                <div class="preview-slider__big-img-wrap slider-container">
+                                    <div class="slide">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture22.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        <div class="preview-slider__caption">Занятия физкультурой в&nbsp;спортивном зале&nbsp;&mdash; ученики тренируют челночный бег на&nbsp;время.</div>
+                                    </div>
+                                    <div class="slide">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture23.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        <div class="preview-slider__caption">Младшеклассникам нравятся уроки физкультуры, потому что это&nbsp;&mdash; возможность поиграть.</div>
+                                    </div>
+                                    <div class="slide">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture24.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        <div class="preview-slider__caption">На&nbsp;переменах дети не&nbsp;сидят в&nbsp;классах, а&nbsp;играют в&nbsp;подвижные игры.</div>
+                                    </div>
+                                </div>
+
+                                <div class="preview-slider__small-img-wrap">
+                                    <button class="preview-slider__mini-btn">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture22-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                    </button>
+                                    <button class="preview-slider__mini-btn">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture23-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                    </button>
+                                    <button class="preview-slider__mini-btn">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture24-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                    </button>
+                                </div>
+
+                                <div class="slider-arrow-container sp-children-slider__arrow-container">
+                                    <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                    <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sp-6col">
+                            <div class="sp-block sp-block_mt40 sp-6col_4-2 sp-children-section_2__fact-wrap sp-children-gto-wrap">
+                                <div class="sp-fact-wrap sp-4col">
+                                    <div class="sp-fact sp-fact_center">
+                                        <div class="sp-fact__icon">
+                                            <img src="" data-src="{% static "site/images/special-projects/children/gto-gold.jpg" %}{% static_version %}" alt="" class="sp-children__gto-medal lazyload">
+                                        </div>
+                                        <div class="sp-fact__number">11</div>
+                                        <div class="sp-fact__title sp-fact__title_italic">золотых</div>
+                                    </div>
+                                    <div class="sp-fact sp-fact_center">
+                                        <div class="sp-fact__icon">
+                                            <img src="" data-src="{% static "site/images/special-projects/children/gto-silver.jpg" %}{% static_version %}" alt="" class="sp-children__gto-medal lazyload">
+                                        </div>
+                                        <div class="sp-fact__number">5</div>
+                                        <div class="sp-fact__title sp-fact__title_italic">серебряных</div>
+                                    </div>
+                                    <div class="sp-fact sp-fact_center">
+                                        <div class="sp-fact__icon">
+                                            <img src="" data-src="{% static "site/images/special-projects/children/gto-bronze.jpg" %}{% static_version %}" alt="" class="sp-children__gto-medal lazyload">
+                                        </div>
+                                        <div class="sp-fact__number">10</div>
+                                        <div class="sp-fact__title sp-fact__title_italic">бронзовых</div>
+                                    </div>
+                                </div>
+
+                                <div class="sp-2col sp-children-gto-text">Значков ГТО получили ученики школы &#8470;&nbsp;6&nbsp;в 2018 году</div>
+                            </div>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-children-direct-speech">
+                                    <div class="direct-speech direct-speech_buble">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-person-vlasov.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                        <div class="direct-speech__text-wrap">
+                                            <div class="direct-speech-author__name">Валерий Власов</div>
+                                            <div class="direct-speech-author__description">преподаватель физкультуры:</div>
+                                            <div class="direct-speech__text">
+                                                <p><i>&mdash;&nbsp;Все дети по&nbsp;природе активные, у&nbsp;всех есть любовь к&nbsp;движению. Но&nbsp;заниматься организованно им&nbsp;не&nbsp;интересно. Стоит их&nbsp;построить, как сразу все устали, хотя до&nbsp;этого носились по&nbsp;площадке без остановки. Это психология. Поэтому на&nbsp;уроках мы&nbsp;много играем&nbsp;&mdash; в&nbsp;&laquo;перестрелку&raquo;, в&nbsp;мяч, бегаем эстафеты. Участвуем в&nbsp;спартакиадах. Только так, через игру, можно привить интерес к&nbsp;спорту.</i></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="js-fade">
+                        <div class="sp-6col">
+                            <div class="sp-block_mt40">
+                                <div class="sp-separator_line"></div>
+                            </div>
+
+                            <div class="sp-block sp-block_mt40">
+                                <h4 class="sp-title">Внеурочная деятельность</h4>
+                                <p>Вся внеурочная деятельность направлена на&nbsp;то, чтобы помочь детям раскрыть свои таланты и&nbsp;получить дополнительные знания. В&nbsp;школе есть кружок робототехники, где с&nbsp;помощью электронных конструкторов пятиклассники узнают основы физики и&nbsp;электромеханики. Работают театральный кружок, несколько спортивных секций.</p>
+                            </div>
+
+                            <div class="sp-block sp-block_mt40 sp-6col_3-3">
+                                <div class="sp-3col">
+                                    <div class="sp-3col__text">
+                                        <p>Организацию большей части досуговых мероприятий и&nbsp;праздников обеспечивает Библиотечно-информационный центр. Он&nbsp;появился в&nbsp;школе &#8470;&nbsp;6&nbsp;в 2012&nbsp;году, одним из&nbsp;первых в&nbsp;Хабаровском крае, и&nbsp;за&nbsp;шесть лет работы успел дважды победить в&nbsp;краевом конкурсе учреждений дополнительного образования.</p>
+                                    </div>
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/winner.svg" %}{% static_version %}" alt="" class="sp-children__icon_winner lazyload">
+                                </div>
+
+                                <div class="sp-3col">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture25.jpg" %}{% static_version %}" alt="" class="sp-children__overflow-big-img sp-children__photo lazyload">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="js-fade">
+                        <div class="sp-6col">
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-children-direct-speech">
+                                    <div class="direct-speech direct-speech_buble">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-person-shilinceva.jpg" %}{% static_version %}" alt="" class="direct-speech-author__avatar lazyload">
+                                        <div class="direct-speech__text-wrap">
+                                            <div class="direct-speech-author__name">Лилия Шилинцева</div>
+                                            <div class="direct-speech-author__description">педагог-библиотекарь информационного центра МБОУ СОШ &#8470;&nbsp;6:</div>
+                                            <div class="direct-speech__text">
+                                                <p><i>&mdash;&nbsp;Мероприятия информационно-библиотечного центра объединяют учителей и&nbsp;учеников. Содружество, сотворчество дает хороший результат. Каждый проявляет свой талант.</i></p>
+                                                <p><i>Любое произведение, обыгранное на&nbsp;литературном балу, читательской конференции, воспринимается намного живее, чем текст прочитанный на&nbsp;уроке. Создание образов литературных героев, подготовка костюмов, декораций, музыкальных номеров создают теплую дружескую атмосферу на&nbsp;мероприятиях, способствуют развитию кругозора, привитию читательского вкуса и&nbsp;раскрытию творческих способностей учеников.</i></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sp-block sp-block_mt80">
+                            <div class="preview-slider slider sp-children-slider">
+                                <div class="preview-slider__big-img-wrap slider-container">
+                                    <div class="slide">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture30.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        <div class="preview-slider__caption">Каждый год в&nbsp;школе организуются литературные балы. Школьники сами разрабатывают для них программу, шьют костюмы, учат танцы, соответствующие выбранной эпохе.</div>
+                                    </div>
+                                    <div class="slide">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture29.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        <div class="preview-slider__caption">Педагоги стараются сделать школьный досуг не&nbsp;только развлекательным, но&nbsp;и&nbsp;интеллектуальным. Большим успехом у&nbsp;школьников пользуется &laquo;Интеллектуальное кафе 777&raquo;&nbsp;&mdash; игра-викторина по&nbsp;типу &laquo;Что? Где? Когда?&raquo;</div>
+                                    </div>
+                                    <div class="slide">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture27.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        <div class="preview-slider__caption">Косплей тоже может быть полезен в&nbsp;учебе. Фотоконкурс &laquo;Я&nbsp;и&nbsp;литературный герой&raquo;.</div>
+                                    </div>
+                                    <div class="slide">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture26.jpg" %}{% static_version %}" alt="" class="preview-slider__big-img lazyload">
+                                        <div class="preview-slider__caption">Из&nbsp;школьного театрального кружка вышло немало актеров и&nbsp;радиоведущих. Например, выпускник школы Илья Антоненко (на&nbsp;фото слева) исполнил роль княжича Федора в&nbsp;&laquo;Легенде о&nbsp;Коловрате&raquo;.</div>
+                                    </div>
+                                </div>
+
+                                <div class="preview-slider__small-img-wrap">
+                                    <button class="preview-slider__mini-btn">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture30-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                    </button>
+                                    <button class="preview-slider__mini-btn">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture29-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                    </button>
+                                    <button class="preview-slider__mini-btn">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture27-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                    </button>
+                                    <button class="preview-slider__mini-btn">
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture26-mini.jpg" %}{% static_version %}" alt="" class="preview-slider__small-img lazyload">
+                                    </button>
+                                </div>
+
+                                <div class="slider-arrow-container sp-children-slider__arrow-container">
+                                    <button class="slider-arrow slider-arrow-prev icon-arrow-left-thin active"></button>
+                                    <button class="slider-arrow slider-arrow-next icon-arrow-right-thin active"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="js-fade sp-light-section sp-block sp-block_mt100">
+                    <div class="container">
+                        <h3 class="sp-light-section__title">КАК ЗАПИСАТЬ РЕБЕНКА В ПЕРВЫЙ КЛАСС?</h3>
+
+                        <div class="sp-slider-timeline-wrap">
+                            <div class="sp-slider-timeline sp-children-section_2__slider-timeline">
+                                <button class="timeline-step active" data-timeline-slide="1">
+                                    <div class="timeline-step__number-wrap">
+                                        <div class="timeline-step__number">1</div>
+                                    </div>
+                                    <div class="timeline-step__title">Подайте заявление</div>
+                                </button>
+                                <button class="timeline-step" data-timeline-slide="2">
+                                    <div class="timeline-step__number-wrap">
+                                        <div class="timeline-step__number">2</div>
+                                    </div>
+                                    <div class="timeline-step__title">Список документов</div>
+                                </button>
+                                <button class="timeline-step" data-timeline-slide="3">
+                                    <div class="timeline-step__number-wrap">
+                                        <div class="timeline-step__number">3</div>
+                                    </div>
+                                    <div class="timeline-step__title">Ждите звонка</div>
+                                </button>
+                            </div>
+
+                            <div class="slider sp-block sp-block_mt40 sp-children-step-slider sp-children-step-slider-2">
+                                <div class="slider-container sp-children-step-slider-container">
+                                    <div class="slide sp-children-step-slider__slide sp-children-step-slider-2__slide-1">
+                                        <div class="sp-children-step-slider__step-number">1</div>
+                                        <div class="sp-children-step-slider__step-title">Подайте заявление</div>
+                                        <div class="sp-children-step-slider__text">
+                                            <p>В&nbsp;конце января&nbsp;&mdash; начале февраля каждого года на&nbsp;сайте Управления образования Амурского района и&nbsp;школьных ресурсах появляются объявления о&nbsp;наборе в&nbsp;первый класс.</p>
+                                            <p><b>После этого можно подавать заявление одним из&nbsp;трех способов:</b></p>
+                                        </div>
+                                        <div class="sp-block_mt40">
+                                            <div class="sp-children-step-slider__fact-wrap sp-fact-wrap">
+                                                <div class="sp-fact sp-fact_center">
+                                                    <div class="sp-fact__icon sp-fact__icon_big">
+                                                        <img src="" data-src="{% static "site/images/special-projects/children/svg/uprobrz.svg" %}{% static_version %}" alt="" class="sp-children__icon_uprobrz lazyload">
+                                                    </div>
+                                                    <div class="sp-fact__title">Лично в школе</div>
+                                                </div>
+                                                <div class="sp-fact sp-fact_center">
+                                                    <div class="sp-fact__icon sp-fact__icon_big">
+                                                        <img src="" data-src="{% static "site/images/special-projects/children/svg/mfc.svg" %}{% static_version %}" alt="" class="sp-children__icon_mfc lazyload">
+                                                    </div>
+                                                    <div class="sp-fact__title"><a href="https://mfcrus.ru/amursk" target="_blank">В МФЦ <span class="icon-round-arrow-right-dir"></span></a></div>
+                                                </div>
+                                                <div class="sp-fact sp-fact_center">
+                                                    <div class="sp-fact__icon sp-fact__icon_big">
+                                                        <img src="" data-src="{% static lazyload "site/images/special-projects/children/svg/gosuslugi.svg" %}{% static_version %}" alt="" class="sp-children__icon_gosuslugi lazyload">
+                                                    </div>
+                                                    <div class="sp-fact__title"><a href="https://www.gosuslugi.ru/" target="_blank">Онлайн на сайте Госуслуг <span class="icon-round-arrow-right-dir"></span></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sp-block_mt40 sp-info-note sp-info-note_big sp-info-note_middle">
+                                            <div class="sp-info-note__sign">!</div>
+                                            <div class="sp-info-note__text">Запись в&nbsp;школу осуществляется родителями или лицами, официально представляющими интересы ребенка. К&nbsp;последним относятся опекуны, попечители и&nbsp;другие. Бабушки и&nbsp;дедушки, а&nbsp;также другие близкие родственники не&nbsp;могут подать заявление на&nbsp;поступление в&nbsp;школу.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="slide sp-children-step-slider-2__slide-2">
+                                        <div class="sp-children-step-slider__step-number">2</div>
+                                        <div class="sp-children-step-slider__step-title">Список документов, которые нужно <br> приложить к заявлению</div>
+                                        <div class="sp-block_mt60">
+                                            <ul class="sp-bullet-list">
+                                                <li class="sp-bullet-list__item sp-bullet-item">свидетельство о&nbsp;рождении ребенка;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">паспорт родителя с&nbsp;пропиской;</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">медицинский полис (действующий);</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">справка с&nbsp;места жительства (о&nbsp;составе семьи);</li>
+                                                <li class="sp-bullet-list__item sp-bullet-item">справка о&nbsp;допуске в&nbsp;школу после прохождения медицинского осмотра в&nbsp;детском саду.</li>
+                                            </ul>
+                                        </div>
+
+                                        <img src="" data-src="{% static "site/images/special-projects/children/svg/slider-documents.svg" %}{% static_version %}" alt="" class="sp-children__icon_documents lazyload">
+
+                                        <div class="sp-info-note sp-info-note_small">
+                                            <div class="sp-info-note__sign">!</div>
+                                            <div class="sp-info-note__text">Точный перечень документов смотрите на&nbsp;сайте выбранной школы&nbsp;&mdash; у&nbsp;разных заведений требования могут отличаться.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="slide sp-children-step-slider-2__slide-3">
+                                        <div class="sp-children-step-slider__step-number">3</div>
+                                        <div class="sp-children-step-slider__step-title">Ждите звонка</div>
+                                        <p class="sp-children-step-slider-2__content">Примерно через 30&nbsp;дней после регистрации заявления вас пригласят в&nbsp;школу для cобеседования. На&nbsp;сайте школы будут выложены списки первоклассников, зачисленных в&nbsp;новом учебном году. <br>Если по&nbsp;каким-то причинам выбранная школа отказывается принять ребенка, обратитесь в&nbsp;Управление образования администрации Амурского района.</p>
+
+                                        <img src="" data-src="{% static "site/images/special-projects/children/svg/slider-wait-call.svg" %}{% static_version %}" alt="" class="sp-children__icon_wait-call lazyload">
+
+                                        <div class="sp-info-note sp-info-note_small">
+                                            <div class="sp-info-note__sign">!</div>
+                                            <div class="sp-info-note__text">Обратите внимание, что попасть в&nbsp;школу, за&nbsp;которой ребенок не&nbsp;закреплен по&nbsp;месту жительства, можно только при наличии свободных мест&nbsp;&mdash; то&nbsp;есть, после того, как примут всех &laquo;законных&raquo; первоклассников.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-arrow-container">
+                                    <button class="slider-arrow slider-arrow-prev icon-arrow-left active"></button>
+                                    <button class="slider-arrow slider-arrow-next icon-arrow-right active"></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sp-slider-note">Источник: <a href="http://school2-amursk.ucoz.ru/" target="_blank">сайт</a> МБОУ СОШ № 2 г. Амурска</div>
+
+                        <div class="js-fade sp-block sp-block_mt100">
+                            <div class="sp-dropdown-section dropdown-section">
+                                <div class="sp-dropdown-section__pretext">
+                                    <h3 class="sp-base-subtitle">ЧТО ДОЛЖЕН ЗНАТЬ И УМЕТЬ БУДУЩИЙ ПЕРВОКЛАССНИК?</h3>
+                                </div>
+
+                                <button class="btn btn_blue btn_more btn_center js-dropdown-section_show">Подробнее <span class="icon-arrow-down-dir"></span></button>
+
+                                <div class="sp-dropdown-section__dropdown-content hidden">
+                                    <div class="icon-title-wrap sp-block sp-block_mt80">
+                                        <div class="icon-title__icon">
+                                            <img src="" data-src="{% static "site/images/special-projects/children/svg/litercy.svg" %}{% static_version %}" alt="" class="sp-children__icon_litercy lazyload">
+                                        </div>
+                                        <h4 class="icon-title__text icon-title__text_2line">УСТНАЯ РЕЧЬ И&nbsp;ГОТОВНОСТЬ К&nbsp;ОВЛАДЕНИЮ ГРАМОТОЙ</h4>
+                                    </div>
+
+                                    <div class="sp-full_2-2 sp-block sp-block_mt40">
+                                        <ul class="sp-bullet-list">
+                                            <li class="sp-bullet-list__item sp-bullet-item">чётко произносить все звуки речи;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">интонационно выделять звук в&nbsp;словах;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">выделять заданный звук в&nbsp;потоке речи;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">определять место звука в&nbsp;слове (в&nbsp;начале, в&nbsp;середине, в&nbsp;конце);</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">произносить слова по&nbsp;слогам;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">составлять предложения из&nbsp;3-5&nbsp;слов;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">называть в&nbsp;предложении только 2-е слово, только 3-е слово, только 4-е слово и&nbsp;т.&nbsp;д.;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">использовать обобщающие понятия (медведь, лиса, волк&nbsp;&mdash; это животные);</li>
+                                        </ul>
+                                        <ul class="sp-bullet-list">
+                                            <li class="sp-bullet-list__item sp-bullet-item">составлять рассказ по&nbsp;картинке (например, &laquo;В&nbsp;лесу&raquo;, &laquo;На&nbsp;детской площадке&raquo;, &laquo;За&nbsp;ягодами&raquo; и&nbsp;т.&nbsp;д.)</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">составлять несколько предложений о&nbsp;предмете;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">различать жанры художественной литературы (сказка, рассказ, стихотворение, басня);</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">наизусть читать любимые стихотворения;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">последовательно передавать содержание сказки.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="icon-title-wrap sp-block sp-block_mt40">
+                                        <div class="icon-title__icon">
+                                            <img src="" data-src="{% static "site/images/special-projects/children/svg/arithmetic.svg" %}{% static_version %}" alt="" class="sp-children__icon_arithmetic lazyload">
+                                        </div>
+                                        <h4 class="icon-title__text icon-title__text_1line">ВЫЧИСЛЕНИЯ И&nbsp;СЧЕТ</h4>
+                                    </div>
+
+                                    <div class="sp-full_2-2 sp-block sp-block_mt40">
+                                        <ul class="sp-bullet-list">
+                                            <li class="sp-bullet-list__item sp-bullet-item">знать цифры от&nbsp;0&nbsp;до&nbsp;9;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">считать до&nbsp;10&nbsp;и&nbsp;обратно, от&nbsp;6&nbsp;до&nbsp;10, от&nbsp;7&nbsp;до&nbsp;2&nbsp;и&nbsp;т.&nbsp;д;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">называть предыдущее и&nbsp;последующее число относительно любого числа в&nbsp;пределах первого десятка;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">знать знаки +, - , =, &lt;, &gt;;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">сравнивать числа первого десятка (например, 7&lt;8, 5&gt;4, 6=6)</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">соотносить цифру и&nbsp;число предметов;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">сравнивать две группы предметов;</li>
+                                        </ul>
+                                        <ul class="sp-bullet-list">
+                                            <li class="sp-bullet-list__item sp-bullet-item">уметь составлять и&nbsp;решать задачи в&nbsp;одно действие на&nbsp;сложение и&nbsp;вычитание;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">сравнивать предметы по&nbsp;цвету, форме, размеру;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">знать названия фигур: треугольник, квадрат, круг;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">оперировать понятиями: &laquo;налево&raquo;, &laquo;направо&raquo;, &laquo;вверх&raquo;, &laquo;вниз&raquo;, &laquo;раньше&raquo;, &laquo;позже&raquo;, &laquo;перед&raquo;, &laquo;за&raquo;, &laquo;между&raquo;;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">группировать по&nbsp;определённому признаку предложенные предметы.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="icon-title-wrap sp-block sp-block_mt40">
+                                        <div class="icon-title__icon">
+                                            <img src="" data-src="{% static "site/images/special-projects/children/svg/world.svg" %}{% static_version %}" alt="" class="sp-children__icon_world lazyload">
+                                        </div>
+                                        <h4 class="icon-title__text icon-title__text_1line">ПРЕДСТАВЛЕНИЯ ОБ&nbsp;ОКРУЖАЮЩЕМ МИРЕ</h4>
+                                    </div>
+
+                                    <div class="sp-full_2-2 sp-block sp-block_mt40">
+                                        <ul class="sp-bullet-list">
+                                            <li class="sp-bullet-list__item sp-bullet-item">различать по&nbsp;внешнему виду растения, распространённые в&nbsp;нашей местности (например, ель, сосна, берёза, дуб, подсолнух, ромашка) и&nbsp;называть их&nbsp;отличительные признаки;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">различать диких и&nbsp;домашних животных ( медведь, белка, корова, заяц, коза);</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">различать по&nbsp;внешнему виду птиц (например, дятел, воробей, сорока);</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">иметь представление о&nbsp;сезонных признаках природы (например, осень&nbsp;&mdash; жёлтые и&nbsp;красные листья на&nbsp;деревьях, увядающая трава, сбор урожая...);</li>
+                                        </ul>
+                                        <ul class="sp-bullet-list">
+                                            <li class="sp-bullet-list__item sp-bullet-item">знать названия 1-3 комнатных растений;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">знать названия 12&nbsp;месяцев года;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">знать названия всех дней недели.</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">знать, в&nbsp;какой стране он&nbsp;живёт, в&nbsp;каком городе, на&nbsp;какой улице, в&nbsp;каком доме;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">знать полные имена членов своей семьи, иметь общие понятия о&nbsp;различных видах их&nbsp;деятельности;</li>
+                                            <li class="sp-bullet-list__item sp-bullet-item">знать правила поведения в&nbsp;общественных местах и&nbsp;на&nbsp;улице.</li>
+                                        </ul>
+                                    </div>
+
+                                    <button class="btn btn_blue btn_less btn_center js-dropdown-section_hide">Свернуть <span class="icon-arrow-down-dir"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="js-fade sp-map-wrap sp-children-section_2__map-wrap">
+                    <div class="container">
+                        <div class="sp-map-points-outer">
+                            <div class="sp-map-points-inner">
+                                <div class="sp-map-points__list-item sp-map-points__list-item_single">
+                                    <div class="sp-map-points__title">Общеобразовательные школы Амурска</div>
+                                    <div class="sp-map-points__list-wrap sp-map-points__list-wrap_gradient sp-map-points__list-wrap_2line-title">
+                                        <ul class="sp-map-points__list">
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.217074, 136.895659]">МОУ СОШ № 2</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.230421, 136.908504]">МОУ СОШ № 3</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.225782, 136.904049]">МОУ СОШ № 5</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.236604, 136.908585]">МОУ СОШ № 6</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.242141, 136.909034]">МОУ СОШ № 7</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.246789, 136.920272]">МОУ СОШ № 9</button></li>
+                                            <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.232115, 136.907804]">Специальная коррекционная общеобразовательная школа-интернат VIII вида № 14</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sp-children-section_2__map" class="sp-map map"></div>
+                </div>
+            </section>
+
+
+            <section class="sp-children-section sp-children-section_3">
+                <div class="js-fade sp-children-section__cover-wrap lazyload lazyload-inline-bg" data-src="{% static "site/images/special-projects/children/section3-cover.jpg" %}{% static_version %}">
+                    <div class="sp-children-section__title-wrap">
+                        <h2 class="sp-children-section__title">В&nbsp;свободное время</h2>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="js-fade sp-6col">
+                        <div class="sp-children-section__description">В&nbsp;Амурске родители не&nbsp;думают, чем занять детей после школы. Дети сами бегут на&nbsp;занятия в&nbsp;кружки и&nbsp;секции&nbsp;— благо, идти недалеко, все в&nbsp;шаговой доступности. Выбор занятий большой: танцы, музыка, рисование, спорт, иностранные языки. А&nbsp;уровень подготовки такой, что не&nbsp;всегда можно найти даже в&nbsp;крупных городах.</div>
+
+                        <div class="sp-fact-wrap">
+                            <div class="sp-fact sp-fact_center">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/80percent.svg" %}{% static_version %}" alt="" class="sp-children__icon_80percent lazyload">
+                                </div>
+                                <div class="sp-fact__title sp-fact__title_italic">80% школьников</div>
+                                <div class="sp-fact__subtext sp-fact__subtext_mt10">В&nbsp;Амурске и&nbsp;Амурском районе посещают внешкольные учреждения</div>
+                            </div>
+                            <div class="sp-fact sp-fact_center">
+                                <div class="sp-fact__icon">
+                                    <img src="" data-src="{% static "site/images/special-projects/children/svg/sections.svg" %}{% static_version %}" alt="" class="sp-children__icon_sections lazyload">
+                                </div>
+                                <div class="sp-fact__title sp-fact__title_italic">11 муниципальных учреждений</div>
+                                <div class="sp-fact__subtext sp-fact__subtext_mt10">дополнительного образования работают в&nbsp;Амурске.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sp-8col sp-block sp-block_mt100">
+                        <div class="js-fade">
+                            <div class="icon-separator"><img src="" data-src="{% static "site/images/special-projects/children/svg/sport.svg" %}{% static_version %}" alt="" class="icon-separator__icon lazyload"></div>
+                            <h3 class="sp-children-section__subtitle">СПОРТ</h3>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Детский оздоровительно-образовательный центр «Юность»</div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">пауэрлифтинг, фехтование, настольный теннис, спортивные танцы, аэробика, каратэ.</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, ул. Лесная, 4а</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td>+7 (4214) 22-49-79</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://un-amk.edu.27.ru" target="_blank">un-amk.edu.27.ru</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-mail"></span>
+                                                            Почта:
+                                                        </td>
+                                                        <td>
+                                                            <a href="mailto:unross@yandex.ru" target="_blank">unross@yandex.ru</a>
+                                                            <a href="mailto:un_amk@edu.27.ru" target="_blank">un_amk@edu.27.ru</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture33.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="js-fade">
+                            <div class="sp-separator_sign sp-block_mt80">
+                                <img src="" data-src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="" class="lazyload">
+                            </div>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Детско-юношеская спортивная школа </div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">баскетбол, футбол, волейбол, плавание, лыжные гонки, пауэрлифтинг, бокс, самбо, греко-римская борьба, северное многоборье.</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, ул. Лесная, 4а</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td>+7 (4214) 22-49-79</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://sportschool-amursk.ru" target="_blank">sportschool-amursk.ru</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-mail"></span>
+                                                            Почта:
+                                                        </td>
+                                                        <td><a href="mailto:sportshkola_2@mail.ru" target="_blank">sportshkola_2@mail.ru</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture32.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="js-fade">
+                            <div class="sp-separator_sign sp-block_mt80">
+                                <img src="" data-src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="" class="lazyload">
+                            </div>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Клуб «Киокушин»</div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">Киокусинкай каратэ-до</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, Комсомолький пр-т, д.77</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td> +7 924 224-06-35</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://kyokushinkai-karate.ru" target="_blank">kyokushinkai-karate.ru</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture31.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="sp-8col sp-block sp-block_mt100">
+                        <div class="js-fade">
+                            <div class="icon-separator">
+                                <img src="" data-src="{% static "site/images/special-projects/children/svg/art.svg" %}{% static_version %}" alt="" class="icon-separator__icon lazyload">
+                            </div>
+                            <h3 class="sp-children-section__subtitle">ИСКУССТВО</h3>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Детская художественная школа</div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">живопись, рисунок, декоративно-прикладное искусство, скульптура, компьютерная графика.</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, Комсомольский пр-т, 67</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td>+7 (4214) 29-96-32</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://art-amursk.ru" target="_blank">art-amursk.ru</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-mail"></span>
+                                                            Почта:
+                                                        </td>
+                                                        <td>
+                                                            <a href="mailto:artshkola@bk.ru" target="_blank">artshkola@bk.ru</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture42.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="js-fade">
+                            <div class="sp-separator_sign sp-block_mt80">
+                                <img src="" data-src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="" class="lazyload">
+                            </div>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Детская школа искусств</div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">музыкальное отделение&nbsp;— фортепьяно, скрипка, аккордеон, баян, саксофон, флейта, гитара, домра, сольный вокал; <br> хореографическое отделение&nbsp;— народные танцы, современные танцы, историко-бытовые танцы; театральное отделение.</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, пр. Мира, 22а</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td>+7 (4214) 29-95-76</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://dshi.ucoz.ru/" target="_blank">dshi.ucoz.ru</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture45.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="js-fade">
+                            <div class="sp-separator_sign sp-block_mt80">
+                                <img src="" data-src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="" class="lazyload">
+                            </div>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Детская музыкальная школа</div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">фортепиано, аккордеон, гитара, домра, балалайка, хор, оркестр.</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, Октябрьский пр-т, 6</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td>+7 (4214) 29-95-81</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://dmsh-amur.khv.muzkult.ru" target="_blank">dmsh-amur.khv.muzkult.ru</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-mail"></span>
+                                                            Почта:
+                                                        </td>
+                                                        <td>
+                                                            <a href="mailto:schoolmusic@mail.ru" target="_blank">schoolmusic@mail.ru</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture44.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="js-fade">
+                            <div class="sp-separator_sign sp-block_mt80">
+                                <img src="" data-src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="" class="lazyload">
+                            </div>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Дворец культуры </div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">вокал, современные танцы, театральное искусство.</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, Комсомольский пр-т, 48</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td>+7 (4214) 22-67-60</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://dk-amursk.ru" target="_blank">dk-amursk.ru</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-mail"></span>
+                                                            Почта:
+                                                        </td>
+                                                        <td>
+                                                            <a href="mailto:amursk-dk@yandex.ru" target="_blank">amursk-dk@yandex.ru</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture37.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="js-fade">
+                            <div class="sp-separator_sign sp-block_mt80">
+                                <img src="" data-src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="" class="lazyload">
+                            </div>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Центр творчества «Темп»</div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">вокал, анимация, рисование, моделирование, декоративно-прикладное искусство, эстрадные танцы, английский язык для дошкольников, подготовка к школе.</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, Победы пр-т, 8а</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td>+7 (4214) 22-67-05</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://cdttemp.ucoz.ru" target="_blank">cdttemp.ucoz.ru</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-mail"></span>
+                                                            Почта:
+                                                        </td>
+                                                        <td>
+                                                            <a href="mailto:mou_temp@mail.ru" target="_blank">mou_temp@mail.ru</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture38.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="js-fade sp-8col sp-block sp-block_mt100">
+                        <div class="icon-separator">
+                            <img src="" data-src="{% static "site/images/special-projects/children/svg/languages.svg" %}{% static_version %}" alt="" class="icon-separator__icon lazyload">
+                        </div>
+                        <h3 class="sp-children-section__subtitle">ИНОСТРАННЫЕ ЯЗЫКИ</h3>
+
+                        <div class="sp-block sp-block_mt80">
+                            <div class="sp-place">
+                                <div class="sp-place__title">Лингвистическая школа</div>
+                                <div class="sp-full_2-2">
+                                    <div class="sp-place__info">
+                                        <div class="sp-place__subtitle">Направления работы:</div>
+                                        <div class="sp-place__decription">английский язык, немецкий язык, французский язык, испанский язык, китайский язык, японский язык.</div>
+                                        <table class="sp-place__contacts-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-geo-stroke"></span>
+                                                        Адрес:
+                                                    </td>
+                                                    <td>г. Амурск, Мира пр-т, 28а</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-phone"></span>
+                                                        Телефон:
+                                                    </td>
+                                                    <td>+7 (4214) 22-42-18</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-web"></span>
+                                                        Сайт:
+                                                    </td>
+                                                    <td><a href="http://lingschool.ucoz.org" target="_blank">lingschool.ucoz.org</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="icon-mail"></span>
+                                                        Почта:
+                                                    </td>
+                                                    <td>
+                                                        <a href="mailto:lingamursk@gmail.com" target="_blank">lingamursk@gmail.com</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture39.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="sp-8col sp-block sp-block_mt100">
+                        <div class="js-fade">
+                            <div class="icon-separator">
+                                <img src="" data-src="{% static "site/images/special-projects/children/svg/compass.svg" %}{% static_version %}" alt="" class="icon-separator__icon lazyload">
+                            </div>
+                            <h3 class="sp-children-section__subtitle">ЭКОЛОГИЯ И ТУРИЗМ</h3>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Детский эколого-биологический центр «Натуралист» </div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">экология, экологический театр, туризм, химия, декоративно-прикладное искусство.</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, Комсомольский пр-т, 2а,</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td>+7 (4214) 22-13-14</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://unaturalist.ucoz.com" target="_blank">naturalist.ucoz.com</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-mail"></span>
+                                                            Почта:
+                                                        </td>
+                                                        <td>
+                                                            <a href="mailto:naturalist27@yandex.ru" target="_blank">naturalist27@yandex.ru</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture40.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="js-fade">
+                            <div class="sp-separator_sign sp-block_mt40">
+                                <img src="" data-src="{% static "site/images/svg/base-logo-sign.svg" %}{% static_version %}" alt="" class="lazyload">
+                            </div>
+
+                            <div class="sp-block sp-block_mt80">
+                                <div class="sp-place">
+                                    <div class="sp-place__title">Центр детского и юношеского туризма и экскурсий</div>
+                                    <div class="sp-full_2-2">
+                                        <div class="sp-place__info">
+                                            <div class="sp-place__subtitle">Направления работы:</div>
+                                            <div class="sp-place__decription">туризм, патриотическое воспитание, парусный спорт, краеведение, скалолазание.</div>
+                                            <table class="sp-place__contacts-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-geo-stroke"></span>
+                                                            Адрес:
+                                                        </td>
+                                                        <td>г. Амурск, Октябрьский пр-т, 22,</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-phone"></span>
+                                                            Телефон:
+                                                        </td>
+                                                        <td>+7 (4214) 29-96-73</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-web"></span>
+                                                            Сайт:
+                                                        </td>
+                                                        <td><a href="http://turcentr.ucoz.ru" target="_blank">turcentr.ucoz.ru</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="icon-mail"></span>
+                                                            Почта:
+                                                        </td>
+                                                        <td>
+                                                            <a href="mailto:detyuntur4673.amursk@yandex.ru" target="_blank">detyuntur4673.amursk@yandex.ru</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <img src="" data-src="{% static "site/images/special-projects/children/sp-children-picture43.jpg" %}{% static_version %}" alt="" class="sp-place__img sp-children__photo lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="container">
+                <div class="sp-8col sp-block_mt80 sp-children-share-widget">
+                    {% include "site/page-block/share-widget.html" %}
+                </div>
+            </div>
+
+
+            <div class="sp-block_mt100 sp-map-wrap sp-children-section_3__map-wrap">
+                <div class="container">
+                    <div class="sp-map-points-outer sp-map-points-outer_all-scroll">
+                        <div class="sp-map-points-inner sp-map-points-inner_all-scroll">
+                            <div class="sp-map-points__list-item">
+                                <div class="sp-map-points__title sp-map-points__title_icon sp-map-points__title_icon-sport">СПОРТ:</div>
+                                <div class="sp-map-points__list-wrap">
+                                    <ul class="sp-map-points__list sp-map-points__list_offset">
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.216722, 136.902162]">Детский оздоровительно-образовательный центр «Юность»</button></li>
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.216722, 136.902162]">Детско-юношеская спортивная школа</button></li>
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.244854, 136.918943]">Клуб «Киокушин»</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sp-map-points__list-item">
+                                <div class="sp-map-points__title sp-map-points__title_icon sp-map-points__title_icon-art">ИСКУССТВО:</div>
+                                <div class="sp-map-points__list-wrap">
+                                    <ul class="sp-map-points__list sp-map-points__list_offset">
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.244992, 136.920668]">Детская художественная школа</button></li>
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.218048, 136.906393]">Детская школа искусств</button></li>
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.237543, 136.907058]">Детская музыкальная школа</button></li>
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.227851, 136.911738]">Дворец культуры</button></li>
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.230104, 136.909915]">Центр творчества «Темп»</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sp-map-points__list-item">
+                                <div class="sp-map-points__title sp-map-points__title_icon sp-map-points__title_icon-languages">ИНОСТРАННЫЕ ЯЗЫКИ:</div>
+                                <div class="sp-map-points__list-wrap">
+                                    <ul class="sp-map-points__list sp-map-points__list_offset">
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.221229, 136.906088]">Лингвистическая школа</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sp-map-points__list-item">
+                                <div class="sp-map-points__title sp-map-points__title_icon sp-map-points__title_icon-compass">ЭКОЛОГИЯ И ТУРИЗМ:</div>
+                                <div class="sp-map-points__list-wrap">
+                                    <ul class="sp-map-points__list sp-map-points__list_offset">
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.222307, 136.907229]">Детский эколого-биологический центр «Натуралист»</button></li>
+                                        <li class="sp-map-points__item"><button class="sp-map-points__item-btn" data-coord="[50.242141, 136.909034]">Центр детского и юношеского туризма и экскурсий</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sp-children-section_3__map" class="sp-map map"></div>
+            </div>
+        </div>
+    </main>
+
+        <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+        <script src="{% static "site/js/sp-main.min.js" %}{% static_version %}"></script>
+    </body>
+</html>
+

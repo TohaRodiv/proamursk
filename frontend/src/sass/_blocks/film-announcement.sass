@@ -1,5 +1,6 @@
 .film
-    margin-left: 110px
+    +media(d)
+        margin-left: 110px
 
 .film-header
     display: flex
@@ -8,25 +9,51 @@
 
 .film-cover
     display: block
-    width: 240px
-    height: 360px
-    margin-right: 40px
     flex-shrink: 0
+
+    +media(m)
+        width: 120px
+        height: 180px
+        margin-right: 16px
+
+    +media(d)
+        width: 240px
+        height: 360px
+        margin-right: 40px
 
 .film-info
     flex-grow: 1
 
 .film-title
-    margin-top: 20px
     margin-bottom: 20px
     font-size: $big-fz
     font-family: $bold-f
     letter-spacing: 0.02em
     line-height: $micro-lh
 
+    +media(d)
+        margin-top: 20px
+
 .film-info-table
+    +media(m)
+        display: block
+
+        tbody, tr, th, td
+            display: block
+
+        tr:not(:last-child)
+            +media(m)
+                margin-bottom: 8px
+
+            +media(d)
+                margin-bottom: 10px
+
     td
-        padding: 5px 0
+        +media(m)
+            padding: 0
+
+        +media(d)
+            padding: 5px 0
 
         .round-rating
             color: #7A8BA1
@@ -41,52 +68,138 @@
         padding-bottom: 0
 
     td:nth-child(1)
-        width: 170px
         font-size: 15px
         line-height: $base-lh
 
+        +media(m)
+            display: none
+
+        +media(d)
+            width: 170px
+
     td:nth-child(2)
-        width: 250px
-        font-size: $base-fz
         line-height: $mini-lh
+
+        +media(m)
+            font-size: $mini-fz
+
+        +media(d)
+            font-size: $base-fz
+            width: 250px
 
 .film-timetable
     margin-bottom: 40px
-    padding-bottom: 40px
-    border-bottom: 1px solid $border-c
+
+    +media(d)
+        padding-bottom: 40px
+        border-bottom: 1px solid $border-c
+
+    &_mobile
+        +media(d)
+            display: none
+
+    &_desktop
+        +media(m)
+            display: none
 
     &__days
         margin-bottom: 40px
+        +media(m)
+            margin-left: -16px
+            margin-right: -16px
 
     &__days,
     &__times
-        display: flex
-        align-items: center
+        +media(d)
+            display: flex
+            align-items: center
 
     &__day-btn
-        max-width: 120px
-        flex-grow: 1
-        flex-shrink: 0
-        padding: 20px 10px
-        border-radius: 4px
-        line-height: $micro-lh
+        +media(m)
+            display: block
+            width: 100%
+            position: relative
+            padding: 20px 50px 20px 16px
+            font-size: $base-fz
+            text-align: left
 
-        &:not(:last-child)
-            margin-right: 6px
+            &::after
+                content: ""
+                position: absolute
+                right: 16px
+                top: 27px
+                width: 18px
+                height: 8px
+                background-image: url(../images/svg/arrow-down-round.svg)
+                background-repeat: no-repeat
+                background-size: contain
 
-        &:hover
-            color: $base-c
+            &.active
+                &::after
+                    background-image: url(../images/svg/arrow-up-round.svg)
 
-        &.active
-            background-color: $base-c
-            color: $light-c
+        +media(d)
+            max-width: 120px
+            flex-grow: 1
+            flex-shrink: 0
+            padding: 20px 10px
+            border-radius: 4px
+            line-height: $micro-lh
+
+            &:not(:last-child)
+                margin-right: 6px
+
+            &:hover
+                color: $base-c
+
+            &.active
+                background-color: $base-c
+                color: $light-c
+
+    &__day-sessions
+        padding: 20px 16px 30px
+        background-color: #F5F6F7
+        border-top: 1px solid #d7e2ee
+
+    &__day
+        border-bottom: 1px solid #D7DBE0
+
+        &:first-child
+            border-top: 1px solid #D7DBE0
+
+    &__sessions-table
+        width: 100%
+        border-collapse: collapse
+
+        tr:last-child td
+            border-bottom: 1px solid #D7DBE0
+
+        th
+            font-size: 12px
+            font-family: $base-fz
+            font-weight: normal
+            padding: 0 0 8px
+            text-align: left
+
+        td
+            padding: 8px 0
+            font-size: 18px
+            font-family: $bold-f
+            border-top: 1px solid #D7DBE0
+
+            &:nth-child(3)
+                text-align: right
 
 .film-description
     margin-bottom: 20px
 
 .film-treiler
-    height: 420px
     position: relative
+    padding-bottom: calc(100% * 9 / 16)
+
+    +media(m)
+        margin-left: -16px
+        margin-right: -16px
 
     iframe
         position: absolute
@@ -122,16 +235,31 @@
 
         &::after
             content: url(../images/svg/3d-icon.svg)
-            display: block
             width: 26px
             height: 20px
-            position: absolute
-            top: 0
-            right: 8px
+
+            +media(m)
+                display: inline-block
+                margin-left: 8px
+                vertical-align: -4px
+
+            +media(d)
+                display: block
+                position: absolute
+                top: 0
+                right: 8px
 
     &__buy-btn
-        margin-right: auto
-        flex-shrink: 0
+        +media(m)
+            display: inline-block
+            height: 32px
+            padding-top: 4px
+            padding-bottom: 4px
+            font-size: 12px
+
+        +media(d)
+            margin-right: auto
+            flex-shrink: 0
 
     &__text
         margin-left: 20px
@@ -143,8 +271,14 @@
             margin-bottom: 5px
 
     &__note
-        margin-top: 30px
         font-size: 12px
+
+        +media(m)
+            max-width: 230px
+            margin-top: 24px
+
+        +media(d)
+            margin-top: 30px
 
 .round-rating
     display: block

@@ -2,10 +2,10 @@
     <div class="additional-block layout-section read-also">
         <div class="container">
             <h2 class="additional-block__title">Читайте также:</h2>
-            <div class="base-4items-grid">
+            <div class="base-4items-grid items-grid">
                 {% for item in items %}
                     {% if item %}
-                        {% with cover_name="3_column_img_"|add:item.cover_format %}
+                        {% with cover_name="3_column_img_"|add:item.cover_format css_class="grid-publication_format-mobile" %}
                             {% include "site/modules/grid-publication.html" %}
                         {% endwith %}
                     {% endif %}

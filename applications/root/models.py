@@ -60,6 +60,7 @@ class News(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    hide_cover = models.BooleanField(default=False, verbose_name='Скрывать обложку в мобильных устройствах')
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
 
@@ -104,6 +105,7 @@ class Event(BaseModel, BaseSeoMixin, IsActiveMixin):
     comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
+    hide_cover = models.BooleanField(default=False, verbose_name='Скрывать обложку в мобильных устройствах')
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
 
@@ -152,6 +154,7 @@ class Report(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    hide_cover = models.BooleanField(default=False, verbose_name='Скрывать обложку в мобильных устройствах')
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
 
@@ -222,6 +225,7 @@ class Person(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    hide_cover = models.BooleanField(default=False, verbose_name='Скрывать обложку в мобильных устройствах')
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
 
@@ -277,6 +281,7 @@ class History(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    hide_cover = models.BooleanField(default=False, verbose_name='Скрывать обложку в мобильных устройствах')
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
 
@@ -324,6 +329,7 @@ class Place(BaseModel, BaseSeoMixin, IsActiveMixin):
     publication_date = models.DateTimeField('Дата и время публикации', default=timezone.now)
     comment = models.TextField('Комментарий', blank=True, default='')
     show_two_banners = models.BooleanField('Показать 2 баннера', default=False)
+    hide_cover = models.BooleanField(default=False, verbose_name='Скрывать обложку в мобильных устройствах')
     search_text = models.TextField(blank=True)
     search_vector = SearchVectorField(blank=True)
 

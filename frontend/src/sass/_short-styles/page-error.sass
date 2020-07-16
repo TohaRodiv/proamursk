@@ -9,30 +9,59 @@
         font-family: $bold-f
 
     &__subtitle
-        font-size: 28px
+        +media(m)
+            font-size: 18px
+
+        +media(d)
+            font-size: 28px
 
     &-404
         position: relative
-        margin-top: 110px
         padding-top: 0
 
+        +media(m)
+            margin-top: 60px
+            text-align: center
+
+        +media(d)
+            margin-top: 110px
+
         &__text-wrap
-            margin-left: 110px
-            margin-right: 110px
-            padding-bottom: 400px
+            +media(m)
+                margin-bottom: 30px
+
+            +media(d)
+                margin-left: 110px
+                margin-right: 110px
+                padding-bottom: 400px
 
         &__title
             margin-bottom: 20px
-            font-size: 48px
+
+            +media(m)
+                font-size: 24px
+
+            +media(d)
+                font-size: 48px
 
         &__subtitle
-            width: 365px
+            +media(d)
+                width: 365px
 
         &__img
-            width: 940px
-            position: absolute
-            top: 0
-            right: 30px
+            +media(m)
+                display: block
+                width: 100%
+                max-width: 600px
+                margin-left: auto
+                margin-right: auto
+                margin-bottom: 30px
+
+            +media(d)
+                width: 940px
+                position: absolute
+                top: 0
+                right: 30px
 
     &-500
         margin: 60px 15px
@@ -41,9 +70,15 @@
 
         &__title
             margin-top: 0
-            margin-bottom: 40px
-            font-size: 48px
             text-align: center
+
+            +media(m)
+                margin-bottom: 20px
+                font-size: 24px
+
+            +media(d)
+                margin-bottom: 40px
+                font-size: 48px
 
         &__subtitle
             max-width: 450px
@@ -56,35 +91,76 @@
             max-width: 800px
             margin-bottom: 60px
 
-.maintenance-mode
+            +media(m)
+                max-width: 600px
+                order: -1
 
+.maintenance-mode
     &__container
-        padding: 0 20px
+        +media(m)
+            text-align: center
+
+        +media(d)
+            padding-left: 20px
+            padding-right: 20px
 
     &__header
-        margin-top: 70px
-        margin-bottom: 170px
+        +media(m)
+            margin-top: 30px
+            margin-bottom: 60px
+
+        +media(d)
+            margin-top: 70px
+            margin-bottom: 170px
 
     &__main
         position: relative
-        min-height: 700px
+
+        +media(d)
+            min-height: 700px
 
     &__logo
         display: block
-        width: 147px
+
+        +media(m)
+            width: 160px
+            margin-left: auto
+            margin-right: auto
+
+        +media(d)
+            width: 147px
 
     &__title
-        max-width: 350px
         margin-top: 0
         margin-bottom: 30px
-        font-size: 56px
         font-family: $bold-f
 
+        +media(m)
+            font-size: 24px
+
+        +media(d)
+            max-width: 350px
+            font-size: 56px
+
     &__text-wrap
-        max-width: 350px
+        +media(m)
+            margin-left: auto
+            margin-right: auto
+            margin-bottom: 30px
+
+        +media(d)
+            max-width: 350px
 
     &__img
-        width: 800px
-        position: absolute
-        top: 0
-        right: 0
+        +media(m)
+            display: block
+            width: 290px
+            margin-left: auto
+            margin-right: auto
+            margin-bottom: 30px
+
+        +media(d)
+            width: 800px
+            position: absolute
+            top: 0
+            right: 0

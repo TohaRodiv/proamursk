@@ -68,19 +68,35 @@
         font-size: $micro-fz
         color: $base-gray
         text-transform: uppercase
-        letter-spacing: 0.08em;
+        letter-spacing: 0.08em
+
+.news-list-page
+    +media(d)
+        padding-bottom: 40px
+        background-color: #F5F6F7
 
 .news-list-item
     display: flex
     align-items: stretch
-    min-height: 200px
     background-color: $light-c
     color: $dark-c
     text-decoration: none
     @extend %border
 
-    &:not(:last-of-type)
-        margin-bottom: 20px
+    +media(m)
+        flex-direction: row-reverse
+        border: none
+
+        &:not(:last-child)
+            margin-bottom: 24px
+            padding-bottom: 24px
+            border-bottom: 1px solid #C3CEDF
+
+    +media(d)
+        min-height: 200px
+
+        &:not(:last-of-type)
+            margin-bottom: 20px
 
     &__img
         display: block
@@ -90,36 +106,61 @@
         background-position: 50% 50%
         background-repeat: no-repeat
 
+        +media(m)
+            border-radius: 4px
+
     &__img-wrap
         position: relative
-        width: 310px
         flex-shrink: 0
         background-color: $light-gray
+
+        +media(m)
+            width: 72px
+            height: 52px
+            margin-left: 20px
+
+        +media(d)
+            width: 310px
 
     &__text-wrap
         width: 100%
         display: flex
         flex-direction: column
         flex-grow: 1
-        padding: 20px
+
+        +media(d)
+            padding: 20px
 
     &__title
         display: block
-        margin-bottom: 20px
-        font-size: $medium-fz
         font-family: $bold-f
         color: $dark-c
         text-decoration: none
+
+        +media(m)
+            margin-bottom: 8px
+            font-size: 20px
+
+        +media(d)
+            margin-bottom: 20px
+            font-size: $medium-fz
 
         &:hover
             color: $base-c
 
     &__text
-        margin-bottom: 40px
-        font-size: $mini-fz
+        +media(m)
+            font-size: 14px
+
+        +media(d)
+            margin-bottom: 40px
+            font-size: $mini-fz
 
     &__date
         margin-top: auto
         font-size: 14px
         letter-spacing: 0.08em
         color: $base-gray
+
+        +media(m)
+            display: none

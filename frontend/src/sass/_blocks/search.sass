@@ -1,15 +1,28 @@
 .search-result-page
     &__form
-        width: 640px
-        margin: 60px auto 30px
+        +media(m)
+            margin-top: 30px
+            margin-bottom: 30px
+
+        +media(d)
+            width: 640px
+            margin: 60px auto 30px
 
     &__btns-panel
         display: flex
         justify-content: center
 
+        +media(m)
+            flex-wrap: wrap
+            margin: -5px
+
     &__btn
-        margin-left: 5px
-        margin-right: 5px
+        +media(m)
+            margin: 5px
+
+        +media(d)
+            margin-left: 5px
+            margin-right: 5px
 
     &_empty
         font-size: $mini-fz
@@ -31,55 +44,76 @@
         color: #7A8BA1
 
 .search-pop-up-content
-    width: 640px
+    +media(d)
+        width: 640px
 
 .search__result-block
     position: relative
 
-    &::after
-        content: ""
-        display: block
-        width: 100%
-        height: 1px
-        position: absolute
-        top: 5px
-        left: 0
-        background-color: #D7DBE0
+    +media(d)
+        &:not(:empty)::after
+            content: ""
+            display: block
+            width: 100%
+            height: 1px
+            position: absolute
+            top: 5px
+            left: 0
+            background-color: #D7DBE0
 
 .search-result_full
-    margin-top: -5px
-    padding: 15px 0 10px
+    padding: 15px 0
     background-color: $light-c
-    border: 1px solid #D7DBE0
-    border-top: none
-    border-bottom-right-radius: 4px
-    border-bottom-left-radius: 4px
+
+    +media(d)
+        margin-top: -5px
+        border: 1px solid #D7DBE0
+        border-top: none
+        border-bottom-right-radius: 4px
+        border-bottom-left-radius: 4px
 
 .search-result-list
     margin: 0
     padding: 0
 
+    +media(m)
+        max-height: 325px
+        overflow: hidden
+
 .search__all-result-link
     display: block
     margin-top: 20px
-    padding: 0 20px
     font-size: $mini-fz
     font-family: $bold-f
     color: $base-c
     text-decoration: none
 
-    span
-        margin-left: 10px
+    +media(m)
+        padding: 0 13px
+
+    +media(d)
+        padding: 0 20px
+
+    span:first-child
+        margin-right: 10px
+
+    span:last-child
         font-family: $base-f
         font-size: 14px
         letter-spacing: 0.08em
         color: $base-gray
+        white-space: nowrap
 
 .search-item
     display: block
-    padding: 10px 20px
     line-height: $base-lh
     text-decoration: none
+
+    +media(m)
+        padding: 10px 13px
+
+    +media(d)
+        padding: 10px 20px
 
     &:hover,
     &.focus
@@ -92,20 +126,78 @@
         color: $base-c
 
     &__title
-        font-size: $base-fz
         font-family: $bold-f
         color: $dark-c
         white-space: nowrap
         overflow: hidden
         text-overflow: ellipsis
 
+        +media(m)
+            font-size: $mini-fz
+
+        +media(d)
+            font-size: $base-fz
+
 .search-result_empty
-    margin-top: -5px
-    padding: 48px 20px 20px
-    font-size: $base-fz
-    font-family: $bold-f
-    background-color: $light-c
-    border: 1px solid #D7DBE0
-    border-top: none
-    border-bottom-right-radius: 4px
-    border-bottom-left-radius: 4px
+    +media(m)
+        padding: 20px 12px
+        font-size: 16px
+        font-family: $bold-f
+
+        &::after
+            content: ""
+            display: block
+            padding-bottom: 40%
+            margin-top: 40px
+            margin-left: auto
+            margin-right: auto
+            background-image: url(../images/svg/search-ops.svg)
+            background-size: contain
+            background-repeat: no-repeat
+            background-position: center
+
+    +media(d)
+        margin-top: -5px
+        padding: 48px 20px 20px
+        font-size: $base-fz
+        font-family: $bold-f
+        background-color: $light-c
+        border: 1px solid #D7DBE0
+        border-top: none
+        border-bottom-right-radius: 4px
+        border-bottom-left-radius: 4px
+
+.instant-search-form
+    position: relative
+
+.instant-search-form__input
+    +media(m)
+        padding-left: 12px
+
+.close-popup-btn-wrap
+    position: absolute
+    left: 50%
+    z-index: 100
+    transform: translateX(-50%)
+
+    +media(m)
+        width: 100vw
+        max-width: 600px
+        top: 14px
+
+    +media(d)
+        width: 1300px
+        top: 28px
+
+.close-search-popup-btn
+    position: absolute
+    width: 42px
+    height: 42px
+
+    +media(m)
+        right: 16px
+        font-size: 18px
+
+    +media(d)
+        right: 0
+        font-size: 14px

@@ -5,12 +5,20 @@
 
 <main class="light-bg">
     <div class="container">
+        <h1 class="page-title">Прошедшие события</h1>
+
+        <div class="mobile-sections-links">
+            @@include("modules/events-links-widget.html", {
+                "active": "past"
+            })
+        </div>
+
         <div class="base-layout">
             <div class="base-layout__main">
                 @@include("modules/grid-event.html", {
                     "class": "grid-publication_format-full grid-publication_8-col",
                     "link": "event-announcement.html",
-                    "img": "images/publication-big3.jpg",
+                    "img": "images/local/publication-big3.jpg",
                     "title": "Бильярдный турнир на кубок Амурска",
                     "date": "ГРК «Родник»",
                     "place": "5 октября",
@@ -19,8 +27,8 @@
                 })
             </div>
 
-            <aside class="base-layout__aside">
-                <div class="aside-widget">
+            <aside class="base-layout__aside base-layout__aside_desktop">
+                <div class="aside-widget aside-nav-widget">
                     @@include("modules/events-links-widget.html", {
                         "active": "past"
                     })
@@ -29,18 +37,18 @@
                 <div class="aside-widget">
                     @@include('modules/offer-widget.html', {
                         "class": "event",
-                        "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br>Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                        "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br> Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
                         "btnText": "Поделиться событием"
                     })
                 </div>
             </aside>
         </div>
 
-        <div class="base-3items-grid">
+        <div class="base-3items-grid items-grid">
             @@include("modules/grid-event.html", {
                 "class": "grid-publication_format-base",
                 "link": "event-announcement.html",
-                "img": "images/grid-cover-3-base1.jpg",
+                "img": "images/local/grid-cover-3-base1.jpg",
                 "title": "Сильный телом и духом",
                 "place": "Кинотеатр «Молодость»",
                 "date": "3 февраля, 18.00",
@@ -51,7 +59,7 @@
             @@include("modules/grid-event.html", {
                 "class": "grid-publication_format-full",
                 "link": "event-announcement.html",
-                "img": "images/grid-cover-3-full2.jpg",
+                "img": "images/local/grid-cover-3-full2.jpg",
                 "title": "Ночь кино в Амурске!",
                 "place": "Кинотеатр «Молодость»",
                 "date": "3 февраля, 18.00",
@@ -62,7 +70,7 @@
             @@include("modules/grid-event.html", {
                 "class": "grid-publication_format-base grid-publication_6-col",
                 "link": "event-announcement.html",
-                "img": "images/grid-cover-6-base1.jpg",
+                "img": "images/local/grid-cover-6-base1.jpg",
                 "title": "Прошла выставка художника Владимира Копанова",
                 "place": "Детская художественная школа",
                 "date": "18 февраля, 13.00",
@@ -71,12 +79,12 @@
             })
         </div>
 
-        <div class="js-infinity-loader-wrap">
+        <div class="js-infinity-loader-wrap items-grid">
             <div class="base-4items-grid js-infinity-loader-grid">
                 @@include("modules/grid-event.html", {
                     "class": "grid-publication_format-base",
                     "link": "event-announcement.html",
-                    "img": "images/grid-cover-3-base2.jpg",
+                    "img": "images/local/grid-cover-3-base2.jpg",
                     "title": "Музей природы Приамурья",
                     "place": "Дворец культуры",
                     "date": "20 октября",
@@ -87,7 +95,7 @@
                 @@include("modules/grid-event.html", {
                     "class": "grid-publication_format-base",
                     "link": "event-announcement.html",
-                    "img": "images/grid-cover-3-base9.jpg",
+                    "img": "images/local/grid-cover-3-base9.jpg",
                     "title": "Я люблю Амурск спортивный!",
                     "place": "ДЮСШ",
                     "date": "3 февраля, 18.00",
@@ -98,7 +106,7 @@
                 @@include("modules/grid-event.html", {
                     "class": "grid-publication_format-full",
                     "link": "event-announcement.html",
-                    "img": "images/grid-cover-3-full2.jpg",
+                    "img": "images/local/grid-cover-3-full2.jpg",
                     "title": "Ночь кино в Амурске!",
                     "place": "Кинотеатр «Молодость»",
                     "date": "3 февраля, 18.00",
@@ -109,7 +117,7 @@
                 @@include("modules/grid-event.html", {
                     "class": "grid-publication_format-base",
                     "link": "event-announcement.html",
-                    "img": "images/grid-cover-3-base4.jpg",
+                    "img": "images/local/grid-cover-3-base4.jpg",
                     "title": "Фестиваль «Станица»",
                     "place": "Дворец культуры",
                     "date": "17 февраля, 14:00",
@@ -118,6 +126,16 @@
                 })
             </div>
             <button class="btn btn_blue btn_more js-btn_more btn_center js-more-past-events" data-page-count="1">Показать еще <span class="icon-arrow-down-dir"></span></button>
+        </div>
+
+        <div class="base-layout__aside base-layout__aside_mobile">
+            <div class="aside-widget">
+                @@include('modules/offer-widget.html', {
+                    "class": "event",
+                    "text": "Любой житель Амурска может поделиться интересными событиями с&nbsp;редакцией сайта.<br> Для нас очень важно участие амурчан в&nbsp;жизни своего города.",
+                    "btnText": "Поделиться событием"
+                })
+            </div>
         </div>
     </div>
 </main>

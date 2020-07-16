@@ -8,42 +8,88 @@
         color: $light-c
         text-transform: uppercase
 
-.read-also
+        +media(m)
+            margin-bottom: 30px
+            text-align: center
+
+.additional-block
     .additional-block__title
         letter-spacing: 0.1em
 
-.movie-posters-widget
+    .grid-publication
+        +media(m)
+            background-color: transparent
+            color: $light-c
 
+            &:not(:last-child)
+                margin-bottom: 20px
+                padding-bottom: 20px
+                border-bottom: 1px solid #D7DBE0
+
+        +media(d)
+            border: 1px solid #B1C1D2
+
+.movie-posters-widget
     &__title-wrap
-        display: flex
-        align-items: center
         margin-bottom: 40px
+
+        +media(d)
+            display: flex
+            align-items: center
 
         .additional-block__title
             letter-spacing: 0.02em
 
     &__btns
-       margin-left: 50px
        font-size: 0
 
+       +media(m)
+            display: flex
+            flex-wrap: wrap
+            justify-content: center
+            align-items: center
+
+       +media(d)
+            margin-left: 50px
+
     &__btn
-        margin-right: 15px
+        +media(m)
+            margin-left: 8px
+            margin-right: 8px
+
+        +media(d)
+            margin-right: 15px
 
     .slick-list
-        margin-left: -25px
-        margin-right: -25px
+        +media(d)
+            margin-left: -25px
+            margin-right: -25px
 
-    .slick-active
-        .movie-posters-item__cover
+    .movie-posters-item_inner
+        +media(m)
+            position: relative
+            margin-left: auto
+            margin-right: auto
             width: 220px
-            height: 330px
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2)
+
+    .movie-posters-item__cover
+        width: 100%
+        height: 330px
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2)
+
+    .slick-prev
+        left: -26px
+
+    .slick-next
+        right: -26px
 
 .movie-posters-item
     position: relative
-    margin-left: 25px
-    margin-right: 25px
     text-decoration: none
+
+    +media(d)
+        margin-left: 25px
+        margin-right: 25px
 
     &__cover
         display: block
@@ -51,9 +97,9 @@
         border-radius: 10px
 
     &__title
+        font-size: $base-fz
         font-family: $base-f
         font-weight: bold
-        font-size: $base-fz
         letter-spacing: 0.02em
         color: $light-c
 

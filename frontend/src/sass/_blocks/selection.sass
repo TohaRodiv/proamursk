@@ -1,14 +1,19 @@
 .selection-head_page
-    margin-top: 40px
-    margin-bottom: 40px
     text-align: center
+
+    +media(m)
+        margin-top: -8px
+        margin-bottom: 25px
+
+    +media(d)
+        margin-top: 40px
+        margin-bottom: 40px
 
 .selection-head_index
     margin-bottom: 30px
     text-align: center
 
 .selection-head
-
     &__subtitle
         margin-bottom: 15px
         font-size: $base-fz
@@ -24,9 +29,15 @@
 
     &__title
         margin-bottom: 0
-        font-size: 46px
         letter-spacing: 0.02em
-        font-family: $bold-f
+
+        +media(m)
+            font-size: $medium-fz
+            font-weight: normal
+
+        +media(d)
+            font-size: 46px
+            font-family: $bold-f
 
         a
             color: inherit
@@ -38,12 +49,21 @@
 
 .index-selection
     margin-top: 40px
-    margin-left: -40px
-    margin-right: -40px
-    padding: 40px
-    background-color: $light-c
-    border-radius: 30px
-    box-shadow: 0 12px 28px #e1ecf7
+
+    +media(m)
+        padding: 32px 16px
+        border-radius: 8px
+        background: #fff
+        border: 2px solid $base-c
+        box-shadow: 0 20px 24px #e1ecf7
+
+    +media(d)
+        margin-left: -40px
+        margin-right: -40px
+        padding: 40px
+        background-color: $light-c
+        border-radius: 30px
+        box-shadow: 0 12px 28px #e1ecf7
 
     &:not(:last-child)
         margin-bottom: 40px
@@ -56,24 +76,26 @@
         display: inline-block
 
 .index-selection-grid
-    display: flex
-    margin-left: -10px
-    margin-right: -10px
+    +media(m)
+        & > .grid-publication:not(:last-child)
+            margin-bottom: 20px
+            padding-bottom: 20px
+            border-bottom: 1px solid #C3CEDF
 
-    &_2 .grid-publication
-        width: 640px
+    +media(d)
+        display: flex
+        justify-content: space-between
 
-    &_3 .grid-publication
-        &:nth-child(1),
-        &:nth-child(3)
-            width: 310px
-
-        &:nth-child(2)
+        &_2 .grid-publication
             width: 640px
 
-    &_4 .grid-publication
-        width: 310px
+        &_3 .grid-publication
+            &:nth-child(1),
+            &:nth-child(3)
+                width: 310px
 
-    .grid-publication
-        margin-left: 10px
-        margin-right: 10px
+            &:nth-child(2)
+                width: 640px
+
+        &_4 .grid-publication
+            width: 310px

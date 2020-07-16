@@ -1,27 +1,36 @@
 .index-manage-row
-    display: flex
-    margin-left: -10px
-    margin-right: -10px
+    +media(m)
+        & + .index-manage-row
+            margin-top: 20px
 
-    &:first-child
-        margin-bottom: 20px
+        & > .grid-publication:not(:last-child)
+            margin-bottom: 20px
 
-    & > .grid-publication
-        margin-left: 10px
-        margin-right: 10px
+    +media(d)
+        display: flex
+        justify-content: space-between
 
-        &:not(.grid-publication_6-col)
-            flex-basis: 25%
+        & > .grid-publication
+            &:not(.grid-publication_6-col)
+                flex-basis: 310px
+
+        &:first-child
+            margin-bottom: 20px
 
 .todo-layout
-    display: grid
-    grid-template-columns: repeat(4, 310px)
-    grid-gap: 20px
+    +media(m)
+        & > .grid-publication:not(:last-child)
+            margin-bottom: 20px
 
-    & > .grid-publication_6-col
-        grid-column: 1/3
-        grid-row: 1/2
+    +media(d)
+        display: grid
+        grid-template-columns: repeat(4, 310px)
+        grid-gap: 20px
 
-    & > .cinema-widget
-        grid-column: 4/5
-        grid-row: 1/2
+        & > .grid-publication_6-col
+            grid-column: 1/3
+            grid-row: 1/2
+
+        & > .cinema-widget
+            grid-column: 4/5
+            grid-row: 1/2

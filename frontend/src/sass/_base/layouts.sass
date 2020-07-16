@@ -1,26 +1,50 @@
 .container
     position: relative
-    width: 1300px
     margin-right: auto
     margin-left: auto
+
+    +media(m)
+        width: 100%
+        max-width: 600px
+        padding-left: 16px
+        padding-right: 16px
+
+    +media(d)
+        width: 1300px
 
 .layout-section
     margin-top: 40px
 
 .base-layout
-    display: flex
-    align-items: flex-start
+    +media(m)
+        .base-layout__aside
+            margin-top: 20px
 
-    &__main
-        width: 860px
-        flex-shrink: 0
-        margin-right: 20px
+    +media(d)
+        display: flex
+        align-items: flex-start
 
-    &__aside
-        width: 420px
-        margin-left: auto
-        padding-left: 40px
-        flex-shrink: 0
+        &__main
+            width: 860px
+            flex-shrink: 0
+            margin-right: 20px
+
+        &__aside
+            width: 420px
+            margin-left: auto
+            padding-left: 40px
+            flex-shrink: 0
+
+.base-layout__aside_desktop
+    +media(m)
+        display: none
+
+.base-layout__aside_mobile
+    +media(m)
+        margin-top: 40px
+
+    +media(d)
+        display: none
 
 .aside-widget
     &:not(:last-child)
@@ -35,19 +59,40 @@
     margin-top: 0
 
 .base-3items-grid
-    display: grid
-    grid-template-columns: 310px 310px 640px
-    grid-gap: 20px
-    margin-top: 20px
+    +media(m)
+        & > *:not(:last-child)
+            margin-bottom: 20px
+
+    +media(d)
+        display: grid
+        grid-template-columns: 310px 310px 640px
+        grid-gap: 20px
+        margin-top: 20px
 
 .base-3items-grid-inverse
-    display: grid
-    grid-template-columns: 640px 310px 310px
-    grid-gap: 20px
-    margin-top: 20px
+    +media(m)
+        & > *:not(:last-child)
+            margin-bottom: 20px
+
+    +media(d)
+        display: grid
+        grid-template-columns: 640px 310px 310px
+        grid-gap: 20px
+        margin-top: 20px
 
 .base-4items-grid
-    display: grid
-    grid-template-columns: repeat(4, 310px)
-    grid-gap: 20px
-    margin-top: 20px
+    +media(m)
+        & > *:not(:last-child)
+            margin-bottom: 20px
+
+    +media(d)
+        display: grid
+        grid-template-columns: repeat(4, 310px)
+        grid-gap: 20px
+        margin-top: 20px
+
+
+.base-layout + .items-grid,
+.items-grid + .items-grid
+    +media(m)
+        margin-top: 20px
