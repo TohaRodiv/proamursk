@@ -74,11 +74,7 @@
             +media(m)
                 flex-wrap: wrap
 
-            & *
-                flex-shrink: 0
-
             & *:not(:last-child)
-
                 +media(m)
                     margin-right: 20px
 
@@ -86,14 +82,14 @@
                     margin-right: 50px
 
         [class^="icon-"]
-            display: inline-block
-            width: 18px
+            display: block
+            width: 24px
             height: 20px
-            margin-right: 5px
+            flex-shrink: 0
+            margin-right: 8px
             font-size: 0
             line-height: 20px
             color: $base-c
-            vertical-align: -2px
             text-align: center
 
             &::before
@@ -112,13 +108,14 @@
         a
             color: $base-c
             text-decoration: none
-            word-break: break-word
 
             &:hover,
             &:focus
                 text-decoration: underline
 
     &__event-info
+        display: flex
+        align-items: baseline
         margin-bottom: 20px
 
     &__place-info-wrap
