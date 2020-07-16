@@ -272,6 +272,18 @@
                 position: relative
                 padding: 0
 
+    &_hide-cover
+        +media(m)
+            min-height: 0
+            height: auto
+            color: $dark-c
+
+            .grid-publication__cover-wrap
+                display: none
+
+            .grid-publication__text-wrap
+                position: relative
+
 .grid-publication:not(.grid-publication_format-city-guide)
     &:hover,
     &:focus
