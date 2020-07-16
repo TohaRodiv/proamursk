@@ -3972,7 +3972,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #FFFFFF;
+  background-color: #DFDFDF;
   text-decoration: none;
   color: inherit; }
   @media (min-width: 1024px) {
@@ -3994,9 +3994,6 @@ footer {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1; }
-  .grid-publication__cover-wrap {
-    position: relative;
-    background-color: #DFDFDF; }
   .grid-publication__cover {
     position: relative;
     display: block;
@@ -4018,7 +4015,8 @@ footer {
             flex-direction: column;
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
-            flex-grow: 1; }
+            flex-grow: 1;
+    background-color: #FFFFFF; }
     @media (max-width: 1023px) {
       .grid-publication__text-wrap {
         padding: 20px 15px; } }
@@ -4122,27 +4120,30 @@ footer {
       height: 500px;
       -ms-flex-negative: 0;
           flex-shrink: 0; } }
-  .grid-publication_8-col .grid-publication__text-wrap {
-    position: absolute;
-    bottom: 0;
-    width: 100%; }
+  @media (min-width: 1024px) {
+    .grid-publication_8-col .grid-publication__text-wrap {
+      position: absolute;
+      bottom: 0;
+      width: 100%; } }
   @media (min-width: 1024px) {
     .grid-publication_6-col.grid-publication_format-full .grid-publication__title, .grid-publication_8-col.grid-publication_format-full .grid-publication__title {
-      font-size: 36px; } }
-  @media (min-width: 1024px) {
+      font-size: 36px; }
+    .grid-publication_6-col.grid-publication_format-full .grid-publication__text-wrap, .grid-publication_8-col.grid-publication_format-full .grid-publication__text-wrap {
+      background-color: transparent; }
     .grid-publication_6-col.grid-publication_format-full .grid-publication__text, .grid-publication_8-col.grid-publication_format-full .grid-publication__text {
-      font-size: 20px; } }
-  @media (min-width: 1024px) {
+      font-size: 20px; }
     .grid-publication_6-col.grid-publication_format-full .grid-publication__description,
     .grid-publication_6-col.grid-publication_format-full .grid-publication__date, .grid-publication_8-col.grid-publication_format-full .grid-publication__description,
     .grid-publication_8-col.grid-publication_format-full .grid-publication__date {
       margin-bottom: 40px; } }
-  @media (max-width: 1023px) {
-    .grid-publication_format-base .grid-publication__cover-wrap {
-      padding-bottom: 76.3888889%; } }
-  @media (min-width: 1024px) {
-    .grid-publication_format-base .grid-publication__cover-wrap {
-      height: 278px; } }
+  .grid-publication_format-base .grid-publication__cover-wrap {
+    position: relative; }
+    @media (max-width: 1023px) {
+      .grid-publication_format-base .grid-publication__cover-wrap {
+        padding-bottom: 76%; } }
+    @media (min-width: 1024px) {
+      .grid-publication_format-base .grid-publication__cover-wrap {
+        height: 278px; } }
   .grid-publication_format-base .grid-publication__cover {
     border-bottom: 1px solid #B1C1D2; }
     @media (max-width: 1023px) {
@@ -4154,22 +4155,9 @@ footer {
     color: #0073FF; }
   .grid-publication_format-full {
     color: #FFFFFF; }
-    @media (max-width: 1023px) {
-      .grid-publication_format-full {
-        min-height: 460px; } }
     .grid-publication_format-full .grid-publication__cover-wrap {
-      position: relative;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      height: 100%;
-      -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1; }
+      position: absolute;
+      height: 100%; }
       .grid-publication_format-full .grid-publication__cover-wrap::after {
         content: "";
         display: block;
@@ -4181,14 +4169,14 @@ footer {
         background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 51, 104, 0)), to(rgba(23, 33, 54, 0.6)));
         background: -o-linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%);
         background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%); }
-    .grid-publication_format-full .grid-publication__cover {
-      height: 100%;
-      -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1; }
     .grid-publication_format-full .grid-publication__text-wrap {
-      position: absolute;
-      bottom: 0; }
+      background-color: transparent; }
+      @media (max-width: 1023px) {
+        .grid-publication_format-full .grid-publication__text-wrap {
+          margin-top: 220px; } }
+      @media (min-width: 1024px) {
+        .grid-publication_format-full .grid-publication__text-wrap {
+          margin-top: 278px; } }
     .grid-publication_format-full .grid-publication__link {
       color: #FFFFFF; }
       .grid-publication_format-full .grid-publication__link:hover {
@@ -4213,17 +4201,20 @@ footer {
       .grid-publication_format-mobile .grid-publication__cover-wrap {
         display: none; }
       .grid-publication_format-mobile .grid-publication__text-wrap {
-        position: relative;
-        padding: 0; } }
-  @media (max-width: 1023px) {
-    .grid-publication_hide-cover {
-      min-height: 0;
-      height: auto;
-      color: #000000; }
-      .grid-publication_hide-cover .grid-publication__cover-wrap {
-        display: none; }
-      .grid-publication_hide-cover .grid-publication__text-wrap {
-        position: relative; } }
+        margin-top: 0;
+        padding: 0;
+        background-color: transparent; } }
+
+@media (max-width: 1023px) {
+  .index-page .grid-publication_hide-cover {
+    min-height: 0;
+    height: auto;
+    color: #000000; }
+    .index-page .grid-publication_hide-cover .grid-publication__cover-wrap {
+      display: none; }
+    .index-page .grid-publication_hide-cover .grid-publication__text-wrap {
+      margin-top: 0;
+      background-color: #FFFFFF; } }
 
 .grid-publication:not(.grid-publication_format-city-guide):hover .grid-publication__bg-gradient, .grid-publication:not(.grid-publication_format-city-guide):focus .grid-publication__bg-gradient {
   display: block; }

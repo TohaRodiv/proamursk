@@ -12,7 +12,7 @@
     position: relative
     display: flex
     flex-direction: column
-    background-color: $light-c
+    background-color: $light-gray
     text-decoration: none
     color: inherit
     @extend %border
@@ -31,9 +31,6 @@
         height: 100%
         flex-grow: 1
 
-    &__cover-wrap
-        position: relative
-        background-color: $light-gray
 
     &__cover
         position: relative
@@ -49,6 +46,7 @@
         display: flex
         flex-direction: column
         flex-grow: 1
+        background-color: $light-c
 
         +media(m)
             padding: 20px 15px
@@ -162,32 +160,34 @@
             flex-shrink: 0
 
         .grid-publication__text-wrap
-            position: absolute
-            bottom: 0
-            width: 100%
+            +media(d)
+                position: absolute
+                bottom: 0
+                width: 100%
 
     &_6-col,
     &_8-col
         &.grid-publication_format-full
-
-            .grid-publication__title
-                +media(d)
+            +media(d)
+                .grid-publication__title
                     font-size: 36px
 
-            .grid-publication__text
-                +media(d)
+                .grid-publication__text-wrap
+                    background-color: transparent
+
+                .grid-publication__text
                     font-size: 20px
 
-            .grid-publication__description,
-            .grid-publication__date
-                +media(d)
+                .grid-publication__description,
+                .grid-publication__date
                     margin-bottom: 40px
 
     &_format-base
         .grid-publication
             &__cover-wrap
+                position: relative
                 +media(m)
-                    padding-bottom: 76.3888889%
+                    padding-bottom: 76%
 
                 +media(d)
                     height: 278px
@@ -209,16 +209,10 @@
     &_format-full
         color: $light-c
 
-        +media(m)
-            min-height: 460px
-
         .grid-publication
             &__cover-wrap
-                position: relative
-                display: flex
-                flex-direction: column
+                position: absolute
                 height: 100%
-                flex-grow: 1
 
                 &::after
                     content: ""
@@ -230,13 +224,14 @@
                     height: 100%
                     background: linear-gradient(rgba(0, 51, 104, 0) 0%, rgba(23, 33, 54, 0.6) 100%)
 
-            &__cover
-                height: 100%
-                flex-grow: 1
-
             &__text-wrap
-                position: absolute
-                bottom: 0
+                background-color: transparent
+
+                +media(m)
+                    margin-top: 220px
+
+                +media(d)
+                    margin-top: 278px
 
             &__link
                 color: $light-c
@@ -269,20 +264,23 @@
                 display: none
 
             .grid-publication__text-wrap
-                position: relative
+                margin-top: 0
                 padding: 0
+                background-color: transparent
 
-    &_hide-cover
-        +media(m)
-            min-height: 0
-            height: auto
-            color: $dark-c
 
-            .grid-publication__cover-wrap
-                display: none
+.index-page .grid-publication_hide-cover
+    +media(m)
+        min-height: 0
+        height: auto
+        color: $dark-c
 
-            .grid-publication__text-wrap
-                position: relative
+        .grid-publication__cover-wrap
+            display: none
+
+        .grid-publication__text-wrap
+            margin-top: 0
+            background-color: $light-c
 
 .grid-publication:not(.grid-publication_format-city-guide)
     &:hover,
