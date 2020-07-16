@@ -586,7 +586,7 @@ class SpecialsDetailView(DetailView):
 class SpecSpecialsDetailView(DetailView):
     model = Special
     context_object_name = 'special'
-    template_name = 'site/special-project.html'
+    template_name = 'site/s-special-project.html'
     slug_field = 'codename'
 
     def get_queryset(self):
