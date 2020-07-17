@@ -231,7 +231,7 @@ ul, ol {
 
 @font-face {
   font-family: "proamursk";
-  src: url("../fonts/proamursk.woff2?v=199") format("woff2"), url("../fonts/proamursk.woff?v=199") format("woff");
+  src: url("../fonts/proamursk.woff2?v=203") format("woff2"), url("../fonts/proamursk.woff?v=203") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -531,6 +531,10 @@ ul, ol {
   .base-layout + .items-grid,
   .items-grid + .items-grid {
     margin-top: 20px; } }
+
+@media (max-width: 1023px) {
+  .mobile-hidden {
+    display: none !important; } }
 
 .lazyload,
 .js-fade {
@@ -2384,6 +2388,14 @@ input.btn_preloader {
   .indent-wrap_pb5 {
     padding-bottom: 5em; }
 
+@media (max-width: 1023px) {
+  .mobile-menu-open .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    -webkit-animation: none;
+            animation: none; } }
+
 .header {
   position: relative;
   z-index: 999;
@@ -2392,14 +2404,15 @@ input.btn_preloader {
     .header {
       height: 70px;
       -webkit-box-shadow: 0 1px 5px #d7e2ee;
-              box-shadow: 0 1px 5px #d7e2ee; }
-      .header_no-shadow {
-        -webkit-box-shadow: none;
-                box-shadow: none; } }
+              box-shadow: 0 1px 5px #d7e2ee; } }
   @media (min-width: 1024px) {
     .header {
       height: 100px;
       border-bottom: 1px solid #D7DBE0; } }
+
+.header_no-shadow {
+  -webkit-box-shadow: none;
+          box-shadow: none; }
 
 @media (max-width: 1023px) {
   .header_mobile-unfixed {
@@ -2415,11 +2428,12 @@ input.btn_preloader {
   .header_mobile-fixed {
     position: -webkit-sticky;
     position: sticky;
-    top: -70px;
-    -webkit-animation: slideDown 0.3s ease-out forwards;
-            animation: slideDown 0.3s ease-out forwards;
+    top: 0;
     -webkit-box-shadow: 0 1px 5px #d7e2ee;
-            box-shadow: 0 1px 5px #d7e2ee; } }
+            box-shadow: 0 1px 5px #d7e2ee; }
+    .header_mobile-fixed.animate {
+      -webkit-animation: slideDown 0.3s ease-out forwards;
+              animation: slideDown 0.3s ease-out forwards; } }
 
 @-webkit-keyframes slideDown {
   0% {
@@ -4255,7 +4269,8 @@ footer {
       padding: 0;
       color: #000000;
       border: none;
-      border-radius: 0; }
+      border-radius: 0;
+      background-color: transparent; }
       .grid-publication_format-mobile .grid-publication__cover-wrap {
         display: none; }
       .grid-publication_format-mobile .grid-publication__text-wrap {

@@ -6182,7 +6182,7 @@ $('.js-post-editor-slider').slick({
 });
 $('.js-post-editor-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
   var slideDescriptionText = slick.$slides[nextSlide].dataset.description;
-  $(this).next('.post-editor__block_caption').text(slideDescriptionText);
+  $(this).parents('.js-post-editor-slider-block').find('.post-editor-slider-block__caption').text(slideDescriptionText);
   var amount = nextSlide + 1;
   if (amount < 10) amount = '0' + amount;
   $(this).parents('.js-post-editor-slider-block').find('.js-post-editor-slider-current').text(amount);
