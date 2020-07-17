@@ -536,6 +536,10 @@ ul, ol {
   .mobile-hidden {
     display: none !important; } }
 
+@media (min-width: 1024px) {
+  .desktop-hidden {
+    display: none !important; } }
+
 .lazyload,
 .js-fade {
   opacity: 0;
@@ -4872,10 +4876,6 @@ footer {
         margin-right: 16px; }
     .mobile-sections-links .aside-nav__item:first-child {
       margin-left: 16px; }
-  .mobile-sections-links .aside-nav__text_mobile-crop {
-    width: 70px;
-    overflow: hidden;
-    white-space: nowrap; }
   .mobile-sections-links .aside-nav__link {
     padding: 5px 15px;
     font-size: 18px;
