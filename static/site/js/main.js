@@ -7223,6 +7223,13 @@ window.addEventListener("scroll", function () {
           header.classList.remove('header_mobile-fixed');
         } else {
           // upscroll code
+          if (!header.classList.contains('header_mobile-fixed')) {
+            header.classList.add('animate');
+            setTimeout(function () {
+              header.classList.remove('animate');
+            }, 300);
+          }
+
           header.classList.add('header_mobile-fixed');
         }
       } else if (window.pageYOffset === 0) {
