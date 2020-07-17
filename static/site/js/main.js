@@ -7196,51 +7196,37 @@ Array.prototype.remove = function (value) {
 "use strict";
 
 var lastScrollTop = 0;
-var unfixedTimeout = null;
+var delta = 70;
 var header = document.querySelector('header');
-var scrollValue = 0;
-var scrollTimeout = false;
-window.addEventListener("scroll", function () {
-  clearTimeout(scrollTimeout);
-  scrollTimeout = setTimeout(function () {
-    var scrolled = $(document).scrollTop() - scrollValue;
-    scrollValue = $(document).scrollTop();
+window.addEventListener('scroll', function () {
+  var st = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (Math.abs(scrolled) > 50) {
-      var st = window.pageYOffset || document.documentElement.scrollTop;
-      if (lastScrollTop < lastScrollTop + 50 || lastScrollTop) if (window.pageYOffset > header.offsetHeight) {
-        if (st > lastScrollTop) {
-          // downscroll code
-          clearTimeout(unfixedTimeout);
+  if (st === 0) {
+    header.classList.remove('header_mobile-unfixed');
+    header.classList.remove('header_mobile-fixed');
+  }
 
-          if (header.classList.contains('header_mobile-fixed')) {
-            header.classList.add('header_mobile-unfixed');
-            unfixedTimeout = setTimeout(function () {
-              header.classList.remove('header_mobile-unfixed');
-            }, 300);
-          }
+  if (Math.abs(lastScrollTop - st) <= delta) return;
 
-          header.classList.remove('header_mobile-fixed');
-        } else {
-          // upscroll code
-          if (!header.classList.contains('header_mobile-fixed')) {
-            header.classList.add('animate');
-            setTimeout(function () {
-              header.classList.remove('animate');
-            }, 300);
-          }
+  if (st > lastScrollTop && st > header.offsetHeight) {
+    // Scroll Down
+    header.classList.add('header_mobile-unfixed');
+    header.classList.remove('header_mobile-fixed');
+  } else {
+    // Scroll Up
+    header.classList.remove('header_mobile-unfixed');
 
-          header.classList.add('header_mobile-fixed');
-        }
-      } else if (window.pageYOffset === 0) {
-        header.classList.remove('header_mobile-fixed');
-        header.classList.remove('header_mobile-unfixed');
-      } else {
-        header.classList.remove('header_mobile-unfixed');
-      }
-      lastScrollTop = st <= 0 ? 0 : st;
+    if (!header.classList.contains('header_mobile-fixed')) {
+      header.classList.add('animate');
+      setTimeout(function () {
+        header.classList.remove('animate');
+      }, 300);
     }
-  }, 100);
+
+    header.classList.add('header_mobile-fixed');
+  }
+
+  lastScrollTop = st;
 }, false);
 "use strict";
 
