@@ -1,3 +1,10 @@
+.mobile-menu-open .header
+    +media(m)
+        position: fixed
+        top: 0
+        width: 100%
+        animation: none
+
 .header
     position: relative
     z-index: 999
@@ -7,12 +14,12 @@
         height: 70px
         box-shadow: 0 1px 5px #d7e2ee
 
-        &_no-shadow
-            box-shadow: none
-
     +media(d)
         height: 100px
         border-bottom: 1px solid #D7DBE0
+
+.header_no-shadow
+    box-shadow: none
 
 .header_mobile-unfixed
     +media(m)
@@ -24,9 +31,11 @@
 .header_mobile-fixed
     +media(m)
         position: sticky
-        top: -70px
-        animation: slideDown $transition-time ease-out forwards
+        top: 0
         box-shadow: 0 1px 5px #d7e2ee
+
+        &.animate
+            animation: slideDown $transition-time ease-out forwards
 
 @keyframes slideDown
     0%
