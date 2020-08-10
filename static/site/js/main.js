@@ -8488,13 +8488,16 @@ $('.js-post-editor-slider').on('beforeChange', function (event, slick, currentSl
   $(this).parents('.js-post-editor-slider-block').find('.js-post-editor-slider-current').text(amount);
 });
 $('.js-post-editor-slider').on('click', '.slick-slide', function () {
-  $('.js-post-editor-slider').slick('slickNext');
+  var currentSlider = $(this).closest($('.js-post-editor-slider'));
+  currentSlider.slick('slickNext');
 });
-$('.js-post-editor-slider').on('click', '.post-editor-slider-block__arrow-prev', function () {
-  $('.js-post-editor-slider').slick('slickPrev');
+$('.js-post-editor-slider-block').on('click', '.post-editor-slider-block__arrow-prev', function () {
+  var currentSlider = $(this).closest('.js-post-editor-slider-block').find('.js-post-editor-slider');
+  currentSlider.slick('slickPrev');
 });
-$('.js-post-editor-slider').on('click', '.post-editor-slider-block__arrow-next', function () {
-  $('.js-post-editor-slider').slick('slickNext');
+$('.js-post-editor-slider-block').on('click', '.post-editor-slider-block__arrow-next', function () {
+  var currentSlider = $(this).closest('.js-post-editor-slider-block').find('.js-post-editor-slider');
+  currentSlider.slick('slickNext');
 });
 "use strict";
 
