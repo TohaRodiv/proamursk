@@ -231,7 +231,7 @@ ul, ol {
 
 @font-face {
   font-family: "proamursk";
-  src: url("../fonts/proamursk.woff2?v=203") format("woff2"), url("../fonts/proamursk.woff?v=203") format("woff");
+  src: url("../fonts/proamursk.woff2?v=205") format("woff2"), url("../fonts/proamursk.woff?v=205") format("woff");
   font-weight: normal;
   font-style: normal; }
 
