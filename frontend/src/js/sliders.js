@@ -407,13 +407,16 @@ $('.js-post-editor-slider')
     });
 
 $('.js-post-editor-slider').on('click', '.slick-slide', function() {
-    $('.js-post-editor-slider').slick('slickNext');
+    const currentSlider = $(this).closest($('.js-post-editor-slider'));
+    currentSlider.slick('slickNext');
 });
 
-$('.js-post-editor-slider').on('click', '.post-editor-slider-block__arrow-prev', function() {
-    $('.js-post-editor-slider').slick('slickPrev');
+$('.js-post-editor-slider-block').on('click', '.post-editor-slider-block__arrow-prev', function() {
+    const currentSlider = $(this).closest('.js-post-editor-slider-block').find('.js-post-editor-slider');
+    currentSlider.slick('slickPrev');
 });
 
-$('.js-post-editor-slider').on('click', '.post-editor-slider-block__arrow-next', function() {
-    $('.js-post-editor-slider').slick('slickNext');
+$('.js-post-editor-slider-block').on('click', '.post-editor-slider-block__arrow-next', function() {
+    const currentSlider = $(this).closest('.js-post-editor-slider-block').find('.js-post-editor-slider');
+    currentSlider.slick('slickNext');
 });
