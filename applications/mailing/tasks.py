@@ -15,7 +15,7 @@ if Settings.objects.exists() and Settings.objects.first().mailer_lite_api_key:
 else:
     API_KEY = None
 
-BASE_URL = 'http://api.mailerlite.com/api/v2'
+BASE_URL = 'https://api.mailerlite.com/api/v2'
 HEADERS = {'X-MailerLite-ApiKey': API_KEY, 'Content-Type': 'application/json'}
 
 
