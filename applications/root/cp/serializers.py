@@ -381,9 +381,11 @@ class PlaceReviewsListSerializer(ModelSerializer):
 
 class PlaceReviewsDetailSerializer(ModelSerializer):
     title = serializers.SerializerMethodField()
-    report = ObjectRelatedField(queryset=Place.objects.all(),
-                                serializer_class=PlacesNestedSerializer,
-                                allow_null=True, required=False)
+    place = ObjectRelatedField(
+        queryset=Place.objects.all(),
+        serializer_class=PlacesNestedSerializer,
+        allow_null=True, required=False
+    )
 
     class Meta:
         model = PlaceReview
