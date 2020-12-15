@@ -9,6 +9,14 @@
         margin-top: 40px
         margin-bottom: 40px
 
+.selection-head_page_new-year-selection
+    +media(m)
+        margin-top: -32px
+
+    +media(d)
+        margin-top: -20px
+
+
 .selection-head_index
     margin-bottom: 30px
     text-align: center
@@ -99,3 +107,20 @@
 
         &_4 .grid-publication
             width: 310px
+
+
+.new-year-selection-illustration-wrap
+    overflow: hidden
+
+.new-year-selection-illustration
+    display: block
+    width: 1300px
+    max-width: initial
+    margin-bottom: 8px
+    position: relative
+    left: 50%
+    transform: translateX(-50%)
+
+.selection-head_page_new-year-selection .selection-head__subtitle::before
+    content: none
+
