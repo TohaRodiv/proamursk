@@ -3331,8 +3331,21 @@ footer {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%); }
 
+.selection-head_index_new-year-selection .selection-head__subtitle::before,
 .selection-head_page_new-year-selection .selection-head__subtitle::before {
   content: none; }
+
+@media (max-width: 1023px) {
+  .selection-head_index_new-year-selection .new-year-selection-illustration-wrap {
+    margin-top: -32px;
+    margin-left: -16px;
+    margin-right: -16px; } }
+
+@media (min-width: 1024px) {
+  .selection-head_index_new-year-selection .new-year-selection-illustration-wrap {
+    margin-top: -40px;
+    margin-left: -40px;
+    margin-right: -40px; } }
 
 .publication {
   margin-bottom: 50px; }
