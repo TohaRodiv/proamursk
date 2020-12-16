@@ -3226,6 +3226,14 @@ footer {
       margin-top: 40px;
       margin-bottom: 40px; } }
 
+@media (max-width: 1023px) {
+  .selection-head_page_new-year-selection {
+    margin-top: -32px; } }
+
+@media (min-width: 1024px) {
+  .selection-head_page_new-year-selection {
+    margin-top: -20px; } }
+
 .selection-head_index {
   margin-bottom: 30px;
   text-align: center; }
@@ -3308,6 +3316,23 @@ footer {
       width: 640px; }
     .index-selection-grid_4 .grid-publication {
       width: 310px; } }
+
+.new-year-selection-illustration-wrap {
+  overflow: hidden; }
+
+.new-year-selection-illustration {
+  display: block;
+  width: 1300px;
+  max-width: initial;
+  margin-bottom: 8px;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%); }
+
+.selection-head_page_new-year-selection .selection-head__subtitle::before {
+  content: none; }
 
 .publication {
   margin-bottom: 50px; }
