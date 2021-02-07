@@ -253,42 +253,41 @@
         +media(m)
             display: none
 
-.post-editor__block_quote
-    .quote
-        border-left: 4px solid $base-c
+.quote
+    border-left: 4px solid $base-c
+
+    +media(m)
+        padding-top: 5px
+        padding-bottom: 5px
+        padding-left: 16px
+
+    +media(d)
+        padding-top: 10px
+        padding-bottom: 10px
+        padding-left: 25px
+
+    &__title
+        margin-bottom: 5px
+        line-height: 1.2
+        font-family: $bold-f
+        color: $base-c
 
         +media(m)
-            padding-top: 5px
-            padding-bottom: 5px
-            padding-left: 16px
+            font-size: 36px
 
         +media(d)
-            padding-top: 10px
-            padding-bottom: 10px
-            padding-left: 25px
+            font-size: 42px
 
-        &__title
-            margin-bottom: 5px
-            line-height: 1.2
-            font-family: $bold-f
-            color: $base-c
+    &__text
+        margin-bottom: 0
+        line-height: $mini-lh
+        font-family: $add-light-it-f
 
-            +media(m)
-                font-size: 36px
+        +media(m)
+            font-size: 22px
 
-            +media(d)
-                font-size: 42px
-
-        &__text
-            margin-bottom: 0
-            line-height: $mini-lh
-            font-family: $add-light-it-f
-
-            +media(m)
-                font-size: 22px
-
-            +media(d)
-                font-size: 26px
+        +media(d)
+            font-size: 26px
 
 .post-editor__block_video
     &-wrap
