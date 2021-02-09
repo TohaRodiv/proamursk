@@ -37,7 +37,6 @@
 .sp-autoclave-gap_bottom_big
     margin-bottom: 100px
 
-
 .sp-autoclave-
     &header
         position: relative
@@ -141,3 +140,133 @@
 
         &__percent-description
             font-size: 24px
+
+    &scheme
+        position: relative
+
+        &__img
+            margin-left: auto
+            margin-right: auto
+
+        &__element
+            display: flex
+            align-items: center
+            position: absolute
+
+            &:nth-child(1)
+                left: -30px
+                bottom: 230px
+            &:nth-child(2)
+                left: 480px
+                bottom: 450px
+            &:nth-child(3)
+                left: 600px
+                bottom: 290px
+            &:nth-child(4)
+                left: 1000px
+                bottom: 550px
+            &:nth-child(5)
+                right: -40px
+                top: 50px
+
+        &__btn
+            width: 35px
+            height: 35px
+            flex-shrink: 0
+            font-size: 26px
+            line-height: 36px
+            font-family: $bold-f
+            color: $light-c
+            background-color: $base-c
+            border-radius: 50%
+
+        &__balloon
+            position: relative
+            padding: 6px 12px
+            font-size: 16px
+            line-height: $mini-lh
+            color: $light-c
+            text-transform: uppercase
+            font-family: $bold-f
+            background-color: $base-c
+
+            &_left
+                margin-right: calc(4px + 1em)
+                border-radius: 4px 0 0 4px
+
+                &::after
+                    content: ""
+                    display: block
+                    position: absolute
+                    top: 0
+                    right: -14px
+                    width: 15px
+                    height: 100%
+                    background-color: $base-c
+                    clip-path: polygon(0% 0%, 25% 0%, 100% 50%, 25% 100%, 0% 100%)
+
+
+            &_right
+                margin-left: calc(4px + 1em)
+                border-radius: 0 4px 4px 0
+
+                &::before
+                    content: ""
+                    display: block
+                    position: absolute
+                    top: 0
+                    left: -14px
+                    width: 15px
+                    height: 100%
+                    background-color: $base-c
+                    clip-path: polygon(75% 0%, 100% 0%, 100% 100%, 75% 100%, 0% 50%)
+
+    &characteristics-section
+        padding-top: 100px
+        padding-bottom: 60px
+        background-color: #FAFBFC
+
+        &__scheme
+            width: 1170px
+            margin-left: auto
+            margin-right: auto
+        &__table-wrap
+            display: flex
+
+            &_first
+                .sp-autoclave-characteristics-section__table td
+                    padding-bottom: 60px
+
+        &__table-title
+            width: 310px
+            flex-shrink: 0
+            flex-grow: 0
+            padding-left: 50px
+            padding-right: 25px
+            font-size: $big-fz
+            font-family: $bold-f
+
+        &__table
+            height: 100%
+            border-spacing: 0
+            border-collapse: collapse
+
+            th
+                padding: 0 30px 10px
+                font-size: 16px
+                font-family: $base-f
+                font-weight: normal
+                text-transform: uppercase
+                text-align: left
+                border-left: 1px solid $base-c
+
+            td
+                padding: 0 30px 10px
+                width: 200px
+                font-size: 24px
+                font-family: $bold-f
+                border-left: 1px solid $base-c
+
+                span
+                    font-size: 42px
+                    color: $base-c

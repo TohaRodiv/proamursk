@@ -156,6 +156,10 @@ p {
 ul, ol {
   list-style: none; }
 
+video {
+  display: block;
+  width: 100%; }
+
 [hidden],
 .hidden {
   display: none !important; }
@@ -10551,5 +10555,129 @@ footer {
     color: #0073FF; }
   .sp-autoclave-gold-section__percent-description {
     font-size: 24px; }
+
+.sp-autoclave-scheme {
+  position: relative; }
+  .sp-autoclave-scheme__img {
+    margin-left: auto;
+    margin-right: auto; }
+  .sp-autoclave-scheme__element {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute; }
+    .sp-autoclave-scheme__element:nth-child(1) {
+      left: -30px;
+      bottom: 230px; }
+    .sp-autoclave-scheme__element:nth-child(2) {
+      left: 480px;
+      bottom: 450px; }
+    .sp-autoclave-scheme__element:nth-child(3) {
+      left: 600px;
+      bottom: 290px; }
+    .sp-autoclave-scheme__element:nth-child(4) {
+      left: 1000px;
+      bottom: 550px; }
+    .sp-autoclave-scheme__element:nth-child(5) {
+      right: -40px;
+      top: 50px; }
+  .sp-autoclave-scheme__btn {
+    width: 35px;
+    height: 35px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    font-size: 26px;
+    line-height: 36px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    background-color: #0073FF;
+    border-radius: 50%; }
+  .sp-autoclave-scheme__balloon {
+    position: relative;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    background-color: #0073FF; }
+    .sp-autoclave-scheme__balloon_left {
+      margin-right: calc(4px + 1em);
+      border-radius: 4px 0 0 4px; }
+      .sp-autoclave-scheme__balloon_left::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -14px;
+        width: 15px;
+        height: 100%;
+        background-color: #0073FF;
+        -webkit-clip-path: polygon(0% 0%, 25% 0%, 100% 50%, 25% 100%, 0% 100%);
+                clip-path: polygon(0% 0%, 25% 0%, 100% 50%, 25% 100%, 0% 100%); }
+    .sp-autoclave-scheme__balloon_right {
+      margin-left: calc(4px + 1em);
+      border-radius: 0 4px 4px 0; }
+      .sp-autoclave-scheme__balloon_right::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -14px;
+        width: 15px;
+        height: 100%;
+        background-color: #0073FF;
+        -webkit-clip-path: polygon(75% 0%, 100% 0%, 100% 100%, 75% 100%, 0% 50%);
+                clip-path: polygon(75% 0%, 100% 0%, 100% 100%, 75% 100%, 0% 50%); }
+
+.sp-autoclave-characteristics-section {
+  padding-top: 100px;
+  padding-bottom: 60px;
+  background-color: #FAFBFC; }
+  .sp-autoclave-characteristics-section__scheme {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto; }
+  .sp-autoclave-characteristics-section__table-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .sp-autoclave-characteristics-section__table-wrap_first .sp-autoclave-characteristics-section__table td {
+      padding-bottom: 60px; }
+  .sp-autoclave-characteristics-section__table-title {
+    width: 310px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    padding-left: 50px;
+    padding-right: 25px;
+    font-size: 24px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .sp-autoclave-characteristics-section__table {
+    height: 100%;
+    border-spacing: 0;
+    border-collapse: collapse; }
+    .sp-autoclave-characteristics-section__table th {
+      padding: 0 30px 10px;
+      font-size: 16px;
+      font-family: "Proxima Nova Regular", Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      text-transform: uppercase;
+      text-align: left;
+      border-left: 1px solid #0073FF; }
+    .sp-autoclave-characteristics-section__table td {
+      padding: 0 30px 10px;
+      width: 200px;
+      font-size: 24px;
+      font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+      border-left: 1px solid #0073FF; }
+      .sp-autoclave-characteristics-section__table td span {
+        font-size: 42px;
+        color: #0073FF; }
 
 /*# sourceMappingURL=main.min.css.map */
