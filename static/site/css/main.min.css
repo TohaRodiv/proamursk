@@ -10465,6 +10465,11 @@ footer {
 .sp-autoclave-gap_bottom_big {
   margin-bottom: 100px; }
 
+.sp-autoclave-light-bg-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #FAFBFC; }
+
 .sp-autoclave-header {
   position: relative; }
 
@@ -10715,33 +10720,31 @@ footer {
     width: 100%;
     height: 100%; }
 
-.sp-autoclave-water-cycle-section {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  background-color: #FAFBFC; }
-  .sp-autoclave-water-cycle-section__note {
-    margin-top: 30px;
-    margin-left: 110px;
-    font-size: 14px; }
-  .sp-autoclave-water-cycle-section__title {
-    text-align: center; }
-  .sp-autoclave-water-cycle-section__factoids {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    width: 820px;
-    margin: 0 auto;
-    padding: 0; }
-    .sp-autoclave-water-cycle-section__factoids .sp-autoclave-icon-factoid {
-      -webkit-box-flex: 0;
-          -ms-flex: 0 0 200px;
-              flex: 0 0 200px; }
+.sp-autoclave-water-cycle-section__note {
+  margin-top: 30px;
+  margin-left: 110px;
+  font-size: 14px; }
+
+.sp-autoclave-water-cycle-section__title {
+  text-align: center; }
+
+.sp-autoclave-water-cycle-section__factoids {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 820px;
+  margin: 0 auto;
+  padding: 0; }
+  .sp-autoclave-water-cycle-section__factoids .sp-autoclave-icon-factoid {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 200px;
+            flex: 0 0 200px; }
 
 .sp-autoclave-water-cycle-scheme {
   display: -webkit-box;
@@ -10791,14 +10794,61 @@ footer {
     margin-right: auto; }
 
 .sp-autoclave-icon-factoid__icon {
-  width: 106px;
-  height: 106px;
   margin-bottom: 15px; }
+  .sp-autoclave-icon-factoid__icon_big {
+    width: 106px;
+    height: 106px; }
   .sp-autoclave-icon-factoid__icon_small {
     width: 64px;
     height: 64px; }
 
 .sp-autoclave-icon-factoid__text {
   font-size: 16px; }
+
+.sp-autoclave-eco-control-section__factoids {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px 20px;
+  margin: 0;
+  padding: 0; }
+
+.sp-autoclave-cyanide-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+
+.sp-autoclave-cyanide {
+  width: 230px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-left: 130px; }
+  .sp-autoclave-cyanide__img {
+    margin-bottom: 20px; }
+  .sp-autoclave-cyanide__caption {
+    font-size: 24px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
+    line-height: 1.3; }
+
+.sp-autoclave-map-section {
+  margin-bottom: -100px; }
+  .sp-autoclave-map-section__title {
+    width: 420px;
+    margin-left: 220px;
+    font-size: 24px;
+    line-height: 1.3;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .sp-autoclave-map-section__img {
+    position: relative;
+    top: -140px; }
+
+.sp-autoclave-footer__title {
+  font-size: 42px;
+  color: #0073FF; }
+
+.sp-autoclave-footer__text a {
+  color: #0073FF; }
 
 /*# sourceMappingURL=main.min.css.map */

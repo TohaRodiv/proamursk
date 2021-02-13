@@ -40,6 +40,11 @@
 .sp-autoclave-gap_bottom_big
     margin-bottom: 100px
 
+.sp-autoclave-light-bg-section
+    padding-top: 60px
+    padding-bottom: 60px
+    background-color: #FAFBFC
+
 .sp-autoclave-
     &header
         position: relative
@@ -307,10 +312,6 @@
             height: 100%
 
     &water-cycle-section
-        padding-top: 60px
-        padding-bottom: 60px
-        background-color: #FAFBFC
-
         &__note
             margin-top: 30px
             margin-left: 110px
@@ -371,9 +372,11 @@
                 margin-right: auto
 
         &__icon
-            width: 106px
-            height: 106px
             margin-bottom: 15px
+
+            &_big
+                width: 106px
+                height: 106px
 
             &_small
                 width: 64px
@@ -381,3 +384,52 @@
 
         &__text
             font-size: 16px
+
+
+    &eco-control-section__factoids
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        grid-gap: 40px 20px
+        margin: 0
+        padding: 0
+
+    &cyanide-section
+        display: flex
+        align-items: flex-start
+
+    &cyanide
+        width: 230px
+        flex-shrink: 0
+        margin-left: 130px
+
+        &__img
+            margin-bottom: 20px
+
+        &__caption
+            font-size: 24px
+            font-family: $bold-f
+            line-height: $mini-lh
+
+
+    &map-section
+        margin-bottom: -100px
+
+        &__title
+            width: 420px
+            margin-left: 220px
+            font-size: 24px
+            line-height: $mini-lh
+            font-family: $bold-f
+
+        &__img
+            position: relative
+            top: -140px
+
+    &footer
+        &__title
+            font-size: 42px
+            color: $base-c
+
+        &__text
+            a
+                color: $base-c
