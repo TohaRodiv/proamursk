@@ -8501,6 +8501,66 @@ $('.js-post-editor-slider-block').on('click', '.post-editor-slider-block__arrow-
 });
 "use strict";
 
+var spAutoclave = document.querySelector('.js-sp-autoclave');
+
+if (spAutoclave) {
+  handleSpAutoclaveScroll();
+  window.addEventListener('scroll', handleSpAutoclaveScroll);
+  var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
+  toTopBtn.addEventListener('click', spAutoclaveScrollTop);
+  var balloonBtns = document.querySelectorAll('.js-sp-autoclave-scheme-btn');
+  balloonBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      return spAutoclaveToggleSchemeBalloon(btn);
+    });
+  });
+  var videoPlayBtn = document.querySelector('.js-sp-autoclave-video-play-btn');
+  var video = document.querySelector('.js-sp-autoclave-video');
+  videoPlayBtn.addEventListener('click', function () {
+    playAutoclaveVideo(video, videoPlayBtn);
+  });
+  video.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (videoPlayBtn.hasAttribute('hidden')) pauseAutoclaveVideo(video, videoPlayBtn);else playAutoclaveVideo(video, videoPlayBtn);
+  });
+}
+
+function handleSpAutoclaveScroll() {
+  var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
+  var windowScroll = window.pageYOffset;
+  var windowHeight = window.outerHeight;
+  if (windowScroll > windowHeight / 2) toTopBtn.classList.remove('hidden');else toTopBtn.classList.add('hidden');
+}
+
+function spAutoclaveScrollTop() {
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
+  var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
+  toTopBtn.classList.remove('hidden');
+}
+
+function spAutoclaveToggleSchemeBalloon(btn) {
+  var wrap = btn.closest('.js-sp-autoclave-scheme-element');
+  var balloon = wrap.querySelector('.js-sp-autoclave-scheme-balloon');
+  balloon.classList.toggle('visible');
+}
+
+function playAutoclaveVideo(video, videoPlayBtn) {
+  video.play();
+  video.setAttribute('controls', true);
+  videoPlayBtn.hidden = true;
+}
+
+function pauseAutoclaveVideo(video, videoPlayBtn) {
+  video.pause();
+  video.removeAttribute('controls');
+  videoPlayBtn.hidden = false;
+}
+"use strict";
+
 $('.js-sp-dance-style-slider-item').click(function () {
   var clickedIndex = $(this).index();
   var sliderBulletByIndex = $('.js-sp-dance-styles-slider .slider-circle-item').eq(clickedIndex);

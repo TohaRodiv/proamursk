@@ -9,11 +9,60 @@
 .sp-autoclave-col-6
     width: 640px
 
+.sp-autoclave-section
+    &:nth-of-type(1) .sp-autoclave-section-title::before
+        left: calc(-52px - 40px)
+        width: 52px
+        height: 74px
+        background-image: url(../images/special-projects/autoclave/svg/1-stroke.svg)
+
+    &:nth-of-type(2) .sp-autoclave-section-title::before
+        left: calc(-67px - 40px)
+        width: 67px
+        height: 74px
+        background-image: url(../images/special-projects/autoclave/svg/2-stroke.svg)
+
+    &:nth-of-type(3) .sp-autoclave-section-title::before
+        left: calc(-63px - 40px)
+        width: 63px
+        height: 74px
+        background-image: url(../images/special-projects/autoclave/svg/3-stroke.svg)
+
+    &:nth-of-type(4) .sp-autoclave-section-title::before
+        left: calc(-72px - 40px)
+        width: 72px
+        height: 74px
+        background-image: url(../images/special-projects/autoclave/svg/4-stroke.svg)
+
+    &:nth-of-type(5) .sp-autoclave-section-title::before
+        left: calc(-65px - 40px)
+        width: 65px
+        height: 74px
+        background-image: url(../images/special-projects/autoclave/svg/5-stroke.svg)
+
+    &:nth-of-type(6) .sp-autoclave-section-title::before
+        left: calc(-68px - 40px)
+        width: 68px
+        height: 74px
+        background-image: url(../images/special-projects/autoclave/svg/6-stroke.svg)
+
 .sp-autoclave-section-title
+    position: relative
     width: 640px
     margin-bottom: 30px
     font-size: 36px
     font-family: $bold-f
+
+    &::before
+        content: ""
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        display: inline-block
+        vertical-align: bottom
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center bottom
 
 .sp-autoclave-h3
     font-size: 24px
@@ -44,6 +93,26 @@
     padding-top: 60px
     padding-bottom: 60px
     background-color: #FAFBFC
+
+.sp-autoclave-to-top-btn
+    position: fixed
+    bottom: 48px
+    right: 48px
+    width: 48px
+    height: 48px
+    padding-right: 2px
+    font-size: 20px
+    line-height: 44px
+    color: $light-c
+    background-color: $base-c
+    border-radius: 50%
+    border: 2px solid $base-c
+    transform: rotate(90deg)
+
+    &:hover,
+    &:focus
+        color: $base-c
+        background-color: $light-c
 
 .sp-autoclave-
     &header
@@ -90,6 +159,7 @@
             margin-left: 10px
             margin-right: 10px
             font-size: 24px
+            line-height: 1.2
             font-family: $bold-f
 
     &methods
@@ -106,16 +176,37 @@
         box-shadow: 0 16px 16px rgba(0, 115, 255, 0.06)
         border-radius: 8px
 
-        &__number-wrap
-            margin-bottom: 60px
-            color: $base-c
+        &:nth-child(1) .sp-autoclave-method__number::before
+            width: 52px
+            height: 74px
+            background-image: url(../images/special-projects/autoclave/svg/1-fill.svg)
+
+        &:nth-child(2) .sp-autoclave-method__number::before
+            width: 67px
+            height: 74px
+            margin-right: 8px
+            background-image: url(../images/special-projects/autoclave/svg/2-fill.svg)
+
+        &:nth-child(3) .sp-autoclave-method__number::before
+            width: 63px
+            height: 74px
+            margin-right: 8px
+            background-image: url(../images/special-projects/autoclave/svg/3-fill.svg)
 
         &__number
-            font-size: 96px
-            line-height: 76px
-
-        &__number-text
+            margin-bottom: 30px
             font-size: 24px
+            line-height: $mini-lh
+            font-family: $add-sb-it-f
+            color: $base-c
+
+            &::before
+                content: ""
+                display: inline-block
+                vertical-align: bottom
+                background-repeat: no-repeat
+                background-size: contain
+                background-position: center bottom
 
         &__title
             margin-bottom: 20px
@@ -148,6 +239,7 @@
 
         &__percent-description
             font-size: 24px
+            line-height: 1.2
 
     &scheme
         position: relative
@@ -188,6 +280,10 @@
             background-color: $base-c
             border-radius: 50%
 
+            &:hover,
+            &:focus
+                background-color: $base-dark-c
+
         &__balloon
             position: relative
             padding: 6px 12px
@@ -197,6 +293,11 @@
             text-transform: uppercase
             font-family: $bold-f
             background-color: $base-c
+            opacity: 0
+            transition: opacity $transition-time
+
+            &.visible
+                opacity: 1
 
             &_left
                 margin-right: calc(4px + 1em)
@@ -408,8 +509,7 @@
         &__caption
             font-size: 24px
             font-family: $bold-f
-            line-height: $mini-lh
-
+            line-height: 1.2
 
     &map-section
         margin-bottom: -100px
@@ -428,8 +528,82 @@
     &footer
         &__title
             font-size: 42px
+            line-height: 1.2
+            font-family: $bold-f
             color: $base-c
 
         &__text
             a
                 color: $base-c
+
+                &:hover,
+                &:focus
+                    text-decoration: none
+
+    &video-wrap
+        position: relative
+
+    &video-play-btn
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        z-index: 1
+        width: 106px
+        height: 106px
+        border-radius: 50%
+        border: 1px solid $base-c
+        background-color: rgba($light-c, .4)
+
+        &:hover,
+        &:focus
+            background-color: $light-c
+
+        &::before
+            content: ""
+            width: 75px
+            height: 75px
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            z-index: 2
+            border-radius: 50%
+            background-color: $base-c
+
+        &::after
+            content: ""
+            width: 0
+            height: 0
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            z-index: 3
+            margin-left: 4px
+            border-top: 18px solid transparent
+            border-left: 32px solid $light-c
+            border-bottom: 18px solid transparent
+
+    &share-widget-wrap
+        height: 0
+        position: sticky
+        margin-left: 30px
+        bottom: 50%
+        transform: translateY(-50%)
+
+    &share-widget
+        display: inline-block
+        position: relative
+        top: -174px
+
+        .share-widget__link
+            display: block
+            margin-right: 0
+
+            &:not(:last-child)
+                margin-bottom: 10px
+
+        .share-widget__link-img
+            width: 36px
+            height: 36px

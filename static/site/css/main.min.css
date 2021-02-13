@@ -10434,11 +10434,60 @@ footer {
 .sp-autoclave-col-6 {
   width: 640px; }
 
+.sp-autoclave-section:nth-of-type(1) .sp-autoclave-section-title::before {
+  left: calc(-52px - 40px);
+  width: 52px;
+  height: 74px;
+  background-image: url(../images/special-projects/autoclave/svg/1-stroke.svg); }
+
+.sp-autoclave-section:nth-of-type(2) .sp-autoclave-section-title::before {
+  left: calc(-67px - 40px);
+  width: 67px;
+  height: 74px;
+  background-image: url(../images/special-projects/autoclave/svg/2-stroke.svg); }
+
+.sp-autoclave-section:nth-of-type(3) .sp-autoclave-section-title::before {
+  left: calc(-63px - 40px);
+  width: 63px;
+  height: 74px;
+  background-image: url(../images/special-projects/autoclave/svg/3-stroke.svg); }
+
+.sp-autoclave-section:nth-of-type(4) .sp-autoclave-section-title::before {
+  left: calc(-72px - 40px);
+  width: 72px;
+  height: 74px;
+  background-image: url(../images/special-projects/autoclave/svg/4-stroke.svg); }
+
+.sp-autoclave-section:nth-of-type(5) .sp-autoclave-section-title::before {
+  left: calc(-65px - 40px);
+  width: 65px;
+  height: 74px;
+  background-image: url(../images/special-projects/autoclave/svg/5-stroke.svg); }
+
+.sp-autoclave-section:nth-of-type(6) .sp-autoclave-section-title::before {
+  left: calc(-68px - 40px);
+  width: 68px;
+  height: 74px;
+  background-image: url(../images/special-projects/autoclave/svg/6-stroke.svg); }
+
 .sp-autoclave-section-title {
+  position: relative;
   width: 640px;
   margin-bottom: 30px;
   font-size: 36px;
   font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .sp-autoclave-section-title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    display: inline-block;
+    vertical-align: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center bottom; }
 
 .sp-autoclave-h3 {
   font-size: 24px;
@@ -10469,6 +10518,26 @@ footer {
   padding-top: 60px;
   padding-bottom: 60px;
   background-color: #FAFBFC; }
+
+.sp-autoclave-to-top-btn {
+  position: fixed;
+  bottom: 48px;
+  right: 48px;
+  width: 48px;
+  height: 48px;
+  padding-right: 2px;
+  font-size: 20px;
+  line-height: 44px;
+  color: #FFFFFF;
+  background-color: #0073FF;
+  border-radius: 50%;
+  border: 2px solid #0073FF;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg); }
+  .sp-autoclave-to-top-btn:hover, .sp-autoclave-to-top-btn:focus {
+    color: #0073FF;
+    background-color: #FFFFFF; }
 
 .sp-autoclave-header {
   position: relative; }
@@ -10514,6 +10583,7 @@ footer {
     margin-left: 10px;
     margin-right: 10px;
     font-size: 24px;
+    line-height: 1.2;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
 
 .sp-autoclave-methods {
@@ -10530,14 +10600,33 @@ footer {
   -webkit-box-shadow: 0 16px 16px rgba(0, 115, 255, 0.06);
           box-shadow: 0 16px 16px rgba(0, 115, 255, 0.06);
   border-radius: 8px; }
-  .sp-autoclave-method__number-wrap {
-    margin-bottom: 60px;
-    color: #0073FF; }
+  .sp-autoclave-method:nth-child(1) .sp-autoclave-method__number::before {
+    width: 52px;
+    height: 74px;
+    background-image: url(../images/special-projects/autoclave/svg/1-fill.svg); }
+  .sp-autoclave-method:nth-child(2) .sp-autoclave-method__number::before {
+    width: 67px;
+    height: 74px;
+    margin-right: 8px;
+    background-image: url(../images/special-projects/autoclave/svg/2-fill.svg); }
+  .sp-autoclave-method:nth-child(3) .sp-autoclave-method__number::before {
+    width: 63px;
+    height: 74px;
+    margin-right: 8px;
+    background-image: url(../images/special-projects/autoclave/svg/3-fill.svg); }
   .sp-autoclave-method__number {
-    font-size: 96px;
-    line-height: 76px; }
-  .sp-autoclave-method__number-text {
-    font-size: 24px; }
+    margin-bottom: 30px;
+    font-size: 24px;
+    line-height: 1.3;
+    font-family: "SegoeUI Semibold It", Arial, Helvetica, sans-serif;
+    color: #0073FF; }
+    .sp-autoclave-method__number::before {
+      content: "";
+      display: inline-block;
+      vertical-align: bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center bottom; }
   .sp-autoclave-method__title {
     margin-bottom: 20px; }
 
@@ -10562,7 +10651,8 @@ footer {
     line-height: 34px;
     color: #0073FF; }
   .sp-autoclave-gold-section__percent-description {
-    font-size: 24px; }
+    font-size: 24px;
+    line-height: 1.2; }
 
 .sp-autoclave-scheme {
   position: relative; }
@@ -10603,6 +10693,8 @@ footer {
     color: #FFFFFF;
     background-color: #0073FF;
     border-radius: 50%; }
+    .sp-autoclave-scheme__btn:hover, .sp-autoclave-scheme__btn:focus {
+      background-color: #283348; }
   .sp-autoclave-scheme__balloon {
     position: relative;
     padding: 6px 12px;
@@ -10611,7 +10703,13 @@ footer {
     color: #FFFFFF;
     text-transform: uppercase;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
-    background-color: #0073FF; }
+    background-color: #0073FF;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s; }
+    .sp-autoclave-scheme__balloon.visible {
+      opacity: 1; }
     .sp-autoclave-scheme__balloon_left {
       margin-right: calc(4px + 1em);
       border-radius: 4px 0 0 4px; }
@@ -10830,7 +10928,7 @@ footer {
   .sp-autoclave-cyanide__caption {
     font-size: 24px;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
-    line-height: 1.3; }
+    line-height: 1.2; }
 
 .sp-autoclave-map-section {
   margin-bottom: -100px; }
@@ -10846,9 +10944,83 @@ footer {
 
 .sp-autoclave-footer__title {
   font-size: 42px;
+  line-height: 1.2;
+  font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
   color: #0073FF; }
 
 .sp-autoclave-footer__text a {
   color: #0073FF; }
+  .sp-autoclave-footer__text a:hover, .sp-autoclave-footer__text a:focus {
+    text-decoration: none; }
+
+.sp-autoclave-video-wrap {
+  position: relative; }
+
+.sp-autoclave-video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  border: 1px solid #0073FF;
+  background-color: rgba(255, 255, 255, 0.4); }
+  .sp-autoclave-video-play-btn:hover, .sp-autoclave-video-play-btn:focus {
+    background-color: #FFFFFF; }
+  .sp-autoclave-video-play-btn::before {
+    content: "";
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 2;
+    border-radius: 50%;
+    background-color: #0073FF; }
+  .sp-autoclave-video-play-btn::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 3;
+    margin-left: 4px;
+    border-top: 18px solid transparent;
+    border-left: 32px solid #FFFFFF;
+    border-bottom: 18px solid transparent; }
+
+.sp-autoclave-share-widget-wrap {
+  height: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  margin-left: 30px;
+  bottom: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
+
+.sp-autoclave-share-widget {
+  display: inline-block;
+  position: relative;
+  top: -174px; }
+  .sp-autoclave-share-widget .share-widget__link {
+    display: block;
+    margin-right: 0; }
+    .sp-autoclave-share-widget .share-widget__link:not(:last-child) {
+      margin-bottom: 10px; }
+  .sp-autoclave-share-widget .share-widget__link-img {
+    width: 36px;
+    height: 36px; }
 
 /*# sourceMappingURL=main.min.css.map */

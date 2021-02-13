@@ -2,7 +2,7 @@
 @@include("page-block/header.html", {
     "page": "special-projects"
 })
-<main class="sp-page">
+<main class="sp-page js-sp-autoclave">
     <div class="sp-desktop">
         <div class="sp sp-autoclave">
             <div class="sp-autoclave-header sp-autoclave-gap_bottom_small">
@@ -22,10 +22,10 @@
                 >
             </div>
 
-            <section>
+            <section class="sp-autoclave-section">
                 <div class="container">
                     <div class="js-fade">
-                        <div class="sp-autoclave-wobbler sp-autoclave-gap_bottom_small">
+                        <div class="sp-autoclave-wobbler sp-autoclave-gap_bottom_medium">
                             @@include('modules/wobbler.html', {
                                 "wobbler": "special-project"
                             })
@@ -43,7 +43,7 @@
                         <p class="sp-autoclave-big-text sp-autoclave-gap_bottom_small sp-autoclave-col-7">Мировые запасы золота постепенно истощаются. С&nbsp;каждым годом извлекать его из&nbsp;недр становится все сложнее. В&nbsp;Южной Африке, например, добычу ведут на&nbsp;глубине трех километров, и&nbsp;хотят опускаться до&nbsp;пяти...</p>
 
                         <div class="sp-autoclave-ore-section sp-autoclave-gap_bottom_small">
-                            <p class="sp-autoclave-ore-section__text">Россыпные месторождения близки к&nbsp;исчерпанию: сто лет назад на&nbsp;них добывали 90&nbsp;% золота, а&nbsp;сегодня только 5&nbsp;%. А&nbsp;на&nbsp;коренных месторождениях получить желтый металл намного сложнее. Вкрапления золота в&nbsp;горной породе могут быть настолько мелкими, что порой даже не&nbsp;видны глазу.К тому&nbsp;же есть разные формы присутствия золота в&nbsp;руде. Если оно спрятано внутри минералов, извлечь его непросто, поэтому такую руду называют упорной. А&nbsp;если руда содержит еще в&nbsp;большом количестве активный углерод&nbsp;&mdash; дважды упорной.</p>
+                            <p class="sp-autoclave-ore-section__text">Россыпные месторождения близки к&nbsp;исчерпанию: сто лет назад на&nbsp;них добывали 90&nbsp;% золота, а&nbsp;сегодня только 5&nbsp;%. А&nbsp;на&nbsp;коренных месторождениях получить желтый металл намного сложнее. Вкрапления золота в&nbsp;горной породе могут быть настолько мелкими, что порой даже не&nbsp;видны глазу. К тому&nbsp;же есть разные формы присутствия золота в&nbsp;руде. Если оно спрятано внутри минералов, извлечь его непросто, поэтому такую руду называют упорной. А&nbsp;если руда содержит еще в&nbsp;большом количестве активный углерод&nbsp;&mdash; дважды упорной.</p>
                             <figure class="sp-autoclave-ore-section__img-wrap">
                                 <img srcset="images/special-projects/autoclave/ore.jpg,
                                  images/special-projects/autoclave/ore-x2.jpg 2x"
@@ -89,26 +89,17 @@
 
                         <ol class="sp-autoclave-methods">
                             <li class="sp-autoclave-method">
-                                <div class="sp-autoclave-method__number-wrap">
-                                    <span class="sp-autoclave-method__number">1</span>
-                                    <span class="sp-autoclave-method__number-text">способ</span>
-                                </div>
+                                <div class="sp-autoclave-method__number">способ</div>
                                 <h4 class="sp-autoclave-method__title sp-autoclave-h3">Обжиг руды <br>в&nbsp;печах</h4>
                                 <p>Он&nbsp;сопряжен с&nbsp;большой нагрузкой на&nbsp;экологию: в&nbsp;газообразную форму переходят оксиды серы и&nbsp;мышьяка.</p>
                             </li>
                             <li class="sp-autoclave-method">
-                                <div class="sp-autoclave-method__number-wrap">
-                                    <span class="sp-autoclave-method__number">2</span>
-                                    <span class="sp-autoclave-method__number-text">способ</span>
-                                </div>
+                                <div class="sp-autoclave-method__number">способ</div>
                                 <h4 class="sp-autoclave-method__title sp-autoclave-h3">Биоокисление <br>с&nbsp;использованием бактерий </h4>
                                 <p>Он&nbsp;довольно трудоемкий: нужно длительное время &laquo;воспитывать&raquo; поколения бактерий, которые могут переработать руду с&nbsp;конкретным минеральным составом. Однако при изменении состава сырья&nbsp;&mdash; например, при наличии примесей&nbsp;&mdash; они могут оказаться бесполезными.</p>
                             </li>
                             <li class="sp-autoclave-method">
-                                <div class="sp-autoclave-method__number-wrap">
-                                    <span class="sp-autoclave-method__number">3</span>
-                                    <span class="sp-autoclave-method__number-text">способ</span>
-                                </div>
+                                <div class="sp-autoclave-method__number">способ</div>
                                 <h4 class="sp-autoclave-method__title sp-autoclave-h3">Автоклавное <br>окисление</h4>
                                 <p>Наиболее экологичный и&nbsp;эффективный способ добычи золота. Именно его взяли на&nbsp;вооружение в&nbsp;компании &laquo;Полиметалл&raquo;. Под высоким давлением и&nbsp;при температуре свыше 200 градусов в&nbsp;автоклаве запускаются сложные химические процессы, которые позволяют с&nbsp;максимальной эффективностью извлекать золото даже из&nbsp;руд двойной упорности. Экологически это самая чистая технология.</p>
                             </li>
@@ -188,7 +179,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="sp-autoclave-section">
                 <div class="container">
                     <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_medium">
                         <h2 class="sp-autoclave-section-title">Что внутри у автоклава?</h2>
@@ -230,10 +221,15 @@
                     </div>
 
                     <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big post-editor__block_video">
-                        <video src="videos/sp-autoclave.mp4"
-                               controls preload="auto"
-                               poster="images/special-projects/autoclave/video-cover-x2.jpg">
-                        </video>
+                        <div class="sp-autoclave-video-wrap">
+                            <button class="sp-autoclave-video-play-btn js-sp-autoclave-video-play-btn"></button>
+                            <video src="videos/sp-autoclave.mp4"
+                                   preload="auto"
+                                   poster="images/special-projects/autoclave/video-cover-x2.jpg"
+                                   class="js-sp-autoclave-video"
+                            >
+                            </video>
+                        </div>
                         <div class="post-editor__block_caption">Механика работы автоклава</div>
                     </div>
 
@@ -336,7 +332,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="sp-autoclave-section">
                 <div class="container">
                     <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
                         <h2 class="sp-autoclave-section-title">Как получают золото?</h2>
@@ -403,7 +399,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="sp-autoclave-section">
                 <div class="container">
                     <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
                         <h2 class="sp-autoclave-section-title">Куда утекает вода?</h2>
@@ -515,7 +511,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="sp-autoclave-section">
                 <div class="container">
                     <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
                         <h2 class="sp-autoclave-section-title">Как утилизируют отходы</h2>
@@ -708,7 +704,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="sp-autoclave-section">
                 <div class="container">
                     <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_medium">
                         <h2 class="sp-autoclave-section-title">Какая выгода региону от&nbsp;расширения производства?</h2>
@@ -837,6 +833,18 @@
                 </div>
             </section>
         </div>
+
+        <div class="sp-autoclave-share-widget-wrap">
+
+        <div class="sp-autoclave-share-widget share-widget__links-wrap">
+            <a href="" class="share-widget__link"><img src="images/svg/twitter.svg" alt="" class="share-widget__link-img"></a>
+            <a href="" class="share-widget__link"><img src="images/svg/fb.svg" alt="" class="share-widget__link-img"></a>
+            <a href="" class="share-widget__link"><img src="images/svg/odnoklassniki-color.svg" alt="" class="share-widget__link-img"></a>
+            <a href="" class="share-widget__link"><img src="images/svg/vk.svg" alt="" class="share-widget__link-img"></a>
+        </div>
+        </div>
+
+        <button class="sp-autoclave-to-top-btn icon-arrow-left js-sp-autoclave-to-top-btn hidden"></button>
     </div>
 
     <div class="sp-mobile container">
