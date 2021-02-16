@@ -8463,7 +8463,7 @@ $('.js-post-editor-slider-block').each(function () {
   if (amount < 10) amount = '0' + amount;
   $(this).find('.js-post-editor-slider-total').text(amount);
   var slideDescriptionText = $(this).find('.post-editor-slider-block__slide')[0].dataset.description;
-  $(this).find('.post-editor-slider-block__caption').text(slideDescriptionText);
+  $(this).find('.post-editor-slider-block__caption').html(slideDescriptionText);
 });
 $('.js-post-editor-slider').slick({
   infinite: true,
@@ -8482,7 +8482,7 @@ $('.js-post-editor-slider').slick({
 });
 $('.js-post-editor-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
   var slideDescriptionText = slick.$slides[nextSlide].dataset.description;
-  $(this).parents('.js-post-editor-slider-block').find('.post-editor-slider-block__caption').text(slideDescriptionText);
+  $(this).parents('.js-post-editor-slider-block').find('.post-editor-slider-block__caption').html(slideDescriptionText);
   var amount = nextSlide + 1;
   if (amount < 10) amount = '0' + amount;
   $(this).parents('.js-post-editor-slider-block').find('.js-post-editor-slider-current').text(amount);
