@@ -1,7 +1,4 @@
-@@include("page-block/head.html")
-@@include("page-block/header.html", {
-    "page": "special-projects"
-})
+{% load static static_version %}
 <main class="sp-page js-sp-autoclave">
     <div class="sp-desktop">
         <div class="sp sp-autoclave">
@@ -9,14 +6,14 @@
                 <h1 class="sp-autoclave-header__title">Амурское золото:<span>технологично и&nbsp;эко-логично</span></h1>
 
                 <div class="sp-autoclave-header__slider">
-                     <img srcset="images/special-projects/autoclave/cover.jpg,
-                                 images/special-projects/autoclave/cover-x2.jpg 2x"
-                    src="images/special-projects/autoclave/cover-x2.jpg"
-                    alt=""
-                    class="sp-autoclave-header__slide">
+                     <img srcset="{% static "site/images/special-projects/autoclave/cover.jpg" %}{% static_version %},
+                                 {% static "site/images/special-projects/autoclave/cover-x2.jpg" %}{% static_version %} 2x"
+                          src="{% static "site/images/special-projects/autoclave/cover-x2.jpg" %}{% static_version %}"
+                          alt=""
+                          class="sp-autoclave-header__slide">
                 </div>
 
-                <img src="images/special-projects/autoclave/svg/scroll-icon.svg"
+                <img src="{% static "site/images/special-projects/autoclave/svg/scroll-icon.svg" %}{% static_version %}"
                      alt=""
                      class="sp-autoclave-header__scroll-icon"
                 >
@@ -26,9 +23,10 @@
                 <div class="container">
                     <div class="js-fade">
                         <div class="sp-autoclave-wobbler sp-autoclave-gap_bottom_medium">
-                            @@include('modules/wobbler.html', {
-                                "wobbler": "special-project"
-                            })
+                            <div class="wobbler">
+                                <span class="wobbler__icon icon-star-sharp"></span>
+                                <div class="wobbler__text">Спецпроект</div>
+                            </div>
                         </div>
 
                         <div class="sp-autoclave-big-text sp-autoclave-gap_bottom_big sp-autoclave-col-10">
@@ -45,9 +43,9 @@
                         <div class="sp-autoclave-ore-section sp-autoclave-gap_bottom_small">
                             <p class="sp-autoclave-ore-section__text">Россыпные месторождения близки к&nbsp;исчерпанию: сто лет назад на&nbsp;них добывали 90&nbsp;% золота, а&nbsp;сегодня только 5&nbsp;%. А&nbsp;на&nbsp;коренных месторождениях получить желтый металл намного сложнее. Вкрапления золота в&nbsp;горной породе могут быть настолько мелкими, что порой даже не&nbsp;видны глазу. К тому&nbsp;же есть разные формы присутствия золота в&nbsp;руде. Если оно спрятано внутри минералов, извлечь его непросто, поэтому такую руду называют упорной. А&nbsp;если руда содержит еще в&nbsp;большом количестве активный углерод&nbsp;&mdash; дважды упорной.</p>
                             <figure class="sp-autoclave-ore-section__img-wrap">
-                                <img srcset="images/special-projects/autoclave/ore.jpg,
-                                 images/special-projects/autoclave/ore-x2.jpg 2x"
-                                     src="images/special-projects/autoclave/ore-x2.jpg"
+                                <img srcset="{% static "site/images/special-projects/autoclave/ore.jpg" %}{% static_version %},
+                                 {% static "site/images/special-projects/autoclave/ore-x2.jpg" %}{% static_version %} 2x"
+                                     src="{% static "site/images/special-projects/autoclave/ore-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      class="sp-autoclave-ore-section__img">
                                 <figcaption class="sp-autoclave-ore-section__caption">Упорная золотоносная руда</figcaption>
@@ -62,10 +60,10 @@
                     <div class="js-fade sp-autoclave-gap_bottom_big">
                         <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                             <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="images/special-projects/autoclave/slider-1-1.jpg,
-                                        images/special-projects/autoclave/slider-1-1-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-1-1-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-1-1-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-1-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-1-1-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-1-1-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-1-1-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Мельчайшие вкрапления золота в упорной руде"
                                      class="post-editor-slider-block__slide lazyload">
@@ -89,21 +87,21 @@
 
                         <ol class="sp-autoclave-methods">
                             <li class="sp-autoclave-method">
-                                <img src="images/special-projects/autoclave/svg/1-fill.svg"
+                                <img src="{% static "site/images/special-projects/autoclave/svg/1-fill.svg" %}{% static_version %}"
                                      alt="1 способ"
                                      class="sp-autoclave-method__number">
                                 <h4 class="sp-autoclave-method__title sp-autoclave-h3">Обжиг руды <br>в&nbsp;печах</h4>
                                 <p>Он&nbsp;сопряжен с&nbsp;большой нагрузкой на&nbsp;экологию: в&nbsp;газообразную форму переходят оксиды серы и&nbsp;мышьяка.</p>
                             </li>
                             <li class="sp-autoclave-method">
-                                <img src="images/special-projects/autoclave/svg/2-fill.svg"
+                                <img src="{% static "site/images/special-projects/autoclave/svg/2-fill.svg" %}{% static_version %}"
                                      alt="2 способ"
                                      class="sp-autoclave-method__number">
                                 <h4 class="sp-autoclave-method__title sp-autoclave-h3">Биоокисление <br>с&nbsp;использованием бактерий </h4>
                                 <p>Он&nbsp;довольно трудоемкий: нужно длительное время &laquo;воспитывать&raquo; поколения бактерий, которые могут переработать руду с&nbsp;конкретным минеральным составом. Однако при изменении состава сырья&nbsp;&mdash; например, при наличии примесей&nbsp;&mdash; они могут оказаться бесполезными.</p>
                             </li>
                             <li class="sp-autoclave-method">
-                                <img src="images/special-projects/autoclave/svg/3-fill.svg"
+                                <img src="{% static "site/images/special-projects/autoclave/svg/3-fill.svg" %}{% static_version %}"
                                      alt="3 способ"
                                      class="sp-autoclave-method__number">
                                 <h4 class="sp-autoclave-method__title sp-autoclave-h3">Автоклавное <br>окисление</h4>
@@ -117,17 +115,17 @@
 
                         <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                             <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="images/special-projects/autoclave/slider-2-1.jpg,
-                                        images/special-projects/autoclave/slider-2-1-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-2-1-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-2-1-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-2-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-2-1-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-2-1-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-2-1-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="На пути из Бельгии в Амурск новый автоклав АГМК преодолел свыше 25 000 километров"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-2-2.jpg,
-                                        images/special-projects/autoclave/slider-2-2-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-2-2-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-2-2-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-2-2.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-2-2-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-2-2-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-2-2-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="От временного причала у стадиона «Юность» автоклав автопоездом провезли через город к месту установки."
                                      class="post-editor-slider-block__slide lazyload">
@@ -153,9 +151,9 @@
                         <p class="sp-autoclave-col-7">Новый автоклав АГМК рассчитан не&nbsp;только на&nbsp;вскрытие (окисление) упорной руды, но&nbsp;и&nbsp;на&nbsp;удаление углерода для преодоления второй упорности. Он&nbsp;и&nbsp;самый большой в&nbsp;мировой золотодобывающей промышленности, и&nbsp;максимально эффективный&nbsp;&mdash; позволяет добиться высокой степени извлечения золота.</p>
 
                         <figure class="sp-autoclave-gold-section__img-wrap">
-                            <img srcset="images/special-projects/autoclave/gold.jpg,
-                             images/special-projects/autoclave/gold-x2.jpg 2x"
-                                 src="images/special-projects/autoclave/gold-x2.jpg"
+                            <img srcset="{% static "site/images/special-projects/autoclave/gold.jpg" %}{% static_version %},
+                             {% static "site/images/special-projects/autoclave/gold-x2.jpg" %}{% static_version %} 2x"
+                                 src="{% static "site/images/special-projects/autoclave/gold-x2.jpg" %}{% static_version %}"
                                  alt=""
                                  class="sp-autoclave-gold-section__img">
                             <figcaption class="sp-autoclave-gold-section__caption">
@@ -169,10 +167,10 @@
                 <div class="js-fade sp-autoclave-gap_bottom_big">
                     <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                         <div class="post-editor-slider-block__slider js-post-editor-slider">
-                            <img data-srcset="images/special-projects/autoclave/slider-3-1.jpg,
-                                    images/special-projects/autoclave/slider-3-1-x2.jpg 2x"
-                                 data-src="images/special-projects/autoclave/slider-3-1-x2.jpg"
-                                 data-lazy="images/special-projects/autoclave/slider-3-1-x2.jpg"
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-3-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-3-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-3-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-3-1-x2.jpg" %}{% static_version %}"
                                  alt=""
                                  data-description=""
                                  class="post-editor-slider-block__slide lazyload">
@@ -204,7 +202,7 @@
 
                     <div class="js-fade sp-autoclave-gap_bottom_big">
                         <div class="sp-autoclave-scheme">
-                            <img src="" data-src="images/special-projects/autoclave/autoclave-scheme-1.svg"
+                            <img src="" data-src="{% static "site/images/special-projects/autoclave/autoclave-scheme-1.svg" %}{% static_version %}"
                                  class="sp-autoclave-scheme__img lazyload"
                                  alt="">
 
@@ -236,9 +234,9 @@
                     <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big post-editor__block_video">
                         <div class="sp-autoclave-video-wrap">
                             <button class="sp-autoclave-video-play-btn js-sp-autoclave-video-play-btn"></button>
-                            <video src="videos/sp-autoclave.mp4"
+                            <video src="{% static "site/videos/sp-autoclave.mp4" %}{% static_version %}"
                                    preload="auto"
-                                   poster="images/special-projects/autoclave/video-cover-x2.jpg"
+                                   poster="{% static "site/images/special-projects/autoclave/video-cover-x2.jpg" %}{% static_version %}"
                                    class="js-sp-autoclave-video"
                             >
                             </video>
@@ -249,10 +247,10 @@
                     <div class="js-fade sp-autoclave-gap_bottom_big">
                         <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                             <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="images/special-projects/autoclave/slider-4-1.jpg,
-                                        images/special-projects/autoclave/slider-4-1-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-4-1-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-4-1-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-4-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-4-1-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-4-1-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-4-1-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Действующий автоклав на АГМК-1"
                                      class="post-editor-slider-block__slide lazyload">
@@ -274,7 +272,7 @@
 
                 <div class="js-fade sp-autoclave-characteristics-section">
                     <div class="container">
-                        <img src="images/special-projects/autoclave/autoclave-scheme-2.svg"
+                        <img src="{% static "site/images/special-projects/autoclave/autoclave-scheme-2.svg" %}{% static_version %}"
                              class="sp-autoclave-characteristics-section__scheme sp-autoclave-gap_bottom_medium"
                              alt="">
 
@@ -322,10 +320,10 @@
                 <div class="js-fade sp-autoclave-gap_bottom_big">
                     <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                         <div class="post-editor-slider-block__slider js-post-editor-slider">
-                            <img data-srcset="images/special-projects/autoclave/slider-5-1.jpg,
-                                    images/special-projects/autoclave/slider-5-1-x2.jpg 2x"
-                                 data-src="images/special-projects/autoclave/slider-5-1-x2.jpg"
-                                 data-lazy="images/special-projects/autoclave/slider-5-1-x2.jpg"
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-5-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-5-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-5-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-5-1-x2.jpg" %}{% static_version %}"
                                  alt=""
                                  data-description=""
                                  class="post-editor-slider-block__slide lazyload">
@@ -355,52 +353,52 @@
                     <div class="js-fade sp-autoclave-gap_bottom_big">
                         <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                             <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="images/special-projects/autoclave/slider-6-1.jpg,
-                                        images/special-projects/autoclave/slider-6-1-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-6-1-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-6-1-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-6-1-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-1-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-1-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Амурский ГМК оснащен оборудованием от&nbsp;ведущих мировых компаний, со&nbsp;сложнейшей автоматикой."
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-6-2.jpg,
-                                        images/special-projects/autoclave/slider-6-2-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-6-2-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-6-2-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-2.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-6-2-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-2-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-2-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Начало производственной цепочки — образование пульпы. Смешанный с водой концентрат похож на грязь. <br> Золота еще не разглядеть, но оно там"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-6-3.jpg,
-                                        images/special-projects/autoclave/slider-6-3-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-6-3-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-6-3-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-3.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-6-3-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-3-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-3-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Отделение сорбции"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-6-4.jpg,
-                                        images/special-projects/autoclave/slider-6-4-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-6-4-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-6-4-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-4.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-6-4-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-4-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-4-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Отделение сорбции"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-6-5.jpg,
-                                        images/special-projects/autoclave/slider-6-5-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-6-5-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-6-5-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-5.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-6-5-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-5-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-5-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Самая эффектная часть производственного процесса — плавка"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-6-6.jpg,
-                                        images/special-projects/autoclave/slider-6-6-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-6-6-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-6-6-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-6.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-6-6-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-6-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-6-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Жаропрочные костюмы защищают металлургов от искр и брызг раскаленного металла при плавке. <br> Они выдерживают температуру до 400 градусов"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-6-7.jpg,
-                                        images/special-projects/autoclave/slider-6-7-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-6-7-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-6-7-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-7.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-6-7-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-7-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-7-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Это еще не золото, а так называемый сплав Доре. Дальше он отправится на аффинажный завод для очистки"
                                      class="post-editor-slider-block__slide lazyload">
@@ -423,7 +421,7 @@
                 <div class="js-fade">
                     <div class="sp-autoclave-scheme sp-autoclave-scheme_with-bg">
                         <div class="sp-autoclave-scheme-2__container">
-                            <img src="" data-src="images/special-projects/autoclave/autoclave-scheme-3.svg"
+                            <img src="" data-src="{% static "site/images/special-projects/autoclave/autoclave-scheme-3.svg" %}{% static_version %}"
                                  class="sp-autoclave-scheme__img lazyload"
                                  alt="">
 
@@ -467,10 +465,10 @@
                 <div class="js-fade sp-autoclave-gap_bottom_big">
                     <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                         <div class="post-editor-slider-block__slider js-post-editor-slider">
-                            <img data-srcset="images/special-projects/autoclave/slider-7-1.jpg,
-                                    images/special-projects/autoclave/slider-7-1-x2.jpg 2x"
-                                 data-src="images/special-projects/autoclave/slider-7-1-x2.jpg"
-                                 data-lazy="images/special-projects/autoclave/slider-7-1-x2.jpg"
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-7-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-7-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-7-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-7-1-x2.jpg" %}{% static_version %}"
                                  alt=""
                                  data-description=""
                                  class="post-editor-slider-block__slide lazyload">
@@ -507,15 +505,15 @@
                     <div class="sp-autoclave-gap_bottom_medium">
                         <ol class="sp-autoclave-water-cycle-section__factoids">
                             <li class="sp-autoclave-icon-factoid sp-autoclave-icon-factoid_center">
-                                <img src="images/special-projects/autoclave/svg/circle-icon-1.svg" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
+                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-1.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
                                 <p class="sp-autoclave-icon-factoid__text">из городских сетей</p>
                             </li>
                             <li class="sp-autoclave-icon-factoid sp-autoclave-icon-factoid_center">
-                                <img src="images/special-projects/autoclave/svg/circle-icon-2.svg" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
+                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-2.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
                                 <p class="sp-autoclave-icon-factoid__text">из системы оборотного водоснабжения</p>
                             </li>
                             <li class="sp-autoclave-icon-factoid sp-autoclave-icon-factoid_center">
-                                <img src="images/special-projects/autoclave/svg/circle-icon-3.svg" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
+                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-3.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
                                 <p class="sp-autoclave-icon-factoid__text">из природных источников (осадки)*</p>
                             </li>
                         </ol>
@@ -527,7 +525,7 @@
                             <p class="sp-autoclave-water-cycle-scheme__step">Чистая вода, прошедшая через мембрану, снова поступает в&nbsp;производство, где используется для приготовления пульпы из&nbsp;флотоконцентратов и&nbsp;охлаждения автоклава.</p>
                             <p class="sp-autoclave-water-cycle-scheme__step">Высокое качество очистки оборотной воды позволяет избежать потерь золота при его производстве.</p>
                         </div>
-                        <img data-src="images/special-projects/autoclave/water-cycle.svg"
+                        <img data-src="{% static "site/images/special-projects/autoclave/water-cycle.svg" %}{% static_version %}"
                              alt=""
                              class="sp-autoclave-water-cycle-scheme__img lazyload">
                         <div class="sp-autoclave-water-cycle-scheme__part">
@@ -545,17 +543,17 @@
                     <div class="js-fade sp-autoclave-gap_bottom_big">
                         <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                             <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="images/special-projects/autoclave/slider-8-1.jpg,
-                                        images/special-projects/autoclave/slider-8-1-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-8-1-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-8-1-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-8-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-8-1-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-8-1-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-8-1-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Такая технология очистки позволяет многократно использовать в производстве одну и ту же воду"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-8-2.jpg,
-                                        images/special-projects/autoclave/slider-8-2-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-8-2-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-8-2-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-8-2.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-8-2-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-8-2-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-8-2-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Фильтры обратного осмоса. Отверстия в них такие мелкие, что пропускают только молекулы воды, задерживая примеси"
                                      class="post-editor-slider-block__slide lazyload">
@@ -586,10 +584,10 @@
                 <div class="js-fade sp-autoclave-gap_bottom_big">
                     <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                         <div class="post-editor-slider-block__slider js-post-editor-slider">
-                            <img data-srcset="images/special-projects/autoclave/slider-9-1.jpg,
-                                    images/special-projects/autoclave/slider-9-1-x2.jpg 2x"
-                                 data-src="images/special-projects/autoclave/slider-9-1-x2.jpg"
-                                 data-lazy="images/special-projects/autoclave/slider-9-1-x2.jpg"
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-9-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-9-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-9-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-9-1-x2.jpg" %}{% static_version %}"
                                  alt=""
                                  data-description=""
                                  class="post-editor-slider-block__slide lazyload">
@@ -622,10 +620,10 @@
                     <div class="js-fade sp-autoclave-gap_bottom_big">
                         <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                             <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="images/special-projects/autoclave/slider-10-1.jpg,
-                                        images/special-projects/autoclave/slider-10-1-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-10-1-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-10-1-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-10-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-10-1-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-10-1-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-10-1-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Кек после фильтрации"
                                      class="post-editor-slider-block__slide lazyload">
@@ -651,7 +649,7 @@
 
                         <div class="sp-autoclave-kek-scheme sp-autoclave-gap_bottom_medium">
                             <div class="sp-autoclave-kek-scheme__circle sp-autoclave-kek-scheme__circle_img">
-                                <img src="" data-src="images/special-projects/autoclave/egg.jpg"
+                                <img src="" data-src="{% static "site/images/special-projects/autoclave/egg.jpg" %}{% static_version %}"
                                      alt=""
                                      class="sp-autoclave-kek-scheme__img lazyload">
                             </div>
@@ -659,7 +657,7 @@
                             <div class="sp-autoclave-kek-scheme__circle sp-autoclave-kek-scheme__circle_text">КЕК</div>
                             <span class="sp-autoclave-kek-scheme__equal">=</span>
                             <div class="sp-autoclave-kek-scheme__circle sp-autoclave-kek-scheme__circle_img">
-                                <img src="" data-src="images/special-projects/autoclave/sawdust.jpg"
+                                <img src="" data-src="{% static "site/images/special-projects/autoclave/sawdust.jpg" %}{% static_version %}"
                                      alt=""
                                      class="sp-autoclave-kek-scheme__img lazyload">
                             </div>
@@ -679,27 +677,27 @@
 
                         <ol class="sp-autoclave-eco-control-section__factoids">
                             <li class="sp-autoclave-icon-factoid">
-                                <img src="images/special-projects/autoclave/svg/circle-icon-4.svg" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
+                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-4.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
                                 <p class="sp-autoclave-icon-factoid__text">контроль воздуха</p>
                             </li>
                             <li class="sp-autoclave-icon-factoid">
-                                <img src="images/special-projects/autoclave/svg/circle-icon-5.svg" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
+                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-5.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
                                 <p class="sp-autoclave-icon-factoid__text">контроль выбросов от&nbsp;технологического оборудования предприятия</p>
                             </li>
                             <li class="sp-autoclave-icon-factoid">
-                                <img src="images/special-projects/autoclave/svg/circle-icon-6.svg" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
+                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-6.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
                                 <p class="sp-autoclave-icon-factoid__text">контроль поверхностных вод ручья Медвежий</p>
                             </li>
                             <li class="sp-autoclave-icon-factoid">
-                                <img src="images/special-projects/autoclave/svg/circle-icon-7.svg" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
+                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-7.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
                                 <p class="sp-autoclave-icon-factoid__text">контроль подземных вод по периметру склада кека</p>
                             </li>
                             <li class="sp-autoclave-icon-factoid">
-                                <img src="images/special-projects/autoclave/svg/circle-icon-8.svg" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
+                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-8.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
                                 <p class="sp-autoclave-icon-factoid__text">контроль за отведением и качеством сточных вод</p>
                             </li>
                             <li class="sp-autoclave-icon-factoid">
-                                <img src="images/special-projects/autoclave/svg/circle-icon-9.svg" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
+                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-9.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_big">
                                 <p class="sp-autoclave-icon-factoid__text">контроль почвы по периметру промплощадки и склада кека</p>
                             </li>
                         </ol>
@@ -719,7 +717,7 @@
                         </div>
 
                         <div class="sp-autoclave-cyanide">
-                            <img data-src="images/special-projects/autoclave/cyanide.svg"
+                            <img data-src="{% static "site/images/special-projects/autoclave/cyanide.svg" %}{% static_version %}"
                                  alt=""
                                  class="sp-autoclave-cyanide__img lazyload">
                             <p class="sp-autoclave-cyanide__caption">Как процесс INCO обезреживает цианид?</p>
@@ -729,24 +727,24 @@
                     <div class="js-fade sp-autoclave-gap_bottom_big">
                         <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                             <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="images/special-projects/autoclave/slider-11-1.jpg,
-                                        images/special-projects/autoclave/slider-11-1-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-11-1-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-11-1-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-11-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-11-1-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-11-1-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-11-1-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Мальков достигших веса впять граммов, выпускают в естественную среду обитания"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-11-2.jpg,
-                                        images/special-projects/autoclave/slider-11-2-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-11-2-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-11-2-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-11-2.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-11-2-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-11-2-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-11-2-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Для разведения используются производители, пойманные в низовьях Амура во время осенней миграции. <br> Всего бассейнах АНюйского рыбозавода содержатся около 600 особей осетровых рыб"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-11-3.jpg,
-                                        images/special-projects/autoclave/slider-11-3-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-11-3-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-11-3-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-11-3.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-11-3-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-11-3-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-11-3-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="АГМК поддерживает мероприятия по зарыблению Амура. Ежегодно при поддержке комбината <br> на Анюйском рыбозаводе выращивают и выпускают в реку 1500 мальков осетровых рыб"
                                      class="post-editor-slider-block__slide lazyload">
@@ -777,10 +775,10 @@
                 <div class="js-fade sp-autoclave-gap_bottom_big">
                     <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                         <div class="post-editor-slider-block__slider js-post-editor-slider">
-                            <img data-srcset="images/special-projects/autoclave/slider-12-1.jpg,
-                                    images/special-projects/autoclave/slider-12-1-x2.jpg 2x"
-                                 data-src="images/special-projects/autoclave/slider-12-1-x2.jpg"
-                                 data-lazy="images/special-projects/autoclave/slider-12-1-x2.jpg"
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-12-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-12-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-12-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-12-1-x2.jpg" %}{% static_version %}"
                                  alt=""
                                  data-description=""
                                  class="post-editor-slider-block__slide lazyload">
@@ -811,7 +809,7 @@
                     <div class="js-fade sp-autoclave-map-section">
                         <h3 class="sp-autoclave-map-section__title">Поставки концентрата на&nbsp;АГМК с&nbsp;месторождений &laquo;Полиметалла&raquo;</h3>
                         <img src="" alt=""
-                             data-src="images/special-projects/autoclave/map.svg"
+                             data-src="{% static "site/images/special-projects/autoclave/map.svg" %}{% static_version %}"
                              class="sp-autoclave-map-section__img lazyload">
                     </div>
 
@@ -826,10 +824,10 @@
                     <div class="js-fade sp-autoclave-gap_bottom_big">
                         <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                             <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="images/special-projects/autoclave/slider-13-1.jpg,
-                                        images/special-projects/autoclave/slider-13-1-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-13-1-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-13-1-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-13-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-13-1-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-13-1-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-13-1-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="АГМК активно принимает на работу студентов Амурского политехнического техникума"
                                      class="post-editor-slider-block__slide lazyload">
@@ -866,38 +864,38 @@
                     <div class="js-fade sp-autoclave-gap_bottom_big">
                         <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                             <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="images/special-projects/autoclave/slider-14-1.jpg,
-                                        images/special-projects/autoclave/slider-14-1-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-14-1-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-14-1-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-14-1-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-1-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-1-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Городской праздник «Амурский драйв», посвященный Дню металлурга, 2019 год"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-14-2.jpg,
-                                        images/special-projects/autoclave/slider-14-2-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-14-2-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-14-2-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-2.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-14-2-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-2-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-2-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Открытие городского роллердрома, 2019 год"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-14-3.jpg,
-                                        images/special-projects/autoclave/slider-14-3-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-14-3-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-14-3-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-3.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-14-3-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-3-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-3-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Благоустройство городской набережной, 2020 год"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-14-4.jpg,
-                                        images/special-projects/autoclave/slider-14-4-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-14-4-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-14-4-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-4.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-14-4-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-4-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-4-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Ремонт в женской консультации, 2019 год"
                                      class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="images/special-projects/autoclave/slider-14-5.jpg,
-                                        images/special-projects/autoclave/slider-14-5-x2.jpg 2x"
-                                     data-src="images/special-projects/autoclave/slider-14-5-x2.jpg"
-                                     data-lazy="images/special-projects/autoclave/slider-14-5-x2.jpg"
+                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-5.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/slider-14-5-x2.jpg" %}{% static_version %} 2x"
+                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-5-x2.jpg" %}{% static_version %}"
+                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-5-x2.jpg" %}{% static_version %}"
                                      alt=""
                                      data-description="Ремонт и переоснащение кинозала в кинотеатре «Молодость», 2019 год"
                                      class="post-editor-slider-block__slide lazyload">
@@ -926,10 +924,10 @@
 
                     <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
                         <div class="post-editor-slider-block__slider js-post-editor-slider">
-                            <img data-srcset="images/special-projects/autoclave/slider-15-1.jpg,
-                                    images/special-projects/autoclave/slider-15-1-x2.jpg 2x"
-                                 data-src="images/special-projects/autoclave/slider-15-1-x2.jpg"
-                                 data-lazy="images/special-projects/autoclave/slider-15-1-x2.jpg"
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-15-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-15-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-15-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-15-1-x2.jpg" %}{% static_version %}"
                                  alt=""
                                  data-description=""
                                  class="post-editor-slider-block__slide lazyload">
@@ -960,10 +958,10 @@
 
         <div class="sp-autoclave-share-widget-wrap">
             <div class="sp-autoclave-share-widget share-widget__links-wrap">
-                <a href="" class="share-widget__link"><img src="images/svg/twitter.svg" alt="" class="share-widget__link-img"></a>
-                <a href="" class="share-widget__link"><img src="images/svg/fb.svg" alt="" class="share-widget__link-img"></a>
-                <a href="" class="share-widget__link"><img src="images/svg/odnoklassniki-color.svg" alt="" class="share-widget__link-img"></a>
-                <a href="" class="share-widget__link"><img src="images/svg/vk.svg" alt="" class="share-widget__link-img"></a>
+                <a href="https://twitter.com/share?url={{ request.build_absolute_uri }}" class="share-widget__link"><img src="{% static "site/images/svg/twitter.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
+                <a href="http://www.facebook.com/share.php?u={{ request.build_absolute_uri }}" class="share-widget__link"><img src="{% static "site/images/svg/fb.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
+                <a href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl={{ request.build_absolute_uri }}" class="share-widget__link"><img src="{% static "site/images/svg/odnoklassniki-color.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
+                <a href="http://vkontakte.ru/share.php?url={{ request.build_absolute_uri }}" class="share-widget__link"><img src="{% static "site/images/svg/vk.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
             </div>
         </div>
 
@@ -974,15 +972,12 @@
         <p class="sp-mobile__title">Амурское золото: технологично и&nbsp;эко-логично</p>
 
         <div class="sp-mobile__wobbler sp-children__wobbler">
-            @@include('modules/wobbler.html', {
-                "wobbler": "special-project"
-            })
+            <div class="wobbler">
+                <span class="wobbler__icon icon-star-sharp"></span>
+                <span class="wobbler__text">Спецпроект</span>
+            </div>
         </div>
         <p class="sp-mobile__text">Страница спецпроекта доступна только в десктопной версии.</p>
-        <a href="" class="sp-mobile__btn btn btn_blue" target="_blank">Перейти</a>
+        <a href="{% url "s-specials-detail" object.codename %}" class="sp-mobile__btn btn btn_blue" target="_blank">Перейти</a>
     </div>
 </main>
-
-@@include("page-block/read-also.html")
-@@include('page-block/footer.html')
-@@include('page-block/page-end.html')

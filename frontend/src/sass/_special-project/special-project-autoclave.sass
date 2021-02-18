@@ -252,14 +252,19 @@
 
         &__text-btn
             position: relative
-            padding: 6px 12px
+            padding: 4px 10px
             font-size: 16px
             line-height: $mini-lh
             color: $light-c
             text-transform: uppercase
             font-family: $bold-f
             background-color: $base-c
+            border: 2px solid $base-c
             border-radius: 4px
+
+            &:hover
+                background-color: $light-c
+                color: $base-c
 
         &__short-balloon
             position: relative
@@ -308,6 +313,7 @@
 
         &__long-balloon
             position: relative
+            z-index: 1
             margin-top: 40px
             padding: 20px
             font-size: 18px
