@@ -124,16 +124,22 @@
         left: 50%
         transform: translate(-50%, -50%)
         z-index: 2
-        width: 1100px
         color: $light-c
-        font-size: 120px
+        font-size: 124px
         line-height: 1
         font-family: $bold-f
+        text-transform: uppercase
+
+        span
+            display: block
+            margin-top: 15px
+            font-size: 42px
+            white-space: nowrap
 
     &header__scroll-icon
         position: absolute
         left: 50%
-        bottom: 70px
+        bottom: 60px
         transform: translateX(-50%)
         z-index: 2
 
@@ -176,37 +182,12 @@
         box-shadow: 0 16px 16px rgba(0, 115, 255, 0.06)
         border-radius: 8px
 
-        &:nth-child(1) .sp-autoclave-method__number::before
-            width: 52px
-            height: 74px
-            background-image: url(../images/special-projects/autoclave/svg/1-fill.svg)
-
-        &:nth-child(2) .sp-autoclave-method__number::before
-            width: 67px
-            height: 74px
-            margin-right: 8px
-            background-image: url(../images/special-projects/autoclave/svg/2-fill.svg)
-
-        &:nth-child(3) .sp-autoclave-method__number::before
-            width: 63px
-            height: 74px
-            margin-right: 8px
-            background-image: url(../images/special-projects/autoclave/svg/3-fill.svg)
-
         &__number
             margin-bottom: 30px
             font-size: 24px
             line-height: $mini-lh
             font-family: $add-sb-it-f
             color: $base-c
-
-            &::before
-                content: ""
-                display: inline-block
-                vertical-align: bottom
-                background-repeat: no-repeat
-                background-size: contain
-                background-position: center bottom
 
         &__title
             margin-bottom: 20px
@@ -244,30 +225,15 @@
     &scheme
         position: relative
 
+        &_with-bg
+            background-image: url(../images/special-projects/autoclave/svg/grid-bg.svg)
+
         &__img
             margin-left: auto
             margin-right: auto
 
         &__element
-            display: flex
-            align-items: center
             position: absolute
-
-            &:nth-child(1)
-                left: -30px
-                bottom: 230px
-            &:nth-child(2)
-                left: 480px
-                bottom: 450px
-            &:nth-child(3)
-                left: 600px
-                bottom: 290px
-            &:nth-child(4)
-                left: 1000px
-                bottom: 550px
-            &:nth-child(5)
-                right: -40px
-                top: 50px
 
         &__btn
             width: 35px
@@ -284,7 +250,18 @@
             &:focus
                 background-color: $base-dark-c
 
-        &__balloon
+        &__text-btn
+            position: relative
+            padding: 6px 12px
+            font-size: 16px
+            line-height: $mini-lh
+            color: $light-c
+            text-transform: uppercase
+            font-family: $bold-f
+            background-color: $base-c
+            border-radius: 4px
+
+        &__short-balloon
             position: relative
             padding: 6px 12px
             font-size: 16px
@@ -314,7 +291,6 @@
                     background-color: $base-c
                     clip-path: polygon(0% 0%, 25% 0%, 100% 50%, 25% 100%, 0% 100%)
 
-
             &_right
                 margin-left: calc(4px + 1em)
                 border-radius: 0 4px 4px 0
@@ -329,6 +305,93 @@
                     height: 100%
                     background-color: $base-c
                     clip-path: polygon(75% 0%, 100% 0%, 100% 100%, 75% 100%, 0% 50%)
+
+        &__long-balloon
+            position: relative
+            margin-top: 40px
+            padding: 20px
+            font-size: 18px
+            line-height: $base-lh
+            border: 1px solid $base-c
+            border-radius: 4px
+            background-color: $light-c
+            opacity: 0
+            transition: opacity $transition-time
+
+            &::before
+                content: ""
+                position: absolute
+                left: 20px
+                top: -11px
+                display: block
+                width: 21px
+                height: 21px
+                background-color: $light-c
+                border-top: 1px solid $base-c
+                border-left: 1px solid $base-c
+                transform: rotate(45deg)
+
+            &.visible
+                opacity: 1
+
+    &scheme-1 .sp-autoclave-scheme__element
+        display: flex
+        align-items: center
+
+        &:nth-child(1)
+            left: -30px
+            bottom: 230px
+        &:nth-child(2)
+            left: 480px
+            bottom: 450px
+        &:nth-child(3)
+            left: 600px
+            bottom: 290px
+        &:nth-child(4)
+            left: 1000px
+            bottom: 550px
+        &:nth-child(5)
+            right: -40px
+            top: 50px
+
+    &scheme-2__container
+        position: relative
+        width: 1700px
+        margin-left: auto
+        margin-right: auto
+
+    &scheme-2 .sp-autoclave-scheme__element
+        &:nth-child(1)
+            width: 280px
+            left: 300px
+            top: 140px
+        &:nth-child(2)
+            width: 270px
+            left: 640px
+            top: 140px
+        &:nth-child(3)
+            width: 330px
+            top: 140px
+            left: 1000px
+        &:nth-child(4)
+            left: 410px
+            top: 480px
+        &:nth-child(5)
+            width: 410px
+            left: 760px
+            bottom: 290px
+        &:nth-child(6)
+            width: 300px
+            left: 320px
+            bottom: 10px
+        &:nth-child(7)
+            width: 170px
+            left: 630px
+            bottom: 140px
+        &:nth-child(8)
+            width: 350px
+            left: 980px
+            bottom: 40px
 
     &characteristics-section
         padding-top: 100px
@@ -588,9 +651,10 @@
     &share-widget-wrap
         height: 0
         position: sticky
-        margin-left: 30px
+        margin-right: calc((100vw - 1300px) / 4 - 18px)
         bottom: 50%
         transform: translateY(-50%)
+        text-align: right
 
     &share-widget
         display: inline-block
