@@ -42,7 +42,7 @@
 
 @font-face {
   font-family: "proamursk";
-  src: url("../fonts/proamursk.woff2?v=203") format("woff2"), url("../fonts/proamursk.woff?v=203") format("woff");
+  src: url("../fonts/proamursk.woff2?v=205") format("woff2"), url("../fonts/proamursk.woff?v=205") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -489,38 +489,38 @@
       .post-editor-slider-block__arrow {
         display: none; } }
 
-.post-editor__block_quote .quote {
+.quote {
   border-left: 4px solid #0073FF; }
   @media (max-width: 1023px) {
-    .post-editor__block_quote .quote {
+    .quote {
       padding-top: 5px;
       padding-bottom: 5px;
       padding-left: 16px; } }
   @media (min-width: 1024px) {
-    .post-editor__block_quote .quote {
+    .quote {
       padding-top: 10px;
       padding-bottom: 10px;
       padding-left: 25px; } }
-  .post-editor__block_quote .quote__title {
+  .quote__title {
     margin-bottom: 5px;
     line-height: 1.2;
     font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     color: #0073FF; }
     @media (max-width: 1023px) {
-      .post-editor__block_quote .quote__title {
+      .quote__title {
         font-size: 36px; } }
     @media (min-width: 1024px) {
-      .post-editor__block_quote .quote__title {
+      .quote__title {
         font-size: 42px; } }
-  .post-editor__block_quote .quote__text {
+  .quote__text {
     margin-bottom: 0;
     line-height: 1.3;
     font-family: "SegoeUI Light It", Arial, Helvetica, sans-serif; }
     @media (max-width: 1023px) {
-      .post-editor__block_quote .quote__text {
+      .quote__text {
         font-size: 22px; } }
     @media (min-width: 1024px) {
-      .post-editor__block_quote .quote__text {
+      .quote__text {
         font-size: 26px; } }
 
 .post-editor__block_video-wrap {
@@ -746,9 +746,9 @@
     padding-bottom: 5em; }
 
 .wobbler {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

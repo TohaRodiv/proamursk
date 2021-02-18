@@ -378,6 +378,7 @@ function spStyles() {
         'src/sass/sp-dance-styles.sass',
         'src/sass/sp-summer-money-styles.sass',
         'src/sass/sp-winter-fun-styles.sass',
+        'src/sass/sp-autoclave-styles.sass',
     ])
         .pipe(plumber(settingsPlumber))
         .pipe(sourcemaps.init())
@@ -408,6 +409,7 @@ const spJSFiles = [
     'src/js/sliders.js',
     'src/js/ajax.js',
     'src/js/dropdown-section.js',
+    'src/js/sp-autoclave.js',
 ];
 
 function spJS() {

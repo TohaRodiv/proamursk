@@ -42,7 +42,7 @@
 
 @font-face {
   font-family: "proamursk";
-  src: url("../fonts/proamursk.woff2?v=203") format("woff2"), url("../fonts/proamursk.woff?v=203") format("woff");
+  src: url("../fonts/proamursk.woff2?v=205") format("woff2"), url("../fonts/proamursk.woff?v=205") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -242,9 +242,9 @@
   content: "\e93b"; }
 
 .wobbler {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
