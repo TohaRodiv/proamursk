@@ -6568,6 +6568,14 @@ if (dropdownBtns.length) {
 }
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 var spAutoclave = document.querySelector('.js-sp-autoclave');
 
 if (spAutoclave) {
@@ -6575,12 +6583,6 @@ if (spAutoclave) {
   window.addEventListener('scroll', handleSpAutoclaveScroll);
   var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
   toTopBtn.addEventListener('click', spAutoclaveScrollTop);
-  var balloonBtns = document.querySelectorAll('.js-sp-autoclave-scheme-btn');
-  balloonBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      return spAutoclaveToggleSchemeBalloon(btn);
-    });
-  });
   var videoPlayBtn = document.querySelector('.js-sp-autoclave-video-play-btn');
   var video = document.querySelector('.js-sp-autoclave-video');
   videoPlayBtn.addEventListener('click', function () {
@@ -6589,6 +6591,44 @@ if (spAutoclave) {
   video.addEventListener('click', function (event) {
     event.preventDefault();
     if (videoPlayBtn.hasAttribute('hidden')) pauseAutoclaveVideo(video, videoPlayBtn);else playAutoclaveVideo(video, videoPlayBtn);
+  });
+
+  var spAutoclaveSectionNavigationBtns = _toConsumableArray(document.querySelectorAll('.js-sp-autoclave-navigation-btn'));
+
+  spAutoclaveSectionNavigationBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      return spAutoclaveScrollToSection(btn);
+    });
+  });
+
+  var spAutoclaveSection = _toConsumableArray(document.querySelectorAll('.sp-autoclave-section'));
+
+  var spAutoclaveSectionIntersectionObserverOptions = {
+    root: document.querySelector('body')[0],
+    rootMargin: '40px 0px 0px 0px'
+  };
+
+  var spAutoclaveSectionIntersectionObserverCallback = function spAutoclaveSectionIntersectionObserverCallback(entries) {
+    entries.forEach(function (item) {
+      var entry = item;
+
+      if (entry && entry.isIntersecting) {
+        var sectionIndex = item.target.dataset.section;
+        var sectionBtn = document.querySelector(".js-sp-autoclave-navigation-btn[data-section=\"".concat(sectionIndex, "\"]"));
+        sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
+      } else {
+        var _sectionIndex = item.target.dataset.section;
+
+        var _sectionBtn = document.querySelector(".js-sp-autoclave-navigation-btn[data-section=\"".concat(_sectionIndex, "\"]"));
+
+        _sectionBtn.classList.remove('sp-autoclave-navigation__btn_current');
+      }
+    });
+  };
+
+  var spAutoclaveSectionObserver = new IntersectionObserver(spAutoclaveSectionIntersectionObserverCallback, spAutoclaveSectionIntersectionObserverOptions);
+  spAutoclaveSection.forEach(function (item) {
+    spAutoclaveSectionObserver.observe(item);
   });
 }
 
@@ -6609,12 +6649,6 @@ function spAutoclaveScrollTop() {
   toTopBtn.classList.remove('hidden');
 }
 
-function spAutoclaveToggleSchemeBalloon(btn) {
-  var wrap = btn.closest('.js-sp-autoclave-scheme-element');
-  var balloon = wrap.querySelector('.js-sp-autoclave-scheme-balloon');
-  balloon.classList.toggle('visible');
-}
-
 function playAutoclaveVideo(video, videoPlayBtn) {
   video.play();
   video.setAttribute('controls', true);
@@ -6625,4 +6659,15 @@ function pauseAutoclaveVideo(video, videoPlayBtn) {
   video.pause();
   video.removeAttribute('controls');
   videoPlayBtn.hidden = false;
+}
+
+function spAutoclaveScrollToSection(btn) {
+  var sectionIndex = btn.dataset.section;
+  var section = document.querySelector(".sp-autoclave-section[data-section=\"".concat(sectionIndex, "\"]"));
+  var sectionTop = section.offsetTop;
+  window.scroll({
+    top: sectionTop - 40,
+    left: 0,
+    behavior: 'smooth'
+  });
 }

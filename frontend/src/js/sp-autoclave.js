@@ -5,11 +5,6 @@ if (spAutoclave) {
     const toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
     toTopBtn.addEventListener('click', spAutoclaveScrollTop);
 
-    const balloonBtns = document.querySelectorAll('.js-sp-autoclave-scheme-btn');
-    balloonBtns.forEach(btn => {
-        btn.addEventListener('click', () => spAutoclaveToggleSchemeBalloon(btn));
-    });
-
     const videoPlayBtn = document.querySelector('.js-sp-autoclave-video-play-btn');
     const video = document.querySelector('.js-sp-autoclave-video');
     videoPlayBtn.addEventListener('click', () => {
@@ -20,6 +15,38 @@ if (spAutoclave) {
         if (videoPlayBtn.hasAttribute('hidden')) pauseAutoclaveVideo(video, videoPlayBtn);
         else playAutoclaveVideo(video, videoPlayBtn);
     });
+
+    const spAutoclaveSectionNavigationBtns = [...document.querySelectorAll('.js-sp-autoclave-navigation-btn')];
+    spAutoclaveSectionNavigationBtns.forEach(btn => {
+        btn.addEventListener('click', () => spAutoclaveScrollToSection(btn));
+    });
+    const spAutoclaveSection = [...document.querySelectorAll('.sp-autoclave-section')];
+    const spAutoclaveSectionIntersectionObserverOptions = {
+        root: document.querySelector('body')[0],
+        rootMargin: '40px 0px 0px 0px',
+    };
+    const spAutoclaveSectionIntersectionObserverCallback = function(entries) {
+        entries.forEach(item => {
+            const entry = item;
+            if (entry && entry.isIntersecting) {
+                const sectionIndex = item.target.dataset.section;
+                const sectionBtn = document.querySelector(`.js-sp-autoclave-navigation-btn[data-section="${sectionIndex}"]`);
+                sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
+            }
+            else {
+                const sectionIndex = item.target.dataset.section;
+                const sectionBtn = document.querySelector(`.js-sp-autoclave-navigation-btn[data-section="${sectionIndex}"]`);
+                sectionBtn.classList.remove('sp-autoclave-navigation__btn_current');
+            }
+        });
+    };
+    const spAutoclaveSectionObserver = new IntersectionObserver(
+        spAutoclaveSectionIntersectionObserverCallback,
+        spAutoclaveSectionIntersectionObserverOptions
+    );
+    spAutoclaveSection.forEach(item => {
+        spAutoclaveSectionObserver.observe(item);
+    });
 }
 
 function handleSpAutoclaveScroll() {
@@ -27,7 +54,7 @@ function handleSpAutoclaveScroll() {
     let windowScroll = window.pageYOffset;
     let windowHeight = window.outerHeight;
 
-    if (windowScroll > windowHeight/2) toTopBtn.classList.remove('hidden');
+    if (windowScroll > windowHeight / 2) toTopBtn.classList.remove('hidden');
     else toTopBtn.classList.add('hidden');
 }
 
@@ -41,12 +68,6 @@ function spAutoclaveScrollTop() {
     toTopBtn.classList.remove('hidden');
 }
 
-function spAutoclaveToggleSchemeBalloon(btn) {
-    const wrap = btn.closest('.js-sp-autoclave-scheme-element');
-    const balloon = wrap.querySelector('.js-sp-autoclave-scheme-balloon');
-    balloon.classList.toggle('visible');
-}
-
 function playAutoclaveVideo(video, videoPlayBtn) {
     video.play();
     video.setAttribute('controls', true);
@@ -57,4 +78,16 @@ function pauseAutoclaveVideo(video, videoPlayBtn) {
     video.pause();
     video.removeAttribute('controls');
     videoPlayBtn.hidden = false;
+}
+
+
+function spAutoclaveScrollToSection(btn) {
+    const sectionIndex = btn.dataset.section;
+    const section = document.querySelector(`.sp-autoclave-section[data-section="${sectionIndex}"]`);
+    const sectionTop = section.offsetTop;
+    window.scroll({
+        top: sectionTop - 40,
+        left: 0,
+        behavior: 'smooth',
+    });
 }
