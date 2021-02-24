@@ -10643,6 +10643,9 @@ footer {
 .sp-autoclave-scheme {
   position: relative; }
   .sp-autoclave-scheme_with-bg {
+    min-height: 1114px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-image: url(../images/special-projects/autoclave/svg/grid-bg.svg); }
   .sp-autoclave-scheme__img {
     margin-left: auto;
@@ -10660,7 +10663,6 @@ footer {
         flex-shrink: 0;
     font-size: 26px;
     line-height: 36px;
-    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     color: #FFFFFF;
     background-color: #0073FF;
     border-radius: 50%; }
@@ -10671,7 +10673,6 @@ footer {
     line-height: 1.3;
     color: #FFFFFF;
     text-transform: uppercase;
-    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     background-color: #0073FF;
     border: 2px solid #0073FF;
     border-radius: 4px; }
@@ -10682,15 +10683,12 @@ footer {
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     z-index: -1;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
     padding: 6px 12px;
     font-size: 16px;
     line-height: 1.3;
     color: #FFFFFF;
+    white-space: nowrap;
     text-transform: uppercase;
-    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     background-color: #0073FF;
     opacity: 0;
     -webkit-transition: opacity 0.3s;
@@ -10776,50 +10774,58 @@ footer {
     right: 140px;
     top: 50px; }
 
-.sp-autoclave-scheme-2__container {
-  width: 1300px;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto; }
-
 .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(1) {
-  width: 280px;
-  left: 210px;
-  top: 110px; }
+  left: 75px;
+  top: 30px; }
 
 .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(2) {
-  width: 270px;
-  left: 440px;
-  top: 110px; }
+  left: 400px;
+  top: 30px; }
 
 .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(3) {
-  width: 330px;
-  top: 110px;
-  left: 800px; }
+  top: 10px;
+  left: 820px; }
 
 .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(4) {
-  left: 290px;
-  top: 360px; }
+  left: 210px;
+  top: 370px; }
 
 .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(5) {
-  width: 410px;
   left: 560px;
-  bottom: 430px; }
+  bottom: 520px; }
 
 .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(6) {
-  width: 300px;
-  left: 250px;
+  left: 90px;
   bottom: 240px; }
 
 .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(7) {
-  width: 170px;
-  left: 450px;
+  left: 400px;
   bottom: 210px; }
 
 .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(8) {
-  width: 350px;
-  left: 710px;
-  bottom: 210px; }
+  left: 720px;
+  bottom: 190px; }
+
+.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(1) .sp-autoclave-scheme__long-balloon {
+  width: 280px; }
+
+.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(2) .sp-autoclave-scheme__long-balloon {
+  width: 270px; }
+
+.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(3) .sp-autoclave-scheme__long-balloon {
+  width: 330px; }
+
+.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(5) .sp-autoclave-scheme__long-balloon {
+  width: 410px; }
+
+.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(6) .sp-autoclave-scheme__long-balloon {
+  width: 310px; }
+
+.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(7) .sp-autoclave-scheme__long-balloon {
+  width: 170px; }
+
+.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(8) .sp-autoclave-scheme__long-balloon {
+  width: 350px; }
 
 .sp-autoclave-characteristics-section {
   padding-top: 100px;
@@ -11148,12 +11154,13 @@ footer {
         -ms-flex-positive: 1;
             flex-grow: 1;
     font-size: 16px;
-    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif;
     white-space: nowrap;
     overflow: hidden;
     -webkit-transition: max-width .2s ease-in-out, margin-right .2s ease-in-out;
     -o-transition: max-width .2s ease-in-out, margin-right .2s ease-in-out;
     transition: max-width .2s ease-in-out, margin-right .2s ease-in-out; }
+    .sp-autoclave-navigation__text:first-letter {
+      font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
   .sp-autoclave-navigation__indicator {
     position: relative;
     display: inline-block;

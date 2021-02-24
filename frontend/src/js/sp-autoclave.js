@@ -8,12 +8,19 @@ if (spAutoclave) {
     const videoPlayBtn = document.querySelector('.js-sp-autoclave-video-play-btn');
     const video = document.querySelector('.js-sp-autoclave-video');
     videoPlayBtn.addEventListener('click', () => {
+        video.play();
         playAutoclaveVideo(video, videoPlayBtn);
     });
-    video.addEventListener('click', (event) => {
-        event.preventDefault();
-        if (videoPlayBtn.hasAttribute('hidden')) pauseAutoclaveVideo(video, videoPlayBtn);
-        else playAutoclaveVideo(video, videoPlayBtn);
+    // video.addEventListener('click', (event) => {
+    //     event.preventDefault();
+    //     if (videoPlayBtn.hasAttribute('hidden')) pauseAutoclaveVideo(video, videoPlayBtn);
+    //     else playAutoclaveVideo(video, videoPlayBtn);
+    // });
+    video.addEventListener('play', (event) => {
+        playAutoclaveVideo(video, videoPlayBtn);
+    });
+    video.addEventListener('pause', (event) => {
+        pauseAutoclaveVideo(video, videoPlayBtn);
     });
 
     const spAutoclaveSectionNavigationBtns = [...document.querySelectorAll('.js-sp-autoclave-navigation-btn')];
@@ -69,13 +76,11 @@ function spAutoclaveScrollTop() {
 }
 
 function playAutoclaveVideo(video, videoPlayBtn) {
-    video.play();
     video.setAttribute('controls', true);
     videoPlayBtn.hidden = true;
 }
 
 function pauseAutoclaveVideo(video, videoPlayBtn) {
-    video.pause();
     video.removeAttribute('controls');
     videoPlayBtn.hidden = false;
 }

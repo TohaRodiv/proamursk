@@ -227,6 +227,9 @@
         position: relative
 
         &_with-bg
+            min-height: 1114px
+            padding-top: 100px
+            padding-bottom: 100px
             background-image: url(../images/special-projects/autoclave/svg/grid-bg.svg)
 
         &__img
@@ -248,7 +251,6 @@
             flex-shrink: 0
             font-size: 26px
             line-height: 36px
-            font-family: $bold-f
             color: $light-c
             background-color: $base-c
             border-radius: 50%
@@ -260,7 +262,6 @@
             line-height: $mini-lh
             color: $light-c
             text-transform: uppercase
-            font-family: $bold-f
             background-color: $base-c
             border: 2px solid $base-c
             border-radius: 4px
@@ -270,13 +271,12 @@
             top: 50%
             transform: translateY(-50%)
             z-index: -1
-            width: max-content
             padding: 6px 12px
             font-size: 16px
             line-height: $mini-lh
             color: $light-c
+            white-space: nowrap
             text-transform: uppercase
-            font-family: $bold-f
             background-color: $base-c
             opacity: 0
             transition: opacity $transition-time
@@ -357,44 +357,46 @@
             right: 140px
             top: 50px
 
-    &scheme-2__container
-        width: 1300px
-        position: relative
-        margin-left: auto
-        margin-right: auto
-
     &scheme-2 .sp-autoclave-scheme__element
         &:nth-child(1)
-            width: 280px
-            left: 210px
-            top: 110px
+            left: 75px
+            top: 30px
         &:nth-child(2)
-            width: 270px
-            left: 440px
-            top: 110px
+            left: 400px
+            top: 30px
         &:nth-child(3)
-            width: 330px
-            top: 110px
-            left: 800px
+            top: 10px
+            left: 820px
         &:nth-child(4)
-            left: 290px
-            top: 360px
+            left: 210px
+            top: 370px
         &:nth-child(5)
-            width: 410px
             left: 560px
-            bottom: 430px
+            bottom: 520px
         &:nth-child(6)
-            width: 300px
-            left: 250px
+            left: 90px
             bottom: 240px
         &:nth-child(7)
-            width: 170px
-            left: 450px
+            left: 400px
             bottom: 210px
         &:nth-child(8)
+            left: 720px
+            bottom: 190px
+
+        &:nth-child(1) .sp-autoclave-scheme__long-balloon
+            width: 280px
+        &:nth-child(2) .sp-autoclave-scheme__long-balloon
+            width: 270px
+        &:nth-child(3) .sp-autoclave-scheme__long-balloon
+            width: 330px
+        &:nth-child(5) .sp-autoclave-scheme__long-balloon
+            width: 410px
+        &:nth-child(6) .sp-autoclave-scheme__long-balloon
+            width: 310px
+        &:nth-child(7) .sp-autoclave-scheme__long-balloon
+            width: 170px
+        &:nth-child(8) .sp-autoclave-scheme__long-balloon
             width: 350px
-            left: 710px
-            bottom: 210px
 
     &characteristics-section
         padding-top: 100px
@@ -711,10 +713,12 @@
             margin-right: 0
             flex-grow: 1
             font-size: 16px
-            font-family: $bold-f
             white-space: nowrap
             overflow: hidden
             transition: max-width .2s ease-in-out, margin-right .2s ease-in-out
+
+            &:first-letter
+                font-family: $bold-f
 
         &__indicator
             position: relative
