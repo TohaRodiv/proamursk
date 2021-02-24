@@ -11228,17 +11228,12 @@ footer {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: rgba(127, 141, 164, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   cursor: pointer;
   -webkit-transition: opacity ease-in 0.3s;
   -o-transition: opacity ease-in 0.3s;
   transition: opacity ease-in 0.3s; }
-  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    .sp-autoclave-pop-up-back {
-      background-color: transparent;
-      -webkit-backdrop-filter: blur(7px);
-              backdrop-filter: blur(7px); } }
 
 .sp-autoclave-pop-up-close {
   position: -webkit-sticky;
@@ -11258,8 +11253,6 @@ footer {
   min-width: 990px;
   background-color: #FFFFFF;
   overflow: auto;
-  -webkit-box-shadow: 0 26px 28px #2e5194;
-          box-shadow: 0 26px 28px #2e5194;
   -webkit-transform: translateX(-100vw);
       -ms-transform: translateX(-100vw);
           transform: translateX(-100vw);
