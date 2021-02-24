@@ -8512,28 +8512,12 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 var spAutoclave = document.querySelector('.js-sp-autoclave');
 
 if (spAutoclave) {
-  handleSpAutoclaveScroll();
+  var spAutoclaveSections = _toConsumableArray(document.querySelectorAll('.sp-autoclave-section'));
+
+  handleSpAutoclaveScroll(spAutoclaveSections);
   window.addEventListener('scroll', function () {
-    return handleSpAutoclaveScroll;
+    return handleSpAutoclaveScroll(spAutoclaveSections);
   });
-  var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
-  toTopBtn.addEventListener('click', spAutoclaveScrollTop);
-  var videoPlayBtn = document.querySelector('.js-sp-autoclave-video-play-btn');
-  var video = document.querySelector('.js-sp-autoclave-video');
-  videoPlayBtn.addEventListener('click', function () {
-    video.play();
-    playAutoclaveVideo(video, videoPlayBtn);
-  }); // video.addEventListener('click', (event) => {
-  //     event.preventDefault();
-  //     if (videoPlayBtn.hasAttribute('hidden')) pauseAutoclaveVideo(video, videoPlayBtn);
-  //     else playAutoclaveVideo(video, videoPlayBtn);
-  // });
-  // video.addEventListener('play', (event) => {
-  //     playAutoclaveVideo(video, videoPlayBtn);
-  // });
-  // video.addEventListener('pause', (event) => {
-  //     pauseAutoclaveVideo(video, videoPlayBtn);
-  // });
 
   var spAutoclaveSectionNavigationBtns = _toConsumableArray(document.querySelectorAll('.js-sp-autoclave-navigation-btn'));
 
@@ -8542,14 +8526,21 @@ if (spAutoclave) {
       return spAutoclaveScrollToSection(btn);
     });
   });
+  var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
+  toTopBtn.addEventListener('click', spAutoclaveScrollTop);
+  var videoPlayBtn = document.querySelector('.js-sp-autoclave-video-play-btn');
+  var video = document.querySelector('.js-sp-autoclave-video');
+  videoPlayBtn.addEventListener('click', function () {
+    playAutoclaveVideo(video, videoPlayBtn);
+  });
 }
 
-function handleSpAutoclaveScroll() {
+function handleSpAutoclaveScroll(spAutoclaveSections) {
   var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
   var windowScroll = window.pageYOffset;
   var windowHeight = window.outerHeight;
   if (windowScroll > windowHeight / 2) toTopBtn.classList.remove('hidden');else toTopBtn.classList.add('hidden');
-  spAutoclaveIndicateScrollSections();
+  spAutoclaveIndicateScrollSections(spAutoclaveSections);
 }
 
 function spAutoclaveScrollTop() {
@@ -8563,13 +8554,9 @@ function spAutoclaveScrollTop() {
 }
 
 function playAutoclaveVideo(video, videoPlayBtn) {
+  video.play();
   video.setAttribute('controls', true);
   videoPlayBtn.hidden = true;
-}
-
-function pauseAutoclaveVideo(video, videoPlayBtn) {
-  video.removeAttribute('controls');
-  videoPlayBtn.hidden = false;
 }
 
 function spAutoclaveScrollToSection(btn) {
@@ -8583,14 +8570,13 @@ function spAutoclaveScrollToSection(btn) {
   });
 }
 
-function spAutoclaveIndicateScrollSections() {
-  var spAutoclaveSection = _toConsumableArray(document.querySelectorAll('.sp-autoclave-section'));
-
-  spAutoclaveSection.forEach(function (item) {
+function spAutoclaveIndicateScrollSections(spAutoclaveSections) {
+  var st = window.pageYOffset || document.documentElement.scrollTop;
+  spAutoclaveSections.forEach(function (item) {
     var sectionIndex = item.dataset.section;
     var sectionBtn = document.querySelector(".js-sp-autoclave-navigation-btn[data-section=\"".concat(sectionIndex, "\"]"));
 
-    if (window.scrollY >= item.offsetTop - window.outerHeight / 2) {
+    if (st >= item.offsetTop - window.outerHeight / 2) {
       var activeBtns = document.querySelectorAll('.sp-autoclave-navigation__btn_current');
       if (activeBtns.length) activeBtns.forEach(function (btn) {
         return btn.classList.remove('sp-autoclave-navigation__btn_current');
