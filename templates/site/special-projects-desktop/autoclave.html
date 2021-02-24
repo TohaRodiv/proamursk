@@ -655,7 +655,7 @@
                                 <p>Экологические риски были учтены еще при проектировании производства. АГМК бережно относится к&nbsp;флоре и&nbsp;фауне Амурского района. Охрана редких животных и&nbsp;растений, разведение и&nbsp;выпуск мальков рыб, озеленение территорий являются частью проактивной экологической политики комбината.</p>
                             </div>
 
-                            <div class="sp-autoclave-cyanide">
+                            <div class="sp-autoclave-cyanide show-pop-up" data-pop-up="sp-autoclave-cyanide-popup">
                                 <img data-src="{% static "site/images/special-projects/autoclave/cyanide.svg" %}{% static_version %}"
                                      alt=""
                                      class="sp-autoclave-cyanide__img lazyload">
@@ -902,6 +902,43 @@
 
             <button class="sp-autoclave-to-top-btn icon-arrow-left js-sp-autoclave-to-top-btn hidden"></button>
         </main>
+
+        <div class="body-cover sp-autoclave-pop-up-body-cover">
+            <div class="pop-up-wrapper sp-autoclave-pop-up-wrapper sp-autoclave-cyanide-popup">
+                <div class="sp-autoclave-pop-up-back js-pop-up__close"></div>
+
+                <div class="sp-autoclave-pop-up-container">
+                    <button class="sp-autoclave-pop-up-close pop-up__close icon-close-thin js-pop-up__close"></button>
+
+                    <div class="sp-autoclave-pop-up-content">
+                        <div class="sp-autoclave-pop-up-main-content">
+                            <h3 class="sp-autoclave-pop-up__title">Как процесс INCO обезвреживает цианид?</h3>
+                            <p class="sp-autoclave-pop-up__text">Часть жителей почему-то уверена, что в&nbsp;отходах производства АГМК присутствует цианид. На&nbsp;самом деле это не&nbsp;так, наличие цианида&nbsp;&mdash; это&nbsp;ЧП для предприятия. Для нейтрализации цианидов комбинат использует несколько процессов.</p>
+                            <p class="sp-autoclave-pop-up__text">Очистка сырья от&nbsp;цианида начинается на&nbsp;этапе сорбции. Основную массу цианидов удаляют еще из&nbsp;хвостовой пульпы. Для этого применяют процесс INCO, который заключается в&nbsp;обработке пульпы воздухом с&nbsp;использованием бисульфита натрия. При этом бисульфит с&nbsp;растворенным кислородом воздуха образует небольшие количества перекисей, которые и&nbsp;окисляют цианид в&nbsp;технологической воде до&nbsp;безвредных соединений.</p>
+                            <p class="sp-autoclave-pop-up__text">Дальнейшая очистка технологической воды от&nbsp;цианистых и&nbsp;других соединений осуществляется методом обратного осмоса. При этом очищаемый раствор под большим давлением, превышающим осмотическое, продавливается через полимерные мембраны с&nbsp;мельчайшими отверстиями. Растворенные соли остаются над мембраной, а&nbsp;очищенная вода проходит сквозь мембрану и&nbsp;повторно используется в&nbsp;технологическом процессе.</p>
+                            <p class="sp-autoclave-pop-up__text">Эти процессы очистки полностью обезвреживают цианид в&nbsp;технологической воде. Кроме того, на&nbsp;комбинате внедрена система замкнутого водооборота. Это позволяет полностью исключить попадание вещества в&nbsp;окружающую среду.</p>
+                            <p class="sp-autoclave-pop-up__text">Амурский ГМК сертифицирован по&nbsp;стандартам Международного института по&nbsp;обращению с&nbsp;цианидами. Принципы и&nbsp;стандарты Международного кодекса по&nbsp;обращению с&nbsp;цианидами являются обязательной частью системы экологического менеджмента компании &laquo;Полиметалл&raquo;.</p>
+
+                            <img srcset="{% static "site/images/special-projects/autoclave/popup-img-1.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/popup-img-1-x2.jpg" %}{% static_version %} 2x"
+                                     src="{% static "site/images/special-projects/autoclave/popup-img-1-x2.jpg" %}{% static_version %}"
+                                     alt=""
+                                     class="sp-autoclave-pop-up__img">
+
+                            <p class="sp-autoclave-pop-up__text">Отбор проб на&nbsp;цианид ведут на&nbsp;АГМК постоянно, каждую смену, на&nbsp;многих участках производства. Очень много проб берут на&nbsp;содержание этого вещества в&nbsp;оборотной воде&nbsp;&mdash; там его тоже быть не&nbsp;должно. За&nbsp;этим внимательно следят специалисты аналитической лаборатории. И, естественно, при проектировании АГМК были исключены возможности слива и&nbsp;сброса жидкостей с&nbsp;загрязняющими веществами.</p>
+
+                            <img srcset="{% static "site/images/special-projects/autoclave/popup-img-2.jpg" %}{% static_version %},
+                                        {% static "site/images/special-projects/autoclave/popup-img-2-x2.jpg" %}{% static_version %} 2x"
+                                     src="{% static "site/images/special-projects/autoclave/popup-img-2-x2.jpg" %}{% static_version %}"
+                                     alt=""
+                                     class="sp-autoclave-pop-up__img">
+
+                            <p class="sp-autoclave-pop-up__text">Помимо внутреннего контроля, предприятие регулярно проверяют Росприроднадзор, Роспотребнадзор, Росрыболовства и&nbsp;другие контрольные ведомства. Они запрашивают документацию, ведут отбор проб для анализа различных показателей. Показатели всегда соответствуют установленным нормам.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="{% static "site/js/sp-main.min.js" %}{% static_version %}"></script>
     </body>
