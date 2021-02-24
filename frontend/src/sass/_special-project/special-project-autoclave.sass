@@ -570,14 +570,20 @@
         width: 230px
         flex-shrink: 0
         margin-left: 130px
+        cursor: pointer
+
+        &:hover .sp-autoclave-cyanide__caption
+            color: $base-c
+
 
         &__img
             margin-bottom: 20px
 
         &__caption
             font-size: 24px
-            font-family: $bold-f
             line-height: 1.2
+            font-family: $bold-f
+            transition: color $transition-time
 
     &map-section
         margin-bottom: -100px
@@ -739,3 +745,95 @@
                 border: 1px solid #CBD3DA
                 transform: scale(0)
                 transition: transform .2s ease-in-out
+
+
+.sp-autoclave-pop-up-body-cover
+    display: block
+    min-width: 100%
+    z-index: -1
+    visibility: hidden
+    overflow: auto hidden
+
+    &.visible
+        visibility: visible
+        z-index: 100
+
+.sp-autoclave-pop-up-wrapper
+    display: block
+    position: absolute
+    width: 100%
+    visibility: hidden
+
+.sp-autoclave-pop-up-wrapper.visible
+    height: 100%
+    justify-content: initial
+    visibility: visible
+
+    .sp-autoclave-pop-up-container
+        transform: translateX(0)
+
+    .sp-autoclave-pop-up-back
+        opacity: 1
+
+.sp-autoclave-pop-up-back
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    min-height: 100vh
+    background-color: rgba(#7F8DA4, .9)
+    opacity: 0
+    cursor: pointer
+    transition: opacity ease-in $transition-time
+
+    @supports (backdrop-filter: none)
+        background-color: transparent
+        backdrop-filter: blur(7px)
+
+.sp-autoclave-pop-up-close
+    position: sticky
+    display: block
+    width: 32px
+    height: 32px
+    margin-left: auto
+    font-size: 32px
+    top: 32px
+    right: 32px
+    color: $dark-c
+
+.sp-autoclave-pop-up-container
+    position: relative
+    width: calc((100vw - 1300px) / 2 + 970px)
+    min-width: 990px
+    background-color: $light-c
+    overflow: auto
+    box-shadow: 0 26px 28px #2e5194
+    transform: translateX(-100vw)
+    transition: transform ease-in $transition-time
+    will-change: left
+
+.sp-autoclave-pop-up-content
+    width: 970px
+    margin-top: -40px
+    margin-left: auto
+    padding: 70px 220px 70px 110px
+
+.sp-autoclave-pop-up__title
+    width: 470px
+    margin-bottom: 60px
+    font-size: 36px
+    line-height: $mini-lh
+    font-family: $bold-f
+
+.sp-autoclave-pop-up__text
+    width: 760px
+    font-size: 18px
+    line-height: $base-lh
+
+    & + .sp-autoclave-pop-up__text
+        margin-top: 20px
+
+.sp-autoclave-pop-up__img
+    margin-top: 60px
+    margin-bottom: 20px

@@ -1,7 +1,7 @@
 const spAutoclave = document.querySelector('.js-sp-autoclave');
 if (spAutoclave) {
     handleSpAutoclaveScroll();
-    window.addEventListener('scroll', handleSpAutoclaveScroll);
+    window.addEventListener('scroll', () => handleSpAutoclaveScroll);
     const toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
     toTopBtn.addEventListener('click', spAutoclaveScrollTop);
 
@@ -16,43 +16,16 @@ if (spAutoclave) {
     //     if (videoPlayBtn.hasAttribute('hidden')) pauseAutoclaveVideo(video, videoPlayBtn);
     //     else playAutoclaveVideo(video, videoPlayBtn);
     // });
-    video.addEventListener('play', (event) => {
-        playAutoclaveVideo(video, videoPlayBtn);
-    });
-    video.addEventListener('pause', (event) => {
-        pauseAutoclaveVideo(video, videoPlayBtn);
-    });
+    // video.addEventListener('play', (event) => {
+    //     playAutoclaveVideo(video, videoPlayBtn);
+    // });
+    // video.addEventListener('pause', (event) => {
+    //     pauseAutoclaveVideo(video, videoPlayBtn);
+    // });
 
     const spAutoclaveSectionNavigationBtns = [...document.querySelectorAll('.js-sp-autoclave-navigation-btn')];
     spAutoclaveSectionNavigationBtns.forEach(btn => {
         btn.addEventListener('click', () => spAutoclaveScrollToSection(btn));
-    });
-    const spAutoclaveSection = [...document.querySelectorAll('.sp-autoclave-section')];
-    const spAutoclaveSectionIntersectionObserverOptions = {
-        root: document.querySelector('body')[0],
-        rootMargin: '40px 0px 0px 0px',
-    };
-    const spAutoclaveSectionIntersectionObserverCallback = function(entries) {
-        entries.forEach(item => {
-            const entry = item;
-            if (entry && entry.isIntersecting) {
-                const sectionIndex = item.target.dataset.section;
-                const sectionBtn = document.querySelector(`.js-sp-autoclave-navigation-btn[data-section="${sectionIndex}"]`);
-                sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
-            }
-            else {
-                const sectionIndex = item.target.dataset.section;
-                const sectionBtn = document.querySelector(`.js-sp-autoclave-navigation-btn[data-section="${sectionIndex}"]`);
-                sectionBtn.classList.remove('sp-autoclave-navigation__btn_current');
-            }
-        });
-    };
-    const spAutoclaveSectionObserver = new IntersectionObserver(
-        spAutoclaveSectionIntersectionObserverCallback,
-        spAutoclaveSectionIntersectionObserverOptions
-    );
-    spAutoclaveSection.forEach(item => {
-        spAutoclaveSectionObserver.observe(item);
     });
 }
 
@@ -63,6 +36,7 @@ function handleSpAutoclaveScroll() {
 
     if (windowScroll > windowHeight / 2) toTopBtn.classList.remove('hidden');
     else toTopBtn.classList.add('hidden');
+    spAutoclaveIndicateScrollSections();
 }
 
 function spAutoclaveScrollTop() {
@@ -85,7 +59,6 @@ function pauseAutoclaveVideo(video, videoPlayBtn) {
     videoPlayBtn.hidden = false;
 }
 
-
 function spAutoclaveScrollToSection(btn) {
     const sectionIndex = btn.dataset.section;
     const section = document.querySelector(`.sp-autoclave-section[data-section="${sectionIndex}"]`);
@@ -94,5 +67,19 @@ function spAutoclaveScrollToSection(btn) {
         top: sectionTop - 40,
         left: 0,
         behavior: 'smooth',
+    });
+}
+
+function spAutoclaveIndicateScrollSections() {
+    const spAutoclaveSection = [...document.querySelectorAll('.sp-autoclave-section')];
+    spAutoclaveSection.forEach(item => {
+        const sectionIndex = item.dataset.section;
+        const sectionBtn = document.querySelector(`.js-sp-autoclave-navigation-btn[data-section="${sectionIndex}"]`);
+
+        if (window.scrollY >= item.offsetTop - window.outerHeight / 2) {
+            const activeBtns = document.querySelectorAll('.sp-autoclave-navigation__btn_current');
+            if (activeBtns.length) activeBtns.forEach(btn => btn.classList.remove('sp-autoclave-navigation__btn_current'));
+            sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
+        }
     });
 }

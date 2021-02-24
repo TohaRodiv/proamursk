@@ -8513,7 +8513,9 @@ var spAutoclave = document.querySelector('.js-sp-autoclave');
 
 if (spAutoclave) {
   handleSpAutoclaveScroll();
-  window.addEventListener('scroll', handleSpAutoclaveScroll);
+  window.addEventListener('scroll', function () {
+    return handleSpAutoclaveScroll;
+  });
   var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
   toTopBtn.addEventListener('click', spAutoclaveScrollTop);
   var videoPlayBtn = document.querySelector('.js-sp-autoclave-video-play-btn');
@@ -8526,13 +8528,12 @@ if (spAutoclave) {
   //     if (videoPlayBtn.hasAttribute('hidden')) pauseAutoclaveVideo(video, videoPlayBtn);
   //     else playAutoclaveVideo(video, videoPlayBtn);
   // });
-
-  video.addEventListener('play', function (event) {
-    playAutoclaveVideo(video, videoPlayBtn);
-  });
-  video.addEventListener('pause', function (event) {
-    pauseAutoclaveVideo(video, videoPlayBtn);
-  });
+  // video.addEventListener('play', (event) => {
+  //     playAutoclaveVideo(video, videoPlayBtn);
+  // });
+  // video.addEventListener('pause', (event) => {
+  //     pauseAutoclaveVideo(video, videoPlayBtn);
+  // });
 
   var spAutoclaveSectionNavigationBtns = _toConsumableArray(document.querySelectorAll('.js-sp-autoclave-navigation-btn'));
 
@@ -8541,36 +8542,6 @@ if (spAutoclave) {
       return spAutoclaveScrollToSection(btn);
     });
   });
-
-  var spAutoclaveSection = _toConsumableArray(document.querySelectorAll('.sp-autoclave-section'));
-
-  var spAutoclaveSectionIntersectionObserverOptions = {
-    root: document.querySelector('body')[0],
-    rootMargin: '40px 0px 0px 0px'
-  };
-
-  var spAutoclaveSectionIntersectionObserverCallback = function spAutoclaveSectionIntersectionObserverCallback(entries) {
-    entries.forEach(function (item) {
-      var entry = item;
-
-      if (entry && entry.isIntersecting) {
-        var sectionIndex = item.target.dataset.section;
-        var sectionBtn = document.querySelector(".js-sp-autoclave-navigation-btn[data-section=\"".concat(sectionIndex, "\"]"));
-        sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
-      } else {
-        var _sectionIndex = item.target.dataset.section;
-
-        var _sectionBtn = document.querySelector(".js-sp-autoclave-navigation-btn[data-section=\"".concat(_sectionIndex, "\"]"));
-
-        _sectionBtn.classList.remove('sp-autoclave-navigation__btn_current');
-      }
-    });
-  };
-
-  var spAutoclaveSectionObserver = new IntersectionObserver(spAutoclaveSectionIntersectionObserverCallback, spAutoclaveSectionIntersectionObserverOptions);
-  spAutoclaveSection.forEach(function (item) {
-    spAutoclaveSectionObserver.observe(item);
-  });
 }
 
 function handleSpAutoclaveScroll() {
@@ -8578,6 +8549,7 @@ function handleSpAutoclaveScroll() {
   var windowScroll = window.pageYOffset;
   var windowHeight = window.outerHeight;
   if (windowScroll > windowHeight / 2) toTopBtn.classList.remove('hidden');else toTopBtn.classList.add('hidden');
+  spAutoclaveIndicateScrollSections();
 }
 
 function spAutoclaveScrollTop() {
@@ -8608,6 +8580,23 @@ function spAutoclaveScrollToSection(btn) {
     top: sectionTop - 40,
     left: 0,
     behavior: 'smooth'
+  });
+}
+
+function spAutoclaveIndicateScrollSections() {
+  var spAutoclaveSection = _toConsumableArray(document.querySelectorAll('.sp-autoclave-section'));
+
+  spAutoclaveSection.forEach(function (item) {
+    var sectionIndex = item.dataset.section;
+    var sectionBtn = document.querySelector(".js-sp-autoclave-navigation-btn[data-section=\"".concat(sectionIndex, "\"]"));
+
+    if (window.scrollY >= item.offsetTop - window.outerHeight / 2) {
+      var activeBtns = document.querySelectorAll('.sp-autoclave-navigation__btn_current');
+      if (activeBtns.length) activeBtns.forEach(function (btn) {
+        return btn.classList.remove('sp-autoclave-navigation__btn_current');
+      });
+      sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
+    }
   });
 }
 "use strict";
