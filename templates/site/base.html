@@ -84,7 +84,7 @@
                 <img src="{% static "site/images/svg/header-pattern.svg" %}{% static_version %}" alt="" class="header__pattern header__pattern_desktop">
 
                 {% get_weather as temp %}
-                <div class="header__weather-widget">{% if temp %}{{ temp }} C°{% endif %}</div>
+                <div class="header__weather-widget">{% if temp %}{{ temp }} °C{% endif %}</div>
 
                 <div class="header__nav-wrap js-mobile-menu">
                     <div class="header__nav-wrap_inner">
