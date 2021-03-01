@@ -1,12 +1,56 @@
-<svg width="108" height="109" viewBox="0 0 108 109" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M54 107.994C83.2711 107.994 107 84.2652 107 54.9941C107 25.723 83.2711 1.99414 54 1.99414C24.7289 1.99414 1 25.723 1 54.9941C1 84.2652 24.7289 107.994 54 107.994Z" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
-<path d="M18.9436 41.1113H48.6365" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
-<path d="M40.1542 32.6304C40.1542 30.9532 40.6515 29.3137 41.5833 27.9192C42.5151 26.5246 43.8395 25.4377 45.389 24.7959C46.9385 24.1541 48.6436 23.9861 50.2885 24.3133C51.9335 24.6405 53.4445 25.4482 54.6304 26.6341C55.8164 27.8201 56.624 29.3311 56.9512 30.976C57.2784 32.621 57.1105 34.326 56.4687 35.8755C55.8268 37.4251 54.7399 38.7495 53.3454 39.6813C51.9509 40.613 50.3114 41.1104 48.6342 41.1104" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
-<path d="M45.1204 51.0898H78.3165" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
-<path d="M67.5858 40.3606C67.5833 38.2349 68.2114 36.1562 69.3908 34.3877C70.5702 32.6192 72.2478 31.2403 74.2112 30.4256C76.1746 29.611 78.3356 29.3972 80.4205 29.8113C82.5055 30.2253 84.4208 31.2487 85.9239 32.7518C87.427 34.2549 88.4504 36.1702 88.8644 38.2551C89.2785 40.3401 89.0647 42.5011 88.25 44.4645C87.4354 46.4279 86.0565 48.1055 84.288 49.2849C82.5195 50.4642 80.4408 51.0924 78.3151 51.0899" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
-<path d="M18.9436 68.6973H54.2597" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
-<path d="M45.6885 77.2678C45.6885 78.9628 46.1911 80.6199 47.1329 82.0293C48.0746 83.4387 49.4131 84.5372 50.9792 85.1859C52.5452 85.8345 54.2685 86.0043 55.931 85.6736C57.5935 85.3429 59.1206 84.5266 60.3192 83.328C61.5178 82.1294 62.3341 80.6023 62.6648 78.9398C62.9955 77.2773 62.8257 75.554 62.1771 73.988C61.5284 72.4219 60.4299 71.0834 59.0205 70.1417C57.6111 69.1999 55.954 68.6973 54.259 68.6973" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
-<path d="M31.7139 59.5176H70.8046C72.0217 59.5176 73.1889 60.0012 74.0495 60.8619C74.9101 61.7227 75.3936 62.8901 75.3936 64.1074C75.3936 65.3247 74.9101 66.4922 74.0495 67.3529C73.1889 68.2137 72.0217 68.6973 70.8046 68.6973" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
-<path d="M18.9436 51.0898H40.7124" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
-<path d="M18.9436 59.5176H28.8973" stroke="#0073FF" stroke-width="2" stroke-miterlimit="10"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 108 108" style="enable-background:new 0 0 108 108;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);stroke:#0073FF;stroke-width:2;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#0073FF;stroke-width:2;stroke-miterlimit:10;}
+	.st2{fill:url(#SVGID_2_);stroke:#0073FF;stroke-width:2;stroke-miterlimit:10;}
+	.st3{fill:url(#SVGID_3_);stroke:#0073FF;stroke-width:2;stroke-miterlimit:10;}
+	.st4{fill:url(#SVGID_4_);stroke:#0073FF;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<g>
+	<g>
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="54" y1="3.6179" x2="54" y2="124.7579">
+			<stop  offset="9.949999e-15" style="stop-color:#F0F7FF"/>
+			<stop  offset="1" style="stop-color:#CCE3FF"/>
+		</linearGradient>
+		<circle class="st0" cx="54" cy="54" r="53"/>
+		<g>
+			<g>
+				<line class="st1" x1="15.3" y1="38.7" x2="45.6" y2="38.7"/>
+				<path class="st1" d="M37.2,30.3c0-4.6,3.8-8.4,8.4-8.4s8.4,3.8,8.4,8.4s-3.8,8.4-8.4,8.4"/>
+			</g>
+			<g>
+				<line class="st1" x1="49.9" y1="49.7" x2="77" y2="49.7"/>
+				<path class="st1" d="M63.7,36.4c0-7.3,5.9-13.2,13.2-13.2c7.3,0,13.2,5.9,13.2,13.2S84.3,49.7,77,49.7"/>
+			</g>
+			<g>
+				<line class="st1" x1="15.3" y1="69.1" x2="54.3" y2="69.1"/>
+				<path class="st1" d="M44.8,78.6c0,5.2,4.2,9.5,9.5,9.5s9.5-4.2,9.5-9.5c0-5.2-4.2-9.5-9.5-9.5"/>
+			</g>
+			<path class="st1" d="M29.4,59h43.2"/>
+			<line class="st1" x1="15.3" y1="49.7" x2="30.2" y2="49.7"/>
+			<line class="st1" x1="15.3" y1="59" x2="26.3" y2="59"/>
+		</g>
+	</g>
+	<radialGradient id="SVGID_2_" cx="76.4488" cy="33.6762" r="12.1713" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#E5F1FF"/>
+		<stop  offset="0.2634" style="stop-color:#B2D5FF"/>
+		<stop  offset="1" style="stop-color:#0073FF"/>
+	</radialGradient>
+	<circle class="st2" cx="77.3" cy="36.4" r="6.8"/>
+	<radialGradient id="SVGID_3_" cx="38.7595" cy="46.8092" r="8.3145" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#E5F1FF"/>
+		<stop  offset="0.2634" style="stop-color:#B2D5FF"/>
+		<stop  offset="1" style="stop-color:#0073FF"/>
+	</radialGradient>
+	<circle class="st3" cx="39.3" cy="48.7" r="4.6"/>
+	<radialGradient id="SVGID_4_" cx="71.693" cy="61.9337" r="8.9567" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#E5F1FF"/>
+		<stop  offset="0.2634" style="stop-color:#B2D5FF"/>
+		<stop  offset="1" style="stop-color:#0073FF"/>
+	</radialGradient>
+	<circle class="st4" cx="72.3" cy="64" r="5"/>
+</g>
 </svg>

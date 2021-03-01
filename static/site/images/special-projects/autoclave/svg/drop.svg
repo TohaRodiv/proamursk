@@ -1,1 +1,20 @@
-<svg width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M14.41 26.586c7.177 0 12.996-5.819 12.996-12.996C27.406 6.412 21.587.594 14.41.594 7.233.594 1.414 6.412 1.414 13.59c0 7.177 5.819 12.996 12.996 12.996z" stroke="#0073FF" stroke-miterlimit="10"/><path d="M14.41 5.516s5.536 5 5.536 9.428a5.536 5.536 0 11-11.072 0c0-4.429 5.536-9.428 5.536-9.428z" fill="#0073FF"/></g><defs><clipPath id="clip0"><path fill="#fff" transform="translate(.914 .094)" d="M0 0h26.992v26.992H0z"/></clipPath></defs></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" overflow="visible" xml:space="preserve">
+<g>
+	<circle fill="none" cx="13.5" cy="13.5" r="13.5"/>
+	<g>
+		<g>
+			<radialGradient id="SVGID_1_" cx="13.67407" cy="17.05876" r="11.25153" gradientUnits="userSpaceOnUse">
+				<stop  offset="0" style="stop-color:#CCE3FF"/>
+				<stop  offset="1" style="stop-color:#0073FF"/>
+			</radialGradient>
+			
+				<path fill="url(#SVGID_1_)" stroke="#0073FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M13.5,6.01751c0,0,5.53636,4.99952,5.53636,9.42861c0,3.05766-2.4787,5.53636-5.53636,5.53636s-5.53636-2.4787-5.53636-5.53636
+				C7.96364,11.01703,13.5,6.01751,13.5,6.01751z"/>
+		</g>
+	</g>
+</g>
+</svg>
