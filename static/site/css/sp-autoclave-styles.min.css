@@ -2235,6 +2235,9 @@ ul, ol {
     color: #0073FF;
     background-color: #FFFFFF; }
 
+.sp-autoclave-full-img {
+  width: 100%; }
+
 .sp-autoclave-header {
   position: relative; }
 
