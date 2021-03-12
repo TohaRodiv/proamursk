@@ -6602,7 +6602,7 @@ function ajaxInfinityLoader(url, templateName, page) {
 
       clearInterval(preloaderId);
 
-      if (responseObj.status == true) {
+      if (responseObj.status) {
         if (responseObj.data.last) {
           $('.btn_more').addClass('hidden');
         }
@@ -6623,8 +6623,8 @@ function ajaxInfinityLoader(url, templateName, page) {
           $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.articles);
         } else if (url === 'reviews') {
           $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.reviews);
-        } else if (url === 'special-projects') {
-          $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.specialProjects);
+        } else if (url === 'specials') {
+          $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.specials);
         } else if (url === 'search-result') {
           $('.js-infinity-loader-wrap .js-infinity-loader-grid').append(responseObj.templates.search_result);
         }
@@ -6703,8 +6703,8 @@ $('body').on('click', '.js-btn_more', function () {
       url = 'persons';
       templateName = 'articles';
     } else if ($(this).hasClass('js-more-special-projects')) {
-      url = 'special-projects';
-      templateName = 'special-projects';
+      url = 'specials';
+      templateName = 'specials';
     } else if ($(this).hasClass('js-more-news')) {
       url = 'news';
       templateName = 'news';
