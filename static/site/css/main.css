@@ -10572,6 +10572,9 @@ footer {
           transform: translateX(-50%);
   z-index: 2; }
 
+.sp-autoclave-header__slide {
+  width: 100%; }
+
 .sp-autoclave-wobbler {
   text-align: center; }
 
