@@ -6579,26 +6579,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 var spAutoclave = document.querySelector('.js-sp-autoclave');
 
 if (spAutoclave) {
-  handleSpAutoclaveScroll();
-  window.addEventListener('scroll', handleSpAutoclaveScroll);
-  var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
-  toTopBtn.addEventListener('click', spAutoclaveScrollTop);
-  var videoPlayBtn = document.querySelector('.js-sp-autoclave-video-play-btn');
-  var video = document.querySelector('.js-sp-autoclave-video');
-  videoPlayBtn.addEventListener('click', function () {
-    video.play();
-    playAutoclaveVideo(video, videoPlayBtn);
-  }); // video.addEventListener('click', (event) => {
-  //     event.preventDefault();
-  //     if (videoPlayBtn.hasAttribute('hidden')) pauseAutoclaveVideo(video, videoPlayBtn);
-  //     else playAutoclaveVideo(video, videoPlayBtn);
-  // });
+  var spAutoclaveSections = _toConsumableArray(document.querySelectorAll('.sp-autoclave-section'));
 
-  video.addEventListener('play', function (event) {
-    playAutoclaveVideo(video, videoPlayBtn);
-  });
-  video.addEventListener('pause', function (event) {
-    pauseAutoclaveVideo(video, videoPlayBtn);
+  handleSpAutoclaveScroll(spAutoclaveSections);
+  window.addEventListener('scroll', function () {
+    return handleSpAutoclaveScroll(spAutoclaveSections);
   });
 
   var spAutoclaveSectionNavigationBtns = _toConsumableArray(document.querySelectorAll('.js-sp-autoclave-navigation-btn'));
@@ -6608,43 +6593,21 @@ if (spAutoclave) {
       return spAutoclaveScrollToSection(btn);
     });
   });
-
-  var spAutoclaveSection = _toConsumableArray(document.querySelectorAll('.sp-autoclave-section'));
-
-  var spAutoclaveSectionIntersectionObserverOptions = {
-    root: document.querySelector('body')[0],
-    rootMargin: '40px 0px 0px 0px'
-  };
-
-  var spAutoclaveSectionIntersectionObserverCallback = function spAutoclaveSectionIntersectionObserverCallback(entries) {
-    entries.forEach(function (item) {
-      var entry = item;
-
-      if (entry && entry.isIntersecting) {
-        var sectionIndex = item.target.dataset.section;
-        var sectionBtn = document.querySelector(".js-sp-autoclave-navigation-btn[data-section=\"".concat(sectionIndex, "\"]"));
-        sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
-      } else {
-        var _sectionIndex = item.target.dataset.section;
-
-        var _sectionBtn = document.querySelector(".js-sp-autoclave-navigation-btn[data-section=\"".concat(_sectionIndex, "\"]"));
-
-        _sectionBtn.classList.remove('sp-autoclave-navigation__btn_current');
-      }
-    });
-  };
-
-  var spAutoclaveSectionObserver = new IntersectionObserver(spAutoclaveSectionIntersectionObserverCallback, spAutoclaveSectionIntersectionObserverOptions);
-  spAutoclaveSection.forEach(function (item) {
-    spAutoclaveSectionObserver.observe(item);
+  var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
+  toTopBtn.addEventListener('click', spAutoclaveScrollTop);
+  var videoPlayBtn = document.querySelector('.js-sp-autoclave-video-play-btn');
+  var video = document.querySelector('.js-sp-autoclave-video');
+  videoPlayBtn.addEventListener('click', function () {
+    playAutoclaveVideo(video, videoPlayBtn);
   });
 }
 
-function handleSpAutoclaveScroll() {
+function handleSpAutoclaveScroll(spAutoclaveSections) {
   var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
   var windowScroll = window.pageYOffset;
   var windowHeight = window.outerHeight;
   if (windowScroll > windowHeight / 2) toTopBtn.classList.remove('hidden');else toTopBtn.classList.add('hidden');
+  spAutoclaveIndicateScrollSections(spAutoclaveSections);
 }
 
 function spAutoclaveScrollTop() {
@@ -6658,13 +6621,9 @@ function spAutoclaveScrollTop() {
 }
 
 function playAutoclaveVideo(video, videoPlayBtn) {
+  video.play();
   video.setAttribute('controls', true);
   videoPlayBtn.hidden = true;
-}
-
-function pauseAutoclaveVideo(video, videoPlayBtn) {
-  video.removeAttribute('controls');
-  videoPlayBtn.hidden = false;
 }
 
 function spAutoclaveScrollToSection(btn) {
@@ -6675,5 +6634,21 @@ function spAutoclaveScrollToSection(btn) {
     top: sectionTop - 40,
     left: 0,
     behavior: 'smooth'
+  });
+}
+
+function spAutoclaveIndicateScrollSections(spAutoclaveSections) {
+  var st = window.pageYOffset || document.documentElement.scrollTop;
+  spAutoclaveSections.forEach(function (item) {
+    var sectionIndex = item.dataset.section;
+    var sectionBtn = document.querySelector(".js-sp-autoclave-navigation-btn[data-section=\"".concat(sectionIndex, "\"]"));
+
+    if (st >= item.offsetTop - window.outerHeight / 2) {
+      var activeBtns = document.querySelectorAll('.sp-autoclave-navigation__btn_current');
+      if (activeBtns.length) activeBtns.forEach(function (btn) {
+        return btn.classList.remove('sp-autoclave-navigation__btn_current');
+      });
+      sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
+    }
   });
 }
