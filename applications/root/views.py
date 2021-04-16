@@ -60,6 +60,7 @@ class IndexView(View):
     def get_last_materials(self, pined_material=None, compilation_items=None):
         events = Event.objects.filter(
             is_active=True,
+            publication_date__lte=datetime.now(),
             start_event_date__gte=datetime.now()
         ).order_by('-publication_date')
         if pined_material and pined_material.entity == 'event-announcements':
@@ -159,6 +160,7 @@ class IndexView(View):
         last_materials = self.get_last_materials(pined_material=pined_material, compilation_items=compilation_items)
         events = Event.objects.filter(
             is_active=True,
+            publication_date__lte=datetime.now(),
             start_event_date__gte=current_date
         ).order_by('-publication_date').exclude(
             id__in=[i.id for i in last_materials if i._meta.model_name == 'event']
@@ -1022,7 +1024,7 @@ class NewsSitemap(Sitemap):
 class EventsSitemap(Sitemap):
 
     def items(self):
-        return Event.objects.filter(is_active=True)
+        return Event.objects.filter(is_active=True, publication_date__lte=datetime.now())
 
     def lastmod(self, obj):
         return obj.edit_date
