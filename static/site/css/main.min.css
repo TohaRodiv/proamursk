@@ -10605,14 +10605,8 @@ footer {
 
 .sp-autoclave-to-top-btn {
   position: fixed;
-  bottom: 48px;
-  right: 48px;
   z-index: 2;
-  width: 48px;
-  height: 48px;
   padding-right: 2px;
-  font-size: 20px;
-  line-height: 44px;
   color: #FFFFFF;
   background-color: #0073FF;
   border-radius: 50%;
@@ -10620,6 +10614,22 @@ footer {
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
           transform: rotate(90deg); }
+  @media (min-width: 1024px) {
+    .sp-autoclave-to-top-btn {
+      bottom: 48px;
+      right: 48px;
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+      line-height: 44px; } }
+  @media (max-width: 1023px) {
+    .sp-autoclave-to-top-btn {
+      bottom: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+      line-height: 32px; } }
   .sp-autoclave-to-top-btn:hover, .sp-autoclave-to-top-btn:focus {
     color: #0073FF;
     background-color: #FFFFFF; }
@@ -10828,7 +10838,8 @@ footer {
       padding-top: 60px;
       padding-bottom: 40px;
       background-image: url(../images/special-projects/autoclave/svg/grid-bg-mobile.svg);
-      background-repeat: repeat; } }
+      background-repeat: repeat;
+      background-position: center; } }
   @media (min-width: 1024px) {
     .sp-autoclave-scheme__img {
       margin-left: auto;
@@ -10972,62 +10983,77 @@ footer {
     right: 140px;
     top: 50px; }
 
+@media (min-width: 1024px) {
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(1) {
+    left: 75px;
+    top: 30px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(2) {
+    left: 400px;
+    top: 30px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(3) {
+    top: 10px;
+    left: 820px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(4) {
+    left: 210px;
+    top: 370px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(5) {
+    left: 560px;
+    bottom: 520px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(6) {
+    left: 90px;
+    bottom: 240px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(7) {
+    left: 400px;
+    bottom: 210px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(8) {
+    left: 720px;
+    bottom: 190px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(1) .sp-autoclave-scheme__long-balloon {
+    width: 280px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(2) .sp-autoclave-scheme__long-balloon {
+    width: 270px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(3) .sp-autoclave-scheme__long-balloon {
+    width: 330px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(5) .sp-autoclave-scheme__long-balloon {
+    width: 410px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(6) .sp-autoclave-scheme__long-balloon {
+    width: 310px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(7) .sp-autoclave-scheme__long-balloon {
+    width: 170px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(8) .sp-autoclave-scheme__long-balloon {
+    width: 350px; } }
+
 @media (max-width: 1023px) {
-  .sp-autoclave-scheme-2 {
-    display: none; } }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(1) {
-  left: 75px;
-  top: 30px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(2) {
-  left: 400px;
-  top: 30px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(3) {
-  top: 10px;
-  left: 820px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(4) {
-  left: 210px;
-  top: 370px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(5) {
-  left: 560px;
-  bottom: 520px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(6) {
-  left: 90px;
-  bottom: 240px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(7) {
-  left: 400px;
-  bottom: 210px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(8) {
-  left: 720px;
-  bottom: 190px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(1) .sp-autoclave-scheme__long-balloon {
-  width: 280px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(2) .sp-autoclave-scheme__long-balloon {
-  width: 270px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(3) .sp-autoclave-scheme__long-balloon {
-  width: 330px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(5) .sp-autoclave-scheme__long-balloon {
-  width: 410px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(6) .sp-autoclave-scheme__long-balloon {
-  width: 310px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(7) .sp-autoclave-scheme__long-balloon {
-  width: 170px; }
-
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(8) .sp-autoclave-scheme__long-balloon {
-  width: 350px; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(1) {
+    left: 10%;
+    top: 16%; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(2) {
+    left: 60%;
+    top: 28%; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(3) {
+    top: 45%;
+    left: 25%; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(4) {
+    left: 8%;
+    top: 56%; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(5) {
+    left: 63%;
+    bottom: 38%; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(6) {
+    left: 60%;
+    bottom: 18%; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(7) {
+    left: 7%;
+    bottom: 7%; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element:nth-child(8) {
+    left: 70%;
+    bottom: 5%; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element .sp-autoclave-scheme__text-btn {
+    border-radius: 15px;
+    font-size: 14px;
+    font-family: "Proxima Nova Bold", Arial, Helvetica, sans-serif; }
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element .sp-autoclave-scheme__long-balloon {
+    display: none !important; } }
 
 @media (min-width: 1024px) {
   .sp-autoclave-characteristics-section {
@@ -11271,15 +11297,22 @@ footer {
   .sp-autoclave-water-cycle-scheme__step::before {
     content: "";
     display: block;
-    width: 26px;
-    height: 26px;
-    margin-top: 2px;
     margin-right: 15px;
     -ms-flex-negative: 0;
         flex-shrink: 0;
     background-image: url(../images/special-projects/autoclave/svg/drop.svg);
     background-size: cover;
     background-repeat: no-repeat; }
+    @media (min-width: 1024px) {
+      .sp-autoclave-water-cycle-scheme__step::before {
+        width: 26px;
+        height: 26px;
+        margin-top: 2px; } }
+    @media (max-width: 1023px) {
+      .sp-autoclave-water-cycle-scheme__step::before {
+        width: 48px;
+        height: 48px;
+        margin-left: -16px; } }
   .sp-autoclave-water-cycle-scheme__step:not(:last-child) {
     margin-bottom: 20px; }
 
