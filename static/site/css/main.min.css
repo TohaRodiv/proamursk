@@ -11823,7 +11823,7 @@ footer {
   overflow: auto hidden; }
   .sp-autoclave-pop-up-body-cover.visible {
     visibility: visible;
-    z-index: 100; }
+    z-index: 1000; }
 
 .sp-autoclave-pop-up-wrapper {
   display: block;
@@ -11910,5 +11910,32 @@ footer {
   width: 460px;
   margin-top: 60px;
   margin-bottom: 20px; }
+
+.header_mobile-fixed + .sp-page .sp-autoclave-progress-container {
+  top: 70px; }
+
+.sp-autoclave-progress-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 4px;
+  background-color: #FFFFFF;
+  -webkit-transition: top ease-in 0.3s;
+  -o-transition: top ease-in 0.3s;
+  transition: top ease-in 0.3s; }
+  @media (min-width: 1024px) {
+    .sp-autoclave-progress-container {
+      display: none; } }
+
+.sp-autoclave-progress-bar {
+  width: 0;
+  height: 4px;
+  background-color: #0073FF;
+  -webkit-transition: width linear 0.3s;
+  -o-transition: width linear 0.3s;
+  transition: width linear 0.3s; }
 
 /*# sourceMappingURL=main.min.css.map */

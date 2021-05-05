@@ -8518,6 +8518,9 @@ if (spAutoclave) {
   window.addEventListener('scroll', function () {
     return handleSpAutoclaveScroll(spAutoclaveSections);
   });
+  window.addEventListener('resize', function () {
+    return handleSpAutoclaveResize;
+  });
 
   var spAutoclaveSectionNavigationBtns = _toConsumableArray(document.querySelectorAll('.js-sp-autoclave-navigation-btn'));
 
@@ -8545,6 +8548,11 @@ function handleSpAutoclaveScroll(spAutoclaveSections) {
   var windowHeight = window.outerHeight;
   if (windowScroll > windowHeight / 2) toTopBtn.classList.remove('hidden');else toTopBtn.classList.add('hidden');
   spAutoclaveIndicateScrollSections(spAutoclaveSections);
+  spAutoclaveSetProgressBar();
+}
+
+function handleSpAutoclaveResize() {
+  spAutoclaveSetProgressBar();
 }
 
 function spAutoclaveScrollTop() {
@@ -8593,6 +8601,13 @@ function spAutoclaveIndicateScrollSections(spAutoclaveSections) {
 function spAutoclaveToggleMobileMenu() {
   var menu = document.querySelector('.js-sp-autoclave-mobile-menu');
   menu.classList.toggle('visible');
+}
+
+function spAutoclaveSetProgressBar() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var contentHeight = document.querySelector('.js-sp-autoclave').offsetHeight;
+  var scrolled = Math.round(winScroll / contentHeight * 100);
+  document.querySelector('.sp-autoclave-progress-bar').style.width = scrolled + "%";
 }
 "use strict";
 

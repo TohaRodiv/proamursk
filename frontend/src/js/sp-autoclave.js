@@ -4,6 +4,7 @@ if (spAutoclave) {
 
     handleSpAutoclaveScroll(spAutoclaveSections);
     window.addEventListener('scroll', () => handleSpAutoclaveScroll(spAutoclaveSections));
+    window.addEventListener('resize', () => handleSpAutoclaveResize);
 
     const spAutoclaveSectionNavigationBtns = [...document.querySelectorAll('.js-sp-autoclave-navigation-btn')];
     spAutoclaveSectionNavigationBtns.forEach(btn => {
@@ -33,6 +34,11 @@ function handleSpAutoclaveScroll(spAutoclaveSections) {
     if (windowScroll > windowHeight / 2) toTopBtn.classList.remove('hidden');
     else toTopBtn.classList.add('hidden');
     spAutoclaveIndicateScrollSections(spAutoclaveSections);
+    spAutoclaveSetProgressBar();
+}
+
+function handleSpAutoclaveResize() {
+    spAutoclaveSetProgressBar();
 }
 
 function spAutoclaveScrollTop() {
@@ -79,4 +85,11 @@ function spAutoclaveIndicateScrollSections(spAutoclaveSections) {
 function spAutoclaveToggleMobileMenu() {
     const menu = document.querySelector('.js-sp-autoclave-mobile-menu');
     menu.classList.toggle('visible');
+}
+
+function spAutoclaveSetProgressBar() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const contentHeight = document.querySelector('.js-sp-autoclave').offsetHeight;
+    const scrolled = Math.round((winScroll / contentHeight) * 100);
+    document.querySelector('.sp-autoclave-progress-bar').style.width = scrolled + "%";
 }
