@@ -8519,7 +8519,7 @@ if (spAutoclave) {
     return handleSpAutoclaveScroll(spAutoclaveSections);
   });
   window.addEventListener('resize', function () {
-    return handleSpAutoclaveResize;
+    return handleSpAutoclaveResize();
   });
 
   var spAutoclaveSectionNavigationBtns = _toConsumableArray(document.querySelectorAll('.js-sp-autoclave-navigation-btn'));
@@ -8553,6 +8553,10 @@ function handleSpAutoclaveScroll(spAutoclaveSections) {
 
 function handleSpAutoclaveResize() {
   spAutoclaveSetProgressBar();
+
+  if (window.innerWidth >= 1024) {
+    spAutoclaveHideMobileMenu();
+  }
 }
 
 function spAutoclaveScrollTop() {
@@ -8601,6 +8605,14 @@ function spAutoclaveIndicateScrollSections(spAutoclaveSections) {
 function spAutoclaveToggleMobileMenu() {
   var menu = document.querySelector('.js-sp-autoclave-mobile-menu');
   menu.classList.toggle('visible');
+}
+
+function spAutoclaveHideMobileMenu() {
+  var menu = document.querySelector('.js-sp-autoclave-mobile-menu');
+
+  if (menu.classList.contains('visible')) {
+    menu.classList.remove('visible');
+  }
 }
 
 function spAutoclaveSetProgressBar() {

@@ -4,7 +4,7 @@ if (spAutoclave) {
 
     handleSpAutoclaveScroll(spAutoclaveSections);
     window.addEventListener('scroll', () => handleSpAutoclaveScroll(spAutoclaveSections));
-    window.addEventListener('resize', () => handleSpAutoclaveResize);
+    window.addEventListener('resize', () => handleSpAutoclaveResize());
 
     const spAutoclaveSectionNavigationBtns = [...document.querySelectorAll('.js-sp-autoclave-navigation-btn')];
     spAutoclaveSectionNavigationBtns.forEach(btn => {
@@ -39,6 +39,9 @@ function handleSpAutoclaveScroll(spAutoclaveSections) {
 
 function handleSpAutoclaveResize() {
     spAutoclaveSetProgressBar();
+    if (window.innerWidth >= 1024) {
+        spAutoclaveHideMobileMenu();
+    }
 }
 
 function spAutoclaveScrollTop() {
@@ -85,6 +88,13 @@ function spAutoclaveIndicateScrollSections(spAutoclaveSections) {
 function spAutoclaveToggleMobileMenu() {
     const menu = document.querySelector('.js-sp-autoclave-mobile-menu');
     menu.classList.toggle('visible');
+}
+
+function spAutoclaveHideMobileMenu() {
+    const menu = document.querySelector('.js-sp-autoclave-mobile-menu');
+    if (menu.classList.contains('visible')) {
+        menu.classList.remove('visible');
+    }
 }
 
 function spAutoclaveSetProgressBar() {
