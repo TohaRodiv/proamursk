@@ -1248,19 +1248,17 @@
 
         &.visible
             display: flex
-            flex-direction: column
-            justify-content: center
-            align-items: center
             position: fixed
             top: 0
             z-index: 9999
             width: 100%
             height: 100%
-            padding: 40px
+            padding: 60px 40px
             background-color: $light-c
+            overflow: auto
 
         &__list
-            margin: 0
+            margin: auto 0
             padding: 0
 
         &__btn
@@ -1343,12 +1341,14 @@
         fill: currentColor
 
 .sp-autoclave-mobile-menu-close
-    width: 48px
-    height: 48px
-    font-size: 20px
     position: absolute
     top: 12px
     right: 12px
+    width: 48px
+    height: 48px
+    font-size: 20px
+
+
 
 .sp-autoclave-pop-up-body-cover
     display: block
