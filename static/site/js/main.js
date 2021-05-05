@@ -8533,6 +8533,10 @@ if (spAutoclave) {
   videoPlayBtn.addEventListener('click', function () {
     playAutoclaveVideo(video, videoPlayBtn);
   });
+  var spAutoclaveMobileMenuToggles = document.querySelectorAll('.js-sp-autoclave-mobile-menu-open');
+  spAutoclaveMobileMenuToggles.forEach(function (btn) {
+    btn.addEventListener('click', spAutoclaveToggleMobileMenu);
+  });
 }
 
 function handleSpAutoclaveScroll(spAutoclaveSections) {
@@ -8584,6 +8588,11 @@ function spAutoclaveIndicateScrollSections(spAutoclaveSections) {
       sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
     }
   });
+}
+
+function spAutoclaveToggleMobileMenu() {
+  var menu = document.querySelector('.js-sp-autoclave-mobile-menu');
+  menu.classList.toggle('visible');
 }
 "use strict";
 

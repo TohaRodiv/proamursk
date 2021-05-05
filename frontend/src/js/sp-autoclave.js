@@ -18,6 +18,11 @@ if (spAutoclave) {
     videoPlayBtn.addEventListener('click', () => {
         playAutoclaveVideo(video, videoPlayBtn);
     });
+
+    const spAutoclaveMobileMenuToggles = document.querySelectorAll('.js-sp-autoclave-mobile-menu-open');
+    spAutoclaveMobileMenuToggles.forEach(btn => {
+        btn.addEventListener('click', spAutoclaveToggleMobileMenu);
+    });
 }
 
 function handleSpAutoclaveScroll(spAutoclaveSections) {
@@ -69,4 +74,9 @@ function spAutoclaveIndicateScrollSections(spAutoclaveSections) {
             sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
         }
     });
+}
+
+function spAutoclaveToggleMobileMenu() {
+    const menu = document.querySelector('.js-sp-autoclave-mobile-menu');
+    menu.classList.toggle('visible');
 }

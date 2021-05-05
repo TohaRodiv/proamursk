@@ -180,6 +180,7 @@
     background-color: $base-c
     border-radius: 50%
     border: 2px solid $base-c
+    box-shadow: 0 4px 8px rgba(0, 115, 255, 0.24)
     transform: rotate(90deg)
 
     +media(d)
@@ -193,10 +194,10 @@
     +media(m)
         bottom: 16px
         right: 16px
-        width: 36px
-        height: 36px
+        width: 40px
+        height: 40px
         font-size: 16px
-        line-height: 32px
+        line-height: 36px
 
     &:hover,
     &:focus
@@ -1005,6 +1006,7 @@
             padding-top: 60px
             padding-bottom: 60px
             background-color: #FAFBFC
+            overflow: hidden
 
         &__title
             line-height: $mini-lh
@@ -1019,6 +1021,10 @@
                 margin-bottom: 20px
                 text-align: center
 
+        &__img-wrap
+            display: flex
+            justify-content: flex-end
+
         &__img
             +media(d)
                 position: relative
@@ -1028,6 +1034,11 @@
                     display: none !important
 
             +media(m)
+                width: auto
+                max-width: initial
+                height: 350px
+                margin-right: -16px
+
                 &_desktop
                     display: none !important
 
@@ -1065,11 +1076,17 @@
         left: 50%
         transform: translate(-50%, -50%)
         z-index: 1
-        width: 106px
-        height: 106px
         border-radius: 50%
         border: 1px solid $base-c
         background-color: rgba($light-c, .4)
+
+        +media(d)
+            width: 106px
+            height: 106px
+
+        +media(m)
+            width: 75px
+            height: 75px
 
         &:hover,
         &:focus
@@ -1077,8 +1094,6 @@
 
         &::before
             content: ""
-            width: 75px
-            height: 75px
             position: absolute
             top: 50%
             left: 50%
@@ -1086,6 +1101,14 @@
             z-index: 2
             border-radius: 50%
             background-color: $base-c
+
+            +media(d)
+                width: 75px
+                height: 75px
+
+            +media(m)
+                width: 55px
+                height: 55px
 
         &::after
             content: ""
@@ -1097,9 +1120,16 @@
             transform: translate(-50%, -50%)
             z-index: 3
             margin-left: 4px
-            border-top: 18px solid transparent
-            border-left: 32px solid $light-c
-            border-bottom: 18px solid transparent
+
+            +media(d)
+                border-top: 18px solid transparent
+                border-left: 32px solid $light-c
+                border-bottom: 18px solid transparent
+
+            +media(m)
+                border-top: 12px solid transparent
+                border-left: 20px solid $light-c
+                border-bottom: 12px solid transparent
 
     &share-widget-wrap
         +media(d)
@@ -1211,6 +1241,114 @@
                 border: 1px solid #CBD3DA
                 transform: scale(0)
                 transition: transform .2s ease-in-out
+
+
+    &mobile-menu
+        display: none
+
+        &.visible
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            position: fixed
+            top: 0
+            z-index: 9999
+            width: 100%
+            height: 100%
+            padding: 40px
+            background-color: $light-c
+
+        &__list
+            margin: 0
+            padding: 0
+
+        &__btn
+            display: flex
+            align-items: center
+            width: 100%
+            text-align: left
+
+        &__number
+            display: block
+            align-self: flex-start
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center
+            margin-right: 20px
+            width: 32px
+            height: 32px
+            flex-shrink: 0
+            font-size: 0
+
+        &__text
+            font-size: 18px
+            line-height: 1.5
+            text-decoration: underline
+
+        &__item
+            &:not(:last-child)
+                margin-bottom: 40px
+
+            &:nth-of-type(1) .sp-autoclave-mobile-menu__number
+                background-image: url(../images/special-projects/autoclave/svg/1-stroke.svg)
+
+            &:nth-of-type(2) .sp-autoclave-mobile-menu__number
+                background-image: url(../images/special-projects/autoclave/svg/2-stroke.svg)
+
+            &:nth-of-type(3) .sp-autoclave-mobile-menu__number
+                background-image: url(../images/special-projects/autoclave/svg/3-stroke.svg)
+
+            &:nth-of-type(4) .sp-autoclave-mobile-menu__number
+                background-image: url(../images/special-projects/autoclave/svg/4-stroke.svg)
+
+            &:nth-of-type(5) .sp-autoclave-mobile-menu__number
+                background-image: url(../images/special-projects/autoclave/svg/5-stroke.svg)
+
+            &:nth-of-type(6) .sp-autoclave-mobile-menu__number
+                background-image: url(../images/special-projects/autoclave/svg/6-stroke.svg)
+
+.sp-autoclave-mobile-menu-open-wrap
+    +media(d)
+        display: none
+
+    +media(m)
+        width: 0
+        height: 0
+        position: sticky
+        top: 0
+        z-index: 5
+        margin-left: auto
+        margin-right: 56px
+        transition: top ease-in $transition-time
+
+.header_mobile-fixed + .sp-page .sp-autoclave-mobile-menu-open-wrap
+    top: 70px
+
+.sp-autoclave-mobile-menu-open
+    +media(m)
+        display: block
+        margin-top: 16px
+        width: 40px
+        height: 40px
+        color: $light-c
+        line-height: 44px
+        background-color: $base-c
+        box-shadow: 0 4px 8px rgba(0, 115, 255, 0.24)
+        border-radius: 50%
+
+    &-icon
+        width: 16px
+        height: 16px
+        fill: currentColor
+
+.sp-autoclave-mobile-menu-close
+    width: 48px
+    height: 48px
+    font-size: 20px
+    position: absolute
+    top: 12px
+    right: 12px
 
 .sp-autoclave-pop-up-body-cover
     display: block

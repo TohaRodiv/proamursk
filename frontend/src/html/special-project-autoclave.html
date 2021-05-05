@@ -3,6 +3,14 @@
     "page": "special-projects"
 })
 <main class="sp-page js-sp-autoclave">
+    <div class="sp-autoclave-mobile-menu-open-wrap">
+        <button class="sp-autoclave-mobile-menu-open js-sp-autoclave-mobile-menu-open">
+            <svg aria-hidden="true" class="sp-autoclave-mobile-menu-open-icon">
+                <use xlink:href="#icon-bullet-list"></use>
+            </svg>
+        </button>
+    </div>
+
     <div class="sp sp-autoclave">
         <div class="sp-autoclave-header sp-autoclave-gap_bottom_small">
             <h1 class="sp-autoclave-header__title">Амурское золото:<span>технологично и&nbsp;эко&#8209;логично</span></h1>
@@ -874,12 +882,14 @@
             <div class="js-fade sp-autoclave-map-section">
                 <div class="container">
                     <h3 class="sp-autoclave-map-section__title">Поставки концентрата на&nbsp;АГМК с&nbsp;месторождений &laquo;Полиметалла&raquo;</h3>
-                    <img src="" alt=""
-                         data-src="images/special-projects/autoclave/map.svg"
-                         class="sp-autoclave-map-section__img sp-autoclave-map-section__img_desktop lazyload">
-                    <img src="" alt=""
-                         data-src="images/special-projects/autoclave/map-mobile.svg"
-                         class="sp-autoclave-map-section__img sp-autoclave-map-section__img_mobile lazyload">
+                    <div class="sp-autoclave-map-section__img-wrap">
+                        <img src="" alt=""
+                             data-src="images/special-projects/autoclave/map.svg"
+                             class="sp-autoclave-map-section__img sp-autoclave-map-section__img_desktop lazyload">
+                        <img src="" alt=""
+                             data-src="images/special-projects/autoclave/map-mobile.svg"
+                             class="sp-autoclave-map-section__img sp-autoclave-map-section__img_mobile lazyload">
+                    </div>
                 </div>
             </div>
 
@@ -1079,6 +1089,7 @@
     </div>
 
     <button class="sp-autoclave-to-top-btn icon-arrow-left js-sp-autoclave-to-top-btn hidden"></button>
+
 </main>
 
 <div class="body-cover sp-autoclave-pop-up-body-cover">
@@ -1112,6 +1123,49 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="sp-autoclave-mobile-menu js-sp-autoclave-mobile-menu">
+    <button class="sp-autoclave-mobile-menu-close pop-up__close icon-close-thin js-sp-autoclave-mobile-menu-open"></button>
+
+    <ol class="sp-autoclave-mobile-menu__list">
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="1">
+                <span class="sp-autoclave-mobile-menu__number">1</span>
+                <span class="sp-autoclave-mobile-menu__text">Зачем развивают новые технологии добычи золота?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="2">
+                <span class="sp-autoclave-mobile-menu__number">2</span>
+                <span class="sp-autoclave-mobile-menu__text">Что внутри у автоклава?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="3">
+                <span class="sp-autoclave-mobile-menu__number">3</span>
+                <span class="sp-autoclave-mobile-menu__text">Как получают золото?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="4">
+                <span class="sp-autoclave-mobile-menu__number">4</span>
+                <span class="sp-autoclave-mobile-menu__text">Куда утекает вода?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="5">
+                <span class="sp-autoclave-mobile-menu__number">5</span>
+                <span class="sp-autoclave-mobile-menu__text">Влияют ли отходы на экологию?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="6">
+                <span class="sp-autoclave-mobile-menu__number">6</span>
+                <span class="sp-autoclave-mobile-menu__text">Какая региону выгода от расширения производства?</span>
+            </button>
+        </li>
+    </ol>
 </div>
 
 @@include("page-block/read-also.html")
