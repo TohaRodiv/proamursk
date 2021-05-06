@@ -208,23 +208,29 @@
         margin-top: 20px
 
     &__caption
-        margin-right: 24px
         line-height: $mini-lh
         letter-spacing: 0.08em
         color: $base-dark-c
-        max-width: calc(100% - 140px)
 
         +media(m)
-            font-size: 14px
+            flex-grow: 1
+            font-size: 15px
 
         +media(d)
-            font-size: 15px
+            max-width: calc(100% - 140px)
+            font-size: 14px
 
     &__navigation-wrap
         display: flex
         align-items: center
         margin-left: auto
         flex-shrink: 0
+
+        +media(m)
+            margin-left: 12px
+
+        +media(d)
+            margin-left: 24px
 
     &__navigation
         flex-shrink: 0
