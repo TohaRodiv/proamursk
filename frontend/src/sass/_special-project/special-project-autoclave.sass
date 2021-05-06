@@ -564,6 +564,11 @@
             right: 140px
             top: 50px
 
+
+    &scheme-2__container
+        +media(m)
+            min-height: 1100px
+
     &scheme-2 .sp-autoclave-scheme__element
         +media(d)
             &:nth-child(1)
@@ -611,11 +616,11 @@
                 left: 10%
                 top: 16%
             &:nth-child(2)
-                left: 60%
+                left: 58%
                 top: 28%
             &:nth-child(3)
                 top: 45%
-                left: 25%
+                left: 24%
             &:nth-child(4)
                 left: 8%
                 top: 56%
@@ -636,8 +641,10 @@
                 border-radius: 15px
                 font-size: 14px
                 font-family: $bold-f
+                box-shadow: 0 4px 8px rgba(0, 115, 255, 0.24)
 
-            .sp-autoclave-scheme__long-balloon
+
+        .sp-autoclave-scheme__long-balloon
                 display: none !important
 
     &characteristics-section
@@ -1350,7 +1357,6 @@
     font-size: 20px
 
 
-
 .sp-autoclave-pop-up-body-cover
     display: block
     min-width: 100%
@@ -1497,3 +1503,32 @@
     height: 4px
     background-color: $base-c
     transition: width linear $transition-time
+
+
+.sp-autoclave-mobile-hint
+    visibility: hidden
+    position: fixed
+    left: 0
+    bottom: -340px
+    z-index: -1
+    width: 100%
+    padding: 60px 16px 20px
+    background-color: $light-c
+    box-shadow: 0px -6px 16px rgba(0, 115, 255, 0.06)
+
+    &.visible
+        z-index: 9
+        bottom: 0
+        visibility: visible
+        transition: bottom cubic-bezier(0.1, 0.5, 0.5, 1) $transition-time
+
+    &__close
+        position: absolute
+        top: 16px
+        right: 16px
+
+    &__text
+        max-width: 560px
+        margin-left: auto
+        margin-right: auto
+

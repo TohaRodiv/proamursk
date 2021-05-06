@@ -8526,7 +8526,8 @@ if (spAutoclave) {
 
   spAutoclaveSectionNavigationBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      return spAutoclaveScrollToSection(btn);
+      spAutoclaveHideMobileMenu();
+      spAutoclaveScrollToSection(btn);
     });
   });
   var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
@@ -8539,6 +8540,19 @@ if (spAutoclave) {
   var spAutoclaveMobileMenuToggles = document.querySelectorAll('.js-sp-autoclave-mobile-menu-open');
   spAutoclaveMobileMenuToggles.forEach(function (btn) {
     btn.addEventListener('click', spAutoclaveToggleMobileMenu);
+  });
+  var spAutoclaveMobileHintBtns = document.querySelectorAll('.js-sp-autoclave-scheme-hint-btn');
+  spAutoclaveMobileHintBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      return spAutoclaveShowMobileHint(btn);
+    });
+  });
+  var spAutoclaveMobileHintClose = document.querySelector('.js-sp-autoclave-mobile-hint-close');
+  spAutoclaveMobileHintClose.addEventListener('click', spAutoclaveHideMobileHint);
+  $('body').click(function (event) {
+    if (!$(event.target).hasClass('js-sp-autoclave-scheme-hint-btn') && !$(event.target).hasClass('js-sp-autoclave-mobile-hint-close')) {
+      spAutoclaveHideMobileHint();
+    }
   });
 }
 
@@ -8556,6 +8570,7 @@ function handleSpAutoclaveResize() {
 
   if (window.innerWidth >= 1024) {
     spAutoclaveHideMobileMenu();
+    spAutoclaveHideMobileHint();
   }
 }
 
@@ -8620,6 +8635,33 @@ function spAutoclaveSetProgressBar() {
   var contentHeight = document.querySelector('.js-sp-autoclave').offsetHeight;
   var scrolled = Math.round(winScroll / contentHeight * 100);
   document.querySelector('.sp-autoclave-progress-bar').style.width = scrolled + "%";
+}
+
+function spAutoclaveShowMobileHint(btn) {
+  if (window.innerWidth < 1024 && !btn.classList.contains('active')) {
+    var currentActiveBtn = document.querySelector('.js-sp-autoclave-scheme-hint-btn.active');
+    if (currentActiveBtn) currentActiveBtn.classList.remove('active');
+    btn.classList.add('active');
+    var text = btn.nextElementSibling.innerText;
+    var hintTextWrap = document.querySelector('.js-sp-autoclave-mobile-hint-text');
+    var mobileHint = document.querySelector('.js-sp-autoclave-mobile-hint');
+    hintTextWrap.innerText = text;
+    mobileHint.classList.add('visible');
+  }
+}
+
+function spAutoclaveHideMobileHint() {
+  var transitionTime = 300;
+  var mobileHint = document.querySelector('.js-sp-autoclave-mobile-hint');
+
+  if (mobileHint.classList.contains('visible')) {
+    mobileHint.style.bottom = "-".concat(mobileHint.offsetHeight, "px");
+    setTimeout(function () {
+      document.querySelector('.js-sp-autoclave-scheme-hint-btn.active').classList.remove('active');
+      mobileHint.classList.remove('visible');
+      mobileHint.style.bottom = null;
+    }, transitionTime);
+  }
 }
 "use strict";
 
