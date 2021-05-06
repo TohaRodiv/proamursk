@@ -8537,7 +8537,7 @@ if (spAutoclave) {
   videoPlayBtn.addEventListener('click', function () {
     playAutoclaveVideo(video, videoPlayBtn);
   });
-  var spAutoclaveMobileMenuToggles = document.querySelectorAll('.js-sp-autoclave-mobile-menu-open');
+  var spAutoclaveMobileMenuToggles = document.querySelectorAll('.js-sp-autoclave-mobile-menu-toggle');
   spAutoclaveMobileMenuToggles.forEach(function (btn) {
     btn.addEventListener('click', spAutoclaveToggleMobileMenu);
   });

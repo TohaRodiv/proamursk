@@ -1,240 +1,264 @@
 {% load static static_version %}
 <main class="sp-page js-sp-autoclave">
-    <div class="sp-desktop">
-        <div class="sp sp-autoclave">
-            <div class="sp-autoclave-header sp-autoclave-gap_bottom_small">
-                <h1 class="sp-autoclave-header__title">Амурское золото:<span>технологично и&nbsp;эко-логично</span></h1>
+    <div class="sp-autoclave-progress-container">
+        <div class="sp-autoclave-progress-bar"></div>
+    </div>
 
-                <div class="sp-autoclave-header__slider">
-                     <img srcset="{% static "site/images/special-projects/autoclave/cover.jpg" %}{% static_version %},
-                                 {% static "site/images/special-projects/autoclave/cover-x2.jpg" %}{% static_version %} 2x"
-                          src="{% static "site/images/special-projects/autoclave/cover-x2.jpg" %}{% static_version %}"
-                          alt=""
-                          class="sp-autoclave-header__slide">
-                </div>
+    <div class="sp-autoclave-mobile-menu-open-wrap">
+        <button class="sp-autoclave-mobile-menu-open js-sp-autoclave-mobile-menu-toggle">
+            <svg aria-hidden="true" class="sp-autoclave-mobile-menu-open-icon">
+                <use xlink:href="#icon-bullet-list"></use>
+            </svg>
+        </button>
+    </div>
 
-                <img src="{% static "site/images/special-projects/autoclave/svg/scroll-icon.svg" %}{% static_version %}"
-                     alt=""
-                     class="sp-autoclave-header__scroll-icon"
-                >
+    <div class="sp sp-autoclave">
+        <div class="sp-autoclave-header sp-autoclave-gap_bottom_small">
+            <h1 class="sp-autoclave-header__title">Амурское золото:<span>технологично и&nbsp;эко-логично</span></h1>
+
+            <div class="sp-autoclave-header__slider">
+                 <img srcset="{% static "site/images/special-projects/autoclave/cover.jpg" %}{% static_version %},
+                             {% static "site/images/special-projects/autoclave/cover-x2.jpg" %}{% static_version %} 2x"
+                      src="{% static "site/images/special-projects/autoclave/cover-x2.jpg" %}{% static_version %}"
+                      alt=""
+                      class="sp-autoclave-header__slide">
             </div>
 
-            <section class="sp-autoclave-section" data-section="1">
-                <div class="container">
-                    <div class="js-fade">
-                        <div class="sp-autoclave-wobbler sp-autoclave-gap_bottom_medium">
-                            <div class="wobbler">
-                                <span class="wobbler__icon icon-star-sharp"></span>
-                                <div class="wobbler__text">Спецпроект</div>
-                            </div>
-                        </div>
+            <img src="{% static "site/images/special-projects/autoclave/svg/scroll-icon.svg" %}{% static_version %}"
+                 alt=""
+                 class="sp-autoclave-header__scroll-icon"
+            >
+        </div>
 
-                        <div class="sp-autoclave-big-text sp-autoclave-gap_bottom_big sp-autoclave-col-10">
-                            <p>В&nbsp;2023 году на&nbsp;Амурском ГМК планируют запустить вторую автоклавную линию. Летом 2020 года туда привезли автоклав&nbsp;&mdash; самый большой в&nbsp;мировой золотодобывающей промышленности. В&nbsp;чем особенность нового оборудования? Как обеспечивается экологическая безопасность? Как вообще устроено производство золота на&nbsp;комбинате? </p>
-                            <p>Ответы на&nbsp;все вопросы&nbsp;&mdash; в&nbsp;нашем спецпроекте.</p>
-                        </div>
-                    </div>
-
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
-                        <h2 class="sp-autoclave-section-title">Зачем развивают новые технологии добычи золота?</h2>
-
-                        <p class="sp-autoclave-big-text sp-autoclave-gap_bottom_small sp-autoclave-col-7">Мировые запасы золота постепенно истощаются. С&nbsp;каждым годом извлекать его из&nbsp;недр становится все сложнее. В&nbsp;Южной Африке, например, добычу ведут на&nbsp;глубине трех километров и&nbsp;хотят опускаться до&nbsp;пяти...</p>
-
-                        <div class="sp-autoclave-ore-section sp-autoclave-gap_bottom_small">
-                            <p class="sp-autoclave-ore-section__text">Россыпные месторождения близки к&nbsp;исчерпанию: сто лет назад на&nbsp;них добывали 90&nbsp;% золота, а&nbsp;сегодня только 5&nbsp;%. А&nbsp;на&nbsp;коренных месторождениях получить желтый металл намного сложнее. Вкрапления золота в&nbsp;горной породе могут быть настолько мелкими, что порой даже не&nbsp;видны глазу. К тому&nbsp;же есть разные формы присутствия золота в&nbsp;руде. Если оно спрятано внутри минералов, извлечь его непросто, поэтому такую руду называют упорной. А&nbsp;если руда еще и содержит в&nbsp;большом количестве активный углерод&nbsp;&mdash; дважды упорной.</p>
-                            <figure class="sp-autoclave-ore-section__img-wrap">
-                                <img srcset="{% static "site/images/special-projects/autoclave/ore.png" %}{% static_version %},
-                                 {% static "site/images/special-projects/autoclave/ore-x2.png" %}{% static_version %} 2x"
-                                     src="{% static "site/images/special-projects/autoclave/ore-x2.png" %}{% static_version %}"
-                                     alt=""
-                                     class="sp-autoclave-ore-section__img">
-                                <figcaption class="sp-autoclave-ore-section__caption">Упорная золотоносная руда</figcaption>
-                            </figure>
-                        </div>
-
-                        <div class="quote sp-autoclave-col-7">
-                            <p class="quote__text">Еще несколько десятков лет назад технологий обработки дважды упорных руд, реализованных в&nbsp;промышленных масштабах, было не&nbsp;найти. Сегодня идет их&nbsp;активное внедрение.</p>
+        <section class="sp-autoclave-section" data-section="1">
+            <div class="container">
+                <div class="js-fade">
+                    <div class="sp-autoclave-wobbler sp-autoclave-gap_bottom_medium">
+                        <div class="wobbler">
+                            <span class="wobbler__icon icon-star-sharp"></span>
+                            <div class="wobbler__text">Спецпроект</div>
                         </div>
                     </div>
 
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <img data-srcset="{% static "site/images/special-projects/autoclave/slider-1-1.jpg" %}{% static_version %},
-                                {% static "site/images/special-projects/autoclave/slider-1-1-x2.jpg" %}{% static_version %} 2x"
-                             data-src="{% static "site/images/special-projects/autoclave/slider-1-1-x2.jpg" %}{% static_version %}"
-                             data-lazy="{% static "site/images/special-projects/autoclave/slider-1-1-x2.jpg" %}{% static_version %}"
-                             alt=""
-                             class="lazyload">
-
-                        <div class="post-editor-slider-block__footer">
-                            <div class="post-editor-slider-block__caption">Мельчайшие вкрапления золота в упорной руде</div>
-                        </div>
+                    <div class="sp-autoclave-big-text sp-autoclave-gap_bottom_big sp-autoclave-col-10">
+                        <p>В&nbsp;2023 году на&nbsp;Амурском ГМК планируют запустить вторую автоклавную линию. Летом 2020 года туда привезли автоклав&nbsp;&mdash; самый большой в&nbsp;мировой золотодобывающей промышленности. В&nbsp;чем особенность нового оборудования? Как обеспечивается экологическая безопасность? Как вообще устроено производство золота на&nbsp;комбинате? </p>
+                        <p>Ответы на&nbsp;все вопросы&nbsp;&mdash; в&nbsp;нашем спецпроекте.</p>
                     </div>
+                </div>
 
-                    <div class="js-fade sp-autoclave-gap_bottom_medium">
-                        <h3 class="sp-autoclave-h3 sp-autoclave-col-10 sp-autoclave-gap_bottom_small">Технологии извлечения золота из&nbsp;упорных и&nbsp;дважды упорных руд</h3>
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
+                    <h2 class="sp-autoclave-section-title">Зачем развивают новые технологии добычи золота?</h2>
 
-                        <ol class="sp-autoclave-methods">
-                            <li class="sp-autoclave-method">
-                                <img src="{% static "site/images/special-projects/autoclave/svg/1-fill.svg" %}{% static_version %}"
-                                     alt="1 способ"
-                                     class="sp-autoclave-method__number">
-                                <h4 class="sp-autoclave-method__title">Обжиг руды <br>в&nbsp;печах</h4>
-                                <p class="sp-autoclave-method__text">Он&nbsp;сопряжен с&nbsp;большой нагрузкой на&nbsp;экологию: в&nbsp;газообразную форму переходят оксиды серы и&nbsp;мышьяка.</p>
-                            </li>
-                            <li class="sp-autoclave-method">
-                                <img src="{% static "site/images/special-projects/autoclave/svg/2-fill.svg" %}{% static_version %}"
-                                     alt="2 способ"
-                                     class="sp-autoclave-method__number">
-                                <h4 class="sp-autoclave-method__title">Биоокисление <br>с&nbsp;использованием бактерий </h4>
-                                <p class="sp-autoclave-method__text">Он&nbsp;довольно трудоемкий: нужно длительное время &laquo;воспитывать&raquo; поколения бактерий, которые могут переработать руду с&nbsp;конкретным минеральным составом. Однако при изменении состава сырья&nbsp;&mdash; например, при наличии примесей&nbsp;&mdash; они могут оказаться бесполезными.</p>
-                            </li>
-                            <li class="sp-autoclave-method">
-                                <img src="{% static "site/images/special-projects/autoclave/svg/3-fill.svg" %}{% static_version %}"
-                                     alt="3 способ"
-                                     class="sp-autoclave-method__number">
-                                <h4 class="sp-autoclave-method__title">Автоклавное <br>окисление</h4>
-                                <p class="sp-autoclave-method__text">Наиболее экологичный и&nbsp;эффективный способ добычи золота. Именно его взяли на&nbsp;вооружение в&nbsp;компании &laquo;Полиметалл&raquo;. Под высоким давлением и&nbsp;при температуре свыше 200 градусов в&nbsp;автоклаве запускаются сложные химические процессы, которые позволяют с&nbsp;максимальной эффективностью извлекать золото даже из&nbsp;руд двойной упорности. Экологически это самая чистая технология.</p>
-                            </li>
-                        </ol>
-                    </div>
+                    <p class="sp-autoclave-big-text sp-autoclave-gap_bottom_small sp-autoclave-col-7">Мировые запасы золота постепенно истощаются. С&nbsp;каждым годом извлекать его из&nbsp;недр становится все сложнее. В&nbsp;Южной Африке, например, добычу ведут на&nbsp;глубине трех километров и&nbsp;хотят опускаться до&nbsp;пяти...</p>
 
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <p class="sp-autoclave-col-10 sp-autoclave-gap_bottom_medium">В&nbsp;2012 году в&nbsp;Амурске появился первый в&nbsp;России комплекс автоклавного окисления золота. АГМК первым в&nbsp;нашей стране начал переработку упорных руд. А&nbsp;с&nbsp;вводом в&nbsp;2023 году второй линии он станет первым предприятием в&nbsp;СНГ, способным перерабатывать дважды упорные руды.</p>
-
-                        <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
-                            <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-2-1.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-2-1-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-2-1-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-2-1-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="На пути из Бельгии в Амурск новый автоклав АГМК преодолел свыше 25 000 километров"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-2-2.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-2-2-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-2-2-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-2-2-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="От временного причала у стадиона «Юность» автоклав автопоездом провезли через город к месту установки."
-                                     class="post-editor-slider-block__slide lazyload">
-                            </div>
-
-                            <div class="post-editor-slider-block__footer">
-                                <div class="post-editor-slider-block__caption">На пути из Бельгии в Амурск новый автоклав АГМК преодолел свыше 25 000 километров</div>
-                                <div class="post-editor-slider-block__navigation-wrap hidden">
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
-                                    <div class="post-editor-slider-block__navigation slide-nav-counter active">
-                                        <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
-                                    </div>
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big sp-autoclave-gold-section">
-                        <div class="quote sp-autoclave-col-7 sp-autoclave-gap_bottom_small">
-                            <p class="quote__text">Технология, которую планируют использовать на&nbsp;второй линии, признана уникальной. Подход к&nbsp;извлечению золота из&nbsp;концентратов двойной упорности запатентован &laquo;Полиметаллом&raquo; в&nbsp;восьми странах. Весной 2020 года компания получила патент Евразийского патентного ведомства.</p>
-                        </div>
-                        <p class="sp-autoclave-col-7">Новый автоклав АГМК рассчитан не&nbsp;только на&nbsp;вскрытие (окисление) упорной руды, но&nbsp;и&nbsp;на&nbsp;удаление углерода для преодоления второй упорности. Он&nbsp;и&nbsp;самый большой в&nbsp;мировой золотодобывающей промышленности, и&nbsp;максимально эффективный&nbsp;&mdash; позволяет добиться высокой степени извлечения золота.</p>
-
-                        <figure class="sp-autoclave-gold-section__img-wrap">
-                            <img srcset="{% static "site/images/special-projects/autoclave/gold.jpg" %}{% static_version %},
-                             {% static "site/images/special-projects/autoclave/gold-x2.jpg" %}{% static_version %} 2x"
-                                 src="{% static "site/images/special-projects/autoclave/gold-x2.jpg" %}{% static_version %}"
+                    <div class="sp-autoclave-ore-section sp-autoclave-gap_bottom_small">
+                        <p class="sp-autoclave-ore-section__text">Россыпные месторождения близки к&nbsp;исчерпанию: сто лет назад на&nbsp;них добывали 90&nbsp;% золота, а&nbsp;сегодня только 5&nbsp;%. А&nbsp;на&nbsp;коренных месторождениях получить желтый металл намного сложнее. Вкрапления золота в&nbsp;горной породе могут быть настолько мелкими, что порой даже не&nbsp;видны глазу. К тому&nbsp;же есть разные формы присутствия золота в&nbsp;руде. Если оно спрятано внутри минералов, извлечь его непросто, поэтому такую руду называют упорной. А&nbsp;если руда еще и содержит в&nbsp;большом количестве активный углерод&nbsp;&mdash; дважды упорной.</p>
+                        <figure class="sp-autoclave-ore-section__img-wrap">
+                            <img srcset="{% static "site/images/special-projects/autoclave/ore.png" %}{% static_version %},
+                             {% static "site/images/special-projects/autoclave/ore-x2.png" %}{% static_version %} 2x"
+                                 src="{% static "site/images/special-projects/autoclave/ore-x2.png" %}{% static_version %}"
                                  alt=""
-                                 class="sp-autoclave-gold-section__img">
-                            <figcaption class="sp-autoclave-gold-section__caption">
-                                <span class="sp-autoclave-gold-section__percent-text">94–96 % золота</span>
-                                <span class="sp-autoclave-gold-section__percent-description">может извлечь новый автоклав из&nbsp;упорной и&nbsp;дважды упорной руды</span>
-                            </figcaption>
+                                 class="sp-autoclave-ore-section__img">
+                            <figcaption class="sp-autoclave-ore-section__caption">Упорная золотоносная руда</figcaption>
                         </figure>
+                    </div>
+
+                    <div class="quote sp-autoclave-col-7">
+                        <p class="quote__text">Еще несколько десятков лет назад технологий обработки дважды упорных руд, реализованных в&nbsp;промышленных масштабах, было не&nbsp;найти. Сегодня идет их&nbsp;активное внедрение.</p>
                     </div>
                 </div>
 
                 <div class="js-fade sp-autoclave-gap_bottom_big">
-                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-3-1.jpg" %}{% static_version %},
-                            {% static "site/images/special-projects/autoclave/slider-3-1-x2.jpg" %}{% static_version %} 2x"
-                         data-src="{% static "site/images/special-projects/autoclave/slider-3-1-x2.jpg" %}{% static_version %}"
-                         data-lazy="{% static "site/images/special-projects/autoclave/slider-3-1-x2.jpg" %}{% static_version %}"
+                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-1-1.jpg" %}{% static_version %},
+                            {% static "site/images/special-projects/autoclave/slider-1-1-x2.jpg" %}{% static_version %} 2x"
+                         data-src="{% static "site/images/special-projects/autoclave/slider-1-1-x2.jpg" %}{% static_version %}"
+                         data-lazy="{% static "site/images/special-projects/autoclave/slider-1-1-x2.jpg" %}{% static_version %}"
                          alt=""
-                         class="sp-autoclave-full-img lazyload">
-                </div>
-            </section>
+                         class="lazyload">
 
-            <section class="sp-autoclave-section" data-section="2">
-                <div class="container">
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_medium">
-                        <h2 class="sp-autoclave-section-title">Что внутри у автоклава?</h2>
-
-                        <p class="sp-autoclave-big-text sp-autoclave-gap_bottom_small sp-autoclave-col-7">По&nbsp;большому счету, автоклав&nbsp;&mdash; это стальной сосуд, покрытый изнутри кислотоупорной мембраной и&nbsp;футеровкой. А&nbsp;в&nbsp;новом автоклаве покрытие титановое.</p>
-
-                        <p class="sp-autoclave-col-7">В&nbsp;автоклав подают пульпу&nbsp;&mdash; смесь флотоконцентрата с&nbsp;горячей водой, а&nbsp;также кислород. В&nbsp;новом автоклаве под давлением при очень высокой температуре и&nbsp;постоянной подаче кислорода сульфиды выгорают за&nbsp;360&nbsp;минут. Золото, спрятанное в&nbsp;минералах, освобождается. После этого оно доступно для дальнейшего извлечения.</p>
+                    <div class="post-editor-slider-block__footer">
+                        <div class="post-editor-slider-block__caption">Мельчайшие вкрапления золота в упорной руде</div>
                     </div>
+                </div>
 
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <div class="sp-autoclave-scheme">
-                            <img src="" data-src="{% static "site/images/special-projects/autoclave/autoclave-scheme-1.svg" %}{% static_version %}"
-                                 class="sp-autoclave-scheme__img lazyload"
-                                 alt="">
+                <div class="js-fade sp-autoclave-gap_bottom_medium">
+                    <h3 class="sp-autoclave-h3 sp-autoclave-col-10 sp-autoclave-gap_bottom_small">Технологии извлечения золота из&nbsp;упорных и&nbsp;дважды упорных руд</h3>
 
-                            <div class="sp-autoclave-scheme-1">
-                                <div class="sp-autoclave-scheme__element">
-                                    <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_left">Вход пульпы</p>
-                                    <button class="sp-autoclave-scheme__btn">+</button>
+                    <ol class="sp-autoclave-methods">
+                        <li class="sp-autoclave-method">
+                            <img src="{% static "site/images/special-projects/autoclave/svg/1-fill.svg" %}{% static_version %}"
+                                 alt="1 способ"
+                                 class="sp-autoclave-method__number">
+                            <h4 class="sp-autoclave-method__title">Обжиг руды <br>в&nbsp;печах</h4>
+                            <p class="sp-autoclave-method__text">Он&nbsp;сопряжен с&nbsp;большой нагрузкой на&nbsp;экологию: в&nbsp;газообразную форму переходят оксиды серы и&nbsp;мышьяка.</p>
+                        </li>
+                        <li class="sp-autoclave-method">
+                            <img src="{% static "site/images/special-projects/autoclave/svg/2-fill.svg" %}{% static_version %}"
+                                 alt="2 способ"
+                                 class="sp-autoclave-method__number">
+                            <h4 class="sp-autoclave-method__title">Биоокисление <br>с&nbsp;использованием бактерий </h4>
+                            <p class="sp-autoclave-method__text">Он&nbsp;довольно трудоемкий: нужно длительное время &laquo;воспитывать&raquo; поколения бактерий, которые могут переработать руду с&nbsp;конкретным минеральным составом. Однако при изменении состава сырья&nbsp;&mdash; например, при наличии примесей&nbsp;&mdash; они могут оказаться бесполезными.</p>
+                        </li>
+                        <li class="sp-autoclave-method">
+                            <img src="{% static "site/images/special-projects/autoclave/svg/3-fill.svg" %}{% static_version %}"
+                                 alt="3 способ"
+                                 class="sp-autoclave-method__number">
+                            <h4 class="sp-autoclave-method__title">Автоклавное <br>окисление</h4>
+                            <p class="sp-autoclave-method__text">Наиболее экологичный и&nbsp;эффективный способ добычи золота. Именно его взяли на&nbsp;вооружение в&nbsp;компании &laquo;Полиметалл&raquo;. Под высоким давлением и&nbsp;при температуре свыше 200 градусов в&nbsp;автоклаве запускаются сложные химические процессы, которые позволяют с&nbsp;максимальной эффективностью извлекать золото даже из&nbsp;руд двойной упорности. Экологически это самая чистая технология.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="js-fade sp-autoclave-gap_bottom_big">
+                    <p class="sp-autoclave-col-10 sp-autoclave-gap_bottom_medium">В&nbsp;2012 году в&nbsp;Амурске появился первый в&nbsp;России комплекс автоклавного окисления золота. АГМК первым в&nbsp;нашей стране начал переработку упорных руд. А&nbsp;с&nbsp;вводом в&nbsp;2023 году второй линии он станет первым предприятием в&nbsp;СНГ, способным перерабатывать дважды упорные руды.</p>
+
+                    <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
+                        <div class="post-editor-slider-block__slider js-post-editor-slider">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-2-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-2-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-2-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-2-1-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="На пути из Бельгии в Амурск новый автоклав АГМК преодолел свыше 25 000 километров"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-2-2.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-2-2-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-2-2-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-2-2-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="От временного причала у стадиона «Юность» автоклав автопоездом провезли через город к месту установки."
+                                 class="post-editor-slider-block__slide lazyload">
+                        </div>
+
+                        <div class="post-editor-slider-block__footer">
+                            <div class="post-editor-slider-block__caption">На пути из Бельгии в Амурск новый автоклав АГМК преодолел свыше 25 000 километров</div>
+                            <div class="post-editor-slider-block__navigation-wrap hidden">
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
+                                <div class="post-editor-slider-block__navigation slide-nav-counter active">
+                                    <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
                                 </div>
-                                <div class="sp-autoclave-scheme__element">
-                                    <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_left">Кислород</p>
-                                    <button class="sp-autoclave-scheme__btn">+</button>
-                                </div>
-                                <div class="sp-autoclave-scheme__element">
-                                    <button class="sp-autoclave-scheme__btn">+</button>
-                                    <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_right">Перемешивающее <br> устройство</p>
-                                </div>
-                                <div class="sp-autoclave-scheme__element">
-                                    <button class="sp-autoclave-scheme__btn">+</button>
-                                    <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_right">Титановое покрытие</p>
-                                </div>
-                                <div class="sp-autoclave-scheme__element">
-                                    <button class="sp-autoclave-scheme__btn">+</button>
-                                    <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_right">Выход пульпы</p>
-                                </div>
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big post-editor__block_video">
-                        <div class="sp-autoclave-video-wrap">
-                            <button class="sp-autoclave-video-play-btn js-sp-autoclave-video-play-btn"></button>
-                            <video src="{% static "site/videos/sp-autoclave.mp4" %}{% static_version %}"
-                                   preload="auto"
-                                   poster="{% static "site/images/special-projects/autoclave/video-cover-x2.jpg" %}{% static_version %}"
-                                   class="js-sp-autoclave-video"
-                            >
-                            </video>
-                        </div>
-                        <div class="post-editor__block_caption">Механика работы автоклава</div>
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big sp-autoclave-gold-section">
+                    <div class="quote sp-autoclave-col-7 sp-autoclave-gap_bottom_small">
+                        <p class="quote__text">Технология, которую планируют использовать на&nbsp;второй линии, признана уникальной. Подход к&nbsp;извлечению золота из&nbsp;концентратов двойной упорности запатентован &laquo;Полиметаллом&raquo; в&nbsp;восьми странах. Весной 2020 года компания получила патент Евразийского патентного ведомства.</p>
                     </div>
+                    <p class="sp-autoclave-col-7">Новый автоклав АГМК рассчитан не&nbsp;только на&nbsp;вскрытие (окисление) упорной руды, но&nbsp;и&nbsp;на&nbsp;удаление углерода для преодоления второй упорности. Он&nbsp;и&nbsp;самый большой в&nbsp;мировой золотодобывающей промышленности, и&nbsp;максимально эффективный&nbsp;&mdash; позволяет добиться высокой степени извлечения золота.</p>
 
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <img data-srcset="{% static "site/images/special-projects/autoclave/slider-4-1.jpg" %}{% static_version %},
-                                {% static "site/images/special-projects/autoclave/slider-4-1-x2.jpg" %}{% static_version %} 2x"
-                             data-src="{% static "site/images/special-projects/autoclave/slider-4-1-x2.jpg" %}{% static_version %}"
-                             data-lazy="{% static "site/images/special-projects/autoclave/slider-4-1-x2.jpg" %}{% static_version %}"
+                    <figure class="sp-autoclave-gold-section__img-wrap">
+                        <img srcset="{% static "site/images/special-projects/autoclave/gold.jpg" %}{% static_version %},
+                         {% static "site/images/special-projects/autoclave/gold-x2.jpg" %}{% static_version %} 2x"
+                             src="{% static "site/images/special-projects/autoclave/gold-x2.jpg" %}{% static_version %}"
                              alt=""
-                             class="lazyload">
-                        <div class="post-editor-slider-block__footer">
-                            <div class="post-editor-slider-block__caption">Действующий автоклав на АГМК-1</div>
+                             class="sp-autoclave-gold-section__img">
+                        <figcaption class="sp-autoclave-gold-section__caption">
+                            <span class="sp-autoclave-gold-section__percent-text">94–96 % золота</span>
+                            <span class="sp-autoclave-gold-section__percent-description">может извлечь новый автоклав из&nbsp;упорной и&nbsp;дважды упорной руды</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="js-fade sp-autoclave-gap_bottom_big">
+                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-3-1.jpg" %}{% static_version %},
+                        {% static "site/images/special-projects/autoclave/slider-3-1-x2.jpg" %}{% static_version %} 2x"
+                     data-src="{% static "site/images/special-projects/autoclave/slider-3-1-x2.jpg" %}{% static_version %}"
+                     data-lazy="{% static "site/images/special-projects/autoclave/slider-3-1-x2.jpg" %}{% static_version %}"
+                     alt=""
+                     class="sp-autoclave-full-img lazyload">
+            </div>
+        </section>
+
+        <section class="sp-autoclave-section" data-section="2">
+            <div class="container">
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_medium">
+                    <h2 class="sp-autoclave-section-title">Что внутри у автоклава?</h2>
+
+                    <p class="sp-autoclave-big-text sp-autoclave-gap_bottom_small sp-autoclave-col-7">По&nbsp;большому счету, автоклав&nbsp;&mdash; это стальной сосуд, покрытый изнутри кислотоупорной мембраной и&nbsp;футеровкой. А&nbsp;в&nbsp;новом автоклаве покрытие титановое.</p>
+
+                    <img src="" data-src="{% static "site/images/special-projects/autoclave/autoclave-scheme-2.svg" %}{% static_version %}"
+                         class="sp-autoclave-characteristics-section__scheme sp-autoclave-characteristics-section__scheme_mobile lazyload"
+                         alt="">
+
+                    <p class="sp-autoclave-col-7">В&nbsp;автоклав подают пульпу&nbsp;&mdash; смесь флотоконцентрата с&nbsp;горячей водой, а&nbsp;также кислород. В&nbsp;новом автоклаве под давлением при очень высокой температуре и&nbsp;постоянной подаче кислорода сульфиды выгорают за&nbsp;360&nbsp;минут. Золото, спрятанное в&nbsp;минералах, освобождается. После этого оно доступно для дальнейшего извлечения.</p>
+                </div>
+
+                <div class="js-fade sp-autoclave-gap_bottom_big sp-autoclave-scheme-1-block_desktop">
+                    <div class="sp-autoclave-scheme">
+                        <img src="" data-src="{% static "site/images/special-projects/autoclave/autoclave-scheme-1.svg" %}{% static_version %}"
+                             class="sp-autoclave-scheme__img lazyload"
+                             alt="">
+
+                        <div class="sp-autoclave-scheme-1">
+                            <div class="sp-autoclave-scheme__element">
+                                <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_left">Вход пульпы</p>
+                                <button class="sp-autoclave-scheme__btn">+</button>
+                            </div>
+                            <div class="sp-autoclave-scheme__element">
+                                <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_left">Кислород</p>
+                                <button class="sp-autoclave-scheme__btn">+</button>
+                            </div>
+                            <div class="sp-autoclave-scheme__element">
+                                <button class="sp-autoclave-scheme__btn">+</button>
+                                <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_right">Перемешивающее <br> устройство</p>
+                            </div>
+                            <div class="sp-autoclave-scheme__element">
+                                <button class="sp-autoclave-scheme__btn">+</button>
+                                <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_right">Титановое покрытие</p>
+                            </div>
+                            <div class="sp-autoclave-scheme__element">
+                                <button class="sp-autoclave-scheme__btn">+</button>
+                                <p class="sp-autoclave-scheme__short-balloon sp-autoclave-scheme__short-balloon_right">Выход пульпы</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="js-fade sp-autoclave-characteristics-section">
-                    <div class="container">
-                        <img src="{% static "site/images/special-projects/autoclave/autoclave-scheme-2.svg" %}{% static_version %}"
-                             class="sp-autoclave-characteristics-section__scheme sp-autoclave-gap_bottom_medium"
-                             alt="">
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big post-editor__block_video">
+                    <div class="sp-autoclave-video-wrap">
+                        <button class="sp-autoclave-video-play-btn js-sp-autoclave-video-play-btn"></button>
+                        <video src="{% static "site/videos/sp-autoclave.mp4" %}{% static_version %}"
+                               preload="auto"
+                               poster="{% static "site/images/special-projects/autoclave/video-cover-x2.jpg" %}{% static_version %}"
+                               class="js-sp-autoclave-video"
+                        >
+                        </video>
+                    </div>
+                    <div class="post-editor__block_caption">Механика работы автоклава</div>
+                </div>
 
+                <div class="js-fade sp-autoclave-gap_bottom_big sp-autoclave-scheme-1-block_mobile">
+                    <div class="sp-autoclave-scheme">
+                        <img src="" data-src="{% static "site/images/special-projects/autoclave/autoclave-scheme-1-mobile.svg" %}{% static_version %}"
+                             class="sp-autoclave-scheme__img lazyload"
+                             alt="">
+                    </div>
+                </div>
+
+                <div class="js-fade sp-autoclave-gap_bottom_big">
+                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-4-1.jpg" %}{% static_version %},
+                            {% static "site/images/special-projects/autoclave/slider-4-1-x2.jpg" %}{% static_version %} 2x"
+                         data-src="{% static "site/images/special-projects/autoclave/slider-4-1-x2.jpg" %}{% static_version %}"
+                         data-lazy="{% static "site/images/special-projects/autoclave/slider-4-1-x2.jpg" %}{% static_version %}"
+                         alt=""
+                         class="lazyload">
+                    <div class="post-editor-slider-block__footer">
+                        <div class="post-editor-slider-block__caption">Действующий автоклав на АГМК-1</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-fade sp-autoclave-characteristics-section">
+                <div class="container">
+                    <img src="{% static "site/images/special-projects/autoclave/autoclave-scheme-2.svg" %}{% static_version %}"
+                         class="sp-autoclave-characteristics-section__scheme sp-autoclave-characteristics-section__scheme_desktop sp-autoclave-gap_bottom_medium"
+                         alt="">
+
+                    <div class="sp-autoclave-characteristics-section__table-wrap_desktop">
                         <div class="sp-autoclave-characteristics-section__table-wrap sp-autoclave-characteristics-section__table-wrap_first">
                             <h3 class="sp-autoclave-characteristics-section__table-title">Основные характеристики автоклава АГМК-1</h3>
                             <table class="sp-autoclave-characteristics-section__table">
@@ -274,302 +298,351 @@
                             </table>
                         </div>
                     </div>
+
+                    <div class="sp-autoclave-characteristics-section__table-wrap_mobile">
+                        <h3 class="sp-autoclave-characteristics-section__table-title">Основные характеристики автоклава АГМК-1 и АГМК-2</h3>
+
+                        <div class="sp-autoclave-characteristics-section__table-wrap">
+                            <table class="sp-autoclave-characteristics-section__table">
+                                <tr>
+                                    <th colspan="2">Вес</th>
+                                </tr>
+                                <tr>
+                                    <td><span>197</span> т</td>
+                                    <td><span>1100</span> т</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">Длина</th>
+                                </tr>
+                                <tr>
+                                    <td><span>25</span> м</td>
+                                    <td><span>50</span> м</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">Диаметр</th>
+                                </tr>
+                                <tr>
+                                    <td><span>3</span> м</td>
+                                    <td><span>6</span> м</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">Температура</th>
+                                </tr>
+                                <tr>
+                                    <td><span>210</span> °C</td>
+                                    <td><span>240</span> °C</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">Давление</th>
+                                </tr>
+                                <tr>
+                                    <td><span>21,7</span> бар</td>
+                                    <td><span>45</span> бар</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-fade sp-autoclave-gap_bottom_big">
+                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-5-1.jpg" %}{% static_version %},
+                        {% static "site/images/special-projects/autoclave/slider-5-1-x2.jpg" %}{% static_version %} 2x"
+                     data-src="{% static "site/images/special-projects/autoclave/slider-5-1-x2.jpg" %}{% static_version %}"
+                     data-lazy="{% static "site/images/special-projects/autoclave/slider-5-1-x2.jpg" %}{% static_version %}"
+                     alt=""
+                     class="sp-autoclave-full-img lazyload">
+            </div>
+        </section>
+
+        <section class="sp-autoclave-section" data-section="3">
+            <div class="container">
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
+                    <h2 class="sp-autoclave-section-title">Как получают золото?</h2>
+                    <p class="sp-autoclave-col-7">Автоклав&nbsp;&mdash; ключевое звено в&nbsp;производственной цепи, но&nbsp;далеко не&nbsp;единственное. Давайте рассмотрим все этапы этого процесса на&nbsp;примере действующего производства и&nbsp;увидим, как из&nbsp;концентрата с&nbsp;мелкими частицами золота получаются заветные тонны.</p>
                 </div>
 
                 <div class="js-fade sp-autoclave-gap_bottom_big">
-                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-5-1.jpg" %}{% static_version %},
-                            {% static "site/images/special-projects/autoclave/slider-5-1-x2.jpg" %}{% static_version %} 2x"
-                         data-src="{% static "site/images/special-projects/autoclave/slider-5-1-x2.jpg" %}{% static_version %}"
-                         data-lazy="{% static "site/images/special-projects/autoclave/slider-5-1-x2.jpg" %}{% static_version %}"
-                         alt=""
-                         class="sp-autoclave-full-img lazyload">
-                </div>
-            </section>
-
-            <section class="sp-autoclave-section" data-section="3">
-                <div class="container">
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
-                        <h2 class="sp-autoclave-section-title">Как получают золото?</h2>
-                        <p class="sp-autoclave-col-7">Автоклав&nbsp;&mdash; ключевое звено в&nbsp;производственной цепи, но&nbsp;далеко не&nbsp;единственное. Давайте рассмотрим все этапы этого процесса на&nbsp;примере действующего производства и&nbsp;увидим, как из&nbsp;концентрата с&nbsp;мелкими частицами золота получаются заветные тонны.</p>
-                    </div>
-
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
-                            <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-1.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-6-1-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-1-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-1-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Амурский ГМК оснащен оборудованием от&nbsp;ведущих мировых компаний, со&nbsp;сложнейшей автоматикой"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-2.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-6-2-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-2-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-2-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Начало производственной цепочки — образование пульпы. Смешанный с водой концентрат похож на грязь. <br> Золота еще не разглядеть, но оно там"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-3.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-6-3-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-3-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-3-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Отделение сорбции"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-4.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-6-4-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-4-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-4-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Отделение сорбции"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-5.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-6-5-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-5-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-5-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Самая эффектная часть производственного процесса — плавка"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-6.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-6-6-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-6-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-6-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Жаропрочные костюмы защищают металлургов от искр и брызг раскаленного металла при плавке. <br> Они выдерживают температуру до 400 градусов"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-7.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-6-7-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-6-7-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-6-7-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Это еще не золото, а так называемый сплав Доре. Дальше он отправится на аффинажный завод для очистки"
-                                     class="post-editor-slider-block__slide lazyload">
-                            </div>
-
-                            <div class="post-editor-slider-block__footer">
-                                <div class="post-editor-slider-block__caption">Амурский ГМК оснащен оборудованием от&nbsp;ведущих мировых компаний, со&nbsp;сложнейшей автоматикой</div>
-                                <div class="post-editor-slider-block__navigation-wrap hidden">
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
-                                    <div class="post-editor-slider-block__navigation slide-nav-counter active">
-                                        <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
-                                    </div>
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sp-autoclave-scheme sp-autoclave-scheme_with-bg js-fade">
-                    <div class="sp-autoclave-scheme-2__container container">
-                        <img src="" data-src="{% static "site/images/special-projects/autoclave/autoclave-scheme-3.svg" %}{% static_version %}"
-                             class="sp-autoclave-scheme__img lazyload"
-                             alt="">
-
-                        <div class="sp-autoclave-scheme-2">
-                            <div class="sp-autoclave-scheme__element">
-                                <button class="sp-autoclave-scheme__text-btn">Разгрузка сырья</button>
-                                <p class="sp-autoclave-scheme__long-balloon">На&nbsp;участке растаривания золотоносный концентрат из&nbsp;мешков выгружают в&nbsp;бункер над конвейером.</p>
-                            </div>
-                            <div class="sp-autoclave-scheme__element">
-                                <button class="sp-autoclave-scheme__text-btn">Измельчение</button>
-                                <p class="sp-autoclave-scheme__long-balloon">По&nbsp;конвейеру концентрат поступает в&nbsp;мельницу. С&nbsp;помощью металлических шаров его измельчают и&nbsp;смешивают с&nbsp;водой, чтобы получить пульпу.</p>
-                            </div>
-                            <div class="sp-autoclave-scheme__element">
-                                <button class="sp-autoclave-scheme__text-btn">Накопление и смешивание</button>
-                                <p class="sp-autoclave-scheme__long-balloon">Пульпу с&nbsp;разных месторождений накапливают в&nbsp;разных емкостях. Это важно, потому ее&nbsp;химический состав может отличаться. Затем ее&nbsp;смешивают в&nbsp;общем резервуаре.</p>
-                            </div>
-                            <div class="sp-autoclave-scheme__element">
-                                <div class="sp-autoclave-scheme__text-btn">Анализ</div>
-                            </div>
-                            <div class="sp-autoclave-scheme__element">
-                                <button class="sp-autoclave-scheme__text-btn">Окисление</button>
-                                <p class="sp-autoclave-scheme__long-balloon">Под высоким давлением и&nbsp;при температуре свыше 200 градусов под воздействием изотермической реакции золото извлекается из&nbsp;кристаллической решетки. На&nbsp;следующих этапах обработки его осаждают на&nbsp;электродах, сушат и&nbsp;направляют в&nbsp;виде порошка на&nbsp;плавку.</p>
-                            </div>
-                            <div class="sp-autoclave-scheme__element">
-                                <button class="sp-autoclave-scheme__text-btn">Электролиз</button>
-                                <p class="sp-autoclave-scheme__long-balloon">Насыщенный десорбирующий раствор несколько часов обрабатывают постоянным током. После осаждения на&nbsp;электродах образуется катодный осадок&nbsp;&mdash; золото переходит из&nbsp;жидкой стадии в&nbsp;твердую.</p>
-                            </div>
-                            <div class="sp-autoclave-scheme__element">
-                                <button class="sp-autoclave-scheme__text-btn">Плавка</button>
-                                <p class="sp-autoclave-scheme__long-balloon">Плавка длится 1–1,5 часа.</p>
-                            </div>
-                            <div class="sp-autoclave-scheme__element">
-                                <button class="sp-autoclave-scheme__text-btn">Приемка</button>
-                                <p class="sp-autoclave-scheme__long-balloon">С&nbsp;остывших слитков удаляют шлак. Их&nbsp;маркируют, взвешивают и&nbsp;кладут на&nbsp;ответственное хранение. Это еще не&nbsp;чистое золото, а&nbsp;так называемые слитки Доре, которые потом идут на&nbsp;аффинажные заводы.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="js-fade sp-autoclave-gap_bottom_big">
-                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-7-1.jpg" %}{% static_version %},
-                            {% static "site/images/special-projects/autoclave/slider-7-1-x2.jpg" %}{% static_version %} 2x"
-                         data-src="{% static "site/images/special-projects/autoclave/slider-7-1-x2.jpg" %}{% static_version %}"
-                         data-lazy="{% static "site/images/special-projects/autoclave/slider-7-1-x2.jpg" %}{% static_version %}"
-                         alt=""
-                         class="sp-autoclave-full-img lazyload">
-                </div>
-            </section>
-
-            <section class="sp-autoclave-section" data-section="4">
-                <div class="container">
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
-                        <h2 class="sp-autoclave-section-title">Куда утекает вода?</h2>
-
-                        <p class="sp-autoclave-big-text sp-autoclave-gap_bottom_small sp-autoclave-col-7">Вода&nbsp;&mdash; основной ресурс гидрометаллургии, потому что это один из&nbsp;самых универсальных растворителей в&nbsp;природе.</p>
-
-                        <p class="sp-autoclave-col-7">Амурский ГМК&nbsp;&mdash; одно из&nbsp;немногих предприятий в&nbsp;мире, на&nbsp;котором автоклавное производство организовано с&nbsp;замкнутым водооборотом и&nbsp;комплексом по&nbsp;очистке. Технология обратного осмоса обеспечивает высокую степень очистки и&nbsp;позволяет многократно запускать одну и&nbsp;ту&nbsp;же воду в&nbsp;производственный цикл. Но&nbsp;из-за потерь воды в&nbsp;технологическом процессе, ее&nbsp;нужно пополнять.</p>
-                    </div>
-                </div>
-
-                <div class="sp-autoclave-light-bg-section sp-autoclave-water-cycle-section">
-                    <h3 class="sp-autoclave-water-cycle-section__title sp-autoclave-h3 sp-autoclave-gap_bottom_medium">Для производства АГМК использует воду из трех источников:</h3>
-
-                    <div class="sp-autoclave-gap_bottom_medium">
-                        <ol class="sp-autoclave-water-cycle-section__factoids">
-                            <li class="sp-autoclave-icon-factoid sp-autoclave-icon-factoid_center">
-                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-1.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
-                                <p class="sp-autoclave-icon-factoid__text">из городских сетей</p>
-                            </li>
-                            <li class="sp-autoclave-icon-factoid sp-autoclave-icon-factoid_center">
-                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-2.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
-                                <p class="sp-autoclave-icon-factoid__text">из системы оборотного водоснабжения</p>
-                            </li>
-                            <li class="sp-autoclave-icon-factoid sp-autoclave-icon-factoid_center">
-                                <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-3.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
-                                <p class="sp-autoclave-icon-factoid__text">из природных источников (осадки)*</p>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="container sp-autoclave-water-cycle-scheme">
-                        <div class="sp-autoclave-water-cycle-scheme__part">
-                            <p class="sp-autoclave-water-cycle-scheme__step">Оборотная вода тщательно очищается, проходя через многоступенчатую систему очистки, в&nbsp;том числе через установку обратного осмоса. Под давлением жидкость проходит сквозь мембрану с&nbsp;малым размером отверстий. Через них способны проникнуть только молекулы воды, а&nbsp;все вредные примеси задерживаются на&nbsp;поверхности мембраны.</p>
-                            <p class="sp-autoclave-water-cycle-scheme__step">Чистая вода, прошедшая через мембрану, снова поступает в&nbsp;производство, где используется для приготовления пульпы из&nbsp;флотоконцентратов и&nbsp;охлаждения автоклава.</p>
-                            <p class="sp-autoclave-water-cycle-scheme__step">Высокое качество очистки оборотной воды позволяет избежать потерь золота при его производстве.</p>
-                        </div>
-                        <img data-src="{% static "site/images/special-projects/autoclave/water-cycle.svg" %}{% static_version %}"
-                             alt=""
-                             class="sp-autoclave-water-cycle-scheme__img lazyload">
-                        <div class="sp-autoclave-water-cycle-scheme__part">
-                            <p class="sp-autoclave-water-cycle-scheme__step">Для защиты ручья Медвежий построен водоотводной коллектор. Перед территорией АГМК ручей впадает в&nbsp;бетонный ковш, а&nbsp;из&nbsp;него&nbsp;&mdash; в&nbsp;железобетонный коллектор, проложенный под землей. Проходя под промплощадкой, ручей выходит в&nbsp;лес за&nbsp;пределами территории АГМК. Риск попадания в&nbsp;ручей стоков со&nbsp;склада кека полностью исключен.</p>
-                            <p class="sp-autoclave-water-cycle-scheme__step">Для защиты грунта по&nbsp;всему периметру склада кека, дренажных канав и&nbsp;прудов-накопителей проложена сверхпрочная водонепроницаемая пленка. Кек складируется только на&nbsp;подготовленные гидроизолированные участки земли.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <p class="sp-autoclave-water-cycle-section__note sp-autoclave-gap_bottom_big">*На&nbsp;промплощадке ведут сбор дождевых и&nbsp;талых вод. Их&nbsp;аккумулируют в&nbsp;прудах-накопителях, а&nbsp;после очистки запускают в&nbsp;производство.</p>
-                </div>
-
-                <div class="container">
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
-                            <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-8-2.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-8-2-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-8-2-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-8-2-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Фильтры обратного осмоса. Отверстия в них такие мелкие, что пропускают только молекулы воды, задерживая примеси"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-8-1.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-8-1-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-8-1-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-8-1-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Такая технология очистки позволяет многократно использовать в производстве одну и ту же воду"
-                                     class="post-editor-slider-block__slide lazyload">
-                            </div>
-
-                            <div class="post-editor-slider-block__footer">
-                                <div class="post-editor-slider-block__caption">Фильтры обратного осмоса. Отверстия в них такие мелкие, что пропускают только молекулы воды, задерживая примеси</div>
-                                <div class="post-editor-slider-block__navigation-wrap hidden">
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
-                                    <div class="post-editor-slider-block__navigation slide-nav-counter active">
-                                        <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
-                                    </div>
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
-                        <div class="quote sp-autoclave-gap_bottom_medium">
-                            <p class="quote__text">Доля оборотной воды на&nbsp;комбинате составляет свыше 70&nbsp;%, <br> а&nbsp;на&nbsp;ливневые стоки и&nbsp;свежую воду приходится менее 30&nbsp;%.</p>
+                    <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
+                        <div class="post-editor-slider-block__slider js-post-editor-slider">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-6-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-6-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-6-1-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Амурский ГМК оснащен оборудованием от&nbsp;ведущих мировых компаний, со&nbsp;сложнейшей автоматикой"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-2.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-6-2-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-6-2-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-6-2-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Начало производственной цепочки — образование пульпы. Смешанный с водой концентрат похож на грязь. <br> Золота еще не разглядеть, но оно там"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-3.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-6-3-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-6-3-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-6-3-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Отделение сорбции"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-4.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-6-4-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-6-4-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-6-4-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Отделение сорбции"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-5.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-6-5-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-6-5-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-6-5-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Самая эффектная часть производственного процесса — плавка"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-6.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-6-6-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-6-6-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-6-6-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Жаропрочные костюмы защищают металлургов от искр и брызг раскаленного металла при плавке. <br> Они выдерживают температуру до 400 градусов"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-6-7.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-6-7-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-6-7-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-6-7-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Это еще не золото, а так называемый сплав Доре. Дальше он отправится на аффинажный завод для очистки"
+                                 class="post-editor-slider-block__slide lazyload">
                         </div>
 
-                        <p class="sp-autoclave-col-6">Предприятию выгодно собирать на&nbsp;своей территории дождевые и&nbsp;талые стоки и&nbsp;использовать их&nbsp;для производства&nbsp;&mdash; благодаря этому АГМК покупает меньше воды у&nbsp;&laquo;Водоканала&raquo;.</p>
-                    </div>
-                </div>
-
-                <div class="js-fade sp-autoclave-gap_bottom_big">
-                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-9-1.jpg" %}{% static_version %},
-                            {% static "site/images/special-projects/autoclave/slider-9-1-x2.jpg" %}{% static_version %} 2x"
-                         data-src="{% static "site/images/special-projects/autoclave/slider-9-1-x2.jpg" %}{% static_version %}"
-                         data-lazy="{% static "site/images/special-projects/autoclave/slider-9-1-x2.jpg" %}{% static_version %}"
-                         alt=""
-                         class="sp-autoclave-full-img lazyload">
-                </div>
-            </section>
-
-            <section class="sp-autoclave-section" data-section="5">
-                <div class="container">
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
-                        <h2 class="sp-autoclave-section-title">Как утилизируют отходы</h2>
-
-                        <p class="sp-autoclave-big-text sp-autoclave-gap_bottom_small sp-autoclave-col-7">На&nbsp;АГМК образуется несколько видов отходов и&nbsp;все они утилизируются в&nbsp;полном объеме, в&nbsp;том числе передаются на&nbsp;вторичную переработку.</p>
-
-                        <p class="sp-autoclave-col-7">На&nbsp;промплощадке размещают только один вид отходов&nbsp;&mdash; кек. Он&nbsp;не&nbsp;опасен для здоровья человека и&nbsp;окружающей среды. По&nbsp;сути, это руда, из&nbsp;которой извлекли драгметаллы. По&nbsp;физико-механическим свойствам полусухой кек можно отнести к&nbsp;глинам.</p>
-                    </div>
-
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <img data-srcset="{% static "site/images/special-projects/autoclave/slider-10-1.jpg" %}{% static_version %},
-                                {% static "site/images/special-projects/autoclave/slider-10-1-x2.jpg" %}{% static_version %} 2x"
-                             data-src="{% static "site/images/special-projects/autoclave/slider-10-1-x2.jpg" %}{% static_version %}"
-                             data-lazy="{% static "site/images/special-projects/autoclave/slider-10-1-x2.jpg" %}{% static_version %}"
-                             alt=""
-                             class="lazyload">
                         <div class="post-editor-slider-block__footer">
-                            <div class="post-editor-slider-block__caption">Кек после фильтрации</div>
+                            <div class="post-editor-slider-block__caption">Амурский ГМК оснащен оборудованием от&nbsp;ведущих мировых компаний, со&nbsp;сложнейшей автоматикой</div>
+                            <div class="post-editor-slider-block__navigation-wrap hidden">
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
+                                <div class="post-editor-slider-block__navigation slide-nav-counter active">
+                                    <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
+                                </div>
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="js-fade sp-autoclave-col-10">
-                        <div class="quote sp-autoclave-col-7 sp-autoclave-gap_bottom_medium">
-                            <p class="quote__text">Кек относится к&nbsp;тому&nbsp;же классу отходов, что и&nbsp;скорлупа от&nbsp;куриных яиц, опилки или стружка натуральной чистой древесины.</p>
+            <div class="sp-autoclave-scheme sp-autoclave-scheme_with-bg js-fade">
+                <div class="sp-autoclave-scheme-2__container container">
+                    <img src="" data-src="{% static "site/images/special-projects/autoclave/autoclave-scheme-3.svg" %}{% static_version %}"
+                         class="sp-autoclave-scheme__img sp-autoclave-scheme__img_desktop lazyload"
+                         alt="">
+                    <img src="" data-src="{% static "site/images/special-projects/autoclave/autoclave-scheme-3-mobile.svg" %}{% static_version %}"
+                         class="sp-autoclave-scheme__img sp-autoclave-scheme__img_mobile lazyload"
+                         alt="">
+
+                    <div class="sp-autoclave-scheme-2">
+                        <div class="sp-autoclave-scheme__element">
+                            <button class="sp-autoclave-scheme__text-btn js-sp-autoclave-scheme-hint-btn">Разгрузка сырья</button>
+                            <p class="sp-autoclave-scheme__long-balloon">На&nbsp;участке растаривания золотоносный концентрат из&nbsp;мешков выгружают в&nbsp;бункер над конвейером.</p>
+                        </div>
+                        <div class="sp-autoclave-scheme__element">
+                            <button class="sp-autoclave-scheme__text-btn js-sp-autoclave-scheme-hint-btn">Измельчение</button>
+                            <p class="sp-autoclave-scheme__long-balloon">По&nbsp;конвейеру концентрат поступает в&nbsp;мельницу. С&nbsp;помощью металлических шаров его измельчают и&nbsp;смешивают с&nbsp;водой, чтобы получить пульпу.</p>
+                        </div>
+                        <div class="sp-autoclave-scheme__element">
+                            <button class="sp-autoclave-scheme__text-btn js-sp-autoclave-scheme-hint-btn">Накопление и смешивание</button>
+                            <p class="sp-autoclave-scheme__long-balloon">Пульпу с&nbsp;разных месторождений накапливают в&nbsp;разных емкостях. Это важно, потому ее&nbsp;химический состав может отличаться. Затем ее&nbsp;смешивают в&nbsp;общем резервуаре.</p>
+                        </div>
+                        <div class="sp-autoclave-scheme__element">
+                            <div class="sp-autoclave-scheme__text-btn">Анализ</div>
+                        </div>
+                        <div class="sp-autoclave-scheme__element">
+                            <button class="sp-autoclave-scheme__text-btn js-sp-autoclave-scheme-hint-btn">Окисление</button>
+                            <p class="sp-autoclave-scheme__long-balloon">Под высоким давлением и&nbsp;при температуре свыше 200 градусов под воздействием изотермической реакции золото извлекается из&nbsp;кристаллической решетки. На&nbsp;следующих этапах обработки его осаждают на&nbsp;электродах, сушат и&nbsp;направляют в&nbsp;виде порошка на&nbsp;плавку.</p>
+                        </div>
+                        <div class="sp-autoclave-scheme__element">
+                            <button class="sp-autoclave-scheme__text-btn js-sp-autoclave-scheme-hint-btn">Электролиз</button>
+                            <p class="sp-autoclave-scheme__long-balloon">Насыщенный десорбирующий раствор несколько часов обрабатывают постоянным током. После осаждения на&nbsp;электродах образуется катодный осадок&nbsp;&mdash; золото переходит из&nbsp;жидкой стадии в&nbsp;твердую.</p>
+                        </div>
+                        <div class="sp-autoclave-scheme__element">
+                            <button class="sp-autoclave-scheme__text-btn js-sp-autoclave-scheme-hint-btn">Плавка</button>
+                            <p class="sp-autoclave-scheme__long-balloon">Плавка длится 1–1,5 часа.</p>
+                        </div>
+                        <div class="sp-autoclave-scheme__element">
+                            <button class="sp-autoclave-scheme__text-btn js-sp-autoclave-scheme-hint-btn">Приемка</button>
+                            <p class="sp-autoclave-scheme__long-balloon">С&nbsp;остывших слитков удаляют шлак. Их&nbsp;маркируют, взвешивают и&nbsp;кладут на&nbsp;ответственное хранение. Это еще не&nbsp;чистое золото, а&nbsp;так называемые слитки Доре, которые потом идут на&nbsp;аффинажные заводы.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-fade sp-autoclave-gap_bottom_big">
+                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-7-1.jpg" %}{% static_version %},
+                        {% static "site/images/special-projects/autoclave/slider-7-1-x2.jpg" %}{% static_version %} 2x"
+                     data-src="{% static "site/images/special-projects/autoclave/slider-7-1-x2.jpg" %}{% static_version %}"
+                     data-lazy="{% static "site/images/special-projects/autoclave/slider-7-1-x2.jpg" %}{% static_version %}"
+                     alt=""
+                     class="sp-autoclave-full-img lazyload">
+            </div>
+        </section>
+
+        <section class="sp-autoclave-section" data-section="4">
+            <div class="container">
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
+                    <h2 class="sp-autoclave-section-title">Куда утекает вода?</h2>
+
+                    <p class="sp-autoclave-big-text sp-autoclave-gap_bottom_small sp-autoclave-col-7">Вода&nbsp;&mdash; основной ресурс гидрометаллургии, потому что это один из&nbsp;самых универсальных растворителей в&nbsp;природе.</p>
+
+                    <p class="sp-autoclave-col-7">Амурский ГМК&nbsp;&mdash; одно из&nbsp;немногих предприятий в&nbsp;мире, на&nbsp;котором автоклавное производство организовано с&nbsp;замкнутым водооборотом и&nbsp;комплексом по&nbsp;очистке. Технология обратного осмоса обеспечивает высокую степень очистки и&nbsp;позволяет многократно запускать одну и&nbsp;ту&nbsp;же воду в&nbsp;производственный цикл. Но&nbsp;из-за потерь воды в&nbsp;технологическом процессе, ее&nbsp;нужно пополнять.</p>
+                </div>
+            </div>
+
+            <div class="sp-autoclave-light-bg-section sp-autoclave-water-cycle-section">
+                <h3 class="sp-autoclave-water-cycle-section__title sp-autoclave-h3 sp-autoclave-gap_bottom_medium">Для производства АГМК использует воду из трех источников:</h3>
+
+                <div class="sp-autoclave-gap_bottom_medium">
+                    <ol class="sp-autoclave-water-cycle-section__factoids">
+                        <li class="sp-autoclave-icon-factoid sp-autoclave-icon-factoid_center">
+                            <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-1.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
+                            <p class="sp-autoclave-icon-factoid__text">из городских сетей</p>
+                        </li>
+                        <li class="sp-autoclave-icon-factoid sp-autoclave-icon-factoid_center">
+                            <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-2.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
+                            <p class="sp-autoclave-icon-factoid__text">из системы оборотного водоснабжения</p>
+                        </li>
+                        <li class="sp-autoclave-icon-factoid sp-autoclave-icon-factoid_center">
+                            <img src="{% static "site/images/special-projects/autoclave/svg/circle-icon-3.svg" %}{% static_version %}" alt="" class="sp-autoclave-icon-factoid__icon sp-autoclave-icon-factoid__icon_small">
+                            <p class="sp-autoclave-icon-factoid__text">из природных источников (осадки)*</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="container sp-autoclave-water-cycle-scheme">
+                    <div class="sp-autoclave-water-cycle-scheme__part">
+                        <p class="sp-autoclave-water-cycle-scheme__step">Оборотная вода тщательно очищается, проходя через многоступенчатую систему очистки, в&nbsp;том числе через установку обратного осмоса. Под давлением жидкость проходит сквозь мембрану с&nbsp;малым размером отверстий. Через них способны проникнуть только молекулы воды, а&nbsp;все вредные примеси задерживаются на&nbsp;поверхности мембраны.</p>
+                        <p class="sp-autoclave-water-cycle-scheme__step">Чистая вода, прошедшая через мембрану, снова поступает в&nbsp;производство, где используется для приготовления пульпы из&nbsp;флотоконцентратов и&nbsp;охлаждения автоклава.</p>
+                        <p class="sp-autoclave-water-cycle-scheme__step">Высокое качество очистки оборотной воды позволяет избежать потерь золота при его производстве.</p>
+                    </div>
+                    <div class="sp-autoclave-water-cycle-scheme__part">
+                        <p class="sp-autoclave-water-cycle-scheme__step">Для защиты ручья Медвежий построен водоотводной коллектор. Перед территорией АГМК ручей впадает в&nbsp;бетонный ковш, а&nbsp;из&nbsp;него&nbsp;&mdash; в&nbsp;железобетонный коллектор, проложенный под землей. Проходя под промплощадкой, ручей выходит в&nbsp;лес за&nbsp;пределами территории АГМК. Риск попадания в&nbsp;ручей стоков со&nbsp;склада кека полностью исключен.</p>
+                        <p class="sp-autoclave-water-cycle-scheme__step">Для защиты грунта по&nbsp;всему периметру склада кека, дренажных канав и&nbsp;прудов-накопителей проложена сверхпрочная водонепроницаемая пленка. Кек складируется только на&nbsp;подготовленные гидроизолированные участки земли.</p>
+                    </div>
+                    <img data-src="{% static "site/images/special-projects/autoclave/water-cycle.svg" %}{% static_version %}"
+                         alt=""
+                         class="sp-autoclave-water-cycle-scheme__img lazyload">
+                </div>
+            </div>
+
+            <div class="container">
+                <p class="sp-autoclave-water-cycle-section__note sp-autoclave-gap_bottom_big">*На&nbsp;промплощадке ведут сбор дождевых и&nbsp;талых вод. Их&nbsp;аккумулируют в&nbsp;прудах-накопителях, а&nbsp;после очистки запускают в&nbsp;производство.</p>
+            </div>
+
+            <div class="container">
+                <div class="js-fade sp-autoclave-gap_bottom_big">
+                    <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
+                        <div class="post-editor-slider-block__slider js-post-editor-slider">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-8-2.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-8-2-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-8-2-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-8-2-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Фильтры обратного осмоса. Отверстия в них такие мелкие, что пропускают только молекулы воды, задерживая примеси"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-8-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-8-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-8-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-8-1-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Такая технология очистки позволяет многократно использовать в производстве одну и ту же воду"
+                                 class="post-editor-slider-block__slide lazyload">
                         </div>
 
-                        <div class="sp-autoclave-kek-scheme sp-autoclave-gap_bottom_medium">
-                            <div class="sp-autoclave-kek-scheme__circle sp-autoclave-kek-scheme__circle_img">
-                                <img src="" data-src="{% static "site/images/special-projects/autoclave/egg-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     class="sp-autoclave-kek-scheme__img lazyload">
+                        <div class="post-editor-slider-block__footer">
+                            <div class="post-editor-slider-block__caption">Фильтры обратного осмоса. Отверстия в них такие мелкие, что пропускают только молекулы воды, задерживая примеси</div>
+                            <div class="post-editor-slider-block__navigation-wrap hidden">
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
+                                <div class="post-editor-slider-block__navigation slide-nav-counter active">
+                                    <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
+                                </div>
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
                             </div>
-                            <span class="sp-autoclave-kek-scheme__equal">=</span>
-                            <div class="sp-autoclave-kek-scheme__circle sp-autoclave-kek-scheme__circle_text">КЕК</div>
-                            <span class="sp-autoclave-kek-scheme__equal">=</span>
-                            <div class="sp-autoclave-kek-scheme__circle sp-autoclave-kek-scheme__circle_img">
-                                <img src="" data-src="{% static "site/images/special-projects/autoclave/sawdust-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     class="sp-autoclave-kek-scheme__img lazyload">
-                            </div>
-                        </div>
-
-                        <div class="sp-autoclave-col-7 sp-autoclave-gap_bottom_medium">
-                            <p>Кек хранят на&nbsp;специально оборудованном складе. По&nbsp;всему основанию склада установлен гидроизоляционный экран из&nbsp;геомембраны, а&nbsp;на&nbsp;полу уложена специальная толстая полиэтиленовая пленка, чтобы исключить попадание ливневых стоков со&nbsp;склада в&nbsp;грунтовые и&nbsp;поверхностные воды.</p>
-                            <br>
-                            <p>Чтобы кек не&nbsp;пылил, его засыпают плодородным слоем почвы и&nbsp;каждый год засеивают семенами многолетних видов трав и&nbsp;кустарников.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="js-fade sp-autoclave-light-bg-section sp-autoclave-gap_bottom_big">
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
+                    <div class="quote sp-autoclave-gap_bottom_medium">
+                        <p class="quote__text">Доля оборотной воды на&nbsp;комбинате составляет свыше 70&nbsp;%, <br> а&nbsp;на&nbsp;ливневые стоки и&nbsp;свежую воду приходится менее 30&nbsp;%.</p>
+                    </div>
+
+                    <p class="sp-autoclave-col-6">Предприятию выгодно собирать на&nbsp;своей территории дождевые и&nbsp;талые стоки и&nbsp;использовать их&nbsp;для производства&nbsp;&mdash; благодаря этому АГМК покупает меньше воды у&nbsp;&laquo;Водоканала&raquo;.</p>
+                </div>
+            </div>
+
+            <div class="js-fade sp-autoclave-gap_bottom_big">
+                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-9-1.jpg" %}{% static_version %},
+                        {% static "site/images/special-projects/autoclave/slider-9-1-x2.jpg" %}{% static_version %} 2x"
+                     data-src="{% static "site/images/special-projects/autoclave/slider-9-1-x2.jpg" %}{% static_version %}"
+                     data-lazy="{% static "site/images/special-projects/autoclave/slider-9-1-x2.jpg" %}{% static_version %}"
+                     alt=""
+                     class="sp-autoclave-full-img lazyload">
+            </div>
+        </section>
+
+        <section class="sp-autoclave-section" data-section="5">
+            <div class="container">
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
+                    <h2 class="sp-autoclave-section-title">Как утилизируют отходы</h2>
+
+                    <p class="sp-autoclave-big-text sp-autoclave-gap_bottom_small sp-autoclave-col-7">На&nbsp;АГМК образуется несколько видов отходов и&nbsp;все они утилизируются в&nbsp;полном объеме, в&nbsp;том числе передаются на&nbsp;вторичную переработку.</p>
+
+                    <p class="sp-autoclave-col-7">На&nbsp;промплощадке размещают только один вид отходов&nbsp;&mdash; кек. Он&nbsp;не&nbsp;опасен для здоровья человека и&nbsp;окружающей среды. По&nbsp;сути, это руда, из&nbsp;которой извлекли драгметаллы. По&nbsp;физико-механическим свойствам полусухой кек можно отнести к&nbsp;глинам.</p>
+                </div>
+
+                <div class="js-fade sp-autoclave-gap_bottom_big">
+                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-10-1.jpg" %}{% static_version %},
+                            {% static "site/images/special-projects/autoclave/slider-10-1-x2.jpg" %}{% static_version %} 2x"
+                         data-src="{% static "site/images/special-projects/autoclave/slider-10-1-x2.jpg" %}{% static_version %}"
+                         data-lazy="{% static "site/images/special-projects/autoclave/slider-10-1-x2.jpg" %}{% static_version %}"
+                         alt=""
+                         class="lazyload">
+                    <div class="post-editor-slider-block__footer">
+                        <div class="post-editor-slider-block__caption">Кек после фильтрации</div>
+                    </div>
+                </div>
+
+                <div class="js-fade sp-autoclave-col-10">
+                    <div class="quote sp-autoclave-col-7 sp-autoclave-gap_bottom_medium">
+                        <p class="quote__text">Кек относится к&nbsp;тому&nbsp;же классу отходов, что и&nbsp;скорлупа от&nbsp;куриных яиц, опилки или стружка натуральной чистой древесины.</p>
+                    </div>
+
+                    <div class="sp-autoclave-kek-scheme sp-autoclave-gap_bottom_medium">
+                        <div class="sp-autoclave-kek-scheme__circle sp-autoclave-kek-scheme__circle_img">
+                            <img src="" data-src="{% static "site/images/special-projects/autoclave/egg-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 class="sp-autoclave-kek-scheme__img lazyload">
+                        </div>
+                        <span class="sp-autoclave-kek-scheme__equal">=</span>
+                        <div class="sp-autoclave-kek-scheme__circle sp-autoclave-kek-scheme__circle_text">КЕК</div>
+                        <span class="sp-autoclave-kek-scheme__equal">=</span>
+                        <div class="sp-autoclave-kek-scheme__circle sp-autoclave-kek-scheme__circle_img">
+                            <img src="" data-src="{% static "site/images/special-projects/autoclave/sawdust-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 class="sp-autoclave-kek-scheme__img lazyload">
+                        </div>
+                    </div>
+
+                    <div class="sp-autoclave-col-7 sp-autoclave-gap_bottom_medium">
+                        <p>Кек хранят на&nbsp;специально оборудованном складе. По&nbsp;всему основанию склада установлен гидроизоляционный экран из&nbsp;геомембраны, а&nbsp;на&nbsp;полу уложена специальная толстая полиэтиленовая пленка, чтобы исключить попадание ливневых стоков со&nbsp;склада в&nbsp;грунтовые и&nbsp;поверхностные воды.</p>
+                        <br>
+                        <p>Чтобы кек не&nbsp;пылил, его засыпают плодородным слоем почвы и&nbsp;каждый год засеивают семенами многолетних видов трав и&nbsp;кустарников.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-fade sp-autoclave-light-bg-section sp-autoclave-gap_bottom_big">
+                <div class="container">
                     <div class="sp-autoclave-col-10">
-                        <h3 class="sp-autoclave-h3 sp-autoclave-gap_bottom_medium">АГМК осуществляет всесторонний контроль экопоказателей</h3>
+                        <h3 class="sp-autoclave-eco-control-section__title sp-autoclave-h3 sp-autoclave-gap_bottom_medium">АГМК осуществляет всесторонний контроль экопоказателей</h3>
 
                         <ol class="sp-autoclave-eco-control-section__factoids">
                             <li class="sp-autoclave-icon-factoid">
@@ -599,279 +672,275 @@
                         </ol>
                     </div>
                 </div>
+            </div>
 
-                <div class="container">
-                    <div class="sp-autoclave-cyanide-section js-fade sp-autoclave-gap_bottom_big sp-autoclave-col-10">
-                        <div class="sp-autoclave-col-6">
-                            <p class="sp-autoclave-gap_bottom_medium">На&nbsp;предприятии проводят регулярный мониторинг состояния воды, почвы, воздуха. Отбор и&nbsp;анализ проб ведет аналитическая лаборатория АГМК. Она имеет аттестат Федеральной службы аккредитации на&nbsp;выполнение измерений. Лабораторный комплекс оснащен высокотехнологичным оборудованием.</p>
+            <div class="container">
+                <div class="sp-autoclave-cyanide-section js-fade sp-autoclave-gap_bottom_big sp-autoclave-col-10">
+                    <div class="sp-autoclave-col-6">
+                        <p class="sp-autoclave-gap_bottom_medium">На&nbsp;предприятии проводят регулярный мониторинг состояния воды, почвы, воздуха. Отбор и&nbsp;анализ проб ведет аналитическая лаборатория АГМК. Она имеет аттестат Федеральной службы аккредитации на&nbsp;выполнение измерений. Лабораторный комплекс оснащен высокотехнологичным оборудованием.</p>
 
-                            <div class="quote sp-autoclave-gap_bottom_medium">
-                                <p class="quote__text">При строительстве второй линии комбината будут применяться те&nbsp;же технологии по&nbsp;утилизации отходов, что и&nbsp;на&nbsp;действующем производстве.</p>
-                            </div>
-
-                            <p>Экологические риски были учтены еще при проектировании производства. АГМК бережно относится к&nbsp;флоре и&nbsp;фауне Амурского района. Охрана редких животных и&nbsp;растений, разведение и&nbsp;выпуск мальков рыб, озеленение территорий являются частью проактивной экологической политики комбината.</p>
+                        <div class="quote sp-autoclave-gap_bottom_medium">
+                            <p class="quote__text">При строительстве второй линии комбината будут применяться те&nbsp;же технологии по&nbsp;утилизации отходов, что и&nbsp;на&nbsp;действующем производстве.</p>
                         </div>
 
-                        <div class="sp-autoclave-cyanide show-pop-up" data-pop-up="sp-autoclave-cyanide-popup">
-                            <img data-src="{% static "site/images/special-projects/autoclave/cyanide.svg" %}{% static_version %}"
-                                 alt=""
-                                 class="sp-autoclave-cyanide__img lazyload">
-                            <p class="sp-autoclave-cyanide__caption">Как процесс INCO обезвреживает цианид?</p>
-                        </div>
+                        <p>Экологические риски были учтены еще при проектировании производства. АГМК бережно относится к&nbsp;флоре и&nbsp;фауне Амурского района. Охрана редких животных и&nbsp;растений, разведение и&nbsp;выпуск мальков рыб, озеленение территорий являются частью проактивной экологической политики комбината.</p>
                     </div>
 
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
-                            <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-11-3.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-11-3-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-11-3-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-11-3-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="АГМК поддерживает мероприятия по зарыблению Амура. Ежегодно при поддержке комбината <br> на Анюйском рыбозаводе выращивают и выпускают в реку 1500 мальков осетровых рыб"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-11-2.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-11-2-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-11-2-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-11-2-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Для разведения используются производители, пойманные в низовьях Амура во время осенней миграции. <br> Всего бассейнах Анюйского рыбозавода содержатся около 600 особей осетровых рыб"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-11-1.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-11-1-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-11-1-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-11-1-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Мальков, достигших веса в пять граммов, выпускают в естественную среду обитания"
-                                     class="post-editor-slider-block__slide lazyload">
-                            </div>
-
-                            <div class="post-editor-slider-block__footer">
-                                <div class="post-editor-slider-block__caption">АГМК поддерживает мероприятия по зарыблению Амура. Ежегодно при поддержке комбината <br> на Анюйском рыбозаводе выращивают и выпускают в реку 1500 мальков осетровых рыб</div>
-                                <div class="post-editor-slider-block__navigation-wrap hidden">
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
-                                    <div class="post-editor-slider-block__navigation slide-nav-counter active">
-                                        <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
-                                    </div>
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="js-fade sp-autoclave-gap_bottom_big sp-autoclave-col-10">
-                        <div class="sp-autoclave-col-6">
-                            <p>Еще одно направление экополитики предприятия&nbsp;&mdash; развитие зеленых технологий. В&nbsp;2020 году для освещения территории комбината смонтировали десять солнечно-ветряных установок, а&nbsp;в&nbsp;следующем году их&nbsp;парк удвоится. Каждый такой источник энергии оснащен светодиодным светильником с&nbsp;ветроустановкой и&nbsp;солнечной панелью. Благодаря им&nbsp;предприятие меньше потребляет электроэнергии.</p>
-                            <br>
-                            <p>Другой пример: комбинат получает тепловую энергию не&nbsp;от&nbsp;сжигания газа или угля, а&nbsp;утилизируя тепло автоклава с&nbsp;помощью теплообменника. По&nbsp;сути, от&nbsp;альтернативного источника энергии. Выработка тепловой энергии за&nbsp;2020 год составила 26&nbsp;680&nbsp;Гкал.</p>
-                        </div>
+                    <div class="sp-autoclave-cyanide show-pop-up" data-pop-up="sp-autoclave-cyanide-popup">
+                        <img data-src="{% static "site/images/special-projects/autoclave/cyanide.svg" %}{% static_version %}"
+                             alt=""
+                             class="sp-autoclave-cyanide__img lazyload">
+                        <p class="sp-autoclave-cyanide__caption">Как процесс INCO обезвреживает цианид?</p>
                     </div>
                 </div>
 
                 <div class="js-fade sp-autoclave-gap_bottom_big">
-                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-12-1.jpg" %}{% static_version %},
-                            {% static "site/images/special-projects/autoclave/slider-12-1-x2.jpg" %}{% static_version %} 2x"
-                         data-src="{% static "site/images/special-projects/autoclave/slider-12-1-x2.jpg" %}{% static_version %}"
-                         data-lazy="{% static "site/images/special-projects/autoclave/slider-12-1-x2.jpg" %}{% static_version %}"
-                         alt=""
-                         class="sp-autoclave-full-img lazyload">
-                </div>
-            </section>
+                    <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
+                        <div class="post-editor-slider-block__slider js-post-editor-slider">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-11-3.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-11-3-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-11-3-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-11-3-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="АГМК поддерживает мероприятия по зарыблению Амура. Ежегодно при поддержке комбината <br> на Анюйском рыбозаводе выращивают и выпускают в реку 1500 мальков осетровых рыб"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-11-2.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-11-2-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-11-2-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-11-2-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Для разведения используются производители, пойманные в низовьях Амура во время осенней миграции. <br> Всего бассейнах Анюйского рыбозавода содержатся около 600 особей осетровых рыб"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-11-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-11-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-11-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-11-1-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Мальков, достигших веса в пять граммов, выпускают в естественную среду обитания"
+                                 class="post-editor-slider-block__slide lazyload">
+                        </div>
 
-            <section class="sp-autoclave-section" data-section="6">
-                <div class="container">
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_medium">
-                        <h2 class="sp-autoclave-section-title">Какая выгода региону от&nbsp;расширения производства?</h2>
-
-                        <p class="sp-autoclave-big-text sp-autoclave-col-7">Как мы&nbsp;уже говорили выше, упорную или дважды упорную золотоносную руду мало добыть&nbsp;&mdash; ее&nbsp;еще нужно обработать по&nbsp;сложной и&nbsp;дорогой технологии. Предприятия для такой обработки нельзя &laquo;пристроить&raquo; к&nbsp;каждому месторождению. Так возникают хабы&nbsp;&mdash; перерабатывающие технологические центры, в&nbsp;которые стягивается сырье с&nbsp;разных добывающих предприятий. Пример такого хаба&nbsp;&mdash; Амурский ГМК. После ввода второй линии он&nbsp;станет универсальным центром переработки упорных и&nbsp;дважды упорных руд на&nbsp;Дальнем Востоке.</p>
+                        <div class="post-editor-slider-block__footer">
+                            <div class="post-editor-slider-block__caption">АГМК поддерживает мероприятия по зарыблению Амура. Ежегодно при поддержке комбината <br> на Анюйском рыбозаводе выращивают и выпускают в реку 1500 мальков осетровых рыб</div>
+                            <div class="post-editor-slider-block__navigation-wrap hidden">
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
+                                <div class="post-editor-slider-block__navigation slide-nav-counter active">
+                                    <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
+                                </div>
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
+                            </div>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="js-fade sp-autoclave-map-section">
-                        <h3 class="sp-autoclave-map-section__title">Поставки концентрата на&nbsp;АГМК с&nbsp;месторождений &laquo;Полиметалла&raquo;</h3>
+                <div class="js-fade sp-autoclave-gap_bottom_big sp-autoclave-col-10">
+                    <div class="sp-autoclave-col-6">
+                        <p>Еще одно направление экополитики предприятия&nbsp;&mdash; развитие зеленых технологий. В&nbsp;2020 году для освещения территории комбината смонтировали десять солнечно-ветряных установок, а&nbsp;в&nbsp;следующем году их&nbsp;парк удвоится. Каждый такой источник энергии оснащен светодиодным светильником с&nbsp;ветроустановкой и&nbsp;солнечной панелью. Благодаря им&nbsp;предприятие меньше потребляет электроэнергии.</p>
+                        <br>
+                        <p>Другой пример: комбинат получает тепловую энергию не&nbsp;от&nbsp;сжигания газа или угля, а&nbsp;утилизируя тепло автоклава с&nbsp;помощью теплообменника. По&nbsp;сути, от&nbsp;альтернативного источника энергии. Выработка тепловой энергии за&nbsp;2020 год составила 26&nbsp;680&nbsp;Гкал.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-fade sp-autoclave-gap_bottom_big">
+                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-12-1.jpg" %}{% static_version %},
+                        {% static "site/images/special-projects/autoclave/slider-12-1-x2.jpg" %}{% static_version %} 2x"
+                     data-src="{% static "site/images/special-projects/autoclave/slider-12-1-x2.jpg" %}{% static_version %}"
+                     data-lazy="{% static "site/images/special-projects/autoclave/slider-12-1-x2.jpg" %}{% static_version %}"
+                     alt=""
+                     class="sp-autoclave-full-img lazyload">
+            </div>
+        </section>
+
+        <section class="sp-autoclave-section" data-section="6">
+            <div class="container">
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_medium">
+                    <h2 class="sp-autoclave-section-title">Какая выгода региону от&nbsp;расширения производства?</h2>
+
+                    <p class="sp-autoclave-big-text sp-autoclave-col-7">Как мы&nbsp;уже говорили выше, упорную или дважды упорную золотоносную руду мало добыть&nbsp;&mdash; ее&nbsp;еще нужно обработать по&nbsp;сложной и&nbsp;дорогой технологии. Предприятия для такой обработки нельзя &laquo;пристроить&raquo; к&nbsp;каждому месторождению. Так возникают хабы&nbsp;&mdash; перерабатывающие технологические центры, в&nbsp;которые стягивается сырье с&nbsp;разных добывающих предприятий. Пример такого хаба&nbsp;&mdash; Амурский ГМК. После ввода второй линии он&nbsp;станет универсальным центром переработки упорных и&nbsp;дважды упорных руд на&nbsp;Дальнем Востоке.</p>
+                </div>
+            </div>
+            <div class="js-fade sp-autoclave-map-section">
+                <div class="container">
+                    <h3 class="sp-autoclave-map-section__title">Поставки концентрата на&nbsp;АГМК с&nbsp;месторождений &laquo;Полиметалла&raquo;</h3>
+                    <div class="sp-autoclave-map-section__img-wrap">
                         <img src="" alt=""
                              data-src="{% static "site/images/special-projects/autoclave/map.svg" %}{% static_version %}"
-                             class="sp-autoclave-map-section__img lazyload">
+                             class="sp-autoclave-map-section__img sp-autoclave-map-section__img_desktop lazyload">
+                        <img src="" alt=""
+                             data-src="{% static "site/images/special-projects/autoclave/map-mobile.svg" %}{% static_version %}"
+                             class="sp-autoclave-map-section__img sp-autoclave-map-section__img_mobile lazyload">
                     </div>
+                </div>
+            </div>
 
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
-                        <div class="sp-autoclave-col-6">
-                            <p>Производительность предприятия составляет 200 тонн концентрата в&nbsp;год. А&nbsp;в&nbsp;2023 году мощность комбината увеличится до&nbsp;470&ndash;520 тысяч тонн. Предприятие будет перерабатывать собственный концентрат компании и&nbsp;сырье сторонних поставщиков.</p>
-                            <br>
-                            <p>Крупный промышленный центр в&nbsp;Амурске имеет много плюсов. Прежде всего это новые рабочие места.</p>
-                        </div>
-                    </div>
-
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <img data-srcset="{% static "site/images/special-projects/autoclave/slider-13-1.jpg" %}{% static_version %},
-                                {% static "site/images/special-projects/autoclave/slider-13-1-x2.jpg" %}{% static_version %} 2x"
-                             data-src="{% static "site/images/special-projects/autoclave/slider-13-1-x2.jpg" %}{% static_version %}"
-                             data-lazy="{% static "site/images/special-projects/autoclave/slider-13-1-x2.jpg" %}{% static_version %}"
-                             alt=""
-                             class="lazyload">
-                        <div class="post-editor-slider-block__footer">
-                            <div class="post-editor-slider-block__caption">АГМК активно принимает на работу студентов Амурского политехнического техникума</div>
-                        </div>
-                    </div>
-
-                    <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
-                        <div class="quote sp-autoclave-col-7 sp-autoclave-gap_bottom_medium">
-                            <p class="quote__title">Порядка 400 сотрудников </p>
-                            <p class="quote__text">позволит принять на&nbsp;комбинат ввод второй линии. Новые рабочие места в&nbsp;первую очередь предоставят амурчанам и&nbsp;жителям Хабаровского края. <br>Резюме принимаются на&nbsp;электронный адрес podboramursk@polymetal.ru</p>
-                        </div>
-
-                        <div class="sp-autoclave-col-6">
-                            <p>Таким образом, общее количество персонала АГМК в&nbsp;2023 году превысит 900&nbsp;человек. Кроме того, вырастут налоговые отчисления в&nbsp;бюджет.</p>
-                            <br>
-                            <p>Новый импульс развития получит и&nbsp;местная экономика. Для выполнения работ и&nbsp;услуг АГМК, как правило, привлекает подрядчиков, тем самым стимулируя экономическую активность в&nbsp;регионе.</p>
-                            <br>
-                            <p>Также открываются дополнительные возможности для социально-экономического сотрудничества &laquo;Полиметалла&raquo; с&nbsp;Амурским районом. С&nbsp;момента прихода компании в&nbsp;Амурск ее&nbsp;социальные инвестиции достигли уже 535 миллионов рублей. Реализовано более 350 проектов среди которых ремонт и&nbsp;оснащение школ, детских садов и&nbsp;других учреждений, повышение качества социальных услуг, проведение массовых мероприятий. Ежегодно направляются средства на&nbsp;развитие образования, медицины, спорта, создание комфортной городской среды.</p>
-                        </div>
-                    </div>
-
-                    <div class="js-fade sp-autoclave-gap_bottom_big">
-                        <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
-                            <div class="post-editor-slider-block__slider js-post-editor-slider">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-1.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-14-1-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-1-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-1-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Городской праздник «Амурский драйв», посвященный Дню металлурга, 2019 год"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-2.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-14-2-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-2-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-2-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Открытие городского роллердрома, 2019 год"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-3.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-14-3-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-3-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-3-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Благоустройство городской набережной, 2020 год"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-4.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-14-4-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-4-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-4-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Ремонт в женской консультации, 2019 год"
-                                     class="post-editor-slider-block__slide lazyload">
-                                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-5.jpg" %}{% static_version %},
-                                        {% static "site/images/special-projects/autoclave/slider-14-5-x2.jpg" %}{% static_version %} 2x"
-                                     data-src="{% static "site/images/special-projects/autoclave/slider-14-5-x2.jpg" %}{% static_version %}"
-                                     data-lazy="{% static "site/images/special-projects/autoclave/slider-14-5-x2.jpg" %}{% static_version %}"
-                                     alt=""
-                                     data-description="Ремонт и переоснащение кинозала в кинотеатре «Молодость», 2019 год"
-                                     class="post-editor-slider-block__slide lazyload">
-                            </div>
-
-                            <div class="post-editor-slider-block__footer">
-                                <div class="post-editor-slider-block__caption">Городской праздник «Амурский драйв», посвященный Дню металлурга, 2019 год</div>
-                                <div class="post-editor-slider-block__navigation-wrap hidden">
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
-                                    <div class="post-editor-slider-block__navigation slide-nav-counter active">
-                                        <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
-                                    </div>
-                                    <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
-                                </div>
-                            </div>
-                        </div>
+            <div class="container">
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
+                    <div class="sp-autoclave-col-6">
+                        <p>Производительность предприятия составляет 200 тонн концентрата в&nbsp;год. А&nbsp;в&nbsp;2023 году мощность комбината увеличится до&nbsp;470&ndash;520 тысяч тонн. Предприятие будет перерабатывать собственный концентрат компании и&nbsp;сырье сторонних поставщиков.</p>
+                        <br>
+                        <p>Крупный промышленный центр в&nbsp;Амурске имеет много плюсов. Прежде всего это новые рабочие места.</p>
                     </div>
                 </div>
 
                 <div class="js-fade sp-autoclave-gap_bottom_big">
-                    <div class="container">
-                        <div class="js-fade sp-autoclave-gap_bottom_medium sp-autoclave-col-10">
-                            <p class="sp-autoclave-col-6">История Амурска уже не&nbsp;раз доказывала: финансовое благополучие города тесно связано с&nbsp;экономическим здоровьем крупных предприятий и&nbsp;перспективами их&nbsp;развития.</p>
-                        </div>
+                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-13-1.jpg" %}{% static_version %},
+                            {% static "site/images/special-projects/autoclave/slider-13-1-x2.jpg" %}{% static_version %} 2x"
+                         data-src="{% static "site/images/special-projects/autoclave/slider-13-1-x2.jpg" %}{% static_version %}"
+                         data-lazy="{% static "site/images/special-projects/autoclave/slider-13-1-x2.jpg" %}{% static_version %}"
+                         alt=""
+                         class="lazyload">
+                    <div class="post-editor-slider-block__footer">
+                        <div class="post-editor-slider-block__caption">АГМК активно принимает на работу студентов Амурского политехнического техникума</div>
+                    </div>
+                </div>
+
+                <div class="js-fade sp-autoclave-col-10 sp-autoclave-gap_bottom_big">
+                    <div class="quote sp-autoclave-col-7 sp-autoclave-gap_bottom_medium">
+                        <p class="quote__title">Порядка 400 сотрудников </p>
+                        <p class="quote__text">позволит принять на&nbsp;комбинат ввод второй линии. Новые рабочие места в&nbsp;первую очередь предоставят амурчанам и&nbsp;жителям Хабаровского края. <br>Резюме принимаются на&nbsp;электронный адрес podboramursk@polymetal.ru</p>
                     </div>
 
-                    <img data-srcset="{% static "site/images/special-projects/autoclave/slider-15-1.jpg" %}{% static_version %},
-                            {% static "site/images/special-projects/autoclave/slider-15-1-x2.jpg" %}{% static_version %} 2x"
-                         data-src="{% static "site/images/special-projects/autoclave/slider-15-1-x2.jpg" %}{% static_version %}"
-                         data-lazy="{% static "site/images/special-projects/autoclave/slider-15-1-x2.jpg" %}{% static_version %}"
-                         alt=""
-                         class="sp-autoclave-full-img lazyload">
+                    <div class="sp-autoclave-col-6">
+                        <p>Таким образом, общее количество персонала АГМК в&nbsp;2023 году превысит 900&nbsp;человек. Кроме того, вырастут налоговые отчисления в&nbsp;бюджет.</p>
+                        <br>
+                        <p>Новый импульс развития получит и&nbsp;местная экономика. Для выполнения работ и&nbsp;услуг АГМК, как правило, привлекает подрядчиков, тем самым стимулируя экономическую активность в&nbsp;регионе.</p>
+                        <br>
+                        <p>Также открываются дополнительные возможности для социально-экономического сотрудничества &laquo;Полиметалла&raquo; с&nbsp;Амурским районом. С&nbsp;момента прихода компании в&nbsp;Амурск ее&nbsp;социальные инвестиции достигли уже 535 миллионов рублей. Реализовано более 350 проектов среди которых ремонт и&nbsp;оснащение школ, детских садов и&nbsp;других учреждений, повышение качества социальных услуг, проведение массовых мероприятий. Ежегодно направляются средства на&nbsp;развитие образования, медицины, спорта, создание комфортной городской среды.</p>
+                    </div>
                 </div>
-            </section>
 
-            <section class="js-fade container sp-autoclave-gap_bottom_medium">
-                <div class="sp-autoclave-footer sp-autoclave-col-10">
-                    <h2 class="sp-autoclave-footer__title sp-autoclave-col-6 sp-autoclave-gap_bottom_small">Получить ответы на&nbsp;интересующие вас вопросы можно и&nbsp;на&nbsp;самом АГМК</h2>
+                <div class="js-fade sp-autoclave-gap_bottom_big">
+                    <div class="post-editor__block_slider post-editor-slider-block js-post-editor-slider-block">
+                        <div class="post-editor-slider-block__slider js-post-editor-slider">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-1.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-14-1-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-14-1-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-14-1-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Городской праздник «Амурский драйв», посвященный Дню металлурга, 2019 год"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-2.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-14-2-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-14-2-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-14-2-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Открытие городского роллердрома, 2019 год"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-3.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-14-3-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-14-3-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-14-3-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Благоустройство городской набережной, 2020 год"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-4.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-14-4-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-14-4-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-14-4-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Ремонт в женской консультации, 2019 год"
+                                 class="post-editor-slider-block__slide lazyload">
+                            <img data-srcset="{% static "site/images/special-projects/autoclave/slider-14-5.jpg" %}{% static_version %},
+                                    {% static "site/images/special-projects/autoclave/slider-14-5-x2.jpg" %}{% static_version %} 2x"
+                                 data-src="{% static "site/images/special-projects/autoclave/slider-14-5-x2.jpg" %}{% static_version %}"
+                                 data-lazy="{% static "site/images/special-projects/autoclave/slider-14-5-x2.jpg" %}{% static_version %}"
+                                 alt=""
+                                 data-description="Ремонт и переоснащение кинозала в кинотеатре «Молодость», 2019 год"
+                                 class="post-editor-slider-block__slide lazyload">
+                        </div>
 
-                    <p class="sp-autoclave-footer__text sp-autoclave-big-text">Пишите на электронный адрес <br> <a href="mailto:amursk@polymetal.ru">amursk@polymetal.ru</a></p>
+                        <div class="post-editor-slider-block__footer">
+                            <div class="post-editor-slider-block__caption">Городской праздник «Амурский драйв», посвященный Дню металлурга, 2019 год</div>
+                            <div class="post-editor-slider-block__navigation-wrap hidden">
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-prev icon-arrow-left-thin"></button>
+                                <div class="post-editor-slider-block__navigation slide-nav-counter active">
+                                    <span class="js-post-editor-slider-current">01</span>&nbsp;/&nbsp;<span class="js-post-editor-slider-total">03</span>
+                                </div>
+                                <button class="post-editor-slider-block__arrow post-editor-slider-block__arrow-next icon-arrow-right-thin"></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </div>
-
-        <div class="sp-autoclave-navigation-wrap">
-            <ol class="sp-autoclave-navigation">
-                <li class="sp-autoclave-navigation__item">
-                    <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="1">
-                        <span class="sp-autoclave-navigation__text">1 Зачем развивают новые технологии добычи золота?</span>
-                        <span class="sp-autoclave-navigation__indicator"></span>
-                    </button>
-                </li>
-                <li class="sp-autoclave-navigation__item">
-                    <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="2">
-                        <span class="sp-autoclave-navigation__text">2 Что внутри у автоклава?</span>
-                        <span class="sp-autoclave-navigation__indicator"></span>
-                    </button>
-                </li>
-                <li class="sp-autoclave-navigation__item">
-                    <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="3">
-                        <span class="sp-autoclave-navigation__text">3 Как получают золото?</span>
-                        <span class="sp-autoclave-navigation__indicator"></span>
-                    </button>
-                </li>
-                <li class="sp-autoclave-navigation__item">
-                    <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="4">
-                        <span class="sp-autoclave-navigation__text">4 Куда утекает вода?</span>
-                        <span class="sp-autoclave-navigation__indicator"></span>
-                    </button>
-                </li>
-                <li class="sp-autoclave-navigation__item">
-                    <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="5">
-                        <span class="sp-autoclave-navigation__text">5 Влияют ли отходы на экологию?</span>
-                        <span class="sp-autoclave-navigation__indicator"></span>
-                    </button>
-                </li>
-                <li class="sp-autoclave-navigation__item">
-                    <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="6">
-                        <span class="sp-autoclave-navigation__text">6 Какая региону выгода от расширения производства?</span>
-                        <span class="sp-autoclave-navigation__indicator"></span>
-                    </button>
-                </li>
-            </ol>
-        </div>
-
-        <div class="sp-autoclave-share-widget-wrap">
-            <div class="sp-autoclave-share-widget share-widget__links-wrap">
-                <a href="https://twitter.com/share?url={{ request.build_absolute_uri }}" target="_blank" class="share-widget__link"><img src="{% static "site/images/svg/twitter.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
-                <a href="http://www.facebook.com/share.php?u={{ request.build_absolute_uri }}" target="_blank" class="share-widget__link"><img src="{% static "site/images/svg/fb.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
-                <a href="https://connect.ok.ru/offer?url=={{ request.build_absolute_uri }}" target="_blank" class="share-widget__link"><img src="{% static "site/images/svg/odnoklassniki-color.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
-                <a href="http://vkontakte.ru/share.php?url={{ request.build_absolute_uri }}" target="_blank" class="share-widget__link"><img src="{% static "site/images/svg/vk.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
             </div>
-        </div>
 
-        <button class="sp-autoclave-to-top-btn icon-arrow-left js-sp-autoclave-to-top-btn hidden"></button>
+            <div class="js-fade sp-autoclave-gap_bottom_big">
+                <div class="container">
+                    <div class="js-fade sp-autoclave-gap_bottom_medium sp-autoclave-col-10">
+                        <p class="sp-autoclave-col-6">История Амурска уже не&nbsp;раз доказывала: финансовое благополучие города тесно связано с&nbsp;экономическим здоровьем крупных предприятий и&nbsp;перспективами их&nbsp;развития.</p>
+                    </div>
+                </div>
+
+                <img data-srcset="{% static "site/images/special-projects/autoclave/slider-15-1.jpg" %}{% static_version %},
+                        {% static "site/images/special-projects/autoclave/slider-15-1-x2.jpg" %}{% static_version %} 2x"
+                     data-src="{% static "site/images/special-projects/autoclave/slider-15-1-x2.jpg" %}{% static_version %}"
+                     data-lazy="{% static "site/images/special-projects/autoclave/slider-15-1-x2.jpg" %}{% static_version %}"
+                     alt=""
+                     class="sp-autoclave-full-img lazyload">
+            </div>
+        </section>
+
+        <section class="js-fade container sp-autoclave-gap_bottom_medium">
+            <div class="sp-autoclave-footer sp-autoclave-col-10">
+                <h2 class="sp-autoclave-footer__title sp-autoclave-col-6">Получить ответы на&nbsp;интересующие вас вопросы можно и&nbsp;на&nbsp;самом АГМК</h2>
+
+                <p class="sp-autoclave-footer__text sp-autoclave-big-text">Пишите на электронный адрес <br> <a href="mailto:amursk@polymetal.ru">amursk@polymetal.ru</a></p>
+            </div>
+        </section>
     </div>
 
-    <div class="sp-mobile container">
-        <p class="sp-mobile__title">Амурское золото: технологично и&nbsp;эко-логично</p>
-
-        <div class="sp-mobile__wobbler sp-children__wobbler">
-            <div class="wobbler">
-                <span class="wobbler__icon icon-star-sharp"></span>
-                <span class="wobbler__text">Спецпроект</span>
-            </div>
-        </div>
-        <p class="sp-mobile__text">Страница спецпроекта доступна только в десктопной версии.</p>
-        <a href="{% url "s-specials-detail" object.codename %}" class="sp-mobile__btn btn btn_blue" target="_blank">Перейти</a>
+    <div class="sp-autoclave-navigation-wrap">
+        <ol class="sp-autoclave-navigation">
+            <li class="sp-autoclave-navigation__item">
+                <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="1">
+                    <span class="sp-autoclave-navigation__text">1 Зачем развивают новые технологии добычи золота?</span>
+                    <span class="sp-autoclave-navigation__indicator"></span>
+                </button>
+            </li>
+            <li class="sp-autoclave-navigation__item">
+                <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="2">
+                    <span class="sp-autoclave-navigation__text">2 Что внутри у автоклава?</span>
+                    <span class="sp-autoclave-navigation__indicator"></span>
+                </button>
+            </li>
+            <li class="sp-autoclave-navigation__item">
+                <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="3">
+                    <span class="sp-autoclave-navigation__text">3 Как получают золото?</span>
+                    <span class="sp-autoclave-navigation__indicator"></span>
+                </button>
+            </li>
+            <li class="sp-autoclave-navigation__item">
+                <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="4">
+                    <span class="sp-autoclave-navigation__text">4 Куда утекает вода?</span>
+                    <span class="sp-autoclave-navigation__indicator"></span>
+                </button>
+            </li>
+            <li class="sp-autoclave-navigation__item">
+                <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="5">
+                    <span class="sp-autoclave-navigation__text">5 Влияют ли отходы на экологию?</span>
+                    <span class="sp-autoclave-navigation__indicator"></span>
+                </button>
+            </li>
+            <li class="sp-autoclave-navigation__item">
+                <button class="sp-autoclave-navigation__btn js-sp-autoclave-navigation-btn" data-section="6">
+                    <span class="sp-autoclave-navigation__text">6 Какая региону выгода от расширения производства?</span>
+                    <span class="sp-autoclave-navigation__indicator"></span>
+                </button>
+            </li>
+        </ol>
     </div>
+
+    <div class="sp-autoclave-share-widget-wrap">
+        <h5 class="sp-autoclave-share-widget-wrap__title">Поделиться</h5>
+        <div class="sp-autoclave-share-widget share-widget__links-wrap">
+            <a href="https://twitter.com/share?url={{ request.build_absolute_uri }}" target="_blank" class="share-widget__link"><img src="{% static "site/images/svg/twitter.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
+            <a href="http://www.facebook.com/share.php?u={{ request.build_absolute_uri }}" target="_blank" class="share-widget__link"><img src="{% static "site/images/svg/fb.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
+            <a href="https://connect.ok.ru/offer?url=={{ request.build_absolute_uri }}" target="_blank" class="share-widget__link"><img src="{% static "site/images/svg/odnoklassniki-color.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
+            <a href="http://vkontakte.ru/share.php?url={{ request.build_absolute_uri }}" target="_blank" class="share-widget__link"><img src="{% static "site/images/svg/vk.svg" %}{% static_version %}" alt="" class="share-widget__link-img"></a>
+        </div>
+    </div>
+
+    <button class="sp-autoclave-to-top-btn icon-arrow-left js-sp-autoclave-to-top-btn hidden"></button>
 </main>
 
 <div class="body-cover sp-autoclave-pop-up-body-cover">
@@ -905,4 +974,53 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="sp-autoclave-mobile-menu js-sp-autoclave-mobile-menu">
+    <button class="sp-autoclave-mobile-menu-close pop-up__close icon-close-thin js-sp-autoclave-mobile-menu-toggle"></button>
+
+    <ol class="sp-autoclave-mobile-menu__list">
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="1">
+                <span class="sp-autoclave-mobile-menu__number">1</span>
+                <span class="sp-autoclave-mobile-menu__text">Зачем развивают новые технологии добычи золота?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="2">
+                <span class="sp-autoclave-mobile-menu__number">2</span>
+                <span class="sp-autoclave-mobile-menu__text">Что внутри у автоклава?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="3">
+                <span class="sp-autoclave-mobile-menu__number">3</span>
+                <span class="sp-autoclave-mobile-menu__text">Как получают золото?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="4">
+                <span class="sp-autoclave-mobile-menu__number">4</span>
+                <span class="sp-autoclave-mobile-menu__text">Куда утекает вода?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="5">
+                <span class="sp-autoclave-mobile-menu__number">5</span>
+                <span class="sp-autoclave-mobile-menu__text">Влияют ли отходы на экологию?</span>
+            </button>
+        </li>
+        <li class="sp-autoclave-mobile-menu__item">
+            <button class="sp-autoclave-mobile-menu__btn js-sp-autoclave-navigation-btn" data-section="6">
+                <span class="sp-autoclave-mobile-menu__number">6</span>
+                <span class="sp-autoclave-mobile-menu__text">Какая региону выгода от расширения производства?</span>
+            </button>
+        </li>
+    </ol>
+</div>
+
+<div class="sp-autoclave-mobile-hint js-sp-autoclave-mobile-hint">
+    <button class="sp-autoclave-mobile-hint__close pop-up__close icon-close-thin js-sp-autoclave-mobile-hint-close"></button>
+
+    <p class="sp-autoclave-mobile-hint__text js-sp-autoclave-mobile-hint-text"></p>
 </div>

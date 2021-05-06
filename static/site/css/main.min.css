@@ -2169,7 +2169,7 @@ input.btn_preloader {
     color: #0073FF; }
     @media (max-width: 1023px) {
       .quote__title {
-        font-size: 36px; } }
+        font-size: 28px; } }
     @media (min-width: 1024px) {
       .quote__title {
         font-size: 42px; } }
@@ -11316,7 +11316,6 @@ footer {
   .sp-autoclave-water-cycle-scheme__step::before {
     content: "";
     display: block;
-    margin-right: 15px;
     -ms-flex-negative: 0;
         flex-shrink: 0;
     background-image: url(../images/special-projects/autoclave/svg/drop.svg);
@@ -11326,12 +11325,14 @@ footer {
       .sp-autoclave-water-cycle-scheme__step::before {
         width: 26px;
         height: 26px;
-        margin-top: 2px; } }
+        margin-top: 2px;
+        margin-right: 15px; } }
     @media (max-width: 1023px) {
       .sp-autoclave-water-cycle-scheme__step::before {
         width: 48px;
         height: 48px;
-        margin-left: -16px; } }
+        margin-left: -10px;
+        margin-right: 10px; } }
   .sp-autoclave-water-cycle-scheme__step:not(:last-child) {
     margin-bottom: 20px; }
 

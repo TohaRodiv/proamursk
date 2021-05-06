@@ -23,7 +23,7 @@ if (spAutoclave) {
         playAutoclaveVideo(video, videoPlayBtn);
     });
 
-    const spAutoclaveMobileMenuToggles = document.querySelectorAll('.js-sp-autoclave-mobile-menu-open');
+    const spAutoclaveMobileMenuToggles = document.querySelectorAll('.js-sp-autoclave-mobile-menu-toggle');
     spAutoclaveMobileMenuToggles.forEach(btn => {
         btn.addEventListener('click', spAutoclaveToggleMobileMenu);
     });
