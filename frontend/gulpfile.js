@@ -15,6 +15,7 @@ const gulp = require('gulp'),
     // Production plugins
     cleanCSS = require('gulp-clean-css'),
     uglify = require('gulp-uglify'),
+    svgstore = require('gulp-svgstore'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     gzip = require('gulp-gzip'),
@@ -51,7 +52,7 @@ const gulp = require('gulp'),
         emailTest: {
             to: ['vvidyaeva@gmail.com', 'valyavidyaeva@mail.ru','valyavidyaeva@yandex.ru', 'jes.hab.magik@gmail.com',],
             from: 'no-reply@perfectura.ru',
-            subject: 'Алтан Шина Test Email',
+            subject: 'ПроАмурск Test Email',
             nodemailer: {
                 transporter: {
                     host: "smtp.yandex.ru",
@@ -72,7 +73,7 @@ const gulp = require('gulp'),
 //   DEVELOPMENT TASKS
 // ---------------------
 
-const dev = gulp.parallel(devSass, devJS, devImages, devLocalImages, devFonts, devHtml, devShortStaticStyles, frontendShortHtml);
+const dev = gulp.parallel(devSass, devJS, devImages, devLocalImages, sprite, devFonts, devHtml, devShortStaticStyles, frontendShortHtml);
 
 
 function watch() {
@@ -80,6 +81,7 @@ function watch() {
     gulp.watch(['src/sass/_short-styles/*.sass',], devShortStaticStyles);
     gulp.watch(['src/js/**/*.js',], devJS);
     gulp.watch(['src/images/**/*.*',], gulp.parallel(devImages, devLocalImages));
+    gulp.watch(['src/images/sprite/**/*.svg', '!src/images/sprite/sprite.svg',], sprite);
     gulp.watch(['src/fonts/**/*.*',], devFonts);
     gulp.watch(['src/html/**/*.html',], devHtml);
     gulp.watch(['src/html/404.html', 'src/html/500.html',], gulp.parallel(frontendShortHtml));
@@ -126,10 +128,20 @@ function devLocalImages() {
 }
 
 function devImages() {
-    return gulp.src(['src/images/**/**/*.*', '!src/images/local/**/*.*',])
+    return gulp.src(['src/images/**/**/*.*', '!src/images/local/**/*.*', '!src/images/sprite/**/*.svg',])
         .pipe(plumber(settingsPlumber))
         .pipe(gulp.dest('static/images/'))
         .pipe(gulp.dest('./../static/site/images/'));
+}
+
+function sprite() {
+    return gulp.src(['src/images/sprite/**/*.svg', '!src/images/sprite/sprite.svg',])
+        .pipe(plumber(settingsPlumber))
+        .pipe(svgstore({
+            inlineSvg: true,
+        }))
+        .pipe(rename('sprite.svg'))
+        .pipe(gulp.dest('src/images/sprite'));
 }
 
 
@@ -160,13 +172,14 @@ exports.devLocalImages = devLocalImages;
 exports.devImages = devImages;
 exports.devFonts = devFonts;
 exports.devHtml = devHtml;
+exports.sprite = sprite;
 
 
 // --------------------
 //   PRODUCTION TASKS
 // --------------------
 
-const prod = gulp.parallel(prodSass, prodJS, prodImages, prodImagesSVG, prodFonts, prodShortStaticStyles);
+const prod = gulp.parallel(prodSass, prodJS, prodImages, prodImagesSVG, sprite, prodFonts, prodShortStaticStyles);
 
 
 function prodSass() {
@@ -207,7 +220,7 @@ function prodJS() {
 
 
 function prodImages() {
-    return gulp.src(['src/images/**/*.*', '!src/images/local/**/*.*', '!src/images/email/local/**/*.*',])
+    return gulp.src(['src/images/**/*.*', '!src/images/sprite/**/*.svg', '!src/images/local/**/*.*', '!src/images/email/local/**/*.*',])
         .pipe(plumber(settingsPlumber))
         .pipe(imagemin({
             progressive: true,
@@ -220,13 +233,12 @@ function prodImages() {
 
 
 function prodImagesSVG() {
-    return gulp.src('src/images/**/*.svg')
+    return gulp.src(['src/images/**/*.svg', '!src/images/sprite/**/*.svg',])
         .pipe(plumber(settingsPlumber))
         .pipe(gulp.dest('./../static/site/images/'))
         .pipe(gzip())
         .pipe(gulp.dest('./../static/site/images/'));
 }
-
 
 function prodFonts() {
     return gulp.src('src/fonts/**/*.*')

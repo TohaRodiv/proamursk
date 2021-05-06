@@ -6585,12 +6585,16 @@ if (spAutoclave) {
   window.addEventListener('scroll', function () {
     return handleSpAutoclaveScroll(spAutoclaveSections);
   });
+  window.addEventListener('resize', function () {
+    return handleSpAutoclaveResize();
+  });
 
   var spAutoclaveSectionNavigationBtns = _toConsumableArray(document.querySelectorAll('.js-sp-autoclave-navigation-btn'));
 
   spAutoclaveSectionNavigationBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      return spAutoclaveScrollToSection(btn);
+      spAutoclaveHideMobileMenu();
+      spAutoclaveScrollToSection(btn);
     });
   });
   var toTopBtn = spAutoclave.querySelector('.js-sp-autoclave-to-top-btn');
@@ -6600,6 +6604,23 @@ if (spAutoclave) {
   videoPlayBtn.addEventListener('click', function () {
     playAutoclaveVideo(video, videoPlayBtn);
   });
+  var spAutoclaveMobileMenuToggles = document.querySelectorAll('.js-sp-autoclave-mobile-menu-toggle');
+  spAutoclaveMobileMenuToggles.forEach(function (btn) {
+    btn.addEventListener('click', spAutoclaveToggleMobileMenu);
+  });
+  var spAutoclaveMobileHintBtns = document.querySelectorAll('.js-sp-autoclave-scheme-hint-btn');
+  spAutoclaveMobileHintBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      return spAutoclaveShowMobileHint(btn);
+    });
+  });
+  var spAutoclaveMobileHintClose = document.querySelector('.js-sp-autoclave-mobile-hint-close');
+  spAutoclaveMobileHintClose.addEventListener('click', spAutoclaveHideMobileHint);
+  $('body').click(function (event) {
+    if (!$(event.target).hasClass('js-sp-autoclave-scheme-hint-btn') && !$(event.target).hasClass('js-sp-autoclave-mobile-hint-close')) {
+      spAutoclaveHideMobileHint();
+    }
+  });
 }
 
 function handleSpAutoclaveScroll(spAutoclaveSections) {
@@ -6608,6 +6629,16 @@ function handleSpAutoclaveScroll(spAutoclaveSections) {
   var windowHeight = window.outerHeight;
   if (windowScroll > windowHeight / 2) toTopBtn.classList.remove('hidden');else toTopBtn.classList.add('hidden');
   spAutoclaveIndicateScrollSections(spAutoclaveSections);
+  spAutoclaveSetProgressBar();
+}
+
+function handleSpAutoclaveResize() {
+  spAutoclaveSetProgressBar();
+
+  if (window.innerWidth >= 1024) {
+    spAutoclaveHideMobileMenu();
+    spAutoclaveHideMobileHint();
+  }
 }
 
 function spAutoclaveScrollTop() {
@@ -6651,4 +6682,51 @@ function spAutoclaveIndicateScrollSections(spAutoclaveSections) {
       sectionBtn.classList.add('sp-autoclave-navigation__btn_current');
     }
   });
+}
+
+function spAutoclaveToggleMobileMenu() {
+  var menu = document.querySelector('.js-sp-autoclave-mobile-menu');
+  menu.classList.toggle('visible');
+}
+
+function spAutoclaveHideMobileMenu() {
+  var menu = document.querySelector('.js-sp-autoclave-mobile-menu');
+
+  if (menu.classList.contains('visible')) {
+    menu.classList.remove('visible');
+  }
+}
+
+function spAutoclaveSetProgressBar() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var contentHeight = document.querySelector('.js-sp-autoclave').offsetHeight;
+  var scrolled = Math.round(winScroll / contentHeight * 100);
+  document.querySelector('.sp-autoclave-progress-bar').style.width = scrolled + "%";
+}
+
+function spAutoclaveShowMobileHint(btn) {
+  if (window.innerWidth < 1024 && !btn.classList.contains('active')) {
+    var currentActiveBtn = document.querySelector('.js-sp-autoclave-scheme-hint-btn.active');
+    if (currentActiveBtn) currentActiveBtn.classList.remove('active');
+    btn.classList.add('active');
+    var text = btn.nextElementSibling.innerText;
+    var hintTextWrap = document.querySelector('.js-sp-autoclave-mobile-hint-text');
+    var mobileHint = document.querySelector('.js-sp-autoclave-mobile-hint');
+    hintTextWrap.innerText = text;
+    mobileHint.classList.add('visible');
+  }
+}
+
+function spAutoclaveHideMobileHint() {
+  var transitionTime = 300;
+  var mobileHint = document.querySelector('.js-sp-autoclave-mobile-hint');
+
+  if (mobileHint.classList.contains('visible')) {
+    mobileHint.style.bottom = "-".concat(mobileHint.offsetHeight, "px");
+    setTimeout(function () {
+      document.querySelector('.js-sp-autoclave-scheme-hint-btn.active').classList.remove('active');
+      mobileHint.classList.remove('visible');
+      mobileHint.style.bottom = null;
+    }, transitionTime);
+  }
 }
