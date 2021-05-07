@@ -771,6 +771,8 @@
     &kek-scheme
         display: flex
         align-items: center
+        +media(m)
+            justify-content: center
 
         &__circle
             border: 2px solid $base-c
@@ -852,6 +854,11 @@
 
                 +media(m)
                     flex: 0 1 140px
+
+        &__quote-text
+            +media(m)
+                br
+                    display: none
 
     &water-cycle-scheme
         +media(d)
