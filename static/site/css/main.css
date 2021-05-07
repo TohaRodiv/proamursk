@@ -11490,13 +11490,19 @@ footer {
       margin-bottom: 20px;
       text-align: center; } }
 
-.sp-autoclave-map-section__img-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end; }
+@media (min-width: 1024px) {
+  .sp-autoclave-map-section__img-wrap {
+    min-height: 800px; } }
+
+@media (max-width: 1023px) {
+  .sp-autoclave-map-section__img-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    min-height: 290px; } }
 
 @media (min-width: 1024px) {
   .sp-autoclave-map-section__img {
@@ -11509,10 +11515,14 @@ footer {
   .sp-autoclave-map-section__img {
     width: auto;
     max-width: initial;
-    height: 350px;
+    height: 340px;
     margin-right: -16px; }
     .sp-autoclave-map-section__img_desktop {
       display: none !important; } }
+
+@media (max-width: 374px) {
+  .sp-autoclave-map-section__img {
+    height: 290px; } }
 
 .sp-autoclave-footer__title {
   line-height: 1.2;
@@ -11744,6 +11754,9 @@ footer {
     padding: 60px 40px;
     background-color: #FFFFFF;
     overflow: auto; }
+    @media (max-width: 374px) {
+      .sp-autoclave-mobile-menu.visible {
+        padding: 40px 30px; } }
   .sp-autoclave-mobile-menu__list {
     margin: auto 0;
     padding: 0; }
@@ -11775,6 +11788,9 @@ footer {
     text-decoration: underline; }
   .sp-autoclave-mobile-menu__item:not(:last-child) {
     margin-bottom: 40px; }
+  @media (max-width: 374px) {
+    .sp-autoclave-mobile-menu__item:not(:last-child) {
+      margin-bottom: 25px; } }
   .sp-autoclave-mobile-menu__item:nth-of-type(1) .sp-autoclave-mobile-menu__number {
     background-image: url(../images/special-projects/autoclave/svg/1-stroke.svg); }
   .sp-autoclave-mobile-menu__item:nth-of-type(2) .sp-autoclave-mobile-menu__number {
