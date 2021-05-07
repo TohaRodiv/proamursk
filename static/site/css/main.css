@@ -11206,6 +11206,11 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+  @media (max-width: 1023px) {
+    .sp-autoclave-kek-scheme {
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; } }
   .sp-autoclave-kek-scheme__circle {
     border: 2px solid #0073FF;
     border-radius: 50%;
@@ -11294,6 +11299,10 @@ footer {
       -webkit-box-flex: 0;
           -ms-flex: 0 1 140px;
               flex: 0 1 140px; } }
+
+@media (max-width: 1023px) {
+  .sp-autoclave-water-cycle-section__quote-text br {
+    display: none; } }
 
 @media (min-width: 1024px) {
   .sp-autoclave-water-cycle-scheme {
