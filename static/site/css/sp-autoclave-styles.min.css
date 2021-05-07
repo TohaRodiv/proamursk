@@ -3114,8 +3114,9 @@ textarea {
     -webkit-box-shadow: 0 4px 8px rgba(0, 115, 255, 0.24);
             box-shadow: 0 4px 8px rgba(0, 115, 255, 0.24); } }
 
-.sp-autoclave-scheme-2 .sp-autoclave-scheme__element .sp-autoclave-scheme__long-balloon {
-  display: none !important; }
+@media (max-width: 1023px) {
+  .sp-autoclave-scheme-2 .sp-autoclave-scheme__element .sp-autoclave-scheme__long-balloon {
+    display: none !important; } }
 
 @media (min-width: 1024px) {
   .sp-autoclave-characteristics-section {
