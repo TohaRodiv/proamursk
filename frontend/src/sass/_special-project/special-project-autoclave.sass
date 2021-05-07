@@ -1031,8 +1031,13 @@
                 text-align: center
 
         &__img-wrap
-            display: flex
-            justify-content: flex-end
+            +media(d)
+                min-height: 800px
+
+            +media(m)
+                display: flex
+                justify-content: flex-end
+                min-height: 290px
 
         &__img
             +media(d)
@@ -1045,11 +1050,14 @@
             +media(m)
                 width: auto
                 max-width: initial
-                height: 350px
+                height: 340px
                 margin-right: -16px
 
                 &_desktop
                     display: none !important
+
+            @media (max-width: 374px)
+                height: 290px
 
     &footer
         &__title
@@ -1267,6 +1275,9 @@
             background-color: $light-c
             overflow: auto
 
+            @media (max-width: 374px)
+                padding: 40px 30px
+
         &__list
             margin: auto 0
             padding: 0
@@ -1297,6 +1308,10 @@
         &__item
             &:not(:last-child)
                 margin-bottom: 40px
+
+            @media (max-width: 374px)
+                &:not(:last-child)
+                    margin-bottom: 25px
 
             &:nth-of-type(1) .sp-autoclave-mobile-menu__number
                 background-image: url(../images/special-projects/autoclave/svg/1-stroke.svg)
