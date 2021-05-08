@@ -11,7 +11,7 @@ if (menuToggler) {
 }
 
 window.addEventListener('optimizedResize', function() {
-    if (window.innerWidth > 1024) {
+    if (window.innerWidth >= 1024) {
         menuToggler.classList.add('icon-menu');
         menuToggler.classList.remove( 'icon-close');
         menu.classList.remove('visible');
