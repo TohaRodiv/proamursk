@@ -169,11 +169,11 @@
 
                     <div class="footer-bottom">
                         <div class="footer__copyright-wrap">
-                            <p class="footer__copyright-text">Исключительные права на фото- и иные материалы принадлежат авторам. Любое размещение материалов на сторонних ресурсах необходимо согласовывать с правообладателями.</p>
+                            <p class="footer__copyright-text">{{ request.SETTINGS.copyright }}</p>
                             <div class="footer__redaction">
-                                <p>Автономная некоммерческая организация по поддержке и развитию общественных инициатив «Калейдоскоп»</p>
-                                <p>г. Амурск, проспект Мира 19, офис № 219 (2 этаж)</p>
-                                <p><a href="tel:+7 (924) 317-39-69">+7 (924) 317-39-69</a>, <a href="mailto:hello@proamursk.ru">hello@proamursk.ru</a></p>
+                                <p>{{ request.SETTINGS.redaction_name }}</p>
+                                <p>{{ request.SETTINGS.redaction_address }}</p>
+                                <p><a href="{{ request.SETTINGS.redaction_phone }}">{{ request.SETTINGS.redaction_phone }}</a>, <a href="mailto:{{ request.SETTINGS.redaction_email }}">{{ request.SETTINGS.redaction_email }}</a></p>
                             </div>
                         </div>
 
