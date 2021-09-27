@@ -32,7 +32,14 @@
             </div>
 
             <div class="footer-bottom">
-                <p class="footer__copyright-text">Исключительные права на&nbsp;фото- и&nbsp;иные материалы принадлежат авторам. Любое размещение материалов на&nbsp;сторонних ресурсах необходимо согласовывать с&nbsp;правообладателями.</p>
+                <div class="footer__copyright-wrap">
+                    <p class="footer__copyright-text">{{ request.SETTINGS.copyright }}</p>
+                    <div class="footer__redaction">
+                        <p>{{ request.SETTINGS.redaction_name }}</p>
+                        <p>{{ request.SETTINGS.redaction_address }}</p>
+                        <p><a href="tel:{{ request.SETTINGS.redaction_phone }}">{{ request.SETTINGS.redaction_phone }}</a>, <a href="mailto:{{ request.SETTINGS.redaction_email }}">{{ request.SETTINGS.redaction_email }}</a></p>
+                    </div>
+                </div>
 
                 <div class="footer__editor-text">Нашли опечатку?<br>Выделите слово и нажмите Ctrl+Enter</div>
 

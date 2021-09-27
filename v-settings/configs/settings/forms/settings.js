@@ -1,5 +1,3 @@
-
-
 const state = {
     formsOptions: {
         'settings': [
@@ -18,6 +16,63 @@ const state = {
                                 required: true,
                                 width: 12,
                                 codename: 'mailer_lite_api_key',
+                                widget: 'input',
+                            },
+                        ],
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom20',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: 'Редакция',
+                                required: true,
+                                width: 12,
+                                codename: 'redaction_name',
+                                widget: 'input',
+                            },
+                        ],
+                    },
+
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom20',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: 'Адрес',
+                                required: true,
+                                width: 12,
+                                codename: 'redaction_address',
+                                widget: 'input',
+                            },
+                        ],
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom20',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: 'Телефон для общих вопросов',
+                                required: true,
+                                width: 4,
+                                codename: 'redaction_phone',
+                                widget: 'input',
+                            },
+                        ],
+                    },
+                    {
+                        labelPosition: 'left',
+                        modClass: 'marginBottom20',
+                        direction: 'row',
+                        elements: [
+                            {
+                                label: 'Email для общих вопросов',
+                                required: true,
+                                width: 6,
+                                codename: 'redaction_email',
                                 widget: 'input',
                             },
                         ],

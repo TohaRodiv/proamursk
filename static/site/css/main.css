@@ -2801,19 +2801,27 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     padding-top: 15px;
     font-size: 14px; } }
 
+.footer__copyright-wrap {
+  max-width: 640px; }
+  @media (max-width: 1023px) {
+    .footer__copyright-wrap {
+      font-size: 12px; } }
+
+.footer__redaction {
+  margin-top: 15px; }
+  .footer__redaction a {
+    color: inherit;
+    text-decoration: none; }
+
 .footer__copyright-text {
-  max-width: 640px;
   margin-bottom: 0;
   line-height: 1.5; }
-  @media (max-width: 1023px) {
-    .footer__copyright-text {
-      font-size: 12px; } }
 
 .footer__editor-text {
   max-width: 250px;
