@@ -30,6 +30,7 @@ urlpatterns = [
 
 urlpatterns += [
     re_path(r'^admin/', TemplateView.as_view(template_name="cp_vue/index.html")),
+    re_path(r'^links1062917.html', TemplateView.as_view(template_name="links1062917.html")),
     path('api/v1/', include(cp_api.urls)),
     path('',  root_views.IndexView.as_view(), name='index'),
     path('policy/',  root_views.PolicyView.as_view(), name='policy'),
