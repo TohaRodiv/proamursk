@@ -49,7 +49,6 @@ const state = {
                             },
                         ],
                     },
-
                     {
                         labelPosition: 'left',
                         modClass: 'marginBottom20',
@@ -64,7 +63,6 @@ const state = {
                             },
                         ],
                     },
-
                     {
                         labelPosition: 'left',
                         modClass: 'marginBottom20',
@@ -79,7 +77,6 @@ const state = {
                             },
                         ],
                     },
-
                     {
                         labelPosition: 'left',
                         modClass: 'marginBottom20',

@@ -60,17 +60,26 @@ footer
 .footer-bottom
     +media(d)
         display: flex
-        align-items: center
+        align-items: flex-start
         padding-top: 15px
         font-size: 14px
 
-.footer__copyright-text
+.footer__copyright-wrap
     max-width: 640px
-    margin-bottom: 0
-    line-height: 1.5
 
     +media(m)
         font-size: 12px
+
+.footer__redaction
+    margin-top: 15px
+
+    a
+        color: inherit
+        text-decoration: none
+
+.footer__copyright-text
+    margin-bottom: 0
+    line-height: 1.5
 
 .footer__editor-text
     max-width: 250px
