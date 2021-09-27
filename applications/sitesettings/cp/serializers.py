@@ -13,9 +13,13 @@ class SettingsSerializer(ModelSerializer):
 
     class Meta:
         model = Settings
-        fields = ('mailer_lite_api_key', 'instagram', 'odnoklassniki', 'copyright',
-                  'yandex_count', 'google_count', 'meta_tags', 'robots', 'disable_site', 'disable_title',
-                  'disable_text', 'create_date', 'edit_date')
+        fields = (
+            'mailer_lite_api_key', 'instagram', 'odnoklassniki', 'copyright',
+            'yandex_count', 'google_count', 'meta_tags', 'robots',
+            'redaction_name', 'redaction_address', 'redaction_phone', 'redaction_email',
+            'disable_site', 'disable_title',
+            'disable_text', 'create_date', 'edit_date'
+        )
 
     def update(self, instance, validated_data):
         instance = super(SettingsSerializer, self).update(instance, validated_data)
@@ -35,6 +39,3 @@ class SettingsSerializer(ModelSerializer):
         fl = open(template_file, 'w')
         fl.write(content)
         fl.close()
-
-
-

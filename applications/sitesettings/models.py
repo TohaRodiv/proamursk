@@ -16,6 +16,12 @@ def get_file_path(instance, filename):
 
 class Settings(BaseModel):
     mailer_lite_api_key = models.CharField('Mailer Lite API key', max_length=255, blank=True)
+
+    redaction_name = models.CharField('Редакция', max_length=255, blank=True)
+    redaction_address = models.CharField('Адрес редакции', max_length=255, blank=True)
+    redaction_phone = models.CharField('Телефон для общих вопросов', max_length=255, blank=True)
+    redaction_email = models.EmailField('Email для общих вопросов', max_length=255, blank=True)
+
     instagram = models.CharField('Профиль в Instagram', max_length=255, blank=True)
     odnoklassniki = models.CharField('Группа в Одноклассниках', max_length=255, blank=True)
 
